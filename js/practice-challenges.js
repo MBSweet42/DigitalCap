@@ -81,6 +81,81 @@ const practiceChallengData = {
                     whyMatters: 'Your Roblox account contains your avatar, items, and payment info. Once stolen, hackers can sell items or make purchases.',
                     parentTip: 'Discuss: "Why do scammers target game accounts? What would happen if someone hacked yours?"'
                 }
+            },
+            {
+                id: 6,
+                scenario: 'You get a pop-up while gaming: "CONGRATULATIONS! Your device has a virus! Click here to clean it now!"',
+                context: 'In-game or website pop-up',
+                choices: [
+                    { label: 'A) Click it to protect your device', correct: false },
+                    { label: 'B) Close the pop-up and run a legitimate antivirus scan instead', correct: true },
+                    { label: 'C) Tell your parents to click it for you', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect! This is a fake security warning designed to trick you into downloading malware.',
+                    whyMatters: 'Clicking these pop-ups installs actual viruses, spyware, or ransomware that can lock your device or steal data.',
+                    parentTip: 'Ask: "What would you do if you saw a scary pop-up? Why is closing it safer than clicking?"'
+                }
+            },
+            {
+                id: 7,
+                scenario: 'Email from "Amazon": "We need to verify your payment method. Click here to update billing." You don\'t have an Amazon account.',
+                context: 'email',
+                choices: [
+                    { label: 'A) Click to see what\'s happening', correct: false },
+                    { label: 'B) Delete it - it\'s a phishing attempt sent to wrong person', correct: true },
+                    { label: 'C) Reply asking them to verify they have the right person', correct: false }
+                ],
+                feedback: {
+                    correct: 'Correct! Scammers send phishing emails to millions hoping SOMEONE will have that account.',
+                    whyMatters: 'Even if it doesn\'t match your account, don\'t engage. Delete and report to Amazon if you have a real account.',
+                    parentTip: 'Talk about: "Why do scammers send emails to people who might not have the account?"'
+                }
+            },
+            {
+                id: 8,
+                scenario: 'Your friend\'s Snapchat sent you: "Hey wanna buy some followers? Super cheap!" This is unlike them.',
+                context: 'Snapchat message',
+                choices: [
+                    { label: 'A) Say yes and check out the link', correct: false },
+                    { label: 'B) Don\'t click; call or text your friend directly to ask if they really sent this', correct: true },
+                    { label: 'C) Block them without asking', correct: false }
+                ],
+                feedback: {
+                    correct: 'Great instinct! Their account might be hacked. Always verify through another contact method.',
+                    whyMatters: 'A hacked account is being used to spread scams to all their friends. You\'re helping by verifying first.',
+                    parentTip: 'Ask: "What would you do if someone you know sent you something unusual? How would you verify it?"'
+                }
+            },
+            {
+                id: 9,
+                scenario: 'You see an ad: "Make $500/week from home! No experience needed. Just pay $29 to start."',
+                context: 'Social media ad',
+                choices: [
+                    { label: 'A) Pay the fee to start earning quickly', correct: false },
+                    { label: 'B) Avoid it - legitimate jobs don\'t require upfront fees', correct: true },
+                    { label: 'C) Ask a friend if it\'s real first', correct: false }
+                ],
+                feedback: {
+                    correct: 'Absolutely right. Any job asking for money upfront is a scam.',
+                    whyMatters: 'You lose the $29 and often get nothing in return. Real jobs pay YOU, not the other way around.',
+                    parentTip: 'Discuss: "Why would a real employer ask you to pay them? What\'s a red flag for job scams?"'
+                }
+            },
+            {
+                id: 10,
+                scenario: 'Text message: "Hi from Nintendo! You won a free Nintendo Switch! Claim it: [link]"',
+                context: 'text message',
+                choices: [
+                    { label: 'A) Click the link to claim your prize', correct: false },
+                    { label: 'B) Delete it - you didn\'t enter any contest', correct: true },
+                    { label: 'C) Ask your parents if you can click it', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect! You can\'t win something you didn\'t enter.',
+                    whyMatters: 'Fake prize notifications are designed to get you to click malware or give personal information.',
+                    parentTip: 'Ask: "Have you ever won something you didn\'t enter? How do you think real contests work?"'
+                }
             }
         ]
     },
@@ -163,6 +238,81 @@ const practiceChallengData = {
                     correct: 'Perfect response. Accounts can be hacked or faked. Always verify through another method first.',
                     whyMatters: 'Predators and sextortionists request images, then blackmail victims. The account you think is a friend might not be.',
                     parentTip: 'Discuss: "Why is it risky to send photos to anyone online, even if you think you know them? What are the dangers?"'
+                }
+            },
+            {
+                id: 6,
+                scenario: 'YouTube comment from someone: "OMG your channel is amazing! I\'m starting my own. Want to be friends on private Discord?" Account has 0 subscribers.',
+                context: 'YouTube',
+                choices: [
+                    { label: 'A) Join their Discord - they seem like a fan', correct: false },
+                    { label: 'B) Don\'t engage; don\'t click suspicious invites from strangers', correct: true },
+                    { label: 'C) Join to check it out but don\'t give personal info', correct: false }
+                ],
+                feedback: {
+                    correct: 'Smart choice. Invites to private servers from strangers are a major red flag.',
+                    whyMatters: 'Moving to private platforms removes witnesses and makes it easier for predators to pressure you.',
+                    parentTip: 'Ask: "Why would a stranger want to move conversations to a private server?"'
+                }
+            },
+            {
+                id: 7,
+                scenario: 'BeReal notification from unknown account: "Hey! You\'re really pretty. Want to BeReal together?" They follow 50 accounts, all teenagers.',
+                context: 'BeReal app',
+                choices: [
+                    { label: 'A) Accept the friend request - they seem nice', correct: false },
+                    { label: 'B) Don\'t accept; this pattern (following many teens) is predatory behavior', correct: true },
+                    { label: 'C) Accept but set your profile to private', correct: false }
+                ],
+                feedback: {
+                    correct: 'Excellent observation. Adults targeting teenagers often create accounts that follow many young users.',
+                    whyMatters: 'This is classic predator behavior - gaining access to multiple victims through seemingly random friend requests.',
+                    parentTip: 'Discuss: "What\'s suspicious about an account that follows many teenagers? Who should you accept friends from?"'
+                }
+            },
+            {
+                id: 8,
+                scenario: 'TikTok DM from "a girl your age": "OMG I love your vibe! I\'m doing a challenge with prizes. Want to join?" Account is 2 days old.',
+                context: 'TikTok',
+                choices: [
+                    { label: 'A) Join the challenge - might be fun', correct: false },
+                    { label: 'B) Ignore it; brand new accounts messaging you are suspicious', correct: true },
+                    { label: 'C) Ask them more about the challenge first', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect! Brand new accounts targeting you specifically are red flags.',
+                    whyMatters: 'Real people build accounts over time. New accounts targeting teens are often predators or scammers.',
+                    parentTip: 'Ask: "Why is a brand-new account suspicious? What should you do when strangers message you?"'
+                }
+            },
+            {
+                id: 9,
+                scenario: 'Instagram DM from "a modeling agency": "We saw your photos! You could make money. Here\'s how to apply: [link]"',
+                context: 'Instagram',
+                choices: [
+                    { label: 'A) Click the link and fill out the modeling application', correct: false },
+                    { label: 'B) Don\'t click; research the agency first and ask a parent', correct: true },
+                    { label: 'C) Send them more photos so they can evaluate you', correct: false }
+                ],
+                feedback: {
+                    correct: 'Smart! Legitimate agencies don\'t scout via Instagram DMs.',
+                    whyMatters: 'These are classic predatory grooming tactics. Real agencies have websites and formal processes.',
+                    parentTip: 'Talk about: "Why don\'t real modeling agencies recruit via Instagram? What should you do if someone approaches you with opportunities?"'
+                }
+            },
+            {
+                id: 10,
+                scenario: 'Snapchat friend: "I have a video of you. You need to message me on this other app or I\'m sending it to everyone." (You never sent them anything.)',
+                context: 'Snapchat',
+                choices: [
+                    { label: 'A) Message them on the other app to find out what they have', correct: false },
+                    { label: 'B) Take a screenshot, block them, and tell a trusted adult immediately', correct: true },
+                    { label: 'C) Ignore them - they\'re probably bluffing', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect response. This is sextortion - a serious crime. Adults need to help.',
+                    whyMatters: 'This is criminal extortion. Don\'t engage; tell a trusted adult and law enforcement immediately.',
+                    parentTip: 'Discuss: "If someone threatens to share something, what should you do? It\'s NEVER your fault."'
                 }
             }
         ]
@@ -247,6 +397,81 @@ const practiceChallengData = {
                     whyMatters: 'Apps that default to sharing collect data on your habits, interests, and screen time for profiling and advertising.',
                     parentTip: 'Discuss: "Why do apps default to sharing your data? What should you do with settings like this?"'
                 }
+            },
+            {
+                id: 6,
+                scenario: 'A fitness app asks for: age, weight, height, location, camera, and medical data. The description is only "track your health."',
+                context: 'App permissions request',
+                choices: [
+                    { label: 'A) Grant all permissions - it needs your health data', correct: false },
+                    { label: 'B) Only grant what\'s absolutely necessary; deny location and camera', correct: true },
+                    { label: 'C) Deny everything and don\'t use the app', correct: false }
+                ],
+                feedback: {
+                    correct: 'Correct! A fitness app doesn\'t need camera or location to work.',
+                    whyMatters: 'Excessive permissions let apps collect data they don\'t need, then sell it to insurance companies or advertisers.',
+                    parentTip: 'Ask: "What health data does a fitness app actually need? Why would it want location or camera access?"'
+                }
+            },
+            {
+                id: 7,
+                scenario: 'You\'re installing a free keyboard app. It asks for access to "everything you type." Privacy policy is vague.',
+                context: 'Keyboard app',
+                choices: [
+                    { label: 'A) Install it - free keyboards are common', correct: false },
+                    { label: 'B) Don\'t install it - keyboard access to your typing is a serious privacy risk', correct: true },
+                    { label: 'C) Install it but don\'t use it for passwords', correct: false }
+                ],
+                feedback: {
+                    correct: 'Excellent! Never give keyboard apps access to everything you type.',
+                    whyMatters: 'A keyboard app can capture passwords, messages, emails, and every keystroke - including passwords you type.',
+                    parentTip: 'Talk about: "Why should you never install random keyboard or input apps? What could someone do with access to your typing?"'
+                }
+            },
+            {
+                id: 8,
+                scenario: 'A social media app\'s privacy policy: "We may sell aggregated user data to third parties." It also requires location.',
+                context: 'Before downloading',
+                choices: [
+                    { label: 'A) Download it - everyone does this', correct: false },
+                    { label: 'B) Choose an app with stronger privacy; this one explicitly sells data', correct: true },
+                    { label: 'C) Download it but don\'t share your location', correct: false }
+                ],
+                feedback: {
+                    correct: 'Smart choice! Apps that explicitly say they sell data are being honest, but it\'s still a privacy concern.',
+                    whyMatters: 'Your location combined with user data creates detailed profiles used for targeted manipulation and advertisements.',
+                    parentTip: 'Discuss: "What does it mean if an app sells your data? Who\'s buying it and why?"'
+                }
+            },
+            {
+                id: 9,
+                scenario: 'A popular gaming app shows ads every 2 minutes and asks for permission to access your photos and files.',
+                context: 'Game app',
+                choices: [
+                    { label: 'A) Grant permissions - ads are normal for free games', correct: false },
+                    { label: 'B) Deny permissions; a game doesn\'t need photo/file access just to show ads', correct: true },
+                    { label: 'C) Grant permissions but disable notifications', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect! Too many ads combined with excessive permissions is a sign the app is designed to collect data.',
+                    whyMatters: 'Games that ask for photo/file access while showing aggressive ads are usually designed to harvest data for profit.',
+                    parentTip: 'Ask: "Why would a game need access to your photos and files? When should you deny permissions?"'
+                }
+            },
+            {
+                id: 10,
+                scenario: 'You find an app that looks like YouTube but it\'s from an unknown publisher. It asks for "unrestricted storage access."',
+                context: 'Unknown app',
+                choices: [
+                    { label: 'A) Install it - it might be a YouTube alternative', correct: false },
+                    { label: 'B) Don\'t install it; use the official YouTube app instead', correct: true },
+                    { label: 'C) Ask friends if they\'ve heard of it', correct: false }
+                ],
+                feedback: {
+                    correct: 'Great instinct! Unknown apps claiming to be famous services are often malware.',
+                    whyMatters: 'Fake apps that look like popular services trick you into giving permissions. They steal data and spread malware.',
+                    parentTip: 'Discuss: "How can you tell if an app is real? Why should you only download from official publishers?"'
+                }
             }
         ]
     },
@@ -329,6 +554,81 @@ const practiceChallengData = {
                     correct: 'Perfect. Stay calm, understand their reasoning, and teach financial responsibility. This is a teaching moment.',
                     whyMatters: 'Harsh punishment pushes kids to hide behavior. Understanding + boundaries creates safer choices long-term.',
                     parentTip: 'Ask: "Why did you feel comfortable trading with strangers? What could go wrong? How should we handle your account going forward?"'
+                }
+            },
+            {
+                id: 6,
+                scenario: 'Your 13-year-old was added to a group chat at school. Now there\'s an embarrassing rumor being spread about them. They\'re avoiding school.',
+                context: 'Parent-kid scenario',
+                choices: [
+                    { label: 'A) "Just ignore them. Kids are mean. You\'ll get over it."', correct: false },
+                    { label: 'B) "Let\'s screenshot everything, talk to the school, and have a plan to keep you safe while we handle this."', correct: true },
+                    { label: 'C) "Delete social media so this doesn\'t happen again."', correct: false }
+                ],
+                feedback: {
+                    correct: 'Excellent approach. Take cyberbullying seriously, document it, and involve school/authorities.',
+                    whyMatters: 'Cyberbullying has real impacts on mental health. Kids need to know parents will help, not minimize it.',
+                    parentTip: 'Ask: "What\'s happening in the chat? Who started the rumor? Do other friends know the truth? How can we fix this?"'
+                }
+            },
+            {
+                id: 7,
+                scenario: 'Your 11-year-old got a message from "a friend" asking for a photo. You\'re worried it might be a predator. Your child is upset you\'re questioning it.',
+                context: 'Parent-kid scenario',
+                choices: [
+                    { label: 'A) Force them to delete the app and forbid them from talking to that friend.', correct: false },
+                    { label: 'B) "I\'m concerned about your safety. Let\'s verify this is really your friend by asking them in person tomorrow."', correct: true },
+                    { label: 'C) "It\'s probably fine. If you trust them, it\'s okay."', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect balance! You\'re protecting them while respecting their autonomy and giving them a voice.',
+                    whyMatters: 'Kids need to trust that parents will help without punishing them. This builds safety communication.',
+                    parentTip: 'Ask: "Can you describe this person? How long have you known them? Have you talked to them outside this app?"'
+                }
+            },
+            {
+                id: 8,
+                scenario: 'Your 16-year-old wants to be a TikTok creator and posts daily. You\'re concerned about privacy, but don\'t want to crush their dreams.',
+                context: 'Parent-kid scenario',
+                choices: [
+                    { label: 'A) "Absolutely not. TikTok is dangerous. You can\'t post."', correct: false },
+                    { label: 'B) "Let\'s talk about what YOU want to share. Review privacy settings together. Agree on what\'s off-limits (family, home address, school, routines)."', correct: true },
+                    { label: 'C) "Go ahead. Just don\'t share anything too personal."', correct: false }
+                ],
+                feedback: {
+                    correct: 'Great! Support their creativity while setting smart boundaries. This teaches digital citizenship.',
+                    whyMatters: 'Collaboration on content = they learn to think critically about what\'s shareable vs. private.',
+                    parentTip: 'Ask: "What do you want your audience to know about you? What\'s NOT okay to share? Let\'s review your videos together."'
+                }
+            },
+            {
+                id: 9,
+                scenario: 'Your 12-year-old comes to you scared: "Someone online told me to delete our messages or they\'ll tell everyone what I said." They\'re terrified.',
+                context: 'Parent-kid scenario',
+                choices: [
+                    { label: 'A) "What did you say? You shouldn\'t be talking to strangers!"', correct: false },
+                    { label: 'B) "This isn\'t your fault. We\'re going to screenshot everything and report this. Let\'s get help together."', correct: true },
+                    { label: 'C) "Don\'t worry about it. They\'re just trying to scare you."', correct: false }
+                ],
+                feedback: {
+                    correct: 'Perfect. Normalize talking to you, don\'t shame them, and take action. This builds trust for future problems.',
+                    whyMatters: 'Kids who fear punishment won\'t report threats/abuse. Reassurance + action = they come to you with problems.',
+                    parentTip: 'Say: "You did the right thing telling me. This isn\'t your fault. We\'re getting help and keeping you safe."'
+                }
+            },
+            {
+                id: 10,
+                scenario: 'Your 14-year-old argues that "Everyone has their location on with their friends - why can\'t I?" You\'re worried about safety.',
+                context: 'Parent-kid scenario',
+                choices: [
+                    { label: 'A) "No. Turn off location sharing immediately."', correct: false },
+                    { label: 'B) "Let\'s talk about when location sharing is safe. Real friends vs. strangers. Emergency access vs. constant tracking."', correct: true },
+                    { label: 'C) "Fine, but only during school hours."', correct: false }
+                ],
+                feedback: {
+                    correct: 'Great! Location sharing with REAL friends in emergencies is different from constant tracking by strangers.',
+                    whyMatters: 'Teaching discernment (safe vs. unsafe sharing) is better than rules. They learn to think critically.',
+                    parentTip: 'Ask: "Who should know your location? When is it safe? When is it a privacy problem? What if they get hacked?"'
                 }
             }
         ]
