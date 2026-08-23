@@ -45,10 +45,10 @@ function buildSearchIndex() {
 
     // Add safety articles
     const safetyArticles = [
-        { title: 'Password Safety', url: 'safety-v2-fixed.html', keywords: ['password', 'account', 'security', 'phishing'] },
-        { title: 'Grooming & Predators', url: 'safety-v2-fixed.html', keywords: ['grooming', 'predator', 'exploitation', 'safety'] },
-        { title: 'Cyberbullying', url: 'safety-v2-fixed.html', keywords: ['cyberbullying', 'bullying', 'harassment', 'mean'] },
-        { title: 'Screen Time & Health', url: 'safety-v2-fixed.html', keywords: ['screen time', 'health', 'sleep', 'addiction'] }
+        { title: 'Password Safety', url: 'safety.html', keywords: ['password', 'account', 'security', 'phishing'] },
+        { title: 'Grooming & Predators', url: 'safety.html', keywords: ['grooming', 'predator', 'exploitation', 'safety'] },
+        { title: 'Cyberbullying', url: 'safety.html', keywords: ['cyberbullying', 'bullying', 'harassment', 'mean'] },
+        { title: 'Screen Time & Health', url: 'safety.html', keywords: ['screen time', 'health', 'sleep', 'addiction'] }
     ];
     safetyArticles.forEach(article => {
         searchIndex.push({
@@ -62,9 +62,9 @@ function buildSearchIndex() {
 
     // Add etiquette articles
     const etiquetteArticles = [
-        { title: 'Online Respect & Netiquette', url: 'etiquette-v2-fixed.html', keywords: ['respect', 'etiquette', 'kindness', 'online behavior'] },
-        { title: 'Digital Footprint', url: 'etiquette-v2-fixed.html', keywords: ['digital footprint', 'permanent record', 'posts'] },
-        { title: 'Cyberbullying Prevention', url: 'etiquette-v2-fixed.html', keywords: ['cyberbullying', 'prevention', 'response'] }
+        { title: 'Online Respect & Netiquette', url: 'etiquette.html', keywords: ['respect', 'etiquette', 'kindness', 'online behavior'] },
+        { title: 'Digital Footprint', url: 'etiquette.html', keywords: ['digital footprint', 'permanent record', 'posts'] },
+        { title: 'Cyberbullying Prevention', url: 'etiquette.html', keywords: ['cyberbullying', 'prevention', 'response'] }
     ];
     etiquetteArticles.forEach(article => {
         searchIndex.push({

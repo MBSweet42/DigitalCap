@@ -8,67 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Simplified Navbar */
-        .navbar-simple .nav-container {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .navbar-simple .logo {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--primary);
-            white-space: nowrap;
-        }
-
-        .navbar-simple .nav-menu {
-            display: flex;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            flex: 1;
-        }
-
-        .navbar-simple .nav-menu li a {
-            color: var(--text-dark);
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-simple .nav-menu li a:hover {
-            color: var(--primary);
-        }
-
-        .nav-search {
-            display: flex;
-        }
-
-        .nav-search .global-search-input {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-simple .nav-container {
-                gap: 1rem;
-            }
-
-            .navbar-simple .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .nav-search {
-                width: 100%;
-                margin-top: 1rem;
-            }
-        }
-
         /* Hero Section */
         .hero-section {
             text-align: center;
@@ -394,10 +333,13 @@
             <a href="index.html" class="logo">DigitalCap</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="apps-v2.html">App Check</a></li>
-                <li><a href="hotlines.html">Something Happened?</a></li>
-                <li><a href="interactive.html">Conversation Guides</a></li>
-                <li><a href="teachers.html">For Educators</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety.html">Safety</a></li>
+                <li><a href="etiquette.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
             </ul>
             <div class="nav-search">
                 <input type="text" id="globalSearch" class="global-search-input" placeholder="Search..." aria-label="Search the site for apps, articles, and resources">
@@ -475,12 +417,12 @@
                 <div class="feature-card">
                     <h3>Safety Deep Dives</h3>
                     <p>Articles on password safety, scams, grooming, privacy settings, and more. Read-aloud available.</p>
-                    <a href="safety-v2-fixed.html" class="btn btn-secondary">Read More</a>
+                    <a href="safety.html" class="btn btn-secondary">Read More</a>
                 </div>
                 <div class="feature-card">
                     <h3>Digital Etiquette</h3>
                     <p>Online kindness, cyberbullying, digital footprint. Respectful behavior for all ages.</p>
-                    <a href="etiquette-v2-fixed.html" class="btn btn-secondary">Learn More</a>
+                    <a href="etiquette.html" class="btn btn-secondary">Learn More</a>
                 </div>
                 <div class="feature-card">
                     <h3>Gaming & Spending Risks</h3>

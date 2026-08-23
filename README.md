@@ -83,11 +83,10 @@ python -m http.server 8000
 DigitalCap/
 ├── index.html                    — Home page
 ├── apps-v2.html                  — App directory (39 apps)
-├── safety-v2-fixed.html          — Digital safety articles
-├── etiquette-v2-fixed.html       — Digital etiquette articles
+├── safety.html                   — Digital safety articles
+├── etiquette.html                — Digital etiquette articles
 ├── resources.html                — Family guides, hotlines, resources
 ├── gaming-guide.html             — Gaming safety deep dive
-├── community.html                — Community hub (Firebase-ready)
 ├── teachers.html                 — 12 lesson plans with activities
 ├── parent-guides.html            — PDF-style send-home guides
 ├── interactive.html              — Quiz, checklist, slideshow hub
