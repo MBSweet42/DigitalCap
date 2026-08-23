@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Deck: Recognizing Concerning Online Behavior</title>
+    <link rel="stylesheet" href="../css/slides.css">
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide active" style="background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">
+            <h1>🛡️ Recognizing Concerning Behavior Online</h1>
+            <p style="font-size: 1.8rem; margin-top: 30px;">Staying safe and trusting your feelings</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8C94 100%);">
+            <h2>What Does Concerning Mean?</h2>
+            <p style="font-size: 1.6rem; margin: 40px 0;">It means something feels uncomfortable or wrong</p>
+            <p style="font-size: 1.6rem;">You can feel it in your body and your feelings</p>
+            <p style="font-size: 1.8rem; margin-top: 30px;">And that's IMPORTANT! 👂</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #FFB703 0%, #FF9500 100%);">
+            <h2>⚠️ Red Flag: Asking Personal Questions</h2>
+            <p style="font-size: 1.6rem; margin: 40px 0;">"What's your name?"</p>
+            <p style="font-size: 1.6rem;">"Where do you live?"</p>
+            <p style="font-size: 1.6rem;">"What school do you go to?"</p>
+            <p style="font-size: 1.8rem; margin-top: 30px;">❌ These are RED FLAGS!</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">
+            <h2>⚠️ Red Flag: Asking for Secrets</h2>
+            <p style="font-size: 1.8rem; margin: 40px 0;">"Don't tell your mom and dad"</p>
+            <p style="font-size: 1.6rem;">"This can be our secret"</p>
+            <p style="font-size: 1.8rem; margin-top: 30px;">❌ NEVER!</p>
+            <p style="font-size: 1.3rem;">Real friends don't ask for secrets!</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #4ECDC4 0%, #2E9C9F 100%);">
+            <h2>⚠️ Red Flag: Too Friendly Too Fast</h2>
+            <p style="font-size: 1.6rem; margin: 40px 0;">Lots of compliments right away:</p>
+            <p style="font-size: 1.6rem;">"You're so special!"</p>
+            <p style="font-size: 1.6rem;">"You're my best friend!"</p>
+            <p style="font-size: 1.6rem;">"Nobody understands you like I do"</p>
+            <p style="font-size: 1.3rem; margin-top: 20px;">Real friendships take time! ⏰</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8C94 100%);">
+            <h2>⚠️ Red Flag: Asking for Pictures</h2>
+            <p style="font-size: 1.8rem; margin: 40px 0;">"Send me a picture"</p>
+            <p style="font-size: 1.6rem;">Even if they say they're your age...</p>
+            <p style="font-size: 1.8rem; margin-top: 30px;">❌ NO!</p>
+            <p style="font-size: 1.3rem;">Never share pictures with people online!</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #44A08D 0%, #4ECDC4 100%);">
+            <h2>Trust Your GUT! 🎯</h2>
+            <p style="font-size: 1.8rem; margin: 40px 0;">If something feels wrong...</p>
+            <p style="font-size: 1.8rem;">It probably IS wrong!</p>
+            <p style="font-size: 1.6rem; margin-top: 30px;">Your feelings are SMART</p>
+            <p style="font-size: 1.6rem;">Tell a trusted grown-up RIGHT AWAY</p>
+        </div>
+
+        <div class="slide" style="background: linear-gradient(135deg, #FF6B6B 0%, #E74C3C 100%);">
+            <h1 style="font-size: 2.5rem;">You're SAFE! ✅</h1>
+            <p style="font-size: 1.8rem; margin-top: 40px;">It's NEVER your fault if someone acts wrong</p>
+            <p style="font-size: 1.6rem; margin-top: 20px;">Tell an adult. Always. 💪</p>
+        </div>
+
+        <div class="slide-counter"><span id="slideNumber">1</span> / <span id="totalSlides">8</span></div>
+        <div class="slide-dots" id="dots"></div>
+        <div class="controls">
+            <button onclick="changeSlide(-1)">← Previous</button>
+            <button onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            document.getElementById('slideNumber').textContent = n + 1;
+            updateDots();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            showSlide(currentSlide);
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function createDots() {
+            const dotsContainer = document.getElementById('dots');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.onclick = () => { currentSlide = i; showSlide(i); };
+                dotsContainer.appendChild(dot);
+            }
+            updateDots();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        createDots();
+    </script>
+</body>
+</html>

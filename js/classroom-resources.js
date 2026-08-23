@@ -25,13 +25,13 @@ const classroomLessons = [
     },
     {
         id: 'k2-2',
-        title: 'Stranger Danger: Who Can You Trust Online?',
+        title: 'Recognizing Concerning Online Behavior',
         gradeBand: 'K-2',
         gradeLevel: 'Kindergarten - 2nd Grade',
-        topic: 'Cyberbullying & DMs',
+        topic: 'Safety & Trust',
         duration: '15-min',
-        objective: 'Understand that not everyone online is who they say they are.',
-        description: 'Simple, age-appropriate introduction to online strangers and safe practices.',
+        objective: 'Recognize specific concerning behaviors and trust your instincts when something feels wrong.',
+        description: 'Age-appropriate lesson on identifying red flags, trusting your gut, and telling trusted adults.',
         includes: {
             lessonPlan: true,
             slideShow: true,
@@ -39,8 +39,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: 'lessons/k2-2-stranger-danger.html',
-            slides: 'slides/k2-2-stranger-danger-slides.html',
+            plan: 'lessons/k2-2-recognizing-concerning-behavior.html',
+            slides: 'slides/k2-2-recognizing-behavior-slides.html',
             parentGuide: '#'
         }
     },
