@@ -1,4 +1,4 @@
-// DigitalCap Classroom Resources - Lesson Plans & Teacher Materials
+// DigitalCap Classroom Resources - UPDATED with all slide deck links
 
 const classroomLessons = [
     // Grade K-2 (Lower Elementary)
@@ -13,7 +13,7 @@ const classroomLessons = [
         description: 'Introduction to treating people kindly online, understanding screens, and simple digital rules.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
@@ -34,13 +34,13 @@ const classroomLessons = [
         description: 'Simple, age-appropriate introduction to online strangers and safe practices.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/k2-2-stranger-danger.html',
-            slides: '#',
+            slides: '../slides/k2-2-stranger-danger-slides.html',
             parentGuide: '#'
         }
     },
@@ -99,7 +99,7 @@ const classroomLessons = [
         description: 'Interactive scenarios teaching students to spot common online scams.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
@@ -229,7 +229,7 @@ const classroomLessons = [
         description: 'Exploration of permanent digital records, data collection, and long-term consequences.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
