@@ -121,9 +121,12 @@ body {
     border-radius: 6px;
     font-size: 0.9rem;
     min-height: 44px;
+    width: 220px;
     background: rgba(255, 255, 255, 0.95);
     color: var(--text-dark);
     transition: all 0.3s ease;
+    cursor: text;
+    pointer-events: auto;
 }
 
 .navbar-simple .nav-search .global-search-input:focus {
