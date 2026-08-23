@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Guides - DigitalCap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>📧 Parent Guides</h1>
+        <p class="subtitle">School send-home guides for parents. Download and share with families after each grade level's curriculum.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <button onclick="viewGuide(6)" class="btn btn-primary" style="padding: 1rem; font-size: 1rem; height: auto;">
+                📘 Grade 6 Guide<br><span style="font-size: 0.9rem; opacity: 0.9;">Citizenship Basics</span>
+            </button>
+            <button onclick="viewGuide(7)" class="btn btn-primary" style="padding: 1rem; font-size: 1rem; height: auto;">
+                📘 Grade 7 Guide<br><span style="font-size: 0.9rem; opacity: 0.9;">Social Media & Reputation</span>
+            </button>
+            <button onclick="viewGuide(9)" class="btn btn-primary" style="padding: 1rem; font-size: 1rem; height: auto;">
+                📘 Grade 9 Guide<br><span style="font-size: 0.9rem; opacity: 0.9;">Predators & Safety</span>
+            </button>
+            <button onclick="viewGuide(11)" class="btn btn-primary" style="padding: 1rem; font-size: 1rem; height: auto;">
+                📘 Grade 11+ Guide<br><span style="font-size: 0.9rem; opacity: 0.9;">Digital Future</span>
+            </button>
+        </div>
+
+        <div id="guideContainer"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DigitalCap. Resources for educators and families. <a href="about.html">Learn more.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const guides = {
+            6: {
+                title: 'Grade 6 Parent Guide',
+                subtitle: 'Digital Citizenship Basics',
+                content: `
+                    <h2 style="color: var(--primary); margin-top: 0;">What We Covered in Class</h2>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">Lesson 1: What Does Digital Citizenship Mean?</h3>
+                        <p>Students learned that being online is like being in a public place. What they do has real consequences. Being respectful and responsible online matters just as much as in real life.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 2: Stranger Danger & Privacy Online</h3>
+                        <p>We taught students that people online are not always who they say they are. We covered what information is safe to share (nothing personal!) and how to spot red flags from potential predators.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 3: Cyberbullying & Online Kindness</h3>
+                        <p>Students learned that cyberbullying spreads fast and never disappears. We practiced being "upstanders"—standing up for friends who are bullied and making the internet kinder.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Conversation Starters for Home</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>"What did you learn about digital citizenship this week?"</li>
+                        <li>"If someone you don't know online wants to be your friend, what would you do?"</li>
+                        <li>"Have you ever seen someone being bullied online? What happened?"</li>
+                        <li>"What information is OK to share online? What's not?"</li>
+                        <li>"How do you want people to treat you online?"</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">Red Flags to Watch For</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Secretive behavior about online activity</li>
+                        <li>Spending excessive time on devices</li>
+                        <li>Mood changes after being online</li>
+                        <li>Defensive when asked about online friends</li>
+                        <li>Receiving gifts or money from online "friends"</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">What You Can Do at Home</h2>
+                    <ol style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Ask about their online friends—who are they? Do they know them in real life?</li>
+                        <li>Keep devices in common areas where you can see screen activity</li>
+                        <li>Set healthy screen time limits (1-2 hours max for this age)</li>
+                        <li>Model good digital citizenship yourself</li>
+                        <li>Make your home a safe place to talk about online problems</li>
+                    </ol>
+
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary); margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">If You Notice Something Concerning</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Talk to your child without judgment</li>
+                            <li>Contact the school counselor</li>
+                            <li>Report harmful behavior to the platform</li>
+                            <li>If you suspect abuse, contact law enforcement</li>
+                        </ul>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Resources</h2>
+                    <ul style="color: var(--text-gray);">
+                        <li><strong>DigitalCap:</strong> digitalcap-resources.org (full safety guides)</li>
+                        <li><strong>Common Sense Media:</strong> commonsensemedia.org</li>
+                        <li><strong>NetSmartz (NCMEC):</strong> netsmartz.org</li>
+                        <li><strong>Internet Safety 101:</strong> internetsafety101.org</li>
+                    </ul>
+                `
+            },
+            7: {
+                title: 'Grade 7 Parent Guide',
+                subtitle: 'Social Media & Digital Reputation',
+                content: `
+                    <h2 style="color: var(--primary); margin-top: 0;">What We Covered in Class</h2>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">Lesson 1: The Highlight Reel Effect</h3>
+                        <p>Social media shows the BEST moments of people's lives, not reality. This creates anxiety and depression when students compare their real lives to everyone's fake highlight reels. We discussed mental health impacts and how to critically evaluate social media.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 2: Your Digital Footprint</h3>
+                        <p>Everything posted online can be screenshotted and shared forever. In 10 years, colleges will Google their name. In 20 years, employers will. What they post NOW affects their FUTURE.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 3: Privacy Settings & Account Security</h3>
+                        <p>We taught how to make accounts private, create strong passwords, and recognize phishing attempts. Privacy settings are their first line of defense.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Conversation Starters for Home</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>"What apps are you on? Can I follow/friend you?"</li>
+                        <li>"Do you ever feel bad about yourself after scrolling? Why?"</li>
+                        <li>"Have you seen anyone online regret posting something?"</li>
+                        <li>"How many followers or likes do you think actually matter?"</li>
+                        <li>"If you had to show everything you post to a future college, what would you delete?"</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">Red Flags to Watch For</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Comparing body/appearance to peers</li>
+                        <li>Anxiety or mood changes tied to social media use</li>
+                        <li>Obsession with likes and followers</li>
+                        <li>Sleep disruption (late-night scrolling)</li>
+                        <li>Talking about "deleting" posts or feeling embarrassed</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">What You Can Do at Home</h2>
+                    <ol style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Follow or friend them and monitor activity respectfully</li>
+                        <li>Check privacy settings together and make accounts private</li>
+                        <li>Help them create a strong password</li>
+                        <li>Ask about their "highlight reel" vs. their real life</li>
+                        <li>Watch for eating disorder or body image language</li>
+                        <li>Have them do a "digital footprint search" on themselves</li>
+                    </ol>
+
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary); margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">Mental Health Concerns</h3>
+                        <p style="color: var(--text-gray);">This age is especially vulnerable to social comparison and mental health impacts. If you notice signs of depression, anxiety, or eating disorders, connect with the school counselor immediately.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Resources</h2>
+                    <ul style="color: var(--text-gray);">
+                        <li><strong>Crisis Text Line:</strong> Text HOME to 741741</li>
+                        <li><strong>NAMI (mental health):</strong> nami.org</li>
+                        <li><strong>Common Sense Media:</strong> commonsensemedia.org</li>
+                        <li><strong>DigitalCap Resources:</strong> Full guides and conversation starters</li>
+                    </ul>
+                `
+            },
+            9: {
+                title: 'Grade 9 Parent Guide',
+                subtitle: 'Predators, Grooming & Safety',
+                content: `
+                    <h2 style="color: var(--primary); margin-top: 0;">What We Covered in Class</h2>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">Lesson 1: Grooming Tactics & Red Flags</h3>
+                        <p>Predators are strategic. They spend time building trust, asking personal questions, and isolating victims—a process called "grooming." We taught students to recognize red flags and trust their instincts.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 2: Online Dating Apps & Why They're Dangerous</h3>
+                        <p>Dating apps are 18+ but age verification is broken. Predators use them to find teenagers. We explained catfishing, sextortion, and trafficking risks. These apps are NOT safe for teenagers.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 3: Sextortion & What to Do</h3>
+                        <p>Sextortion happens when someone threatens to share intimate photos unless you pay. We taught that it's NOT the victim's fault, don't pay (it doesn't stop), and how to get help.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Conversation Starters for Home</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>"Do you know anyone online that you haven't met in person?"</li>
+                        <li>"Has anyone online asked you personal questions that made you uncomfortable?"</li>
+                        <li>"If someone asked you to take or send intimate photos, what would you do?"</li>
+                        <li>"Would you tell me if something online made you uncomfortable?"</li>
+                        <li>"Why do you think people use dating apps? Are they safe for teenagers?"</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">Red Flags to Watch For</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>New online "relationships" that develop quickly</li>
+                        <li>Secretive behavior about specific online friends</li>
+                        <li>Gifts or money from online "friends"</li>
+                        <li>Isolation from real-life friends</li>
+                        <li>Mood changes or anxiety tied to online activity</li>
+                        <li>Requests for personal information (school, address, schedule)</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">What You Can Do at Home</h2>
+                    <ol style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Know their online friends—ask about them specifically</li>
+                        <li>Monitor gaming servers, Discord, and group chats</li>
+                        <li>Have clear rules: no personal info shared with strangers</li>
+                        <li>Discuss what healthy relationships look like (online and offline)</li>
+                        <li>Make it SAFE for them to come to you if uncomfortable</li>
+                        <li>Review their friend lists together (especially Snapchat, Instagram)</li>
+                    </ol>
+
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary); margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">If You Suspect Grooming or Exploitation</h3>
+                        <ol style="color: var(--text-gray);">
+                            <li>Stay calm—do NOT blame them</li>
+                            <li>Gather evidence (screenshots, messages)</li>
+                            <li>Contact NCMEC CyberTipline: CyberTipline.org</li>
+                            <li>Report to law enforcement</li>
+                            <li>Connect them with a counselor for trauma support</li>
+                        </ol>
+                        <p style="color: var(--text-gray); margin-top: 1rem;"><strong>Remember: It is NOT their fault.</strong></p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Resources</h2>
+                    <ul style="color: var(--text-gray);">
+                        <li><strong>NCMEC CyberTipline:</strong> CyberTipline.org (report exploitation)</li>
+                        <li><strong>FBI:</strong> tips.fbi.gov (sextortion/exploitation)</li>
+                        <li><strong>Crisis Text Line:</strong> Text HOME to 741741</li>
+                        <li><strong>DigitalCap Action Plans:</strong> Quick guides for parents</li>
+                    </ul>
+                `
+            },
+            11: {
+                title: 'Grade 11+ Parent Guide',
+                subtitle: 'Digital Footprint & Future',
+                content: `
+                    <h2 style="color: var(--primary); margin-top: 0;">What We Covered in Class</h2>
+
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">Lesson 1: Your Posts = Your Permanent Record</h3>
+                        <p>Colleges scroll social media during admissions. Employers Google candidates before hiring. What they post NOW affects their college and job prospects in 4-10 years. This is the reality.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 2: Sextortion, Consent & Legal Reality</h3>
+                        <p>Sending or receiving intimate photos has serious legal consequences. Explicit images of minors are CSAM (federal crime). Even consensual photos between teens can result in criminal charges. We also discussed consent in digital contexts.</p>
+
+                        <h3 style="color: var(--primary);">Lesson 3: Building Your Digital Future</h3>
+                        <p>Students learned how to use technology intentionally, build a digital reputation they're proud of, and maintain healthy screen time habits that support their mental health.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Conversation Starters for Home</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>"Have you Googled yourself? What shows up?"</li>
+                        <li>"If a college admissions officer saw your social media, would they want you?"</li>
+                        <li>"Are there posts you'd delete if a future employer saw them?"</li>
+                        <li>"What kind of digital reputation do you want to build?"</li>
+                        <li>"How much time do you spend on screens? How does it make you feel?"</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">Red Flags to Watch For</h2>
+                    <ul style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Posts with substance use, risky behavior, or explicit content</li>
+                        <li>Requests for intimate photos (from peers or adults)</li>
+                        <li>Excessive screen time affecting sleep or grades</li>
+                        <li>Social media affecting mental health or self-esteem</li>
+                        <li>Defensive about what they're posting</li>
+                        <li>Meeting online contacts in person without telling you</li>
+                    </ul>
+
+                    <h2 style="color: var(--primary);">What You Can Do at Home</h2>
+                    <ol style="color: var(--text-gray); line-height: 1.8;">
+                        <li>Have them Google themselves and audit their social media</li>
+                        <li>Talk about long-term consequences of posts</li>
+                        <li>Explain that sending explicit photos IS a federal crime</li>
+                        <li>Model healthy screen time yourself</li>
+                        <li>Make boundaries clear: no photo sharing, ever</li>
+                        <li>Support healthy digital citizenship</li>
+                    </ol>
+
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary); margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-top: 0;">College & Career Reality</h3>
+                        <p style="color: var(--text-gray);">Most colleges check social media during admissions. Most employers Google candidates before hiring. What they post today is part of their college and job application. Help them build a reputation they're proud of.</p>
+                    </div>
+
+                    <h2 style="color: var(--primary);">Resources</h2>
+                    <ul style="color: var(--text-gray);">
+                        <li><strong>CyberTipline:</strong> CyberTipline.org (report CSAM/sextortion)</li>
+                        <li><strong>FBI IC3:</strong> ic3.gov (internet crime)</li>
+                        <li><strong>Crisis Text Line:</strong> Text HOME to 741741</li>
+                        <li><strong>DigitalCap Resources:</strong> Full guides and action plans</li>
+                    </ul>
+                `
+            }
+        };
+
+        function viewGuide(grade) {
+            const guide = guides[grade];
+            const container = document.getElementById('guideContainer');
+
+            container.innerHTML = `
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 900px; margin: 0 auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                        <div>
+                            <h2 style="color: var(--primary); margin: 0 0 0.5rem 0;">${guide.title}</h2>
+                            <p style="color: var(--secondary); font-size: 1.1rem; margin: 0;">${guide.subtitle}</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="printGuide(${grade})" style="white-space: nowrap; padding: 0.75rem 1.5rem;">
+                            📥 Download PDF
+                        </button>
+                    </div>
+
+                    <div style="border-top: 2px solid var(--border-color); padding-top: 2rem;">
+                        ${guide.content}
+                    </div>
+
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color); text-align: center; color: var(--text-gray); font-size: 0.9rem;">
+                        <p style="margin: 0;">© 2026 DigitalCap - Free educational resource for educators and families</p>
+                        <p style="margin: 0.5rem 0 0 0;">Share this guide with parents and families to continue digital safety conversations at home.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-secondary" onclick="closeGuide()" style="padding: 0.75rem 2rem;">← Back to Guides</button>
+                </div>
+            `;
+
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeGuide() {
+            document.getElementById('guideContainer').innerHTML = '';
+        }
+
+        function printGuide(grade) {
+            const guide = guides[grade];
+            const printWindow = window.open('', '', 'height=600,width=800');
+
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>${guide.title}</title>
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            line-height: 1.6;
+                            color: #333;
+                            padding: 1in;
+                            background: #f5f5f5;
+                        }
+                        .page {
+                            background: white;
+                            padding: 1in;
+                            margin-bottom: 20px;
+                            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                            page-break-after: always;
+                        }
+                        h1 {
+                            color: #FF6B6B;
+                            font-size: 28px;
+                            margin-bottom: 0.5rem;
+                            border-bottom: 3px solid #FF6B6B;
+                            padding-bottom: 1rem;
+                        }
+                        h2 {
+                            color: #FF6B6B;
+                            font-size: 18px;
+                            margin-top: 1.5rem;
+                            margin-bottom: 1rem;
+                        }
+                        h3 {
+                            color: #FF6B6B;
+                            font-size: 14px;
+                            margin-top: 1rem;
+                            margin-bottom: 0.5rem;
+                        }
+                        .subtitle {
+                            color: #2EC4B6;
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 1rem;
+                        }
+                        .header-section {
+                            margin-bottom: 2rem;
+                        }
+                        .content-box {
+                            background: #f9f9f9;
+                            padding: 1rem;
+                            border-left: 4px solid #FF6B6B;
+                            margin: 1rem 0;
+                            border-radius: 4px;
+                        }
+                        ul, ol {
+                            margin-left: 2rem;
+                            margin-bottom: 1rem;
+                        }
+                        li {
+                            margin-bottom: 0.5rem;
+                        }
+                        p {
+                            margin-bottom: 1rem;
+                        }
+                        .footer {
+                            margin-top: 3rem;
+                            padding-top: 2rem;
+                            border-top: 1px solid #ddd;
+                            text-align: center;
+                            font-size: 11px;
+                            color: #999;
+                        }
+                        .highlight {
+                            background: rgba(255, 107, 107, 0.1);
+                            border-left: 4px solid #FF6B6B;
+                            padding: 1rem;
+                            margin: 1rem 0;
+                            border-radius: 4px;
+                        }
+                        @media print {
+                            body { padding: 0; background: white; }
+                            .page { box-shadow: none; margin-bottom: 0; page-break-after: always; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="page">
+                        <div class="header-section">
+                            <h1>${guide.title}</h1>
+                            <div class="subtitle">${guide.subtitle}</div>
+                            <p><strong>DigitalCap Parent Guide</strong> | Printed: ${new Date().toLocaleDateString()}</p>
+                        </div>
+                        ${guide.content}
+                        <div class="footer">
+                            <p>© 2026 DigitalCap - Free educational resource for educators and families</p>
+                            <p>Share this guide with parents to continue digital safety conversations at home.</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            setTimeout(() => { printWindow.print(); }, 250);
+        }
+    </script>
+
+    <style>
+        .btn {
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

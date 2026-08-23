@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Safety - Digital Safety Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <div style="flex: 1; max-width: 300px; margin: 0 1rem;">
+                <input type="text" id="globalSearch" placeholder="🔍 Search..." style="width: 100%; padding: 0.5rem 0.75rem; border: none; border-radius: 6px; font-size: 0.9rem; background: rgba(255,255,255,0.9);">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
+            <div style="flex: 1;">
+                <h1>🔒 Digital Safety</h1>
+                <p class="subtitle">Learn to protect yourself, recognize threats, and make smart decisions online.</p>
+            </div>
+            <button id="backToTop" class="back-to-top-btn" onclick="scrollToTop()" title="Back to top" style="display: none;">⬆️</button>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
+            <p style="margin: 0; color: var(--text-dark);"><strong>💡 How to use this page:</strong> Use the menu below to jump to a section. Click section titles to expand/collapse content. Press the 🔊 button to listen. Hit the ⬆️ button to return to the top.</p>
+        </div>
+
+        <!-- Jump to Section Navigation -->
+        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 2px solid var(--border-color);">
+            <strong style="color: var(--primary); display: block; margin-bottom: 1rem;">📍 Jump to Section</strong>
+            <div id="jumpNav" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <button class="text-to-speech-btn" id="ttsBtn" onclick="toggleTextToSpeech()">
+            🔊 Read Aloud
+        </button>
+
+        <div id="articlesContainer"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Digital Safety Hub. Resources adapted from trusted sources. <a href="about.html">Learn more.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apps-complete-v2.js"></script>
+    <script src="js/global-search.js"></script>
+    <script src="js/content-data-v2.js"></script>
+    <script src="js/content-data-v2-expanded-v2.js"></script>
+    <script src="js/article-renderer-v2-fixed.js"></script>
+    <script src="js/article-interactive-v2-modal-fixed.js"></script>
+
+    <style>
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top-btn:hover,
+        .back-to-top-btn:active,
+        .back-to-top-btn:focus {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top-btn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.25rem;
+            }
+        }
+
+        #jumpNav a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        #jumpNav a:hover,
+        #jumpNav a:active,
+        #jumpNav a:focus {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            outline: none;
+        }
+    </style>
+
+    <script>
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Populate jump navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const jumpNav = document.getElementById('jumpNav');
+                const articles = document.querySelectorAll('[data-article-id]');
+
+                if (articles.length > 0) {
+                    jumpNav.innerHTML = '';
+                    articles.forEach(article => {
+                        const id = article.getAttribute('data-article-id');
+                        const title = article.querySelector('h2')?.textContent || 'Section';
+                        const link = document.createElement('a');
+                        link.href = `#article-${id}`;
+                        link.textContent = title;
+                        link.onclick = (e) => {
+                            e.preventDefault();
+                            article.scrollIntoView({ behavior: 'smooth' });
+                        };
+                        jumpNav.appendChild(link);
+                    });
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>

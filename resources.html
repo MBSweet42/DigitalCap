@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Guides - DigitalCap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <div style="flex: 1; max-width: 300px; margin: 0 1rem;">
+                <input type="text" id="globalSearch" placeholder="🔍 Search..." style="width: 100%; padding: 0.5rem 0.75rem; border: none; border-radius: 6px; font-size: 0.9rem; background: rgba(255,255,255,0.9);">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>📚 Resources & Family Guides</h1>
+        <p class="subtitle">Downloadable guides, conversation templates, and age-specific recommendations.</p>
+
+        <!-- Age-Based Guides -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: var(--primary); margin-top: 2rem;">Age-Based Family Guides</h2>
+            <p>Choose your child's age to see recommended apps, conversation starters, and safety priorities.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+                <div class="guide-card" onclick="openGuideModal(1)" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--primary);">Ages 6-8</h3>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray);">Just getting started online? Screen time limits, safe websites, and building healthy habits.</p>
+                    <div style="color: var(--secondary); font-weight: 600;">▶ View Guide</div>
+                </div>
+
+                <div class="guide-card" onclick="openGuideModal(2)" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--primary);">Ages 9-12</h3>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray);">Social media starting, messaging apps, gaming. Stranger danger, privacy settings, and conversations about online friends.</p>
+                    <div style="color: var(--secondary); font-weight: 600;">▶ View Guide</div>
+                </div>
+
+                <div class="guide-card" onclick="openGuideModal(3)" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--primary);">Ages 13-15</h3>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray);">Heavy social media use, dating apps risk, mental health impacts, parasocial relationships, online reputation.</p>
+                    <div style="color: var(--secondary); font-weight: 600;">▶ View Guide</div>
+                </div>
+
+                <div class="guide-card" onclick="openGuideModal(4)" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--primary);">Ages 16+</h3>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray);">Dating apps, sextortion risks, digital footprint permanence, college/job implications, independence vs. safety.</p>
+                    <div style="color: var(--secondary); font-weight: 600;">▶ View Guide</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Hotlines Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: var(--danger); margin-top: 2rem;">🆘 Emergency Hotlines & Crisis Support</h2>
+            <p style="color: var(--text-dark); margin-bottom: 1.5rem;">Immediate help when your family needs it most. All services are <strong>FREE, confidential, and available 24/7</strong>.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">💬 Crisis Text Line</h4>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); font-size: 0.9rem;">For mental health crisis, bullying, emotional distress</p>
+                    <p style="margin: 0; background: var(--bg-light); padding: 0.75rem; border-radius: 6px; font-weight: 600;"><strong>Text:</strong> HOME to 741741</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--danger);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🚨 NCMEC CyberTipline</h4>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); font-size: 0.9rem;">For exploitation, predators, grooming, sextortion</p>
+                    <p style="margin: 0; background: var(--bg-light); padding: 0.75rem; border-radius: 6px; font-weight: 600;">📱 1-800-843-5678 | 🌐 CyberTipline.org</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(255, 183, 3, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">💙 Suicide Prevention</h4>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); font-size: 0.9rem;">For suicide risk or self-harm thoughts</p>
+                    <p style="margin: 0; background: var(--bg-light); padding: 0.75rem; border-radius: 6px; font-weight: 600;"><strong>Call or Text:</strong> 988</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--success);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🛡️ Cyberbullying Hotline</h4>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); font-size: 0.9rem;">For online harassment and cyberbullying</p>
+                    <p style="margin: 0; background: var(--bg-light); padding: 0.75rem; border-radius: 6px; font-weight: 600;"><strong>Call:</strong> 1-800-420-1479</p>
+                </div>
+            </div>
+
+            <p style="background: rgba(231, 76, 60, 0.05); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--danger); color: var(--text-dark);"><strong>⚠️ In immediate danger?</strong> Call 911 (US) or your local emergency number.</p>
+        </section>
+
+        <!-- Downloadable Resources -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: var(--primary);">📥 Downloadable Resources</h2>
+            <p>Print these guides and post them on your fridge or in your kid's room.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--primary);">📋 App Safety Checklist</h3>
+                    <p style="color: var(--text-gray);">Before downloading an app, parents can use this checklist to evaluate risk.</p>
+                    <button class="btn btn-primary" onclick="downloadResource('app-checklist')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--secondary);">🗣️ Conversation Starter Templates</h3>
+                    <p style="color: var(--text-gray);">40+ conversation prompts to start tough talks about digital safety.</p>
+                    <button class="btn btn-secondary" onclick="downloadResource('conversation-starters')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(255, 183, 3, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--primary);">⏰ Screen Time & Sleep Guide</h3>
+                    <p style="color: var(--text-gray);">Why screen time matters, healthy habits, and how to enforce limits without conflict.</p>
+                    <button class="btn btn-primary" onclick="downloadResource('screen-time')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(46, 196, 113, 0.1) 0%, rgba(46, 196, 113, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--success);">📱 Family Device Rules</h3>
+                    <p style="color: var(--text-gray);">Printable rules for your house: when phones are off-limits, what apps are OK, consequences.</p>
+                    <button class="btn btn-secondary" onclick="downloadResource('family-rules')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--primary);">🚨 Red Flags Checklist</h3>
+                    <p style="color: var(--text-gray);">Warning signs that something might be wrong online. Keep this handy.</p>
+                    <button class="btn btn-primary" onclick="downloadResource('red-flags')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-top: 0; color: var(--secondary);">✅ Privacy Settings Setup Guide</h3>
+                    <p style="color: var(--text-gray);">Step-by-step for Instagram, TikTok, Snapchat, Discord, and more. Make accounts private.</p>
+                    <button class="btn btn-secondary" onclick="downloadResource('privacy-settings')" style="width: 100%; margin-top: 1rem;">Download PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Action Plans -->
+        <section>
+            <h2 style="color: var(--primary);">🎯 Quick Action Plans</h2>
+            <p>What to do if... (click to see step-by-step guides for common situations)</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+                <div onclick="openActionPlanModal('hacked')" style="background: var(--bg-light); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin-top: 0; color: var(--primary);">💀 Account Was Hacked</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 0.5rem;">Quick action steps if your child's account was compromised.</p>
+                    <div style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">View Steps →</div>
+                </div>
+
+                <div onclick="openActionPlanModal('cyberbullying')" style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin-top: 0; color: var(--secondary);">😔 Being Cyberbullied</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 0.5rem;">Steps to support your child and stop the harassment.</p>
+                    <div style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">View Steps →</div>
+                </div>
+
+                <div onclick="openActionPlanModal('dating-app')" style="background: var(--bg-light); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin-top: 0; color: var(--primary);">📱 Found a Dating App</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 0.5rem;">What to do if you discover a dating app on their phone.</p>
+                    <div style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">View Steps →</div>
+                </div>
+
+                <div onclick="openActionPlanModal('sextortion')" style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <h3 style="margin-top: 0; color: var(--secondary);">⚠️ Sextortion Threat</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 0.5rem;">Immediate steps if your child received a sextortion threat.</p>
+                    <div style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">View Steps →</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curated Expert Resources -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: var(--primary); margin-top: 2rem;">🔗 Curated Expert Resources</h2>
+            <p style="color: var(--text-dark); margin-bottom: 1.5rem;">We don't reinvent the wheel. These are the organizations we trust most. <strong>All links open in a new window.</strong></p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <a href="https://www.commonsensemedia.org/articles" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">📱 Common Sense Media</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">1000+ app reviews with parent & kid ratings, detailed content descriptions</p>
+                </a>
+
+                <a href="https://www.netsmartz.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🔒 NetSmartz (NCMEC)</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Grooming awareness, sextortion, exploitation videos & guides</p>
+                </a>
+
+                <a href="https://www.internetmatters.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🌍 Internet Matters</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">UK-based with guides, app safety, age-appropriate recommendations</p>
+                </a>
+
+                <a href="https://www.connectsafely.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">💬 ConnectSafely</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Parent & expert research on social media, apps, online safety</p>
+                </a>
+
+                <a href="https://www.staysafeonline.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🔐 StaySafeOnline</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Password safety, identity theft, phishing, cybersecurity basics</p>
+                </a>
+
+                <a href="https://www.ftc.gov/business-guidance/blogs/2023/01/parents-guide-social-media-privacy" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🏛️ FTC OnGuardOnline</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Federal Trade Commission guidance on privacy, scams, security</p>
+                </a>
+
+                <a href="https://www.waituntil8th.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">⏳ Wait Until 8th</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Movement & research on delaying smartphones until 8th grade</p>
+                </a>
+
+                <a href="https://www.cyberbullying.org/" target="_blank" style="display: block; padding: 1.5rem; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; border-left: 4px solid var(--secondary);">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">🛡️ StopCyberbullying</h4>
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">Cyberbullying definition, response strategies, state laws</p>
+                </a>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why we link to these:</strong> Everything on DigitalCap is adapted from research by these trusted organizations. We don't invent dangers—we synthesize what experts have already discovered. Dive deeper by visiting their sites for full articles, videos, and research.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DigitalCap. Resources adapted from trusted sources and parent communities. <a href="about.html">Learn more.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apps-complete-v2.js"></script>
+    <script src="js/global-search.js"></script>
+    <script>
+        function openGuideModal(ageGroup) {
+            const guides = {
+                1: {
+                    title: 'Ages 6-8: Screen Time Reality & Foundation',
+                    content: `
+                        <h3 style="color: var(--primary); margin-top: 0;">⚠️ The Reality: Many Kids This Age Already Have Devices</h3>
+                        <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary); margin-bottom: 1.5rem;">
+                            <p style="margin: 0; color: var(--text-dark);"><strong>Research Shows:</strong> Kids today are getting tablets before age 5. There's growing evidence that early screen time (under age 8) negatively impacts: reading skills, attention span, sleep, physical activity, social development.</p>
+                            <p style="margin: 0.5rem 0 0 0; color: var(--text-dark);"><strong>The "Wait Until 16" Movement:</strong> Many parenting experts now recommend NO personal devices until age 16, when their brains are more developed for managing them safely.</p>
+                        </div>
+
+                        <h3 style="color: var(--primary);">What's Actually Happening at This Age</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Many kids already have access to tablets (not just "discovering" now)</li>
+                            <li>Watching YouTube Kids, Disney+, or unfiltered YouTube</li>
+                            <li>Playing games like Roblox, Minecraft, Fortnite (which you thought were for older kids)</li>
+                            <li>Starting to ask about Instagram, TikTok, Discord</li>
+                            <li>Brain development for self-regulation is still 8+ years away</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Main Safety Priorities</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li><strong>Consider delaying entirely:</strong> The "Wait Until 16" movement is gaining traction among parenting experts for good reason. If they don't need a device yet—don't give them one</li>
+                            <li><strong>If they do have access:</strong> Maximum 1-2 hours per day (less is better), in common areas only, never in bedrooms</li>
+                            <li><strong>Shared device only:</strong> No personal accounts. They share a family tablet/device that YOU control</li>
+                            <li><strong>Heavily filtered content:</strong> YouTube Kids (not regular YouTube), Khan Academy, PBS, educational apps only</li>
+                            <li><strong>Adult co-viewing always:</strong> You watch WITH them. Talk about what you see. Ask questions</li>
+                            <li><strong>No gaming apps:</strong> Games like Roblox, Fortnite, Minecraft are designed to addict. Save for later when they can self-regulate</li>
+                            <li><strong>No social media:</strong> Period. No Instagram, TikTok, Discord, Snapchat. They're 6-8</li>
+                            <li><strong>Protect sleep:</strong> Screens OFF by 7pm. Kids need 9-12 hours of sleep—screens disrupt this badly</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Recommended Apps (If Any)</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>✓ YouTube Kids (heavily supervised)</li>
+                            <li>✓ Khan Academy Kids (educational)</li>
+                            <li>✓ PBS Kids (educational)</li>
+                            <li>✓ Messenger Kids (if you want them to message, with parental controls)</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Apps to Avoid</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>✗ TikTok (too young, algorithm is addictive)</li>
+                            <li>✗ Instagram (too young, social comparison issues)</li>
+                            <li>✗ Snapchat (too young, privacy concerns)</li>
+                            <li>✗ Discord (too young, unmoderated chat)</li>
+                            <li>✗ Any app with chat with strangers</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Conversation Starters</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>"What did you learn on YouTube Kids today?"</li>
+                            <li>"If someone online asked for your name, what would you do?"</li>
+                            <li>"Can you show me what you like to play/watch?"</li>
+                            <li>"If something on the internet scares you, tell me right away"</li>
+                        </ul>
+                    `
+                },
+                2: {
+                    title: 'Ages 9-12: Managing Social Media & Online Friends',
+                    content: `
+                        <h3 style="color: var(--secondary); margin-top: 0;">What's Happening at This Age</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Starting to ask for social media (TikTok, Instagram, Snapchat)</li>
+                            <li>Gaming with online friends (Roblox, Minecraft, Fortnite)</li>
+                            <li>Making "online friends" they don't know in real life</li>
+                            <li>Peer pressure to have more followers, get likes</li>
+                            <li>Not yet capable of spotting predators or manipulation</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">Main Safety Priorities</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li><strong>Screen time:</strong> 2 hours max per day, no screens after dinner</li>
+                            <li><strong>Stranger danger:</strong> "Anyone online could be an adult lying about their age"</li>
+                            <li><strong>Private accounts:</strong> Make all social media accounts private</li>
+                            <li><strong>No personal info:</strong> Never share school name, location, schedule</li>
+                            <li><strong>Gaming safety:</strong> Know who they're playing with, disable chat if possible</li>
+                            <li><strong>Monitor spending:</strong> Set up parental controls for in-app purchases</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">OK Apps (With Rules)</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>✓ TikTok (private account, time limit, monitor FYP)</li>
+                            <li>✓ Instagram (private account, no strangers, family can follow)</li>
+                            <li>✓ Snapchat (private, disable Snap Map, no strangers)</li>
+                            <li>✓ Discord (for known friends only, voice chat off)</li>
+                            <li>✓ Roblox/Minecraft (known friends only, monitor chat)</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">Conversation Starters</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>"Tell me about the people you game with. Do you know them in real life?"</li>
+                            <li>"Someone online wants to be your friend and you don't know them. What do you do?"</li>
+                            <li>"If someone asked for your number or address online, what happens?"</li>
+                            <li>"How many followers do you have? Does that matter to you? Why?"</li>
+                        </ul>
+                    `
+                },
+                3: {
+                    title: 'Ages 13-15: Heavy Social Media Use & Mental Health',
+                    content: `
+                        <h3 style="color: var(--primary); margin-top: 0;">What's Happening at This Age</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Heavy social media use (3-5+ hours daily typical)</li>
+                            <li>Comparing themselves to peers constantly</li>
+                            <li>Developing parasocial relationships with streamers/influencers</li>
+                            <li>Exploring dating and attracted to dating app hype</li>
+                            <li>Mental health impacts: anxiety, depression, eating disorders</li>
+                            <li>Sleep deprivation from late-night phone use</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Main Safety Priorities</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li><strong>Mental health first:</strong> Watch for mood changes, body image issues, self-harm language</li>
+                            <li><strong>Screen time limits:</strong> No more than 3 hours daily, none after 10pm</li>
+                            <li><strong>Sleep protection:</strong> Phones out of bedrooms overnight</li>
+                            <li><strong>Dating apps:</strong> Explain why they're dangerous, don't allow Tinder/Bumble</li>
+                            <li><strong>Streaming obsession:</strong> Talk about parasocial relationships with streamers</li>
+                            <li><strong>Spending:</strong> Monitor cosmetics, battle passes, in-game purchases</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Red Flags to Watch</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Sudden mood changes after social media use</li>
+                            <li>Body image concerns or eating disorder talk</li>
+                            <li>Sleep deprivation (tired at school)</li>
+                            <li>Grades dropping</li>
+                            <li>Isolation from real friends</li>
+                            <li>Self-harm or suicide ideation language</li>
+                            <li>Defensive about phone/social media use</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin-top: 1.5rem;">Conversation Starters</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>"How do you feel about your body/appearance? Why do you think that?"</li>
+                            <li>"What's a streamers or influencer you watch a lot? Tell me about them."</li>
+                            <li>"How much time do you think you spend on social media?"</li>
+                            <li>"If dating apps came up at school, what would you do?"</li>
+                        </ul>
+                    `
+                },
+                4: {
+                    title: 'Ages 16+: Independence, Reputation & Real Consequences',
+                    content: `
+                        <h3 style="color: var(--secondary); margin-top: 0;">What's Happening at This Age</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>Dating apps and actual dating</li>
+                            <li>Digital footprint becoming real (colleges/jobs Google them)</li>
+                            <li>More independence, less parental oversight</li>
+                            <li>Sextortion, exploitation, and trafficking risks real</li>
+                            <li>Decisions have consequences for their future</li>
+                            <li>Thinking about college/career implications</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">Main Safety Priorities</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li><strong>Digital footprint:</strong> "Your posts now could affect college/job offers in 5 years"</li>
+                            <li><strong>Dating app honesty:</strong> "Adults on Tinder lie about their age to find teenagers. Don't use these apps."</li>
+                            <li><strong>Sextortion awareness:</strong> "Never send explicit photos. Ever. They can be used for blackmail."</li>
+                            <li><strong>Meeting online friends:</strong> Safety planning, telling you where they're going</li>
+                            <li><strong>Consent:</strong> Online consent matters. Sharing photos without permission is assault.</li>
+                            <li><strong>Independence:</strong> Trust-building, but with safety guardrails</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">Real Consequences</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>College sees their social media during admissions</li>
+                            <li>Employers Google them before hiring</li>
+                            <li>Explicit photos shared can be treated as CSAM</li>
+                            <li>Sextortion criminals are active and targeting teens</li>
+                            <li>Meeting strangers from dating apps puts them at risk of trafficking</li>
+                        </ul>
+
+                        <h3 style="color: var(--secondary); margin-top: 1.5rem;">Conversation Starters</h3>
+                        <ul style="color: var(--text-gray);">
+                            <li>"When you apply to college, they'll Google you. What will they find?"</li>
+                            <li>"If someone online asks for explicit photos, what would you do? Can you talk to me about it?"</li>
+                            <li>"If you're going to meet someone from online, tell me first. We can plan how to stay safe."</li>
+                            <li>"Sextortion is real and it happens to teens. If it happens, tell me immediately. We'll handle it together."</li>
+                        </ul>
+                    `
+                }
+            };
+
+            const guide = guides[ageGroup];
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = `guide-modal-${ageGroup}`;
+            modal.innerHTML = `
+                <div class="modal-backdrop" onclick="this.closest('.modal').remove()"></div>
+                <div class="modal-content">
+                    <button class="modal-close" onclick="this.closest('.modal').remove()">✕</button>
+                    <h2 style="color: var(--primary); margin-top: 0;">${guide.title}</h2>
+                    ${guide.content}
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('open'), 10);
+        }
+
+        function openActionPlanModal(type) {
+            const plans = {
+                hacked: {
+                    title: 'What to do if your child\'s account was hacked',
+                    steps: [
+                        '<strong>Change the password immediately</strong> — Use a strong, unique password (at least 12 characters, mix of letters, numbers, symbols)',
+                        '<strong>Enable two-factor authentication</strong> — This adds an extra security layer',
+                        '<strong>Check account settings for suspicious activity</strong> — Look for unusual login locations, email changes',
+                        '<strong>Review connected apps and revoke access</strong> — Delete any apps or services they don\'t recognize',
+                        '<strong>Report the hack to the platform</strong> — Most platforms have a "report account compromise" option',
+                        '<strong>If it involved financial information, contact your bank</strong> — Alert them of potential fraud',
+                        '<strong>Watch for identity theft attempts</strong> — Monitor for suspicious accounts or charges in the following weeks'
+                    ]
+                },
+                cyberbullying: {
+                    title: 'What to do if your child is being cyberbullied',
+                    steps: [
+                        '<strong>Listen without judgment</strong> — Let them know it\'s not their fault. Thank them for telling you.',
+                        '<strong>Document everything</strong> — Screenshot messages, posts, and comments with dates/times. Save this evidence.',
+                        '<strong>Report it to the platform</strong> — Most apps have a "report abuse" button. Do this immediately.',
+                        '<strong>Contact the school if bullies attend the same school</strong> — Schools have anti-bullying policies and can intervene',
+                        '<strong>Block the bullies</strong> — Remove them from all social media accounts',
+                        '<strong>Consider a break from that app/platform</strong> — Sometimes stepping away helps mentally',
+                        '<strong>If your child is having thoughts of self-harm, contact a therapist immediately</strong> — Don\'t wait. This is serious.'
+                    ]
+                },
+                'dating-app': {
+                    title: 'What to do if you find a dating app on their phone',
+                    steps: [
+                        '<strong>Stay calm. Don\'t immediately punish.</strong> — Punishment makes them hide things more.',
+                        '<strong>Ask calmly: "Why are you using this? Who have you talked to?"</strong> — Get the facts before reacting.',
+                        '<strong>Explain the dangers clearly</strong> — "Predators hunt on dating apps. Adults lie about their age to find teenagers."',
+                        '<strong>Delete the app together</strong> — Make it a conversation, not a power move',
+                        '<strong>If they\'ve met anyone or shared photos, contact law enforcement</strong> — This is serious. Call the FBI\'s IC3 (ic3.gov) or local police.',
+                        '<strong>Have a deeper conversation</strong> — Why did they feel they needed this? Are they exploring relationships? Being pressured by friends?',
+                        '<strong>Set expectations going forward</strong> — No dating apps until they\'re 18+, and even then, discuss safety'
+                    ]
+                },
+                sextortion: {
+                    title: 'What to do if your child received a sextortion threat',
+                    steps: [
+                        '<strong>Don\'t pay. Ever.</strong> — Paying will only encourage more demands. The threats will continue.',
+                        '<strong>Don\'t delete evidence immediately</strong> — Screenshot everything. You\'ll need this for law enforcement.',
+                        '<strong>Report it to the FBI immediately</strong> — Go to ic3.gov (Internet Crime Complaint Center) and file a report',
+                        '<strong>Report it to the platform</strong> — Also report to the app/site where the threat was made',
+                        '<strong>Block the person</strong> — Remove them from all platforms immediately',
+                        '<strong>Help your child understand this isn\'t their fault</strong> — They did NOT cause this. This is a crime.',
+                        '<strong>Consider talking to a therapist</strong> — This is traumatic. Professional support helps.',
+                        '<strong>Keep monitoring for escalation</strong> — Let law enforcement know if threats continue or escalate'
+                    ]
+                }
+            };
+
+            const plan = plans[type];
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = `action-modal-${type}`;
+            modal.innerHTML = `
+                <div class="modal-backdrop" onclick="this.closest('.modal').remove()"></div>
+                <div class="modal-content" style="max-height: 85vh; overflow-y: auto;">
+                    <button class="modal-close" onclick="this.closest('.modal').remove()">✕</button>
+                    <h2 style="color: var(--primary); margin-top: 0;">${plan.title}</h2>
+                    <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 1.5rem;">
+                        <p style="margin: 0; color: var(--text-dark); line-height: 1.6;">Follow these steps in order. If you need support or your child is in immediate danger, call 911 or contact local law enforcement.</p>
+                    </div>
+                    <ol style="color: var(--text-gray); line-height: 1.8; padding-left: 1.5rem;">
+                        ${plan.steps.map(step => `<li style="margin-bottom: 1rem;">${step}</li>`).join('')}
+                    </ol>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('open'), 10);
+        }
+
+        function downloadResource(type) {
+            const resources = {
+                'app-checklist': 'App Safety Checklist',
+                'conversation-starters': 'Conversation Starter Templates',
+                'screen-time': 'Screen Time & Sleep Guide',
+                'family-rules': 'Family Device Rules',
+                'red-flags': 'Red Flags Checklist',
+                'privacy-settings': 'Privacy Settings Setup Guide'
+            };
+
+            alert(`📥 ${resources[type]} PDF\n\nNote: PDFs are coming soon! For now, you can:\n1. Screenshot this page\n2. Print from your browser (Ctrl+P or Cmd+P)\n3. Save as PDF\n\nWe're working on downloadable PDFs that you can customize for your family!`);
+        }
+    </script>
+
+    <style>
+        .guide-card:hover, [onclick*="openActionPlanModal"]:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
+            }
+        }
+    </style>
+</body>
+</html>

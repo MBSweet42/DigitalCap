@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DigitalCap: A comprehensive digital safety hub for families and educators. Learn about app dangers, digital safety, etiquette, and parental controls. Free resources, lesson plans, and expert guidance for keeping families safe online.">
+    <title>DigitalCap - Family Digital Safety & Resources</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Why DigitalCap Section */
+        .why-different {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .why-different h2 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+
+        .why-different-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .why-different-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .why-different-card p {
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            margin-bottom: 3rem;
+        }
+
+        .features h2 {
+            text-align: center;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .cta-section h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Getting Started */
+        .tip-list {
+            color: var(--text-gray);
+        }
+
+        /* Quick Links Section */
+        .quick-links-section {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quick-links-section h2 {
+            color: var(--primary);
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .quick-links-intro {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-link-card {
+            display: block;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .quick-link-card p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .quick-link-danger {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
+            border-left: 4px solid var(--danger);
+        }
+
+        .quick-link-danger strong {
+            color: var(--danger);
+        }
+
+        .quick-link-gaming {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quick-link-gaming strong {
+            color: var(--secondary);
+        }
+
+        .quick-link-resources {
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(255, 183, 3, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+        }
+
+        .quick-link-resources strong {
+            color: var(--accent);
+        }
+
+        .quick-link-tools {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%);
+            border-left: 4px solid var(--success);
+        }
+
+        .quick-link-tools strong {
+            color: var(--success);
+        }
+
+        /* Footer */
+        .footer-tagline {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Global Search */
+        .global-search-wrapper {
+            flex: 1;
+            max-width: 300px;
+            margin: 0 1rem;
+        }
+
+        .global-search-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .global-search-input:focus {
+            outline: 2px solid var(--primary);
+        }
+
+        /* Features */
+        .features {
+            margin-bottom: 3rem;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        /* Getting Started */
+        .getting-started {
+            margin-bottom: 3rem;
+        }
+
+        .getting-started h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .tip-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        /* Search Results */
+        .search-result-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .no-results {
+            color: var(--text-gray);
+            font-style: italic;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <div class="global-search-wrapper">
+                <input type="text" id="globalSearch" class="global-search-input" placeholder="🔍 Search..." aria-label="Search the site for apps, articles, and resources">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">⚡ DigitalCap</h1>
+            <p class="hero-subtitle">Smart limits. Real conversations.</p>
+
+            <div class="hero-cta-container">
+                <a href="apps-v2.html" class="btn btn-primary hero-cta-btn">🔍 Search Apps</a>
+                <a href="resources.html" class="btn btn-secondary hero-cta-btn">📚 Get Resources</a>
+            </div>
+        </section>
+
+        <!-- Why DigitalCap -->
+        <section class="why-different">
+            <h2>Why DigitalCap is Different</h2>
+            <div class="why-different-grid">
+                <div class="why-different-card">
+                    <h4>🎯 Real Dangers Identified</h4>
+                    <p>Every danger listed is something a parent actually discovered—not theoretical risks. From Reddit, parenting forums, and safety experts.</p>
+                </div>
+                <div class="why-different-card">
+                    <h4>👥 Parent-Powered</h4>
+                    <p>Share your experiences. Vote on helpful discussions. Get answers from digital safety experts. Built by parents, for parents.</p>
+                </div>
+                <div class="why-different-card">
+                    <h4>📖 Conversation Ready</h4>
+                    <p>Every app comes with how-to talk about it. Scripts, red flags, conversation starters. Not judgment—just tools for tough talks.</p>
+                </div>
+                <div class="why-different-card">
+                    <h4>🏫 Classroom Certified</h4>
+                    <p>12 lesson plans for grades 6-12. Digital citizenship curriculum ready to teach. Send-home guides for parents.</p>
+                </div>
+                <div class="why-different-card">
+                    <h4>🎓 All Age Groups</h4>
+                    <p>Age 6 to 16+. Resources for every age. What's safe for 8-year-olds is different from 15-year-olds.</p>
+                </div>
+                <div class="why-different-card">
+                    <h4>💯 100% Free</h4>
+                    <p>No paywalls. No ads. No tracking. Just honest information to keep your family safe online.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <h2>Everything You Need</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📱 App Directory</h3>
+                    <p>39 apps with parent-discovered hidden dangers. Conversation guides, red flags, tips. Real research, real voices.</p>
+                    <a href="apps-v2.html" class="btn btn-primary">Browse Apps</a>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Digital Safety</h3>
+                    <p>Password safety, scams, grooming, privacy. Articles written for families. Read-aloud, expandable, parent scripts.</p>
+                    <a href="safety-v2-fixed.html" class="btn btn-primary">Read Articles</a>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 Digital Etiquette</h3>
+                    <p>Online kindness, cyberbullying, digital footprint. How to be respectful and real online. For all ages.</p>
+                    <a href="etiquette-v2-fixed.html" class="btn btn-primary">Learn Etiquette</a>
+                </div>
+                <div class="feature-card">
+                    <h3>📚 Family Resources</h3>
+                    <p>Age-based guides (6-8, 9-12, 13-15, 16+). Downloadable PDFs. Action plans. Send-home guides.</p>
+                    <a href="resources.html" class="btn btn-primary">Get Resources</a>
+                </div>
+                <div class="feature-card">
+                    <h3>👥 Community</h3>
+                    <p>Real parent stories. Expert Q&A. Discussions rated by helpfulness. 1000+ parents sharing solutions.</p>
+                    <a href="community.html" class="btn btn-primary">Join Community</a>
+                </div>
+                <div class="feature-card">
+                    <h3>👩‍🏫 Teacher Curriculum</h3>
+                    <p>12 lesson plans (grades 6-12). Slides, activities, discussion guides. Everything ready to teach.</p>
+                    <a href="teachers.html" class="btn btn-primary">Explore Lessons</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2>Ready to Keep Your Family Safe?</h2>
+            <p>Start with the app your kid uses most. Read about the real dangers. Have the conversation. We're here to help.</p>
+            <a href="apps-v2.html" class="btn btn-primary cta-btn">Start Now →</a>
+        </section>
+
+        <!-- Getting Started -->
+        <section class="getting-started">
+            <h2>Getting Started</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>👨‍👩‍👧‍👦 For Parents</h4>
+                    <ol class="tip-list">
+                        <li>Search an app your kid uses in our <a href="apps-v2.html">directory</a></li>
+                        <li>Read the real dangers parents discovered</li>
+                        <li>Use the conversation guide to talk about it</li>
+                        <li>Share your own experience in <a href="community.html">community</a></li>
+                    </ol>
+                </div>
+                <div class="tip-card">
+                    <h4>👦👧 For Young People</h4>
+                    <ol class="tip-list">
+                        <li>Take the <a href="interactive.html">Digital Safety Quiz</a></li>
+                        <li>Read about apps you use and dangers to watch for</li>
+                        <li>Learn <a href="etiquette-v2-fixed.html">digital etiquette</a> for respectful online behavior</li>
+                        <li>Join the conversation—your voice matters</li>
+                    </ol>
+                </div>
+                <div class="tip-card">
+                    <h4>👩‍🏫 For Teachers</h4>
+                    <ol class="tip-list">
+                        <li>Access <a href="teachers.html">12 lesson plans</a> for your grade level</li>
+                        <li>Download slides, activities, and facilitator guides</li>
+                        <li>Send home <a href="resources.html">parent guides</a> to extend learning</li>
+                        <li>Build digital citizenship in your classroom</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="quick-links-section">
+            <h2>⚡ Quick Links</h2>
+            <p class="quick-links-intro">Looking for something specific? Jump straight there.</p>
+            <div class="quick-links-grid">
+                <a href="hotlines.html" class="quick-link-card quick-link-danger">
+                    <strong>🆘 Emergency Hotlines</strong>
+                    <p>Crisis support, cyberbullying help, NCMEC CyberTipline</p>
+                </a>
+                <a href="gaming-guide.html" class="quick-link-card quick-link-gaming">
+                    <strong>🎮 Gaming Safety</strong>
+                    <p>Discord, Fortnite, Roblox dangers & spending traps</p>
+                </a>
+                <a href="resources-links.html" class="quick-link-card quick-link-resources">
+                    <strong>🔗 Expert Resources</strong>
+                    <p>Common Sense Media, NetSmartz, 15+ trusted sources</p>
+                </a>
+                <a href="interactive.html" class="quick-link-card quick-link-tools">
+                    <strong>📚 Interactive Tools</strong>
+                    <p>Quizzes, checklists, slideshows, conversation starters</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>⚡ DigitalCap</strong> — Smart limits. Real conversations.</p>
+        <p class="footer-copyright">&copy; 2026 DigitalCap. Helping families navigate the digital world safely. <a href="about.html">Learn more.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apps-complete-v2.js"></script>
+    <script src="js/global-search.js"></script>
+</body>
+</html>

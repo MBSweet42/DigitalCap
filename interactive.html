@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools - Digital Safety Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Interactive Tools</h1>
+        <p class="subtitle">Test your knowledge, make checklists, and start family conversations.</p>
+
+        <section class="tools-grid">
+            <div class="tool-card" onclick="startQuiz(0)">
+                <h3>📝 Digital Safety Basics Quiz</h3>
+                <p>Test your knowledge about password safety, phishing, and protecting your accounts. 5 questions.</p>
+                <button class="btn btn-primary">Start Quiz</button>
+            </div>
+
+            <div class="tool-card" onclick="startQuiz(1)">
+                <h3>🔍 Spot the Scam Quiz</h3>
+                <p>Can you identify which messages are scams? 5 scenarios to evaluate.</p>
+                <button class="btn btn-primary">Start Quiz</button>
+            </div>
+
+            <div class="tool-card" onclick="showChecklist()">
+                <h3>✅ Is This App Safe? Checklist</h3>
+                <p>Use our interactive checklist to evaluate if an app is right for your child.</p>
+                <button class="btn btn-primary">Open Checklist</button>
+            </div>
+
+            <div class="tool-card" onclick="showSlideshow()">
+                <h3>🎬 Setting Parental Controls Slideshow</h3>
+                <p>A step-by-step visual guide to setting up parental controls on popular devices.</p>
+                <button class="btn btn-primary">View Slideshow</button>
+            </div>
+
+            <div class="tool-card" onclick="showConversationStarters()">
+                <h3>💬 Family Conversation Starters</h3>
+                <p>20+ questions to spark meaningful conversations about digital safety and habits.</p>
+                <button class="btn btn-primary">View Starters</button>
+            </div>
+        </section>
+
+        <div id="toolsContainer"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Digital Safety Hub. Resources adapted from trusted sources. <a href="about.html">Learn more.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/quiz-data.js"></script>
+    <script src="js/conversation-data.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

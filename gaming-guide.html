@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Safety Guide - DigitalCap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <div style="flex: 1; max-width: 300px; margin: 0 1rem;">
+                <input type="text" id="globalSearch" placeholder="🔍 Search..." style="width: 100%; padding: 0.5rem 0.75rem; border: none; border-radius: 6px; font-size: 0.9rem; background: rgba(255,255,255,0.9);">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1>🎮 Gaming Safety Guide</h1>
+            <p class="subtitle">What parents need to know about in-game chat, toxic players, predators, and spending traps.</p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
+            <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why this matters:</strong> Gaming is a huge part of kids' social lives today. But in-game chat, multiplayer communities, and anonymous players create unique risks parents need to understand.</p>
+        </div>
+
+        <button class="text-to-speech-btn" id="ttsBtn" onclick="toggleTextToSpeech()">
+            🔊 Read Aloud
+        </button>
+
+        <!-- In-Game Chat Dangers -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>🗣️ In-Game Chat: The Hidden Danger</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <h4>Why in-game chat is different from texts:</h4>
+                <p>In-game chat is often <strong>invisible to parents</strong>. Unlike text messages or Discord, most games don't keep chat history you can review later, and parents rarely have access to monitor it.</p>
+
+                <div class="do-dont-grid">
+                    <div class="do-section">
+                        <h4>✅ Do Know</h4>
+                        <ul>
+                            <li>In-game chat exposes your child to strangers worldwide</li>
+                            <li>Predators pose as other kids to build trust ("grooming")</li>
+                            <li>Kids give away location clues in casual conversation</li>
+                            <li>Toxic players use harassment and hate speech</li>
+                            <li>Your child can be tricked into sharing personal info</li>
+                        </ul>
+                    </div>
+                    <div class="dont-section">
+                        <h4>❌ Don't:</h4>
+                        <ul>
+                            <li>Assume your child will tell you about weird interactions</li>
+                            <li>Trust that the game filters out predators</li>
+                            <li>Let them play online games without voice chat controls</li>
+                            <li>Believe "everyone in this game is a kid"—they're not</li>
+                            <li>Think being friends with a player online means they're safe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Real conversation starters:</h4>
+                <p style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <strong>"Who do you usually play with? Have any of them ever asked you personal questions or asked to be friends outside the game?"</strong><br><br>
+                    <strong>"Has anyone in the game ever made you uncomfortable or said mean things?"</strong><br><br>
+                    <strong>"What games do you play that have voice chat? Do you use a microphone?"</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Specific Game Risks -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>🎯 Popular Games & Specific Risks</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <h4>Fortnite</h4>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> Random squad members in every game, voice chat enabled by default</li>
+                    <li><strong>Spending trap:</strong> Cosmetics ($5-20), Battle Pass ($10), and emotes encourage frequent spending</li>
+                    <li><strong>Community:</strong> Huge player base (250M+), so your child plays with many unknowns</li>
+                    <li><strong>Talk about:</strong> "Do you stick to playing with your friends, or do you squad with randoms?"</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Roblox</h4>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> User-generated worlds = unpredictable content, chat with any player</li>
+                    <li><strong>Spending trap:</strong> Robux currency ($0.99-$100+), social pressure to have cosmetics</li>
+                    <li><strong>Younger users:</strong> Very popular with 6-12 year olds, but attracts older predators</li>
+                    <li><strong>Talk about:</strong> "What worlds/games do you play? Do you chat with other players?"</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Minecraft (Multiplayer Servers)</h4>
+                <ul style="color: var(--text-gray); margin-margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> Depends on the server—some moderated, some with free-for-all chat</li>
+                    <li><strong>Spending trap:</strong> Less than other games, but Realm subscriptions ($8/month)</li>
+                    <li><strong>Safe option:</strong> Playing only with known friends via LAN or private servers</li>
+                    <li><strong>Talk about:</strong> "Do you play on public servers or private servers with friends?"</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Call of Duty, Valorant, CS:GO</h4>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> Competitive games = very toxic community, voice chat with teammates</li>
+                    <li><strong>Content:</strong> Rated M for Mature (17+), but popular with younger teens</li>
+                    <li><strong>Spending trap:</strong> Weapon skins ($2-20), battle passes, cosmetics</li>
+                    <li><strong>Talk about:</strong> "Do other players say mean things during games? How do you handle it?"</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Animal Crossing, Stardew Valley</h4>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> Minimal—these games have less chat and smaller communities</li>
+                    <li><strong>Spending trap:</strong> Low—no in-game purchases or cosmetics</li>
+                    <li><strong>Safer option:</strong> These are good alternatives if you want less multiplayer chaos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Discord & Gaming Communities -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>💬 Discord & Gaming Communities</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <p>Many gamers use Discord (a chat app) alongside games to voice chat with friends. This creates a <strong>second layer</strong> where predators can operate.</p>
+
+                <h4>Risks on Discord:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li><strong>Private servers:</strong> Invite-only groups where moderation is nonexistent</li>
+                    <li><strong>Age-gated communities:</strong> Servers claiming to be "18+" but rarely verify</li>
+                    <li><strong>Direct messages:</strong> Anyone can DM your child, including predators who befriended them in-game</li>
+                    <li><strong>File sharing:</strong> Players can send links, malware, or inappropriate content</li>
+                    <li><strong>Grooming:</strong> Predators use Discord for private conversations after meeting kids in games</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Parent controls on Discord:</h4>
+                <p style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                    <strong>Settings → Privacy & Safety:</strong><br>
+                    • Turn OFF "Allow direct messages from server members"<br>
+                    • Enable "Explicit Content Filter"<br>
+                    • Set "Safe Direct Messaging" to ON<br><br>
+                    <strong>Better approach:</strong> Only allow Discord when your child is playing with <strong>known friends from school or real life</strong>—not randoms from games.
+                </p>
+
+                <h4 style="margin-top: 1.5rem;">Red flags on Discord:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li>Older players asking to move to private chat</li>
+                    <li>Players asking personal questions (age, location, what school)</li>
+                    <li>Anyone asking for photos or video calls</li>
+                    <li>Players sending links to websites or apps</li>
+                    <li>Being added to servers your child didn't join</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- In-Game Spending Trap -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>💳 The In-Game Spending Trap</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <p>In-game purchases are designed to be addictive. Games use psychological tricks to encourage spending:</p>
+
+                <h4>Common tactics:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li><strong>FOMO (Fear of Missing Out):</strong> Limited-time skins/cosmetics that "disappear forever"</li>
+                    <li><strong>Social pressure:</strong> Cosmetics show status—kids feel left out without them</li>
+                    <li><strong>Loot boxes:</strong> Randomized rewards encourage "just one more" purchase</li>
+                    <li><strong>Battle passes:</strong> Monthly subscriptions ($10) that reset each season</li>
+                    <li><strong>Easy payments:</strong> Stored credit cards make purchases 1-click</li>
+                    <li><strong>Peer comparison:</strong> Leaderboards, cosmetics, skins create status hierarchies</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Real spending scenarios:</h4>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0; color: var(--text-gray);">
+                    <strong>Fortnite:</strong> Battle Pass ($10/season) + 1-2 cosmetics ($20) = $30-40/month per child<br><br>
+                    <strong>Roblox:</strong> $50-100/month (kid pays in small increments so parents don't notice)<br><br>
+                    <strong>Genshin Impact:</strong> "Gacha" game = $0-$100+ per month for random character pulls
+                </div>
+
+                <h4 style="margin-top: 1.5rem;">How to protect your wallet:</h4>
+                <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid var(--success); padding: 1rem; border-radius: 8px;">
+                    ✅ <strong>Remove your payment method</strong> from their account (they must ask you to buy anything)<br><br>
+                    ✅ <strong>Use gift cards with limits</strong> ($10/month max) instead of credit cards<br><br>
+                    ✅ <strong>Set up parental controls</strong> on app stores to require approval for in-game purchases<br><br>
+                    ✅ <strong>Have a conversation</strong> about why games cost money and what's a reasonable budget<br><br>
+                    ✅ <strong>Check credit card statements</strong> monthly for surprise charges
+                </div>
+            </div>
+        </div>
+
+        <!-- Toxic Gaming Culture -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>😤 Toxic Gaming Culture & Harassment</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <p>Competitive online games often have toxic communities. Your child may experience:</p>
+
+                <h4>Types of toxicity:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li><strong>Rage quits:</strong> Players screaming and cursing when they lose</li>
+                    <li><strong>Sexism:</strong> Girls being targeted with sexual comments</li>
+                    <li><strong>Racism:</strong> Slurs and racist jokes in voice chat</li>
+                    <li><strong>Bullying:</strong> Mocking kids for being "bad" at the game</li>
+                    <li><strong>Harassment:</strong> Following kids into multiple games to harass them</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">How to help:</h4>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                    <strong>If they experience harassment:</strong><br>
+                    • Tell them it's NOT their fault<br>
+                    • Help them <strong>block, mute, report</strong> the player immediately<br>
+                    • Check privacy settings so only friends can contact them<br>
+                    • Save screenshots as evidence<br>
+                    • Report to the game's support team<br><br>
+                    <strong>Conversation starter:</strong> "Have any players ever said mean things to you? You can tell me—I won't take the game away."
+                </div>
+            </div>
+        </div>
+
+        <!-- Healthy Gaming Habits -->
+        <div class="article-section-v2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>✅ Healthy Gaming Habits</h3>
+                <span class="section-toggle">▶</span>
+            </div>
+            <div class="section-content">
+                <h4>Create a family gaming plan:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li><strong>Time limits:</strong> School nights (30-60 min), weekends (1-2 hrs)</li>
+                    <li><strong>Break requirements:</strong> 20/20/20 rule (every 20 min, look at something 20 ft away for 20 sec)</li>
+                    <li><strong>No gaming before homework/school:</strong> Prioritize what matters</li>
+                    <li><strong>Gaming is social, not private:</strong> Play in common areas, not bedroom with door closed</li>
+                    <li><strong>Friend-only rule:</strong> Only play multiplayer with kids they know in real life</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Games that are safer:</h4>
+                <p style="color: var(--text-gray); margin: 1rem 0;">Single-player: Zelda, Mario, Stardew Valley, Spiritfarer, Journey<br>
+                Multiplayer with friends only: Minecraft (private), Mario Kart, Splatoon, Animal Crossing<br>
+                Avoid for now: Fortnite, Roblox, Call of Duty, GTA (too many strangers & chat)</p>
+
+                <h4 style="margin-top: 1.5rem;">What to do instead of always gaming:</h4>
+                <ul style="color: var(--text-gray);">
+                    <li>Play board games or card games together</li>
+                    <li>Go outside (biking, sports, exploring)</li>
+                    <li>Creative hobbies (drawing, music, building)</li>
+                    <li>Reading, audiobooks, podcasts</li>
+                    <li>Cooking or baking together</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Key Takeaway -->
+        <section style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid var(--success); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+            <h3 style="color: var(--success); margin-top: 0;">🎯 Key Takeaway</h3>
+            <p style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 1rem;">Gaming is a normal, fun part of growing up. The goal isn't to ban gaming—it's to <strong>make it safe and balanced</strong>.</p>
+            <ul style="color: var(--text-dark);">
+                <li><strong>Know which games they play</strong> and who they play with</li>
+                <li><strong>Keep payment methods secure</strong> to prevent accidental spending</li>
+                <li><strong>Monitor without invading privacy</strong>—check in, don't spy</li>
+                <li><strong>Have ongoing conversations</strong> about their experiences</li>
+                <li><strong>Model healthy habits</strong>—they're watching how you use tech too</li>
+                <li><strong>Create a support system</strong>—they should feel safe telling you about problems</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DigitalCap. Gaming safety for families. <a href="interactive.html">Back to tools.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apps-complete-v2.js"></script>
+    <script src="js/global-search.js"></script>
+
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.section-toggle');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                toggle.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('open');
+                toggle.style.transform = 'rotate(90deg)';
+            }
+        }
+
+        function toggleTextToSpeech() {
+            const btn = document.getElementById('ttsBtn');
+            const mainContent = document.querySelector('main');
+
+            if (btn.classList.contains('playing')) {
+                speechSynthesis.cancel();
+                btn.classList.remove('playing');
+                btn.textContent = '🔊 Read Aloud';
+            } else {
+                const text = mainContent.innerText;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                utterance.onend = () => {
+                    btn.classList.remove('playing');
+                    btn.textContent = '🔊 Read Aloud';
+                };
+                speechSynthesis.speak(utterance);
+                btn.classList.add('playing');
+                btn.textContent = '⏸️ Stop Reading';
+            }
+        }
+    </script>
+</body>
+</html>

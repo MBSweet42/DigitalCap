@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Hotlines & Crisis Support - DigitalCap</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <div style="flex: 1; max-width: 300px; margin: 0 1rem;">
+                <input type="text" id="globalSearch" placeholder="🔍 Search..." style="width: 100%; padding: 0.5rem 0.75rem; border: none; border-radius: 6px; font-size: 0.9rem; background: rgba(255,255,255,0.9);">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1>🆘 Emergency Support & Crisis Hotlines</h1>
+            <p class="subtitle">Immediate help when your family needs it most.</p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--danger); margin-bottom: 2rem;">
+            <p style="margin: 0; color: var(--text-dark);"><strong>⚠️ In immediate danger?</strong> Call 911 (US) or your local emergency number. If someone is threatening your child online, report to the <strong>National Center for Missing & Exploited Children (NCMEC)</strong> immediately.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <!-- Crisis Text Line -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">💬</span>
+                    <h3 style="margin: 0; color: var(--primary);">Crisis Text Line</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For mental health crisis, bullying, or emotional distress</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Text:</strong> HOME to 741741</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">Available 24/7, confidential, free</p>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="copyToClipboard('HOME')">📋 Copy Text Code</button>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Cyberbullying, depression, anxiety, self-harm thoughts</p>
+            </div>
+
+            <!-- NCMEC CyberTipline -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🚨</span>
+                    <h3 style="margin: 0; color: var(--primary);">NCMEC CyberTipline</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For exploitation, predators, or grooming</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Online Report:</strong> CyberTipline.org</p>
+                    <p style="margin: 0.5rem 0;"><strong>Or Call:</strong> 1-800-843-5678</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">24/7, works with law enforcement</p>
+                </div>
+                <a href="https://www.cybertipline.org/" target="_blank" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; text-decoration: none;">🌐 Go to CyberTipline</a>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Child exploitation, predatory behavior, sextortion, grooming</p>
+            </div>
+
+            <!-- Cyberbullying Hotline -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🛡️</span>
+                    <h3 style="margin: 0; color: var(--primary);">Cyberbullying Hotline</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For online harassment and cyberbullying</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Phone:</strong> 1-800-420-1479</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">Advice, resources, and reporting help</p>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="copyToClipboard('1-800-420-1479')">📋 Copy Number</button>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Mean comments, threats, spreading rumors, exclusion</p>
+            </div>
+
+            <!-- National Suicide Prevention Lifeline -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">💙</span>
+                    <h3 style="margin: 0; color: var(--primary);">National Suicide Prevention</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For suicide risk or self-harm thoughts</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Call or Text:</strong> 988</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">24/7, free and confidential</p>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="copyToClipboard('988')">📋 Copy Number</button>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Suicidal thoughts, self-harm, depression, hopelessness</p>
+            </div>
+
+            <!-- Childhelp National Child Abuse Hotline -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🤝</span>
+                    <h3 style="margin: 0; color: var(--primary);">Childhelp Abuse Hotline</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For child abuse or neglect</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Call:</strong> 1-800-422-4453</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">24/7, confidential, multilingual</p>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="copyToClipboard('1-800-422-4453')">📋 Copy Number</button>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Suspected abuse, neglect, safety concerns</p>
+            </div>
+
+            <!-- RAINN Sexual Assault Hotline -->
+            <div class="hotline-card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">⚠️</span>
+                    <h3 style="margin: 0; color: var(--primary);">RAINN Sexual Assault</h3>
+                </div>
+                <p style="color: var(--text-gray); margin: 1rem 0;"><strong>For sexual assault or harassment</strong></p>
+                <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="margin: 0.5rem 0;"><strong>Call:</strong> 1-800-656-4673 (HOPE)</p>
+                    <p style="margin: 0.5rem 0;"><strong>Or Text:</strong> HELLO to 741741</p>
+                    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-gray);">24/7, confidential</p>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="copyToClipboard('HELLO')">📋 Copy Text Code</button>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">Perfect for: Sexual assault, sextortion, inappropriate contact</p>
+            </div>
+        </div>
+
+        <!-- Quick Guide -->
+        <section style="background: var(--bg-white); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
+            <h2 style="color: var(--primary); margin-top: 0;">When to Call vs. Text vs. Report Online</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <h4 style="color: var(--secondary);">📞 Call When:</h4>
+                    <ul style="color: var(--text-gray);">
+                        <li>Someone is in immediate danger</li>
+                        <li>Your child is having thoughts of suicide</li>
+                        <li>You suspect abuse or exploitation happening now</li>
+                        <li>You need to report a crime</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--secondary);">💬 Text When:</h4>
+                    <ul style="color: var(--text-gray);">
+                        <li>Your child feels safer texting (more private)</li>
+                        <li>It's during school/work and calling isn't possible</li>
+                        <li>Your child is struggling emotionally</li>
+                        <li>You need to talk but can't make a voice call</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--secondary);">🌐 Report Online When:</h4>
+                    <ul style="color: var(--text-gray);">
+                        <li>You have screenshots of exploitation</li>
+                        <li>You want to document predatory messages</li>
+                        <li>You need a formal report for law enforcement</li>
+                        <li>You prefer detailed written documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notes -->
+        <section style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(255, 183, 3, 0.05) 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent);">
+            <h3 style="color: var(--primary); margin-top: 0;">📌 Important to Know</h3>
+            <ul style="color: var(--text-gray); line-height: 1.8;">
+                <li><strong>All of these services are free and confidential.</strong> They won't judge your family or get you in trouble.</li>
+                <li><strong>Text lines are staffed by real people,</strong> not bots. They're trained in crisis support and genuinely care.</li>
+                <li><strong>Reports to NCMEC CyberTipline go to law enforcement.</strong> Law enforcement takes digital crimes very seriously.</li>
+                <li><strong>You don't need to have proof to call.</strong> If you're concerned, that's enough reason to reach out.</li>
+                <li><strong>If your child won't talk to you,</strong> these services can help them process what happened in a safe space.</li>
+                <li><strong>Screenshot everything.</strong> Before deleting messages or blocking someone, take screenshots as evidence.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DigitalCap. Crisis resources & hotlines. <a href="index.html">Back to home.</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/apps-complete-v2.js"></script>
+    <script src="js/global-search.js"></script>
+
+    <style>
+        .hotline-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .hotline-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .hotline-card h3 {
+            margin: 0;
+        }
+
+        .copy-feedback {
+            padding: 0.5rem 1rem;
+            background: var(--success);
+            color: white;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const btn = event.target;
+                const original = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.background = 'var(--success)';
+
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Copy failed. Try manually selecting the text.');
+            });
+        }
+    </script>
+</body>
+</html>
