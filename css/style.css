@@ -69,9 +69,10 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--bg-white);
+    color: #FFFFFF;
     text-decoration: none;
     transition: transform 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .logo:hover {
