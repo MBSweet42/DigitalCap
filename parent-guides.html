@@ -10,7 +10,10 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">⚡ DigitalCap</a>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="global-search-wrapper">
+                <input type="text" id="globalSearch" class="global-search-input" placeholder="🔍 Search..." aria-label="Search the site for apps, articles, and resources">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="apps-v2.html">App Directory</a></li>
@@ -464,5 +467,8 @@
             cursor: pointer;
         }
     </style>
+
+    <script src="js/main.js"></script>
+    <script src="js/global-search.js"></script>
 </body>
 </html>

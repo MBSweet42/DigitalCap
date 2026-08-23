@@ -10,14 +10,19 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">⚡ DigitalCap</a>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="global-search-wrapper">
+                <input type="text" id="globalSearch" class="global-search-input" placeholder="🔍 Search..." aria-label="Search the site for apps, articles, and resources">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="apps.html">App Directory</a></li>
-                <li><a href="safety.html">Digital Safety</a></li>
-                <li><a href="etiquette.html">Digital Etiquette</a></li>
-                <li><a href="interactive.html">Interactive Tools</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety-v2-fixed.html">Safety</a></li>
+                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
             </ul>
         </div>
     </nav>
@@ -95,5 +100,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/global-search.js"></script>
 </body>
 </html>
