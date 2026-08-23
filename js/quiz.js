@@ -164,6 +164,7 @@ function showChecklist() {
     `;
 
     toolsContainer.innerHTML = html;
+    toolsContainer.style.display = 'block';
     toolsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -287,6 +288,7 @@ function showSlideshow() {
         `;
 
         toolsContainer.innerHTML = html;
+        toolsContainer.style.display = 'block';
         toolsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
@@ -330,6 +332,7 @@ window.showConversationStarters = function() {
     `;
 
     toolsContainer.innerHTML = html;
+    toolsContainer.style.display = 'block';
 
     // Setup event listeners instead of inline onclick
     const viewAllBtn = document.getElementById('viewAllBtn');
