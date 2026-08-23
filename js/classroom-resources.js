@@ -354,22 +354,15 @@ function renderLessonCards(lessons) {
             </div>
 
             <div class="lesson-downloads">
-                ${lesson.includes.lessonPlan && lesson.downloads.plan !== '#' ? `<a href="${lesson.downloads.plan}" class="btn-download" title="Open Lesson Plan" target="_blank">📥 Lesson</a>` : ''}
-                ${lesson.includes.slideShow && lesson.downloads.slides !== '#' ? `<a href="${lesson.downloads.slides}" class="btn-download" title="Open Slides" target="_blank">📥 Slides</a>` : ''}
-                ${lesson.downloads.worksheet && lesson.downloads.worksheet !== '#' ? `<a href="${lesson.downloads.worksheet}" class="btn-download" title="Open Worksheet" target="_blank">📝 Worksheet</a>` : ''}
-                ${lesson.includes.parentGuide && lesson.downloads.parentGuide !== '#' ? `<a href="${lesson.downloads.parentGuide}" class="btn-download" title="Open Parent Guide" target="_blank">📥 Parent</a>` : ''}
-                <button class="btn-view" onclick="printLesson('${lesson.id}')">🖨️ Print</button>
+                ${lesson.includes.lessonPlan && lesson.downloads.plan !== '#' ? `<a href="${lesson.downloads.plan}" class="btn-download" title="Open Lesson Plan (includes parent guide)" target="_blank">📥 Lesson</a>` : ''}
+                ${lesson.includes.slideShow && lesson.downloads.slides !== '#' ? `<a href="${lesson.downloads.slides}" class="btn-download" title="Open Interactive Slides" target="_blank">📥 Slides</a>` : ''}
+                ${lesson.downloads.worksheet && lesson.downloads.worksheet !== '#' ? `<a href="${lesson.downloads.worksheet}" class="btn-download" title="Open Printable Worksheet" target="_blank">📝 Worksheet</a>` : ''}
+                ${lesson.includes.lessonPlan && lesson.downloads.plan !== '#' ? `<a href="${lesson.downloads.plan}" class="btn-view" title="Open lesson plan to print everything at once" target="_blank">🖨️ Print All</a>` : ''}
             </div>
         </div>
     `).join('');
 }
 
-function printLesson(lessonId) {
-    const lesson = classroomLessons.find(l => l.id === lessonId);
-    if (!lesson) return;
-
-    window.print();
-}
 
 function resetFilters() {
     currentFilters = {
