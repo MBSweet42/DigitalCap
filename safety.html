@@ -50,56 +50,39 @@
 
         <div id="articlesContainer"></div>
 
-        <!-- Conversation Guides -->
+        <!-- Conversation Guides - Parent Scripts -->
         <div id="article-conversation-guides" data-article-id="conversation-guides" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
-            <h2 style="color: var(--primary); margin-top: 0;">Conversation Guides</h2>
-            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Browse conversation starters organized by age group. Click any question to see it in a popup.</p>
-            <div style="display: grid; gap: 2rem;">
-                <div>
-                    <h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">Young Kids (6-10)</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                        <button class="conversation-starter-btn" data-starter-id="1" data-age-group="Young Kids (6-10)" data-question="Tell me about your favorite app or game. What do you like about it?" onclick="showConversationModal(1, 'Young Kids (6-10)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q1</strong>Tell me about your favorite app or game. What do you like about it?</button>
-                        <button class="conversation-starter-btn" data-starter-id="2" data-age-group="Young Kids (6-10)" data-question="If a stranger online asked you to be their friend, what would you do?" onclick="showConversationModal(2, 'Young Kids (6-10)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q2</strong>If a stranger online asked you to be their friend, what would you do?</button>
-                        <button class="conversation-starter-btn" data-starter-id="3" data-age-group="Young Kids (6-10)" data-question="Do you ever tell me everything you see or do online? What kinds of things make you uncomfortable?" onclick="showConversationModal(3, 'Young Kids (6-10)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q3</strong>Do you ever tell me everything you see or do online? What kinds of things make you uncomfortable?</button>
-                        <button class="conversation-starter-btn" data-starter-id="4" data-age-group="Young Kids (6-10)" data-question="What's the difference between a real friend and a friend online?" onclick="showConversationModal(4, 'Young Kids (6-10)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q4</strong>What's the difference between a real friend and a friend online?</button>
-                        <button class="conversation-starter-btn" data-starter-id="5" data-age-group="Young Kids (6-10)" data-question="Have you ever clicked on something online that looked fun but worried you?" onclick="showConversationModal(5, 'Young Kids (6-10)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q5</strong>Have you ever clicked on something online that looked fun but worried you?</button>
-                    </div>
-                </div>
-                <div>
-                    <h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">Tweens (11-13)</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                        <button class="conversation-starter-btn" data-starter-id="6" data-age-group="Tweens (11-13)" data-question="Are you happy with the apps you use? Do you feel like they're a good fit for you?" onclick="showConversationModal(6, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q6</strong>Are you happy with the apps you use? Do you feel like they're a good fit for you?</button>
-                        <button class="conversation-starter-btn" data-starter-id="7" data-age-group="Tweens (11-13)" data-question="Have you experienced cyberbullying? What happened and how did you handle it?" onclick="showConversationModal(7, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q7</strong>Have you experienced cyberbullying? What happened and how did you handle it?</button>
-                        <button class="conversation-starter-btn" data-starter-id="8" data-age-group="Tweens (11-13)" data-question="Do you think your password is strong? Can we talk about password safety?" onclick="showConversationModal(8, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q8</strong>Do you think your password is strong? Can we talk about password safety?</button>
-                        <button class="conversation-starter-btn" data-starter-id="9" data-age-group="Tweens (11-13)" data-question="Who can you talk to if something online makes you uncomfortable or scared?" onclick="showConversationModal(9, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q9</strong>Who can you talk to if something online makes you uncomfortable or scared?</button>
-                        <button class="conversation-starter-btn" data-starter-id="10" data-age-group="Tweens (11-13)" data-question="How much screen time feels right to you? Do you ever feel like you're spending too much time online?" onclick="showConversationModal(10, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q10</strong>How much screen time feels right to you? Do you ever feel like you're spending too much time online?</button>
-                        <button class="conversation-starter-btn" data-starter-id="11" data-age-group="Tweens (11-13)" data-question="What information is okay to share online and what should stay private?" onclick="showConversationModal(11, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q11</strong>What information is okay to share online and what should stay private?</button>
-                        <button class="conversation-starter-btn" data-starter-id="12" data-age-group="Tweens (11-13)" data-question="Have you ever seen someone spread rumors or say mean things online? How did that make you feel?" onclick="showConversationModal(12, 'Tweens (11-13)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q12</strong>Have you ever seen someone spread rumors or say mean things online? How did that make you feel?</button>
-                    </div>
-                </div>
-                <div>
-                    <h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">Teens (14-18)</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                        <button class="conversation-starter-btn" data-starter-id="13" data-age-group="Teens (14-18)" data-question="How do you balance your online presence with your real life? Is it healthy?" onclick="showConversationModal(13, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q13</strong>How do you balance your online presence with your real life? Is it healthy?</button>
-                        <button class="conversation-starter-btn" data-starter-id="14" data-age-group="Teens (14-18)" data-question="Have you ever felt pressure to post or share something you weren't comfortable with?" onclick="showConversationModal(14, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q14</strong>Have you ever felt pressure to post or share something you weren't comfortable with?</button>
-                        <button class="conversation-starter-btn" data-starter-id="15" data-age-group="Teens (14-18)" data-question="What's your understanding of digital privacy? What information should you protect?" onclick="showConversationModal(15, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q15</strong>What's your understanding of digital privacy? What information should you protect?</button>
-                        <button class="conversation-starter-btn" data-starter-id="16" data-age-group="Teens (14-18)" data-question="Have you ever encountered misinformation online? How did you know it wasn't true?" onclick="showConversationModal(16, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q16</strong>Have you ever encountered misinformation online? How did you know it wasn't true?</button>
-                        <button class="conversation-starter-btn" data-starter-id="17" data-age-group="Teens (14-18)" data-question="How do you handle negative comments or criticism online?" onclick="showConversationModal(17, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q17</strong>How do you handle negative comments or criticism online?</button>
-                        <button class="conversation-starter-btn" data-starter-id="18" data-age-group="Teens (14-18)" data-question="Have you thought about your digital footprint and how your posts might affect your future?" onclick="showConversationModal(18, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q18</strong>Have you thought about your digital footprint and how your posts might affect your future?</button>
-                        <button class="conversation-starter-btn" data-starter-id="19" data-age-group="Teens (14-18)" data-question="What would you do if someone tried to catfish you or manipulate you online?" onclick="showConversationModal(19, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q19</strong>What would you do if someone tried to catfish you or manipulate you online?</button>
-                        <button class="conversation-starter-btn" data-starter-id="20" data-age-group="Teens (14-18)" data-question="Do you feel like you can talk to me about problems online without judgment?" onclick="showConversationModal(20, 'Teens (14-18)', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q20</strong>Do you feel like you can talk to me about problems online without judgment?</button>
-                    </div>
-                </div>
-                <div>
-                    <h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">Parents</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                        <button class="conversation-starter-btn" data-starter-id="21" data-age-group="Parents" data-question="What do I understand about the apps my child uses? What do I still need to learn?" onclick="showConversationModal(21, 'Parents', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q21</strong>What do I understand about the apps my child uses? What do I still need to learn?</button>
-                        <button class="conversation-starter-btn" data-starter-id="22" data-age-group="Parents" data-question="How can I stay involved without invading my child's privacy?" onclick="showConversationModal(22, 'Parents', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q22</strong>How can I stay involved without invading my child's privacy?</button>
-                        <button class="conversation-starter-btn" data-starter-id="23" data-age-group="Parents" data-question="What are realistic screen time limits for my family?" onclick="showConversationModal(23, 'Parents', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q23</strong>What are realistic screen time limits for my family?</button>
-                        <button class="conversation-starter-btn" data-starter-id="24" data-age-group="Parents" data-question="How do I talk to my child about online predators and grooming without scaring them?" onclick="showConversationModal(24, 'Parents', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q24</strong>How do I talk to my child about online predators and grooming without scaring them?</button>
-                        <button class="conversation-starter-btn" data-starter-id="25" data-age-group="Parents" data-question="What should I do if I discover my child is being cyberbullied?" onclick="showConversationModal(25, 'Parents', this.getAttribute('data-question'))" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q25</strong>What should I do if I discover my child is being cyberbullied?</button>
-                    </div>
-                </div>
+            <h2 style="color: var(--primary); margin-top: 0;">Parent Conversation Scripts</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Ready-to-use scripts for talking to your child about digital safety. Click any script to read the full dialogue, when to use it, and how to adapt it to your child's age.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <button class="script-btn" onclick="showScriptModal('The Password Safety Talk', 'Foundation conversation about strong passwords and why they matter', 'Parent: \"Hey, I want to talk about passwords. Do you know why passwords are important?\"\n\nChild: [responds]\n\nParent: \"Right. Your password is like a key to your room. If someone has it, they can go through your stuff, change things, and pretend to be you. That\\'s why we need STRONG passwords.\"\n\nParent: \"A strong password has at least 12 letters, numbers, and symbols mixed together. NOT your name or birthday. Can we create one together?\"\n\nChild: [you create password together]\n\nParent: \"Great! One more important rule: NEVER give your password to anyone. Not your best friend, not your crush, nobody. People change, and relationships end. OK?\"\n\nChild: [agrees]\n\nParent: \"If you ever think someone got your password, tell me right away. We\\'ll change it together. No punishment, just teamwork. Deal?\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">🔐 The Password Safety Talk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">Foundation conversation about strong passwords</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('After a Hacked Account', 'Immediate response conversation when an account is compromised', 'Parent: \"I noticed someone got into your [app] account. I\\'m not angry—this happens to tons of people. Let\\'s fix it together.\"\n\nParent: \"First, can you tell me what happened? How do you think they got in?\"\n\nChild: [explains]\n\nParent: \"OK, here\\'s what we\\'re doing: We\\'re changing your password right now to something super strong. Then we\\'re checking what they changed and fixing it. Then we\\'re watching for anything weird.\"\n\nParent: \"Going forward, let\\'s use a password manager so you don\\'t have to remember a bunch of passwords. And tell me ASAP if anything like this happens again. I\\'d rather help you fix it than find out later.\"\n\nParent: \"This doesn\\'t mean you did anything wrong. Hackers are sneaky. You\\'re learning. We\\'re in this together.\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">⚠️ After a Hacked Account</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">What to say when an account is compromised</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('Spotting Scams Talk', 'Teach critical thinking about suspicious offers and requests', 'Parent: \"I want to teach you about scams because they\\'re everywhere online. Have you ever seen an ad or message that seemed too good to be true?\"\n\nChild: [responds]\n\nParent: \"That\\'s the trick. Scammers make things SOUND amazing so you\\'ll click. Free Robux, free money, you won a prize... but there\\'s always a catch.\"\n\nParent: \"Here\\'s the rule: If it\\'s free and amazing, it\\'s a scam. Real companies don\\'t randomly give away stuff. And they don\\'t ask for passwords through links or messages.\"\n\nParent: \"If you ever see something that seems weird, here\\'s what you do: (1) Don\\'t click the link. (2) Tell me about it. (3) We\\'ll report it together. Sound good?\"\n\nChild: [agrees]\n\nParent: \"Let me show you how to spot the red flags. Look at this email/message. What seems weird about it?\"\n\n[Point out: spelling errors, urgent language, weird sender, asking for password, etc.]')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">🎣 Spotting Scams Talk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">Teach them to recognize and avoid scams</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('Grooming Safety Talk - The Early Conversation', 'Foundation conversation about online stranger danger (Start early!)', 'Parent: \"I want to talk about something important. Sometimes adults online try to trick kids. Not because the kids did anything wrong, but because the adult is being creepy.\"\n\nParent: \"Here\\'s what you need to know: Adults who want to be YOUR friend online are being weird. Real friends your age are at school or in your neighborhood.\"\n\nParent: \"If an adult online asks where you live, what school you go to, or wants your picture—that\\'s a big red flag. Tell me right away.\"\n\nParent: \"They might seem nice at first and even send you gifts or money. That\\'s part of the trick. They\\'re trying to win your trust so they can ask for something bad later.\"\n\nParent: \"Your job is simple: Tell me about new online friends. Tell me if anyone asks personal questions. Tell me if anyone asks you to keep secrets from me. I promise I won\\'t be mad—I just want to keep you safe.\"\n\nChild: [you listen, reassure]\n\nParent: \"If anything ever makes you uncomfortable, even if you\\'re not sure why, tell me. We\\'ll figure it out together.\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">🛡️ Grooming Safety - Early Talk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">Foundation conversation about online stranger danger</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('Grooming Safety Talk - Red Flags Check-In', 'Regular conversation to check for warning signs', 'Parent: \"I want to check in with you about your online friends. Can you tell me who you\\'re talking to online these days?\"\n\nChild: [tells you]\n\nParent: \"Cool. Do any of them ask you personal questions? Like where you live, what school you go to, or want pictures of you?\"\n\nChild: [responds]\n\nParent: \"Good question for you: Has anyone online ever said things like \\'your parents wouldn\\'t understand\\' or \\'let\\'s keep this between us\\'?\"\n\nChild: [responds]\n\nParent: \"Those are warning signs. Adults trying to do something wrong will try to isolate you from your family. They\\'ll be extra nice, extra understanding, extra interested in what you\\'re doing.\"\n\nParent: \"If that ever happens, I need you to tell me immediately. And I want you to know: if it already has happened, you did NOTHING wrong. The adult is 100% at fault. You\\'re smart to tell me.\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">🛡️ Grooming Safety - Check-In</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">Regular conversation to watch for red flags</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('Online Respect Talk', 'Foundation conversation about treating people with respect online', 'Parent: \"Let\\'s talk about how we treat people online. Is it different from how you treat people in person?\"\n\nChild: [responds]\n\nParent: \"I\\'ve noticed that people are sometimes meaner online. Maybe it\\'s because they\\'re behind a screen, or they think no one will know it was them. But here\\'s the truth: Your words matter online just as much as they do in person.\"\n\nParent: \"Before you post or comment, ask yourself: Would I say this to their face? Is it kind? Is it necessary?\"\n\nParent: \"If you see someone being mean to someone else, you have choices: (1) Don\\'t join in. (2) Tell the person \\'that\\'s not cool.\\' (3) Support the person being attacked privately with a kind message.\"\n\nParent: \"You\\'re not responsible for fixing everything, but you ARE responsible for not making things worse.\"\n\nParent: \"If someone is mean to you, remember: It says more about them than about you. You can block, report, and move on.\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">💬 Online Respect Talk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">Teach kindness and respect online</span>
+                </button>
+                <button class="script-btn" onclick="showScriptModal('Cyberbullying Response Talk', 'Immediate conversation if they\\'re experiencing cyberbullying', 'Parent: \"I heard that some kids have been mean to you online. I\\'m sorry that happened. That\\'s not OK.\"\n\nParent: \"First, I want you to know this is not your fault. The problem is with them, not with you.\"\n\nParent: \"Here\\'s what we\\'re going to do: (1) You\\'re going to take a break from that app for a few days. (2) We\\'re blocking those accounts. (3) We\\'re reporting them to the platform. (4) You\\'re going to talk to [counselor/trusted adult] about how you\\'re feeling.\"\n\nParent: \"You don\\'t deserve to feel scared or hurt online. And we\\'re going to make sure this stops.\"\n\nParent: \"If it keeps happening, we might need to tell the school. That\\'s not tattling—that\\'s getting help.\"\n\nParent: \"In the meantime, lean on your real friends. Do things that make you feel good. And keep talking to me about how you\\'re doing.\"\n\nParent: \"You\\'re stronger than you think. We\\'re going to get through this together.\"')" style="flex: 1; min-width: 280px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.95rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary);">😔 Cyberbullying Response Talk</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-gray);">What to say when they\\'re being bullied online</span>
+                </button>
             </div>
         </div>
 
@@ -265,6 +248,90 @@
         });
 
         // Populate conversation guides
+
+        window.showScriptModal = function(title, description, script) {
+            let modal = document.getElementById('scriptModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'scriptModal';
+                modal.style.cssText = `
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                    justify-content: center;
+                    align-items: center;
+                    overflow-y: auto;
+                `;
+                document.body.appendChild(modal);
+            }
+
+            const backdrop = document.createElement('div');
+            backdrop.style.cssText = `
+                background: white;
+                border-radius: 12px;
+                padding: 2rem;
+                max-width: 700px;
+                max-height: 85vh;
+                overflow-y: auto;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+                animation: slideUp 0.3s ease;
+                margin: 2rem auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            `;
+            backdrop.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.4rem;">${title}</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; font-size: 0.9rem;">${description}</p>
+                <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 1.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.6; color: var(--text-dark);">${script}</div>
+                <button onclick="closeScriptModal()" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Close</button>
+            `;
+
+            if (!document.getElementById('slideUpKeyframes')) {
+                const style = document.createElement('style');
+                style.id = 'slideUpKeyframes';
+                style.innerHTML = `
+                    @keyframes slideUp {
+                        from {
+                            transform: translateY(30px);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            modal.innerHTML = '';
+            modal.appendChild(backdrop);
+            modal.style.display = 'flex';
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeScriptModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeScriptModal();
+                }
+            });
+        };
+
+        window.closeScriptModal = function() {
+            const modal = document.getElementById('scriptModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        };
 
         window.showConversationModal = function(id, ageGroup, question) {
             // Create modal if it doesn't exist
