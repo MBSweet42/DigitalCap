@@ -79,7 +79,39 @@
     <script src="js/conversation-data.js"></script>
 
     <script>
-        // Populate conversation guides as soon as data is loaded
+        // Define and populate conversation guides
+        function populateConversationGuides() {
+            const container = document.getElementById('conversationGuidesContainer');
+            if (!container || !conversationStarters || conversationStarters.length === 0) {
+                setTimeout(populateConversationGuides, 500);
+                return;
+            }
+
+            const grouped = {};
+            conversationStarters.forEach(starter => {
+                if (!grouped[starter.ageGroup]) grouped[starter.ageGroup] = [];
+                grouped[starter.ageGroup].push(starter);
+            });
+
+            let html = '';
+            Object.entries(grouped).forEach(([ageGroup, starters]) => {
+                html += `<div><h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">${ageGroup}</h3><div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">`;
+                starters.forEach(starter => {
+                    html += `<button class="conversation-starter-btn" data-starter-id="${starter.id}" data-age-group="${ageGroup}" data-question="${starter.question.replace(/"/g, '&quot;')}" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;"><strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q${starter.id}</strong>${starter.question}</button>`;
+                });
+                html += `</div></div>`;
+            });
+            container.innerHTML = html;
+
+            document.querySelectorAll('.conversation-starter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showConversationModal(this.getAttribute('data-starter-id'), this.getAttribute('data-age-group'), this.getAttribute('data-question'));
+                });
+                btn.addEventListener('mouseover', function() { this.style.borderColor = 'var(--primary)'; this.style.background = 'rgba(78, 205, 196, 0.08)'; });
+                btn.addEventListener('mouseout', function() { this.style.borderColor = 'var(--border-color)'; this.style.background = 'var(--bg-light)'; });
+            });
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', populateConversationGuides);
         } else {
@@ -187,59 +219,6 @@
         });
 
         // Populate conversation guides
-        function populateConversationGuides() {
-            const container = document.getElementById('conversationGuidesContainer');
-            if (!container || !conversationStarters || conversationStarters.length === 0) {
-                // Retry after a short delay
-                setTimeout(populateConversationGuides, 500);
-                return;
-            }
-
-            // Group by age group
-            const grouped = {};
-            conversationStarters.forEach(starter => {
-                if (!grouped[starter.ageGroup]) grouped[starter.ageGroup] = [];
-                grouped[starter.ageGroup].push(starter);
-            });
-
-            // Render groups
-            let html = '';
-            Object.entries(grouped).forEach(([ageGroup, starters]) => {
-                html += `<div>
-                    <h3 style="color: var(--secondary); margin: 0 0 1rem 0; font-size: 1.1rem;">${ageGroup}</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">`;
-
-                starters.forEach(starter => {
-                    html += `<button class="conversation-starter-btn" data-starter-id="${starter.id}" data-age-group="${ageGroup}" data-question="${starter.question.replace(/"/g, '&quot;')}" style="flex: 1; min-width: 250px; padding: 1rem; background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-dark); transition: all 0.2s ease; font-family: inherit;">
-                        <strong style="display: block; margin-bottom: 0.3rem; color: var(--primary);">Q${starter.id}</strong>
-                        ${starter.question}
-                    </button>`;
-                });
-
-                html += `</div></div>`;
-            });
-
-            container.innerHTML = html;
-
-            // Add click and hover effects
-            document.querySelectorAll('.conversation-starter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const id = this.getAttribute('data-starter-id');
-                    const ageGroup = this.getAttribute('data-age-group');
-                    const question = this.getAttribute('data-question');
-                    showConversationModal(id, ageGroup, question);
-                });
-
-                btn.addEventListener('mouseover', function() {
-                    this.style.borderColor = 'var(--primary)';
-                    this.style.background = 'rgba(78, 205, 196, 0.08)';
-                });
-                btn.addEventListener('mouseout', function() {
-                    this.style.borderColor = 'var(--border-color)';
-                    this.style.background = 'var(--bg-light)';
-                });
-            });
-        }
 
         window.showConversationModal = function(id, ageGroup, question) {
             // Create modal if it doesn't exist
