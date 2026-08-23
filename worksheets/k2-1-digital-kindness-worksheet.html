@@ -16,7 +16,17 @@
         .instructions { background: #F0F8F8; padding: 12px; border-left: 4px solid #4ECDC4; margin-bottom: 15px; font-size: 0.95rem; }
         .answer-space { border-bottom: 1px solid #333; min-height: 40px; margin: 10px 0; }
         .checkbox { width: 20px; height: 20px; margin-right: 10px; }
-        @media print { body { background: white; } .container { padding: 20px; } }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #FF6B6B; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
     </style>
 </head>
 <body>
