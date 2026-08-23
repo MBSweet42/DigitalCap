@@ -146,6 +146,35 @@
         } else {
             populateConversationGuides();
         }
+
+        window.showScriptModal = function(title, description, script) {
+            let modal = document.getElementById('scriptModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'scriptModal';
+                modal.style.cssText = `display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center; overflow-y: auto;`;
+                document.body.appendChild(modal);
+            }
+            const backdrop = document.createElement('div');
+            backdrop.style.cssText = `background: white; border-radius: 12px; padding: 2rem; max-width: 700px; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); animation: slideUp 0.3s ease; margin: 2rem auto; white-space: pre-wrap; word-wrap: break-word;`;
+            backdrop.innerHTML = `<h2 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.4rem;">${title}</h2><p style="color: var(--text-gray); margin: 0 0 1.5rem 0; font-size: 0.9rem;">${description}</p><div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 1.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.6; color: var(--text-dark);">${script}</div><button onclick="closeScriptModal()" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Close</button>`;
+            if (!document.getElementById('slideUpKeyframes')) {
+                const style = document.createElement('style');
+                style.id = 'slideUpKeyframes';
+                style.innerHTML = `@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }`;
+                document.head.appendChild(style);
+            }
+            modal.innerHTML = '';
+            modal.appendChild(backdrop);
+            modal.style.display = 'flex';
+            modal.addEventListener('click', function(e) { if (e.target === modal) closeScriptModal(); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeScriptModal(); });
+        };
+
+        window.closeScriptModal = function() {
+            const modal = document.getElementById('scriptModal');
+            if (modal) modal.style.display = 'none';
+        };
     </script>
 
     <style>
@@ -249,89 +278,6 @@
 
         // Populate conversation guides
 
-        window.showScriptModal = function(title, description, script) {
-            let modal = document.getElementById('scriptModal');
-            if (!modal) {
-                modal = document.createElement('div');
-                modal.id = 'scriptModal';
-                modal.style.cssText = `
-                    display: none;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.5);
-                    z-index: 1000;
-                    justify-content: center;
-                    align-items: center;
-                    overflow-y: auto;
-                `;
-                document.body.appendChild(modal);
-            }
-
-            const backdrop = document.createElement('div');
-            backdrop.style.cssText = `
-                background: white;
-                border-radius: 12px;
-                padding: 2rem;
-                max-width: 700px;
-                max-height: 85vh;
-                overflow-y: auto;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-                animation: slideUp 0.3s ease;
-                margin: 2rem auto;
-                white-space: pre-wrap;
-                word-wrap: break-word;
-            `;
-            backdrop.innerHTML = `
-                <h2 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.4rem;">${title}</h2>
-                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; font-size: 0.9rem;">${description}</p>
-                <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 1.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.6; color: var(--text-dark);">${script}</div>
-                <button onclick="closeScriptModal()" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Close</button>
-            `;
-
-            if (!document.getElementById('slideUpKeyframes')) {
-                const style = document.createElement('style');
-                style.id = 'slideUpKeyframes';
-                style.innerHTML = `
-                    @keyframes slideUp {
-                        from {
-                            transform: translateY(30px);
-                            opacity: 0;
-                        }
-                        to {
-                            transform: translateY(0);
-                            opacity: 1;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-
-            modal.innerHTML = '';
-            modal.appendChild(backdrop);
-            modal.style.display = 'flex';
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeScriptModal();
-                }
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeScriptModal();
-                }
-            });
-        };
-
-        window.closeScriptModal = function() {
-            const modal = document.getElementById('scriptModal');
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        };
 
         window.showConversationModal = function(id, ageGroup, question) {
             // Create modal if it doesn't exist
