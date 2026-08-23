@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Tools - Digital Safety Hub</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quizzes.css">
     <style>
         /* Practice Challenges Styles */
         .challenge-grid {
@@ -349,6 +350,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- Quizzes Section -->
+        <section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">🎯 Take a Quiz!</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Test your digital safety knowledge with these interactive quizzes. Each quiz has multiple versions so you can test yourself multiple times!</p>
+
+            <div class="quiz-grid" id="quizGrid">
+                <div class="quiz-card" onclick="startQuiz('digitalSafety')">
+                    <div class="quiz-card-icon">🛡️</div>
+                    <h3>Digital Safety Basics</h3>
+                    <p>Test your knowledge of staying safe online</p>
+                    <div class="quiz-card-meta">
+                        <span>5 questions</span>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="quiz-card-cta">Start Quiz →</div>
+                </div>
+
+                <div class="quiz-card" onclick="startQuiz('spotTheScam')">
+                    <div class="quiz-card-icon">🎣</div>
+                    <h3>Spot the Scam</h3>
+                    <p>Can you identify the red flags?</p>
+                    <div class="quiz-card-meta">
+                        <span>5 questions</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="quiz-card-cta">Start Quiz →</div>
+                </div>
+            </div>
+
+            <div id="quizDisplay"></div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -360,5 +393,6 @@
     <script src="js/practice-challenges.js"></script>
     <script src="js/conversation-data.js"></script>
     <script src="js/quiz.js"></script>
+    <script src="js/quizzes.js"></script>
 </body>
 </html>
