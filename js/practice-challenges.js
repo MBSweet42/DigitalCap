@@ -352,7 +352,6 @@ function initializeChallenges() {
             </div>
             <p>${challenge.description}</p>
             <div class="challenge-footer">
-                <span>${challenge.scenarios.length} scenarios</span>
                 <button class="btn btn-primary">Start Challenge</button>
             </div>
         `;
