@@ -19,7 +19,7 @@ const classroomLessons = [
         },
         downloads: {
             plan: '../lessons/k2-1-digital-kindness.html',
-            slides: '#',
+            slides: '../slides/k2-1-digital-kindness-slides.html',
             parentGuide: '#'
         }
     },
@@ -105,7 +105,7 @@ const classroomLessons = [
         },
         downloads: {
             plan: '../lessons/35-2-spotting-scams.html',
-            slides: '#',
+            slides: '../slides/35-2-spotting-scams-slides.html',
             parentGuide: '#'
         }
     },
@@ -235,7 +235,7 @@ const classroomLessons = [
         },
         downloads: {
             plan: '../lessons/912-2-digital-footprint-future.html',
-            slides: '#',
+            slides: '../slides/912-2-digital-footprint-slides.html',
             parentGuide: '#'
         }
     },
