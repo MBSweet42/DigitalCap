@@ -207,71 +207,102 @@ function toggleAppExpand(appId) {
 function renderAppDetails(app) {
     let details = `<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);">`;
 
-    // Quick Facts
+    // SECTION 1: What It Is (2-sentence summary + Quick Facts)
     details += `
-        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-            <strong style="color: var(--primary); display: block; margin-bottom: 1rem;">Quick Facts</strong>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
-                <div><strong>Chat?</strong> <span style="color: var(--text-gray);">${app.hasChat ? '✓ Yes' : '✗ No'}</span></div>
-                <div><strong>Web Access?</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
-                <div><strong>Location?</strong> <span style="color: var(--text-gray);">${app.hasLocationTracking ? '✓ Yes' : '✗ No'}</span></div>
-                <div><strong>Age:</strong> <span style="color: var(--text-gray);">${app.ageRecommendation === 0 ? 'Parental Awareness' : app.ageRecommendation + '+'}</span></div>
+        <div style="margin-bottom: 2rem;">
+            <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">What It Is</h4>
+            <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;">${app.description}</p>
+            <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; font-size: 0.85rem;">
+                    <div><strong>Chat:</strong> <span style="color: var(--text-gray);">${app.hasChat ? '✓ Yes' : '✗ No'}</span></div>
+                    <div><strong>Web Access:</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
+                    <div><strong>Location:</strong> <span style="color: var(--text-gray);">${app.hasLocationTracking ? '✓ Yes' : '✗ No'}</span></div>
+                </div>
             </div>
         </div>
     `;
 
-    // Why This Matters
-    if (app.whyThisMatters && app.whyThisMatters.content) {
-        details += `
-            <div style="margin-bottom: 1.5rem;">
-                <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;">⚠️ Why This Matters</strong>
-                <p style="margin: 0; color: var(--text-gray); line-height: 1.6;">${app.whyThisMatters.content}</p>
-            </div>
-        `;
-    }
-
-    // Hidden Dangers
+    // SECTION 2: Real-World Risks (3-5 bullets)
     if (app.hiddenDangers && app.hiddenDangers.length > 0) {
-        details += `<div style="margin-bottom: 1.5rem;">
-            <strong style="color: var(--primary); display: block; margin-bottom: 0.75rem;">🚨 Hidden Dangers</strong>
-            <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Real-World Risks</h4>
+                <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">
         `;
-        app.hiddenDangers.forEach(danger => {
-            details += `<li style="margin-bottom: 0.5rem;">${danger}</li>`;
+        app.hiddenDangers.slice(0, 5).forEach(danger => {
+            details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${danger}</li>`;
         });
         details += `</ul></div>`;
     }
 
-    // Parent Conversation Guide
+    // SECTION 3: Must-Change Settings (step-by-step)
+    if (app.parentConcerns && app.parentConcerns.mentalHealth) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">⚙️ Must-Change Settings</h4>
+                <div style="background: rgba(255, 107, 107, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--primary);">
+        `;
+
+        if (app.id === 1) { // TikTok
+            details += `
+                <ol style="margin: 0; padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Restrict DMs:</strong> Settings → Privacy → Direct Messages → "Friends Only"</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Disable Duets/Stitches:</strong> Settings → Privacy → Duet & Stitch → "Only Me"</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Hide Location:</strong> Settings → Privacy → Who Can Find You → disable "Personalized Ads"</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Set Screen Time Limit:</strong> Settings → Digital Wellbeing → Set 60-90 minute limit</li>
+                    <li><strong>Review FYP Weekly:</strong> Ask to see their "For You Page" regularly</li>
+                </ol>
+            `;
+        } else if (app.id === 2) { // Snapchat
+            details += `
+                <ol style="margin: 0; padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Disable Snap Map:</strong> Settings → Snap Map → "Ghost Mode" (completely hidden)</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Restrict Friend Additions:</strong> Settings → Privacy → Contact Me → "Friends Only"</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Turn Off Location Services:</strong> System Settings → Snapchat → Location → "Never"</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Review Friends List:</strong> Remove anyone they don't personally know</li>
+                    <li><strong>Screenshot Alerts:</strong> Understand Snapchat's screenshot notifications (limited protection)</li>
+                </ol>
+            `;
+        } else {
+            details += `
+                <p style="margin: 0; color: var(--text-gray);">
+                    <strong>Privacy First:</strong> Review app Settings → Privacy controls. Look for options to restrict who can message, view location, or access camera/microphone. Disable features not actively used.
+                </p>
+            `;
+        }
+
+        details += `</div></div>`;
+    }
+
+    // SECTION 4: What to Say to Your Child
     if (app.parentConversationGuide) {
         const guide = app.parentConversationGuide;
         details += `
-            <div style="background: rgba(78, 205, 196, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--secondary);">
-                <strong style="color: var(--secondary); display: block; margin-bottom: 0.75rem;">💬 How to Start the Conversation</strong>
-                <p style="margin: 0.5rem 0; color: var(--text-gray); font-style: italic; font-size: 0.9rem;">${escapeHtml(guide.startWith)}</p>
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 What to Say to Your Child</h4>
+                <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0 0 0.5rem 0; color: var(--text-gray); font-size: 0.9rem;"><strong>Opening Script:</strong></p>
+                        <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.startWith)}"</p>
+                    </div>
+                    <div style="border-top: 1px solid rgba(78, 205, 196, 0.3); padding-top: 1rem;">
+                        <p style="margin: 0 0 0.5rem 0; color: var(--text-gray); font-size: 0.9rem;"><strong>Key Question to Ask:</strong></p>
+                        <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.keyPoints && guide.keyPoints[0] ? guide.keyPoints[0] : 'What do you enjoy most about using this app?')}"</p>
+                    </div>
+                </div>
+            </div>
         `;
-
-        if (guide.redFlags && guide.redFlags.length > 0) {
-            details += `
-                <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(78, 205, 196, 0.3);">
-                    <strong style="color: var(--secondary); font-size: 0.9rem;">🚩 Red Flags to Watch:</strong>
-                    <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-gray);">
-            `;
-            guide.redFlags.slice(0, 4).forEach(flag => {
-                details += `<div style="margin-bottom: 0.3rem;">• ${flag}</div>`;
-            });
-            details += `</div></div>`;
-        }
-        details += `</div>`;
     }
 
-    // Parent Notes
-    details += `<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);">`;
+    // Parent Notes (below main 5 sections)
+    details += `<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">`;
+    details += `<h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1rem;">Parent Experiences</h4>`;
     details += renderParentNotes(app);
     details += `</div>`;
 
     // Discussion/Comments
-    details += `<div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">`;
+    details += `<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">`;
+    details += `<h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1rem;">Questions & Discussions</h4>`;
     details += renderDiscussionSection(app);
     details += `</div>`;
 
