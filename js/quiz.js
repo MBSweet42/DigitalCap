@@ -376,14 +376,14 @@ window.showAllStarters = function() {
 };
 
 window.shuffleStarter = function() {
+    const startersList = document.getElementById('startersList');
+
     if (!conversationStarters || conversationStarters.length === 0) {
-        const startersList = document.getElementById('startersList');
         startersList.innerHTML = '<p style="color: var(--text-gray);">No conversation starters loaded.</p>';
         return;
     }
 
     const random = conversationStarters[Math.floor(Math.random() * conversationStarters.length)];
-    const startersList = document.getElementById('startersList');
 
     const html = `
         <div style="text-align: center; margin: 2rem 0;">
