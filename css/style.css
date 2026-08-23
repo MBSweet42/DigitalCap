@@ -104,6 +104,32 @@ body {
     cursor: pointer;
 }
 
+/* Global Search Bar */
+.global-search-wrapper {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 1rem;
+}
+
+.global-search-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+}
+
+.global-search-input::placeholder {
+    color: rgba(45, 52, 54, 0.6);
+}
+
+.global-search-input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
