@@ -122,7 +122,7 @@ function showQuizResults() {
     toolsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function showChecklist() {
+window.showChecklist = function() {
     const toolsContainer = document.getElementById('toolsContainer');
 
     const checklistItems = [
@@ -166,24 +166,24 @@ function showChecklist() {
     toolsContainer.innerHTML = html;
     toolsContainer.style.display = 'block';
     toolsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+};
 
-function saveChecklist() {
+window.saveChecklist = function() {
     const checklist = {};
     document.querySelectorAll('.checklist-item input').forEach((input, idx) => {
         checklist[idx] = input.checked;
     });
     localStorage.setItem('appChecklist', JSON.stringify(checklist));
-}
+};
 
-function resetChecklist() {
+window.resetChecklist = function() {
     if (confirm('Clear this checklist?')) {
         localStorage.removeItem('appChecklist');
         showChecklist();
     }
-}
+};
 
-function showSlideshow() {
+window.showSlideshow = function() {
     const slides = [
         {
             title: 'Setting Parental Controls: A Quick Guide',
@@ -312,7 +312,7 @@ function showSlideshow() {
     };
 
     renderSlide();
-}
+};
 
 window.showConversationStarters = function() {
     const toolsContainer = document.getElementById('toolsContainer');
