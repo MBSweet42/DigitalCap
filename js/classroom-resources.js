@@ -18,8 +18,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/k2-1-digital-kindness.html',
-            slides: '../slides/k2-1-digital-kindness-slides.html',
+            plan: 'lessons/k2-1-digital-kindness.html',
+            slides: 'slides/k2-1-digital-kindness-slides.html',
             parentGuide: '#'
         }
     },
@@ -39,8 +39,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/k2-2-stranger-danger.html',
-            slides: '../slides/k2-2-stranger-danger-slides.html',
+            plan: 'lessons/k2-2-stranger-danger.html',
+            slides: 'slides/k2-2-stranger-danger-slides.html',
             parentGuide: '#'
         }
     },
@@ -60,8 +60,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/k2-3-digital-footprint.html',
-            slides: '../slides/k2-3-digital-footprint-slides.html',
+            plan: 'lessons/k2-3-digital-footprint.html',
+            slides: 'slides/k2-3-digital-footprint-slides.html',
             parentGuide: '#'
         }
     },
@@ -83,8 +83,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/35-1-privacy-settings.html',
-            slides: '../slides/35-1-privacy-settings-slides.html',
+            plan: 'lessons/35-1-privacy-settings.html',
+            slides: 'slides/35-1-privacy-settings-slides.html',
             parentGuide: '#'
         }
     },
@@ -104,8 +104,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/35-2-spotting-scams.html',
-            slides: '../slides/35-2-spotting-scams-slides.html',
+            plan: 'lessons/35-2-spotting-scams.html',
+            slides: 'slides/35-2-spotting-scams-slides.html',
             parentGuide: '#'
         }
     },
@@ -125,8 +125,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/35-3-cyberbullying.html',
-            slides: '../slides/35-3-cyberbullying-slides.html',
+            plan: 'lessons/35-3-cyberbullying.html',
+            slides: 'slides/35-3-cyberbullying-slides.html',
             parentGuide: '#'
         }
     },
@@ -148,8 +148,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/68-1-digital-citizenship.html',
-            slides: '../slides/68-1-digital-citizenship-slides.html',
+            plan: 'lessons/68-1-digital-citizenship.html',
+            slides: 'slides/68-1-digital-citizenship-slides.html',
             parentGuide: '#'
         }
     },
@@ -169,8 +169,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/68-2-social-media-reputation.html',
-            slides: '../slides/68-2-social-media-reputation-slides.html',
+            plan: 'lessons/68-2-social-media-reputation.html',
+            slides: 'slides/68-2-social-media-reputation-slides.html',
             parentGuide: '#'
         }
     },
@@ -190,8 +190,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/68-3-grooming-awareness.html',
-            slides: '../slides/68-3-grooming-awareness-slides.html',
+            plan: 'lessons/68-3-grooming-awareness.html',
+            slides: 'slides/68-3-grooming-awareness-slides.html',
             parentGuide: '#'
         }
     },
@@ -213,8 +213,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/912-1-exploitation-prevention.html',
-            slides: '../slides/912-1-exploitation-prevention-slides.html',
+            plan: 'lessons/912-1-exploitation-prevention.html',
+            slides: 'slides/912-1-exploitation-prevention-slides.html',
             parentGuide: '#'
         }
     },
@@ -234,8 +234,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/912-2-digital-footprint-future.html',
-            slides: '../slides/912-2-digital-footprint-slides.html',
+            plan: 'lessons/912-2-digital-footprint-future.html',
+            slides: 'slides/912-2-digital-footprint-slides.html',
             parentGuide: '#'
         }
     },
@@ -255,8 +255,8 @@ const classroomLessons = [
             activity: true
         },
         downloads: {
-            plan: '../lessons/912-3-ai-deepfakes-misinformation.html',
-            slides: '../slides/912-3-ai-deepfakes-misinformation-slides.html',
+            plan: 'lessons/912-3-ai-deepfakes-misinformation.html',
+            slides: 'slides/912-3-ai-deepfakes-misinformation-slides.html',
             parentGuide: '#'
         }
     }
