@@ -121,20 +121,25 @@ function displaySearchResults(results, query) {
         resultsHtml = document.createElement('div');
         resultsHtml.id = 'searchResults';
         resultsHtml.style.cssText = `
-            position: fixed;
-            top: 60px;
+            position: absolute;
+            top: 100%;
             left: 0;
             right: 0;
             background: var(--bg-white);
-            max-width: 600px;
-            margin: 1rem auto;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             z-index: 999;
-            max-height: 70vh;
+            max-height: 400px;
             overflow-y: auto;
+            margin-top: 0.5rem;
         `;
-        document.body.appendChild(resultsHtml);
+        const searchInput = document.getElementById('globalSearch');
+        if (searchInput && searchInput.parentElement) {
+            searchInput.parentElement.style.position = 'relative';
+            searchInput.parentElement.appendChild(resultsHtml);
+        } else {
+            document.body.appendChild(resultsHtml);
+        }
     }
 
     if (results.length === 0) {
