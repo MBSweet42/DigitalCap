@@ -135,6 +135,10 @@ body {
         display: block;
     }
 
+    .global-search-wrapper {
+        display: none;
+    }
+
     .nav-menu {
         position: absolute;
         top: 60px;
@@ -149,7 +153,7 @@ body {
     }
 
     .nav-menu.active {
-        max-height: 500px;
+        max-height: 600px;
     }
 
     .nav-menu li {
