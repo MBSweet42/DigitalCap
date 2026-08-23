@@ -3,130 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Resources - DigitalCap</title>
+    <title>Classroom Resource Portal - DigitalCap</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Classroom Resources Styles */
+        .resource-intro {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .resource-intro h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .resource-intro p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Filter Bar */
+        .filter-section {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            color: var(--primary);
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            background: var(--bg-light);
+        }
+
+        .filter-btn.filter-active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .filter-reset {
+            margin-top: 1rem;
+        }
+
+        .filter-reset button {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+        }
+
+        /* Lesson Cards */
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .lesson-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lesson-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .lesson-header h3 {
+            color: var(--text-dark);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .lesson-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-grade {
+            background: rgba(78, 205, 196, 0.15);
+            color: var(--secondary);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-topic {
+            background: rgba(255, 107, 107, 0.15);
+            color: var(--primary);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-duration {
+            background: rgba(255, 183, 3, 0.15);
+            color: var(--accent);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .lesson-objective {
+            color: var(--text-gray);
+            margin: 0 0 1.25rem 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .lesson-includes {
+            margin-bottom: 1.25rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .lesson-includes p {
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .include-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .include-badge {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .lesson-downloads {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-download, .btn-view {
+            flex: 1;
+            min-width: 100px;
+            padding: 0.6rem 0.75rem;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download {
+            background: var(--secondary);
+            color: white;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background: darken(var(--secondary), 10%);
+            text-decoration: none;
+        }
+
+        .btn-view {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-view:hover {
+            background: var(--border-color);
+        }
+
+        /* Implementation Guide */
+        .implementation-section {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .implementation-section h3 {
+            color: var(--primary);
+            margin: 0 0 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .implementation-section ul {
+            list-style-position: outside;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .implementation-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .implementation-section strong {
+            color: var(--text-dark);
+        }
+
+        /* Send-Home Highlight */
+        .sendhome-highlight {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%);
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .sendhome-highlight h2 {
+            color: var(--secondary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.5rem;
+        }
+
+        .sendhome-highlight p {
+            color: var(--text-gray);
+            margin: 0 0 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .sendhome-highlight .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .navbar, .footer, .filter-section, .resource-intro, .sendhome-highlight, .implementation-section {
+                display: none;
+            }
+
+            .lesson-card {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                margin-bottom: 2rem;
+            }
+
+            .lesson-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1, h2, h3 {
+                color: black;
+            }
+
+            .btn-download, .btn-view, .filter-btn {
+                display: none;
+            }
+
+            .include-list {
+                margin-top: 0.5rem;
+            }
+
+            .include-badge {
+                display: inline-block;
+                margin-right: 0.5rem;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .lesson-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .lesson-downloads {
+                flex-direction: column;
+            }
+
+            .btn-download, .btn-view {
+                width: 100%;
+            }
+
+            .lesson-badges {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .badge-grade, .badge-topic, .badge-duration {
+                display: inline-block;
+                width: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">⚡ DigitalCap</a>
+            <a href="index.html" class="logo">DigitalCap</a>
             <div class="global-search-wrapper">
                 <input type="text" id="globalSearch" class="global-search-input" placeholder="🔍 Search..." aria-label="Search the site for apps, articles, and resources">
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="apps-v2.html">App Directory</a></li>
-                <li><a href="safety-v2-fixed.html">Safety</a></li>
-                <li><a href="etiquette-v2-fixed.html">Etiquette</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="teachers.html">Teachers</a></li>
-                <li><a href="interactive.html">Tools</a></li>
+                <li><a href="apps-v2.html">App Check</a></li>
+                <li><a href="hotlines.html">Something Happened?</a></li>
+                <li><a href="interactive.html">Conversation Guides</a></li>
+                <li><a href="teachers.html">For Educators</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <h1>👩‍🏫 Teacher Resources: Digital Citizenship Curriculum</h1>
-        <p class="subtitle">Complete, ready-to-teach lesson plans with activities, discussion prompts, and teaching guidance.</p>
-
-        <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
-            <p style="margin: 0; color: var(--text-dark);"><strong>✨ What's Inside:</strong> 12 complete lessons (3 per grade level). Each includes learning objectives, discussion prompts, interactive activities, teaching tips, and real-world examples. Designed for 45-60 minute periods.</p>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin-bottom: 0.5rem;">Classroom Resource Portal</h1>
+            <p class="subtitle">Digital citizenship lesson plans, activities, and parent guides for K–12.</p>
         </div>
 
-        <!-- Grade Level Selection -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-            <div class="grade-card" onclick="expandGrade(6)" style="background: var(--border-color); color: var(--text-dark); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'; this.style.color='white';" onmouseout="this.style.background='var(--border-color)'; this.style.color='var(--text-dark)';">
-                <h3 style="margin: 0 0 0.5rem 0; color: inherit;">Grade 6</h3>
-                <p style="margin: 0 0 1rem 0; opacity: 0.9; font-size: 0.9rem;">Digital Citizenship Basics</p>
-                <div style="color: inherit; font-weight: 600;">▶ View Lessons</div>
+        <!-- Resource Overview -->
+        <div class="resource-intro">
+            <h2>Ready-to-Teach Digital Citizenship Curriculum</h2>
+            <p>12 complete lesson plans (3 per grade band) aligned to K–12 standards. Each lesson includes learning objectives, discussion prompts, interactive activities, slide decks, and printable parent guides. Designed for 15-minute quick lessons or 45-minute full classes.</p>
+        </div>
+
+        <!-- Quick Filter Bar -->
+        <div class="filter-section">
+            <h3>Find Lessons That Fit Your Classroom</h3>
+
+            <div class="filter-group">
+                <label class="filter-label">Grade Band</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn filter-active" data-filter="gradeBand" value="all" onclick="setFilter('gradeBand', 'all')">All Grades</button>
+                    <button class="filter-btn" data-filter="gradeBand" value="K-2" onclick="setFilter('gradeBand', 'K-2')">K–2 (Lower Elementary)</button>
+                    <button class="filter-btn" data-filter="gradeBand" value="3-5" onclick="setFilter('gradeBand', '3-5')">3–5 (Upper Elementary)</button>
+                    <button class="filter-btn" data-filter="gradeBand" value="6-8" onclick="setFilter('gradeBand', '6-8')">6–8 (Middle School)</button>
+                    <button class="filter-btn" data-filter="gradeBand" value="9-12" onclick="setFilter('gradeBand', '9-12')">9–12 (High School)</button>
+                </div>
             </div>
 
-            <div class="grade-card" onclick="expandGrade(7)" style="background: var(--border-color); color: var(--text-dark); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'; this.style.color='white';" onmouseout="this.style.background='var(--border-color)'; this.style.color='var(--text-dark)';">
-                <h3 style="margin: 0 0 0.5rem 0; color: inherit;">Grade 7</h3>
-                <p style="margin: 0 0 1rem 0; opacity: 0.9; font-size: 0.9rem;">Social Media & Digital Reputation</p>
-                <div style="color: inherit; font-weight: 600;">▶ View Lessons</div>
+            <div class="filter-group">
+                <label class="filter-label">Topic</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn filter-active" data-filter="topic" value="all" onclick="setFilter('topic', 'all')">All Topics</button>
+                    <button class="filter-btn" data-filter="topic" value="Privacy & Data" onclick="setFilter('topic', 'Privacy & Data')">Privacy & Data</button>
+                    <button class="filter-btn" data-filter="topic" value="Online Etiquette" onclick="setFilter('topic', 'Online Etiquette')">Online Etiquette</button>
+                    <button class="filter-btn" data-filter="topic" value="Cyberbullying & DMs" onclick="setFilter('topic', 'Cyberbullying & DMs')">Cyberbullying & DMs</button>
+                    <button class="filter-btn" data-filter="topic" value="Screen Habits" onclick="setFilter('topic', 'Screen Habits')">Screen Habits</button>
+                    <button class="filter-btn" data-filter="topic" value="AI & Scams" onclick="setFilter('topic', 'AI & Scams')">AI & Scams</button>
+                </div>
             </div>
 
-            <div class="grade-card" onclick="expandGrade(9)" style="background: var(--border-color); color: var(--text-dark); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'; this.style.color='white';" onmouseout="this.style.background='var(--border-color)'; this.style.color='var(--text-dark)';">
-                <h3 style="margin: 0 0 0.5rem 0; color: inherit;">Grade 9</h3>
-                <p style="margin: 0 0 1rem 0; opacity: 0.9; font-size: 0.9rem;">Predators, Grooming & Safety</p>
-                <div style="color: inherit; font-weight: 600;">▶ View Lessons</div>
+            <div class="filter-group">
+                <label class="filter-label">Lesson Duration</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn filter-active" data-filter="duration" value="all" onclick="setFilter('duration', 'all')">All Durations</button>
+                    <button class="filter-btn" data-filter="duration" value="15-min" onclick="setFilter('duration', '15-min')">15-min Quick Lesson</button>
+                    <button class="filter-btn" data-filter="duration" value="45-min" onclick="setFilter('duration', '45-min')">45-min Full Class</button>
+                    <button class="filter-btn" data-filter="duration" value="Multi-part" onclick="setFilter('duration', 'Multi-part')">Multi-part Unit</button>
+                </div>
             </div>
 
-            <div class="grade-card" onclick="expandGrade(11)" style="background: var(--border-color); color: var(--text-dark); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'; this.style.color='white';" onmouseout="this.style.background='var(--border-color)'; this.style.color='var(--text-dark)';">
-                <h3 style="margin: 0 0 0.5rem 0; color: inherit;">Grade 11+</h3>
-                <p style="margin: 0 0 1rem 0; opacity: 0.9; font-size: 0.9rem;">Digital Footprint & Future</p>
-                <div style="color: inherit; font-weight: 600;">▶ View Lessons</div>
+            <div class="filter-reset">
+                <button class="btn btn-secondary" onclick="resetFilters()">Reset All Filters</button>
             </div>
         </div>
 
-        <div id="gradeContent" style="margin-bottom: 3rem;"></div>
+        <!-- Lesson Cards Grid -->
+        <div id="lessonCardsContainer" class="lesson-grid">
+            <!-- Dynamically populated by classroom-resources.js -->
+        </div>
 
-        <!-- Teacher Implementation Guides -->
-        <section style="margin-top: 3rem;">
-            <h2 style="color: var(--primary);">📚 How to Teach These Lessons</h2>
+        <!-- Send-Home Highlight -->
+        <div class="sendhome-highlight">
+            <h2>Send-Home Family Connection</h2>
+            <p>Each lesson includes a beautifully formatted, 1-page parent guide. Download, print, and send home to extend learning and start family conversations.</p>
+            <a href="parent-guides.html" class="btn btn-primary">View All Parent Guides →</a>
+        </div>
 
-            <div style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem;">
-                <h3 style="margin-top: 0; color: var(--primary);">Lesson Structure</h3>
-                <ul style="color: var(--text-gray); line-height: 1.8;">
+        <!-- Implementation Guide -->
+        <section style="margin-top: 4rem;">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">How to Teach These Lessons</h2>
+
+            <div class="implementation-section">
+                <h3>Standard Lesson Structure (45 minutes)</h3>
+                <ul>
                     <li><strong>Opening (5-10 min):</strong> Hook with a real scenario or question to get students thinking</li>
                     <li><strong>Teach (15-20 min):</strong> Present key concepts, real examples, and statistics</li>
-                    <li><strong>Discuss (10-15 min):</strong> Use discussion prompts to engage students in thinking critically</li>
-                    <li><strong>Activity (10-15 min):</strong> Interactive activity—debate, case study, role-play, or small group discussion</li>
+                    <li><strong>Discuss (10-15 min):</strong> Use discussion prompts to engage critical thinking</li>
+                    <li><strong>Activity (10-15 min):</strong> Interactive activity—debate, case study, role-play, or group discussion</li>
                     <li><strong>Wrap-up (5 min):</strong> Key takeaways and why this matters to their lives</li>
                 </ul>
             </div>
 
-            <div style="display: grid; gap: 1.5rem;">
-                <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--primary);">
-                    <h4 style="margin-top: 0; color: var(--primary);">🔧 Technical Setup</h4>
-                    <p style="color: var(--text-gray);">Projector for slides, students can work in groups or individually depending on activity. Internet access needed for some discussion topics (showing real examples safely).</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="implementation-section">
+                    <h3>Technical Setup</h3>
+                    <p style="color: var(--text-gray); margin: 0;">Projector for slides, students can work in groups or individually depending on activity. Internet access needed for some discussion topics (showing real examples safely).</p>
                 </div>
 
-                <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--secondary);">
-                    <h4 style="margin-top: 0; color: var(--secondary);">💬 Handling Difficult Questions</h4>
-                    <p style="color: var(--text-gray);"><strong>If a student discloses abuse:</strong> Stay calm, thank them for telling you, don't promise to keep it secret. Report to school counselor/admin and follow mandatory reporting requirements. <strong>If students get upset:</strong> Normalize it—these are heavy topics. Validate feelings. Offer to connect them with school counselor.</p>
+                <div class="implementation-section">
+                    <h3>Handling Difficult Questions</h3>
+                    <p style="color: var(--text-gray); margin: 0;"><strong>If a student discloses abuse:</strong> Stay calm, thank them for telling you, don't promise to keep it secret. Report to school counselor/admin. <strong>If students get upset:</strong> Normalize it—these are heavy topics. Validate feelings and offer counselor connection.</p>
                 </div>
 
-                <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--primary);">
-                    <h4 style="margin-top: 0; color: var(--primary);">⚠️ Mandatory Reporting</h4>
-                    <p style="color: var(--text-gray);">These lessons may trigger disclosures of abuse, self-harm, or exploitation. Know your state's mandatory reporting requirements and your school's procedures. Have counselor contact info ready.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Send-Home Materials -->
-        <section style="margin-top: 3rem; margin-bottom: 3rem;">
-            <h2 style="color: var(--primary);">📧 Send-Home Materials for Parents</h2>
-            <p style="color: var(--text-gray);">Share these professionally formatted guides with parents after each grade level's curriculum. They're designed to be easily downloadable and printable.</p>
-
-            <div style="background: linear-gradient(135deg, rgba(46, 196, 182, 0.1) 0%, rgba(46, 196, 182, 0.05) 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary); text-align: center;">
-                <h3 style="color: var(--secondary); margin-top: 0;">📥 All Parent Guides in One Place</h3>
-                <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Beautiful PDF-styled guides for all grade levels. Download, print, and send home!</p>
-                <a href="parent-guides.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">View & Download Parent Guides →</a>
-            </div>
-
-            <h3 style="color: var(--primary); margin-top: 3rem;">What's Included</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-                <div style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
-                    <h4 style="margin-top: 0; color: var(--primary);">📘 Grade 6</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Digital Citizenship Basics - conversation starters, what to watch for, resources</p>
-                </div>
-
-                <div style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
-                    <h4 style="margin-top: 0; color: var(--primary);">📘 Grade 7</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Social Media & Reputation - privacy settings, mental health impacts, red flags</p>
-                </div>
-
-                <div style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
-                    <h4 style="margin-top: 0; color: var(--primary);">📘 Grade 9</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Predators & Safety - grooming tactics, dating app dangers, what to do if exploited</p>
-                </div>
-
-                <div style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
-                    <h4 style="margin-top: 0; color: var(--primary);">📘 Grade 11+</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Digital Future - college/job implications, consent, healthy digital habits</p>
+                <div class="implementation-section">
+                    <h3>Mandatory Reporting</h3>
+                    <p style="color: var(--text-gray); margin: 0;">These lessons may trigger disclosures of abuse or exploitation. Know your state's mandatory reporting requirements and your school's procedures. Have counselor contact info ready.</p>
                 </div>
             </div>
         </section>
@@ -137,737 +496,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Auto-expand Grade 6 on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => expandGrade(6), 100);
-        });
-
-        function printLesson(lessonName) {
-            const printWindow = window.open('', '', 'height=600,width=800');
-            const lessonContent = document.querySelector('[class*="lesson-printable"]')?.parentElement?.innerHTML;
-
-            printWindow.document.write(`
-                <html>
-                <head>
-                    <title>${lessonName}</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 1in; }
-                        h1, h2, h3, h4 { color: #FF6B6B; margin-top: 1.5rem; }
-                        h1 { font-size: 24px; margin-bottom: 0.5rem; }
-                        p { margin-bottom: 1rem; }
-                        ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-                        li { margin-bottom: 0.5rem; }
-                        .header { border-bottom: 2px solid #FF6B6B; padding-bottom: 1rem; margin-bottom: 2rem; }
-                        .section { page-break-inside: avoid; margin-bottom: 2rem; }
-                        .box { background: #f5f5f5; padding: 1rem; border-left: 4px solid #FF6B6B; margin: 1rem 0; }
-                        @media print { body { margin: 0.5in; } }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>${lessonName}</h1>
-                        <p><strong>DigitalCap Teacher Curriculum</strong></p>
-                        <p>Printed: ${new Date().toLocaleDateString()}</p>
-                    </div>
-                    <div>${lessonContent || 'Lesson content'}</div>
-                    <p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #999;">
-                        © 2026 DigitalCap - Free educational resource for teachers and families
-                    </p>
-                </body>
-                </html>
-            `);
-            printWindow.document.close();
-            setTimeout(() => { printWindow.print(); }, 250);
-        }
-
-        // Old function removed - parent guides are now in parent-guides.html
-Digital Citizenship Basics
-
-Dear Parent,
-
-Your child is learning about digital citizenship in our classroom. Here's what we covered and how you can continue the conversation at home.
-
-WHAT WE COVERED
-• Lesson 1: What Does Digital Citizenship Mean?
-  - Being respectful and responsible online, just like in real life
-  - Their online actions have real consequences
-  - Understanding their digital footprint
-
-• Lesson 2: Stranger Danger & Privacy Online
-  - Not everyone online is who they say they are
-  - What personal information is safe to share (and what isn't)
-  - How to spot red flags from potential predators
-
-• Lesson 3: Cyberbullying & Online Kindness
-  - How cyberbullying spreads fast and never disappears
-  - How to be an upstander (stand up for others)
-  - The power they have to make the internet kinder
-
-CONVERSATION STARTERS FOR HOME
-• "What did you learn about digital citizenship this week?"
-• "If someone you don't know online wants to be your friend, what would you do?"
-• "Have you ever seen someone being bullied online? What happened?"
-• "What information is OK to share online? What's not?"
-• "How do you want people to treat you online?"
-
-RED FLAGS TO WATCH FOR AT HOME
-✓ Secretive behavior about online activity
-✓ Spending excessive time on devices
-✓ Mood changes after being online
-✓ Defensive when asked about online friends
-✓ Receiving gifts or money from online "friends"
-
-WHAT YOU CAN DO
-1. Ask about their online friends—who are they? Do they know them in real life?
-2. Keep devices in common areas where you can see screen activity
-3. Set healthy screen time limits (1-2 hours max for this age)
-4. Model good digital citizenship yourself
-5. Make your home a safe place to talk about online problems
-
-IF YOU NOTICE SOMETHING CONCERNING
-• Talk to your child without judgment
-• Contact the school counselor
-• Report harmful behavior to the platform
-• If you suspect abuse, contact law enforcement
-
-RESOURCES
-• DigitalCap: www.digitalcap.org (this site!)
-• Common Sense Media: commonsensemedia.org
-• NetSmartz (NCMEC): netsmartz.org
-• Internet Safety 101: internetsafety101.org
-
-REMEMBER
-Your child's digital safety is a partnership between home and school. Thank you for reinforcing these lessons at home!
-
-Questions? Email your teacher or visit DigitalCap's Resources page.
-
-Best regards,
-Digital Citizenship Teaching Team
-DigitalCap`
-                },
-                7: {
-                    title: 'Grade 7 Parent Guide: Social Media & Digital Reputation',
-                    content: `DIGITALCAP PARENT GUIDE - GRADE 7
-Social Media & Digital Reputation
-
-Dear Parent,
-
-Your 7th grader is navigating social media—comparing themselves to peers, building a digital reputation, and learning about privacy. Here's what we covered in class.
-
-WHAT WE COVERED
-• Lesson 1: The Highlight Reel Effect
-  - Social media shows the BEST moments, not real life
-  - How this creates anxiety, depression, and low self-worth
-  - Why mental health impacts are real for this age group
-
-• Lesson 2: Your Digital Footprint
-  - Everything posted can be screenshotted and shared forever
-  - Colleges and employers will Google their name in 10 years
-  - Smart decisions NOW affect their FUTURE
-
-• Lesson 3: Privacy Settings & Account Security
-  - How to make accounts private and control who follows
-  - Password strength and basic security
-  - How to spot phishing and hacking attempts
-
-CONVERSATION STARTERS FOR HOME
-• "What apps are you on? Can I follow/friend you?"
-• "Do you ever feel bad about yourself after scrolling? Why?"
-• "Have you seen anyone online get embarrassed or regret posting something?"
-• "How many followers/likes do you think matter? Why?"
-• "What's one thing you'd keep private on your account?"
-• "If you had to show everything you post to your future college, what would you delete?"
-
-RED FLAGS TO WATCH FOR AT HOME
-✓ Comparing body/appearance to peers
-✓ Anxiety or mood changes tied to social media use
-✓ Obsession with likes/followers
-✓ Sleep disruption (late-night scrolling)
-✓ Talking about "deleting" posts or accounts
-
-WHAT YOU CAN DO
-1. Follow/friend them and monitor activity (respectfully)
-2. Check privacy settings together and make accounts private
-3. Help them create a strong password
-4. Ask about their "highlight reel" vs. real life
-5. Watch for eating disorder or body image language
-6. Have them do a "digital footprint search" on themselves
-
-IF YOU NOTICE SOMETHING CONCERNING
-• Take screenshots of concerning content
-• Have a non-judgmental conversation
-• If self-harm/suicidal language, contact school counselor immediately
-• Consider limiting social media temporarily if mental health suffering
-
-RESOURCES
-• DigitalCap Resources page: Full age-based guides
-• Crisis Text Line: Text HOME to 741741
-• NAMI (mental health): nami.org
-• Common Sense Media: commonsensemedia.org
-
-REMEMBER
-This age group is especially vulnerable to social comparison and mental health impacts. Reassure them that real friendships are face-to-face, and that what they see online is curated, not real.
-
-Questions? Email your teacher or visit DigitalCap.
-
-Best regards,
-Digital Citizenship Teaching Team
-DigitalCap`
-                },
-                9: {
-                    title: 'Grade 9 Parent Guide: Predators & Safety',
-                    content: `DIGITALCAP PARENT GUIDE - GRADE 9
-Predators, Grooming & Safety
-
-Dear Parent,
-
-This is a critical year for online safety. Grade 9 students are old enough to encounter real predators online. Here's what we covered in class and how you can protect them at home.
-
-WHAT WE COVERED
-• Lesson 1: Grooming Tactics & Red Flags
-  - How predators build trust over time
-  - Isolation tactics ("keep this between us")
-  - How to recognize warning signs early
-
-• Lesson 2: Online Dating Apps & Why They're Dangerous
-  - Age verification is broken (predators lie)
-  - How predators use dating apps to find teenagers
-  - Why meeting strangers from the internet is dangerous
-
-• Lesson 3: Sextortion & What to Do
-  - What sextortion is (threats to share intimate photos)
-  - It's NOT the victim's fault
-  - Steps to take: don't pay, save evidence, report, tell an adult
-
-CONVERSATION STARTERS FOR HOME
-• "Do you know anyone online that you haven't met in person?"
-• "Has anyone online asked you personal questions or made you uncomfortable?"
-• "If someone asked you to take or send intimate photos, what would you do?"
-• "If a 'friend' online suddenly asked to move to a private chat, why might that be suspicious?"
-• "Would you tell me if something online made you uncomfortable?"
-
-RED FLAGS TO WATCH FOR AT HOME
-✓ New online "relationships" that develop quickly
-✓ Secretive behavior about specific online friends
-✓ Gifts or money from online "friends"
-✓ Isolation from real-life friends
-✓ Mood changes or anxiety tied to online activity
-✓ Reluctance to talk about online activity
-✓ Requests for personal information (school, address, schedule)
-
-WHAT YOU CAN DO
-1. Know their online friends—ask about them specifically
-2. Monitor gaming servers, Discord, group chats
-3. Have clear rules: no personal info shared with strangers
-4. Discuss what healthy relationships look like (online and offline)
-5. Make it SAFE for them to come to you if uncomfortable
-6. Review their friend lists together (especially on Snapchat, Instagram)
-
-IF YOU SUSPECT GROOMING OR EXPLOITATION
-1. Stay calm—do NOT blame them
-2. Gather evidence (screenshots, messages, photos)
-3. Contact the National Center for Missing & Exploited Children (NCMEC): CyberTipline.org
-4. Report to law enforcement
-5. Connect them with a counselor for trauma support
-6. It is NOT their fault
-
-RESOURCES
-• NCMEC CyberTipline: CyberTipline.org (report exploitation)
-• FBI: tips.fbi.gov (sextortion/exploitation reports)
-• Crisis Text Line: Text HOME to 741741
-• DigitalCap Resources page: Quick action plans for parents
-
-REMEMBER
-Predators are strategic. They spend time building trust. Early detection saves lives. Make your child feel safe coming to you without fear of punishment.
-
-Questions? Email your teacher or visit DigitalCap.
-
-Best regards,
-Digital Citizenship Teaching Team
-DigitalCap`
-                },
-                11: {
-                    title: 'Grade 11+ Parent Guide: Digital Future & Consequences',
-                    content: `DIGITALCAP PARENT GUIDE - GRADE 11+
-Digital Footprint & Future Planning
-
-Dear Parent,
-
-Your teen is at a critical moment. College applications start in months. Job searches happen in years. Every post they make now affects their future. Here's what we covered.
-
-WHAT WE COVERED
-• Lesson 1: Your Posts = Your Permanent Record
-  - Colleges scroll social media during admissions
-  - Employers Google candidates before hiring
-  - Screenshots are forever—deletion doesn't help
-
-• Lesson 2: Sextortion, Consent & Legal Reality
-  - Explicit images of minors are federal crimes (CSAM)
-  - Revenge porn is illegal and deeply damaging
-  - Consent means "yes"—and they can change their mind
-
-• Lesson 3: Building Your Digital Future
-  - How to use technology intentionally, not addictively
-  - Building a reputation aligned with their values
-  - Healthy screen time and digital wellness
-
-CONVERSATION STARTERS FOR HOME
-• "Have you Googled yourself? What shows up?"
-• "If a college admissions officer saw your social media, would they want you?"
-• "Are there posts you'd delete if a future employer saw them?"
-• "What kind of digital reputation do you want to build?"
-• "Has anyone asked for intimate photos? How did you respond?"
-• "How much time do you spend on screens? How does it make you feel?"
-
-RED FLAGS TO WATCH FOR AT HOME
-✓ Posts with substance use, risky behavior, explicit content
-✓ Requests for intimate photos (from peers or adults)
-✓ Excessive screen time affecting sleep/grades
-✓ Social media affecting mental health or self-esteem
-✓ Defensive about what they're posting
-✓ Meeting online contacts in person without telling you
-
-WHAT YOU CAN DO
-1. Have them Google themselves and audit social media
-2. Talk about long-term consequences of posts
-3. Explain that sending explicit photos IS a federal crime (even between teens)
-4. Model healthy screen time
-5. Make boundaries clear: no photo sharing, ever
-6. Support healthy digital citizenship
-7. Connect with school counselor if concerning behavior
-
-IF THEY'VE SENT INTIMATE PHOTOS
-• Do NOT shame or punish
-• Document and report to CyberTipline if adult involved
-• Connect with counselor
-• Explain legal implications without judgment
-• Focus on moving forward, not past mistakes
-
-IF THEY'VE BEEN SEXTORTED
-• Tell them it's not their fault
-• Don't pay (it doesn't stop)
-• Save all evidence
-• Report to FBI (ic3.gov) and platform
-• Get counseling support
-• This can be recovered from
-
-RESOURCES
-• CyberTipline: CyberTipline.org (report CSAM/sextortion)
-• FBI IC3: ic3.gov (internet crime)
-• Crisis Text Line: Text HOME to 741741
-• DigitalCap Resources: Full action plans and guides
-
-REMEMBER
-This is a pivotal moment. Every post is now part of their "permanent record." But they also have the power to build a future they're proud of, starting today. Your role is to guide, not shame.
-
-Questions? Email your teacher or visit DigitalCap.
-
-Best regards,
-Digital Citizenship Teaching Team
-DigitalCap`
-                }
-            };
-
-            const guide = guides[grade];
-            if (!guide) return;
-
-            const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(guide.content));
-            element.setAttribute('download', `Grade_${grade}_Parent_Guide.txt`);
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-
-        function expandGrade(grade) {
-            const curricula = {
-                6: {
-                    title: 'Grade 6: Digital Citizenship Basics (3 Lessons)',
-                    lessons: [
-                        {
-                            name: 'Lesson 1: What Does Digital Citizenship Mean?',
-                            objectives: [
-                                'Understand what digital citizenship is and why it matters',
-                                'Learn what being respectful and responsible online looks like',
-                                'Recognize your digital footprint'
-                            ],
-                            overview: 'This lesson introduces the concept of digital citizenship—being a good person online, just like you would be in real life. Students learn that their online actions have real consequences, and that treating others with respect applies everywhere.',
-                            discussion: [
-                                'What does it mean to be a "good citizen" in real life? What about online?',
-                                'Have you ever seen someone be mean online? How did it make you feel?',
-                                'What would you want people to say about you online? How can you make that happen?',
-                                'If you post something, who might see it? Your parents? Teachers? Future you?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Digital or Real Life?" Scenario activity. Read scenarios (posting mean comments, sharing embarrassing photos, helping a friend who\'s bullied, etc.) and discuss: would you do this in person? Why or why not? What\'s different online?',
-                            tips: 'Keep it positive—this is about empowerment, not scare tactics. Use examples from their lives (social media, group chats, gaming). If students mention experiences with cyberbullying, validate and suggest school counselor.',
-                            takeaway: 'Being online is being in public. What you do matters. You have the power to be kind or cruel—choose kind.'
-                        },
-                        {
-                            name: 'Lesson 2: Stranger Danger & Privacy Online',
-                            objectives: [
-                                'Understand that people online are not always who they say they are',
-                                'Learn what personal information should and shouldn\'t be shared',
-                                'Recognize red flags from potential predators'
-                            ],
-                            overview: 'This lesson teaches the reality: not everyone online is your friend. Predators exist, and they use tactics like building trust and asking for personal information. Students learn concrete rules about privacy and how to spot warning signs.',
-                            discussion: [
-                                'If someone you don\'t know online wants to be your friend, what would you do?',
-                                'What information is OK to share online? (Name? School? Location? Birthday? Address?)',
-                                'Have you ever had someone online ask personal questions? What happened?',
-                                'How can you tell if someone online is being honest about who they are?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Spot the Red Flag" game. Present conversations or messages and students identify warning signs: asking for personal info, wanting to move to private chat, asking for photos, trying to isolate them from friends, love-bombing with compliments, etc.',
-                            tips: 'This can be scary for kids. Reassure them: most people are good, but some aren\'t—and it\'s not their fault if an adult tries to manipulate them. Normalize telling adults immediately. Have school counselor info available.',
-                            takeaway: 'Never share your real name, school, location, or photos with people you don\'t know online. If someone makes you uncomfortable, tell a trusted adult immediately.'
-                        },
-                        {
-                            name: 'Lesson 3: Cyberbullying & Online Kindness',
-                            objectives: [
-                                'Understand what cyberbullying is and why it\'s different from in-person bullying',
-                                'Learn how to respond if bullied and how to be an upstander',
-                                'Recognize your power to make online spaces kinder'
-                            ],
-                            overview: 'Cyberbullying spreads fast, reaches wide, and never disappears. This lesson covers the reality of online harassment and empowers students to stand up, speak up, and help friends who are targeted.',
-                            discussion: [
-                                'What\'s the difference between bullying in person and cyberbullying? Why is online worse sometimes?',
-                                'Have you ever seen mean comments online? What did you do?',
-                                'If a friend was being bullied online, what would you do?',
-                                'What would you want someone to do if YOU were being bullied?',
-                                'Why do you think people are meaner online than in person?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Upstander Training." Present scenarios of cyberbullying (group chat pile-on, mean comments on a photo, exclusion, spreading rumors, etc.). Students brainstorm how to respond: defend the person, tell them they\'re not alone, report it, tell an adult, don\'t share the mean content further.',
-                            tips: 'Ask about their experiences but don\'t push. Some students may be dealing with bullying—validate their feelings and connect them to counselor. Emphasize: speaking up is brave, not tattling.',
-                            takeaway: 'You have the power to make the internet kinder. Stand up for others. Tell an adult if you\'re bullied. Block, report, and don\'t engage with bullies.'
-                        }
-                    ]
-                },
-                7: {
-                    title: 'Grade 7: Social Media & Digital Reputation (3 Lessons)',
-                    lessons: [
-                        {
-                            name: 'Lesson 1: The Highlight Reel Effect',
-                            objectives: [
-                                'Understand how algorithms work and why social media shows certain content',
-                                'Recognize the mental health impacts of social comparison',
-                                'Learn how to critically evaluate social media'
-                            ],
-                            overview: 'Social media is designed to show you the BEST parts of people\'s lives, not the real, messy reality. This creates the "highlight reel effect"—everyone looks perfect, successful, happy. Students learn this is fake and how it affects mental health, especially for teens.',
-                            discussion: [
-                                'When you scroll social media, do you see real life or the best moments? Why?',
-                                'How does seeing everyone\'s best moments make you feel about your own life?',
-                                'Have you ever felt bad about yourself after scrolling? What was that like?',
-                                'Do you think the people you follow are ALWAYS that happy/successful? What aren\'t they showing?',
-                                'How is social media different from real friendships?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Reality Check." Show a real photo/video, then show what it looks like on Instagram (filters, angles, editing). Discuss the differences. Have students think about what their own "highlight reel" looks like vs. their real life.',
-                            tips: 'Many 7th graders are just starting social media or feeling anxious about it. This is validating—"You\'re not alone in feeling this way." Mention eating disorders, anxiety, depression tied to social comparison. Have mental health resources available.',
-                            takeaway: 'Social media is a highlight reel, not real life. Don\'t compare your real life to someone else\'s fake life. Real friendships are face-to-face.'
-                        },
-                        {
-                            name: 'Lesson 2: Your Digital Footprint',
-                            objectives: [
-                                'Understand that everything posted online can be screenshotted and shared',
-                                'Learn how colleges and employers research you online',
-                                'Develop healthy habits around what to post'
-                            ],
-                            overview: 'Everything you post—even if you delete it—can be screenshotted and shared forever. This is the digital footprint. In 10 years, colleges will Google your name. In 20 years, employers will. What you post NOW affects your FUTURE.',
-                            discussion: [
-                                'What happens when you post something online? Who can see it?',
-                                'If you delete a post, is it really gone? (No—screenshots exist forever)',
-                                'Have you ever regretted something you posted? What did you do?',
-                                'Imagine a future college or job checking YOU out online. What would they find?',
-                                'What\'s something you posted that you\'d be embarrassed for your parents/teachers/future self to see?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Digital Footprint Timeline." Have students Google themselves or a celebrity. What shows up? Discuss: photos, comments, old posts, old accounts. Then ask: what do YOU want to be famous for online?',
-                            tips: 'This isn\'t meant to scare but to empower. Help students see that they have CONTROL over their online reputation right now. Starting good habits NOW matters.',
-                            takeaway: 'Post like your grandma, future college, and future employer are watching—because they might be. Everything online is permanent. Think before you post.'
-                        },
-                        {
-                            name: 'Lesson 3: Privacy Settings & Account Security',
-                            objectives: [
-                                'Learn how to make accounts private and control who sees content',
-                                'Understand password security and two-factor authentication',
-                                'Recognize phishing and hacking attempts'
-                            ],
-                            overview: 'Privacy settings are your friend. Making your account private, controlling who follows you, and securing your password protects you from predators, hackers, and strangers. This is a practical, hands-on lesson.',
-                            discussion: [
-                                'Why would you want a private account vs. public?',
-                                'Who should be able to see your posts? Your close friends only? Everyone?',
-                                'What information is OK to have on your profile? (Location? Birthday? Phone number?)',
-                                'Have you ever had someone try to guess your password or hack your account?',
-                                'What makes a strong password?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Privacy Audit." If students are comfortable, show them how to check/change privacy settings on platforms they use (Instagram, TikTok, Snapchat, Discord). Create a strong password together. Discuss: screenshot of a phishing email and how to spot it.',
-                            tips: 'Some students may not have accounts yet—that\'s OK. This is preparation. For those with accounts, normalize changing settings regularly. If you can\'t demo live, show screenshots/video.',
-                            takeaway: 'Private account > public. Strong passwords are your first line of defense. Be suspicious of links asking you to "verify" your password. Trust your gut.'
-                        }
-                    ]
-                },
-                9: {
-                    title: 'Grade 9: Predators, Grooming & Safety (3 Lessons)',
-                    lessons: [
-                        {
-                            name: 'Lesson 1: Grooming Tactics & Red Flags',
-                            objectives: [
-                                'Understand predatory grooming tactics and how they work',
-                                'Recognize red flags and warning signs',
-                                'Learn what to do if an adult\'s behavior feels wrong'
-                            ],
-                            overview: 'Predators are strategic. They spend time building trust, isolating victims, and lowering their guard—a process called "grooming." This is not a sudden assault; it\'s a manipulation process. Students learn to recognize it and trust their instincts.',
-                            discussion: [
-                                'What does grooming mean? (Building trust, asking for personal info, moving to private chat, asking for photos)',
-                                'Why would an adult do this? What are they trying to do?',
-                                'What are red flags that an adult\'s behavior is wrong? (Too much attention, asking personal questions, wanting to keep secrets, asking for photos, trying to isolate you)',
-                                'If an adult online is being nice to you but something feels OFF—trust that feeling. Why?',
-                                'What would you do if this happened to you or a friend?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Tactics & Red Flags" case studies. Present realistic scenarios (adult in gaming chat, Instagram DM, Snapchat, etc.) and have students identify the grooming tactics being used: love-bombing, building rapport, isolation, boundary-pushing, etc.',
-                            tips: 'This is heavy content. Be clear: this is not to scare but to PROTECT. Predators exist, but most adults are good. If a student discloses, thank them, tell them it\'s not their fault, report to school and authorities.',
-                            takeaway: 'Trust your gut. If an adult online is making you uncomfortable, isolating you from friends, or asking personal questions—tell a trusted adult immediately. It\'s not your fault. You did nothing wrong.'
-                        },
-                        {
-                            name: 'Lesson 2: Online Dating Apps & Why They\'re Dangerous',
-                            objectives: [
-                                'Understand why dating apps are dangerous for teenagers',
-                                'Learn how predators use dating apps to find victims',
-                                'Recognize sextortion tactics and threats'
-                            ],
-                            overview: 'Dating apps like Tinder, Bumble, and Snapchat are 18+—but age verification is broken. Predators use them to find teenagers. Catfishing, predatory adults, sextortion, and trafficking are real. This lesson covers the harsh reality.',
-                            discussion: [
-                                'Why would a teenager want a dating app? What\'s appealing?',
-                                'How easy is it to lie about your age online?',
-                                'If an adult says they\'re 16 on a dating app, are they telling the truth? How would you know?',
-                                'What would you expect to happen if you met someone from a dating app in person?',
-                                'Why do predators use dating apps to find teenagers?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Profile Reality Check." Show examples of real dating app profiles (or fake ones you create). Have students identify: obvious lies, red flags, suspicious details. Discuss: would you meet this person?',
-                            tips: 'Some students may already be on dating apps. Don\'t shame them—educate them. Be clear about the risks without being preachy. Offer resources for support.',
-                            takeaway: 'Dating apps are for 18+. Period. If you\'re on one, adults can lie about their age. Meeting strangers from the internet is dangerous. No app is worth your safety.'
-                        },
-                        {
-                            name: 'Lesson 3: Sextortion & What to Do',
-                            objectives: [
-                                'Understand what sextortion is and how it happens',
-                                'Learn that it\'s NOT the victim\'s fault',
-                                'Know the steps to take if it happens to them or a friend'
-                            ],
-                            overview: 'Sextortion is when someone threatens to share intimate photos/videos unless you pay them or comply. It happens to thousands of teens. This lesson covers prevention, response, and trauma support. Most importantly: it\'s not your fault.',
-                            discussion: [
-                                'What is sextortion? How does it happen?',
-                                'How do criminals get intimate photos of teens? (Trick into taking them, hack accounts, threaten)',
-                                'If someone threatened to share photos of you, what would you do?',
-                                'If you paid them, would it stop? (Spoiler: usually not. They keep asking for more.)',
-                                'What would you tell a friend if this happened to them?',
-                                'Where can you get help?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Response Plan." Walk through what to do if sextorted: (1) Don\'t pay. (2) Screenshot/save evidence. (3) Report to platform & FBI (ic3.gov). (4) Tell a trusted adult. (5) Block the person. (6) Get counseling support. Practice saying: "I won\'t pay and you can\'t control me."',
-                            tips: 'Many teens have experienced or know someone who has. This is validating and empowering. Emphasize: you did nothing wrong, paying doesn\'t help, adults can help. Have counselor resources ready.',
-                            takeaway: 'Never send intimate photos. If you\'re sextorted: don\'t pay, save evidence, tell an adult, report to FBI. It\'s not your fault. You can recover from this.'
-                        }
-                    ]
-                },
-                11: {
-                    title: 'Grade 11+: Digital Future (3 Lessons)',
-                    lessons: [
-                        {
-                            name: 'Lesson 1: Your Posts = Your Permanent Record',
-                            objectives: [
-                                'Understand that colleges and employers research you online',
-                                'Learn how to think long-term about online presence',
-                                'Develop strategies for managing your digital reputation'
-                            ],
-                            overview: 'In 6 months, you\'ll be applying to college. In 4 years, you\'ll be job hunting. Colleges scroll social media during admissions. Employers Google candidates. What you post NOW affects your FUTURE. This is the reality check.',
-                            discussion: [
-                                'Have you thought about what colleges will find if they Google you?',
-                                'What\'s one post you\'ve made that could hurt college chances? (Drinking, drugs, offensive jokes, explicit content)',
-                                'How many colleges do you think check social media? (Answer: most do)',
-                                'Is it fair? Maybe not. But is it real? Yes.',
-                                'What kind of digital reputation do you want?',
-                                'How do you build it starting today?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Reputation Audit." Have students Google themselves (anonymously, if they\'re not comfortable). What comes up? Have them think: if a college admissions officer saw this, would they want you? Then: what do you want to post going forward to BUILD a good reputation?',
-                            tips: 'This hits different for 11th graders—college feels real. Use it as motivation, not fear. Show examples of students who got into dream schools with clean social media vs. those who didn\'t. Make it relatable.',
-                            takeaway: 'Colleges look. Employers look. What you post today is part of your college and job application. Build a digital reputation you\'re proud of.'
-                        },
-                        {
-                            name: 'Lesson 2: Sextortion, Consent & Legal Reality',
-                            objectives: [
-                                'Understand the legal implications of explicit content',
-                                'Learn about consent in a digital context',
-                                'Recognize sextortion and revenge porn risks'
-                            ],
-                            overview: 'Sending or receiving intimate photos has legal consequences. Explicit images of minors are child sexual abuse material (CSAM)—federal crime. Even consensual photos between teens can result in criminal charges. This is the legal reality, plus consent and emotional impact.',
-                            discussion: [
-                                'Is it legal to send explicit photos if you\'re under 18? (No. It\'s CSAM, a federal crime)',
-                                'What can happen if you\'re caught? (Criminal record, sex offender registry in some states)',
-                                'If you send a photo to a girlfriend/boyfriend, what if you break up? (Revenge porn—also illegal, and deeply damaging)',
-                                'What does consent mean? Can you change your mind?',
-                                'If someone asks for photos and you say no, do they respect that?',
-                                'Why do people ask anyway?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Scenario & Consequences." Present realistic scenarios and students discuss legal/emotional/reputational consequences. Example: boyfriend asks for explicit photos; they break up; he threatens to share them. What happens? (Criminal charges for him, emotional trauma for her, potential college/job fallout for her.)',
-                            tips: 'This is age-appropriate for 11th graders—they\'re getting serious relationship requests. Be honest about consequences but non-judgmental. Emphasize: it\'s OK to say no. Real partners respect boundaries.',
-                            takeaway: 'No explicit photos, ever. It\'s illegal, it\'s risky, and it\'s not worth it. Consent means "yes"—and you can always change your mind. Real people respect that.'
-                        },
-                        {
-                            name: 'Lesson 3: Building Your Digital Future',
-                            objectives: [
-                                'Develop strategies for healthy online habits',
-                                'Learn how to use social media and tech as tools, not time-wasters',
-                                'Think critically about your relationship with screens'
-                            ],
-                            overview: 'You have agency. You can build a digital future that\'s intentional, healthy, and aligned with your values. This lesson empowers students to think about HOW they want to use technology going forward.',
-                            discussion: [
-                                'How much time do you spend on screens daily? How does it make you feel?',
-                                'What\'s one thing you\'d do if you had less screen time?',
-                                'How can you use social media/gaming in a healthy way? (Following inspiring people, connecting with communities, skill-building)',
-                                'What boundaries do you want to set? (No phones at dinner? Screen-free before bed? Limits on TikTok?)',
-                                'What does a healthy digital future look like for you?',
-                                'How do you stay true to your values online?'
-                            ],
-                            activity: '<strong>Activity:</strong> "Digital Wellness Plan." Have students create a personal digital plan: (1) Screen time limits. (2) Social media purpose (what they follow, why). (3) Boundaries (no phone times/places). (4) Career-building online presence. (5) How to protect mental health. Share commitments with a partner.',
-                            tips: 'End on an empowering note. They\'re building their lives—digital presence is part of that. They have MORE control than they think.',
-                            takeaway: 'You control your relationship with tech, not the other way around. Build a digital future you\'re proud of. Your 25-year-old self will thank you.'
-                        }
-                    ]
-                }
-            };
-
-            const content = curricula[grade];
-            if (!content) return;
-
-            const html = `
-                <div style="background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem;">
-                    <h2 style="color: var(--primary); margin-top: 0;">${content.title}</h2>
-
-                    ${content.lessons.map((lesson, idx) => `
-                        <div style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);" class="lesson-printable">
-                            <div style="display: flex; justify-content: space-between; align-items: start;">
-                                <h3 style="color: var(--primary); margin-top: 0; flex: 1;">${lesson.name}</h3>
-                                <button class="btn btn-secondary" onclick="printLesson('${lesson.name}')" style="padding: 0.5rem 1rem; font-size: 0.9rem; white-space: nowrap;">🖨️ Print Lesson</button>
-                            </div>
-
-                            <div style="background: rgba(46, 204, 113, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                                <p style="margin: 0; color: var(--text-dark);"><strong>Learning Objectives:</strong></p>
-                                <ul style="margin: 0.5rem 0 0 1.5rem; color: var(--text-gray);">
-                                    ${lesson.objectives.map(obj => `<li>${obj}</li>`).join('')}
-                                </ul>
-                            </div>
-
-                            <div style="margin-bottom: 1.5rem;">
-                                <strong style="color: var(--primary);">Overview:</strong>
-                                <p style="color: var(--text-gray);">${lesson.overview}</p>
-                            </div>
-
-                            <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                                <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;">💬 Discussion Prompts:</strong>
-                                <ul style="color: var(--text-gray); margin: 0; padding-left: 1.5rem;">
-                                    ${lesson.discussion.map(q => `<li style="margin-bottom: 0.5rem;">${q}</li>`).join('')}
-                                </ul>
-                            </div>
-
-                            <div style="margin-bottom: 1.5rem;">
-                                <strong style="color: var(--secondary); display: block; margin-bottom: 0.5rem;">✏️ ${lesson.activity}</strong>
-                            </div>
-
-                            <div style="background: rgba(78, 205, 196, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--secondary);">
-                                <strong style="color: var(--secondary); display: block; margin-bottom: 0.5rem;">👨‍🏫 Teaching Tips:</strong>
-                                <p style="margin: 0; color: var(--text-gray);">${lesson.tips}</p>
-                            </div>
-
-                            <div style="padding: 1rem; background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(255, 183, 3, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);">
-                                <strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">📌 Key Takeaway:</strong>
-                                <p style="margin: 0; color: var(--text-gray);"><em>"${lesson.takeaway}"</em></p>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-
-            document.getElementById('gradeContent').innerHTML = html;
-            document.getElementById('gradeContent').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-
-    <style>
-        .grade-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        @media print {
-            /* Hide navigation, buttons, and non-essential elements */
-            nav, footer, button:not(.hidden-for-print), .grade-card {
-                display: none !important;
-            }
-
-            /* Show print button with special class */
-            button.print-button {
-                display: inline-block !important;
-            }
-
-            /* Optimize for printing */
-            body {
-                margin: 0.5in;
-                font-size: 11pt;
-                color: #000;
-            }
-
-            h1, h2, h3 {
-                page-break-after: avoid;
-                page-break-inside: avoid;
-            }
-
-            .lesson-printable {
-                page-break-inside: avoid;
-                margin-bottom: 2rem;
-                padding: 1rem;
-                border: 1px solid #ddd;
-            }
-
-            ul, ol {
-                page-break-inside: avoid;
-            }
-
-            li {
-                page-break-inside: avoid;
-                margin-bottom: 0.5rem;
-            }
-
-            .lesson-printable > div {
-                page-break-inside: avoid;
-            }
-
-            /* Better spacing */
-            p {
-                orphans: 3;
-                widows: 3;
-                margin-bottom: 0.8rem;
-            }
-
-            /* Hide colors, just use text */
-            a {
-                color: #000;
-                text-decoration: underline;
-            }
-
-            @page {
-                margin: 0.5in;
-            }
-        }
-
-        /* Hide for screen, show for print */
-        @media print {
-            .screen-only {
-                display: none !important;
-            }
-        }
-    </style>
-
-    <script src="js/main.js"></script>
     <script src="js/global-search.js"></script>
+    <script src="js/classroom-resources.js"></script>
 </body>
 </html>
