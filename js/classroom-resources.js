@@ -13,12 +13,12 @@ const classroomLessons = [
         description: 'Introduction to treating people kindly online, understanding screens, and simple digital rules.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/k2-1-digital-kindness.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -34,12 +34,12 @@ const classroomLessons = [
         description: 'Simple, age-appropriate introduction to online strangers and safe practices.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/k2-2-stranger-danger.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -55,12 +55,12 @@ const classroomLessons = [
         description: 'Age-appropriate exploration of what a digital footprint is and why it matters.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/k2-3-digital-footprint.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -78,12 +78,12 @@ const classroomLessons = [
         description: 'Hands-on lesson evaluating real apps kids use and configuring privacy controls.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/35-1-privacy-settings.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -99,12 +99,12 @@ const classroomLessons = [
         description: 'Interactive scenarios teaching students to spot common online scams.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/35-2-spotting-scams.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -120,12 +120,12 @@ const classroomLessons = [
         description: 'Discussion-based lesson with real scenarios about online respect and standing up for others.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/35-3-cyberbullying.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -143,12 +143,12 @@ const classroomLessons = [
         description: 'Comprehensive introduction to digital citizenship covering consent, privacy, and respectful online behavior.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/68-1-digital-citizenship.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -164,12 +164,12 @@ const classroomLessons = [
         description: 'Multi-lesson unit on social media literacy, algorithm awareness, and mental health impacts.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/68-2-social-media-reputation.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -185,12 +185,12 @@ const classroomLessons = [
         description: 'Age-appropriate lesson on predatory behavior patterns and how to respond.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/68-3-grooming-awareness.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -208,12 +208,12 @@ const classroomLessons = [
         description: 'Comprehensive unit on recognizing predatory behavior, sextortion, dating app dangers, and resources.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/912-1-exploitation-prevention.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -229,12 +229,12 @@ const classroomLessons = [
         description: 'Exploration of permanent digital records, data collection, and long-term consequences.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/912-2-digital-footprint-future.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -250,12 +250,12 @@ const classroomLessons = [
         description: 'Forward-looking lesson on emerging AI risks and how to verify information.',
         includes: {
             lessonPlan: true,
-            slideShow: true,
+            slideShow: false,
             parentGuide: true,
             activity: true
         },
         downloads: {
-            plan: '#',
+            plan: '../lessons/912-3-ai-deepfakes-misinformation.html',
             slides: '#',
             parentGuide: '#'
         }
@@ -342,9 +342,9 @@ function renderLessonCards(lessons) {
             </div>
 
             <div class="lesson-downloads">
-                ${lesson.includes.lessonPlan ? `<a href="${lesson.downloads.plan}" class="btn-download" title="Download Lesson Plan">📥 Lesson</a>` : ''}
-                ${lesson.includes.slideShow ? `<a href="${lesson.downloads.slides}" class="btn-download" title="Download Slides">📥 Slides</a>` : ''}
-                ${lesson.includes.parentGuide ? `<a href="${lesson.downloads.parentGuide}" class="btn-download" title="Download Parent Guide">📥 Parent</a>` : ''}
+                ${lesson.includes.lessonPlan && lesson.downloads.plan !== '#' ? `<a href="${lesson.downloads.plan}" class="btn-download" title="Open Lesson Plan" target="_blank">📥 Lesson</a>` : ''}
+                ${lesson.includes.slideShow && lesson.downloads.slides !== '#' ? `<a href="${lesson.downloads.slides}" class="btn-download" title="Open Slides" target="_blank">📥 Slides</a>` : ''}
+                ${lesson.includes.parentGuide && lesson.downloads.parentGuide !== '#' ? `<a href="${lesson.downloads.parentGuide}" class="btn-download" title="Open Parent Guide" target="_blank">📥 Parent</a>` : ''}
                 <button class="btn-view" onclick="printLesson('${lesson.id}')">🖨️ Print</button>
             </div>
         </div>
