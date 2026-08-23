@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Time & Sleep Guide - DigitalCap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: #2D3436;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #FF6B6B;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FF6B6B;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #636E72;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: #FF6B6B;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .recommendation-box {
+            background: #F8F9FA;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .age-label {
+            font-weight: 700;
+            color: #4ECDC4;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .recommendation-text {
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        .recommendation-detail {
+            font-size: 13px;
+            color: #636E72;
+        }
+
+        .why-box {
+            background: #E8F4F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .why-label {
+            font-weight: 600;
+            color: #4ECDC4;
+            margin-bottom: 3px;
+        }
+
+        .tips-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .tips-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #F8F9FA;
+            border-left: 3px solid #FF6B6B;
+            border-radius: 4px;
+        }
+
+        .tips-list strong {
+            color: #FF6B6B;
+        }
+
+        .warning-box {
+            background: #FFE66D;
+            border-left: 4px solid #FFB703;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .warning-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DigitalCap</div>
+            <div class="title">⏰ Screen Time & Sleep Guide</div>
+            <div class="subtitle">Why screen time matters, healthy habits, and how to enforce limits without conflict</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📊 RECOMMENDED SCREEN TIME BY AGE</div>
+
+            <div class="recommendation-box">
+                <div class="age-label">Ages 6-8</div>
+                <div class="recommendation-text"><strong>1-2 hours per day</strong> of quality content</div>
+                <div class="recommendation-detail">Focus on educational programs and co-viewing when possible</div>
+                <div class="why-box">
+                    <div class="why-label">Why:</div>
+                    Young brains are still developing. Limited screen time allows more time for physical play, social interaction, and creative play—all essential for healthy development.
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="age-label">Ages 9-12</div>
+                <div class="recommendation-text"><strong>1-2.5 hours per day</strong>, balanced with other activities</div>
+                <div class="recommendation-detail">Mix entertainment with educational content. Monitor content closely.</div>
+                <div class="why-box">
+                    <div class="why-label">Why:</div>
+                    This age group is more susceptible to algorithm-driven addiction and social comparison. Strong limits now prevent unhealthy habits later.
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="age-label">Ages 13-15</div>
+                <div class="recommendation-text"><strong>2-3 hours per day</strong> with established boundaries</div>
+                <div class="recommendation-detail">Teens need more independence, but structure still matters. Avoid screens 1 hour before bed.</div>
+                <div class="why-box">
+                    <div class="why-label">Why:</div>
+                    Teen brains are developing judgment and impulse control. Boundaries teach healthy self-regulation before they leave home.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🛏️ THE SLEEP CONNECTION</div>
+            <p style="margin-bottom: 10px; font-weight: 600;">Blue light from screens suppresses melatonin (the sleep hormone). This is why screen use before bed ruins sleep quality.</p>
+
+            <ul class="tips-list">
+                <li><strong>No screens 1 hour before bed</strong> — Switch to reading, conversation, or quiet activities</li>
+                <li><strong>No phones in the bedroom</strong> — Keep devices in a common charging station overnight</li>
+                <li><strong>Don't use screens to fall asleep</strong> — This creates dependency and disrupts sleep cycles</li>
+                <li><strong>Recommend 8-10 hours of sleep for kids</strong> — This requires bedtimes early enough to achieve this</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">✅ STRATEGIES FOR HEALTHY LIMITS</div>
+
+            <ul class="tips-list">
+                <li><strong>Set device-free times:</strong> Meals, car rides, and family time are phone-free zones for EVERYONE</li>
+                <li><strong>Use parental controls:</strong> App limits, screen time tracking, and content filters are your tools</li>
+                <li><strong>Model good behavior:</strong> If you're constantly on your phone, your child will be too</li>
+                <li><strong>Make the case together:</strong> Explain WHY limits exist (not just "because I said so")</li>
+                <li><strong>Offer alternatives:</strong> Boredom drives screen use. Have real activities ready: board games, outdoor time, hobbies</li>
+                <li><strong>Avoid using screens as a reward/punishment:</strong> This makes them seem more valuable</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">⚠️ RED FLAGS FOR ADDICTION</div>
+            <p style="margin-bottom: 10px; font-weight: 600; color: #E74C3C;">If your child shows any of these, screen time may be unhealthy:</p>
+
+            <ul class="tips-list">
+                <li><strong>Extreme moodiness when screens are taken away</strong></li>
+                <li><strong>Lies about how much time they've been using screens</strong></li>
+                <li><strong>Neglecting homework, friends, sports, or sleep for screen time</strong></li>
+                <li><strong>Can't sit through a meal without their phone</strong></li>
+                <li><strong>Declining grades or loss of interest in previous hobbies</strong></li>
+            </ul>
+
+            <div class="warning-box">
+                <div class="warning-label">💡 If you see these signs:</div>
+                Have a calm conversation about what's happening. Consider a temporary (1-2 week) screen break. If the issue persists, talk to your pediatrician—addiction is real and treatable.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

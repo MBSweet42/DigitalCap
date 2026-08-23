@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Device Rules - DigitalCap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: #2D3436;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #4ECDC4;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #636E72;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: #4ECDC4;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .rule-box {
+            background: #F8F9FA;
+            border-left: 4px solid #FF6B6B;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .rule-number {
+            font-weight: 700;
+            color: #FF6B6B;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .rule-title {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        .rule-description {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 5px;
+        }
+
+        .consequence {
+            background: white;
+            border-left: 2px solid #FFB703;
+            padding: 8px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #2D3436;
+            border-radius: 4px;
+        }
+
+        .consequence-label {
+            font-weight: 600;
+            color: #FFB703;
+        }
+
+        .contract-box {
+            background: #FFE66D;
+            border: 2px solid #FFB703;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contract-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 15px;
+        }
+
+        .signature-line {
+            border-bottom: 2px solid #2D3436;
+            height: 30px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signature-label {
+            font-size: 11px;
+            color: #636E72;
+            margin-top: 3px;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .signature-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .tip-box {
+            background: #E8F4F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .tip-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DigitalCap</div>
+            <div class="title">📋 Family Device Rules</div>
+            <div class="subtitle">Printable house rules for phones, tablets, and computers. Post on the fridge or child's door.</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">THE RULES</div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 1</div>
+                <div class="rule-title">No phones at meals or family time</div>
+                <div class="rule-description">Family dinners, car rides, and activities are device-free. This includes parents—model the behavior you want.</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> Device is confiscated for the rest of the day.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 2</div>
+                <div class="rule-title">No screens one hour before bed</div>
+                <div class="rule-description">Blue light keeps your brain awake. Put devices in the charging station by 8 PM (or 1 hour before your bedtime).</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> Device is taken until the next morning.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 3</div>
+                <div class="rule-title">Always ask before downloading a new app</div>
+                <div class="rule-description">We'll check it together using the DigitalCap App Safety Checklist. No exceptions—this protects your privacy and safety.</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> App is deleted and screen time is reduced for one week.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 4</div>
+                <div class="rule-title">Never share personal information online</div>
+                <div class="rule-description">Real name, phone number, address, school name, or location (via check-ins) stay private. Even if a "friend" asks.</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> Loss of device access for one week + conversation about why this matters.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 5</div>
+                <div class="rule-title">Tell an adult immediately if something feels weird or unsafe</div>
+                <div class="rule-description">Mean comments, strange messages from adults, pressure from friends, or anything that makes you uncomfortable. NO punishment will happen—we're here to help.</div>
+                <div class="consequence">
+                    <span class="consequence-label">Reward:</span> We work together to solve the problem. Your safety is more important than the rule.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 6</div>
+                <div class="rule-title">Respect others' privacy and property online</div>
+                <div class="rule-description">Don't share other people's photos, videos, or personal info. Don't cyberbully or spread rumors. The internet is permanent.</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> Device access suspended until the person harmed receives an apology. Screen time reduced for two weeks.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 7</div>
+                <div class="rule-title">Ask before making purchases inside apps</div>
+                <div class="rule-description">In-app spending adds up fast. Even small purchases require permission. If the rule is broken, you pay the charge from your allowance.</div>
+                <div class="consequence">
+                    <span class="consequence-label">If broken:</span> You reimburse the cost. Device confiscated for one week.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-number">Rule 8</div>
+                <div class="rule-title">Parents have access to all accounts and passwords</div>
+                <div class="rule-description">We're not spying—we're keeping you safe. We may check your device occasionally, and you should be okay with that.</div>
+                <div class="consequence">
+                    <span class="consequence-label">Note:</span> Privacy is earned through trust. Follow these rules, and we'll respect your growing independence.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">SIGNED AGREEMENT</div>
+            <div class="contract-box">
+                <div class="contract-title">We agree to follow these family device rules</div>
+
+                <div class="signature-row">
+                    <div class="signature-item">
+                        <div style="font-size: 12px; font-weight: 600; margin-bottom: 10px;">Child's Name (Print)</div>
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Child's Signature</div>
+                    </div>
+                </div>
+
+                <div class="signature-row" style="margin-top: 25px;">
+                    <div class="signature-item">
+                        <div style="font-size: 12px; font-weight: 600; margin-bottom: 10px;">Parent's Name (Print)</div>
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Parent's Signature</div>
+                    </div>
+                </div>
+
+                <div style="text-align: left; margin-top: 20px; font-size: 12px; color: #2D3436;">
+                    <strong>Date:</strong> _______________
+                    <br/><br/>
+                    <strong>Review Date (6 months):</strong> _______________
+                </div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="tip-label">💡 TIPS FOR SUCCESS</div>
+            <ul style="margin-left: 15px; font-size: 13px; color: #2D3436;">
+                <li>Make the rules together, not alone. Kids are more likely to follow rules they helped create.</li>
+                <li>Post these rules somewhere visible—kitchen, bedroom, device itself.</li>
+                <li>Revisit every 6 months. Rules may need to change as kids get older.</li>
+                <li>Be consistent. Enforce rules equally for all children. No exceptions "just this once."</li>
+                <li>Be kind. The goal is safety, not punishment. Make adjustments if rules aren't working.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

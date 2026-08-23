@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Safety Checklist - DigitalCap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: #2D3436;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 8.5in;
+            height: 11in;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            page-break-after: always;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #FF6B6B;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FF6B6B;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #636E72;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: #4ECDC4;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #F8F9FA;
+            border-radius: 6px;
+            border-left: 3px solid #FF6B6B;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FF6B6B;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .item-text {
+            flex: 1;
+        }
+
+        .item-label {
+            font-weight: 600;
+            color: #2D3436;
+            margin-bottom: 3px;
+        }
+
+        .item-description {
+            font-size: 13px;
+            color: #636E72;
+        }
+
+        .tip-box {
+            background: #FFE66D;
+            border-left: 4px solid #FFB703;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .tip-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0.5in;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DigitalCap</div>
+            <div class="title">📱 App Safety Checklist</div>
+            <div class="subtitle">Before downloading an app, use this checklist to evaluate the real risks</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔍 BASIC INFORMATION</div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">What is this app designed to do?</div>
+                    <div class="item-description">Understand the app's primary purpose before allowing access</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Is there a minimum age requirement?</div>
+                    <div class="item-description">Check official app stores (Apple/Google) for age ratings</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Who developed this app?</div>
+                    <div class="item-description">Verify it's from a legitimate, established company or creator</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔐 PRIVACY & DATA</div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Does it ask for permission to access location?</div>
+                    <div class="item-description">Question why the app needs to know where your child is</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Does it ask for camera/microphone access?</div>
+                    <div class="item-description">Only grant if essential to the app's function</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Does it require a login or account?</div>
+                    <div class="item-description">If yes, review privacy policy and parental controls first</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Is the privacy policy easy to understand?</div>
+                    <div class="item-description">Red flag if it's written in confusing legal language</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">💬 COMMUNICATION & SOCIAL</div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Can your child chat with strangers?</div>
+                    <div class="item-description">Look for unsupervised messaging, live chat, or multiplayer features</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Are there reporting/blocking tools?</div>
+                    <div class="item-description">Can your child easily report harassment or inappropriate behavior?</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">💰 IN-APP SPENDING</div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Does the app offer in-app purchases?</div>
+                    <div class="item-description">Enable purchase restrictions in your device settings</div>
+                </div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">
+                    <div class="item-label">Does it have a battle pass or premium currency?</div>
+                    <div class="item-description">These are designed to encourage spending</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="tip-label">💡 PARENT TIP</div>
+            Keep this checklist handy and review it BEFORE saying yes to a new app. Have a conversation with your child about why you're asking these questions—it teaches them to think critically about privacy and safety too.
+        </div>
+    </div>
+</body>
+</html>
