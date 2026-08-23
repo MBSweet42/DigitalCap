@@ -1799,9 +1799,7 @@ const appsCompleteV2 = [
             scriptOpener: '"Viber uses your phone number which might be searchable online. Let\'s review who\'s contacting you."'
         },
         sources: 'Parent communities'
-    }
-];
-
+    },
     {
         id: 33,
         name: 'Valorant',
