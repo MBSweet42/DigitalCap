@@ -950,7 +950,7 @@ main {
 }
 
 .footer a {
-    color: var(--primary);
+    color: #FF6B6B !important;
     text-decoration: none;
 }
 
