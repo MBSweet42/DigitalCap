@@ -20,6 +20,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/k2-1-digital-kindness.html',
             slides: 'slides/k2-1-digital-kindness-slides.html',
+            worksheet: 'worksheets/k2-1-digital-kindness-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -41,6 +42,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/k2-2-recognizing-concerning-behavior.html',
             slides: 'slides/k2-2-recognizing-behavior-slides.html',
+            worksheet: 'worksheets/k2-2-recognizing-behavior-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -62,6 +64,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/k2-3-digital-footprint.html',
             slides: 'slides/k2-3-digital-footprint-slides.html',
+            worksheet: 'worksheets/k2-3-digital-footprint-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -85,6 +88,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/35-1-privacy-settings.html',
             slides: 'slides/35-1-privacy-settings-slides.html',
+            worksheet: 'worksheets/35-1-privacy-settings-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -106,6 +110,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/35-2-spotting-scams.html',
             slides: 'slides/35-2-spotting-scams-slides.html',
+            worksheet: 'worksheets/35-2-spotting-scams-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -127,6 +132,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/35-3-cyberbullying.html',
             slides: 'slides/35-3-cyberbullying-slides.html',
+            worksheet: 'worksheets/35-3-cyberbullying-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -150,6 +156,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/68-1-digital-citizenship.html',
             slides: 'slides/68-1-digital-citizenship-slides.html',
+            worksheet: 'worksheets/68-1-digital-citizenship-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -171,6 +178,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/68-2-social-media-reputation.html',
             slides: 'slides/68-2-social-media-reputation-slides.html',
+            worksheet: 'worksheets/68-2-social-media-reputation-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -192,6 +200,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/68-3-grooming-awareness.html',
             slides: 'slides/68-3-grooming-awareness-slides.html',
+            worksheet: 'worksheets/68-3-grooming-awareness-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -215,6 +224,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/912-1-exploitation-prevention.html',
             slides: 'slides/912-1-exploitation-prevention-slides.html',
+            worksheet: 'worksheets/912-1-exploitation-prevention-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -236,6 +246,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/912-2-digital-footprint-future.html',
             slides: 'slides/912-2-digital-footprint-slides.html',
+            worksheet: 'worksheets/912-2-digital-footprint-worksheet.html',
             parentGuide: '#'
         }
     },
@@ -257,6 +268,7 @@ const classroomLessons = [
         downloads: {
             plan: 'lessons/912-3-ai-deepfakes-misinformation.html',
             slides: 'slides/912-3-ai-deepfakes-misinformation-slides.html',
+            worksheet: 'worksheets/912-3-ai-deepfakes-misinformation-worksheet.html',
             parentGuide: '#'
         }
     }
@@ -344,6 +356,7 @@ function renderLessonCards(lessons) {
             <div class="lesson-downloads">
                 ${lesson.includes.lessonPlan && lesson.downloads.plan !== '#' ? `<a href="${lesson.downloads.plan}" class="btn-download" title="Open Lesson Plan" target="_blank">📥 Lesson</a>` : ''}
                 ${lesson.includes.slideShow && lesson.downloads.slides !== '#' ? `<a href="${lesson.downloads.slides}" class="btn-download" title="Open Slides" target="_blank">📥 Slides</a>` : ''}
+                ${lesson.downloads.worksheet && lesson.downloads.worksheet !== '#' ? `<a href="${lesson.downloads.worksheet}" class="btn-download" title="Open Worksheet" target="_blank">📝 Worksheet</a>` : ''}
                 ${lesson.includes.parentGuide && lesson.downloads.parentGuide !== '#' ? `<a href="${lesson.downloads.parentGuide}" class="btn-download" title="Open Parent Guide" target="_blank">📥 Parent</a>` : ''}
                 <button class="btn-view" onclick="printLesson('${lesson.id}')">🖨️ Print</button>
             </div>
