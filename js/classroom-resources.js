@@ -55,13 +55,13 @@ const classroomLessons = [
         description: 'Age-appropriate exploration of what a digital footprint is and why it matters.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/k2-3-digital-footprint.html',
-            slides: '#',
+            slides: '../slides/k2-3-digital-footprint-slides.html',
             parentGuide: '#'
         }
     },
@@ -78,13 +78,13 @@ const classroomLessons = [
         description: 'Hands-on lesson evaluating real apps kids use and configuring privacy controls.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/35-1-privacy-settings.html',
-            slides: '#',
+            slides: '../slides/35-1-privacy-settings-slides.html',
             parentGuide: '#'
         }
     },
@@ -120,13 +120,13 @@ const classroomLessons = [
         description: 'Discussion-based lesson with real scenarios about online respect and standing up for others.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/35-3-cyberbullying.html',
-            slides: '#',
+            slides: '../slides/35-3-cyberbullying-slides.html',
             parentGuide: '#'
         }
     },
@@ -143,13 +143,13 @@ const classroomLessons = [
         description: 'Comprehensive introduction to digital citizenship covering consent, privacy, and respectful online behavior.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/68-1-digital-citizenship.html',
-            slides: '#',
+            slides: '../slides/68-1-digital-citizenship-slides.html',
             parentGuide: '#'
         }
     },
@@ -164,34 +164,34 @@ const classroomLessons = [
         description: 'Multi-lesson unit on social media literacy, algorithm awareness, and mental health impacts.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/68-2-social-media-reputation.html',
-            slides: '#',
+            slides: '../slides/68-2-social-media-reputation-slides.html',
             parentGuide: '#'
         }
     },
     {
         id: '68-3',
-        title: 'Stranger Danger & Online Grooming Awareness',
+        title: 'Recognizing Grooming & Manipulation',
         gradeBand: '6-8',
         gradeLevel: '6th - 8th Grade',
         topic: 'Cyberbullying & DMs',
         duration: '45-min',
         objective: 'Recognize grooming tactics, manipulative behavior, and understand when to seek help.',
-        description: 'Age-appropriate lesson on predatory behavior patterns and how to respond.',
+        description: 'Age-appropriate lesson on recognizing manipulation patterns and how to respond.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/68-3-grooming-awareness.html',
-            slides: '#',
+            slides: '../slides/68-3-grooming-awareness-slides.html',
             parentGuide: '#'
         }
     },
@@ -208,13 +208,13 @@ const classroomLessons = [
         description: 'Comprehensive unit on recognizing predatory behavior, sextortion, dating app dangers, and resources.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/912-1-exploitation-prevention.html',
-            slides: '#',
+            slides: '../slides/912-1-exploitation-prevention-slides.html',
             parentGuide: '#'
         }
     },
@@ -250,13 +250,13 @@ const classroomLessons = [
         description: 'Forward-looking lesson on emerging AI risks and how to verify information.',
         includes: {
             lessonPlan: true,
-            slideShow: false,
+            slideShow: true,
             parentGuide: true,
             activity: true
         },
         downloads: {
             plan: '../lessons/912-3-ai-deepfakes-misinformation.html',
-            slides: '#',
+            slides: '../slides/912-3-ai-deepfakes-misinformation-slides.html',
             parentGuide: '#'
         }
     }
