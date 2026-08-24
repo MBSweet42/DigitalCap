@@ -1236,10 +1236,10 @@ main {
 
 .safety-page .article-content-wrapper {
     overflow: hidden;
-    animation: slideDown 0.3s ease-out;
+    animation: accordionSlideDown 0.3s ease-out;
 }
 
-@keyframes slideDown {
+@keyframes accordionSlideDown {
     from {
         opacity: 0;
         max-height: 0;
