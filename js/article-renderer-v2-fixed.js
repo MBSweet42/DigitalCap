@@ -142,6 +142,24 @@ function renderArticlesClean() {
                         </div>
                     </div>
                 `;
+            } else if (section.type === 'expandable-cards') {
+                // Expandable cards - multiple individual expandable items
+                html += `<div style="margin: 1rem 0;">`;
+                section.cards.forEach((card, cardIdx) => {
+                    const cardId = `${sectionId}-card-${cardIdx}`;
+                    html += `
+                        <div class="article-section-v2" style="margin-bottom: 0.75rem; box-shadow: none;">
+                            <div class="section-header" onclick="toggleSectionContent(this)" style="cursor: pointer;">
+                                <h3 style="margin: 0; font-size: 1.1rem;">${card.label}</h3>
+                                <span class="section-toggle">▼</span>
+                            </div>
+                            <div class="section-content" id="${cardId}" style="display: block;">
+                                ${card.content}
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `<div style="margin-top: 1.5rem; padding: 1rem; background: #f8d7da; border-radius: 8px; border-left: 4px solid var(--primary);">${section.researchBox}</div></div>`;
             }
         });
 

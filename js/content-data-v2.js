@@ -449,20 +449,34 @@ const articlesV2 = [
             },
             {
                 title: 'How Social Media Affects Mental Health',
-                type: 'expandable',
-                content: `
-                    <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><strong>Constant comparison:</strong> "Why don\'t I look like them?" "Why isn\'t my life that fun?" "Why don\'t I have that many friends?"</li>
-                        <li><strong>Validation through likes:</strong> Your self-worth shouldn\'t depend on Instagram likes, but the algorithm is designed to make it</li>
-                        <li><strong>FOMO (Fear of Missing Out):</strong> Everyone else seems to be having fun without you</li>
-                        <li><strong>Cyberbullying amplification:</strong> Mean comments are public and permanent</li>
-                        <li><strong>Body image issues:</strong> Constant exposure to \"perfect\" bodies leads to eating disorders, anxiety, and self-harm</li>
-                        <li><strong>Sleep deprivation:</strong> Can\'t put the phone down = can\'t sleep = depression</li>
-                    </ul>
-                    <div style="margin-top: 1rem; padding: 1rem; background: #f8d7da; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <strong>⚠️ Real research:</strong> Studies show heavy social media use (3+ hours daily) is linked to depression, anxiety, and self-harm, especially in teen girls.
-                    </div>
-                `
+                type: 'expandable-cards',
+                cards: [
+                    {
+                        label: 'Constant comparison',
+                        content: '"Why don\'t I look like them?" "Why isn\'t my life that fun?" "Why don\'t I have that many friends?"'
+                    },
+                    {
+                        label: 'Validation through likes',
+                        content: 'Your self-worth shouldn\'t depend on Instagram likes, but the algorithm is designed to make it'
+                    },
+                    {
+                        label: 'FOMO (Fear of Missing Out)',
+                        content: 'Everyone else seems to be having fun without you'
+                    },
+                    {
+                        label: 'Cyberbullying amplification',
+                        content: 'Mean comments are public and permanent'
+                    },
+                    {
+                        label: 'Body image issues',
+                        content: 'Constant exposure to "perfect" bodies leads to eating disorders, anxiety, and self-harm'
+                    },
+                    {
+                        label: 'Sleep deprivation',
+                        content: 'Can\'t put the phone down = can\'t sleep = depression'
+                    }
+                ],
+                researchBox: '<strong>⚠️ Real research:</strong> Studies show heavy social media use (3+ hours daily) is linked to depression, anxiety, and self-harm, especially in teen girls.'
             },
             {
                 title: 'Parent Pop-Up: If Your Child Is Struggling',
