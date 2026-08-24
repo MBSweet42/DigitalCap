@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container etiquette-page">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
             <div style="flex: 1;">
                 <h1>💬 Digital Etiquette</h1>
@@ -37,9 +37,9 @@
         </div>
 
         <!-- Jump to Section Navigation -->
-        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 2px solid var(--border-color);">
-            <strong style="color: var(--primary); display: block; margin-bottom: 1rem;">📍 Jump to Section</strong>
-            <div id="jumpNav" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+        <div style="margin-bottom: 2rem; font-size: 0.9rem;">
+            <strong style="color: var(--primary); margin-right: 0.5rem;">📍 Jump to Section:</strong>
+            <div id="jumpNav" style="display: inline-flex; flex-wrap: wrap;">
                 <!-- Populated by JavaScript -->
             </div>
         </div>
@@ -49,6 +49,18 @@
         </button>
 
         <div id="articlesContainer"></div>
+
+        <!-- Conversation Guides -->
+        <div id="article-conversation-guides" data-article-id="conversation-guides" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
+            <h2 style="color: var(--primary); margin-top: 0;">Conversation Guides</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Ready-to-use scripts for talking to your child about digital etiquette. Click any link to read the full dialogue.</p>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="6" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Online Respect Talk</a> — Teach kindness and respect online</li>
+                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="7" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Cyberbullying Response Talk</a> — What to say when they're being bullied online</li>
+                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="8" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Standing Up Online Talk</a> — Building empathy and standing against pile-ons</li>
+                <li style="margin-bottom: 0;"><a href="javascript:void(0)" class="script-link" data-script-id="9" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Digital Permanence Talk</a> — Understanding digital footprints and thinking before posting</li>
+            </ul>
+        </div>
     </main>
 
     <footer class="footer">
@@ -80,7 +92,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 const jumpNav = document.getElementById('jumpNav');
-                const articles = document.querySelectorAll('[data-article-id]');
+                const articles = document.querySelectorAll('.article-section-v2[data-article-id], #article-conversation-guides');
 
                 if (articles.length > 0) {
                     jumpNav.innerHTML = '';
@@ -90,34 +102,6 @@
                         const link = document.createElement('a');
                         link.href = `#article-${id}`;
                         link.textContent = title;
-                        link.style.display = 'inline-block';
-                        link.style.padding = '0.5rem 1rem';
-                        link.style.background = 'var(--bg-light)';
-                        link.style.color = 'var(--text-dark)';
-                        link.style.textDecoration = 'none';
-                        link.style.borderRadius = '8px';
-                        link.style.border = '1px solid var(--border-color)';
-                        link.style.transition = 'all 0.3s ease';
-                        link.onmouseover = function() {
-                            this.style.background = 'var(--secondary)';
-                            this.style.color = 'white';
-                            this.style.borderColor = 'var(--secondary)';
-                        };
-                        link.onmouseout = function() {
-                            this.style.background = 'var(--bg-light)';
-                            this.style.color = 'var(--text-dark)';
-                            this.style.borderColor = 'var(--border-color)';
-                        };
-                        link.onfocus = function() {
-                            this.style.background = 'var(--secondary)';
-                            this.style.color = 'white';
-                            this.style.borderColor = 'var(--secondary)';
-                        };
-                        link.onblur = function() {
-                            this.style.background = 'var(--bg-light)';
-                            this.style.color = 'var(--text-dark)';
-                            this.style.borderColor = 'var(--border-color)';
-                        };
                         link.onclick = (e) => {
                             e.preventDefault();
                             article.scrollIntoView({ behavior: 'smooth' });
@@ -126,6 +110,28 @@
                     });
                 }
             }, 500);
+        });
+
+        window.toggleSectionContent = function(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.section-toggle');
+            if (content && icon) {
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'block';
+                    icon.textContent = '▼';
+                } else {
+                    content.style.display = 'none';
+                    icon.textContent = '▶';
+                }
+            }
+        };
+
+        document.querySelectorAll('.script-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const scriptId = parseInt(this.getAttribute('data-script-id'));
+                openScriptModal(scriptId);
+            });
         });
     </script>
     <script src="js/article-renderer-v2-fixed.js"></script>
@@ -166,6 +172,58 @@
                 height: 45px;
                 font-size: 1.25rem;
             }
+        }
+
+        /* Etiquette-page accordion and navigation styling */
+
+        /* Accordion article styling */
+        .etiquette-page .article-intro {
+            transition: all 0.3s ease;
+        }
+
+        .etiquette-page .article-toggle-arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .etiquette-page .article-content-wrapper {
+            overflow: hidden;
+            animation: accordionSlideDown 0.3s ease-out;
+        }
+
+        /* Scroll offset for sticky navbar */
+        .etiquette-page .article-section-v2[data-article-id] {
+            scroll-margin-top: 100px;
+        }
+
+        /* Jump to Section text-link styling */
+        #jumpNav a {
+            display: inline;
+            padding: 0;
+            background: none;
+            color: var(--primary);
+            text-decoration: underline;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            margin: 0 0.25rem;
+        }
+
+        #jumpNav a:hover,
+        #jumpNav a:active,
+        #jumpNav a:focus {
+            color: var(--secondary);
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        #jumpNav a:not(:last-child)::after {
+            content: " •";
+            margin-right: 0.25rem;
+            color: var(--text-gray);
         }
     </style>
 

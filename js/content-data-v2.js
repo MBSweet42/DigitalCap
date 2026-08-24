@@ -591,6 +591,19 @@ const articlesV2 = [
                 `
             },
             {
+                title: 'Parent Pop-Up: Digital Permanence & Consent',
+                type: 'parent-popup',
+                content: `
+                    <p><strong>The internet never forgets.</strong> Screenshots, archives, and forwards mean anything your child posts today could resurface years later—in college applications, job interviews, or conversations with future partners. Help them think long-term: "Would you be proud if everyone saw this in 10 years?"</p>
+                    <p><strong>Have conversations about:</strong></p>
+                    <ul style="margin: 0.5rem 0 0 1.5rem;">
+                        <li>Never posting pictures or personal information about other people without asking first</li>
+                        <li>What to do if they regret something they posted (delete it, apologize if needed, move forward)</li>
+                        <li>Why disappearing or temporary posts can still be saved, screenshotted, or shared</li>
+                    </ul>
+                `
+            },
+            {
                 title: 'Key Takeaways',
                 type: 'takeaway',
                 content: `

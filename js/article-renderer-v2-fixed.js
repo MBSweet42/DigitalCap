@@ -4,8 +4,8 @@ let currentUtterance = null;
 let isSpeaking = false;
 
 document.addEventListener('DOMContentLoaded', function() {
-    const isSafetyPage = document.body.querySelector('.safety-page') !== null;
-    renderArticlesClean(isSafetyPage);
+    const isAccordionPage = document.body.querySelector('.safety-page, .etiquette-page') !== null;
+    renderArticlesClean(isAccordionPage);
 });
 
 function renderArticlesClean(accordionMode = false) {
@@ -115,9 +115,9 @@ function renderArticlesClean(accordionMode = false) {
         articleDiv.innerHTML = html;
         container.appendChild(articleDiv);
 
-        // Add scripts section AFTER each article
+        // Add scripts section AFTER each article (skip for accordion pages where scripts are in bottom section)
         const scriptsForArticle = parentConversationScripts.filter(s => s.articleId === article.id);
-        if (scriptsForArticle.length > 0) {
+        if (scriptsForArticle.length > 0 && !accordionMode) {
             const scriptSection = document.createElement('div');
             scriptSection.className = 'article-scripts-section';
             scriptSection.innerHTML = `

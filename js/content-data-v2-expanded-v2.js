@@ -203,5 +203,68 @@ Parent: "You're stronger than you think. We're going to get through this togethe
             'Follow up regularly to check on them',
             'Celebrate when things improve'
         ]
+    },
+    {
+        id: 8,
+        articleId: 7,
+        title: 'Standing Up Online Talk',
+        description: 'Conversation about empathy, pile-ons, and being kind when no one is watching',
+        script: `Parent: "I want to talk about something I've been noticing. How do you think it feels when someone posts something and then gets a bunch of mean comments?"
+
+Child: [responds]
+
+Parent: "Yeah, it's rough. And here's the thing: Sometimes people aren't mean on purpose. They see 100 other people commenting mean things, so they think it's OK to add their comment too. That's called a pile-on."
+
+Parent: "But just because everyone else is doing it doesn't make it right. You're still adding to someone's hurt. Does that make sense?"
+
+Child: [responds]
+
+Parent: "So here's what I want you to think about: Before you comment, ask yourself: 'Would I say this to their face? Is this kind?' If the answer is no, don't post it."
+
+Parent: "Now, here's the other side: If you see someone getting piled on and you want to be kind, you have power. A single message saying 'I'm sorry people are being mean' can mean SO much to someone who's hurting."
+
+Parent: "And if YOU say something mean and then realize it later, you can fix it. Delete the comment, or DM them and apologize. People respect that."
+
+Parent: "Kindness online doesn't make you uncool. It makes you the person people actually trust."`,
+        whenToUse: 'After they\'ve seen online pile-ons or bullying. Also great as a regular values check-in',
+        adaptationTips: [
+            'Use real examples from their social media (without shaming them)',
+            'Discuss why people pile-on (trying to be funny, fitting in, not thinking)',
+            'Practice: "What would you say in this situation?"',
+            'Praise them when they show kindness online',
+            'Normalize apologizing and fixing mistakes',
+            'Discuss the difference between having an opinion and being mean'
+        ]
+    },
+    {
+        id: 9,
+        articleId: 8,
+        title: 'Digital Permanence Talk',
+        description: 'Foundation conversation about digital footprints, screenshots, and thinking before posting',
+        script: `Parent: "Can I ask you something? When you post something online and then delete it, do you think it's really gone?"
+
+Child: [responds—probably not sure]
+
+Parent: "Right. It's not. Someone might have screenshotted it. Or the platform saved it in their servers. Once something's online, it's there forever—even if you delete it."
+
+Parent: "This matters because someday, colleges and employers will Google you. They might see old posts, pictures, comments—things you posted years ago and forgot about."
+
+Parent: "So here's what I want you to think about: Is this something I'd want my future boss to see? Is this something I'll still be OK with in 5 years? If the answer is no, don't post it."
+
+Parent: "One more thing: Never post pictures of your friends without asking. They might not want their face online, and it's not your choice to make for them."
+
+Parent: "If you ever post something and then realize 'oh no, that was a bad idea,' here's what we do: (1) Delete it as fast as possible. (2) Tell me about it. (3) Learn from it. We all make mistakes."
+
+Parent: "The key is thinking BEFORE you post, not panicking AFTER."`,
+        whenToUse: 'Regularly as they start social media. Great before they create any account',
+        adaptationTips: [
+            'Ages 9-12: Focus on "once online, forever" concept with concrete examples',
+            'Ages 13+: Discuss real scenarios (job interviews, college apps, future relationships)',
+            'Show them how to Google themselves',
+            'Discuss privacy settings and what "private" really means',
+            'Talk about screenshot culture—assume nothing is truly temporary',
+            'Emphasize that mistakes can be fixed, but faster is better',
+            'Model good digital footprinting yourself'
+        ]
     }
 ];
