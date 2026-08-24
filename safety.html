@@ -284,11 +284,11 @@
         });
 
 
-        window.toggleSection = function(header) {
+        window.toggleSectionContent = function(header) {
             const content = header.nextElementSibling;
-            const icon = header.querySelector('.toggle-icon');
-            if (content) {
-                if (content.style.display === 'none') {
+            const icon = header.querySelector('.section-toggle');
+            if (content && icon) {
+                if (content.style.display === 'none' || content.style.display === '') {
                     content.style.display = 'block';
                     icon.textContent = '▼';
                 } else {

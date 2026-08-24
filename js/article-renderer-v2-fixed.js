@@ -69,11 +69,11 @@ function renderArticlesClean() {
                 // Expandable section
                 html += `
                     <div class="article-section-v2" style="margin: 1rem 0; box-shadow: none;">
-                        <div class="section-header" onclick="toggleSection('${sectionId}')">
+                        <div class="section-header" onclick="toggleSectionContent(this)" style="cursor: pointer;">
                             <h3>${section.title}</h3>
                             <span class="section-toggle">▼</span>
                         </div>
-                        <div class="section-content" id="${sectionId}">
+                        <div class="section-content" id="${sectionId}" style="display: block;">
                             ${section.content}
                         </div>
                     </div>
