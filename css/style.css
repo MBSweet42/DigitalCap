@@ -506,6 +506,8 @@ main {
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .feature-card:hover {
@@ -522,6 +524,10 @@ main {
 .feature-card p {
     color: var(--text-gray);
     margin-bottom: 1.5rem;
+}
+
+.feature-card .btn {
+    margin-top: auto;
 }
 
 /* Getting Started */
