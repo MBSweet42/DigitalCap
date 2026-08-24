@@ -4,10 +4,11 @@ let currentUtterance = null;
 let isSpeaking = false;
 
 document.addEventListener('DOMContentLoaded', function() {
-    renderArticlesClean();
+    const isSafetyPage = document.body.querySelector('.safety-page') !== null;
+    renderArticlesClean(isSafetyPage);
 });
 
-function renderArticlesClean() {
+function renderArticlesClean(accordionMode = false) {
     const container = document.getElementById('articlesContainer');
     const articles = window.articlesToRender || articlesV2;
 
@@ -18,15 +19,25 @@ function renderArticlesClean() {
         articleDiv.id = `article-${article.id}`;
         articleDiv.setAttribute('data-article-id', article.id);
 
-        // Intro section
-        let html = `
-            <div class="article-intro">
-                <h2>${article.title}</h2>
-                <p>${article.intro}</p>
-            </div>
+        // Intro section - with accordion mode support
+        let introHtml = `
+            <div class="article-intro"${accordionMode ? ` onclick="toggleArticleAccordion(${article.id})" style="cursor: pointer;"` : ''}>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div style="flex: 1;">
+                        <h2>${article.title}</h2>
+                        <p>${article.intro}</p>
+                    </div>${accordionMode ? `<span class="article-toggle-arrow" style="font-size: 1.5rem; margin-left: 1rem; flex-shrink: 0;">▼</span>` : ''}
+                </div>
+            </div>`;
 
-            <div style="padding: 0;">
-        `;
+        let html = introHtml;
+
+        // Content wrapper - for accordion mode, wrap sections in collapsible div
+        if (accordionMode) {
+            html += `<div class="article-content-wrapper" data-article-id="${article.id}" style="display: none; padding: 0;">`;
+        } else {
+            html += `<div style="padding: 0;">`;
+        }
 
         // Render sections
         article.sections.forEach((section, sectionIdx) => {
@@ -138,6 +149,33 @@ function toggleSection(sectionId) {
 
     section.classList.toggle('open');
     toggle.classList.toggle('open');
+}
+
+function toggleArticleAccordion(articleId) {
+    const contentWrapper = document.querySelector(`.article-content-wrapper[data-article-id="${articleId}"]`);
+    const article = document.querySelector(`[data-article-id="${articleId}"]`);
+    const arrow = article.querySelector('.article-toggle-arrow');
+
+    if (contentWrapper) {
+        const isCurrentlyOpen = contentWrapper.style.display !== 'none';
+
+        // Close all other articles
+        document.querySelectorAll('.article-content-wrapper').forEach(wrapper => {
+            wrapper.style.display = 'none';
+        });
+
+        document.querySelectorAll('.article-toggle-arrow').forEach(a => {
+            a.style.transform = 'rotate(0deg)';
+        });
+
+        // Toggle current article
+        if (!isCurrentlyOpen) {
+            contentWrapper.style.display = 'block';
+            if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+    }
 }
 
 // ===== TEXT-TO-SPEECH =====

@@ -1197,6 +1197,59 @@ main {
     margin: 1.5rem 0;
 }
 
+/* Safety Page - Visual Hierarchy Simplification */
+.safety-page .article-section-v2 {
+    box-shadow: none;
+}
+
+.safety-page .section-header {
+    font-weight: 600;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.safety-page .section-type-parent-popup {
+    padding: 1.25rem;
+}
+
+.safety-page .section-type-callout {
+    padding: 1.25rem;
+}
+
+.safety-page .section-type-takeaway {
+    padding: 1.25rem;
+}
+
+/* Article-Level Accordion Styling */
+.safety-page .article-intro {
+    transition: all 0.3s ease;
+}
+
+.safety-page .article-intro[onclick] {
+    border-bottom: none;
+}
+
+.safety-page .article-toggle-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.safety-page .article-content-wrapper {
+    overflow: hidden;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 2000px;
+    }
+}
+
 /* Text-to-Speech Button */
 .text-to-speech-btn {
     display: inline-flex;
