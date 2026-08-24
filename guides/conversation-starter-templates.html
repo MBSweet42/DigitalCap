@@ -152,94 +152,51 @@
             <div class="subtitle">40+ conversation prompts to start tough talks about digital safety</div>
         </div>
 
-        <div class="section">
-            <span class="age-group">Ages 6-8</span>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Apps & Games</div>
-                <div class="conversation-starter">"What's your favorite app? Can you show me what you like about it?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Do you ever chat with people you don't know in that game?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Screen Time</div>
-                <div class="conversation-starter">"How much time do you think you spend on your device each day?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "How do you feel when it's time to stop using it?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Online Kindness</div>
-                <div class="conversation-starter">"If someone was mean to you online, would you tell me?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "What would you want me to do to help?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Passwords</div>
-                <div class="conversation-starter">"Do you know why we use passwords on our accounts?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Should we ever share our passwords? When is it okay?"</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <span class="age-group">Ages 9-12</span>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Social Media</div>
-                <div class="conversation-starter">"Are you on any social media apps? Tell me about them."</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Who do you follow? Do you know them in real life?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Online Privacy</div>
-                <div class="conversation-starter">"What information do you share online—your real name, location, school?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Why might we want to keep some things private?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Cyberbullying</div>
-                <div class="conversation-starter">"Have you or has anyone you know experienced mean comments online?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "What's a good way to handle it if it happens to you?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About In-App Spending</div>
-                <div class="conversation-starter">"Do any of your games have things you can buy inside the app?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Have you ever wanted to buy something? Why?"</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <span class="age-group">Ages 13-15</span>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Online Identity</div>
-                <div class="conversation-starter">"How do you present yourself differently online vs. in person?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Do you think people always tell the truth online?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Inappropriate Contact</div>
-                <div class="conversation-starter">"Has anyone online ever asked you personal questions that felt weird?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "You can always tell me. I'm here to help, not punish."</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About Digital Footprint</div>
-                <div class="conversation-starter">"What would a stranger learn about you by looking at your posts?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "Would you be comfortable with colleges or employers seeing that?"</div>
-            </div>
-
-            <div class="conversation-card">
-                <div class="conversation-title">About FOMO & Comparison</div>
-                <div class="conversation-starter">"Do you ever feel like you're missing out when you're not online?"</div>
-                <div class="follow-up"><span class="follow-up-label">Follow-up:</span> "How does comparing yourself to others online make you feel?"</div>
-            </div>
-        </div>
+        <div id="questionsContainer"></div>
 
         <div class="tip-box">
             <div class="tip-label">💡 HOW TO USE THIS GUIDE</div>
             Pick one conversation starter per week. Choose a calm moment (car ride, dinner, before bed). Listen more than you talk. Ask follow-up questions. Thank them for being honest. Most importantly: keep the conversation going regularly, not just when there's a problem.
         </div>
     </div>
+
+    <script src="../js/conversation-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('questionsContainer');
+            const grouped = {};
+
+            // Group questions by age group
+            conversationStarters.forEach(starter => {
+                if (!grouped[starter.ageGroup]) {
+                    grouped[starter.ageGroup] = [];
+                }
+                grouped[starter.ageGroup].push(starter);
+            });
+
+            // Render grouped questions
+            Object.keys(grouped).forEach(ageGroup => {
+                const section = document.createElement('div');
+                section.className = 'section';
+
+                const ageGroupSpan = document.createElement('span');
+                ageGroupSpan.className = 'age-group';
+                ageGroupSpan.textContent = ageGroup;
+                section.appendChild(ageGroupSpan);
+
+                grouped[ageGroup].forEach(starter => {
+                    const card = document.createElement('div');
+                    card.className = 'conversation-card';
+                    card.innerHTML = `
+                        <div class="conversation-title">Q${starter.id}</div>
+                        <div class="conversation-starter">"${starter.question}"</div>
+                    `;
+                    section.appendChild(card);
+                });
+
+                container.appendChild(section);
+            });
+        });
+    </script>
 </body>
 </html>
