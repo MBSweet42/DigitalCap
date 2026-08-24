@@ -100,7 +100,7 @@ function renderArticlesClean(accordionMode = false) {
                                 <h3 style="margin: 0; font-size: 1.1rem;">${card.label}</h3>
                                 <span class="section-toggle">▼</span>
                             </div>
-                            <div class="section-content" id="${cardId}" style="display: block;">
+                            <div class="section-content" id="${cardId}" style="display: none;">
                                 ${card.content}
                             </div>
                         </div>
