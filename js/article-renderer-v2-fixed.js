@@ -73,7 +73,7 @@ function renderArticlesClean() {
                             <h3>${section.title}</h3>
                             <span class="section-toggle">▼</span>
                         </div>
-                        <div class="section-content" id="${sectionId}" style="display: block;">
+                        <div class="section-content" id="${sectionId}" style="display: none;">
                             ${section.content}
                         </div>
                     </div>
