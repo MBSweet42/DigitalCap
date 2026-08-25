@@ -17,7 +17,7 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'TikTok\'s algorithm is intentionally designed to be addictive. It learns what keeps your child watching and serves increasingly extreme content. Parents report kids exposed to sexual content, violence, and eating disorder promotion within minutes. The "For You Page" can escalate from harmless dances to self-harm content.'
+            content: 'TikTok\'s recommendation system uses signals such as watch time, likes, shares, and other interactions to personalize the For You feed. That personalization can sometimes create repetitive or narrow content patterns, including around sensitive topics like eating disorders, sadness, or dangerous trends. Parents should periodically ask what their child is seeing and how it makes them feel.'
         },
         hiddenDangers: [
             'Algorithm aggressively pushes inappropriate content (sexual, violence, profanity) despite claims of safety filters',
@@ -30,7 +30,7 @@ const appsCompleteV2 = [
             mentalHealth: 'Eating disorders, body dysmorphia, anxiety, depression, sleep disruption, self-harm ideation—especially ages 13-16',
             privacy: 'Extensive behavioral tracking; location data collected',
             predators: 'DM system accessible to non-followers; strangers can build rapport',
-            addictionRisk: 'Deliberately designed to maximize engagement; parents report 4+ hour daily use'
+            addictionRisk: 'App is engineered to maximize engagement and can consume significant daily time for heavy users'
         },
         tipsForParents: [
             'Ask to see their "For You Page" regularly—it changes fast',
@@ -78,19 +78,18 @@ const appsCompleteV2 = [
         locationDetails: 'Snap Map shows real-time location to friends (and can be set to public)',
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Snapchat\'s disappearing messages are specifically why predators prefer it—parents can\'t monitor abuse even when they try. Snap Map location sharing is set to share location by default. 2024 reported 6.5M harassment instances on the platform. The combination of hidden messaging + location sharing = predator infrastructure.'
+            content: 'Disappearing messages can make it harder to preserve evidence of concerning conversations. Snap Map can reveal a user\'s location to selected friends if location sharing is turned on, so families should review who can see location information.'
         },
         hiddenDangers: [
             'Disappearing messages mean parents cannot monitor grooming or abuse, even with account access',
-            'Snap Map exposes exact real-time location coordinates to strangers (default setting shares location)',
+            'Snap Map exposes real-time location to selected friends if location sharing is enabled',
             'Predators build rapport through Snapchat, then move to more isolated communication',
-            '2024: 6.5 million harassment instances reported',
             'Kids assume messages are "private" and disappear, so they overshare personal info',
-            'Screenshot feature = predators can save explicit content without kids knowing'
+            'Screenshot feature means predators can save explicit content without kids knowing'
         ],
         parentConcerns: {
             predators: 'Primary platform for predator contact; disappearing messages hide grooming from parents',
-            location: 'Real-time location visible to strangers; Snap Map set to public by default',
+            location: 'Real-time location visible if location sharing is enabled',
             sextortion: 'Predators screenshot explicit content and use it for blackmail',
             cyberbullying: 'Disappearing bullying messages can\'t be reported because they vanish'
         },
@@ -139,15 +138,15 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Discord was recently sued by Texas AG for facilitating child grooming. The predator playbook: join gaming servers kids frequent → build trust → move to private DMs → isolation → exploitation. Age verification is non-existent (self-reported email + birthday). Multiple documented cases of suicide following exploitation.'
+            content: 'The Texas Attorney General filed suit against Discord in May 2026 with allegations of facilitating child grooming. An Agreed Temporary Injunction (July 2026) requires Discord to implement stronger age-assurance and default safety protections for minors in Texas. Grooming patterns on gaming platforms commonly involve joining servers where kids gather, building trust through conversations, moving to private DMs for isolation, and exploitation. Discord has introduced teen-by-default safety settings and age-assurance tools for access to certain age-restricted features, but families should review privacy, DM, server, and friend-request settings.'
         },
         hiddenDangers: [
             'Design enables predators to isolate minors through private DMs (zero moderation)',
-            'Age verification non-existent—adults can easily pose as teens',
+            'Age verification challenges—adults can pose as teens despite protections',
             'Predators join gaming servers (Roblox, Minecraft communities) to meet kids',
-            'Private server feature = predator can create "exclusive" space with isolated victims',
-            'Recent lawsuit (May 2026) for facilitating child grooming',
-            'Documented cases: 15-year-old with autism exploited and died by suicide; multiple girls with suicide attempts after exploitation',
+            'Private server feature allows predators to create "exclusive" spaces with isolated victims',
+            'Texas AG legal action (May 2026); Agreed Temporary Injunction (July 2026) requires enhanced age-assurance and safety protections',
+            'Documented cases of minors being groomed, coerced, and exploited on Discord',
             'Vulnerable kids (autistic, anxious, lonely) specifically targeted'
         ],
         parentConcerns: {
@@ -185,7 +184,7 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I\'ve heard some concerning things about Discord and older people connecting with kids. I trust you, but I want to make sure you\'re safe. Can we talk about your Discord friends?"'
         },
-        sources: 'Texas AG lawsuit (2026), NCMEC, Sokol Olef Garca law firm, parenting communities'
+        sources: 'Texas Attorney General lawsuit and Agreed Temporary Injunction (2026), NCMEC, parenting communities'
     },
     {
         id: 4,
@@ -201,22 +200,21 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Roblox is ground zero for two distinct dangers: (1) Financial scams targeting kids age 8-12 (67% increase in scams in 2025; kids losing hundreds); (2) Predator gateway to Discord for grooming. The 764 Network is documented using Roblox to groom kids, then use manipulation, threats, and humiliation to obtain sexual images and force self-harm.'
+            content: 'Roblox faces two distinct dangers: (1) Financial scams targeting kids, with reports of significant real-money losses; (2) Predator gateway to Discord for grooming. Violent online networks often referred to as 764 use Roblox for initial contact, then move to manipulation, coercion, and exploitation tactics.'
         },
         hiddenDangers: [
             'In-game chat leads to predator contact; predators move conversations to Discord',
-            'Sophisticated scam networks specifically targeting kids age 8-12',
-            '67% increase in scam complaints in 2025 (average victim age: 11)',
-            'Kids losing real money: girl lost 240 AUD from her 11th birthday money; one child lost life savings',
-            'Many scammers are child scammers (age 13) making €2,000/week by phishing other kids',
-            '764 Network documented using Roblox for grooming, then manipulation and sextortion',
+            'Sophisticated scam networks specifically targeting kids',
+            'Kids have lost significant money to Roblox scams, including savings set aside for other purposes',
+            'Scam networks on Roblox sometimes involve young perpetrators targeting peers through phishing, fake trading, and account hijacking',
+            'Violent online networks (commonly referred to as 764) documented using Roblox for initial contact, then moving to manipulation and sextortion',
             'In-game content moderation failure—racist, violent, sexual content slips through'
         ],
         parentConcerns: {
-            scams: 'Kids losing real money to phishing scams; average victim age 11; €2K/week scam operations',
+            scams: 'Kids losing real money to phishing scams and sophisticated scam networks',
             predators: 'Roblox→Discord pipeline; predators build rapport in-game then move to private Discord DMs',
             spending: 'Easy to spend real money (Robux) without parent awareness; kids spend parents\' money',
-            grooming: '764 Network and similar groups documented grooming kids, obtaining sexual images, forcing self-harm'
+            grooming: 'Violent online networks often referred to as 764 documented grooming and coercing minors for sexual content'
         },
         tipsForParents: [
             'Monitor Robux spending—set spending limits or disable in-app purchases',
@@ -247,7 +245,7 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know Roblox is fun, but I\'m worried about scams. Kids are losing real money. Let\'s talk about how you get Robux and if anyone has asked you to go on Discord."'
         },
-        sources: 'SafeWise, Roblox scam reports 2025-2026, Sunshine & Hurricanes, CPAC, parenting communities'
+        sources: 'FBI findings on violent online networks, Roblox scam reports, parenting communities'
     },
     {
         id: 5,
@@ -307,7 +305,7 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'YouTube\'s algorithm is designed to maximize watch time. It can escalate from educational content → conspiracy theories → radicalization in hours. Comments allow anonymous predators to recruit. Some creators deliberately create dangerous "pranks" or challenges.'
+            content: 'YouTube\'s recommendation system is built to keep viewers engaged, which can lead to long viewing sessions and increasingly narrow recommendations. Comments sections can expose kids to users with concerning intentions. Some creators have uploaded dangerous pranks or challenge videos.'
         },
         hiddenDangers: [
             'Recommendation algorithm can lead from normal content to conspiracy theories to radicalization',
@@ -318,9 +316,9 @@ const appsCompleteV2 = [
             'ASMR and other content with hidden suggestive themes targeting kids'
         ],
         parentConcerns: {
-            algorithm: 'Deliberately designed to increase watch time; can escalate to conspiracy/harmful content',
-            predators: 'Predatory comments trying to recruit kids to private platforms',
-            radicalization: 'Pipeline from educational → conspiracy → extremist content documented',
+            algorithm: 'Recommendation system is built to keep viewers engaged; can narrow content exposure',
+            predators: 'Comments can contain predatory recruitment attempts to private platforms',
+            radicalization: 'Escalation pathways documented from educational to conspiracy content',
             misinformation: 'Scams, fake hacks, misinformation spread through comments'
         },
         tipsForParents: [
@@ -370,7 +368,7 @@ const appsCompleteV2 = [
             content: 'Instagram is specifically designed to trigger social comparison and FOMO. The platform profits when kids spend more time seeking validation through likes and comments. Direct messages from strangers can lead to grooming. The algorithm amplifies appearance-focused and eating disorder content.'
         },
         hiddenDangers: [
-            'Algorithm pushes appearance-focused and eating disorder content to vulnerable kids',
+            'Algorithm amplifies appearance-focused and eating disorder content, particularly to users showing engagement with such material',
             'Social comparison and validation-seeking (likes/comments) linked to anxiety, depression',
             'DM system allows strangers to contact kids; "sliding into DMs" predator pattern',
             'Sextortion: predators request explicit photos, then blackmail',
@@ -405,7 +403,7 @@ const appsCompleteV2 = [
                 'Body image concerns or eating disorder behaviors',
                 'DMs from unknown adults or suspicious accounts',
                 'Secretive behavior about who they\'re following/talking to',
-                'Spending 3+ hours daily on the app'
+                'If Instagram use is regularly taking up several hours a day or interfering with sleep, school, mood, or relationships, it may be time to reset boundaries'
             ],
             scriptOpener: '"I\'ve heard Instagram can really affect how kids feel about themselves. I want to make sure you\'re safe and healthy. Can we talk about what you\'re seeing on your feed?"'
         },
@@ -484,21 +482,21 @@ const appsCompleteV2 = [
         locationDetails: 'Location data collected for "BeReal map" feature',
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'BeReal collects location data and sells it to advertisers. The "simultaneous photo" pressure creates anxiety and FOMO if kids miss the notification. The app is designed to be addictive. Predators use it to identify kids in real-time locations.'
+            content: 'BeReal collects location data through the BeReal Map feature. If location features are enabled, location information can be shared with your friend network and is subject to the app\'s privacy settings. The simultaneous photo requirement creates pressure if kids miss notifications. The app\'s mechanics encourage frequent use. Sharing real-time location with friends creates privacy risks that parents and teens should discuss. Parents and teens should review location settings and control who can see their posts and location.'
         },
         hiddenDangers: [
-            'Location data collected and sold to advertisers',
-            'Real-time location tracking exposed to follower network',
+            'Location data collected through BeReal Map feature',
+            'Real-time location shared with friend network if location features are enabled',
             'FOMO/anxiety: pressure to be available at random times',
             'Predators can identify kid\'s physical location through photos and metadata',
-            'DM system allows contact from strangers who follow you',
-            'Screenshots = permanent record, but kids assume photos are temporary'
+            'DM system allows contact from followers',
+            'Screenshots mean permanent record despite app notifications'
         ],
         parentConcerns: {
-            location: 'Real-time location exposed to entire friend network and advertisers',
+            location: 'Real-time location exposed to friend network if location features are enabled',
             predators: 'Predators can identify where kids are at specific times',
-            privacy: 'Data sold to third parties; location history retained',
-            anxiety: 'Addictive FOMO mechanics designed to increase engagement'
+            privacy: 'Location data sharing subject to privacy settings',
+            anxiety: 'Frequent notifications create FOMO and urgency'
         },
         tipsForParents: [
             'Check location settings; consider disabling BeReal\'s location features',
@@ -509,7 +507,7 @@ const appsCompleteV2 = [
         parentConversationGuide: {
             startWith: '"I\'ve heard about BeReal. I\'m concerned about the location tracking. Can we check your location settings together?"',
             keyPoints: [
-                'Explain how the app collects and sells location data',
+                'Explain that location data is collected and shared based on settings',
                 'Discuss that the "authenticity" is still a curated product',
                 'Talk about predators using location data to find kids',
                 'Remind that screenshots are permanent despite app notifications'
@@ -521,7 +519,7 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know BeReal shows your location. I want to make sure predators can\'t find you. Let\'s check those settings."'
         },
-        sources: 'Parenting communities, privacy advocates'
+        sources: 'BeReal official privacy policy, parenting communities'
     },
     {
         id: 10,
