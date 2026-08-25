@@ -274,24 +274,69 @@ function renderAppDetails(app) {
         details += `</div></div>`;
     }
 
-    // SECTION 4: What to Say to Your Child
+    // SECTION 4: Parent Conversation Guide
     if (app.parentConversationGuide) {
         const guide = app.parentConversationGuide;
+
+        // Determine which opener to use and build sections
+        const opener = guide.scriptOpener || guide.startWith;
+        const showAskThis = guide.startWith && guide.scriptOpener && guide.startWith !== guide.scriptOpener;
+
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 What to Say to Your Child</h4>
-                <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                    <div style="margin-bottom: 1rem;">
-                        <p style="margin: 0 0 0.5rem 0; color: var(--text-gray); font-size: 0.9rem;"><strong>Opening Script:</strong></p>
-                        <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.startWith)}"</p>
-                    </div>
-                    <div style="border-top: 1px solid rgba(78, 205, 196, 0.3); padding-top: 1rem;">
-                        <p style="margin: 0 0 0.5rem 0; color: var(--text-gray); font-size: 0.9rem;"><strong>Key Question to Ask:</strong></p>
-                        <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.keyPoints && guide.keyPoints[0] ? guide.keyPoints[0] : 'What do you enjoy most about using this app?')}"</p>
-                    </div>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 Start the Conversation</h4>
+                <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
+                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(opener)}"</p>
                 </div>
-            </div>
         `;
+
+        // Section 2: Ask This (only if startWith differs from opener)
+        if (showAskThis) {
+            details += `
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">❓ Ask This</h4>
+                <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
+                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.startWith)}"</p>
+                </div>
+            `;
+        }
+
+        // Section 3: Things to Talk About
+        if (guide.keyPoints && guide.keyPoints.length > 0) {
+            details += `
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💡 Things to Talk About</h4>
+                <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
+            `;
+            guide.keyPoints.forEach(point => {
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(point)}</li>`;
+            });
+            details += `</ul>`;
+        }
+
+        // Section 4: Watch For
+        if (guide.redFlags && guide.redFlags.length > 0) {
+            details += `
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Watch For</h4>
+                <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
+            `;
+            guide.redFlags.forEach(flag => {
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(flag)}</li>`;
+            });
+            details += `</ul>`;
+        }
+
+        // Section 5: Parent Tips
+        if (app.tipsForParents && app.tipsForParents.length > 0) {
+            details += `
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🛠️ Parent Tips</h4>
+                <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
+            `;
+            app.tipsForParents.forEach(tip => {
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(tip)}</li>`;
+            });
+            details += `</ul>`;
+        }
+
+        details += `</div>`;
     }
 
     // Parent Notes (below main 5 sections)

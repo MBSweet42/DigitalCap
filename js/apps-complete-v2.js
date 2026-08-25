@@ -27,13 +27,13 @@ const appsCompleteV2 = [
             'Mental health impacts rival physical safety risks for this age group'
         ],
         parentConcerns: {
-            mentalHealth: 'Eating disorders, body dysmorphia, anxiety, depression, sleep disruption, self-harm ideation—especially ages 13-16',
+            mentalHealth: 'Eating disorders, body dysmorphia, anxiety, depression, sleep disruption, self-harm ideation (especially ages 13-16)',
             privacy: 'Extensive behavioral tracking; location data collected',
             predators: 'DM system accessible to non-followers; strangers can build rapport',
             addictionRisk: 'App is engineered to maximize engagement and can consume significant daily time for heavy users'
         },
         tipsForParents: [
-            'Ask to see their "For You Page" regularly—it changes fast',
+            'Ask to see their "For You Page" regularly; it changes fast',
             'Understand the algorithm learns what keeps them watching',
             'Watch for mood changes after use (anxiety, depression, body image issues)',
             'Set strict time limits (app has built-in timer, but can be reset)',
@@ -70,7 +70,7 @@ const appsCompleteV2 = [
         ageRecommendation: 13,
         safetyRating: 2, // CRITICAL RISK
         safetyLabel: '🔴 CRITICAL RISK',
-        description: 'Messaging app with disappearing messages and location sharing—predator-friendly design.',
+        description: 'Messaging app with disappearing messages and location sharing; predator-friendly design.',
         hasChat: true,
         chatDetails: 'DMs with anyone; messages disappear (but can be screenshot)',
         hasOpenInternet: false,
@@ -94,9 +94,9 @@ const appsCompleteV2 = [
             cyberbullying: 'Disappearing bullying messages can\'t be reported because they vanish'
         },
         tipsForParents: [
-            'CHECK SNAP MAP IMMEDIATELY—disable or set to "Ghost Mode" (completely hidden)',
+            'CHECK SNAP MAP IMMEDIATELY: disable or set to "Ghost Mode" (completely hidden)',
             'Understand disappearing messages mean you cannot monitor for grooming',
-            'Review friends list frequently—remove strangers immediately',
+            'Review friends list frequently, and remove strangers immediately',
             'Discuss that screenshots mean nothing truly disappears',
             'Know the predator playbook: build rapport → move to private chat → isolation → exploitation',
             'Watch for: secretive behavior, hiding phone, sudden new "friends" with no mutual connections',
@@ -108,7 +108,7 @@ const appsCompleteV2 = [
                 'Make disabling Snap Map non-negotiable',
                 'Explain that disappearing messages don\'t mean safe',
                 'Discuss that screenshots = permanent copies',
-                'Review who\'s contacting them—any adults or unknown accounts?',
+                'Review who\'s contacting them, particularly any adults or unknown accounts',
                 'Talk about the predator pattern: build trust → private chat → escalation'
             ],
             redFlags: [
@@ -119,7 +119,7 @@ const appsCompleteV2 = [
                 'Mentions of someone who "gets them" better than peers',
                 'Receiving gifts or money from online contacts'
             ],
-            scriptOpener: '"I love that you use Snapchat with your friends, but I need to make sure you\'re safe. Let\'s look at your location settings together—I want to turn off Snap Map."'
+            scriptOpener: '"I love that you use Snapchat with your friends, but I need to make sure you\'re safe. Let\'s look at your location settings together, and I want to turn off Snap Map."'
         },
         sources: 'NCMEC/NetSmartz, parenting forums, Snapchat safety reports, Reddit r/parenting'
     },
@@ -142,7 +142,7 @@ const appsCompleteV2 = [
         },
         hiddenDangers: [
             'Design enables predators to isolate minors through private DMs (zero moderation)',
-            'Age verification challenges—adults can pose as teens despite protections',
+            'Age verification challenges: adults can pose as teens despite protections',
             'Predators join gaming servers (Roblox, Minecraft communities) to meet kids',
             'Private server feature allows predators to create "exclusive" spaces with isolated victims',
             'Texas AG legal action (May 2026); Agreed Temporary Injunction (July 2026) requires enhanced age-assurance and safety protections',
@@ -150,9 +150,9 @@ const appsCompleteV2 = [
             'Vulnerable kids (autistic, anxious, lonely) specifically targeted'
         ],
         parentConcerns: {
-            predators: 'Most sophisticated predator infrastructure—systematic grooming pathway from gaming→Discord→exploitation',
+            predators: 'Most sophisticated predator infrastructure: systematic grooming pathway from gaming to Discord to exploitation',
             isolation: 'Private DMs hide conversations from parents completely',
-            ageVerification: 'Broken—adults can pretend to be kids',
+            ageVerification: 'Broken: adults can pretend to be kids',
             vulnerability: 'Autistic and socially anxious kids specifically targeted'
         },
         tipsForParents: [
@@ -161,7 +161,7 @@ const appsCompleteV2 = [
             'Watch for: new adult "friends," requests to keep conversations secret, gifts/money from online contacts',
             'Look for: server invites from strangers, private DMs from accounts you don\'t recognize',
             'Red flag: kid becomes defensive about who they\'re talking to',
-            'If your child has autism or anxiety, they\'re at higher risk—watch closer',
+            'If your child has autism or anxiety, they\'re at higher risk; watch closer',
             'Consider: voice chat with unfamiliar people is a significant red flag'
         ],
         parentConversationGuide: {
@@ -208,7 +208,7 @@ const appsCompleteV2 = [
             'Kids have lost significant money to Roblox scams, including savings set aside for other purposes',
             'Scam networks on Roblox sometimes involve young perpetrators targeting peers through phishing, fake trading, and account hijacking',
             'Violent online networks (commonly referred to as 764) documented using Roblox for initial contact, then moving to manipulation and sextortion',
-            'In-game content moderation failure—racist, violent, sexual content slips through'
+            'In-game content moderation failure: racist, violent, sexual content slips through'
         ],
         parentConcerns: {
             scams: 'Kids losing real money to phishing scams and sophisticated scam networks',
@@ -217,8 +217,8 @@ const appsCompleteV2 = [
             grooming: 'Violent online networks often referred to as 764 documented grooming and coercing minors for sexual content'
         },
         tipsForParents: [
-            'Monitor Robux spending—set spending limits or disable in-app purchases',
-            'Watch for "free Robux" scams—there are NO legitimate ways to get free Robux',
+            'Monitor Robux spending: set spending limits or disable in-app purchases',
+            'Watch for "free Robux" scams: there are NO legitimate ways to get free Robux',
             'Ask: "Are you getting friend requests from people you don\'t know in-game?"',
             'Know the pattern: Roblox game → friendly player → Discord friend request → private DMs',
             'Watch for: pressure to move conversations off-game, requests to keep conversations secret',
@@ -230,7 +230,7 @@ const appsCompleteV2 = [
             keyPoints: [
                 'Discuss what Robux is and how much it costs in real money',
                 'Explain scam patterns: free Robux promises, phishing links, fake trading',
-                'Talk about friend requests from strangers in-game—why would an unknown player want to be friends?',
+                'Talk about friend requests from strangers in-game: why would an unknown player want to be friends?',
                 'Make it safe to tell you if someone asks them to move to Discord or another app',
                 'Discuss the predator pattern specifically'
             ],
@@ -273,7 +273,7 @@ const appsCompleteV2 = [
         ],
         howToSpot: [
             'Look for duplicate app icons (two calculators, two photo apps, two messaging apps)',
-            'Check app permissions—why would a calculator need access to contacts, location, photos, or microphone?',
+            'Check app permissions: why would a calculator need access to contacts, location, photos, or microphone?',
             'In Settings → Apps, look for unknown apps requesting sensitive permissions',
             'Search App Store for: "vault app," "hidden calculator," "secret folder," "photo vault"',
             'Ask directly: "Are you using any apps to hide things from me?"'
@@ -323,7 +323,7 @@ const appsCompleteV2 = [
         },
         tipsForParents: [
             'Use YouTube Kids for under 13; YouTube Restricted Mode for older kids',
-            'Monitor watch history—look for escalation patterns',
+            'Monitor watch history: look for escalation patterns',
             'Check subscribed channels regularly',
             'Discuss how YouTube profits from watch time (showing increasingly extreme content)',
             'Talk about clickbait and how to spot unreliable sources',
@@ -335,7 +335,7 @@ const appsCompleteV2 = [
                 'Watch a video together and examine the comments',
                 'Show them how YouTube profits from watch time (explains the algorithm)',
                 'Discuss verified vs. unverified creators',
-                'Talk about the escalation pattern—how recommendations get increasingly extreme',
+                'Talk about how recommendations can narrow kids\' content exposure over time',
                 'Discuss what happens if they click on scam comments or predatory messages'
             ],
             redFlags: [
@@ -384,7 +384,7 @@ const appsCompleteV2 = [
         tipsForParents: [
             'Keep account private; only accept friend requests you know',
             'Disable DMs from non-followers',
-            'Review followers regularly—remove suspicious accounts',
+            'Review followers regularly and remove suspicious accounts',
             'Talk about comparison (Instagram is curated, not real)',
             'Monitor for eating disorder content escalation',
             'Check location settings; disable location data'
@@ -395,7 +395,7 @@ const appsCompleteV2 = [
                 'Discuss that Instagram is curated (not real life)',
                 'Talk about the like/comment validation trap',
                 'Explain that algorithm shows content designed to keep them scrolling',
-                'Discuss sextortion risks—"never send explicit photos, even to people you trust"',
+                'Discuss sextortion risks: "never send explicit photos, even to people you trust"',
                 'Review followers and discuss red flags'
             ],
             redFlags: [
@@ -501,7 +501,7 @@ const appsCompleteV2 = [
         tipsForParents: [
             'Check location settings; consider disabling BeReal\'s location features',
             'Discuss that "BeReal map" shows locations in real-time',
-            'Review friends list—are there unknown adults?',
+            'Review friends list and check for unknown adults',
             'Talk about screenshot risks even though app says it notifies'
         ],
         parentConversationGuide: {
@@ -525,57 +525,61 @@ const appsCompleteV2 = [
         id: 10,
         name: 'Yubo',
         category: 'Social Media / Dating',
-        ageRecommendation: 17,
+        ageRecommendation: 18,
         safetyRating: 1, // CRITICAL RISK
         safetyLabel: '🔴 CRITICAL RISK',
-        description: 'Age-gated "young people\'s social network" but functions like Tinder for teens.',
+        description: 'Adult social and dating app that connects users by proximity for video chat and messaging.',
         hasChat: true,
-        chatDetails: 'Direct messages; video calls; group video chats',
+        chatDetails: 'Direct messages; video calls; group video chats with matched users',
         hasOpenInternet: true,
         internetDetails: 'Links in profiles; streamed content',
         hasLocationTracking: true,
         locationDetails: 'Can search users by proximity/location',
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Yubo is Snapchat-meets-Tinder for teenagers. It claims to be age-gated (13+) but age verification is broken. Adults routinely pose as teens to groom kids. Real-time video matching with strangers + location proximity search = predator infrastructure.'
+            content: 'Yubo is an 18+ social and dating app that matches users by proximity for real-time video chat and messaging. While Yubo has age-verification requirements, meeting people online through location-based matching carries risks: users may misrepresent themselves, conversations can escalate quickly, and location data is collected and used for matching.'
         },
         hiddenDangers: [
-            'Age verification non-existent—adults pose as teens',
-            'Real-time video chat with matched strangers (Tinder for kids)',
-            'Location proximity search enables predators to find nearby targets',
-            'No conversation history—predators delete evidence',
-            'Video streaming feature used to expose kids to inappropriate content',
-            'Kids report being asked for sexual content within minutes of matching'
+            'Real-time video chat with matched strangers you know nothing about',
+            'Location proximity search exposes users to nearby matches based on location data',
+            'Users may misrepresent age, interests, or intentions',
+            'Video conversations can escalate quickly to inappropriate requests',
+            'Location data is collected and used for the matching algorithm',
+            'Conversations are frequently deleted, making it harder to document harassment'
         ],
         parentConcerns: {
-            predators: 'Primary platform for predator targeting of young teens; age verification broken',
-            grooming: 'Real-time video matching enables immediate inappropriate requests',
-            location: 'Location proximity search used to find and track kids',
-            exploitation: 'Kids report sexual solicitation within minutes of joining'
+            ageVerification: 'Yubo is 18+; if a minor is using it, they are misrepresenting their age or the account is fake',
+            dating: 'Meeting strangers online for dating or friendship carries inherent risks',
+            location: 'Location data is collected and shared for proximity matching',
+            rapidEscalation: 'Real-time video enables quick escalation to uncomfortable or explicit requests'
         },
         tipsForParents: [
-            'Strongly recommend NOT using this app if under 16+',
-            'If your teen insists: explain predators pose as teens constantly',
-            'Location proximity is designed to find kids—turn it OFF',
-            'Monitor for new social media accounts (Yubo accounts are often hidden)'
+            'Yubo is designed for adults 18+. If your teen has an account, the age listed may be false.',
+            'Talk with curiosity, not accusation. Ask how they heard about it and who they are talking with.',
+            'Discuss the difference between meeting friends at school and meeting strangers online.',
+            'Remind them that people online may not be who they claim to be.',
+            'Establish a family agreement about location sharing and meeting in-person contacts.',
+            'Know that conversations are easily deleted, so open communication is essential.'
         ],
         parentConversationGuide: {
-            startWith: '"I\'ve heard about Yubo. It\'s basically Tinder for teenagers. I need to be honest with you—predators use it constantly."',
+            startWith: '"I found Yubo on your phone. I want to understand how you\'re using it and have this conversation together."',
             keyPoints: [
-                'Explain that age verification doesn\'t work',
-                'Discuss real-time video + location matching = predator tool',
-                'Talk about the speed of inappropriate requests',
-                'Discuss that video history is deleted—no proof if something happens'
+                'Ask how they learned about it and who they\'re talking with',
+                'Explain that Yubo is designed for adults 18+ to meet people by location',
+                'Discuss that online users may not be who they claim to be',
+                'Talk about personal information safety and never sharing identifying details',
+                'Discuss the difference between online connections and real friendships'
             ],
             redFlags: [
-                'New social accounts you don\'t know about',
-                'Video calls with unknown people',
-                'Secretive behavior about phone use',
-                'Requests for explicit photos'
+                'Requests to move conversations to other apps or private platforms',
+                'Pressure to share personal information or photos',
+                'Adults who claim to be close to their age but may not be',
+                'Secretive behavior about who they\'re messaging',
+                'Emotional intensity or pressure tactics'
             ],
-            scriptOpener: '"Yubo is literally Tinder for teens, and predators use it to find kids. I\'m not trying to control you, but this app is actively dangerous. Can we talk about why you want to use it?"'
+            scriptOpener: '"I noticed Yubo is on your phone. Yubo is actually a dating app for adults 18+. I want to understand how it got there and what\'s been happening. Let\'s talk about it without judgment."'
         },
-        sources: 'NCMEC, parenting communities, Yubo incident reports'
+        sources: 'Yubo official privacy policy and age requirements, parenting communities'
     },
     {
         id: 11,
@@ -592,7 +596,7 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Web browsers are the gateway to the entire internet. A single click can take kids from homework websites to porn, gambling, predator dating sites, or radicalization content. Parents often overlook browsers—kids aren\'t "using an app," they\'re "just browsing." Apps like Canva, educational sites, and games often have built-in browsers that bypass parental controls.'
+            content: 'Web browsers are the gateway to the entire internet. A single click can take kids from homework websites to porn, gambling, predator dating sites, or radicalization content. Parents often overlook browsers: kids aren\'t "using an app," they\'re "just browsing." Apps like Canva, educational sites, and games often have built-in browsers that bypass parental controls.'
         },
         hiddenDangers: [
             'Single click on link in comment/message leads to adult content, dating sites, or predatory communities',
@@ -610,7 +614,7 @@ const appsCompleteV2 = [
         },
         tipsForParents: [
             'Parental control software (Bark, Net Nanny, Google Family Link) monitors browser history',
-            'Know which apps have built-in browsers (Canva, Roblox, etc.)—those bypass controls',
+            'Know which apps have built-in browsers (Canva, Roblox, etc.): those bypass controls',
             'Check browser history regularly (though it can be cleared)',
             'Discuss that any link online could lead to unsafe content',
             'Consider requiring shared login on devices for kids under 14'
@@ -649,14 +653,14 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Canva is commonly assigned in schools and parents don\'t realize it has full web browser access. Kids can access YouTube, Google, TikTok, and any site directly through Canva\'s search. The embedded browser bypasses parental controls because it\'s not a separate "browser" app—parents monitor Chrome but Canva\'s internal browser is invisible.'
+            content: 'Canva is commonly assigned in schools and parents don\'t realize it has full web browser access. Kids can access YouTube, Google, TikTok, and any site directly through Canva\'s search. The embedded browser bypasses parental controls because it\'s not a separate "browser" app: parents monitor Chrome but Canva\'s internal browser is invisible.'
         },
         hiddenDangers: [
             'Built-in browser completely bypasses parental monitoring software',
             'Direct access to YouTube (can watch anything)',
-            'Image/music search pulls from entire internet—can find adult content',
+            'Image/music search pulls from entire internet: can find adult content',
             'Can access Google, TikTok, Instagram, Discord, and any site through embedded browser',
-            'Parents assume "school app" means safe—it\'s not monitored like regular browser',
+            'Parents assume "school app" means safe: it\'s not monitored like regular browser',
             'Collaboration feature allows external users to comment and message',
             'Search history not visible in parental control dashboards'
         ],
@@ -709,7 +713,7 @@ const appsCompleteV2 = [
             content: 'Messenger Kids is designed with parental controls built-in. Parents approve all contacts and can see all conversations. This is one of the few apps where parental monitoring is actually enforced by design. Main risk: approved contacts might not be trustworthy, or contacts outside the approved list aren\'t possible.'
         },
         hiddenDangers: [
-            'As safe as your approved contact list—only as good as parent vetting',
+            'As safe as your approved contact list: only as good as parent vetting',
             'Kids might feel invincible because parents can see; might overshare',
             'Potential for approved adult contact to exploit trust'
         ],
@@ -718,13 +722,13 @@ const appsCompleteV2 = [
             assumption: 'Kids might assume it\'s completely safe because parents monitor'
         },
         tipsForParents: [
-            'Actively review approved contacts—who are they really?',
+            'Actively review approved contacts and verify who they really are',
             'Check messages regularly',
             'Discuss that even approved contacts could be unsafe',
             'This is one of the few apps designed WITH parental controls'
         ],
         parentConversationGuide: {
-            startWith: '"I can see all your messages on Messenger Kids. That\'s good—I can help keep you safe. Let\'s talk about who you\'re messaging."',
+            startWith: '"I can see all your messages on Messenger Kids. That\'s good; I can help keep you safe. Let\'s talk about who you\'re messaging."',
             keyPoints: [
                 'Discuss who the approved contacts are',
                 'Explain that kids should still be careful even with "safe" contacts',
@@ -759,7 +763,7 @@ const appsCompleteV2 = [
             'Data breach exposes location history of minors',
             'Kids can spoof location with VPN/proxy',
             'Family members might share location data inappropriately',
-            'Gives false sense of security—doesn\'t monitor what kids are actually doing'
+            'Gives false sense of security: doesn\'t monitor what kids are actually doing'
         ],
         parentConcerns: {
             privacy: 'Location history stored; potential breach risk',
@@ -770,10 +774,10 @@ const appsCompleteV2 = [
             'Use Life360 as part of trust, not as the only safety tool',
             'Discuss why you\'re using it (safety, not control)',
             'Know that kids might disable or spoof location',
-            'Don\'t rely solely on location—maintain open communication too'
+            'Don\'t rely solely on location; maintain open communication too'
         ],
         parentConversationGuide: {
-            startWith: '"I want to use Life360 so I know you\'re safe. I\'m not trying to control you—just to help if you ever need me."',
+            startWith: '"I want to use Life360 so I know you\'re safe. I\'m not trying to control you; I just want to help if you ever need me."',
             keyPoints: [
                 'Explain that location sharing works both ways',
                 'Discuss emergency situations where this helps',
@@ -1430,7 +1434,7 @@ const appsCompleteV2 = [
             content: 'Tinder is 18+ but age verification is broken. Adults catfish as teenagers. Kids use fake profiles to access the app. The app prioritizes proximity (location) making it easy for predators to find and meet children. Sextortion, trafficking, and exploitation are documented on Tinder.'
         },
         hiddenDangers: [
-            'Age verification broken—adults pose as teens easily',
+            'Age verification broken: adults pose as teens easily',
             'Proximity matching enables local predators to find kids',
             'Sextortion and sexual exploitation common',
             'Human trafficking uses Tinder to identify victims',
@@ -1686,7 +1690,7 @@ const appsCompleteV2 = [
                 'Installed specifically to hide messages',
                 'Secretive behavior around Signal'
             ],
-            scriptOpener: '"Signal is a secure app. I can\'t read your messages, which is fine—but I want to understand why you\'re using it and who you\'re talking to."'
+            scriptOpener: '"Signal is a secure app. I can\'t read your messages, which is fine; but I want to understand why you\'re using it and who you\'re talking to."'
         },
         sources: 'Parent communities'
     },
@@ -2037,7 +2041,7 @@ const appsCompleteV2 = [
             content: 'OkCupid is 18+ but age verification is minimal. Adults actively target teenagers on the platform. The app shows proximity enabling local predators to identify and meet victims. Sextortion and exploitation are documented.'
         },
         hiddenDangers: [
-            'Age verification broken—used by predators to find teens',
+            'Age verification broken: used by predators to find teens',
             'Proximity matching enables predators to find victims locally',
             'Sextortion and sexual exploitation common',
             'Adults specifically target younger users',
