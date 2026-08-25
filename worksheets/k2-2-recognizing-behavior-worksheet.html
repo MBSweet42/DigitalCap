@@ -17,3 +17,85 @@
         .scenario-box { border: 2px solid #FF6B6B; padding: 15px; margin: 15px 0; border-radius: 6px; background: #FFFBFB; }
         .choice-row { margin: 10px 0; padding: 10px; background: #f9f9f9; border-radius: 4px; }
         .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #E74C3C; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .scenario-box { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🛡️ Recognizing Concerning Online Behavior</div>
+            <div class="subtitle">Kindergarten - 2nd Grade Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">⚠️ Activity 1: Is This Concerning?</div>
+            <div class="instructions">Read each scenario. Circle ✓ for "CONCERNING" or ✗ for "NOT CONCERNING."</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario-box">
+                    <strong>1. Someone online asks: "What is your last name?"</strong><br>
+                    CONCERNING ✓ &nbsp;&nbsp;&nbsp; NOT CONCERNING ✗
+                </div>
+                <div class="scenario-box">
+                    <strong>2. Your friend texts: "Great game! Want to play again?"</strong><br>
+                    CONCERNING ✓ &nbsp;&nbsp;&nbsp; NOT CONCERNING ✗
+                </div>
+                <div class="scenario-box">
+                    <strong>3. Someone online says: "Don't tell your parents about our chats."</strong><br>
+                    CONCERNING ✓ &nbsp;&nbsp;&nbsp; NOT CONCERNING ✗
+                </div>
+                <div class="scenario-box">
+                    <strong>4. Someone online asks: "Can you send me a picture of yourself?"</strong><br>
+                    CONCERNING ✓ &nbsp;&nbsp;&nbsp; NOT CONCERNING ✗
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🛑 Activity 2: What Would You Do?</div>
+            <div class="instructions">For each concerning situation, circle the RIGHT answer:</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario-box">
+                    <strong>1. Someone online asks where you go to school.</strong><br>
+                    Circle: ☐ Tell them &nbsp;&nbsp; ☐ DON'T tell them / TELL A GROWN-UP
+                </div>
+                <div class="scenario-box">
+                    <strong>2. Someone online says: "Let's keep this our secret."</strong><br>
+                    Circle: ☐ Keep the secret &nbsp;&nbsp; ☐ DON'T keep secrets / TELL A GROWN-UP
+                </div>
+                <div class="scenario-box">
+                    <strong>3. Someone online is giving you lots of compliments and says they're your best friend.</strong><br>
+                    Circle: ☐ Be happy about it &nbsp;&nbsp; ☐ Feel something is wrong / TELL A GROWN-UP
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">💪 Activity 3: Who Can You Tell?</div>
+            <div class="instructions">If something online feels wrong or scary, write or draw ONE grown-up you can tell:</div>
+            <div class="answer-space"></div>
+            <div class="answer-space"></div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #E74C3C; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #E74C3C; font-weight: bold; margin-bottom: 10px;">✅ REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>It's NEVER your fault if someone acts concerning.</strong><br>
+                <strong>You're NEVER in trouble for telling a grown-up.</strong><br>
+                <strong>Trust your feelings! If something feels wrong, it probably is.</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

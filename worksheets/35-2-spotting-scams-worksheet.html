@@ -14,5 +14,109 @@
         .activity { margin-bottom: 30px; page-break-inside: avoid; }
         .activity-title { font-size: 1.2rem; color: #E74C3C; font-weight: bold; margin-bottom: 10px; }
         .instructions { background: #FFF0F0; padding: 12px; border-left: 4px solid #E74C3C; margin-bottom: 15px; font-size: 0.95rem; }
-        .message-box { border: 2px solid #FF6B6B; padding: 15px; margin: 15px 0; border-radius: 6px; background: #FFFBFB; font-family: monospace; }
+        .message-box { border: 2px solid #FF6B6B; padding: 15px; margin: 15px 0; border-radius: 6px; background: #FFFBFB; font-family: monospace; font-size: 0.9rem; }
         .answer-space { border-bottom: 1px solid #333; min-height: 40px; margin: 10px 0; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #E74C3C; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .message-box { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🎣 Spotting Scams & Fake Messages</div>
+            <div class="subtitle">Grades 3–5 Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🚨 Activity 1: Red Flag Check</div>
+            <div class="instructions">Read each sentence. Circle ALL the RED FLAGS (warning signs of a scam):</div>
+            <div style="margin: 15px 0;">
+                <div class="message-box">
+                    <strong>Message 1:</strong><br>
+                    "Congratulations! You won a free iPhone! Click here NOW to claim it! Expires today!"<br><br>
+                    Red flags: ☐ Too good to be true &nbsp; ☐ Urgency ("NOW" / "today") &nbsp; ☐ Asks you to click
+                </div>
+                <div class="message-box">
+                    <strong>Message 2:</strong><br>
+                    "Hi! Your library book is due tomorrow. Return it to avoid a late fee."<br><br>
+                    Red flags: ☐ Too good to be true &nbsp; ☐ Urgency &nbsp; ☐ Asks for password/money
+                </div>
+                <div class="message-box">
+                    <strong>Message 3:</strong><br>
+                    "VERIFY YOUR AMAZON ACCOUNT! Click this link: amazzon-secure.net. Enter your password NOW!"<br><br>
+                    Red flags: ☐ Spelling mistake (amazzon vs amazon) &nbsp; ☐ Asks for password &nbsp; ☐ Fake link
+                </div>
+                <div class="message-box">
+                    <strong>Message 4:</strong><br>
+                    "You've been selected to receive $50 Amazon gift card! No strings attached!"<br><br>
+                    Red flags: ☐ Too good to be true &nbsp; ☐ Asking for payment &nbsp; ☐ Suspicious sender
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🔍 Activity 2: Real or Scam?</div>
+            <div class="instructions">Read each message. Write REAL or SCAM and explain why:</div>
+            <div style="margin: 15px 0;">
+                <div style="margin-bottom: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>1. "Your Roblox account has been hacked! Click here to reset your password: robl0x-help.com"</strong>
+                    <br>Real or Scam? __________
+                    <br>Why?
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>2. "Hi, this is Spotify. Your subscription renews in 3 days."</strong>
+                    <br>Real or Scam? __________
+                    <br>Why?
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>3. "CLAIM YOUR PRIZE! You've won a gaming PC! Send us $5 to cover shipping."</strong>
+                    <br>Real or Scam? __________
+                    <br>Why?
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🛑 Activity 3: What Would You Do?</div>
+            <div class="instructions">If you got a message that looks like a scam, circle the RIGHT answer(s):</div>
+            <div style="margin: 15px 0;">
+                <div style="margin-bottom: 15px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>1. Should you click on the suspicious link?</strong>
+                    <br>☐ Yes (to check if it's real) &nbsp;&nbsp;&nbsp; ☐ No (it's safer to not click)
+                </div>
+                <div style="margin-bottom: 15px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>2. Should you respond to the message?</strong>
+                    <br>☐ Yes (ask them questions) &nbsp;&nbsp;&nbsp; ☐ No (don't engage with scammers)
+                </div>
+                <div style="margin-bottom: 15px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>3. What should you do?</strong>
+                    <br>☐ Tell a trusted adult &nbsp;&nbsp;&nbsp; ☐ Block the sender &nbsp;&nbsp;&nbsp; ☐ Report it to the platform
+                </div>
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #E74C3C; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #E74C3C; font-weight: bold; margin-bottom: 10px;">✅ THE THREE RULES:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>1. DON'T CLICK suspicious links</strong><br>
+                <strong>2. DON'T RESPOND to scam messages</strong><br>
+                <strong>3. DO TELL a trusted adult right away!</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

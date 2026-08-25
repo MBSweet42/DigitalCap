@@ -15,5 +15,107 @@
         .activity-title { font-size: 1.2rem; color: #FF6B6B; font-weight: bold; margin-bottom: 10px; }
         .instructions { background: #FFF0F0; padding: 12px; border-left: 4px solid #FF6B6B; margin-bottom: 15px; font-size: 0.95rem; }
         .scenario { border: 2px solid #FF6B6B; padding: 15px; margin: 15px 0; border-radius: 6px; background: #FFFBFB; }
-        .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
+        .answer-space { border-bottom: 1px solid #333; min-height: 40px; margin: 10px 0; }
         .role-play { background: #f9f9f9; padding: 12px; margin: 15px 0; border-radius: 4px; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #FF6B6B; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .scenario { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">💪 Online Kindness: Standing Up to Cyberbullying</div>
+            <div class="subtitle">Grades 3–5 Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🤔 Activity 1: Bullying, Conflict, or Joke?</div>
+            <div class="instructions">Read each scenario. Write BULLYING, CONFLICT, or JOKE:</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario">
+                    <strong>1. Someone posts "You're ugly" on your photo and tags 10 of their friends.</strong>
+                    <br>Answer: ______________
+                    <br>Why? <div class="answer-space" style="min-height: 25px;"></div>
+                </div>
+                <div class="scenario">
+                    <strong>2. Your friend sends you a funny meme making fun of something silly. You laugh and send one back.</strong>
+                    <br>Answer: ______________
+                </div>
+                <div class="scenario">
+                    <strong>3. Someone starts a rumor about you online. Multiple kids share it and make fun of you.</strong>
+                    <br>Answer: ______________
+                    <br>Why? <div class="answer-space" style="min-height: 25px;"></div>
+                </div>
+                <div class="scenario">
+                    <strong>4. Two friends disagree about a video game and argue in a group chat (but don't insult each other).</strong>
+                    <br>Answer: ______________
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">✊ Activity 2: Be an Upstander!</div>
+            <div class="instructions">If you see cyberbullying, what should you do? Circle ALL the right answers:</div>
+            <div style="margin: 15px 0;">
+                <div class="role-play">
+                    ☐ Block or report the person who is being mean<br>
+                    ☐ Send a mean reply to the bully<br>
+                    ☐ Support the person being bullied with a kind message<br>
+                    ☐ Spread the mean comments to more people<br>
+                    ☐ Tell a trusted adult<br>
+                    ☐ Publicly defend the person being bullied
+                </div>
+                <div style="margin-top: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>Why is being an "upstander" important?</strong>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">💬 Activity 3: Write a Kind Response</div>
+            <div class="instructions">For each situation, write a kind message that could help:</div>
+            <div style="margin: 15px 0;">
+                <div style="margin-bottom: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>Scenario 1:</strong> Someone posts a drawing they're proud of and gets mean comments.<br>
+                    <strong>Your kind message:</strong>
+                    <div class="answer-space"></div>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 20px; padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>Scenario 2:</strong> A classmate gets left out of a group chat on purpose.<br>
+                    <strong>Your kind message:</strong>
+                    <div class="answer-space"></div>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="padding: 12px; background: #f9f9f9; border-radius: 4px;">
+                    <strong>Scenario 3:</strong> Someone's mistake or bad photo is being made fun of online.<br>
+                    <strong>Your kind message:</strong>
+                    <div class="answer-space"></div>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #FF6B6B; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #FF6B6B; font-weight: bold; margin-bottom: 10px;">✅ REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>Kindness is POWERFUL online.</strong><br>
+                <strong>Be an upstander, not a bystander.</strong><br>
+                <strong>Your words can help someone who's hurting!</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

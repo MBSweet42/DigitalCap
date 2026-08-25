@@ -8,13 +8,94 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; color: #333; line-height: 1.6; background: white; }
         .container { max-width: 800px; margin: 0 auto; padding: 30px; }
-        .header { text-align: center; border-bottom: 3px solid #FF6B6B; padding-bottom: 20px; margin-bottom: 30px; }
-        .title { font-size: 1.8rem; color: #FF6B6B; font-weight: bold; }
+        .header { text-align: center; border-bottom: 3px solid #FFB703; padding-bottom: 20px; margin-bottom: 30px; }
+        .title { font-size: 1.8rem; color: #FFB703; font-weight: bold; }
         .subtitle { color: #666; font-size: 0.95rem; }
         .activity { margin-bottom: 30px; page-break-inside: avoid; }
         .activity-title { font-size: 1.2rem; color: #FFB703; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .instructions { background: #FFFBF0; padding: 12px; border-left: 4px solid #FFB703; margin-bottom: 15px; font-size: 0.95rem; }
-        .drawing-space { border: 2px dashed #FFB703; padding: 30px; height: 150px; margin: 15px 0; background: #FFFEF0; display: flex; align-items: center; justify-content: center; color: #999; text-align: center; }
+        .drawing-space { border: 2px dashed #FFB703; padding: 30px; height: 120px; margin: 15px 0; background: #FFFEF0; display: flex; align-items: center; justify-content: center; color: #999; text-align: center; }
+        .scenario-box { border: 2px solid #4ECDC4; padding: 12px; margin: 12px 0; border-radius: 6px; background: #F0F8F8; }
         .checklist { margin: 15px 0; }
         .check-item { margin: 10px 0; padding: 8px; background: #f9f9f9; border-radius: 4px; }
-        .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
+        .answer-space { border-bottom: 1px solid #333; min-height: 40px; margin: 10px 0; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #FFB703; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .drawing-space { height: 100px; padding: 15px; }
+            .scenario-box { padding: 8px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">👣 Your Digital Footprint Starts Now</div>
+            <div class="subtitle">Kindergarten - 2nd Grade Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">👣 Activity 1: Good Footprint or Not-So-Good Footprint?</div>
+            <div class="instructions">Read each action. Write "GOOD" or "NOT GOOD" next to it:</div>
+            <div class="checklist">
+                <div class="check-item">
+                    1. You help your friend win a game online &nbsp;&nbsp;&nbsp; __________
+                </div>
+                <div class="check-item">
+                    2. You post a mean comment about someone &nbsp;&nbsp;&nbsp; __________
+                </div>
+                <div class="check-item">
+                    3. Your parent takes a proud picture of you &nbsp;&nbsp;&nbsp; __________
+                </div>
+                <div class="check-item">
+                    4. You share your friend's picture without asking &nbsp;&nbsp;&nbsp; __________
+                </div>
+                <div class="check-item">
+                    5. You send a kind message to a friend &nbsp;&nbsp;&nbsp; __________
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">📸 Activity 2: What's Part of Your Digital Footprint?</div>
+            <div class="instructions">Circle ALL the things that leave digital footprints:</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario-box">
+                    <span>☐ Pictures your parents share &nbsp;&nbsp;&nbsp; ☐ Nice comments you write &nbsp;&nbsp;&nbsp; ☐ Games you play</span>
+                </div>
+                <div class="scenario-box">
+                    <span>☐ Videos someone makes with you &nbsp;&nbsp;&nbsp; ☐ Messages you send &nbsp;&nbsp;&nbsp; ☐ Things you do on apps</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">✍️ Activity 3: Before You Share, Ask Yourself...</div>
+            <div class="instructions">Draw or write about something you might want to share online. Then answer: "Would I be proud of this footprint?"</div>
+            <div class="drawing-space">
+                (Draw or write here)
+            </div>
+            <div style="margin-top: 10px; font-weight: bold;">
+                Would I be proud? &nbsp;&nbsp; ☐ YES &nbsp;&nbsp; ☐ NO
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #FFB703; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #FFB703; font-weight: bold; margin-bottom: 10px;">💡 REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>Your digital footprint is like real footprints—it stays!</strong><br>
+                <strong>Think before you share, post, or comment.</strong><br>
+                <strong>Make footprints you're proud of! ✓</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -17,7 +17,97 @@
         .app-card { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 6px; background: #f9f9f9; }
         .checklist { margin: 15px 0; }
         .check-item { margin: 10px 0; padding: 8px; background: white; border: 1px solid #e0e0e0; border-radius: 4px; }
-        .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
+        .answer-space { border-bottom: 1px solid #333; min-height: 40px; margin: 10px 0; }
         table { width: 100%; border-collapse: collapse; margin: 15px 0; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background: #4ECDC4; color: white; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #4ECDC4; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .app-card { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🔐 Apps Kids Love: Privacy & Safety Settings</div>
+            <div class="subtitle">Grades 3–5 Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🚨 Activity 1: What Information Should Stay Private?</div>
+            <div class="instructions">Read each piece of information. Write PRIVATE (should NOT share) or OK (safe to share):</div>
+            <div class="checklist">
+                <div class="check-item">1. Your full name &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">2. Your favorite hobby &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">3. Your home address &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">4. Your school name &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">5. A funny joke &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">6. Your phone number &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">7. Your favorite movie &nbsp;&nbsp;&nbsp; ______________</div>
+                <div class="check-item">8. Your passwords &nbsp;&nbsp;&nbsp; ______________</div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">🔒 Activity 2: Privacy Settings Checklist</div>
+            <div class="instructions">Choose your favorite app (Instagram, TikTok, Snapchat, Discord, etc.). Check which privacy settings you can find:</div>
+            <div class="app-card">
+                <strong>App Name: _____________________</strong>
+                <div class="checklist" style="margin-top: 15px;">
+                    <div class="check-item">☐ Private account (only approved followers)</div>
+                    <div class="check-item">☐ Who can message you (friends only or anyone)</div>
+                    <div class="check-item">☐ Who can see your story</div>
+                    <div class="check-item">☐ Location services (can be turned off)</div>
+                    <div class="check-item">☐ Comments/tags control (who can tag you)</div>
+                    <div class="check-item">☐ Activity status (show when you're online)</div>
+                </div>
+                <div style="margin-top: 15px;">
+                    <strong>Which setting did you think was most important? Why?</strong>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">💡 Activity 3: My Privacy Action Plan</div>
+            <div class="instructions">Answer these questions about one app you use:</div>
+            <div style="margin: 15px 0;">
+                <div style="margin-bottom: 15px;">
+                    <strong>1. My favorite app is: _____________________________</strong>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>2. Is my account set to PRIVATE or PUBLIC?</strong>
+                    <br>Circle one: PRIVATE &nbsp;&nbsp;&nbsp; PUBLIC
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>3. One privacy risk I might have:</strong>
+                    <div class="answer-space"></div>
+                </div>
+                <div>
+                    <strong>4. One privacy setting I should check or change:</strong>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #4ECDC4; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #4ECDC4; font-weight: bold; margin-bottom: 10px;">✅ REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>Apps are tools. Privacy settings are like locks on doors.</strong><br>
+                <strong>YOU control who sees your information.</strong><br>
+                <strong>Check your settings with a trusted adult!</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
