@@ -10,10 +10,130 @@
         .container { max-width: 900px; margin: 0 auto; padding: 30px; }
         .header { text-align: center; border-bottom: 3px solid #4ECDC4; padding-bottom: 20px; margin-bottom: 30px; }
         .title { font-size: 1.8rem; color: #4ECDC4; font-weight: bold; }
+        .subtitle { color: #666; font-size: 0.95rem; }
         .activity { margin-bottom: 30px; page-break-inside: avoid; }
         .activity-title { font-size: 1.2rem; color: #4ECDC4; font-weight: bold; margin-bottom: 10px; }
         .instructions { background: #F0F8F8; padding: 12px; border-left: 4px solid #4ECDC4; margin-bottom: 15px; font-size: 0.95rem; }
-        .answer-space { border-bottom: 1px solid #333; min-height: 60px; margin: 10px 0; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #4ECDC4; color: white; }
+        .scenario { border: 2px solid #4ECDC4; padding: 15px; margin: 15px 0; border-radius: 6px; background: #F8FFFE; }
+        .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
+        .match-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .match-table th, .match-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .match-table th { background: #4ECDC4; color: white; }
+        .match-column { width: 45%; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #4ECDC4; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .scenario { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🌐 Digital Citizenship Basics</div>
+            <div class="subtitle">Grades 6–8 Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 1: Rights vs. Responsibilities Match</div>
+            <div class="instructions">Match each right with its corresponding responsibility:</div>
+            <div style="margin: 15px 0;">
+                <table class="match-table">
+                    <tr>
+                        <th class="match-column">Right (What You Deserve)</th>
+                        <th class="match-column">Responsibility (What You Should Do)</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">1. Right to privacy</td>
+                        <td>A. ___ Ask before posting someone's photo or personal info</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">2. Right to safety online</td>
+                        <td>B. ___ Don't share passwords or private account details</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">3. Right to be treated with respect</td>
+                        <td>C. ___ Treat others with kindness, even when disagreeing online</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">4. Right to freedom of expression</td>
+                        <td>D. ___ Think before posting; don't spread rumors or be mean</td>
+                    </tr>
+                </table>
+                <div style="margin-top: 15px;">
+                    <strong>Why is each responsibility important?</strong>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 2: Consent & Sharing Scenarios</div>
+            <div class="instructions">For each scenario, decide if consent was respected. Circle RESPECTFUL or NOT RESPECTFUL and explain why:</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario">
+                    <strong>Scenario 1:</strong> Your friend takes a funny photo of you during lunch. Before posting it on Instagram, they ask: "Is it OK if I share this?" You say yes.
+                    <br><br>RESPECTFUL &nbsp; | &nbsp; NOT RESPECTFUL
+                    <br><strong>Why?</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+                <div class="scenario">
+                    <strong>Scenario 2:</strong> You overhear a classmate telling you a personal secret. Later, you share that secret in a group chat.
+                    <br><br>RESPECTFUL &nbsp; | &nbsp; NOT RESPECTFUL
+                    <br><strong>Why?</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+                <div class="scenario">
+                    <strong>Scenario 3:</strong> A classmate posts an embarrassing video of you without asking. You find it online and ask them to take it down. They refuse.
+                    <br><br>RESPECTFUL &nbsp; | &nbsp; NOT RESPECTFUL
+                    <br><strong>What should you do?</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 3: My Digital Citizenship Commitment</div>
+            <div class="instructions">Complete this pledge based on what you learned about digital rights and responsibilities:</div>
+            <div style="margin: 15px 0; padding: 15px; background: #F8FFFE; border: 2px solid #4ECDC4; border-radius: 6px;">
+                <div style="margin-bottom: 15px;">
+                    <strong>1. To protect privacy (mine and others'), I will:</strong>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>2. To be respectful online, I will:</strong>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>3. To ask for consent before sharing, I will:</strong>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>4. If I see someone being treated disrespectfully online, I will:</strong>
+                    <div class="answer-space"></div>
+                </div>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #4ECDC4;">
+                    <strong>My signature (promise to practice good digital citizenship):</strong> ______________________ &nbsp;&nbsp; <strong>Date:</strong> __________
+                </div>
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #4ECDC4; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #4ECDC4; font-weight: bold; margin-bottom: 10px;">✅ REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>Digital citizenship means being responsible, respectful, and kind online.</strong><br>
+                <strong>Rights AND responsibilities go together.</strong><br>
+                <strong>You have the power to make the internet safer for everyone!</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
