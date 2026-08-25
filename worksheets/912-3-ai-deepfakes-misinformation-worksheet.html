@@ -8,10 +8,135 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.6; background: white; }
         .container { max-width: 900px; margin: 0 auto; padding: 30px; }
-        .header { text-align: center; border-bottom: 3px solid #FF6B6B; padding-bottom: 20px; margin-bottom: 30px; }
-        .title { font-size: 1.8rem; color: #FF6B6B; font-weight: bold; }
+        .header { text-align: center; border-bottom: 3px solid #4ECDC4; padding-bottom: 20px; margin-bottom: 30px; }
+        .title { font-size: 1.8rem; color: #4ECDC4; font-weight: bold; }
+        .subtitle { color: #666; font-size: 0.95rem; }
         .activity { margin-bottom: 30px; page-break-inside: avoid; }
-        .activity-title { font-size: 1.2rem; color: #FF6B6B; font-weight: bold; margin-bottom: 10px; }
-        .instructions { background: #FFF0F0; padding: 12px; border-left: 4px solid #FF6B6B; margin-bottom: 15px; font-size: 0.95rem; }
+        .activity-title { font-size: 1.2rem; color: #4ECDC4; font-weight: bold; margin-bottom: 10px; }
+        .instructions { background: #F0F8F8; padding: 12px; border-left: 4px solid #4ECDC4; margin-bottom: 15px; font-size: 0.95rem; }
+        .scenario { border: 2px solid #4ECDC4; padding: 15px; margin: 15px 0; border-radius: 6px; background: #F8FFFE; }
         .answer-space { border-bottom: 1px solid #333; min-height: 50px; margin: 10px 0; }
-        .news-article { border: 1px solid #ddd; padding: 15px; margin: 15px 0; background: #f9f9f9; border-radius: 4px; }
+        .red-flag-list { background: #F8FFFE; border-left: 4px solid #4ECDC4; padding: 15px; border-radius: 6px; margin: 15px 0; }
+        @media print {
+            * { margin: 0; padding: 0; }
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0.5in; box-shadow: none; }
+            .header { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #4ECDC4; }
+            .title { font-size: 1.3rem; }
+            .activity { margin-bottom: 10px; page-break-inside: avoid; }
+            .activity-title { font-size: 1rem; margin-bottom: 5px; }
+            .instructions { padding: 6px; margin-bottom: 6px; }
+            .scenario { padding: 10px; margin: 8px 0; }
+            .answer-space { min-height: 18px; margin: 3px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🤖 AI, Deepfakes & Misinformation</div>
+            <div class="subtitle">Grades 9–12 Worksheet</div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">Name: _____________________ &nbsp;&nbsp;&nbsp; Date: _____________</div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 1: Identifying Manipulation & Red Flags</div>
+            <div class="instructions">Learn to spot misinformation before you share it. Identify the red flags in each example:</div>
+            <div style="margin: 15px 0;">
+                <div class="scenario">
+                    <strong>Example 1: Emotional Manipulation</strong><br>
+                    "SHOCKING! This will make you CRY! Click here before it gets deleted! 😱😭"
+                    <br><br><strong>Red flags:</strong>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        ☐ Extreme emotional language (SHOCKING, CRYING)
+                        ☐ Urgency ("before it gets deleted")
+                        ☐ No credible source given
+                        ☐ Designed to trigger emotion before thought
+                    </ul>
+                </div>
+                <div class="scenario">
+                    <strong>Example 2: Deepfake Red Flags</strong><br>
+                    A video of a famous politician saying something outrageous. The lips don't quite sync with the words. The lighting looks odd in spots.
+                    <br><br><strong>Why this might be fake:</strong>
+                    <div class="answer-space" style="min-height: 40px;"></div>
+                    <strong>How would you verify?</strong>
+                    <div class="answer-space" style="min-height: 40px;"></div>
+                </div>
+                <div class="scenario">
+                    <strong>Example 3: Cherry-Picked Information</strong><br>
+                    A quote from a scientist about climate change circulates. When you search for the full quote, it's taken out of context and means the opposite of what the post claims.
+                    <br><br><strong>What happened here?</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                    <strong>How could you have caught this?</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 2: The SIFT Method - Fact-Checking Practice</div>
+            <div class="instructions">Use the SIFT method (Stop, Investigate, Find better coverage, Trace) to evaluate a claim:</div>
+            <div style="margin: 15px 0; padding: 15px; background: #F8FFFE; border: 2px solid #4ECDC4; border-radius: 6px;">
+                <div style="margin-bottom: 20px;">
+                    <strong>1. STOP — Pause before sharing</strong><br>
+                    <span style="font-size: 0.9rem; color: #666;">Ask yourself: Is this real? Do I actually know this is true, or just feel like it is?</span>
+                    <div class="answer-space" style="min-height: 30px;"></div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <strong>2. INVESTIGATE the SOURCE — Who published this?</strong><br>
+                    <span style="font-size: 0.9rem; color: #666;">Is it from a credible news outlet? A random account? What's their bias or motivation?</span>
+                    <div class="answer-space" style="min-height: 30px;"></div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <strong>3. FIND BETTER COVERAGE — Search for corroboration</strong><br>
+                    <span style="font-size: 0.9rem; color: #666;">Do other credible sources report the same thing? Or is this only one outlet?</span>
+                    <div class="answer-space" style="min-height: 30px;"></div>
+                </div>
+                <div>
+                    <strong>4. TRACE THE CLAIM — Where did it originate?</strong><br>
+                    <span style="font-size: 0.9rem; color: #666;">Is it taken out of context? Does the original source match what the post claims?</span>
+                    <div class="answer-space" style="min-height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="activity-title">Activity 3: Verification Tools & Critical Thinking</div>
+            <div class="instructions">Know what tools to use and how to think critically about information:</div>
+            <div style="margin: 15px 0;">
+                <div style="margin-bottom: 15px; padding: 15px; background: #F8FFFE; border: 1px solid #B3E5FC; border-radius: 6px;">
+                    <strong>Tools for detecting fakes:</strong>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li><strong>Google Reverse Image Search</strong> — Find where an image originally came from</li>
+                        <li><strong>Snopes.com</strong> — Fact-checking database (good for urban legends & false claims)</li>
+                        <li><strong>FactCheck.org</strong> — Nonpartisan fact-checking</li>
+                        <li><strong>Credible news sources</strong> — Reuters, AP, BBC, NPR (check multiple perspectives)</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom: 15px; padding: 15px; background: #F8FFFE; border: 1px solid #B3E5FC; border-radius: 6px;">
+                    <strong>Why misinformation spreads so fast:</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+                <div style="margin-bottom: 15px; padding: 15px; background: #F8FFFE; border: 1px solid #B3E5FC; border-radius: 6px;">
+                    <strong>How algorithms contribute to misinformation:</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+                <div style="padding: 15px; background: #F8FFFE; border: 1px solid #B3E5FC; border-radius: 6px;">
+                    <strong>Your responsibility as someone who consumes AND shares information:</strong>
+                    <div class="answer-space" style="min-height: 35px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity" style="text-align: center; margin-top: 40px; border-top: 2px solid #4ECDC4; padding-top: 20px;">
+            <div style="font-size: 1.1rem; color: #4ECDC4; font-weight: bold; margin-bottom: 10px;">✅ REMEMBER:</div>
+            <div style="color: #666; line-height: 1.8;">
+                <strong>If it makes you angry or shocked, pause BEFORE sharing.</strong><br>
+                <strong>Deepfakes and misinformation are designed to manipulate emotions and spread fast.</strong><br>
+                <strong>Critical thinking—checking sources, looking for corroboration—is a superpower.</strong><br>
+                <strong>Be a skeptic. That's not cynicism. That's wisdom.</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
