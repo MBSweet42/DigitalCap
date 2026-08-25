@@ -10,7 +10,7 @@ const appsCompleteV2 = [
         ageRecommendation: 13,
         safetyRating: 2, // CRITICAL RISK
         safetyLabel: '🔴 CRITICAL RISK',
-        description: 'Short-form video platform with aggressive algorithm and mental health impacts.',
+        description: 'Short-form video platform with a highly personalized recommendation system and potential effects on sleep, mood, and well-being with heavy use.',
         hasChat: true,
         chatDetails: 'Private messaging with followers; easily accessible to strangers',
         hasOpenInternet: false,
@@ -20,7 +20,7 @@ const appsCompleteV2 = [
             content: 'TikTok\'s recommendation system uses signals such as watch time, likes, shares, and other interactions to personalize the For You feed. That personalization can sometimes create repetitive or narrow content patterns, including around sensitive topics like eating disorders, sadness, or dangerous trends. Parents should periodically ask what their child is seeing and how it makes them feel.'
         },
         hiddenDangers: [
-            'Algorithm aggressively pushes inappropriate content (sexual, violence, profanity) despite claims of safety filters',
+            'Recommendation systems can still surface inappropriate content, including sexual content, violence, and profanity, even when safety filters are in use',
             'Mental health crisis: Heavy users show significantly higher rates of anxiety, depression, poor sleep, eating disorders, and self-harm ideation',
             'Social comparison effects particularly severe in ages 13-16',
             'Appropriate content → extreme content pipeline happens fast (sometimes within hours)',
@@ -70,7 +70,7 @@ const appsCompleteV2 = [
         ageRecommendation: 13,
         safetyRating: 2, // CRITICAL RISK
         safetyLabel: '🔴 CRITICAL RISK',
-        description: 'Messaging app with disappearing messages and location sharing; predator-friendly design.',
+        description: 'Messaging app with disappearing messages and location sharing, which can make some safety concerns harder to spot.',
         hasChat: true,
         chatDetails: 'DMs with anyone; messages disappear (but can be screenshot)',
         hasOpenInternet: false,
@@ -365,7 +365,7 @@ const appsCompleteV2 = [
         locationDetails: 'Location data collected; visible in photo metadata unless disabled',
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Instagram is specifically designed to trigger social comparison and FOMO. The platform profits when kids spend more time seeking validation through likes and comments. Direct messages from strangers can lead to grooming. The algorithm amplifies appearance-focused and eating disorder content.'
+            content: 'Instagram\'s features, including likes, comments, and personalized recommendations, can contribute to social comparison and FOMO. Like many social platforms, its business model depends heavily on keeping people engaged. Direct messages from strangers can lead to grooming. The algorithm amplifies appearance-focused and eating disorder content.'
         },
         hiddenDangers: [
             'Algorithm amplifies appearance-focused and eating disorder content, particularly to users showing engagement with such material',
