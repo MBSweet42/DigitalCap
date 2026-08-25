@@ -11,17 +11,17 @@ const articlesV2 = [
             {
                 title: 'Why Strong Passwords Matter',
                 type: 'text',
-                content: 'Every account you have — Instagram, Discord, email, games — is protected by a password. If someone cracks it, they can pretend to be you, steal your photos, change your settings, and hurt your reputation.'
+                content: 'Every account you have (Instagram, Discord, email, games) is protected by a password. If someone cracks it, they can pretend to be you, steal your photos, change your settings, and hurt your reputation.'
             },
             {
                 title: 'Creating Strong Passwords',
                 type: 'expandable',
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><strong>Use at least 12 characters</strong> — longer is better</li>
+                        <li><strong>Use at least 12 characters:</strong> longer is better</li>
                         <li><strong>Mix it up:</strong> Use uppercase letters, lowercase letters, numbers, and symbols (!@#$%)</li>
                         <li><strong>Avoid personal information:</strong> Don't use your name, birthday, or address</li>
-                        <li><strong>Don't use dictionary words</strong> — hackers use password-cracking software that tries common words</li>
+                        <li><strong>Don't use dictionary words:</strong> hackers use password-cracking software that tries common words</li>
                         <li><strong>Make it unique:</strong> Use different passwords for important accounts (email, banking, school)</li>
                     </ul>
                     <div style="margin-top: 1rem; padding: 1rem; background: #e8f4f8; border-radius: 8px; border-left: 4px solid var(--secondary);">
@@ -44,23 +44,23 @@ const articlesV2 = [
                 type: 'expandable',
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><strong>Never share your password</strong> — not even with close friends (people change, relationships end)</li>
+                        <li><strong>Never share your password:</strong> not even with close friends (people change, relationships end)</li>
                         <li><strong>Don't write it down</strong> or save it in unsecured places</li>
                         <li><strong>Use a password manager</strong> like Bitwarden, 1Password, or KeePass if you have many accounts</li>
-                        <li><strong>Enable two-factor authentication (2FA)</strong> on important accounts — it adds a second step even if someone has your password</li>
+                        <li><strong>Enable two-factor authentication (2FA)</strong> on important accounts: it adds a second step even if someone has your password</li>
                         <li><strong>Change passwords regularly</strong> (every 3-6 months for important accounts)</li>
                         <li><strong>If hacked, change it immediately</strong> and check account activity</li>
                     </ul>
                 `
             },
             {
-                title: 'Red Flags — Don\'t Fall For These',
+                title: 'Red Flags: Don\'t Fall For These',
                 type: 'callout',
                 content: `
                     <div style="margin: 1rem 0;">
-                        <p style="margin: 0.5rem 0;"><strong>🚩 Someone asking for your password</strong> — Legitimate companies never ask. Period.</p>
-                        <p style="margin: 0.5rem 0;"><strong>🚩 Apps that force you to enter a password multiple times</strong> — Could be a phishing trap.</p>
-                        <p style="margin: 0.5rem 0;"><strong>🚩 Websites without the lock icon</strong> — Check for HTTPS in the address bar. No lock = not secure.</p>
+                        <p style="margin: 0.5rem 0;"><strong>🚩 Someone asking for your password:</strong> Legitimate companies never ask. Period.</p>
+                        <p style="margin: 0.5rem 0;"><strong>🚩 Apps that force you to enter a password multiple times:</strong> Could be a phishing trap.</p>
+                        <p style="margin: 0.5rem 0;"><strong>🚩 Websites without the lock icon:</strong> Check for HTTPS in the address bar. No lock = not secure.</p>
                     </div>
                 `
             },
@@ -176,7 +176,7 @@ const articlesV2 = [
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
                         <li><strong>Adults asking unusual personal questions:</strong> "Where do you go to school?" "What does your bedroom look like?" "When are your parents home?"</li>
-                        <li><strong>An older person claiming to be your age:</strong> "I'm actually 14 too!" — often a lie to seem relatable.</li>
+                        <li><strong>An older person claiming to be your age:</strong> "I'm actually 14 too!" This is often a lie to seem relatable.</li>
                         <li><strong>Compliments about appearance or sexuality:</strong> "You're so mature for your age," "Send me a picture of yourself"</li>
                         <li><strong>Isolation tactics:</strong> "Don't tell your parents about our chats. They'd just ground you."</li>
                         <li><strong>Gifts or money:</strong> "I want to send you a gift card," "Let me donate to your Patreon"</li>
@@ -201,7 +201,7 @@ const articlesV2 = [
                     <ol style="margin: 0.5rem 0 0 1.5rem;">
                         <li><strong>Trust your gut:</strong> If something feels weird, it probably is.</li>
                         <li><strong>Don't engage alone:</strong> If someone is making you uncomfortable in a chat, don't continue the conversation.</li>
-                        <li><strong>Tell an adult immediately:</strong> A parent, school counselor, or trusted teacher — not your friends.</li>
+                        <li><strong>Tell an adult immediately:</strong> A parent, school counselor, or trusted teacher (not your friends).</li>
                         <li><strong>Don't delete the evidence:</strong> Keep screenshots; they help authorities.</li>
                         <li><strong>Block and report:</strong> Use the platform's reporting tools.</li>
                         <li><strong>Remember: It's not your fault.</strong> If someone is trying to exploit you, that's 100% on them, not you.</li>
@@ -230,7 +230,7 @@ const articlesV2 = [
         id: 4,
         category: 'Digital Etiquette',
         title: 'Online Respect: Netiquette Basics',
-        intro: 'Netiquette is internet etiquette — the rules of respect and kindness that should guide how we interact online. Just because you\'re behind a screen doesn\'t mean you can be disrespectful.',
+        intro: 'Netiquette is internet etiquette: the rules of respect and kindness that should guide how we interact online. Just because you\'re behind a screen doesn\'t mean you can be disrespectful.',
         sections: [
             {
                 title: 'Golden Rules of Netiquette',
@@ -280,7 +280,7 @@ const articlesV2 = [
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
                         <li>Don't spam the chat with rapid-fire messages</li>
-                        <li>Respect the group's topic — if it's for homework help, don't flood it with memes</li>
+                        <li>Respect the group's topic: if it's for homework help, don't flood it with memes</li>
                         <li>Don't add people to groups without asking first</li>
                         <li>If you disagree, keep it respectful</li>
                         <li>Know when to take a conversation to DMs instead</li>
@@ -381,15 +381,15 @@ const articlesV2 = [
             {
                 title: 'Why Screen Time Matters',
                 type: 'text',
-                content: 'Social media apps make money when you use them more. They\'re literally designed to be addictive. The notifications, the algorithm, the infinite scroll — all engineered to keep you hooked. But constant scrolling impacts sleep, grades, mental health, and real relationships.'
+                content: 'Social media apps make money when you use them more. They\'re literally designed to be addictive. The notifications, the algorithm, the infinite scroll: all engineered to keep you hooked. But constant scrolling impacts sleep, grades, mental health, and real relationships.'
             },
             {
                 title: 'How Late-Night Scrolling Kills Sleep',
                 type: 'expandable',
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><strong>Blue light from screens suppresses melatonin</strong> — melatonin tells your brain it\'s time to sleep</li>
-                        <li><strong>Social media is stimulating.</strong> Your brain gets excited by notifications, likes, and drama — the opposite of sleep</li>
+                        <li><strong>Blue light from screens suppresses melatonin:</strong> melatonin tells your brain it\'s time to sleep</li>
+                        <li><strong>Social media is stimulating.</strong> Your brain gets excited by notifications, likes, and drama: the opposite of sleep</li>
                         <li><strong>You lose track of time.</strong> "Just 5 more minutes" becomes 2 hours</li>
                         <li><strong>One more scroll...</strong> The algorithm never ends. It\'s infinite</li>
                         <li><strong>Tired brain = bad decisions.</strong> Sleep-deprived kids get worse grades, make bad choices, and have worse moods</li>
@@ -445,7 +445,7 @@ const articlesV2 = [
             {
                 title: 'The Highlight Reel Effect',
                 type: 'text',
-                content: 'Nobody posts photos when they\'re having a bad day. Nobody posts their actual body on Instagram — they post their best angle, best lighting, best filter. What you see is 1% of someone\'s life, curated and edited. Comparing your entire real life to someone else\'s 1% is a recipe for depression and anxiety.'
+                content: 'Nobody posts photos when they\'re having a bad day. Nobody posts their actual body on Instagram: they post their best angle, best lighting, best filter. What you see is 1% of someone\'s life, curated and edited. Comparing your entire real life to someone else\'s 1% is a recipe for depression and anxiety.'
             },
             {
                 title: 'How Social Media Affects Mental Health',
@@ -523,7 +523,7 @@ const articlesV2 = [
             {
                 title: 'Why Kindness Matters Online',
                 type: 'text',
-                content: 'The internet is full of cruelty. Racism, sexism, homophobia, bullying — it all happens because people think there are no consequences. But there are. Someone reads your mean comment and feels hurt. They might hurt themselves. Kindness is a choice, and it\'s powerful.'
+                content: 'The internet is full of cruelty. Racism, sexism, homophobia, bullying: it all happens because people think there are no consequences. But there are. Someone reads your mean comment and feels hurt. They might hurt themselves. Kindness is a choice, and it\'s powerful.'
             },
             {
                 title: 'How to Be Kind Online',
@@ -560,7 +560,7 @@ const articlesV2 = [
             {
                 title: 'What Is a Digital Footprint?',
                 type: 'text',
-                content: 'Everything you post, like, comment on, or share creates a digital footprint. Screenshots, archives, cached versions — once it\'s online, it\'s out there. Future schools, employers, and partners will Google you. What will they find?'
+                content: 'Everything you post, like, comment on, or share creates a digital footprint. Screenshots, archives, cached versions: once it\'s online, it\'s out there. Future schools, employers, and partners will Google you. What will they find?'
             },
             {
                 title: 'Think Before You Post',
@@ -594,7 +594,7 @@ const articlesV2 = [
                 title: 'Parent Pop-Up: Digital Permanence & Consent',
                 type: 'parent-popup',
                 content: `
-                    <p><strong>The internet never forgets.</strong> Screenshots, archives, and forwards mean anything your child posts today could resurface years later—in college applications, job interviews, or conversations with future partners. Help them think long-term: "Would you be proud if everyone saw this in 10 years?"</p>
+                    <p><strong>The internet never forgets.</strong> Screenshots, archives, and forwards mean anything your child posts today could resurface years later (in college applications, job interviews, or conversations with future partners). Help them think long-term: "Would you be proud if everyone saw this in 10 years?"</p>
                     <p><strong>Have conversations about:</strong></p>
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
                         <li>Never posting pictures or personal information about other people without asking first</li>

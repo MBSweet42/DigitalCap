@@ -36,7 +36,7 @@ Parent: "If you ever think someone got your password, tell me right away. We'll 
         articleId: 1,
         title: 'After a Hacked Account',
         description: 'Immediate response conversation when an account is compromised',
-        script: `Parent: "I noticed someone got into your [app] account. I'm not angry—this happens to tons of people. Let's fix it together."
+        script: `Parent: "I noticed someone got into your [app] account. I'm not angry. This happens to tons of people. Let's fix it together."
 
 Parent: "First, can you tell me what happened? How do you think they got in?"
 
@@ -49,7 +49,7 @@ Parent: "Going forward, let's use a password manager so you don't have to rememb
 Parent: "This doesn't mean you did anything wrong. Hackers are sneaky. You're learning. We're in this together."`,
         whenToUse: 'Immediately after discovering a hacked account',
         adaptationTips: [
-            'Stay calm—they\'ll be scared/embarrassed already',
+            'Stay calm; they\'ll be scared/embarrassed already',
             'Focus on fixing it, not blaming them',
             'Check account activity together (show what hackers changed)',
             'Discuss HOW it might have happened (weak password, phishing, reused password)',
@@ -96,11 +96,11 @@ Parent: "Let me show you how to spot the red flags. Look at this email/message. 
 
 Parent: "Here's what you need to know: Adults who want to be YOUR friend online are being weird. Real friends your age are at school or in your neighborhood."
 
-Parent: "If an adult online asks where you live, what school you go to, or wants your picture—that's a big red flag. Tell me right away."
+Parent: "If an adult online asks where you live, what school you go to, or wants your picture. That's a big red flag. Tell me right away."
 
 Parent: "They might seem nice at first and even send you gifts or money. That's part of the trick. They're trying to win your trust so they can ask for something bad later."
 
-Parent: "Your job is simple: Tell me about new online friends. Tell me if anyone asks personal questions. Tell me if anyone asks you to keep secrets from me. I promise I won't be mad—I just want to keep you safe."
+Parent: "Your job is simple: Tell me about new online friends. Tell me if anyone asks personal questions. Tell me if anyone asks you to keep secrets from me. I promise I won't be mad. I just want to keep you safe."
 
 Child: [you listen, reassure]
 
@@ -142,7 +142,7 @@ Parent: "If that ever happens, I need you to tell me immediately. And I want you
             'Ask open-ended questions (not yes/no)',
             'Listen more than you talk',
             'Take it seriously if they mention something odd',
-            'Don\'t overreact—stay calm so they keep talking to you',
+            'Don\'t overreact; stay calm so they keep talking to you',
             'Know the reporting procedures for their platforms',
             'Consult CyberTipline (cybertipline.org) if needed'
         ]
@@ -171,7 +171,7 @@ Parent: "If someone is mean to you, remember: It says more about them than about
             'Talk about why people might be mean (insecurity, bad day, trying to be funny)',
             'Praise them for being kind online',
             'Help them understand that their comments have impact',
-            'Model good online behavior yourself—they\'re watching',
+            'Model good online behavior yourself; they\'re watching',
             'Check in periodically about how people are treating them'
         ]
     },
@@ -188,7 +188,7 @@ Parent: "Here's what we're going to do: (1) You're going to take a break from th
 
 Parent: "You don't deserve to feel scared or hurt online. And we're going to make sure this stops."
 
-Parent: "If it keeps happening, we might need to tell the school. That's not tattling—that's getting help."
+Parent: "If it keeps happening, we might need to tell the school. That's not tattling; that's getting help."
 
 Parent: "In the meantime, lean on your real friends. Do things that make you feel good. And keep talking to me about how you're doing."
 
@@ -243,11 +243,11 @@ Parent: "Kindness online doesn't make you uncool. It makes you the person people
         description: 'Foundation conversation about digital footprints, screenshots, and thinking before posting',
         script: `Parent: "Can I ask you something? When you post something online and then delete it, do you think it's really gone?"
 
-Child: [responds—probably not sure]
+Child: [responds (probably not sure)]
 
-Parent: "Right. It's not. Someone might have screenshotted it. Or the platform saved it in their servers. Once something's online, it's there forever—even if you delete it."
+Parent: "Right. It's not. Someone might have screenshotted it. Or the platform saved it in their servers. Once something's online, it's there forever (even if you delete it)."
 
-Parent: "This matters because someday, colleges and employers will Google you. They might see old posts, pictures, comments—things you posted years ago and forgot about."
+Parent: "This matters because someday, colleges and employers will Google you. They might see old posts, pictures, comments (things you posted years ago and forgot about)."
 
 Parent: "So here's what I want you to think about: Is this something I'd want my future boss to see? Is this something I'll still be OK with in 5 years? If the answer is no, don't post it."
 
@@ -262,7 +262,7 @@ Parent: "The key is thinking BEFORE you post, not panicking AFTER."`,
             'Ages 13+: Discuss real scenarios (job interviews, college apps, future relationships)',
             'Show them how to Google themselves',
             'Discuss privacy settings and what "private" really means',
-            'Talk about screenshot culture—assume nothing is truly temporary',
+            'Talk about screenshot culture: assume nothing is truly temporary',
             'Emphasize that mistakes can be fixed, but faster is better',
             'Model good digital footprinting yourself'
         ]
