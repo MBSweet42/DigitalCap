@@ -200,21 +200,21 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Roblox faces two distinct dangers: (1) Financial scams targeting kids, with reports of significant real-money losses; (2) Predator gateway to Discord for grooming. Violent online networks often referred to as 764 use Roblox for initial contact, then move to manipulation, coercion, and exploitation tactics.'
+            content: 'Roblox faces two distinct dangers: (1) Financial scams targeting kids, with reports of significant real-money losses; (2) Predator gateway to Discord for grooming. The FBI warns that violent online networks commonly referred to as 764 target minors through gaming platforms, social media, and messaging apps, using trust-building, manipulation, and coercion.'
         },
         hiddenDangers: [
             'In-game chat leads to predator contact; predators move conversations to Discord',
             'Sophisticated scam networks specifically targeting kids',
             'Kids have lost significant money to Roblox scams, including savings set aside for other purposes',
             'Scam networks on Roblox sometimes involve young perpetrators targeting peers through phishing, fake trading, and account hijacking',
-            'Violent online networks (commonly referred to as 764) documented using Roblox for initial contact, then moving to manipulation and sextortion',
+            'The FBI warns that violent online networks (commonly referred to as 764) target minors through gaming platforms and move conversations to private messaging for exploitation',
             'In-game content moderation failure: racist, violent, sexual content slips through'
         ],
         parentConcerns: {
             scams: 'Kids losing real money to phishing scams and sophisticated scam networks',
             predators: 'Roblox→Discord pipeline; predators build rapport in-game then move to private Discord DMs',
             spending: 'Easy to spend real money (Robux) without parent awareness; kids spend parents\' money',
-            grooming: 'Violent online networks often referred to as 764 documented grooming and coercing minors for sexual content'
+            grooming: 'Predators use Roblox to build trust with minors and move conversations to Discord for further grooming and exploitation'
         },
         tipsForParents: [
             'Monitor Robux spending: set spending limits or disable in-app purchases',
@@ -435,8 +435,8 @@ const appsCompleteV2 = [
             'Sextortion and child sexual abuse material (CSAM) communities exist on Reddit'
         ],
         parentConcerns: {
-            predators: 'Predators actively hunt vulnerable kids in mental health subreddits',
-            radicalization: 'Pathways from loneliness → "supportive" communities → radicalization',
+            predators: 'Predators can identify vulnerable kids through mental health communities and provide false support that escalates to exploitation',
+            radicalization: 'Pathways from loneliness to "supportive" communities to radicalization',
             exploitation: 'Sextortion and grooming networks active on platform',
             exposure: 'Accidental exposure to illegal content and hate communities'
         },
@@ -1361,49 +1361,47 @@ const appsCompleteV2 = [
     },
     {
         id: 25,
-        name: 'Omegle',
+        name: 'Omegle (Shut Down in 2023)',
         category: 'Video Chat / Random',
         ageRecommendation: 18,
         safetyRating: 1,
-        safetyLabel: '🔴 CRITICAL RISK',
-        description: 'Random video chat with anonymous strangers with no age verification.',
+        safetyLabel: '🔴 CRITICAL RISK (Historical)',
+        description: 'Random video chat platform that was shut down in November 2023. Educational value remains for understanding random-chat platform risks.',
         hasChat: true,
         chatDetails: 'Text or video chat with completely random anonymous users',
         hasOpenInternet: false,
         hasLocationTracking: false,
         whyThisMatters: {
-            title: 'Why This Matters',
-            content: 'Omegle is designed for meeting random strangers. No age verification. Adults specifically use it to sexually exploit children. Children are often exposed to explicit sexual content within seconds. This is not a safe app for anyone under 18, period.'
+            title: 'Why This Matters (Historical)',
+            content: 'Omegle was a random video and text chat platform that connected users with anonymous strangers. It shut down in November 2023. While the app is no longer operational, understanding its risks helps parents recognize similar random-chat platforms and discuss online safety.'
         },
         hiddenDangers: [
-            'Adults specifically use Omegle to find and exploit children',
-            'Explicit sexual content shown immediately to kids',
-            'Kids exposed to penis/sexual content in seconds',
-            'No verification of age or identity',
-            'Predators record conversations for sextortion',
+            'Was used by adults to find and exploit children',
+            'Exposed users to explicit sexual content immediately',
+            'Had no age verification or identity verification',
+            'Predators recorded conversations for sextortion',
             'No moderation or safety features',
             'Screenshots/recordings used for blackmail'
         ],
         parentConcerns: {
-            exploitation: 'Designed for sexual exploitation of children',
-            exposure: 'Immediate exposure to explicit sexual content',
-            predators: 'Adults hunting for children',
-            sextortion: 'Recording used for blackmail'
+            historical: 'Platform was shut down in November 2023',
+            context: 'Similar random-chat platforms may still pose similar risks'
         },
         tipsForParents: [
-            'Omegle is NOT safe for anyone under 18+',
-            'Strongly discourage use entirely',
-            'Monitor for Omegle use (often hidden)',
-            'If they use it, they will see explicit sexual content',
-            'Know that recordings are used for sextortion'
+            'Omegle is no longer operational (shut down November 2023)',
+            'If your child has used Omegle in the past, discuss what they saw',
+            'Explain the risks they were exposed to (for educational context)',
+            'Watch for similar random-chat platforms that may still exist',
+            'Teach them to avoid any platform that connects with anonymous strangers'
         ],
         parentConversationGuide: {
-            startWith: '"Omegle is extremely dangerous. I need to be direct about this."',
+            startWith: '"I want to talk about Omegle in case you\'ve used it or heard about it from friends."',
             keyPoints: [
-                'Explain that Omegle is used by predators to exploit kids',
-                'Discuss that sexual content will appear immediately',
-                'Explain sextortion and recording risks',
-                'Discuss why random strangers are dangerous'
+                'Explain that Omegle shut down in November 2023',
+                'If they have used it, listen without judgment about what they saw',
+                'Discuss the risks that existed on that platform',
+                'Explain why random-chat platforms are dangerous',
+                'Help them recognize and avoid similar platforms'
             ],
             redFlags: [
                 'Any use of Omegle',
@@ -1411,7 +1409,7 @@ const appsCompleteV2 = [
                 'Browser history showing Omegle',
                 'Talk of "random chat" or "stranger" apps'
             ],
-            scriptOpener: '"Omegle is where predators hunt children. Adults use it specifically to expose kids to sexual content and exploit them. You cannot use this app."'
+            scriptOpener: '"I want to talk about Omegle. Have you heard of it? It was shut down because it wasn\'t safe."'
         },
         sources: 'NCMEC, law enforcement, parent communities'
     },
@@ -1488,29 +1486,27 @@ const appsCompleteV2 = [
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
-            content: 'Kik is known as a predator app. Anonymous accounts, no phone number required, and encrypted. Predators specifically target kids on Kik. Sextortion, explicit solicitation, and exploitation are documented. It\'s particularly popular with traffickers and predators because of the anonymity.'
+            content: 'Kik\'s private messaging and ability to connect with people outside your child\'s real-world circle can create opportunities for unwanted contact, sexual solicitation, sextortion, or exploitation. The app\'s anonymity features and lack of phone number requirement make parental monitoring difficult.'
         },
         hiddenDangers: [
             'Anonymous accounts with no verification',
-            'Specifically marketed as place to meet people',
-            'Predators specifically hunt on Kik',
-            'Sextortion and explicit solicitation common',
-            'No account recovery if compromised',
-            'Difficult for parents to monitor',
-            'Kids can be added to group chats with predators'
+            'Designed to connect with strangers through interest-based groups',
+            'Risk of sexual solicitation and sextortion',
+            'Limited account recovery options if compromised',
+            'Difficult for parents to monitor messages',
+            'Kids can be added to group chats with unknown adults'
         ],
         parentConcerns: {
-            predators: 'App known specifically for predator activity',
-            anonymity: 'No way to verify who kids are talking to',
-            sextortion: 'Common predatory behavior on platform',
-            exploitation: 'Used for human trafficking'
+            anonymity: 'Anonymity makes it impossible to verify who kids are communicating with',
+            solicitation: 'Risk of sexual solicitation and sextortion',
+            monitoring: 'Private encrypted messages make parental oversight difficult'
         },
         tipsForParents: [
-            'If you find Kik on their phone, it\'s a red flag',
-            'Kik is not necessary for communication with friends',
-            'Discuss why anonymous apps are dangerous',
-            'Monitor for Kik and similar anonymous apps',
-            'Know that predators specifically use Kik'
+            'Have a conversation about why they want to use Kik',
+            'Explain that anonymity makes it hard to verify who people really are',
+            'Discuss the risks of connecting with strangers',
+            'Monitor for Kik and other anonymous messaging apps',
+            'Ask to see who they\'re communicating with (though encryption limits transparency)'
         ],
         parentConversationGuide: {
             startWith: '"I found Kik on your phone. Let\'s talk about why you have it and who you\'re talking to."',

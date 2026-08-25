@@ -388,14 +388,14 @@ const articlesV2 = [
                 type: 'expandable',
                 content: `
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><strong>Blue light from screens suppresses melatonin:</strong> melatonin tells your brain it\'s time to sleep</li>
+                        <li><strong>Screen use close to bedtime can interfere with sleep:</strong> Light exposure may affect melatonin, while stimulating content, notifications, and staying online longer can also make it harder to wind down</li>
                         <li><strong>Social media is stimulating.</strong> Your brain gets excited by notifications, likes, and drama: the opposite of sleep</li>
                         <li><strong>You lose track of time.</strong> "Just 5 more minutes" becomes 2 hours</li>
                         <li><strong>One more scroll...</strong> The algorithm never ends. It\'s infinite</li>
                         <li><strong>Tired brain = bad decisions.</strong> Sleep-deprived kids get worse grades, make bad choices, and have worse moods</li>
                     </ul>
                     <div style="margin-top: 1rem; padding: 1rem; background: #fff3cd; border-radius: 8px; border-left: 4px solid var(--accent);">
-                        <strong>Real talk:</strong> You might think you only use your phone for an hour, but studies show teens average 7-10 hours of media per day. That\'s more than school + sleep combined.
+                        <strong>Real talk:</strong> National estimates show adolescents average about 7 to 9 hours a day on entertainment screens. (U.S. Surgeon General, Advisory on the Harms of Screen Use, 2026)
                     </div>
                 `
             },
@@ -476,7 +476,7 @@ const articlesV2 = [
                         content: 'Can\'t put the phone down = can\'t sleep = depression'
                     }
                 ],
-                researchBox: '<strong>⚠️ Real research:</strong> Studies show heavy social media use (3+ hours daily) is linked to depression, anxiety, and self-harm, especially in teen girls.'
+                researchBox: '<strong>Research:</strong> The U.S. Surgeon General reports that young people who spend more than three hours a day on social media face double the risk of mental health problems, including symptoms of depression and anxiety.'
             },
             {
                 title: 'Parent Pop-Up: If Your Child Is Struggling',
