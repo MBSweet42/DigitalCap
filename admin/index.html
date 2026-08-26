@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalCap Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <h1>DigitalCap Admin</h1>
+            <p class="subtitle">Private admin area</p>
+        </header>
+
+        <!-- Login Section -->
+        <section id="login-section">
+            <div class="login-form">
+                <div id="error-message" role="alert"></div>
+
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input
+                            type="email"
+                            id="admin-email"
+                            placeholder="your@email.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input
+                            type="password"
+                            id="admin-password"
+                            placeholder="••••••••"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <button type="button" id="sign-in-btn">Sign In</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section">
+            <div class="dashboard-header">
+                <h2>Welcome</h2>
+
+                <div class="dashboard-info">
+                    <div class="info-row">
+                        <span class="info-label">Signed in as:</span>
+                        <span class="info-value" id="admin-user">—</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Backend status:</span>
+                        <span class="status-badge">Connected</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Status -->
+            <div class="features-list">
+                <h3>Features</h3>
+
+                <div class="feature-item">
+                    <div class="feature-status coming">→</div>
+                    <div class="feature-name">Pending App Suggestions</div>
+                    <div class="feature-time">Coming Phase 6D</div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-status coming">→</div>
+                    <div class="feature-name">Parent Insights</div>
+                    <div class="feature-time">Future</div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-status coming">→</div>
+                    <div class="feature-name">Content Reports</div>
+                    <div class="feature-time">Future</div>
+                </div>
+            </div>
+
+            <!-- Sign Out -->
+            <button type="button" id="sign-out-btn">Sign Out</button>
+        </section>
+    </div>
+
+    <!-- Load Firebase from global scope (initialized in js/firebase-config.js) -->
+    <script type="module">
+        // Import Firebase Auth functions
+        import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js';
+
+        // Wait for Firebase to initialize, then load admin auth
+        window.addEventListener('load', () => {
+            // Verify Firebase is initialized
+            if (!window.digitalCapFirebase || !window.digitalCapFirebase.auth) {
+                document.getElementById('error-message').textContent = 'Firebase initialization failed. Please reload the page.';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('sign-in-btn').disabled = true;
+                return;
+            }
+
+            // Import and initialize admin auth
+            import('./admin-auth.js').catch((error) => {
+                console.error('Failed to load admin auth:', error);
+                document.getElementById('error-message').textContent = 'Failed to load admin authentication. Please reload the page.';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('sign-in-btn').disabled = true;
+            });
+        });
+    </script>
+
+    <!-- Load Firebase configuration first -->
+    <script type="module" src="../js/firebase-config.js"></script>
+</body>
+</html>
