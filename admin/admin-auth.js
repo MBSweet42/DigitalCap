@@ -13,6 +13,9 @@ const { auth, db } = window.digitalCapFirebase;
 // Import Firebase Auth functions
 import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js';
 
+// Import moderation module
+import { initializeModeration, stopModeration } from './admin-moderation.js';
+
 // DOM Elements
 const loginSection = document.getElementById('login-section');
 const dashboardSection = document.getElementById('dashboard-section');
@@ -55,12 +58,18 @@ function showLogin() {
   emailInput.disabled = false;
   passwordInput.disabled = false;
   signInButton.disabled = false;
+
+  // Stop moderation UI on logout
+  stopModeration();
 }
 
 function showDashboard(user) {
   loginSection.style.display = 'none';
   dashboardSection.style.display = 'block';
   adminUserDisplay.textContent = user.email;
+
+  // Initialize moderation UI after authorization is confirmed
+  initializeModeration(user);
 }
 
 function showError(message) {
