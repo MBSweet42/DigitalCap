@@ -95,7 +95,7 @@
         // Import Firebase Auth functions
         import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js';
 
-        // Wait for Firebase to initialize, then load admin auth
+        // Wait for Firebase to initialize, then load App Check and admin auth
         window.addEventListener('load', () => {
             // Verify Firebase is initialized
             if (!window.digitalCapFirebase || !window.digitalCapFirebase.auth) {
@@ -105,13 +105,22 @@
                 return;
             }
 
-            // Import and initialize admin auth
-            import('./admin-auth.js').catch((error) => {
-                console.error('Failed to load admin auth:', error);
-                document.getElementById('error-message').textContent = 'Failed to load admin authentication. Please reload the page.';
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('sign-in-btn').disabled = true;
-            });
+            // Import and initialize App Check, then admin auth
+            (async () => {
+                try {
+                    // Initialize App Check (reuse existing module)
+                    const { initializeAppCheckForSubmissions } = await import('../js/app-check-init.js');
+                    await initializeAppCheckForSubmissions();
+
+                    // App Check initialized successfully, now load admin auth
+                    await import('./admin-auth.js');
+                } catch (error) {
+                    console.error('Failed to initialize admin page:', error);
+                    document.getElementById('error-message').textContent = 'Failed to initialize admin page. Please reload the page.';
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('sign-in-btn').disabled = true;
+                }
+            })();
         });
     </script>
 
