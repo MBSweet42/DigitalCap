@@ -368,12 +368,159 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
+// ===== SUGGEST AN APP TO DIGITALCAP =====
+
+function suggestAppToDigitalCap() {
+    const modal = document.createElement('div');
+    modal.className = 'suggest-app-modal';
+    modal.innerHTML = `
+        <div class="suggest-app-modal-backdrop" onclick="closeSuggestAppModal()"></div>
+
+        <div class="suggest-app-modal-content">
+            <button class="suggest-app-modal-close" onclick="closeSuggestAppModal()">✕</button>
+
+            <h2 style="color: var(--primary); margin-top: 0;">Suggest an App to DigitalCap</h2>
+            <p style="color: var(--text-gray);">Help us know about apps parents are asking about. Your suggestion will be reviewed by our team.</p>
+
+            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+                <p style="margin: 0; color: var(--text-dark); font-size: 0.9rem;">
+                    <strong>⚠️ Important:</strong> Please do not include names, usernames, schools, or other identifying information.
+                </p>
+            </div>
+
+            <form onsubmit="submitAppSuggestion(); return false;">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        App Name *
+                    </label>
+                    <input type="text" id="suggestAppName" placeholder="e.g., BeReal, Threads" required maxlength="100" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem;">
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 100 characters</small>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Website / Store Link
+                    </label>
+                    <input type="text" id="suggestAppUrl" placeholder="example.com or https://example.com" maxlength="500" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem;">
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Optional • Max 500 characters</small>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Why should DigitalCap cover it? *
+                    </label>
+                    <textarea id="suggestAppWhy" placeholder="What should parents know about this app?" required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Anything else parents should know?
+                    </label>
+                    <textarea id="suggestAppNotes" placeholder="Optional additional context..." maxlength="1000" style="width: 100%; min-height: 100px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 1000 characters</small>
+                </div>
+
+                <!-- Honeypot: hidden field that should stay empty -->
+                <input type="text" id="suggestAppHoneypot" style="display: none; position: absolute; left: -9999px;">
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="suggestSubmitBtn">
+                    Submit Suggestion for Review
+                </button>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('open'), 10);
+}
+
+function closeSuggestAppModal() {
+    const modal = document.querySelector('.suggest-app-modal');
+    if (modal) {
+        modal.classList.remove('open');
+        setTimeout(() => modal.remove(), 300);
+    }
+}
+
+function submitAppSuggestion() {
+    const honeypot = document.getElementById('suggestAppHoneypot').value;
+
+    // Honeypot validation: should be empty
+    if (honeypot.length > 0) {
+        console.warn('Honeypot field filled - possible spam');
+        return;
+    }
+
+    const appName = document.getElementById('suggestAppName').value.trim();
+    let appUrl = document.getElementById('suggestAppUrl').value.trim();
+    const whyWeShould = document.getElementById('suggestAppWhy').value.trim();
+    const additionalNotes = document.getElementById('suggestAppNotes').value.trim();
+
+    // Normalize and validate URL if provided
+    if (appUrl) {
+        // Add https:// if no scheme is present
+        if (!/^https?:\/\//i.test(appUrl)) {
+            appUrl = 'https://' + appUrl;
+        }
+
+        // Validate URL structure using browser URL API
+        try {
+            const parsed = new URL(appUrl);
+
+            if (!['http:', 'https:'].includes(parsed.protocol)) {
+                throw new Error('Invalid protocol');
+            }
+
+            if (!parsed.hostname || !parsed.hostname.includes('.')) {
+                throw new Error('Invalid hostname');
+            }
+        } catch {
+            alert('Please enter a valid website or app store link, or leave this field blank.');
+            return;
+        }
+    }
+
+    // Validation
+    if (!appName || !whyWeShould) {
+        alert('Please fill in required fields.');
+        return;
+    }
+
+    if (appName.length > 100 || whyWeShould.length > 500 || additionalNotes.length > 1000) {
+        alert('Please stay within character limits.');
+        return;
+    }
+
+    // Disable button and show loading
+    const submitBtn = document.getElementById('suggestSubmitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    // Call Firebase submission function
+    submitAppSuggestionToFirestore({
+        appName,
+        appUrl: appUrl || undefined,
+        whyWeShould,
+        additionalNotes: additionalNotes || undefined
+    }).then(() => {
+        alert('✅ Thank you! We\'ll review your suggestion.');
+        closeSuggestAppModal();
+    }).catch((error) => {
+        console.error('Submission error:', error);
+        alert('❌ Failed to submit. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Suggestion for Review';
+    });
+}
+
 // ===== STYLES =====
 
 const styles = document.createElement('style');
 styles.textContent = `
     .add-note-modal,
-    .custom-app-modal {
+    .custom-app-modal,
+    .suggest-app-modal {
         position: fixed;
         top: 0;
         left: 0;
@@ -388,12 +535,14 @@ styles.textContent = `
     }
 
     .add-note-modal.open,
-    .custom-app-modal.open {
+    .custom-app-modal.open,
+    .suggest-app-modal.open {
         opacity: 1;
     }
 
     .add-note-modal-backdrop,
-    .custom-app-modal-backdrop {
+    .custom-app-modal-backdrop,
+    .suggest-app-modal-backdrop {
         position: fixed;
         top: 0;
         left: 0;
@@ -404,7 +553,8 @@ styles.textContent = `
     }
 
     .add-note-modal-content,
-    .custom-app-modal-content {
+    .custom-app-modal-content,
+    .suggest-app-modal-content {
         background: var(--bg-white);
         border-radius: 16px;
         padding: 2.5rem;
@@ -417,7 +567,8 @@ styles.textContent = `
     }
 
     .add-note-modal-close,
-    .custom-app-modal-close {
+    .custom-app-modal-close,
+    .suggest-app-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
@@ -430,7 +581,8 @@ styles.textContent = `
     }
 
     .add-note-modal-close:hover,
-    .custom-app-modal-close:hover {
+    .custom-app-modal-close:hover,
+    .suggest-app-modal-close:hover {
         color: var(--primary);
         transform: scale(1.2);
     }
@@ -447,7 +599,8 @@ styles.textContent = `
 
     @media (max-width: 768px) {
         .add-note-modal-content,
-        .custom-app-modal-content {
+        .custom-app-modal-content,
+        .suggest-app-modal-content {
             padding: 1.5rem;
             width: 95%;
         }

@@ -5,10 +5,64 @@ service cloud.firestore {
            request.auth.uid == "3fdKe1IKJtP7DhQD0OZ2919STYH2";
   }
 
+  function isValidNewSubmission(data) {
+    return isValidSubmissionFields(data) &&
+           data.status == "pending" &&
+           data.createdAt == request.time &&
+           data.get('reviewedAt', null) == null &&
+           data.get('reviewedBy', null) == null &&
+           data.get('adminNotes', null) == null;
+  }
+
+  function isValidSubmissionFields(data) {
+    return data.keys().hasAll(['appName', 'whyWeShould', 'status', 'createdAt']) &&
+           data.appName is string &&
+           data.appName.size() >= 1 &&
+           data.appName.size() <= 100 &&
+           data.whyWeShould is string &&
+           data.whyWeShould.size() >= 1 &&
+           data.whyWeShould.size() <= 500 &&
+           (!data.keys().hasAny(['appUrl']) ||
+            (data.appUrl is string && data.appUrl.size() <= 500)) &&
+           (!data.keys().hasAny(['additionalNotes']) ||
+            (data.additionalNotes is string && data.additionalNotes.size() <= 1000)) &&
+           data.createdAt is timestamp &&
+           data.status == "pending";
+  }
+
+  function isValidAdminUpdate() {
+    return request.resource.data.diff(resource.data)
+           .affectedKeys()
+           .hasOnly(['status', 'reviewedAt', 'reviewedBy', 'adminNotes']) &&
+           resource.data.status == "pending" &&
+           request.resource.data.status in ["approved", "rejected"] &&
+           request.resource.data.reviewedBy == request.auth.uid &&
+           request.resource.data.reviewedAt == request.time &&
+           (!request.resource.data.keys().hasAny(['adminNotes']) ||
+            (request.resource.data.adminNotes is string &&
+             request.resource.data.adminNotes.size() <= 1000));
+  }
+
   match /databases/{database}/documents {
+    // Default deny all
     match /{document=**} {
-        allow read: if false;
-        allow write: if false;
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // App Submissions Collection
+    match /appSubmissions/{submissionId} {
+      // Public can CREATE new submissions only
+      allow create: if isValidNewSubmission(request.resource.data);
+
+      // Admin can READ all submissions
+      allow read: if isAuthorizedAdmin();
+
+      // Admin can UPDATE moderation fields only
+      allow update: if isAuthorizedAdmin() && isValidAdminUpdate();
+
+      // No one can DELETE
+      allow delete: if false;
     }
   }
 }

@@ -37,6 +37,9 @@
             <button class="btn btn-secondary" onclick="showCustomAppForm()">
                 ➕ Add App
             </button>
+            <button class="btn btn-secondary" onclick="suggestAppToDigitalCap()">
+                💡 Suggest an App
+            </button>
         </div>
 
         <!-- Age Filter -->
@@ -64,5 +67,22 @@
     <script src="js/global-search.js"></script>
     <script src="js/app-notes-and-custom.js"></script>
     <script src="js/apps-directory-v2.js"></script>
+
+    <!-- Firebase Configuration (initializes window.digitalCapFirebase) -->
+    <script type="module" src="js/firebase-config.js"></script>
+
+    <!-- Firebase App Check and Submissions -->
+    <script type="module">
+        import { initializeAppCheckForSubmissions } from './js/app-check-init.js';
+        import { submitAppSuggestionToFirestore } from './js/app-submissions.js';
+
+        // Initialize App Check on page load (requires Firebase to be initialized first)
+        window.addEventListener('load', () => {
+            initializeAppCheckForSubmissions();
+        });
+
+        // Make Firebase submission function globally available for HTML onclick
+        window.submitAppSuggestionToFirestore = submitAppSuggestionToFirestore;
+    </script>
 </body>
 </html>
