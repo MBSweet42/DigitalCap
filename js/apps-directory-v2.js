@@ -4,6 +4,7 @@ let allApps = [];
 let expandedAppId = null;
 let appDiscussions = {};
 let currentAgeFilter = 'all';
+let currentCategoryFilter = 'all';
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
@@ -188,6 +189,49 @@ function filterByAge(ageGroup) {
     applyFilters();
 }
 
+function filterByCategory(category) {
+    currentCategoryFilter = category;
+
+    // Update dropdown
+    const dropdown = document.getElementById('categoryFilter');
+    if (dropdown) {
+        dropdown.value = category;
+    }
+
+    applyFilters();
+}
+
+function getCategoryMapping(originalCategory) {
+    const mapping = {
+        'Messaging': 'Messaging & Communication',
+        'Messaging & Community': 'Messaging & Communication',
+        'Messaging / Social': 'Messaging & Communication',
+        'Messaging / Workplace': 'Productivity',
+        'Social Media': 'Social Media',
+        'Social Media / Dating': 'Dating & Adult Social',
+        'Social Media / Discovery': 'Social Media',
+        'Gaming': 'Gaming',
+        'Gaming / Multiplayer': 'Gaming',
+        'Gaming / MOBA': 'Gaming',
+        'Gaming / Competitive': 'Gaming',
+        'Gaming / Battle Royale': 'Gaming',
+        'Gaming / Shooter': 'Gaming',
+        'Video Streaming': 'Video & Streaming',
+        'Video Chat / Random': 'Video & Streaming',
+        'Video Chat / Gaming': 'Video & Streaming',
+        'Dating': 'Dating & Adult Social',
+        'Dating / Social': 'Dating & Adult Social',
+        'Creative Tool': 'Creative & Design',
+        'Safety & Location': 'Safety & Location',
+        'Tools': 'Tools & Browsers',
+        'Tools (Hidden)': 'Tools & Browsers',
+        'Community Forum': 'Social Media',
+        'Community / Neighborhood': 'Social Media'
+    };
+
+    return mapping[originalCategory] || originalCategory;
+}
+
 function applyFilters() {
     const searchInput = document.getElementById('appSearch');
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
@@ -196,10 +240,13 @@ function applyFilters() {
 
     // Apply search filter
     if (query.length > 0) {
-        filtered = filtered.filter(app =>
-            app.name.toLowerCase().includes(query) ||
-            app.category.toLowerCase().includes(query)
-        );
+        filtered = filtered.filter(app => {
+            const originalCategory = app.category.toLowerCase();
+            const canonicalCategory = getCategoryMapping(app.category).toLowerCase();
+            return app.name.toLowerCase().includes(query) ||
+                   originalCategory.includes(query) ||
+                   canonicalCategory.includes(query);
+        });
     }
 
     // Apply age filter
@@ -216,6 +263,14 @@ function applyFilters() {
         });
     }
 
+    // Apply category filter
+    if (currentCategoryFilter !== 'all') {
+        filtered = filtered.filter(app => {
+            const appCanonicalCategory = getCategoryMapping(app.category);
+            return appCanonicalCategory === currentCategoryFilter;
+        });
+    }
+
     renderAppsList(filtered);
 }
 
@@ -228,8 +283,11 @@ function renderAppsList(apps) {
         return;
     }
 
+    // Sort alphabetically by app name
+    const sorted = [...apps].sort((a, b) => a.name.localeCompare(b.name));
+
     let html = '';
-    apps.forEach(app => {
+    sorted.forEach(app => {
         const isExpanded = expandedAppId === String(app.id);
         html += renderAppCard(app, isExpanded);
     });
@@ -284,20 +342,7 @@ function renderAppCard(app, isExpanded) {
 
 function toggleAppExpand(appId) {
     expandedAppId = expandedAppId === String(appId) ? null : String(appId);
-
-    // Re-render with current search filter
-    const searchInput = document.getElementById('appSearch');
-    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    let filtered = allApps;
-
-    if (query.length > 0) {
-        filtered = allApps.filter(app =>
-            app.name.toLowerCase().includes(query) ||
-            app.category.toLowerCase().includes(query)
-        );
-    }
-
-    renderAppsList(filtered);
+    applyFilters();
 }
 
 function renderAppDetails(app) {

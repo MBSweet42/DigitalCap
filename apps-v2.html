@@ -57,6 +57,30 @@
             <p style="margin: 1rem 0 0 0; color: var(--text-gray); font-size: 0.9rem;">Note: Age recommendations are when kids CAN use it safely with parental guidance. Younger ages need more supervision.</p>
         </div>
 
+        <!-- Category Filter -->
+        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
+            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">📂 Filter by Category (Optional)</p>
+            <select id="categoryFilter" onchange="filterByCategory(this.value)" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; background: var(--bg-white); color: var(--text-dark); font-size: 1rem; cursor: pointer; min-width: 250px;">
+                <option value="all">All Categories</option>
+                <option value="AI Tools">AI Tools</option>
+                <option value="Coding & STEM">Coding & STEM</option>
+                <option value="Creative & Design">Creative & Design</option>
+                <option value="Dating & Adult Social">Dating & Adult Social</option>
+                <option value="Education & Learning">Education & Learning</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Health & Fitness">Health & Fitness</option>
+                <option value="Messaging & Communication">Messaging & Communication</option>
+                <option value="Music & Audio">Music & Audio</option>
+                <option value="Productivity">Productivity</option>
+                <option value="Reading">Reading</option>
+                <option value="Safety & Location">Safety & Location</option>
+                <option value="School & Classroom">School & Classroom</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Tools & Browsers">Tools & Browsers</option>
+                <option value="Video & Streaming">Video & Streaming</option>
+            </select>
+        </div>
+
         <div id="appsContainer" style="display: grid; gap: 1rem;"></div>
     </main>
 
