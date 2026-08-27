@@ -28,7 +28,7 @@ function openScriptModal(scriptId) {
                 <h3 style="color: var(--primary); margin-bottom: 1rem;">📖 Script</h3>
                 <pre class="script-text">${script.script}</pre>
 
-                <button class="btn btn-secondary" onclick="copyScriptText('${script.title.replace(/'/g, "\\'")}', ${scriptId})" style="width: 100%; margin-top: 1rem;">
+                <button class="btn btn-secondary" onclick="copyScriptText(event, '${script.title.replace(/'/g, "\\'")}', ${scriptId})" style="width: 100%; margin-top: 1rem;">
                     📋 Copy Script to Clipboard
                 </button>
             </div>
@@ -69,7 +69,7 @@ function closeScriptModal(scriptId) {
     }
 }
 
-function copyScriptText(scriptTitle, scriptId) {
+function copyScriptText(event, scriptTitle, scriptId) {
     const script = parentConversationScripts.find(s => s.id === scriptId);
     if (!script) return;
 
