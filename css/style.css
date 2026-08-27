@@ -1,4 +1,4 @@
-/* Color Palette - Warm & Friendly */
+/* Color Palette - DigitalCap Dark Theme (Primary) */
 :root {
     --primary: #FF6B6B;
     --primary-light: #FFE66D;
@@ -6,26 +6,16 @@
     --secondary: #4ECDC4;
     --secondary-light: #A8DADC;
     --accent: #FFB703;
-    --bg-light: #F8F9FA;
-    --bg-white: #FFFFFF;
-    --text-dark: #2D3436;
-    --text-gray: #636E72;
-    --border-color: #DFE6E9;
+    --bg-light: #1A1A1A;
+    --bg-white: #2D2D2D;
+    --text-dark: #E8E8E8;
+    --text-gray: #B0B0B0;
+    --border-color: #444;
     --success: #2ECC71;
     --warning: #F39C12;
     --danger: #E74C3C;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-light: #1A1A1A;
-        --bg-white: #2D2D2D;
-        --text-dark: #E8E8E8;
-        --text-gray: #B0B0B0;
-        --border-color: #444;
-    }
 }
 
 * {
@@ -36,6 +26,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-light);
 }
 
 body {

@@ -1,27 +1,17 @@
-/* DigitalCap Admin Styling */
+/* DigitalCap Admin Styling - Dark Theme (Primary) */
 
 :root {
     --primary: #FF6B6B;
     --primary-dark: #C92A2A;
     --secondary: #4ECDC4;
-    --bg-light: #F8F9FA;
-    --bg-white: #FFFFFF;
-    --text-dark: #2D3436;
-    --text-gray: #636E72;
-    --border-color: #DFE6E9;
+    --bg-light: #1A1A1A;
+    --bg-white: #2D2D2D;
+    --text-dark: #E8E8E8;
+    --text-gray: #B0B0B0;
+    --border-color: #444;
     --danger: #E74C3C;
     --success: #2ECC71;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-light: #1A1A1A;
-        --bg-white: #2D2D2D;
-        --text-dark: #E8E8E8;
-        --text-gray: #B0B0B0;
-        --border-color: #444;
-    }
 }
 
 * {
