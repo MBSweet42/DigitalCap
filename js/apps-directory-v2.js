@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
 });
 
+// Load published apps from Firestore after Firebase initializes
+window.addEventListener('load', function() {
+    loadPublishedAppsFromFirestore();
+});
+
 function initializeAppDirectory() {
     // Load parent notes
     if (typeof parentNotesSystem !== 'undefined') {
@@ -51,6 +56,97 @@ function initializeAppDirectory() {
 
     // Render initial list
     renderAppsList(allApps);
+}
+
+/**
+ * Load published apps from Firestore (asynchronous)
+ * Gracefully handles Firebase unavailability
+ */
+async function loadPublishedAppsFromFirestore() {
+    try {
+        // Check if Firebase is available
+        if (!window.digitalCapFirebase || !window.digitalCapFirebase.db) {
+            console.log('ℹ️ Firebase not available - skipping published apps');
+            return;
+        }
+
+        // Dynamically import Firestore functions (compatible with classic scripts)
+        const { collection, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+
+        const db = window.digitalCapFirebase.db;
+
+        // Fetch all documents from appsPublished
+        const publishedDocs = await getDocs(collection(db, 'appsPublished'));
+
+        if (publishedDocs.empty) {
+            console.log('ℹ️ No published apps in Firestore');
+            return;
+        }
+
+        let addedCount = 0;
+
+        // Convert each document to app object and merge
+        publishedDocs.forEach(docSnap => {
+            try {
+                const publishedData = docSnap.data();
+
+                // Validate required fields
+                if (!publishedData.name || typeof publishedData.name !== 'string') {
+                    console.warn(`⚠️ Published app missing name: ${docSnap.id}`);
+                    return;
+                }
+
+                // Check for duplicate (normalized name comparison)
+                const normalizedPublishedName = publishedData.name.toLowerCase().trim();
+                const isDuplicate = allApps.some(app => {
+                    const normalizedAppName = app.name.toLowerCase().trim();
+                    return normalizedAppName === normalizedPublishedName;
+                });
+
+                if (isDuplicate) {
+                    console.log(`ℹ️ Published app "${publishedData.name}" already exists - skipping`);
+                    return;
+                }
+
+                // Create app object from published document
+                const publishedApp = {
+                    id: docSnap.id, // Use Firestore document ID
+                    name: publishedData.name || '',
+                    category: publishedData.category || '',
+                    ageRecommendation: publishedData.ageRecommendation ?? 0,
+                    safetyRating: publishedData.safetyRating ?? 0,
+                    safetyLabel: publishedData.safetyLabel || '',
+                    description: publishedData.description || '',
+                    hasChat: publishedData.hasChat ?? false,
+                    chatDetails: publishedData.chatDetails || '',
+                    hasOpenInternet: publishedData.hasOpenInternet ?? false,
+                    internetDetails: publishedData.internetDetails || '',
+                    hasLocationTracking: publishedData.hasLocationTracking ?? false,
+                    locationDetails: publishedData.locationDetails || '',
+                    whyThisMatters: publishedData.whyThisMatters || {},
+                    hiddenDangers: Array.isArray(publishedData.hiddenDangers) ? publishedData.hiddenDangers : [],
+                    parentConcerns: publishedData.parentConcerns || {},
+                    tipsForParents: Array.isArray(publishedData.tipsForParents) ? publishedData.tipsForParents : [],
+                    parentConversationGuide: publishedData.parentConversationGuide || {},
+                    sources: publishedData.sources || ''
+                };
+
+                allApps.push(publishedApp);
+                addedCount++;
+            } catch (error) {
+                console.warn(`⚠️ Failed to process published app ${docSnap.id}:`, error);
+            }
+        });
+
+        if (addedCount > 0) {
+            console.log(`✅ Added ${addedCount} published app(s) to directory`);
+            // Re-render directory after successful merge
+            applyFilters();
+        }
+    } catch (error) {
+        console.error('❌ Failed to load published apps from Firestore:', error);
+        // Silently fail - existing apps remain intact
+    }
 }
 
 function setupEventListeners() {

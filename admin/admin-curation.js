@@ -13,6 +13,7 @@ import {
   getDoc,
   serverTimestamp,
   onSnapshot,
+  writeBatch,
 } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js';
 
 let currentUser = null;
@@ -560,6 +561,7 @@ function displayCurationForm(draftId, draftData) {
 
         <div class="admin-curation-actions">
           <button type="submit" class="admin-curation-btn admin-curation-save">✓ Save Draft</button>
+          <button type="button" class="admin-curation-btn admin-curation-publish" onclick="publishCurationDraft('${draftId}')" ${draftData.curationStatus === 'published' ? 'disabled' : ''} style="${draftData.curationStatus === 'published' ? 'opacity: 0.7;' : ''}">${draftData.curationStatus === 'published' ? '✓ Published' : '📤 Publish App'}</button>
           <button type="button" class="admin-curation-btn admin-curation-close" onclick="closeCurationForm('${draftId}')">✕ Close</button>
         </div>
       </form>
@@ -685,6 +687,189 @@ window.saveCurationDraft = async function(draftId) {
 }
 
 /**
+ * Publish curated draft to public appsPublished collection
+ */
+window.publishCurationDraft = async function(draftId) {
+  if (!db || !currentUser) return;
+
+  const publishBtn = document.querySelector(`form[data-draft-id="${draftId}"] .admin-curation-publish`);
+  if (!publishBtn) return;
+
+  // Check if already published
+  if (publishBtn.disabled) {
+    showCurationError('This app has already been published.');
+    return;
+  }
+
+  // Disable button immediately
+  publishBtn.disabled = true;
+  const originalLabel = publishBtn.textContent;
+  publishBtn.textContent = 'Publishing...';
+
+  try {
+    // Fetch the latest draft from Firestore (don't rely on modal state)
+    const draftDoc = await getDoc(doc(db, 'appsCurations', draftId));
+    if (!draftDoc.exists()) {
+      throw new Error('Draft not found');
+    }
+
+    const draft = draftDoc.data();
+
+    // Validate publication-ready status
+    const validationError = validatePublishable(draft);
+    if (validationError) {
+      showModalPublishError(draftId, validationError);
+      publishBtn.disabled = false;
+      publishBtn.textContent = originalLabel;
+      return;
+    }
+
+    // Check if already published
+    if (draft.curationStatus === 'published') {
+      showModalPublishError(draftId, 'This app has already been published.');
+      publishBtn.disabled = true;
+      publishBtn.textContent = '✓ Published';
+      return;
+    }
+
+    // Check for duplicate published app with same normalized name
+    const normalizedDraftName = draft.name.toLowerCase().trim();
+    const allPublished = await getDocs(collection(db, 'appsPublished'));
+
+    // Check in-memory for normalized name match
+    const duplicateDoc = allPublished.docs.find(doc => {
+      const publishedName = doc.data().name.toLowerCase().trim();
+      return publishedName === normalizedDraftName && doc.id !== draftId;
+    });
+
+    if (duplicateDoc) {
+      showModalPublishError(draftId, `An app named "${draft.name}" has already been published.`);
+      publishBtn.disabled = false;
+      publishBtn.textContent = originalLabel;
+      return;
+    }
+
+    // Build public-safe data object (explicit field whitelist)
+    // Derive safety label from rating to ensure consistency
+    const safetyLabels = {
+      1: '🔴 CRITICAL RISK',
+      2: '🟠 HIGH RISK',
+      3: '🟡 MEDIUM RISK',
+      4: '🟢 LOW RISK'
+    };
+
+    const publicData = {
+      name: draft.name,
+      category: draft.category,
+      ageRecommendation: draft.ageRecommendation,
+      safetyRating: draft.safetyRating,
+      safetyLabel: safetyLabels[draft.safetyRating],
+      description: draft.description,
+      hasChat: draft.hasChat,
+      chatDetails: draft.chatDetails,
+      hasOpenInternet: draft.hasOpenInternet,
+      internetDetails: draft.internetDetails,
+      hasLocationTracking: draft.hasLocationTracking,
+      locationDetails: draft.locationDetails,
+      whyThisMatters: draft.whyThisMatters,
+      hiddenDangers: draft.hiddenDangers,
+      parentConcerns: draft.parentConcerns,
+      tipsForParents: draft.tipsForParents,
+      parentConversationGuide: draft.parentConversationGuide,
+      sources: draft.sources,
+      publishedAt: serverTimestamp()
+      // NEVER include: publishedBy, sourceSuggestionId, curationStatus, createdAt, updatedAt, createdBy, updatedBy
+    };
+
+    // Atomic batch write: publish to public + update private curation status
+    const batch = writeBatch(db);
+
+    // Write public data to appsPublished
+    batch.set(doc(db, 'appsPublished', draftId), publicData);
+
+    // Update private curation with publication metadata
+    batch.update(doc(db, 'appsCurations', draftId), {
+      curationStatus: 'published',
+      publishedAt: serverTimestamp(),
+      publishedBy: currentUser.uid
+    });
+
+    // Commit batch (both operations succeed or neither do)
+    await batch.commit();
+
+    // Success
+    publishBtn.textContent = '✓ Published';
+    publishBtn.disabled = true;
+    showCurationMessage('App published to directory!');
+
+  } catch (error) {
+    console.error('Curation: Publish error:', error);
+    publishBtn.disabled = false;
+    publishBtn.textContent = originalLabel;
+    showModalPublishError(draftId, 'Failed to publish app. Please try again.');
+  }
+};
+
+/**
+ * Validate that a draft is publication-ready
+ */
+function validatePublishable(draft) {
+  // Required fields
+  if (!draft.name || !draft.name.trim()) {
+    return 'App name is required';
+  }
+  if (!draft.category || !draft.category.trim()) {
+    return 'App category is required';
+  }
+  if (typeof draft.ageRecommendation !== 'number' || draft.ageRecommendation === null) {
+    return 'Age recommendation is required';
+  }
+  if (typeof draft.safetyRating !== 'number' || draft.safetyRating < 1 || draft.safetyRating > 4) {
+    return 'Safety rating must be a valid number (1-4)';
+  }
+  if (!draft.description || !draft.description.trim()) {
+    return 'Description is required';
+  }
+  if (!draft.whyThisMatters || !draft.whyThisMatters.title || !draft.whyThisMatters.title.trim()) {
+    return 'Why This Matters title is required';
+  }
+  if (!draft.whyThisMatters || !draft.whyThisMatters.content || !draft.whyThisMatters.content.trim()) {
+    return 'Why This Matters content is required';
+  }
+  // At least one conversation starter must exist
+  const scriptOpener = draft.parentConversationGuide?.scriptOpener?.trim() || '';
+  const startWith = draft.parentConversationGuide?.startWith?.trim() || '';
+  if (!scriptOpener && !startWith) {
+    return 'Add a conversation starter before publishing';
+  }
+
+  // Boolean fields must be explicit
+  if (typeof draft.hasChat !== 'boolean') {
+    return 'Chat setting must be explicitly set (yes/no)';
+  }
+  if (typeof draft.hasOpenInternet !== 'boolean') {
+    return 'Web access setting must be explicitly set (yes/no)';
+  }
+  if (typeof draft.hasLocationTracking !== 'boolean') {
+    return 'Location tracking setting must be explicitly set (yes/no)';
+  }
+
+  // Conditional requirements
+  if (draft.hasChat && (!draft.chatDetails || !draft.chatDetails.trim())) {
+    return 'Chat details are required when chat is enabled';
+  }
+  if (draft.hasOpenInternet && (!draft.internetDetails || !draft.internetDetails.trim())) {
+    return 'Web access details are required when web access is enabled';
+  }
+  if (draft.hasLocationTracking && (!draft.locationDetails || !draft.locationDetails.trim())) {
+    return 'Location tracking details are required when location tracking is enabled';
+  }
+
+  // All validations passed
+  return null;
+}
+
+/**
  * Helper functions for toggle visibility
  */
 window.toggleChatDetails = function(draftId) {
@@ -747,6 +932,42 @@ function showCurationMessage(msg) {
   setTimeout(() => {
     msgDiv.remove();
   }, 3000);
+}
+
+/**
+ * Show error message inside the currently open curation modal
+ */
+function showModalPublishError(draftId, msg) {
+  const modal = document.getElementById(`curation-modal-${draftId}`);
+  if (!modal) return;
+
+  // Remove previous validation error if it exists
+  const existingError = modal.querySelector('.admin-curation-modal-error');
+  if (existingError) {
+    existingError.remove();
+  }
+
+  // Create error container
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'admin-curation-modal-error';
+  errorDiv.innerHTML = `
+    <strong>Cannot publish:</strong> ${escapeHtml(msg)}
+  `;
+
+  // Insert before the action buttons
+  const actionsDiv = modal.querySelector('.admin-curation-actions');
+  if (actionsDiv) {
+    actionsDiv.parentNode.insertBefore(errorDiv, actionsDiv);
+  } else {
+    modal.appendChild(errorDiv);
+  }
+
+  // Auto-dismiss after 5 seconds
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.remove();
+    }
+  }, 5000);
 }
 
 /**

@@ -73,5 +73,16 @@ service cloud.firestore {
       allow update: if isAuthorizedAdmin();
       allow delete: if isAuthorizedAdmin();
     }
+
+    // Published Apps Collection
+    match /appsPublished/{docId} {
+      // Public can READ published apps (unauthenticated)
+      allow read: if true;
+
+      // Admin only: CREATE, UPDATE, DELETE
+      allow create: if isAuthorizedAdmin();
+      allow update: if isAuthorizedAdmin();
+      allow delete: if isAuthorizedAdmin();
+    }
   }
 }
