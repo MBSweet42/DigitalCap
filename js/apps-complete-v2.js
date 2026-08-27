@@ -639,64 +639,6 @@ const appsCompleteV2 = [
         sources: 'Common Sense Media, parenting communities'
     },
     {
-        id: 12,
-        name: 'Canva',
-        category: 'Creative Tool',
-        ageRecommendation: 10,
-        safetyRating: 3, // HIGH RISK (for web access)
-        safetyLabel: '🟠 HIGH RISK (Web Access)',
-        description: 'Design app used in schools with built-in web access to YouTube, Google, and image libraries.',
-        hasChat: false,
-        chatDetails: 'No messaging, but has collaboration features and community comments',
-        hasOpenInternet: true,
-        internetDetails: 'Built-in browser for image/music search; direct access to YouTube, Google, Unsplash, and any website',
-        hasLocationTracking: false,
-        whyThisMatters: {
-            title: 'Why This Matters',
-            content: 'Canva is commonly assigned in schools and parents don\'t realize it has full web browser access. Kids can access YouTube, Google, TikTok, and any site directly through Canva\'s search. The embedded browser bypasses parental controls because it\'s not a separate "browser" app: parents monitor Chrome but Canva\'s internal browser is invisible.'
-        },
-        hiddenDangers: [
-            'Built-in browser completely bypasses parental monitoring software',
-            'Direct access to YouTube (can watch anything)',
-            'Image/music search pulls from entire internet: can find adult content',
-            'Can access Google, TikTok, Instagram, Discord, and any site through embedded browser',
-            'Parents assume "school app" means safe: it\'s not monitored like regular browser',
-            'Collaboration feature allows external users to comment and message',
-            'Search history not visible in parental control dashboards'
-        ],
-        parentConcerns: {
-            bypass: 'Built-in browser completely circumvents parental controls',
-            youtube: 'Direct YouTube access without parental restrictions',
-            search: 'Image/music search has no content filtering',
-            assumption: 'Parents trust it because it\'s school-assigned'
-        },
-        tipsForParents: [
-            'Know that Canva = full web access (YouTube, Google, TikTok, etc.)',
-            'Check what your teen is actually searching for in Canva',
-            'Discuss that the app can access YouTube without school restrictions',
-            'Use parental software that monitors ALL internet activity (Bark, Net Nanny), not just specific apps',
-            'Consider: if you\'re monitoring Chrome but not Canva, they can bypass you entirely',
-            'Disable collaboration features if possible'
-        ],
-        parentConversationGuide: {
-            startWith: '"I know you use Canva for school, but I realized it has YouTube and web access built in. Let\'s talk about that."',
-            keyPoints: [
-                'Explain that Canva can access YouTube without school restrictions',
-                'Discuss that the search function pulls from entire internet',
-                'Talk about responsibility when using web access for schoolwork',
-                'Explain that you monitor the browser but not Canva\'s internal browser'
-            ],
-            redFlags: [
-                'Spending excessive time in Canva outside of schoolwork',
-                'Secretive behavior about Canva projects',
-                'Using Canva to search for content unrelated to school',
-                'Known YouTubers or social media accounts appearing in "recent searches"'
-            ],
-            scriptOpener: '"Canva has YouTube and the whole internet built in. I need to make sure you\'re using it for schoolwork, not scrolling YouTube or TikTok through the app. Fair?"'
-        },
-        sources: 'Parent communities, Canva feature documentation, parenting forums'
-    },
-    {
         id: 13,
         name: 'Messenger Kids',
         category: 'Messaging',
@@ -741,56 +683,6 @@ const appsCompleteV2 = [
             scriptOpener: '"Messenger Kids is nice because I can see your messages and help you stay safe. Let\'s keep talking about who you\'re talking to."'
         },
         sources: 'Facebook/Meta safety resources'
-    },
-    {
-        id: 14,
-        name: 'Life360',
-        category: 'Safety & Location',
-        ageRecommendation: 8,
-        safetyRating: 5, // LOW RISK (for location)
-        safetyLabel: '🟢 LOW RISK (Location)',
-        description: 'Family location sharing app designed for parental supervision.',
-        hasChat: false,
-        chatDetails: 'No messaging in main app, but has in-app communication',
-        hasOpenInternet: false,
-        hasLocationTracking: true,
-        locationDetails: 'Real-time GPS location sharing with family members',
-        whyThisMatters: {
-            title: 'Why This Matters',
-            content: 'Life360 is designed specifically for families to track each other\'s location safely. It can help parents know where their kids are and if they\'re safe. Main risk: location data is valuable to bad actors if hacked; kids might disable it or find ways to spoof location.'
-        },
-        hiddenDangers: [
-            'Data breach exposes location history of minors',
-            'Kids can spoof location with VPN/proxy',
-            'Family members might share location data inappropriately',
-            'Gives false sense of security: doesn\'t monitor what kids are actually doing'
-        ],
-        parentConcerns: {
-            privacy: 'Location history stored; potential breach risk',
-            spoofing: 'Kids can disable or spoof location',
-            security: 'No guarantee location is accurate'
-        },
-        tipsForParents: [
-            'Use Life360 as part of trust, not as the only safety tool',
-            'Discuss why you\'re using it (safety, not control)',
-            'Know that kids might disable or spoof location',
-            'Don\'t rely solely on location; maintain open communication too'
-        ],
-        parentConversationGuide: {
-            startWith: '"I want to use Life360 so I know you\'re safe. I\'m not trying to control you; I just want to help if you ever need me."',
-            keyPoints: [
-                'Explain that location sharing works both ways',
-                'Discuss emergency situations where this helps',
-                'Make it a safety tool, not a control tool'
-            ],
-            redFlags: [
-                'Child constantly disabling location',
-                'Location data showing places they said they weren\'t',
-                'Child asking to delete the app'
-            ],
-            scriptOpener: '"I want to make sure you\'re safe. Can we use Life360 so I know where you are? It helps me help you if you need me."'
-        },
-        sources: 'Life360 documentation'
     },
     {
         id: 15,
