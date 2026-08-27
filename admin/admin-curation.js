@@ -434,14 +434,22 @@ function displayCurationForm(draftId, draftData) {
             <label for="curation-category-${draftId}">Category</label>
             <select id="curation-category-${draftId}" style="width: 100%; padding: 0.5rem;">
               <option value="">-- Select Category --</option>
-              <option value="Social Media" ${draftData.category === 'Social Media' ? 'selected' : ''}>Social Media</option>
-              <option value="Messaging" ${draftData.category === 'Messaging' ? 'selected' : ''}>Messaging</option>
+              <option value="AI Tools" ${draftData.category === 'AI Tools' ? 'selected' : ''}>AI Tools</option>
+              <option value="Coding & STEM" ${draftData.category === 'Coding & STEM' ? 'selected' : ''}>Coding & STEM</option>
+              <option value="Creative & Design" ${draftData.category === 'Creative & Design' ? 'selected' : ''}>Creative & Design</option>
+              <option value="Dating & Adult Social" ${draftData.category === 'Dating & Adult Social' ? 'selected' : ''}>Dating & Adult Social</option>
+              <option value="Education & Learning" ${draftData.category === 'Education & Learning' ? 'selected' : ''}>Education & Learning</option>
               <option value="Gaming" ${draftData.category === 'Gaming' ? 'selected' : ''}>Gaming</option>
-              <option value="Video" ${draftData.category === 'Video' ? 'selected' : ''}>Video</option>
-              <option value="Music" ${draftData.category === 'Music' ? 'selected' : ''}>Music</option>
-              <option value="Shopping" ${draftData.category === 'Shopping' ? 'selected' : ''}>Shopping</option>
-              <option value="Educational" ${draftData.category === 'Educational' ? 'selected' : ''}>Educational</option>
-              <option value="Other" ${draftData.category === 'Other' ? 'selected' : ''}>Other</option>
+              <option value="Health & Fitness" ${draftData.category === 'Health & Fitness' ? 'selected' : ''}>Health & Fitness</option>
+              <option value="Messaging & Communication" ${draftData.category === 'Messaging & Communication' ? 'selected' : ''}>Messaging & Communication</option>
+              <option value="Music & Audio" ${draftData.category === 'Music & Audio' ? 'selected' : ''}>Music & Audio</option>
+              <option value="Productivity" ${draftData.category === 'Productivity' ? 'selected' : ''}>Productivity</option>
+              <option value="Reading" ${draftData.category === 'Reading' ? 'selected' : ''}>Reading</option>
+              <option value="Safety & Location" ${draftData.category === 'Safety & Location' ? 'selected' : ''}>Safety & Location</option>
+              <option value="School & Classroom" ${draftData.category === 'School & Classroom' ? 'selected' : ''}>School & Classroom</option>
+              <option value="Social Media" ${draftData.category === 'Social Media' ? 'selected' : ''}>Social Media</option>
+              <option value="Tools & Browsers" ${draftData.category === 'Tools & Browsers' ? 'selected' : ''}>Tools & Browsers</option>
+              <option value="Video & Streaming" ${draftData.category === 'Video & Streaming' ? 'selected' : ''}>Video & Streaming</option>
             </select>
           </div>
 
