@@ -129,14 +129,8 @@
 
         // Smooth scroll to top when button is clicked
         backToTopBtn.addEventListener('click', () => {
-            const appsContainer = document.getElementById('appsContainer');
-            if (appsContainer) {
-                // Scroll to the apps container (search/filter area)
-                appsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                // Fallback: scroll to top of main
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            // Scroll to the actual top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Keyboard support (Enter key)
