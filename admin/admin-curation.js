@@ -69,6 +69,9 @@ export async function initializeCuration(user) {
     // Initialize published apps manager
     await initializePublishedAppsManager(user);
 
+    // Initialize draft apps manager
+    await initializeDraftApps(user);
+
   } catch (error) {
     console.error('Curation: Initialization error:', error);
     showCurationError('Failed to initialize curation workspace.');
@@ -86,6 +89,7 @@ export function stopCuration() {
   }
 
   stopPublishedAppsManager();
+  stopDraftApps();
 
   currentUser = null;
   db = null;
@@ -1575,4 +1579,196 @@ function showPublishedAppsMessage(msg) {
   setTimeout(() => {
     msgDiv.remove();
   }, 3000);
+}
+
+// ============================================
+// DRAFT APPS MANAGER (Phase 6K)
+// ============================================
+
+let draftAppsContainer = null;
+let draftAppsUnsubscribe = null;
+
+/**
+ * Initialize the draft apps manager
+ * Called by initializeCuration after curation queue is set up
+ * Displays ALL drafts in appsCurations (both suggestion-based and imported)
+ */
+async function initializeDraftApps(user) {
+  if (!db || !user || !user.uid) {
+    return;
+  }
+
+  draftAppsContainer = document.getElementById('admin-draft-apps');
+  if (!draftAppsContainer) {
+    return;
+  }
+
+  try {
+    await loadDraftApps();
+
+    const q = query(
+      collection(db, 'appsCurations'),
+      where('curationStatus', '==', 'draft')
+    );
+    draftAppsUnsubscribe = onSnapshot(q, (snapshot) => {
+      renderDraftApps(snapshot.docs);
+    }, (error) => {
+      console.error('Draft Apps: Firestore listener error:', error);
+      showDraftAppsError('Failed to load draft apps. Please refresh.');
+    });
+
+  } catch (error) {
+    console.error('Draft Apps: Initialization error:', error);
+    showDraftAppsError('Failed to initialize draft apps.');
+  }
+}
+
+/**
+ * Stop draft apps manager
+ * Called by stopCuration on logout
+ */
+function stopDraftApps() {
+  if (draftAppsUnsubscribe) {
+    draftAppsUnsubscribe();
+    draftAppsUnsubscribe = null;
+  }
+
+  if (draftAppsContainer) {
+    draftAppsContainer.innerHTML = '';
+  }
+}
+
+/**
+ * Load draft apps from Firestore
+ */
+async function loadDraftApps() {
+  if (!db || !draftAppsContainer) return;
+
+  draftAppsContainer.innerHTML = '<div class="admin-draft-apps-loading">Loading draft apps...</div>';
+
+  try {
+    const q = query(
+      collection(db, 'appsCurations'),
+      where('curationStatus', '==', 'draft')
+    );
+
+    const snapshot = await getDocs(q);
+    renderDraftApps(snapshot.docs);
+  } catch (error) {
+    console.error('Draft Apps: Load error:', error);
+    showDraftAppsError('Failed to load draft apps.');
+  }
+}
+
+/**
+ * Render the list of draft apps
+ */
+function renderDraftApps(docs) {
+  if (!draftAppsContainer) return;
+
+  if (docs.length === 0) {
+    draftAppsContainer.innerHTML = `
+      <div class="admin-draft-apps-section">
+        <h3>Draft Apps</h3>
+        <div class="admin-draft-apps-empty">No draft apps awaiting review.</div>
+      </div>
+    `;
+    return;
+  }
+
+  const sorted = docs.sort((a, b) => {
+    const nameA = (a.data().name || '').toLowerCase();
+    const nameB = (b.data().name || '').toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  let html = `
+    <div class="admin-draft-apps-section">
+      <h3>Draft Apps</h3>
+      <p class="admin-draft-apps-subtitle">Review and edit draft apps before publishing to the directory.</p>
+      <div class="admin-draft-apps-count">${sorted.length} draft</div>
+  `;
+
+  sorted.forEach((doc) => {
+    const data = doc.data();
+    html += renderDraftAppCard(doc.id, data);
+  });
+
+  html += '</div>';
+  draftAppsContainer.innerHTML = html;
+
+  attachDraftAppsEventListeners();
+}
+
+/**
+ * Render a draft app card
+ */
+function renderDraftAppCard(docId, data) {
+  const appName = data.name || 'Unnamed App';
+  const category = data.category || 'Uncategorized';
+  const ageLabel = data.ageRecommendation === 0 ? 'Parental Awareness' : `${data.ageRecommendation}+`;
+  const safetyLabel = data.safetyLabel || '';
+
+  return `
+    <div class="admin-draft-apps-card" data-doc-id="${escapeHtmlAttr(docId)}">
+      <div class="admin-draft-apps-preview">
+        <div class="admin-draft-apps-field">
+          <strong>App Name:</strong>
+          <span>${escapeHtml(appName)}</span>
+        </div>
+
+        <div class="admin-draft-apps-field">
+          <strong>Category:</strong>
+          <span>${escapeHtml(category)}</span>
+        </div>
+
+        <div class="admin-draft-apps-field">
+          <strong>Age:</strong>
+          <span>${ageLabel}</span>
+        </div>
+
+        <div class="admin-draft-apps-field">
+          <strong>Safety Rating:</strong>
+          <span>${safetyLabel}</span>
+        </div>
+      </div>
+
+      <button
+        class="admin-draft-apps-btn admin-draft-apps-edit"
+        data-doc-id="${escapeHtmlAttr(docId)}"
+      >
+        ✎ Edit Draft
+      </button>
+    </div>
+  `;
+}
+
+/**
+ * Attach event listeners to draft app buttons
+ */
+function attachDraftAppsEventListeners() {
+  document.querySelectorAll('.admin-draft-apps-edit').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const docId = e.target.getAttribute('data-doc-id');
+      loadAndDisplayDraft(docId);
+    });
+  });
+}
+
+/**
+ * Show error message in draft apps section
+ */
+function showDraftAppsError(msg) {
+  if (!draftAppsContainer) return;
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'admin-draft-apps-error';
+  errorDiv.innerHTML = `
+    <strong>Error:</strong> ${escapeHtml(msg)}
+  `;
+  draftAppsContainer.appendChild(errorDiv);
+
+  setTimeout(() => {
+    errorDiv.remove();
+  }, 5000);
 }
