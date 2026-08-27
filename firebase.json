@@ -1,5 +1,21 @@
 {
   "firestore": {
     "rules": "firestore.rules"
+  },
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "firestore.rules",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.md",
+      "**/*.txt",
+      "**/*.log",
+      ".env*",
+      "*-service-account-key.json",
+      "*-firebase-adminsdk-*.json",
+      "serviceAccountKey.json"
+    ]
   }
 }
