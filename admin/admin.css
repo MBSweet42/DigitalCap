@@ -831,6 +831,191 @@ button {
     font-size: 0.9rem;
 }
 
+.admin-curation-update-public {
+    background-color: #4CAD7F;
+    color: white;
+    flex: 1;
+}
+
+.admin-curation-update-public:hover:not(:disabled) {
+    background-color: #3a8a63;
+    color: white;
+}
+
+.admin-curation-update-public:disabled {
+    background-color: #7ec9a3;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Published Apps Manager */
+#admin-published-apps {
+    margin-bottom: 20px;
+}
+
+.admin-published-apps-section {
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.admin-published-apps-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0 0 5px 0;
+}
+
+.admin-published-apps-subtitle {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin: 0 0 15px 0;
+}
+
+.admin-published-apps-count {
+    display: inline-block;
+    font-size: 0.85rem;
+    background-color: var(--secondary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.admin-published-apps-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s;
+}
+
+.admin-published-apps-card:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.1);
+}
+
+.admin-published-apps-info {
+    flex: 1;
+}
+
+.admin-published-apps-field {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.admin-published-apps-field:last-child {
+    margin-bottom: 0;
+}
+
+.admin-published-apps-field strong {
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.admin-published-apps-category {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+.admin-published-apps-label {
+    color: var(--text-gray);
+    font-weight: 500;
+    display: inline;
+}
+
+.admin-published-apps-field span {
+    color: var(--text-dark);
+}
+
+.admin-published-apps-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.admin-published-apps-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.admin-published-apps-edit {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.admin-published-apps-edit:hover {
+    background-color: #3db8b0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+}
+
+.admin-published-apps-remove {
+    background-color: var(--danger);
+    color: white;
+}
+
+.admin-published-apps-remove:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.admin-published-apps-loading {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.admin-published-apps-empty {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.admin-published-apps-error {
+    background-color: #fee;
+    color: var(--danger);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--danger);
+    font-size: 0.9rem;
+}
+
+.admin-published-apps-message {
+    background-color: #efe;
+    color: var(--success);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--success);
+    font-size: 0.9rem;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .admin-container {

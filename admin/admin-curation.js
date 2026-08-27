@@ -66,6 +66,9 @@ export async function initializeCuration(user) {
       showCurationError('Failed to load approved suggestions. Please refresh.');
     });
 
+    // Initialize published apps manager
+    await initializePublishedAppsManager(user);
+
   } catch (error) {
     console.error('Curation: Initialization error:', error);
     showCurationError('Failed to initialize curation workspace.');
@@ -81,6 +84,8 @@ export function stopCuration() {
     unsubscribe();
     unsubscribe = null;
   }
+
+  stopPublishedAppsManager();
 
   currentUser = null;
   db = null;
@@ -1021,4 +1026,545 @@ function escapeHtmlAttr(text) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#x27;');
+}
+
+// ============================================
+// PUBLISHED APPS MANAGER (Phase 6F)
+// ============================================
+
+let publishedAppsContainer = null;
+let publishedAppsUnsubscribe = null;
+
+/**
+ * Initialize the published apps manager
+ * Called by initializeCuration after curation queue is set up
+ */
+export async function initializePublishedAppsManager(user) {
+  if (!db || !user || !user.uid) {
+    return;
+  }
+
+  publishedAppsContainer = document.getElementById('admin-published-apps');
+  if (!publishedAppsContainer) {
+    return;
+  }
+
+  try {
+    await loadPublishedApps();
+
+    const q = query(collection(db, 'appsPublished'));
+    publishedAppsUnsubscribe = onSnapshot(q, (snapshot) => {
+      renderPublishedApps(snapshot.docs);
+    }, (error) => {
+      console.error('Published Apps: Firestore listener error:', error);
+      showPublishedAppsError('Failed to load published apps. Please refresh.');
+    });
+
+  } catch (error) {
+    console.error('Published Apps: Initialization error:', error);
+    showPublishedAppsError('Failed to initialize published apps manager.');
+  }
+}
+
+/**
+ * Stop published apps manager
+ * Called by stopCuration on logout
+ */
+export function stopPublishedAppsManager() {
+  if (publishedAppsUnsubscribe) {
+    publishedAppsUnsubscribe();
+    publishedAppsUnsubscribe = null;
+  }
+
+  if (publishedAppsContainer) {
+    publishedAppsContainer.innerHTML = '';
+  }
+}
+
+/**
+ * Load published apps from Firestore
+ */
+async function loadPublishedApps() {
+  if (!db || !publishedAppsContainer) return;
+
+  publishedAppsContainer.innerHTML = '<div class="admin-published-apps-loading">Loading published apps...</div>';
+
+  try {
+    const snapshot = await getDocs(collection(db, 'appsPublished'));
+    renderPublishedApps(snapshot.docs);
+  } catch (error) {
+    console.error('Published Apps: Load error:', error);
+    showPublishedAppsError('Failed to load published apps.');
+  }
+}
+
+/**
+ * Render published apps
+ */
+function renderPublishedApps(docs) {
+  if (!publishedAppsContainer) return;
+
+  if (docs.length === 0) {
+    publishedAppsContainer.innerHTML = `
+      <div class="admin-published-apps-section">
+        <h3>Published Apps Manager</h3>
+        <div class="admin-published-apps-empty">No published apps yet. Publish curated apps from the Curation Queue.</div>
+      </div>
+    `;
+    return;
+  }
+
+  const sorted = docs.sort((a, b) => {
+    const timeA = a.data().publishedAt?.toMillis() || 0;
+    const timeB = b.data().publishedAt?.toMillis() || 0;
+    return timeB - timeA;
+  });
+
+  let html = `
+    <div class="admin-published-apps-section">
+      <h3>Published Apps Manager</h3>
+      <p class="admin-published-apps-subtitle">Manage apps currently displayed in the public App Directory.</p>
+      <div class="admin-published-apps-count">${sorted.length} published</div>
+  `;
+
+  sorted.forEach((doc) => {
+    const data = doc.data();
+    html += renderPublishedAppCard(doc.id, data);
+  });
+
+  html += '</div>';
+  publishedAppsContainer.innerHTML = html;
+
+  attachPublishedAppsEventListeners();
+}
+
+/**
+ * Render a published app card
+ */
+function renderPublishedAppCard(docId, data) {
+  const appName = data.name || 'Unnamed App';
+  const category = data.category || 'Unknown';
+  const ageRecommendation = data.ageRecommendation || 'Not set';
+  const safetyLabel = data.safetyLabel || 'Not rated';
+
+  return `
+    <div class="admin-published-apps-card" data-doc-id="${escapeHtmlAttr(docId)}">
+      <div class="admin-published-apps-info">
+        <div class="admin-published-apps-field">
+          <strong>${escapeHtml(appName)}</strong>
+          <span class="admin-published-apps-category">${escapeHtml(category)}</span>
+        </div>
+
+        <div class="admin-published-apps-field">
+          <span class="admin-published-apps-label">Age:</span>
+          <span>${escapeHtml(String(ageRecommendation))}</span>
+        </div>
+
+        <div class="admin-published-apps-field">
+          <span class="admin-published-apps-label">Safety:</span>
+          <span>${escapeHtml(safetyLabel)}</span>
+        </div>
+      </div>
+
+      <div class="admin-published-apps-actions">
+        <button
+          class="admin-published-apps-btn admin-published-apps-edit"
+          data-doc-id="${escapeHtmlAttr(docId)}"
+        >
+          ✏️ Edit
+        </button>
+        <button
+          class="admin-published-apps-btn admin-published-apps-remove"
+          data-doc-id="${escapeHtmlAttr(docId)}"
+        >
+          🗑️ Remove
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Attach event listeners to published app action buttons
+ */
+function attachPublishedAppsEventListeners() {
+  // Edit buttons
+  document.querySelectorAll('.admin-published-apps-edit').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const docId = e.target.getAttribute('data-doc-id');
+      openPublishedAppForEdit(docId);
+    });
+  });
+
+  // Remove buttons
+  document.querySelectorAll('.admin-published-apps-remove').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const docId = e.target.getAttribute('data-doc-id');
+      const appName = e.target.closest('.admin-published-apps-card')
+        .querySelector('strong')?.textContent || 'this app';
+      confirmRemoveFromDirectory(docId, appName);
+    });
+  });
+}
+
+/**
+ * Open published app for editing (load curation form in published-edit mode)
+ */
+async function openPublishedAppForEdit(docId) {
+  if (!db) return;
+
+  try {
+    // Fetch the private curation data
+    const curationDoc = await getDoc(doc(db, 'appsCurations', docId));
+    if (!curationDoc.exists()) {
+      showPublishedAppsError('Private curation data for this app could not be found.');
+      return;
+    }
+
+    const curationData = curationDoc.data();
+
+    // Display form in published-edit mode
+    displayPublishedEditForm(docId, curationData);
+  } catch (error) {
+    console.error('Published Apps: Open edit error:', error);
+    showPublishedAppsError('Failed to open app for editing.');
+  }
+}
+
+/**
+ * Display curation form modal in PUBLISHED EDIT MODE
+ * (reuse existing modal, but hide/show appropriate buttons)
+ */
+function displayPublishedEditForm(draftId, draftData) {
+  // Reuse existing displayCurationForm
+  displayCurationForm(draftId, draftData);
+
+  // Modify the modal to hide draft-only controls and show published-only controls
+  const modal = document.getElementById(`curation-modal-${draftId}`);
+  if (!modal) return;
+
+  // Hide "Save Draft" button (class is admin-curation-save)
+  const saveDraftBtn = modal.querySelector('.admin-curation-save');
+  if (saveDraftBtn) {
+    saveDraftBtn.style.display = 'none';
+  }
+
+  // Hide "Publish App" button
+  const publishBtn = modal.querySelector('.admin-curation-publish');
+  if (publishBtn) {
+    publishBtn.style.display = 'none';
+  }
+
+  // Add "Save & Update Public" button
+  const actionsDiv = modal.querySelector('.admin-curation-actions');
+  if (actionsDiv) {
+    const updateBtn = document.createElement('button');
+    updateBtn.type = 'button';
+    updateBtn.className = 'admin-curation-btn admin-curation-update-public';
+    updateBtn.textContent = 'Save & Update Public';
+    updateBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.updatePublishedApp(draftId);
+    });
+    actionsDiv.appendChild(updateBtn);
+  }
+
+  // Mark modal as in published-edit mode
+  modal.dataset.mode = 'published-edit';
+}
+
+/**
+ * Update published app (atomic write to both appsCurations and appsPublished)
+ */
+window.updatePublishedApp = async function(draftId) {
+  if (!db || !currentUser) {
+    showPublishedAppsError('User or database not initialized.');
+    return;
+  }
+
+  // Get the Save & Update Public button
+  const modal = document.getElementById(`curation-modal-${draftId}`);
+  const updateBtn = modal?.querySelector('.admin-curation-update-public');
+  if (!updateBtn) return;
+
+  // Disable button immediately
+  updateBtn.disabled = true;
+  const originalLabel = updateBtn.textContent;
+  updateBtn.textContent = 'Updating...';
+
+  try {
+    // Collect form values (matching saveCurationDraft pattern)
+    const name = document.getElementById(`curation-name-${draftId}`).value.trim();
+    const category = document.getElementById(`curation-category-${draftId}`).value;
+    const ageRecommendation = parseInt(document.getElementById(`curation-age-${draftId}`).value);
+    const safetyRating = parseInt(document.getElementById(`curation-safety-${draftId}`).value);
+    const description = document.getElementById(`curation-desc-${draftId}`).value.trim();
+
+    const hasChat = document.getElementById(`curation-chat-${draftId}`).checked;
+    const chatDetails = document.getElementById(`curation-chatDetails-${draftId}`).value.trim();
+
+    const hasOpenInternet = document.getElementById(`curation-internet-${draftId}`).checked;
+    const internetDetails = document.getElementById(`curation-internetDetails-${draftId}`).value.trim();
+
+    const hasLocationTracking = document.getElementById(`curation-location-${draftId}`).checked;
+    const locationDetails = document.getElementById(`curation-locationDetails-${draftId}`).value.trim();
+
+    const whyThisMattersTitle = document.getElementById(`curation-why-${draftId}`).value.trim();
+    const whyThisMattersContent = document.getElementById(`curation-why-content-${draftId}`).value.trim();
+
+    const dangersList = document.getElementById(`curation-dangers-${draftId}`).value
+      .split('\n')
+      .map(d => d.trim())
+      .filter(d => d.length > 0);
+
+    const concernsText = document.getElementById(`curation-concerns-${draftId}`).value.trim();
+    const tipsList = document.getElementById(`curation-tips-${draftId}`).value
+      .split('\n')
+      .map(t => t.trim())
+      .filter(t => t.length > 0);
+
+    const sources = document.getElementById(`curation-sources-${draftId}`).value.trim();
+
+    const openerText = document.getElementById(`curation-opener-${draftId}`).value.trim();
+    const keypointsList = document.getElementById(`curation-keypoints-${draftId}`).value
+      .split('\n')
+      .map(k => k.trim())
+      .filter(k => k.length > 0);
+
+    const redflagsList = document.getElementById(`curation-redflags-${draftId}`).value
+      .split('\n')
+      .map(r => r.trim())
+      .filter(r => r.length > 0);
+
+    const scriptOpenerText = document.getElementById(`curation-scriptopener-${draftId}`).value.trim();
+
+    // Build updated draft object
+    const updatedDraft = {
+      name,
+      category,
+      ageRecommendation,
+      safetyRating,
+      description,
+      hasChat,
+      chatDetails,
+      hasOpenInternet,
+      internetDetails,
+      hasLocationTracking,
+      locationDetails,
+      whyThisMatters: {
+        title: whyThisMattersTitle,
+        content: whyThisMattersContent
+      },
+      hiddenDangers: dangersList,
+      parentConcerns: concernsText,
+      tipsForParents: tipsList,
+      sources: sources,
+      parentConversationGuide: {
+        startWith: openerText,
+        keyPoints: keypointsList,
+        redFlags: redflagsList,
+        scriptOpener: scriptOpenerText
+      }
+    };
+
+    // Validate the updated draft
+    const validationError = validatePublishable(updatedDraft);
+    if (validationError) {
+      showModalPublishError(draftId, validationError);
+      updateBtn.disabled = false;
+      updateBtn.textContent = originalLabel;
+      return;
+    }
+
+    // Fetch current curation data to preserve immutable fields
+    const curationDoc = await getDoc(doc(db, 'appsCurations', draftId));
+    if (!curationDoc.exists()) {
+      throw new Error('Curation document not found');
+    }
+
+    const currentCuration = curationDoc.data();
+
+    // Check for duplicate published app name (exclude self)
+    const normalizedNewName = updatedDraft.name.toLowerCase().trim();
+    const allPublished = await getDocs(collection(db, 'appsPublished'));
+
+    const duplicateDoc = allPublished.docs.find(doc => {
+      if (doc.id === draftId) return false;
+      const publishedName = doc.data().name.toLowerCase().trim();
+      return publishedName === normalizedNewName;
+    });
+
+    if (duplicateDoc) {
+      showModalPublishError(draftId, `An app named "${updatedDraft.name}" already exists in the directory.`);
+      updateBtn.disabled = false;
+      updateBtn.textContent = originalLabel;
+      return;
+    }
+
+    // Derive safety label
+    const safetyLabels = {
+      1: '🔴 CRITICAL RISK',
+      2: '🟠 HIGH RISK',
+      3: '🟡 MEDIUM RISK',
+      4: '🟢 LOW RISK'
+    };
+
+    // Build public data (explicit whitelist, NO admin UIDs)
+    const publicData = {
+      name: updatedDraft.name,
+      category: updatedDraft.category,
+      ageRecommendation: updatedDraft.ageRecommendation,
+      safetyRating: updatedDraft.safetyRating,
+      safetyLabel: safetyLabels[updatedDraft.safetyRating],
+      description: updatedDraft.description,
+      hasChat: updatedDraft.hasChat,
+      chatDetails: updatedDraft.chatDetails,
+      hasOpenInternet: updatedDraft.hasOpenInternet,
+      internetDetails: updatedDraft.internetDetails,
+      hasLocationTracking: updatedDraft.hasLocationTracking,
+      locationDetails: updatedDraft.locationDetails,
+      whyThisMatters: updatedDraft.whyThisMatters,
+      hiddenDangers: updatedDraft.hiddenDangers,
+      parentConcerns: updatedDraft.parentConcerns,
+      tipsForParents: updatedDraft.tipsForParents,
+      parentConversationGuide: updatedDraft.parentConversationGuide,
+      sources: updatedDraft.sources,
+      updatedAt: serverTimestamp()
+      // NEVER include: updatedBy, publishedBy, archivedBy, admin UIDs
+    };
+
+    // Atomic batch update
+    const batch = writeBatch(db);
+
+    // Update appsCurations with new fields but preserve immutable audit fields
+    batch.update(doc(db, 'appsCurations', draftId), {
+      name: updatedDraft.name,
+      category: updatedDraft.category,
+      ageRecommendation: updatedDraft.ageRecommendation,
+      safetyRating: updatedDraft.safetyRating,
+      description: updatedDraft.description,
+      hasChat: updatedDraft.hasChat,
+      chatDetails: updatedDraft.chatDetails,
+      hasOpenInternet: updatedDraft.hasOpenInternet,
+      internetDetails: updatedDraft.internetDetails,
+      hasLocationTracking: updatedDraft.hasLocationTracking,
+      locationDetails: updatedDraft.locationDetails,
+      whyThisMatters: updatedDraft.whyThisMatters,
+      hiddenDangers: updatedDraft.hiddenDangers,
+      parentConcerns: updatedDraft.parentConcerns,
+      tipsForParents: updatedDraft.tipsForParents,
+      parentConversationGuide: updatedDraft.parentConversationGuide,
+      sources: updatedDraft.sources,
+      updatedAt: serverTimestamp(),
+      updatedBy: currentUser.uid
+    });
+
+    // Update appsPublished with public data only
+    batch.update(doc(db, 'appsPublished', draftId), publicData);
+
+    // Commit batch
+    await batch.commit();
+
+    // Success
+    updateBtn.textContent = '✓ Updated';
+    updateBtn.disabled = true;
+    showCurationMessage('Published app updated.');
+
+    // Close modal after a brief delay
+    setTimeout(() => {
+      window.closeCurationForm(draftId);
+    }, 1000);
+
+  } catch (error) {
+    console.error('Published Apps: Update error:', error);
+    updateBtn.disabled = false;
+    updateBtn.textContent = originalLabel;
+    showModalPublishError(draftId, 'Failed to update published app. Please try again.');
+  }
+};
+
+/**
+ * Show confirmation for removing app from directory
+ */
+function confirmRemoveFromDirectory(docId, appName) {
+  const confirmed = confirm(
+    `Remove "${appName}" from the public directory?\n\nYour private research and curation data will be preserved.`
+  );
+
+  if (confirmed) {
+    window.removeFromDirectory(docId);
+  }
+}
+
+/**
+ * Remove published app from directory (archive in appsCurations)
+ */
+window.removeFromDirectory = async function(draftId) {
+  if (!db || !currentUser) {
+    showPublishedAppsError('User or database not initialized.');
+    return;
+  }
+
+  try {
+    // Atomic batch: delete from appsPublished, archive in appsCurations
+    const batch = writeBatch(db);
+
+    // Delete from appsPublished
+    batch.delete(doc(db, 'appsPublished', draftId));
+
+    // Archive in appsCurations
+    batch.update(doc(db, 'appsCurations', draftId), {
+      curationStatus: 'archived',
+      archivedAt: serverTimestamp(),
+      archivedBy: currentUser.uid,
+      updatedAt: serverTimestamp(),
+      updatedBy: currentUser.uid
+    });
+
+    // Commit batch
+    await batch.commit();
+
+    // Success
+    showPublishedAppsMessage('App removed from directory. Private research preserved.');
+
+  } catch (error) {
+    console.error('Published Apps: Remove error:', error);
+    showPublishedAppsError('Failed to remove app from directory. Please try again.');
+  }
+};
+
+/**
+ * Show error message for published apps section
+ */
+function showPublishedAppsError(msg) {
+  if (!publishedAppsContainer) return;
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'admin-published-apps-error';
+  errorDiv.innerHTML = `
+    <strong>Error:</strong> ${escapeHtml(msg)}
+  `;
+  publishedAppsContainer.appendChild(errorDiv);
+
+  setTimeout(() => {
+    errorDiv.remove();
+  }, 5000);
+}
+
+/**
+ * Show success message for published apps section
+ */
+function showPublishedAppsMessage(msg) {
+  if (!publishedAppsContainer) return;
+
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'admin-published-apps-message';
+  msgDiv.innerHTML = `✓ ${escapeHtml(msg)}`;
+  publishedAppsContainer.appendChild(msgDiv);
+
+  setTimeout(() => {
+    msgDiv.remove();
+  }, 3000);
 }
