@@ -16,6 +16,9 @@ import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https:/
 // Import moderation module
 import { initializeModeration, stopModeration } from './admin-moderation.js';
 
+// Import curation module
+import { initializeCuration, stopCuration } from './admin-curation.js';
+
 // DOM Elements
 const loginSection = document.getElementById('login-section');
 const dashboardSection = document.getElementById('dashboard-section');
@@ -61,6 +64,9 @@ function showLogin() {
 
   // Stop moderation UI on logout
   stopModeration();
+
+  // Stop curation UI on logout
+  stopCuration();
 }
 
 function showDashboard(user) {
@@ -70,6 +76,9 @@ function showDashboard(user) {
 
   // Initialize moderation UI after authorization is confirmed
   initializeModeration(user);
+
+  // Initialize curation UI after authorization is confirmed
+  initializeCuration(user);
 }
 
 function showError(message) {

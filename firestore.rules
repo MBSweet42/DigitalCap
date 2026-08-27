@@ -64,5 +64,14 @@ service cloud.firestore {
       // No one can DELETE
       allow delete: if false;
     }
+
+    // App Curation Collection
+    match /appsCurations/{curationId} {
+      // Admin only: read, create, update, delete
+      allow read: if isAuthorizedAdmin();
+      allow create: if isAuthorizedAdmin();
+      allow update: if isAuthorizedAdmin();
+      allow delete: if isAuthorizedAdmin();
+    }
   }
 }
