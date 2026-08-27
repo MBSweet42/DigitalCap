@@ -84,6 +84,25 @@
         <div id="appsContainer" style="display: grid; gap: 1rem;"></div>
     </main>
 
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" aria-label="Back to top" style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        display: none;
+        padding: 0.75rem 1rem;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    ">↑ Back to Top</button>
+
     <footer class="footer">
         <p>&copy; 2026 DigitalCap. Resources adapted from trusted sources and parent communities. <a href="about.html">Learn more.</a></p>
     </footer>
@@ -93,6 +112,40 @@
     <script src="js/global-search.js"></script>
     <script src="js/app-notes-and-custom.js"></script>
     <script src="js/apps-directory-v2.js"></script>
+
+    <!-- Back to Top Button Logic -->
+    <script>
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const scrollThreshold = 600; // Show button after scrolling 600px
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when button is clicked
+        backToTopBtn.addEventListener('click', () => {
+            const appsContainer = document.getElementById('appsContainer');
+            if (appsContainer) {
+                // Scroll to the apps container (search/filter area)
+                appsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // Fallback: scroll to top of main
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Keyboard support (Enter key)
+        backToTopBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                backToTopBtn.click();
+            }
+        });
+    </script>
 
     <!-- Firebase Configuration (initializes window.digitalCapFirebase) -->
     <script type="module" src="js/firebase-config.js"></script>
