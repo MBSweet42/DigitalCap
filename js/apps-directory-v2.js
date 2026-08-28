@@ -492,6 +492,15 @@ function renderAppDetails(app) {
     details += renderDiscussionSection(app);
     details += `</div>`;
 
+    // App-Specific Report Link
+    details += `
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+            <a href="#" onclick="openHelpImproveFeedback({submissionType: 'app_correction', appName: '${escapeHtml(app.name)}', appId: '${app.id || ''}', sourcePage: 'App Directory'}); return false;" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">
+                💭 Something outdated or incorrect? <span style="color: var(--primary); font-weight: 500;">Let us know</span>
+            </a>
+        </div>
+    `;
+
     details += `</div>`;
     return details;
 }

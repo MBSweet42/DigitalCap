@@ -359,6 +359,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/app-notes-and-custom.js"></script>
     <script src="js/global-search.js"></script>
     <script src="js/practice-challenges.js"></script>
     <script src="js/conversation-data.js"></script>
@@ -378,5 +379,12 @@
             window.location.href = 'guides/family-device-rules.html';
         };
     </script>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module">
+        import { submitAppSuggestionToFirestore } from './js/app-submissions.js';
+        window.submitAppSuggestionToFirestore = submitAppSuggestionToFirestore;
+    </script>
 </body>
 </html>
+

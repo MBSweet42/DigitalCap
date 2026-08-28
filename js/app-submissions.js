@@ -29,21 +29,20 @@ export async function submitAppSuggestionToFirestore(formData) {
   const db = window.digitalCapFirebase.db;
 
   // Build submission document
+  // Pass through all formData fields, plus required system fields
   // Firestore rules will validate these fields and force status="pending", createdAt=server time
   const submission = {
-    appName: formData.appName,
-    whyWeShould: formData.whyWeShould,
+    ...formData,  // Include all fields from the form (submissionType, message, resourceName, etc.)
     status: 'pending', // Forced by rules, but client explicitly sets it
     createdAt: serverTimestamp(), // Server replaces this with actual timestamp
   };
 
-  // Add optional fields only if provided
-  if (formData.appUrl) {
-    submission.appUrl = formData.appUrl;
-  }
-  if (formData.additionalNotes) {
-    submission.additionalNotes = formData.additionalNotes;
-  }
+  // Remove undefined/empty optional fields to keep document clean
+  Object.keys(submission).forEach(key => {
+    if (submission[key] === undefined || submission[key] === '') {
+      delete submission[key];
+    }
+  });
 
   try {
     // Add to appSubmissions collection

@@ -15,27 +15,54 @@ service cloud.firestore {
   }
 
   function isValidSubmissionFields(data) {
-    return data.keys().hasAll(['appName', 'whyWeShould', 'status', 'createdAt']) &&
-           data.appName is string &&
-           data.appName.size() >= 1 &&
-           data.appName.size() <= 100 &&
-           data.whyWeShould is string &&
-           data.whyWeShould.size() >= 1 &&
-           data.whyWeShould.size() <= 500 &&
-           (!data.keys().hasAny(['appUrl']) ||
-            (data.appUrl is string && data.appUrl.size() <= 500)) &&
-           (!data.keys().hasAny(['additionalNotes']) ||
-            (data.additionalNotes is string && data.additionalNotes.size() <= 1000)) &&
+    // Core required fields (name + message for any submission)
+    let hasValidCore = data.keys().hasAny(['appName', 'resourceName', 'message']) &&
            data.createdAt is timestamp &&
            data.status == "pending";
+
+    // Check submissionType (optional, defaults to app_suggestion)
+    let validType = !data.keys().hasAny(['submissionType']) ||
+           (data.submissionType is string &&
+            data.submissionType in ['app_suggestion', 'app_correction', 'resource_suggestion', 'website_problem', 'improvement', 'other']);
+
+    // Optional fields with limits
+    let optionalFieldsOk =
+           (!data.keys().hasAny(['appName']) || (data.appName is string && data.appName.size() <= 100)) &&
+           (!data.keys().hasAny(['resourceName']) || (data.resourceName is string && data.resourceName.size() <= 100)) &&
+           (!data.keys().hasAny(['appUrl']) || (data.appUrl is string && data.appUrl.size() <= 500)) &&
+           (!data.keys().hasAny(['resourceUrl']) || (data.resourceUrl is string && data.resourceUrl.size() <= 500)) &&
+           (!data.keys().hasAny(['whyWeShould']) || (data.whyWeShould is string && data.whyWeShould.size() <= 500)) &&
+           (!data.keys().hasAny(['message']) || (data.message is string && data.message.size() <= 1000)) &&
+           (!data.keys().hasAny(['additionalNotes']) || (data.additionalNotes is string && data.additionalNotes.size() <= 1000)) &&
+           (!data.keys().hasAny(['submitterName']) || (data.submitterName is string && data.submitterName.size() <= 100)) &&
+           (!data.keys().hasAny(['email']) || (data.email is string && data.email.size() <= 100)) &&
+           (!data.keys().hasAny(['sourcePage']) || (data.sourcePage is string && data.sourcePage.size() <= 200)) &&
+           (!data.keys().hasAny(['sourceUrl']) || (data.sourceUrl is string && data.sourceUrl.size() <= 500)) &&
+           (!data.keys().hasAny(['relatedApp']) || (data.relatedApp is string && data.relatedApp.size() <= 100)) &&
+           (!data.keys().hasAny(['relatedAppId']) || (data.relatedAppId is string && data.relatedAppId.size() <= 100)) &&
+           (!data.keys().hasAny(['suggestedCorrection']) || (data.suggestedCorrection is string && data.suggestedCorrection.size() <= 500)) &&
+           (!data.keys().hasAny(['correctionDetails']) || (data.correctionDetails is string && data.correctionDetails.size() <= 500));
+
+    return hasValidCore && validType && optionalFieldsOk;
   }
 
   function isValidAdminUpdate() {
+    let currentStatus = resource.data.status;
+    let newStatus = request.resource.data.status;
+
+    // Allow valid state transitions:
+    // pending → approved/rejected/reviewing/resolved
+    // reviewing → resolved (or stay reviewing)
+    // resolved → resolved (no change)
+    let validTransition = (currentStatus == "pending") ||
+                         (currentStatus == "reviewing" && (newStatus == "resolved" || newStatus == "reviewing")) ||
+                         (currentStatus == "resolved");
+
     return request.resource.data.diff(resource.data)
            .affectedKeys()
            .hasOnly(['status', 'reviewedAt', 'reviewedBy', 'adminNotes']) &&
-           resource.data.status == "pending" &&
-           request.resource.data.status in ["approved", "rejected"] &&
+           validTransition &&
+           request.resource.data.status in ["approved", "rejected", "reviewing", "resolved"] &&
            request.resource.data.reviewedBy == request.auth.uid &&
            request.resource.data.reviewedAt == request.time &&
            (!request.resource.data.keys().hasAny(['adminNotes']) ||

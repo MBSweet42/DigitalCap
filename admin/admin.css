@@ -298,6 +298,64 @@ button {
     font-weight: 600;
 }
 
+.admin-moderation-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-moderation-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-moderation-filter-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.admin-moderation-filter-select {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.admin-moderation-filter-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.admin-moderation-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.admin-moderation-type-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(78, 205, 196, 0.2);
+    color: var(--secondary);
+    letter-spacing: 0.5px;
+}
+
 .admin-moderation-card {
     background: var(--bg-light);
     border: 1px solid var(--border-color);
@@ -377,6 +435,16 @@ button {
     color: var(--primary);
 }
 
+.admin-moderation-status-reviewing {
+    background-color: rgba(78, 205, 196, 0.2);
+    color: var(--secondary);
+}
+
+.admin-moderation-status-resolved {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success);
+}
+
 .admin-moderation-status-approved {
     background-color: rgba(46, 204, 113, 0.2);
     color: var(--success);
@@ -449,10 +517,44 @@ button {
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
 }
 
+.admin-moderation-reviewing {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.admin-moderation-reviewing:hover:not(:disabled) {
+    background-color: #3db8b1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+}
+
+.admin-moderation-resolved {
+    background-color: var(--success);
+    color: white;
+}
+
+.admin-moderation-resolved:hover:not(:disabled) {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+}
+
 .admin-moderation-approve:disabled,
-.admin-moderation-reject:disabled {
+.admin-moderation-reject:disabled,
+.admin-moderation-reviewing:disabled,
+.admin-moderation-resolved:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+.admin-moderation-submitter {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.admin-moderation-email {
+    font-size: 0.85rem;
+    color: var(--primary);
 }
 
 .admin-moderation-loading {

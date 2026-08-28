@@ -514,6 +514,378 @@ function submitAppSuggestion() {
     });
 }
 
+// ===== GENERALIZED FEEDBACK SYSTEM =====
+
+/**
+ * Open the Help Improve DigitalCap feedback modal
+ * @param {Object} context - Optional context object with app/page info
+ * @param {string} context.submissionType - Pre-select submission type
+ * @param {string} context.appName - Pre-populate app name for corrections
+ * @param {string} context.appId - Store related app ID
+ * @param {string} context.sourcePage - Current page/section
+ */
+function openHelpImproveFeedback(context = {}) {
+    const preSelectedType = context.submissionType || 'other';
+    const prefilledAppName = context.appName || '';
+
+    const modal = document.createElement('div');
+    modal.className = 'help-improve-modal';
+    modal.id = 'helpImproveModal';
+    modal.innerHTML = `
+        <div class="help-improve-modal-backdrop" onclick="closeHelpImproveFeedback()"></div>
+
+        <div class="help-improve-modal-content">
+            <button class="help-improve-modal-close" onclick="closeHelpImproveFeedback()">✕</button>
+
+            <h2 style="color: var(--primary); margin-top: 0;">Help Improve DigitalCap</h2>
+            <p style="color: var(--text-gray);">We value your feedback. Let us know how we can do better.</p>
+
+            <form onsubmit="submitHelpImproveFeedback(); return false;">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        What would you like to tell us? *
+                    </label>
+                    <select id="feedbackType" onchange="updateFeedbackForm('${prefilledAppName}', '${context.appId || ''}')" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; background: var(--bg-white); color: var(--text-dark); font-size: 1rem; cursor: pointer;">
+                        <option value="app_suggestion">Suggest an app</option>
+                        <option value="app_correction">Correct information about an app</option>
+                        <option value="resource_suggestion">Suggest a resource</option>
+                        <option value="website_problem">Report a website problem</option>
+                        <option value="improvement">Suggest an improvement</option>
+                        <option value="other">Other feedback</option>
+                    </select>
+                </div>
+
+                <div id="dynamicFields" style="margin-bottom: 1.5rem;"></div>
+
+                <div style="background: rgba(78, 205, 196, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--secondary);">
+                    <p style="margin: 0; color: var(--text-gray); font-size: 0.9rem;">
+                        <strong>📋 Optional:</strong> Include your name and email if you'd like us to follow up.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Name
+                    </label>
+                    <input type="text" id="feedbackName" placeholder="Optional" maxlength="100" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Email
+                    </label>
+                    <input type="email" id="feedbackEmail" placeholder="Optional" maxlength="100" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+
+                <!-- Honeypot -->
+                <input type="text" id="feedbackHoneypot" style="display: none; position: absolute; left: -9999px;">
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="feedbackSubmitBtn">
+                    Send Feedback
+                </button>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('open'), 10);
+
+    // Set initial form based on pre-selected type
+    document.getElementById('feedbackType').value = preSelectedType;
+    updateFeedbackForm(prefilledAppName, context.appId || '');
+
+    // Store context for submission
+    window.feedbackContext = context;
+}
+
+function closeHelpImproveFeedback() {
+    const modal = document.getElementById('helpImproveModal');
+    if (modal) {
+        modal.classList.remove('open');
+        setTimeout(() => modal.remove(), 300);
+    }
+    window.feedbackContext = {};
+}
+
+function updateFeedbackForm(prefilledAppName, appId) {
+    const type = document.getElementById('feedbackType').value;
+    const fieldsContainer = document.getElementById('dynamicFields');
+
+    // Store context for later
+    if (!window.feedbackContext) window.feedbackContext = {};
+    window.feedbackContext.submissionType = type;
+    if (appId) window.feedbackContext.appId = appId;
+
+    let fieldsHtml = '';
+
+    switch(type) {
+        case 'app_suggestion':
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        App Name *
+                    </label>
+                    <input type="text" id="appNameField" placeholder="e.g., BeReal, Threads" required maxlength="100" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        App or Store Link
+                    </label>
+                    <input type="text" id="appUrlField" placeholder="Optional" maxlength="500" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Why should DigitalCap review it? *
+                    </label>
+                    <textarea id="messageField" placeholder="What should parents know about this app?" required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Additional information
+                    </label>
+                    <textarea id="additionalField" placeholder="Optional" maxlength="1000" style="width: 100%; min-height: 80px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 1000 characters</small>
+                </div>
+            `;
+            break;
+
+        case 'app_correction':
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        App Name *
+                    </label>
+                    <input type="text" id="appNameField" placeholder="App name" required maxlength="100" value="${prefilledAppName}" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        What information appears outdated or incorrect? *
+                    </label>
+                    <textarea id="messageField" placeholder="Be specific about what seems wrong" required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        What do you believe the correct information is?
+                    </label>
+                    <textarea id="correctionField" placeholder="Optional" maxlength="500" style="width: 100%; min-height: 100px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Source or link supporting the correction
+                    </label>
+                    <input type="text" id="sourceUrlField" placeholder="Optional" maxlength="500" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+            `;
+            break;
+
+        case 'resource_suggestion':
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Resource Name *
+                    </label>
+                    <input type="text" id="appNameField" placeholder="e.g., Digital Wellness Guide" required maxlength="100" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Resource Link
+                    </label>
+                    <input type="text" id="appUrlField" placeholder="Optional" maxlength="500" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Why would this help families? *
+                    </label>
+                    <textarea id="messageField" placeholder="What makes this resource valuable?" required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Additional information
+                    </label>
+                    <textarea id="additionalField" placeholder="Optional" maxlength="1000" style="width: 100%; min-height: 80px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+            `;
+            break;
+
+        case 'website_problem':
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        What went wrong? *
+                    </label>
+                    <textarea id="messageField" placeholder="e.g., Link is broken, page doesn't load on mobile, spelling error..." required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Page where it happened
+                    </label>
+                    <input type="text" id="sourceUrlField" placeholder="e.g., App Directory, Safety page" maxlength="200" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Additional information
+                    </label>
+                    <textarea id="additionalField" placeholder="Optional" maxlength="1000" style="width: 100%; min-height: 80px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+            `;
+            break;
+
+        case 'improvement':
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        What would you like DigitalCap to improve or add? *
+                    </label>
+                    <textarea id="messageField" placeholder="e.g., Add a guide for TikTok safety, Create a newsletter..." required maxlength="500" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 500 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Additional information
+                    </label>
+                    <textarea id="additionalField" placeholder="Optional" maxlength="1000" style="width: 100%; min-height: 80px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+            `;
+            break;
+
+        case 'other':
+        default:
+            fieldsHtml = `
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Your message *
+                    </label>
+                    <textarea id="messageField" placeholder="Tell us what's on your mind..." required maxlength="1000" style="width: 100%; min-height: 120px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    <small style="display: block; margin-top: 0.5rem; color: var(--text-gray);">Max 1000 characters</small>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">
+                        Additional information
+                    </label>
+                    <textarea id="additionalField" placeholder="Optional" maxlength="1000" style="width: 100%; min-height: 80px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+            `;
+            break;
+    }
+
+    fieldsContainer.innerHTML = fieldsHtml;
+}
+
+async function submitHelpImproveFeedback() {
+    const honeypot = document.getElementById('feedbackHoneypot').value;
+    if (honeypot.length > 0) {
+        console.warn('Honeypot filled - possible spam');
+        return;
+    }
+
+    const type = document.getElementById('feedbackType').value;
+    const submitBtn = document.getElementById('feedbackSubmitBtn');
+
+    // Collect common fields
+    const name = document.getElementById('feedbackName').value.trim() || undefined;
+    const email = document.getElementById('feedbackEmail').value.trim() || undefined;
+    const additional = document.getElementById('additionalField')?.value.trim() || undefined;
+
+    let submission = {
+        submissionType: type,
+        message: document.getElementById('messageField')?.value.trim() || '',
+        status: 'pending',
+        createdAt: new Date()
+    };
+
+    // Add optional contact info
+    if (name) submission.submitterName = name;
+    if (email) submission.email = email;
+    if (additional) submission.additionalNotes = additional;
+
+    // Add context if available
+    if (window.feedbackContext) {
+        if (window.feedbackContext.sourcePage) submission.sourcePage = window.feedbackContext.sourcePage;
+        if (window.feedbackContext.sourceUrl) submission.sourceUrl = window.feedbackContext.sourceUrl;
+        if (window.feedbackContext.appId) submission.relatedAppId = window.feedbackContext.appId;
+    }
+
+    // Type-specific fields
+    switch(type) {
+        case 'app_suggestion':
+            submission.appName = document.getElementById('appNameField').value.trim();
+            const url = document.getElementById('appUrlField').value.trim();
+            if (url) {
+                if (!/^https?:\/\//i.test(url)) {
+                    submission.appUrl = 'https://' + url;
+                } else {
+                    submission.appUrl = url;
+                }
+            }
+            if (!submission.appName) {
+                alert('Please enter an app name.');
+                return;
+            }
+            break;
+
+        case 'app_correction':
+            submission.appName = document.getElementById('appNameField').value.trim();
+            const suggestion = document.getElementById('correctionField').value.trim();
+            if (suggestion) submission.suggestedCorrection = suggestion;
+            const corrSource = document.getElementById('sourceUrlField').value.trim();
+            if (corrSource) submission.sourceUrl = corrSource;
+            if (!submission.appName) {
+                alert('Please enter an app name.');
+                return;
+            }
+            break;
+
+        case 'resource_suggestion':
+            submission.resourceName = document.getElementById('appNameField').value.trim();
+            const resUrl = document.getElementById('appUrlField').value.trim();
+            if (resUrl) {
+                if (!/^https?:\/\//i.test(resUrl)) {
+                    submission.resourceUrl = 'https://' + resUrl;
+                } else {
+                    submission.resourceUrl = resUrl;
+                }
+            }
+            if (!submission.resourceName) {
+                alert('Please enter a resource name.');
+                return;
+            }
+            break;
+
+        case 'website_problem':
+            const pageName = document.getElementById('sourceUrlField').value.trim();
+            if (pageName) submission.sourcePage = pageName;
+            break;
+    }
+
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Get Firebase function
+    if (!window.submitAppSuggestionToFirestore) {
+        alert('❌ Firebase not ready. Please refresh the page.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Feedback';
+        return;
+    }
+
+    try {
+        await window.submitAppSuggestionToFirestore(submission);
+        alert('✅ Thank you! We\'ve received your feedback and will review it.');
+        closeHelpImproveFeedback();
+    } catch (error) {
+        console.error('Submission error:', error);
+        alert('❌ Failed to send feedback. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Feedback';
+    }
+}
+
 // ===== STYLES =====
 
 const styles = document.createElement('style');
@@ -595,6 +967,63 @@ styles.textContent = `
         transition: color 0.3s ease;
         font-size: 1.5rem;
         padding: 0;
+    }
+
+    .help-improve-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .help-improve-modal.open {
+        opacity: 1;
+    }
+
+    .help-improve-modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    .help-improve-modal-content {
+        background: var(--bg-white);
+        border-radius: 16px;
+        padding: 2.5rem;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .help-improve-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-gray);
+        transition: all 0.3s ease;
+    }
+
+    .help-improve-modal-close:hover {
+        color: var(--primary);
+        transform: scale(1.2);
     }
 
     @media (max-width: 768px) {
