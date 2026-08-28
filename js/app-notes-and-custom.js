@@ -888,8 +888,8 @@ async function submitHelpImproveFeedback() {
 
 // ===== STYLES =====
 
-const styles = document.createElement('style');
-styles.textContent = `
+const feedbackStyles = document.createElement('style');
+feedbackStyles.textContent = `
     .add-note-modal,
     .custom-app-modal,
     .suggest-app-modal {
@@ -1036,4 +1036,4 @@ styles.textContent = `
     }
 `;
 
-document.head.appendChild(styles);
+document.head.appendChild(feedbackStyles);
