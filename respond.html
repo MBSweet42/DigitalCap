@@ -495,6 +495,9 @@
         // State
         let engine = null;
 
+        // Shared platform context for current RESPOND journey
+        const respondContext = { platform: null };
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
@@ -678,8 +681,41 @@
                 header.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     const toggle = this.querySelector('.respond-help-toggle');
+                    const isOpening = !content.classList.contains('open');
                     content.classList.toggle('open');
                     toggle.classList.toggle('open');
+
+                    // Re-check platform context when opening a section with a platform selector
+                    if (isOpening && content.dataset.platformPurpose) {
+                        const purpose = content.dataset.platformPurpose;
+                        const selector = content.querySelector('select');
+                        if (selector && respondContext.platform) {
+                            const mapData = typeof PLATFORM_RESOURCE_MAPS !== 'undefined' ? PLATFORM_RESOURCE_MAPS : {};
+
+                            if (mapData?.[respondContext.platform]?.[purpose]) {
+                                // CASE A: Current platform HAS resource for this purpose
+                                if (selector.value !== respondContext.platform) {
+                                    selector.value = respondContext.platform;
+                                    // Trigger the change event to load resource
+                                    selector.dispatchEvent(new Event('change', { bubbles: true }));
+                                }
+                            } else {
+                                // CASE B: Current platform DOES NOT have resource for this purpose
+                                // Reset selector to blank and clear stale resource (without triggering change handler)
+                                if (selector.value !== '') {
+                                    selector.value = '';
+                                    // Find and clear the resource container (sibling of selector's parent)
+                                    const selectorContainer = selector.parentElement;
+                                    if (selectorContainer) {
+                                        const resourceContainer = selectorContainer.querySelector('div:nth-child(2)');
+                                        if (resourceContainer) {
+                                            resourceContainer.innerHTML = '';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 });
             });
 
@@ -732,8 +768,8 @@
 
                 let pendingRequest = null;
 
-                selector.addEventListener('change', async function(e) {
-                    const platformKey = e.target.value;
+                // Helper to load and display resource for a platform
+                async function loadResourceForPlatform(platformKey) {
                     resourceContainer.innerHTML = '';
 
                     if (!platformKey) return;
@@ -768,7 +804,28 @@
                     } catch (err) {
                         console.warn(`[RESPOND] Platform resource loading failed: ${err.message}`);
                     }
+                }
+
+                // Manual selection change handler
+                selector.addEventListener('change', async function(e) {
+                    const platformKey = e.target.value;
+
+                    // Update shared context when user selects a platform
+                    if (platformKey) {
+                        respondContext.platform = platformKey;
+                        await loadResourceForPlatform(platformKey);
+                    } else {
+                        // Blank selection: clear context and resource
+                        respondContext.platform = null;
+                        resourceContainer.innerHTML = '';
+                    }
                 });
+
+                // Pre-select from context if applicable
+                if (respondContext.platform && mapData?.[respondContext.platform]?.[purpose]) {
+                    selector.value = respondContext.platform;
+                    loadResourceForPlatform(respondContext.platform);
+                }
 
                 selectorContainer.appendChild(selector);
                 selectorContainer.appendChild(resourceContainer);
@@ -784,6 +841,7 @@
             if (reportingHelp) {
                 const contentDiv = reportingHelp.querySelector('.respond-help-content');
                 if (contentDiv) {
+                    contentDiv.dataset.platformPurpose = 'reporting';
                     createPlatformResourceSelector('reporting', 'Need platform-specific reporting help?', contentDiv);
                 }
             }
@@ -797,6 +855,7 @@
             if (preventHelp) {
                 const contentDiv = preventHelp.querySelector('.respond-help-content');
                 if (contentDiv) {
+                    contentDiv.dataset.platformPurpose = 'parental_controls';
                     createPlatformResourceSelector('parental_controls', 'Want platform-specific parental control help?', contentDiv);
                 }
             }
@@ -874,6 +933,9 @@
                 engine.restart();
             }
             engine = null;
+
+            // Reset shared platform context for new journey
+            respondContext.platform = null;
 
             document.getElementById('introSection').classList.add('active');
             document.getElementById('questionContainer').classList.remove('active');
