@@ -4,16 +4,19 @@
 
 const PLATFORM_RESOURCE_MAPS = {
   discord: {
-    reporting: 'discord-report-abuse'
+    reporting: 'discord-report-abuse',
+    parental_controls: 'discord-parental-controls'
   },
   instagram: {
     reporting: 'instagram-report-abuse'
   },
   roblox: {
-    reporting: 'roblox-report-abuse'
+    reporting: 'roblox-report-abuse',
+    parental_controls: 'roblox-parental-controls'
   },
   snapchat: {
-    reporting: 'snapchat-report-abuse'
+    reporting: 'snapchat-report-abuse',
+    parental_controls: 'snapchat-parental-controls'
   },
   tiktok: {
     reporting: 'tiktok-report-abuse'

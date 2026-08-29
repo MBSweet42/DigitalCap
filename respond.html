@@ -683,7 +683,99 @@
                 });
             });
 
-            // Add platform-specific reporting help (generic, data-driven)
+            // Reusable platform resource selector (purpose-agnostic)
+            function createPlatformResourceSelector(purpose, labelText, contentDiv) {
+                const registryData = typeof PLATFORM_REGISTRY !== 'undefined' ? PLATFORM_REGISTRY : {};
+                const mapData = typeof PLATFORM_RESOURCE_MAPS !== 'undefined' ? PLATFORM_RESOURCE_MAPS : {};
+                const eligiblePlatforms = Object.entries(registryData)
+                    .filter(([platformKey, _]) => mapData?.[platformKey]?.[purpose])
+                    .map(([platformKey, config]) => ({ key: platformKey, label: config.label }));
+
+                if (eligiblePlatforms.length === 0) return;
+
+                const selectorContainer = document.createElement('div');
+                selectorContainer.style.marginTop = '1.5rem';
+                selectorContainer.style.paddingTop = '1rem';
+                selectorContainer.style.borderTop = '1px solid var(--border-color)';
+
+                const label = document.createElement('label');
+                label.style.display = 'block';
+                label.style.marginBottom = '0.75rem';
+                label.style.fontSize = '0.95rem';
+                label.textContent = labelText;
+                selectorContainer.appendChild(label);
+
+                const selector = document.createElement('select');
+                selector.style.padding = '8px 12px';
+                selector.style.borderRadius = '4px';
+                selector.style.border = '1px solid var(--border-color)';
+                selector.style.backgroundColor = 'var(--bg-primary)';
+                selector.style.color = 'var(--text-primary)';
+                selector.style.fontSize = '1rem';
+                selector.style.cursor = 'pointer';
+
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select a platform';
+                selector.appendChild(defaultOption);
+
+                const sortedPlatforms = [...eligiblePlatforms].sort((a, b) => a.label.localeCompare(b.label));
+                sortedPlatforms.forEach(platform => {
+                    const option = document.createElement('option');
+                    option.value = platform.key;
+                    option.textContent = platform.label;
+                    selector.appendChild(option);
+                });
+
+                const resourceContainer = document.createElement('div');
+                resourceContainer.style.marginTop = '1rem';
+
+                let pendingRequest = null;
+
+                selector.addEventListener('change', async function(e) {
+                    const platformKey = e.target.value;
+                    resourceContainer.innerHTML = '';
+
+                    if (!platformKey) return;
+
+                    const requestId = {};
+                    pendingRequest = requestId;
+
+                    try {
+                        const resourceId = mapData?.[platformKey]?.[purpose];
+                        if (!resourceId) {
+                            console.warn(`[RESPOND] ${platformKey} ${purpose} resource mapping not found`);
+                            return;
+                        }
+
+                        const resources = await getResources([resourceId]);
+
+                        if (pendingRequest !== requestId) return;
+
+                        if (resources.length > 0) {
+                            const res = resources[0];
+                            const platformLabel = registryData?.[platformKey]?.label || platformKey;
+
+                            let resourceHtml = '<div style="margin-top: 1rem; padding: 0.75rem; background-color: var(--bg-secondary); border-left: 3px solid var(--respond-accent);">';
+                            resourceHtml += `<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official ${platformLabel} Help</div>`;
+                            resourceHtml += `<div style="font-weight: 500; margin-bottom: 0.5rem;">${res.title}</div>`;
+                            if (res.url && (res.url.startsWith('http://') || res.url.startsWith('https://'))) {
+                                resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
+                            }
+                            resourceHtml += '</div>';
+                            resourceContainer.innerHTML = resourceHtml;
+                        }
+                    } catch (err) {
+                        console.warn(`[RESPOND] Platform resource loading failed: ${err.message}`);
+                    }
+                });
+
+                selectorContainer.appendChild(selector);
+                selectorContainer.appendChild(resourceContainer);
+                contentDiv.appendChild(selectorContainer);
+            }
+
+            // Add platform-specific reporting help
             const reportingHelp = Array.from(document.querySelectorAll('.respond-help-section')).find(section => {
                 const title = section.querySelector('.respond-help-header span:first-child');
                 return title && title.textContent.includes('Reporting & blocking');
@@ -692,121 +784,20 @@
             if (reportingHelp) {
                 const contentDiv = reportingHelp.querySelector('.respond-help-content');
                 if (contentDiv) {
-                    // Find eligible platforms: in registry AND have reporting resource in map
-                    const currentPurpose = 'reporting';
-                    const registryData = typeof PLATFORM_REGISTRY !== 'undefined' ? PLATFORM_REGISTRY : {};
-                    const mapData = typeof PLATFORM_RESOURCE_MAPS !== 'undefined' ? PLATFORM_RESOURCE_MAPS : {};
-                    const eligiblePlatforms = Object.entries(registryData)
-                        .filter(([platformKey, _]) => mapData?.[platformKey]?.[currentPurpose])
-                        .map(([platformKey, config]) => ({ key: platformKey, label: config.label }));
+                    createPlatformResourceSelector('reporting', 'Need platform-specific reporting help?', contentDiv);
+                }
+            }
 
-                    // Create generic platform selector (if eligible platforms exist)
-                    if (eligiblePlatforms.length > 0) {
-                        const selectorContainer = document.createElement('div');
-                        selectorContainer.style.marginTop = '1.5rem';
-                        selectorContainer.style.paddingTop = '1rem';
-                        selectorContainer.style.borderTop = '1px solid var(--border-color)';
+            // Add parental controls selector to prevent section
+            const preventHelp = Array.from(document.querySelectorAll('.respond-help-section')).find(section => {
+                const title = section.querySelector('.respond-help-header span:first-child');
+                return title && title.textContent.includes('Prevent this happening again');
+            });
 
-                        // Label
-                        const label = document.createElement('label');
-                        label.style.display = 'block';
-                        label.style.marginBottom = '0.75rem';
-                        label.style.fontSize = '0.95rem';
-                        label.textContent = 'Need platform-specific reporting help?';
-                        selectorContainer.appendChild(label);
-
-                        // Selector dropdown
-                        const selector = document.createElement('select');
-                        selector.id = 'platformSelector';
-                        selector.style.padding = '8px 12px';
-                        selector.style.borderRadius = '4px';
-                        selector.style.border = '1px solid var(--border-color)';
-                        selector.style.backgroundColor = 'var(--bg-primary)';
-                        selector.style.color = 'var(--text-primary)';
-                        selector.style.fontSize = '1rem';
-                        selector.style.cursor = 'pointer';
-
-                        // Default option
-                        const defaultOption = document.createElement('option');
-                        defaultOption.value = '';
-                        defaultOption.textContent = 'Select a platform';
-                        selector.appendChild(defaultOption);
-
-                        // Sort platforms by label for consistent display order
-                        const sortedPlatforms = [...eligiblePlatforms].sort((a, b) => a.label.localeCompare(b.label));
-
-                        // Add eligible platforms as options
-                        sortedPlatforms.forEach(platform => {
-                            const option = document.createElement('option');
-                            option.value = platform.key;
-                            option.textContent = platform.label;
-                            selector.appendChild(option);
-                        });
-
-                        // Resource display container
-                        const resourceContainer = document.createElement('div');
-                        resourceContainer.id = 'platformResourceDisplay';
-                        resourceContainer.style.marginTop = '1rem';
-
-                        // Selection change handler
-                        let pendingRequest = null; // Track async request to prevent stale results
-
-                        selector.addEventListener('change', async function(e) {
-                            const platformKey = e.target.value;
-
-                            // Clear previous resource
-                            resourceContainer.innerHTML = '';
-
-                            if (!platformKey) {
-                                // User deselected
-                                return;
-                            }
-
-                            // Mark this request with a unique ID to detect stale responses
-                            const requestId = {};
-                            pendingRequest = requestId;
-
-                            try {
-                                // Resolve resource ID from mapping
-                                const resourceId = mapData?.[platformKey]?.[currentPurpose];
-                                if (!resourceId) {
-                                    console.warn(`[RESPOND] ${platformKey} ${currentPurpose} resource mapping not found`);
-                                    return;
-                                }
-
-                                // Load resource asynchronously
-                                const resources = await getResources([resourceId]);
-
-                                // Check if this request is still current (prevent stale results)
-                                if (pendingRequest !== requestId) {
-                                    return; // Discard stale result
-                                }
-
-                                // Display resource if found
-                                if (resources.length > 0) {
-                                    const res = resources[0];
-                                    const platformLabel = registryData?.[platformKey]?.label || platformKey;
-
-                                    let resourceHtml = '<div style="margin-top: 1rem; padding: 0.75rem; background-color: var(--bg-secondary); border-left: 3px solid var(--respond-accent);">';
-                                    resourceHtml += `<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official ${platformLabel} Help</div>`;
-                                    resourceHtml += `<div style="font-weight: 500; margin-bottom: 0.5rem;">${res.title}</div>`;
-                                    if (res.url && (res.url.startsWith('http://') || res.url.startsWith('https://'))) {
-                                        resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
-                                    }
-                                    resourceHtml += '</div>';
-
-                                    resourceContainer.innerHTML = resourceHtml;
-                                }
-                            } catch (err) {
-                                console.warn(`[RESPOND] Platform resource loading failed: ${err.message}`);
-                                // Silent failure: keep resource container empty
-                            }
-                        });
-
-                        selectorContainer.appendChild(selector);
-                        selectorContainer.appendChild(resourceContainer);
-                        contentDiv.appendChild(selectorContainer);
-                    }
+            if (preventHelp) {
+                const contentDiv = preventHelp.querySelector('.respond-help-content');
+                if (contentDiv) {
+                    createPlatformResourceSelector('parental_controls', 'Want platform-specific parental control help?', contentDiv);
                 }
             }
 
