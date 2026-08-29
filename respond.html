@@ -700,67 +700,113 @@
                         .filter(([platformKey, _]) => mapData?.[platformKey]?.[currentPurpose])
                         .map(([platformKey, config]) => ({ key: platformKey, label: config.label }));
 
-                    // For each eligible platform, create a resource action
-                    eligiblePlatforms.forEach(platform => {
-                        // Create container (generic ID based on platform key)
-                        const platformContainer = document.createElement('div');
-                        platformContainer.id = `platformResourceContainer_${platform.key}`;
-                        platformContainer.style.marginTop = '1.5rem';
-                        platformContainer.style.paddingTop = '1rem';
-                        platformContainer.style.borderTop = '1px solid var(--border-color)';
+                    // Create generic platform selector (if eligible platforms exist)
+                    if (eligiblePlatforms.length > 0) {
+                        const selectorContainer = document.createElement('div');
+                        selectorContainer.style.marginTop = '1.5rem';
+                        selectorContainer.style.paddingTop = '1rem';
+                        selectorContainer.style.borderTop = '1px solid var(--border-color)';
 
-                        // Create action link (generic text generated from label)
-                        const actionLink = document.createElement('a');
-                        actionLink.href = '#';
-                        actionLink.textContent = `Using ${platform.label}? Show official reporting help`;
-                        actionLink.style.color = 'var(--respond-accent)';
-                        actionLink.style.textDecoration = 'underline';
-                        actionLink.style.cursor = 'pointer';
-                        actionLink.style.fontSize = '0.95rem';
+                        // Label
+                        const label = document.createElement('label');
+                        label.style.display = 'block';
+                        label.style.marginBottom = '0.75rem';
+                        label.style.fontSize = '0.95rem';
+                        label.textContent = 'Need platform-specific reporting help?';
+                        selectorContainer.appendChild(label);
 
-                        // Create generic click handler
-                        actionLink.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            // Generic resource resolution from platform key and purpose
-                            const resourceId = PLATFORM_RESOURCE_MAPS?.[platform.key]?.[currentPurpose];
-                            if (!resourceId) {
-                                console.warn(`[RESPOND] ${platform.label} reporting resource mapping not found`);
+                        // Selector dropdown
+                        const selector = document.createElement('select');
+                        selector.id = 'platformSelector';
+                        selector.style.padding = '8px 12px';
+                        selector.style.borderRadius = '4px';
+                        selector.style.border = '1px solid var(--border-color)';
+                        selector.style.backgroundColor = 'var(--bg-primary)';
+                        selector.style.color = 'var(--text-primary)';
+                        selector.style.fontSize = '1rem';
+                        selector.style.cursor = 'pointer';
+
+                        // Default option
+                        const defaultOption = document.createElement('option');
+                        defaultOption.value = '';
+                        defaultOption.textContent = 'Select a platform';
+                        selector.appendChild(defaultOption);
+
+                        // Sort platforms by label for consistent display order
+                        const sortedPlatforms = [...eligiblePlatforms].sort((a, b) => a.label.localeCompare(b.label));
+
+                        // Add eligible platforms as options
+                        sortedPlatforms.forEach(platform => {
+                            const option = document.createElement('option');
+                            option.value = platform.key;
+                            option.textContent = platform.label;
+                            selector.appendChild(option);
+                        });
+
+                        // Resource display container
+                        const resourceContainer = document.createElement('div');
+                        resourceContainer.id = 'platformResourceDisplay';
+                        resourceContainer.style.marginTop = '1rem';
+
+                        // Selection change handler
+                        let pendingRequest = null; // Track async request to prevent stale results
+
+                        selector.addEventListener('change', async function(e) {
+                            const platformKey = e.target.value;
+
+                            // Clear previous resource
+                            resourceContainer.innerHTML = '';
+
+                            if (!platformKey) {
+                                // User deselected
                                 return;
                             }
 
-                            // Load resource (reuse existing getResources)
-                            getResources([resourceId]).then(resources => {
-                                const container = document.getElementById(`platformResourceContainer_${platform.key}`);
-                                if (!container) return;
+                            // Mark this request with a unique ID to detect stale responses
+                            const requestId = {};
+                            pendingRequest = requestId;
 
-                                // Remove the action link after first click
-                                actionLink.style.display = 'none';
+                            try {
+                                // Resolve resource ID from mapping
+                                const resourceId = mapData?.[platformKey]?.[currentPurpose];
+                                if (!resourceId) {
+                                    console.warn(`[RESPOND] ${platformKey} ${currentPurpose} resource mapping not found`);
+                                    return;
+                                }
 
+                                // Load resource asynchronously
+                                const resources = await getResources([resourceId]);
+
+                                // Check if this request is still current (prevent stale results)
+                                if (pendingRequest !== requestId) {
+                                    return; // Discard stale result
+                                }
+
+                                // Display resource if found
                                 if (resources.length > 0) {
                                     const res = resources[0];
+                                    const platformLabel = registryData?.[platformKey]?.label || platformKey;
+
                                     let resourceHtml = '<div style="margin-top: 1rem; padding: 0.75rem; background-color: var(--bg-secondary); border-left: 3px solid var(--respond-accent);">';
-                                    resourceHtml += `<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official ${platform.label} Help</div>`;
+                                    resourceHtml += `<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official ${platformLabel} Help</div>`;
                                     resourceHtml += `<div style="font-weight: 500; margin-bottom: 0.5rem;">${res.title}</div>`;
                                     if (res.url && (res.url.startsWith('http://') || res.url.startsWith('https://'))) {
                                         resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
                                     }
                                     resourceHtml += '</div>';
 
-                                    // Insert after action link
-                                    const resultDiv = document.createElement('div');
-                                    resultDiv.innerHTML = resourceHtml;
-                                    container.appendChild(resultDiv);
+                                    resourceContainer.innerHTML = resourceHtml;
                                 }
-                            }).catch(err => {
-                                console.warn(`[RESPOND] ${platform.label} resource loading failed: ${err.message}`);
-                                // On failure, just hide the action link
-                                actionLink.style.display = 'none';
-                            });
+                            } catch (err) {
+                                console.warn(`[RESPOND] Platform resource loading failed: ${err.message}`);
+                                // Silent failure: keep resource container empty
+                            }
                         });
 
-                        platformContainer.appendChild(actionLink);
-                        contentDiv.appendChild(platformContainer);
-                    });
+                        selectorContainer.appendChild(selector);
+                        selectorContainer.appendChild(resourceContainer);
+                        contentDiv.appendChild(selectorContainer);
+                    }
                 }
             }
 
