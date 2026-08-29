@@ -119,6 +119,17 @@ class RespondEngine {
       result.primaryActions = this.content.primaryActions.default;
     }
 
+    // Resolve recommendations: optional title replacement with fallback safety
+    result.primaryActions = result.primaryActions.map(action => {
+      if (action.recommendationId && typeof RESPOND_RECOMMENDATIONS !== 'undefined') {
+        const recommendation = RESPOND_RECOMMENDATIONS[action.recommendationId];
+        if (recommendation && recommendation.title) {
+          return { ...action, title: recommendation.title };
+        }
+      }
+      return action;
+    });
+
     // Always include talk section
     result.deeperHelp.push({
       id: 'talk',
