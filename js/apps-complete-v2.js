@@ -198,6 +198,7 @@ const appsCompleteV2 = [
         chatDetails: 'In-game chat with other players; predators use to move conversations to Discord',
         hasOpenInternet: false,
         hasLocationTracking: false,
+        resourceIds: ['common-sense-media'],
         whyThisMatters: {
             title: 'Why This Matters',
             content: 'Roblox faces two distinct dangers: (1) Financial scams targeting kids, with reports of significant real-money losses; (2) Predator gateway to Discord for grooming. The FBI warns that violent online networks commonly referred to as 764 target minors through gaming platforms, social media, and messaging apps, using trust-building, manipulation, and coercion.'

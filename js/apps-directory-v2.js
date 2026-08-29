@@ -492,6 +492,11 @@ function renderAppDetails(app) {
     details += renderDiscussionSection(app);
     details += `</div>`;
 
+    // Expert Resources (populated asynchronously if app has resourceIds)
+    if (app.resourceIds && Array.isArray(app.resourceIds) && app.resourceIds.length > 0) {
+        details += `<div id="appResources_${app.id}" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);"></div>`;
+    }
+
     // App-Specific Report Link
     details += `
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
@@ -778,3 +783,54 @@ discussionStyles.textContent = `
 `;
 
 document.head.appendChild(discussionStyles);
+
+/**
+ * Load and display resources for the currently expanded app
+ * Reuses getResources() from resource-loader.js
+ * Only displays section if resources are successfully loaded
+ */
+function loadAppResources() {
+    if (!expandedAppId || !window.getResources) return;
+
+    const expandedApp = allApps.find(app => String(app.id) === expandedAppId);
+    if (!expandedApp || !expandedApp.resourceIds || !Array.isArray(expandedApp.resourceIds) || expandedApp.resourceIds.length === 0) {
+        return;
+    }
+
+    const container = document.getElementById(`appResources_${expandedApp.id}`);
+    if (!container) return;
+
+    // Fetch resources asynchronously
+    getResources(expandedApp.resourceIds).then(resources => {
+        if (!resources || resources.length === 0) {
+            // No resources found: leave container empty
+            return;
+        }
+
+        // Build resource display HTML
+        let resourceHtml = '<h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1rem;">Expert Resources</h4>';
+        resourceHtml += '<ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">';
+
+        resources.forEach(res => {
+            resourceHtml += '<li style="margin-bottom: 0.75rem; line-height: 1.5;"><strong>' + escapeHtml(res.title) + '</strong>';
+            if (res.url) {
+                resourceHtml += ' <a href="' + res.url + '" target="_blank" style="color: var(--primary); text-decoration: underline;">Learn more</a>';
+            }
+            resourceHtml += '</li>';
+        });
+
+        resourceHtml += '</ul>';
+        container.innerHTML = resourceHtml;
+    }).catch(err => {
+        // Silently fail - leave container empty
+        console.warn('[AppDirectory] Failed to load app resources:', err.message);
+    });
+}
+
+// Call resource loader after app list is rendered
+const originalRenderAppsList = window.renderAppsList;
+window.renderAppsList = function(apps) {
+    originalRenderAppsList(apps);
+    // Load resources after DOM updates
+    setTimeout(loadAppResources, 0);
+};
