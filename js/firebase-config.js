@@ -7,7 +7,7 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js';
+import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js';
 
 // Public Firebase Web Configuration
 // Obtained from Firebase Console → Project Settings → Web App
@@ -39,7 +39,9 @@ try {
     window.digitalCapFirebase = {
         app,
         auth,
-        db
+        db,
+        doc,
+        getDoc
     };
 
     console.log('✅ Firebase initialized (modular SDK)');

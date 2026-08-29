@@ -111,5 +111,16 @@ service cloud.firestore {
       allow update: if isAuthorizedAdmin();
       allow delete: if isAuthorizedAdmin();
     }
+
+    // Published Resources Collection (Pilot)
+    match /resourcesPublished/{resourceId} {
+      // Public can READ published resources (unauthenticated)
+      allow read: if true;
+
+      // Admin only: CREATE, UPDATE, DELETE
+      allow create: if isAuthorizedAdmin();
+      allow update: if isAuthorizedAdmin();
+      allow delete: if isAuthorizedAdmin();
+    }
   }
 }

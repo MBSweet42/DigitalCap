@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <title>RESPOND - DigitalCap</title>
+    <link rel="icon" type="image/png" href="images/branding/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* RESPOND UX Redesign Styles - Scoped to .respond-page */
+        .respond-page {
+            --respond-bg: var(--bg-white);
+            --respond-text: var(--text-dark);
+            --respond-border: var(--border-color);
+            --respond-accent: var(--secondary);
+        }
+
+        .respond-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .respond-hero {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--respond-border);
+        }
+
+        .respond-hero h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .respond-hero-subtitle {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .respond-intro-section {
+            display: none;
+        }
+
+        .respond-intro-section.active {
+            display: block;
+        }
+
+        .respond-incident-selector {
+            background: var(--respond-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--respond-border);
+            margin-bottom: 2rem;
+        }
+
+        .respond-incident-selector p {
+            color: var(--text-gray);
+            margin: 0 0 1rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .respond-incident-card {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            text-align: left;
+        }
+
+        .respond-incident-card:hover {
+            border-color: var(--respond-accent);
+            background: var(--respond-bg);
+            transform: translateX(4px);
+        }
+
+        .respond-incident-card-label {
+            color: var(--respond-text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .respond-incident-card-detail {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .respond-question-container {
+            background: var(--respond-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--respond-border);
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .respond-question-container.active {
+            display: block;
+        }
+
+        .respond-progress {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .respond-question-number {
+            display: inline-block;
+            background: var(--respond-accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .respond-question-text {
+            font-size: 1.25rem;
+            color: var(--respond-text);
+            font-weight: 600;
+            margin: 1rem 0 1.5rem 0;
+            line-height: 1.35;
+        }
+
+        .respond-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .respond-answer-btn {
+            display: block;
+            padding: 0.8rem;
+            background: var(--bg-light);
+            border: 2px solid var(--respond-border);
+            border-radius: 8px;
+            color: var(--respond-text);
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: left;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .respond-answer-btn:hover {
+            background: var(--respond-accent);
+            color: white;
+            border-color: var(--respond-accent);
+            transform: translateX(4px);
+        }
+
+        .respond-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .respond-controls button {
+            flex: 1;
+        }
+
+        /* RESULTS DISPLAY */
+        .respond-results {
+            display: none;
+        }
+
+        .respond-results.active {
+            display: block;
+        }
+
+        .respond-primary-actions {
+            background: var(--respond-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--respond-border);
+            margin-bottom: 2rem;
+        }
+
+        .respond-primary-actions h2 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin: 0 0 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .respond-action-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .respond-action-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .respond-action-number {
+            display: inline-block;
+            background: var(--respond-accent);
+            color: white;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.8rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+        }
+
+        .respond-action-title {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0 0 0.5rem 0;
+            display: inline-block;
+        }
+
+        .respond-action-text {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* IMMEDIATE SAFETY */
+        .respond-immediate-safety {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .respond-immediate-safety h2 {
+            color: var(--danger);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .respond-immediate-safety p {
+            color: var(--text-dark);
+            margin: 0.75rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .respond-immediate-safety p:first-of-type {
+            margin-top: 0;
+        }
+
+        /* DEEPER HELP */
+        .respond-deeper-help {
+            margin-bottom: 2rem;
+        }
+
+        .respond-deeper-help-title {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+        }
+
+        .respond-help-section {
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .respond-help-header {
+            padding: 1rem;
+            background: var(--bg-light);
+            cursor: pointer;
+            user-select: none;
+            font-weight: 600;
+            color: var(--respond-text);
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid transparent;
+        }
+
+        .respond-help-header:hover {
+            background: var(--respond-bg);
+            border-color: var(--respond-accent);
+        }
+
+        .respond-help-toggle {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .respond-help-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .respond-help-content {
+            display: none;
+            padding: 1rem;
+            padding-top: 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .respond-help-content.open {
+            display: block;
+        }
+
+        .respond-help-opener {
+            font-weight: 600;
+            color: var(--respond-text);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .respond-help-intro {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .respond-help-points {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .respond-help-points li {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .respond-help-points li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--respond-accent);
+            font-weight: bold;
+        }
+
+        /* SAFETY NOTE */
+        .respond-safety-note {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning);
+            margin-top: 2rem;
+        }
+
+        .respond-safety-note-title {
+            color: var(--warning);
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+        }
+
+        .respond-safety-note p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+            line-height: 1.5;
+        }
+
+        .respond-safety-note p:first-of-type {
+            margin-top: 0;
+        }
+
+        /* CONTROLS */
+        .respond-finish-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .respond-finish-controls button {
+            flex: 1;
+        }
+
+        .respond-continue-btn {
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .respond-hero h1 {
+                font-size: 2rem;
+            }
+
+            .respond-question-text {
+                font-size: 1.1rem;
+            }
+
+            .respond-controls,
+            .respond-finish-controls {
+                flex-direction: column;
+            }
+
+            .respond-controls button,
+            .respond-finish-controls button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps-v2.html">App Directory</a></li>
+                <li><a href="safety.html">Safety</a></li>
+                <li><a href="etiquette.html">Etiquette</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="interactive.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container respond-page">
+        <div class="respond-container">
+            <!-- Hero Section -->
+            <div class="respond-hero">
+                <h1>RESPOND</h1>
+                <p class="respond-hero-subtitle">You don't need to know what it's called. Tell us what happened, and DigitalCap will help you figure out what to do next.</p>
+            </div>
+
+            <!-- Intro Section -->
+            <div class="respond-intro-section active" id="introSection">
+                <div class="respond-incident-selector">
+                    <p>Let's start by understanding what's happening.</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="startProtocol()">
+                        Get Guidance
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question Flow -->
+            <div class="respond-question-container" id="questionContainer">
+                <div class="respond-progress">
+                    <span class="respond-question-number" id="questionNumber">1 of 3</span>
+                </div>
+                <div class="respond-question-text" id="questionText">Question text will appear here.</div>
+                <div class="respond-answers" id="answersContainer">
+                    <!-- Dynamically populated -->
+                </div>
+                <div class="respond-controls">
+                    <button class="btn btn-outline" id="backBtn" onclick="goBack()" style="display: none;">← Back</button>
+                    <div style="flex: 1;"></div>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div class="respond-results" id="resultsContainer">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 3rem;">
+        <p>DigitalCap helps families stay safe online. <a href="index.html" style="color: var(--primary); text-decoration: none;">Learn more.</a></p>
+    </footer>
+
+    <!-- Load Engine and Content -->
+    <script src="js/respond-engine.js"></script>
+    <script src="js/respond-content-r05.js"></script>
+    <script src="js/resource-loader.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+
+    <script>
+        // State
+        let engine = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+        });
+
+        // Start the protocol
+        function startProtocol() {
+            engine = new RespondEngine(R05_BULLYING);
+            document.getElementById('introSection').classList.remove('active');
+            document.getElementById('questionContainer').classList.add('active');
+            renderQuestion();
+        }
+
+        // Render current question
+        function renderQuestion() {
+            const question = engine.getCurrentQuestion();
+            if (!question) return;
+
+            const progress = engine.getProgress();
+            document.getElementById('questionNumber').textContent = progress.current + ' of ' + progress.total;
+            document.getElementById('questionText').textContent = question.text;
+
+            const answersContainer = document.getElementById('answersContainer');
+            answersContainer.innerHTML = '';
+
+            if (question.type === 'incident-cards') {
+                // Render as cards
+                question.answers.forEach(answer => {
+                    const card = document.createElement('div');
+                    card.className = 'respond-incident-card';
+                    card.onclick = () => selectAnswer(answer.value);
+                    card.innerHTML = `
+                        <div class="respond-incident-card-label">${answer.label}</div>
+                        ${answer.detail ? `<div class="respond-incident-card-detail">${answer.detail}</div>` : ''}
+                    `;
+                    answersContainer.appendChild(card);
+                });
+            } else {
+                // Render as buttons
+                question.answers.forEach(answer => {
+                    const btn = document.createElement('button');
+                    btn.className = 'respond-answer-btn';
+                    btn.textContent = answer.label;
+                    btn.onclick = () => selectAnswer(answer.value);
+                    answersContainer.appendChild(btn);
+                });
+            }
+
+            document.getElementById('backBtn').style.display = engine.canGoBack() ? 'block' : 'none';
+        }
+
+        // Select an answer
+        function selectAnswer(value) {
+            const result = engine.answerQuestion(value);
+
+            if (result.interruptForSafety) {
+                // Immediate safety interruption
+                showImmediateSafety();
+            } else if (result.hasMore) {
+                // More questions
+                renderQuestion();
+            } else {
+                // Done - show results
+                showResults();
+            }
+        }
+
+        // Show immediate safety result
+        function showImmediateSafety() {
+            document.getElementById('questionContainer').classList.remove('active');
+
+            const safetyResult = engine.getImmediateSafetyResult();
+            let html = `
+                <div class="respond-immediate-safety">
+                    <h2>${safetyResult.content.title}</h2>
+                    ${safetyResult.content.content.map(p => `<p>${p}</p>`).join('')}
+                </div>
+                <div class="respond-finish-controls">
+                    <button class="btn btn-primary respond-continue-btn" onclick="continueToBullying()">
+                        Continue to Guidance
+                    </button>
+                    <button class="btn btn-outline" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+
+            document.getElementById('resultsContainer').innerHTML = html;
+            document.getElementById('resultsContainer').classList.add('active');
+        }
+
+        // Continue from immediate safety to normal guidance
+        function continueToBullying() {
+            // Questions are now answered (1=yes), continue with Q2
+            if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                engine.currentQuestionIndex++;
+                document.getElementById('resultsContainer').classList.remove('active');
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+            }
+        }
+
+        // Go back
+        function goBack() {
+            if (engine.goBack()) {
+                renderQuestion();
+            }
+        }
+
+        // Show results
+        function showResults() {
+            document.getElementById('questionContainer').classList.remove('active');
+
+            const result = engine.assembleResult();
+
+            let html = '';
+
+            // Primary actions
+            html += `
+                <div class="respond-primary-actions">
+                    <h2>Your next steps</h2>
+                    ${result.primaryActions.map(action => `
+                        <div class="respond-action-item">
+                            <span class="respond-action-number">${action.number}</span>
+                            <h3 class="respond-action-title">${action.title}</h3>
+                            <p class="respond-action-text">${action.text}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Deeper help
+            if (result.deeperHelp.length > 0) {
+                html += `
+                    <div class="respond-deeper-help">
+                        <h3 class="respond-deeper-help-title">Need more help?</h3>
+                        ${result.deeperHelp.map(help => renderDeepHelp(help)).join('')}
+                    </div>
+                `;
+            }
+
+            // Safety note if unsure threat
+            if (result.notes) {
+                let noteContent = result.notes.content.map(p => `<p>${p}</p>`).join('');
+
+                // Add resource placeholder if resourceIds present
+                if (result.notes.resourceIds && result.notes.resourceIds.length > 0) {
+                    noteContent += `<div id="unsafeResourcesContainer" style="margin-top: 1rem; font-style: italic; color: var(--text-gray); font-size: 0.85rem;">Loading resources...</div>`;
+                }
+
+                html += `
+                    <div class="respond-safety-note">
+                        <div class="respond-safety-note-title">${result.notes.title}</div>
+                        ${noteContent}
+                    </div>
+                `;
+            }
+
+            // Finish controls
+            html += `
+                <div class="respond-finish-controls">
+                    <button class="btn btn-primary" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+
+            document.getElementById('resultsContainer').innerHTML = html;
+            document.getElementById('resultsContainer').classList.add('active');
+
+            // Attach toggle handlers
+            document.querySelectorAll('.respond-help-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const toggle = this.querySelector('.respond-help-toggle');
+                    content.classList.toggle('open');
+                    toggle.classList.toggle('open');
+                });
+            });
+
+            // Load resources asynchronously (don't block rendering)
+            if (result.notes && result.notes.resourceIds && result.notes.resourceIds.length > 0) {
+                getResources(result.notes.resourceIds).then(resources => {
+                    const container = document.getElementById('unsafeResourcesContainer');
+                    if (container && resources.length > 0) {
+                        let resourceHtml = '<strong>Crisis Resources:</strong><br>';
+                        resources.forEach(res => {
+                            resourceHtml += `• <strong>${res.title}</strong>`;
+                            // Build availability from available fields
+                            const availability = [];
+                            if (res.phone) availability.push(`Call or text: ${res.phone}`);
+                            if (res.textKeyword && res.textNumber) availability.push(`Text ${res.textKeyword} to ${res.textNumber}`);
+                            if (availability.length > 0) {
+                                resourceHtml += ` (${availability.join(' | ')})`;
+                            }
+                            resourceHtml += '<br>';
+                            if (res.url) {
+                                resourceHtml += `&nbsp;&nbsp;<a href="${res.url}" target="_blank" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a><br>`;
+                            }
+                        });
+                        container.innerHTML = resourceHtml;
+                    } else if (container) {
+                        container.style.display = 'none';
+                    }
+                }).catch(err => {
+                    console.warn('[RESPOND] Resource loading error:', err);
+                    const container = document.getElementById('unsafeResourcesContainer');
+                    if (container) {
+                        container.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Render expandable help section
+        function renderDeepHelp(help) {
+            let contentHtml = '';
+
+            if (help.opener) {
+                contentHtml += `<div class="respond-help-opener">"${help.opener}"</div>`;
+            }
+
+            if (help.intro) {
+                contentHtml += `<div class="respond-help-intro">${help.intro}</div>`;
+            }
+
+            if (help.points && help.points.length > 0) {
+                contentHtml += `
+                    <ul class="respond-help-points">
+                        ${help.points.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                `;
+            }
+
+            return `
+                <div class="respond-help-section">
+                    <div class="respond-help-header">
+                        <span>${help.title}</span>
+                        <span class="respond-help-toggle">▼</span>
+                    </div>
+                    <div class="respond-help-content">
+                        ${contentHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Start over
+        function startOver() {
+            if (engine) {
+                engine.restart();
+            }
+            engine = null;
+
+            document.getElementById('introSection').classList.add('active');
+            document.getElementById('questionContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.remove('active');
+            document.getElementById('resultsContainer').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
