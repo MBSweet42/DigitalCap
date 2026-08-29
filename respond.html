@@ -487,6 +487,7 @@
     <script src="js/respond-content-r05.js"></script>
     <script src="js/respond-recommendations.js"></script>
     <script src="js/resource-loader.js"></script>
+    <script src="js/platform-resource-map.js"></script>
     <script type="module" src="js/firebase-config.js"></script>
 
     <script>
@@ -680,6 +681,75 @@
                     toggle.classList.toggle('open');
                 });
             });
+
+            // Add Roblox reporting help (optional action in reporting section)
+            const reportingHelp = Array.from(document.querySelectorAll('.respond-help-section')).find(section => {
+                const title = section.querySelector('.respond-help-header span:first-child');
+                return title && title.textContent.includes('Reporting & blocking');
+            });
+
+            if (reportingHelp) {
+                const contentDiv = reportingHelp.querySelector('.respond-help-content');
+                if (contentDiv) {
+                    // Add container for Roblox resource
+                    const robloxContainer = document.createElement('div');
+                    robloxContainer.id = 'robloxResourceContainer';
+                    robloxContainer.style.marginTop = '1.5rem';
+                    robloxContainer.style.paddingTop = '1rem';
+                    robloxContainer.style.borderTop = '1px solid var(--border-color)';
+
+                    // Add action link
+                    const actionLink = document.createElement('a');
+                    actionLink.href = '#';
+                    actionLink.textContent = 'Using Roblox? Show official reporting help';
+                    actionLink.style.color = 'var(--respond-accent)';
+                    actionLink.style.textDecoration = 'underline';
+                    actionLink.style.cursor = 'pointer';
+                    actionLink.style.fontSize = '0.95rem';
+
+                    actionLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Resolve resource ID from mapping
+                        const resourceId = PLATFORM_RESOURCE_MAPS?.roblox?.reporting;
+                        if (!resourceId) {
+                            console.warn('[RESPOND] Roblox reporting resource mapping not found');
+                            return;
+                        }
+
+                        // Load resource
+                        getResources([resourceId]).then(resources => {
+                            const container = document.getElementById('robloxResourceContainer');
+                            if (!container) return;
+
+                            // Remove the action link after first click
+                            actionLink.style.display = 'none';
+
+                            if (resources.length > 0) {
+                                const res = resources[0];
+                                let resourceHtml = '<div style="margin-top: 1rem; padding: 0.75rem; background-color: var(--bg-secondary); border-left: 3px solid var(--respond-accent);">';
+                                resourceHtml += '<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official Roblox Help</div>';
+                                resourceHtml += `<div style="font-weight: 500; margin-bottom: 0.5rem;">${res.title}</div>`;
+                                if (res.url && (res.url.startsWith('http://') || res.url.startsWith('https://'))) {
+                                    resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
+                                }
+                                resourceHtml += '</div>';
+
+                                // Insert after action link
+                                const resultDiv = document.createElement('div');
+                                resultDiv.innerHTML = resourceHtml;
+                                container.appendChild(resultDiv);
+                            }
+                        }).catch(err => {
+                            console.warn('[RESPOND] Roblox resource loading failed:', err.message);
+                            // On failure, just hide the action link
+                            actionLink.style.display = 'none';
+                        });
+                    });
+
+                    robloxContainer.appendChild(actionLink);
+                    contentDiv.appendChild(robloxContainer);
+                }
+            }
 
             // Load resources asynchronously (don't block rendering)
             if (result.notes && result.notes.resourceIds && result.notes.resourceIds.length > 0) {
