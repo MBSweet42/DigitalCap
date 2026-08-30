@@ -6,10 +6,38 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#FF6B6B">
     <meta name="description" content="DigitalCap: A comprehensive digital safety hub for families and educators. Learn about app dangers, digital safety, etiquette, and parental controls. Free resources, lesson plans, and expert guidance for keeping families safe online.">
+    <link rel="canonical" href="https://digitalcap.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalcap.org/">
+    <meta property="og:title" content="DigitalCap - Family Digital Safety & Resources">
+    <meta property="og:description" content="DigitalCap: A comprehensive digital safety hub for families and educators. Learn about app dangers, digital safety, etiquette, and parental controls. Free resources, lesson plans, and expert guidance for keeping families safe online.">
+    <meta property="og:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="DigitalCap - Smart Limits. No Cap.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DigitalCap - Family Digital Safety & Resources">
+    <meta name="twitter:description" content="DigitalCap: A comprehensive digital safety hub for families and educators. Learn about app dangers, digital safety, etiquette, and parental controls. Free resources, lesson plans, and expert guidance for keeping families safe online.">
+    <meta name="twitter:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta name="twitter:image:alt" content="DigitalCap - Smart Limits. No Cap.">
     <title>DigitalCap - Family Digital Safety & Resources</title>
+    <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+        /* Visually hidden text for SEO/accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
         /* Hero Section */
         .hero-section {
             text-align: center;
@@ -29,11 +57,32 @@
             letter-spacing: -1px;
         }
 
+        .hero-title img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title img {
+                max-width: 90vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title img {
+                max-width: 95vw;
+            }
+        }
+
         .hero-tagline {
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 1rem;
+            display: none;
         }
 
         .hero-intro {
@@ -344,7 +393,7 @@
 <body>
     <nav class="navbar navbar-simple">
         <div class="nav-container">
-            <a href="index.html" class="logo">DigitalCap</a>
+            <a href="index.html" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
@@ -362,8 +411,8 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title">DigitalCap</h1>
-                <p class="hero-tagline">No cap. Smart limits.</p>
+                <h1 class="sr-only">DigitalCap</h1>
+                <div class="hero-title"><img src="images/branding/logo-hero-transparent-white.png" alt="DigitalCap: Smart Limits. No Cap."></div>
                 <p class="hero-intro">Digital safety is complicated. Finding the right next step shouldn't be. DigitalCap helps families understand apps, make informed choices, respond when something happens, and find the right tools and trusted resources.</p>
             </div>
 
@@ -478,7 +527,7 @@
     </main>
 
     <footer class="footer">
-        <p class="footer-tagline"><strong>DigitalCap.</strong> No cap. Smart limits.</p>
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
         <p class="footer-copyright">100% Free • No Ads • No Tracking • Built by an educator & parent</p>
         <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Helping families navigate the digital world safely. <a href="about.html">Learn more.</a></p>
     </footer>
