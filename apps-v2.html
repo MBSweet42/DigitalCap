@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#FF6B6B">
-    <title>App Directory - DigitalCap</title>
+    <title>App Check - DigitalCap</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,27 +26,29 @@
     </nav>
 
     <main class="container">
-        <h1>📱 App Directory</h1>
-        <p class="subtitle">What parents need to know about the apps kids use.</p>
+        <h1>📱 App Check</h1>
+        <p class="subtitle">Your child uses or wants an app? See what it does, what to watch for, and what to consider before saying yes.</p>
+
+        <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Search for an app to see its age guidance, real-world risks, important settings, and conversation tips.</p>
 
         <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
             <input
                 type="text"
                 id="appSearch"
-                placeholder="Search apps (e.g., TikTok, Discord, Canva)..."
+                placeholder="Search for an app your child uses or wants to use..."
                 style="flex: 1; min-width: 200px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem;"
             >
             <button class="btn btn-secondary" onclick="showCustomAppForm()">
-                ➕ Add App
+                ➕ Add a Custom App
             </button>
             <button class="btn btn-secondary" onclick="suggestAppToDigitalCap()">
-                💡 Suggest an App
+                💡 Missing an App? Suggest It
             </button>
         </div>
 
         <!-- Age Filter -->
         <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
-            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">🎯 Filter by Age Group (Optional)</p>
+            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">🎯 Find apps for your child's age</p>
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                 <button class="age-filter-btn" onclick="filterByAge('all')" data-age="all" style="background: var(--primary); color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">Any Age Recommendation</button>
                 <button class="age-filter-btn" onclick="filterByAge('6-8')" data-age="6-8" style="background: var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">Ages 6-8</button>
@@ -59,7 +61,7 @@
 
         <!-- Category Filter -->
         <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
-            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">📂 Filter by Category (Optional)</p>
+            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">📂 Browse by type</p>
             <select id="categoryFilter" onchange="filterByCategory(this.value)" style="padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; background: var(--bg-white); color: var(--text-dark); font-size: 1rem; cursor: pointer; min-width: 250px;">
                 <option value="all">All Categories</option>
                 <option value="AI Tools">AI Tools</option>
