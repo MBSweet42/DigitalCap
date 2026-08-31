@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Visually hidden text for SEO/accessibility */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -38,7 +37,6 @@
             border-width: 0;
         }
 
-        /* Hero Section */
         .hero-section {
             text-align: center;
             padding: 3rem 0;
@@ -93,7 +91,6 @@
             line-height: 1.6;
         }
 
-        /* Primary Action Cards */
         .primary-actions {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -147,247 +144,6 @@
         .action-card:hover .action-cta {
             text-decoration: underline;
         }
-
-        /* Why DigitalCap Section */
-        .why-different {
-            background: var(--bg-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            border: 2px solid var(--border-color);
-        }
-
-        .why-different h2 {
-            color: var(--primary);
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .why-different-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .why-different-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .why-different-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .why-different-card h4 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 1rem;
-        }
-
-        .why-different-card p {
-            color: var(--text-gray);
-            margin: 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Features Section */
-        .features {
-            margin-bottom: 3rem;
-        }
-
-        .features h2 {
-            text-align: center;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--bg-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 3rem;
-            border: 2px solid var(--border-color);
-        }
-
-        .cta-section h2 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        .cta-section p {
-            color: var(--text-gray);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-btn {
-            padding: 0.75rem 2rem;
-            font-size: 1rem;
-        }
-
-        /* Getting Started */
-        .tip-list {
-            color: var(--text-gray);
-        }
-
-        /* Quick Links Section */
-        .quick-links-section {
-            background: var(--bg-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 2px solid var(--border-color);
-        }
-
-        .quick-links-section h2 {
-            color: var(--primary);
-            margin-top: 0;
-            text-align: center;
-            font-size: 1.5rem;
-        }
-
-        .quick-links-intro {
-            text-align: center;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-
-        .quick-links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .quick-link-card {
-            display: block;
-            padding: 1.5rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-            background: var(--bg-white);
-        }
-
-        .quick-link-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .quick-link-card p {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        .quick-link-card strong {
-            color: var(--primary);
-            font-size: 1rem;
-        }
-
-        /* Footer */
-        .footer-tagline {
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-copyright {
-            text-align: center;
-            margin: 0;
-        }
-
-        /* Features */
-        .features {
-            margin-bottom: 3rem;
-        }
-
-        .features h2 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
-        }
-
-        /* Getting Started */
-        .getting-started {
-            margin-bottom: 3rem;
-        }
-
-        .getting-started h2 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tip-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .tip-card h4 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        /* Search Results */
-        .search-result-item {
-            background: var(--bg-light);
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .no-results {
-            color: var(--text-gray);
-            font-style: italic;
-            padding: 1rem;
-        }
     </style>
 </head>
 <body>
@@ -406,7 +162,6 @@
     </nav>
 
     <main class="container">
-        <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="sr-only">DigitalCap</h1>
@@ -414,10 +169,8 @@
                 <p class="hero-intro">Digital safety is complicated. Finding the right next step shouldn't be. DigitalCap helps families understand apps, make informed choices, respond when something happens, and find the right tools and trusted resources.</p>
             </div>
 
-            <!-- Section Heading -->
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;">What do you need help with?</h2>
 
-            <!-- 4 Primary Action Cards -->
             <div class="primary-actions">
                 <a href="apps-v2.html" class="action-card action-card-app">
                     <div class="action-icon">🔎</div>
@@ -446,88 +199,30 @@
             </div>
         </section>
 
-        <!-- Why Choose DigitalCap -->
-        <section class="why-different">
-            <h2>Built for Real Conversations</h2>
-            <div class="why-different-grid">
-                <a href="apps-v2.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>Real Risks, Real-World Experiences</h4>
-                    <p>We combine parent-reported experiences with trusted safety research to highlight the risks families actually encounter online.</p>
-                </a>
-                <a href="resources.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>Conversation Scripts Ready</h4>
-                    <p>Every app comes with talking points and red flags. Not judgment. Just tools for tough talks.</p>
-                </a>
-                <a href="teachers.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>For Educators</h4>
-                    <p>Lessons for K-2, 3-5, 6-8, and 9-12. Age-appropriate classroom resources from kindergarten through high school.</p>
-                </a>
-                <a href="hotlines.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>Emergency Contacts & Resources</h4>
-                    <p>Crisis hotlines, trusted expert organizations, and immediate help when something happens online.</p>
-                </a>
-                <a href="about.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>Completely Free</h4>
-                    <p>No paywalls. No ads. No tracking. Built by an educator and parent.</p>
-                </a>
-                <a href="resources-links.html" class="why-different-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.2)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
-                    <h4>Built on Expert Sources</h4>
-                    <p>Content adapted from Common Sense Media, NetSmartz, FTC, and 10+ trusted safety organizations.</p>
-                </a>
-            </div>
+        <section style="background: var(--bg-white); padding: 2.5rem; border-radius: 12px; margin-bottom: 3rem; border: 2px solid var(--border-color);">
+            <h2 style="text-align: center; color: var(--primary); margin-top: 0;">Guidance you can understand. Sources you can trust.</h2>
+            <p style="text-align: center; color: var(--text-gray); margin: 1rem auto; max-width: 600px; line-height: 1.6;">
+                DigitalCap brings together practical guidance, real-world family concerns, and information from trusted digital-safety sources, then helps you figure out what matters for your situation.
+            </p>
+            <p style="text-align: center; color: var(--text-gray); font-size: 0.95rem; margin: 1.5rem auto 0 auto;">
+                Free to use. No ads.
+            </p>
+            <p style="text-align: center; margin-top: 1.5rem;">
+                <a href="about.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Learn about DigitalCap →</a>
+            </p>
         </section>
 
-        <!-- More Resources Section -->
-        <section class="features" style="margin-bottom: 2rem;">
-            <h2>Dig Deeper</h2>
-            <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="feature-card">
-                    <h3>Safety Deep Dives</h3>
-                    <p>Articles on password safety, scams, grooming, privacy settings, and more. Read-aloud available.</p>
-                    <a href="safety.html" class="btn btn-secondary">Read More</a>
-                </div>
-                <div class="feature-card">
-                    <h3>Digital Etiquette</h3>
-                    <p>Online kindness, cyberbullying, digital footprint. Respectful behavior for all ages.</p>
-                    <a href="etiquette.html" class="btn btn-secondary">Learn More</a>
-                </div>
-                <div class="feature-card">
-                    <h3>Gaming & Spending Risks</h3>
-                    <p>In-game chat dangers, spending traps, and toxic players. Plus Discord, Fortnite, and Roblox guides.</p>
-                    <a href="gaming-guide.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Links Section -->
-        <section class="quick-links-section">
-            <h2>Quick Access</h2>
-            <p class="quick-links-intro">Need something specific?</p>
-            <div class="quick-links-grid">
-                <a href="hotlines.html" class="quick-link-card">
-                    <strong>Crisis Support & Emergency Hotlines</strong>
-                    <p>Cyberbullying, mental health, NCMEC CyberTipline</p>
-                </a>
-                <a href="resources-links.html" class="quick-link-card">
-                    <strong>Trusted Expert Resources</strong>
-                    <p>Common Sense Media, NetSmartz, and 10+ trusted organizations</p>
-                </a>
-                <a href="interactive.html" class="quick-link-card">
-                    <strong>Quizzes & Interactive Tools</strong>
-                    <p>Test your knowledge, conversation guides, age-based checklists</p>
-                </a>
-                <a href="resources.html" class="quick-link-card">
-                    <strong>Family Resources & Guides</strong>
-                    <p>Age-based PDFs, action plans, and downloadable materials</p>
-                </a>
-            </div>
+        <section style="background: var(--bg-white); padding: 2rem; border-radius: 12px; margin-bottom: 3rem; border: 2px solid var(--border-color); text-align: center;">
+            <h2 style="color: var(--primary); margin-top: 0;">Need immediate or crisis support?</h2>
+            <p style="color: var(--text-gray); margin: 1rem 0;">Find crisis lines and trusted support resources.</p>
+            <a href="hotlines.html" class="btn btn-secondary">View Crisis & Support Resources →</a>
         </section>
     </main>
 
     <footer class="footer">
         <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
-        <p class="footer-copyright">100% Free • No Ads • No Tracking • Built by an educator & parent</p>
-        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Helping families navigate the digital world safely. <a href="about.html">Learn more.</a></p>
+        <p class="footer-copyright">100% Free • No Ads • Built by an educator & parent</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Helping families navigate the digital world safely. <a href="about.html">Learn more.</a> | <a href="resources-links.html">Trusted Sources</a> | <a href="hotlines.html">Crisis Support</a></p>
     </footer>
 
     <script src="js/main.js"></script>
