@@ -32,10 +32,18 @@
         <section style="margin-bottom: 3rem;">
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">What are you trying to do?</h2>
 
-            <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; max-width: 600px; margin: 0 auto; text-align: center;">
-                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">We're setting up a new device</h3>
-                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Start with the protections, rules, and conversations that matter before your child begins using it.</p>
-                <a href="#new-device-path" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me where to start →</a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">We're setting up a new device</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Start with the protections, rules, and conversations that matter before your child begins using it.</p>
+                    <a href="#new-device-path" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me where to start →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I want to make their current device safer</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Review the settings, apps, boundaries, and warning signs that matter most on a device your child already uses.</p>
+                    <a href="#current-device-review" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me what to review →</a>
+                </div>
             </div>
         </section>
 
@@ -79,7 +87,67 @@
             </div>
         </section>
 
-        <!-- Contextual Next Steps -->
+        <!-- Current Device Review Path -->
+        <section id="current-device-review" style="margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Make Their Current Device Safer</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">If your child already uses a phone, tablet, or computer, you don't have to start over. Review the areas below and focus first on anything that doesn't match your family's needs.</p>
+
+            <!-- Area 1: Privacy & Contact -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">1. Review privacy and who can contact them</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Start by checking who can see your child's accounts, who can message them, whether location is shared, and which permissions their apps currently have.</p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: baseline;">
+                    <a href="guides/privacy-settings-guide.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review privacy settings →</a>
+                    <span style="color: var(--text-gray); font-size: 0.9rem;">or <a href="apps-v2.html" style="color: var(--primary); text-decoration: none;">check a specific app</a></span>
+                </div>
+            </div>
+
+            <!-- Area 2: Device Controls -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">2. Check the device controls already in place</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Review the device-level controls available for screen time, content, purchases, and app access, then decide whether the current setup still fits your child.</p>
+                <a href="interactive.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review device controls →</a>
+            </div>
+
+            <!-- Area 3: Rules & Boundaries -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">3. Revisit your family's rules and boundaries</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">A device that was set up months or years ago may no longer match your family's expectations. Review rules around downloads, purchases, bedtime, privacy, and what happens when something feels unsafe.</p>
+                <a href="guides/family-device-rules.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review Family Device Rules →</a>
+            </div>
+
+            <!-- Area 4: Warning Signs -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">4. Know the warning signs worth paying attention to</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Look for changes in behavior, sleep, secrecy, online friendships, or other patterns that may mean your child needs more support or a closer look at what's happening online.</p>
+                <a href="guides/red-flags-checklist.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review Warning Signs →</a>
+            </div>
+        </section>
+
+        <!-- Contextual Next Steps for Current Device Review -->
+        <section style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
+            <h3 style="color: var(--primary); margin: 0 0 1.5rem 0;">If your review uncovers something</h3>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.5rem 0;">Specific app concern</h4>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0;">If one app or game is raising questions, use Check an App to understand what it does, what to watch for, and what settings may matter.</p>
+                <a href="apps-v2.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Check an App →</a>
+            </div>
+
+            <div style="margin-bottom: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.5rem 0;">Incident already happened</h4>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0;">If you discover that something concerning has already happened online, move from prevention to response.</p>
+                <a href="respond.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Something Happened? →</a>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.5rem 0;">Need help talking about the changes</h4>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0;">If you know what you want to change but need help explaining it to your child, use DigitalCap's conversation guidance.</p>
+                <a href="conversation.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Start a Conversation →</a>
+            </div>
+        </section>
+
+        <!-- Contextual Next Steps for New Device (preserved) -->
         <section style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
             <h3 style="color: var(--primary); margin: 0 0 1.5rem 0;">As they start using the device</h3>
 
