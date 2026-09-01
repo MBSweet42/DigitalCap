@@ -32,7 +32,7 @@ const R06_HACKED = {
       id: 'access-status',
       number: 2,
       text: 'Can your child still log into the account?',
-      description: '',
+      description: 'If you\'re not sure, try logging in first. If the login works, choose Yes. If the account won\'t let your child in, choose No.',
       type: 'yes-no-unsure',
       answers: [
         {
@@ -50,7 +50,8 @@ const R06_HACKED = {
         {
           label: 'I\'m not sure',
           value: 'unsure-access',
-          flag: 'unsure_access'
+          flag: 'unsure_access',
+          nextQuestion: 'stay'
         }
       ]
     },
@@ -199,12 +200,12 @@ const R06_HACKED = {
       {
         number: 2,
         title: 'Review signed-in sessions and devices',
-        text: 'Sign out anything that shouldn\'t be there. Verification codes that were shared are typically valid for only a few minutes and will expire.'
+        text: 'Sign out anything that shouldn\'t be there.'
       },
       {
         number: 3,
         title: 'Enable or verify two-factor authentication',
-        text: 'Once 2FA is active, shared verification codes won\'t help someone log in. New codes are generated for each login attempt.'
+        text: 'Two-factor authentication requires a second step when someone tries to log in from an unfamiliar device.'
       },
       {
         number: 4,
@@ -232,12 +233,12 @@ const R06_HACKED = {
       {
         number: 3,
         title: 'Contact the platform\'s billing or support team',
-        text: 'Report the unauthorized purchases and request a refund. Platforms often reverse fraudulent charges.'
+        text: 'Report the unauthorized purchases and request a refund using the platform\'s official process.'
       },
       {
         number: 4,
         title: 'If a payment card was charged, contact the card issuer',
-        text: 'Report the unauthorized charge and follow the card issuer\'s dispute process. Card issuers investigate and can issue temporary or permanent credits.'
+        text: 'Report the unauthorized charge and follow the card issuer\'s dispute process.'
       }
     ],
 
@@ -320,7 +321,7 @@ const R06_HACKED = {
       points: [
         'Identify other accounts that use the same password.',
         'Change the password on each of those accounts to something unique.',
-        'The recovery email for this account is especially important—if someone can access the email, they can reset passwords on ANY account that uses it.',
+        'The recovery email for this account is especially important—access to it can put other connected accounts at risk because password-reset messages may be sent there.',
         'Change the recovery email password and enable two-factor authentication on it.',
         'If sensitive accounts (social media, email, gaming, banking) share the password, prioritize those first.'
       ]
@@ -337,8 +338,7 @@ const R06_HACKED = {
         'Screenshot or record anything important before reporting or removing it.',
         'Use the platform\'s report abuse/impersonation feature to flag unauthorized content.',
         'Delete or ask the platform to remove any inappropriate or harmful posts.',
-        'If messages were sent to friends, a quick "my account was compromised" message can help clear up confusion.',
-        'Most platforms remove impersonation content quickly once reported.'
+        'If messages were sent to friends, a quick "my account was compromised" message can help clear up confusion.'
       ]
     },
 
@@ -350,10 +350,10 @@ const R06_HACKED = {
       intro: 'For unauthorized charges, take action with both the platform and your payment card:',
       points: [
         'Gather evidence: take screenshots of the unauthorized purchases with dates and amounts.',
-        'Contact the platform\'s billing or support team first—many will reverse unauthorized charges within 30 days.',
+        'Contact the platform\'s billing or support team and report the unauthorized charges.',
         'If the platform won\'t refund, contact your card issuer (the company that issued your credit/debit card).',
-        'Your card issuer can investigate disputes and often issues a temporary or permanent credit while investigating.',
-        'Card issuers typically investigate within 60 days for credit cards or according to Regulation E for debit cards.',
+        'Your card issuer will investigate disputes and follow their standard process.',
+        'Follow up with both the platform and card issuer until resolved.',
         'For large-scale fraud beyond the platform, file a report at IdentityTheft.gov for additional resources.'
       ]
     },

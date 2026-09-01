@@ -530,6 +530,24 @@
             document.getElementById('questionNumber').textContent = progress.current + ' of ' + progress.total;
             document.getElementById('questionText').textContent = question.text;
 
+            // Render question description if present
+            let descriptionElement = document.getElementById('questionDescription');
+            if (!descriptionElement) {
+              descriptionElement = document.createElement('p');
+              descriptionElement.id = 'questionDescription';
+              descriptionElement.style.color = 'var(--text-gray)';
+              descriptionElement.style.fontSize = '0.95rem';
+              descriptionElement.style.marginTop = '0.5rem';
+              descriptionElement.style.marginBottom = '1rem';
+              document.getElementById('questionText').parentElement.appendChild(descriptionElement);
+            }
+            if (question.description) {
+              descriptionElement.textContent = question.description;
+              descriptionElement.style.display = 'block';
+            } else {
+              descriptionElement.style.display = 'none';
+            }
+
             const answersContainer = document.getElementById('answersContainer');
             answersContainer.innerHTML = '';
 

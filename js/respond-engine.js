@@ -59,6 +59,9 @@ class RespondEngine {
       if (answerOption.nextQuestion === 'result') {
         // Skip remaining questions; show result
         return { hasMore: false, interruptForSafety: false };
+      } else if (answerOption.nextQuestion === 'stay') {
+        // Stay on current question; allow re-answering
+        return { hasMore: true, interruptForSafety: false };
       } else {
         // Jump to a named question
         const nextQIndex = this.content.questions.findIndex(q => q.id === answerOption.nextQuestion);
