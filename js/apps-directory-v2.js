@@ -129,7 +129,17 @@ async function loadPublishedAppsFromFirestore() {
                     parentConcerns: publishedData.parentConcerns || {},
                     tipsForParents: Array.isArray(publishedData.tipsForParents) ? publishedData.tipsForParents : [],
                     parentConversationGuide: publishedData.parentConversationGuide || {},
-                    sources: publishedData.sources || ''
+                    sources: publishedData.sources || '',
+                    // Phase 4B v2 fields: copy from Firestore if present
+                    schemaVersion: publishedData.schemaVersion,
+                    exposureLevel: publishedData.exposureLevel,
+                    exposureExplanation: publishedData.exposureExplanation,
+                    exposureFactors: Array.isArray(publishedData.exposureFactors) ? publishedData.exposureFactors : [],
+                    exposureFloor: publishedData.exposureFloor,
+                    floorRationale: publishedData.floorRationale,
+                    protectedExposureLevel: publishedData.protectedExposureLevel,
+                    recommendedSafeguards: Array.isArray(publishedData.recommendedSafeguards) ? publishedData.recommendedSafeguards : [],
+                    residualExposure: Array.isArray(publishedData.residualExposure) ? publishedData.residualExposure : []
                 };
 
                 allApps.push(publishedApp);
