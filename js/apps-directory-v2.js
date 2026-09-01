@@ -363,6 +363,16 @@ function renderAppDetails(app) {
         </div>
     `;
 
+    // SECTION 1.5: Why This Matters (contextual explanation)
+    if (app.whyThisMatters?.content) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Why This Matters</h4>
+                <p style="margin: 0; color: var(--text-gray); line-height: 1.6;">${app.whyThisMatters.content}</p>
+            </div>
+        `;
+    }
+
     // SECTION 2: Real-World Risks (3-5 bullets)
     if (app.hiddenDangers && app.hiddenDangers.length > 0) {
         details += `
@@ -479,6 +489,27 @@ function renderAppDetails(app) {
 
         details += `</div>`;
     }
+
+    // DECISION-AID: What Can I Do Next?
+    details += `
+        <div style="margin-bottom: 2rem;">
+            <h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.1rem;">What Can I Do Next?</h4>
+            <div style="display: flex; gap: 1rem; flex-direction: column;">
+                <a href="conversation.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
+                    <div style="font-weight: 600; margin-bottom: 0.25rem;">💬 Talk About It</div>
+                    <div style="font-size: 0.85rem; color: var(--text-gray);">Use DigitalCap's conversation guides to help start the discussion.</div>
+                </a>
+                <a href="protect.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
+                    <div style="font-weight: 600; margin-bottom: 0.25rem;">🛡️ Protect My Family</div>
+                    <div style="font-size: 0.85rem; color: var(--text-gray);">Review practical steps for safer devices, accounts, and boundaries.</div>
+                </a>
+                <a href="respond.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
+                    <div style="font-weight: 600; margin-bottom: 0.25rem;">🆘 Something Happened?</div>
+                    <div style="font-size: 0.85rem; color: var(--text-gray);">If you're dealing with a problem right now, start with the situation that comes closest.</div>
+                </a>
+            </div>
+        </div>
+    `;
 
     // Parent Notes (below main 5 sections)
     details += `<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">`;
