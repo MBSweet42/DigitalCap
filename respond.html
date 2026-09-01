@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#FF6B6B">
-    <title>RESPOND - DigitalCap</title>
+    <title>Something Happened? | DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -440,16 +440,20 @@
         <div class="respond-container">
             <!-- Hero Section -->
             <div class="respond-hero">
-                <h1>RESPOND</h1>
-                <p class="respond-hero-subtitle">You don't need to know what it's called. Tell us what happened, and DigitalCap will help you figure out what to do next.</p>
+                <h1>Something Happened?</h1>
+                <p class="respond-hero-subtitle">You don't need to know what it's called. Choose the situation that comes closest to what happened, and DigitalCap will help you figure out what to do next.</p>
             </div>
 
-            <!-- Intro Section -->
+            <!-- Incident Chooser Section -->
             <div class="respond-intro-section active" id="introSection">
                 <div class="respond-incident-selector">
-                    <p>Let's start by understanding what's happening.</p>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="startProtocol()">
-                        Get Guidance
+                    <button class="respond-incident-card" onclick="selectIncident('bullying')" style="text-align: left;">
+                        <div class="respond-incident-card-label">Bullying or Harassment</div>
+                        <div class="respond-incident-card-detail">Mean messages, repeated targeting, exclusion, rumors, impersonation, or other harassment.</div>
+                    </button>
+                    <button class="respond-incident-card" onclick="selectIncident('hacked')" style="text-align: left;">
+                        <div class="respond-incident-card-label">Hacked or Compromised Account</div>
+                        <div class="respond-incident-card-detail">Someone may have accessed, changed, used, or locked your child out of an account.</div>
                     </button>
                 </div>
             </div>
@@ -483,6 +487,7 @@
     <!-- Load Engine and Content -->
     <script src="js/respond-engine.js"></script>
     <script src="js/respond-content-r05.js"></script>
+    <script src="js/respond-content-r06.js"></script>
     <script src="js/respond-recommendations.js"></script>
     <script src="js/resource-loader.js"></script>
     <script src="js/platform-registry.js"></script>
@@ -513,9 +518,27 @@
             }
         });
 
+        // Global state
+        let selectedProtocol = null;
+
+        // Select incident type and start protocol
+        function selectIncident(type) {
+            let protocolContent;
+            if (type === 'bullying') {
+                protocolContent = R05_BULLYING;
+                selectedProtocol = 'bullying';
+            } else if (type === 'hacked') {
+                protocolContent = R06_HACKED;
+                selectedProtocol = 'hacked';
+            } else {
+                return;
+            }
+            startProtocol(protocolContent);
+        }
+
         // Start the protocol
-        function startProtocol() {
-            engine = new RespondEngine(R05_BULLYING);
+        function startProtocol(protocolContent) {
+            engine = new RespondEngine(protocolContent);
             document.getElementById('introSection').classList.remove('active');
             document.getElementById('questionContainer').classList.add('active');
             renderQuestion();
@@ -628,7 +651,10 @@
 
         // Go back
         function goBack() {
-            if (engine.goBack()) {
+            if (engine.currentQuestionIndex === 0) {
+                // At first question, return to chooser
+                startOver();
+            } else if (engine.goBack()) {
                 renderQuestion();
             }
         }
@@ -957,10 +983,13 @@
                 engine.restart();
             }
             engine = null;
+            selectedProtocol = null;
 
             // Reset shared platform context for new journey
             respondContext.platform = null;
 
+            document.getElementById('questionContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.remove('active');
             document.getElementById('introSection').classList.add('active');
             document.getElementById('questionContainer').classList.remove('active');
             document.getElementById('resultsContainer').classList.remove('active');
