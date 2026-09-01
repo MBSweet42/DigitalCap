@@ -502,9 +502,10 @@ function displayCurationForm(draftId, draftData) {
             <div class="admin-curation-form-group">
               <label>
                 <input type="checkbox" id="curation-internet-${draftId}" ${draftData.hasOpenInternet ? 'checked' : ''} onchange="toggleInternetDetails('${draftId}')">
-                Has open internet access
+                Can users access external websites or web content through links in this app?
               </label>
-              <textarea id="curation-internetDetails-${draftId}" maxlength="200" placeholder="Internet access details" style="width: 100%; min-height: 60px; padding: 0.5rem; display: ${draftData.hasOpenInternet ? 'block' : 'none'}; margin-top: 0.5rem;">${escapeHtml(draftData.internetDetails || '')}</textarea>
+              <div style="margin: 0.5rem 0 0.75rem 1.5rem; font-size: 0.9rem; color: var(--text-gray); line-height: 1.4;">Include links in profiles or bios, messages, comments, posts, ads, and embedded web content. Do not count ordinary internet connectivity or media that stays inside the app.</div>
+              <textarea id="curation-internetDetails-${draftId}" maxlength="200" placeholder="Describe where external links can appear" style="width: 100%; min-height: 60px; padding: 0.5rem; display: ${draftData.hasOpenInternet ? 'block' : 'none'}; margin-top: 0.5rem;">${escapeHtml(draftData.internetDetails || '')}</textarea>
             </div>
 
             <div class="admin-curation-form-group">

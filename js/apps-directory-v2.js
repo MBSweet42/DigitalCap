@@ -356,7 +356,7 @@ function renderAppDetails(app) {
             <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; font-size: 0.85rem;">
                     <div><strong>Chat:</strong> <span style="color: var(--text-gray);">${app.hasChat ? '✓ Yes' : '✗ No'}</span></div>
-                    <div><strong>Web Access:</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
+                    <div><strong>External Links:</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
                     <div><strong>Location:</strong> <span style="color: var(--text-gray);">${app.hasLocationTracking ? '✓ Yes' : '✗ No'}</span></div>
                 </div>
             </div>
