@@ -138,6 +138,7 @@ async function loadPublishedAppsFromFirestore() {
                     exposureFloor: publishedData.exposureFloor,
                     floorRationale: publishedData.floorRationale,
                     protectedExposureLevel: publishedData.protectedExposureLevel,
+                    protectedExplanation: publishedData.protectedExplanation || '',
                     recommendedSafeguards: Array.isArray(publishedData.recommendedSafeguards) ? publishedData.recommendedSafeguards : [],
                     residualExposure: Array.isArray(publishedData.residualExposure) ? publishedData.residualExposure : []
                 };

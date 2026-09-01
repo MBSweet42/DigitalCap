@@ -195,9 +195,10 @@
   }
 
   /**
-   * Validate complete v2 Digital Exposure Level data
+   * Validate complete v2 Digital Exposure Level data (simplified schema)
+   * Accepts both new simplified v2 records and older elaborate v2 records.
    * @param {*} app - App object to check
-   * @returns {boolean} True only if complete, valid v2 data structure
+   * @returns {boolean} True if valid v2 data structure (new or old)
    */
   function isCompleteV2ExposureData(app) {
     if (!app || typeof app !== 'object') return false;
@@ -205,99 +206,165 @@
     // schemaVersion must be 2
     if (app.schemaVersion !== 2) return false;
 
-    // exposureLevel must be valid enum
+    // exposureLevel must be valid enum (REQUIRED)
     if (!isValidExposureLevel(app.exposureLevel)) return false;
 
-    // exposureFactors must be array
-    if (!Array.isArray(app.exposureFactors)) return false;
-
-    // If factors present, validate each
-    if (app.exposureFactors.length > 0) {
-      for (const factor of app.exposureFactors) {
-        if (!isValidFactorKey(factor.factorKey)) return false;
-        if (!FACTOR_SEVERITIES.includes(factor.severity)) return false;
-      }
-    }
-
-    // exposureFloor must be valid enum
-    if (!isValidExposureLevel(app.exposureFloor)) return false;
-
-    // floorRationale must be non-empty string
-    if (typeof app.floorRationale !== 'string' || app.floorRationale.trim().length === 0) {
+    // exposureExplanation must be non-empty string (REQUIRED)
+    if (typeof app.exposureExplanation !== 'string' || app.exposureExplanation.trim().length === 0) {
       return false;
     }
 
-    // protectedExposureLevel must be valid enum
+    // exposureFactors must be array (REQUIRED, may be empty)
+    if (!Array.isArray(app.exposureFactors)) return false;
+
+    // Validate factors: accept both new string format and old object format
+    if (app.exposureFactors.length > 0) {
+      for (const factor of app.exposureFactors) {
+        // New simplified format: factor is just a string key
+        if (typeof factor === 'string') {
+          if (!isValidFactorKey(factor)) return false;
+        }
+        // Old elaborate format: factor is an object with factorKey
+        else if (typeof factor === 'object' && factor !== null) {
+          if (!isValidFactorKey(factor.factorKey)) return false;
+          // Severity is optional in simplified format, but validate if present
+          if (factor.severity !== undefined && !FACTOR_SEVERITIES.includes(factor.severity)) {
+            return false;
+          }
+          // Evidence is optional, no validation required
+        } else {
+          return false;
+        }
+      }
+    }
+
+    // protectedExposureLevel must be valid enum (REQUIRED)
     if (!isValidExposureLevel(app.protectedExposureLevel)) return false;
 
-    // recommendedSafeguards must be array (may be empty)
+    // protectedExplanation must be non-empty string (REQUIRED in simplified schema)
+    if (typeof app.protectedExplanation !== 'string' || app.protectedExplanation.trim().length === 0) {
+      return false;
+    }
+
+    // recommendedSafeguards must be array (REQUIRED, may be empty)
     if (!Array.isArray(app.recommendedSafeguards)) return false;
 
     // Validate each safeguard if present
     if (app.recommendedSafeguards.length > 0) {
       for (const safeguard of app.recommendedSafeguards) {
-        // Required fields
-        if (typeof safeguard.id !== 'string' || safeguard.id.trim().length === 0) return false;
-        if (typeof safeguard.label !== 'string' || safeguard.label.trim().length === 0) return false;
-        if (!SAFEGUARD_CATEGORIES.includes(safeguard.category)) return false;
-        if (!SAFEGUARD_TYPES.includes(safeguard.type)) return false;
-        if (typeof safeguard.description !== 'string' || safeguard.description.trim().length === 0) return false;
-        if (typeof safeguard.instructions !== 'string' || safeguard.instructions.trim().length === 0) return false;
-        if (!Object.values(SAFEGUARD_IMPACTS).includes(safeguard.impactLevel)) return false;
-
-        // reducesFactors must be array
-        if (!Array.isArray(safeguard.reducesFactors)) return false;
-
-        // Validate each factor key
-        for (const factor of safeguard.reducesFactors) {
-          if (!isValidFactorKey(factor)) return false;
-        }
-
-        // INTEGRITY RULE:
-        // Only "reduces" impact can claim to reduce factors
-        // "mitigates" and "manages" must NOT have reducesFactors
-        if ((safeguard.impactLevel === 'mitigates' || safeguard.impactLevel === 'manages') &&
-            safeguard.reducesFactors.length > 0) {
+        // label is REQUIRED (non-empty string)
+        if (typeof safeguard.label !== 'string' || safeguard.label.trim().length === 0) {
           return false;
         }
 
-        // availability optional, but if present must be valid
-        if (safeguard.availability !== undefined && !SAFEGUARD_AVAILABILITY.includes(safeguard.availability)) {
+        // instructions is REQUIRED (non-empty string)
+        if (typeof safeguard.instructions !== 'string' || safeguard.instructions.trim().length === 0) {
           return false;
         }
 
-        // limitations optional, but if present must be array
-        if (safeguard.limitations !== undefined && !Array.isArray(safeguard.limitations)) {
-          return false;
+        // Validate optional old fields if present
+        // (do not require them, but validate type/enum if they exist)
+
+        if (safeguard.id !== undefined) {
+          if (typeof safeguard.id !== 'string' || safeguard.id.trim().length === 0) {
+            return false;
+          }
+        }
+
+        if (safeguard.category !== undefined) {
+          if (!SAFEGUARD_CATEGORIES.includes(safeguard.category)) {
+            return false;
+          }
+        }
+
+        if (safeguard.type !== undefined) {
+          if (!SAFEGUARD_TYPES.includes(safeguard.type)) {
+            return false;
+          }
+        }
+
+        if (safeguard.description !== undefined) {
+          if (typeof safeguard.description !== 'string') {
+            return false;
+          }
+          // allow empty description in old records for backward compat
+        }
+
+        if (safeguard.impactLevel !== undefined) {
+          if (!Object.values(SAFEGUARD_IMPACTS).includes(safeguard.impactLevel)) {
+            return false;
+          }
+        }
+
+        if (safeguard.reducesFactors !== undefined) {
+          if (!Array.isArray(safeguard.reducesFactors)) {
+            return false;
+          }
+          // Validate each factor key
+          for (const factor of safeguard.reducesFactors) {
+            if (!isValidFactorKey(factor)) return false;
+          }
+
+          // INTEGRITY RULE: Only "reduces" impact can have reducesFactors
+          if (safeguard.impactLevel &&
+              (safeguard.impactLevel === 'mitigates' || safeguard.impactLevel === 'manages') &&
+              safeguard.reducesFactors.length > 0) {
+            return false;
+          }
+        }
+
+        if (safeguard.availability !== undefined) {
+          if (!SAFEGUARD_AVAILABILITY.includes(safeguard.availability)) {
+            return false;
+          }
+        }
+
+        if (safeguard.limitations !== undefined) {
+          if (!Array.isArray(safeguard.limitations)) {
+            return false;
+          }
         }
       }
     }
 
-    // residualExposure must be array (may be empty)
-    if (!Array.isArray(app.residualExposure)) return false;
+    // Optional old fields (not required in simplified schema)
+    // exposureFloor and floorRationale are optional
+    if (app.exposureFloor !== undefined) {
+      if (!isValidExposureLevel(app.exposureFloor)) return false;
+    }
 
-    // Validate each residual exposure if present
-    if (app.residualExposure.length > 0) {
-      for (const residual of app.residualExposure) {
-        if (!isValidFactorKey(residual.exposureFactor)) return false;
-        if (typeof residual.statement !== 'string' || residual.statement.trim().length === 0) return false;
-        if (typeof residual.reason !== 'string' || residual.reason.trim().length === 0) return false;
+    if (app.floorRationale !== undefined) {
+      if (typeof app.floorRationale !== 'string') return false;
+      // allow empty floorRationale for backward compat
+    }
 
-        // mitigations optional, but if present must be array
-        if (residual.mitigations !== undefined && !Array.isArray(residual.mitigations)) {
-          return false;
+    // residualExposure is optional (not required in simplified schema)
+    if (app.residualExposure !== undefined) {
+      if (!Array.isArray(app.residualExposure)) return false;
+
+      // Validate each residual if present (for old records)
+      if (app.residualExposure.length > 0) {
+        for (const residual of app.residualExposure) {
+          if (typeof residual.exposureFactor !== 'string' || !isValidFactorKey(residual.exposureFactor)) return false;
+          if (typeof residual.statement !== 'string' || residual.statement.trim().length === 0) return false;
+          if (typeof residual.reason !== 'string' || residual.reason.trim().length === 0) return false;
+
+          if (residual.mitigations !== undefined) {
+            if (!Array.isArray(residual.mitigations)) return false;
+          }
         }
       }
     }
 
-    // exposureExplanation must be non-empty string
-    if (typeof app.exposureExplanation !== 'string' || app.exposureExplanation.trim().length === 0) {
+    // SIMPLIFIED RULE: protected <= base (only ordinal check, no floor)
+    const ordBase = getExposureOrdinal(app.exposureLevel);
+    const ordProtected = getExposureOrdinal(app.protectedExposureLevel);
+
+    if (ordBase === null || ordProtected === null) {
       return false;
     }
 
-    // CRITICAL: Ordinal relationship must be valid
-    // floor <= protected <= base (in ordinal values)
-    if (!validateOrdinalRelationship(app.exposureFloor, app.protectedExposureLevel, app.exposureLevel)) {
+    if (ordProtected > ordBase) {
       return false;
     }
 
