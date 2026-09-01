@@ -1372,8 +1372,29 @@ window.publishCurationDraft = async function(draftId) {
 
     const draft = draftDoc.data();
 
-    // Validate publication-ready status
-    const validationError = validatePublishable(draft);
+    // Phase 4E: Publication-intent detection
+    let validationError = null;
+
+    // Check if curator has started Digital Exposure v2 work
+    const hasV2Work = hasMeaningfulV2DraftData({
+      exposureLevel: draft.exposureLevel,
+      exposureExplanation: draft.exposureExplanation,
+      exposureFactors: draft.exposureFactors,
+      exposureFloor: draft.exposureFloor,
+      floorRationale: draft.floorRationale,
+      recommendedSafeguards: draft.recommendedSafeguards,
+      protectedExposureLevel: draft.protectedExposureLevel,
+      residualExposure: draft.residualExposure
+    });
+
+    if (hasV2Work) {
+      // CASE 2: Curator has started v2 work → validate as complete v2
+      validationError = getV2ValidationError(draft);
+    } else {
+      // CASE 1: No v2 work → validate as legacy v1
+      validationError = validatePublishable(draft);
+    }
+
     if (validationError) {
       showModalPublishError(draftId, validationError);
       publishBtn.disabled = false;
@@ -1466,6 +1487,116 @@ window.publishCurationDraft = async function(draftId) {
     showModalPublishError(draftId, 'Failed to publish app. Please try again.');
   }
 };
+
+/**
+ * Phase 4E: Validate complete v2 Digital Exposure data with user-friendly diagnostics
+ */
+function getV2ValidationError(draft) {
+  const config = window.DigitalCapExposure;
+  if (!config) return 'Unable to load validation configuration';
+
+  // Build temporary validation candidate (schemaVersion only for validation)
+  const v2Candidate = {
+    ...draft,
+    schemaVersion: 2
+  };
+
+  // Use shared validator to check completeness
+  if (!config.isCompleteV2ExposureData(v2Candidate)) {
+    // Provide diagnostic errors for user-friendly messaging
+
+    // Base exposure level
+    if (!draft.exposureLevel) return 'Select a Base Digital Exposure Level.';
+    if (!config.isValidExposureLevel(draft.exposureLevel)) return 'Base Digital Exposure Level is invalid.';
+    if (!draft.exposureExplanation || !draft.exposureExplanation.trim()) {
+      return 'Explain why this Base Digital Exposure Level fits the app.';
+    }
+
+    // Exposure floor
+    if (!draft.exposureFloor) return 'Select an Exposure Floor.';
+    if (!config.isValidExposureLevel(draft.exposureFloor)) return 'Exposure Floor is invalid.';
+    if (!draft.floorRationale || !draft.floorRationale.trim()) {
+      return 'Explain why this is the Exposure Floor (why exposure cannot be lower).';
+    }
+
+    // Protected exposure level
+    if (!draft.protectedExposureLevel) return 'Select a Protected Exposure Level.';
+    if (!config.isValidExposureLevel(draft.protectedExposureLevel)) return 'Protected Exposure Level is invalid.';
+
+    // Ordinal relationship
+    const floorOrd = config.getExposureOrdinal(draft.exposureFloor);
+    const protectedOrd = config.getExposureOrdinal(draft.protectedExposureLevel);
+    const baseOrd = config.getExposureOrdinal(draft.exposureLevel);
+
+    if (floorOrd !== null && protectedOrd !== null && baseOrd !== null) {
+      if (floorOrd > protectedOrd) return 'Exposure Floor cannot be higher than Protected Exposure Level.';
+      if (protectedOrd > baseOrd) return 'Protected Exposure Level cannot be higher than Base Exposure Level.';
+    }
+
+    // Exposure factors
+    const factors = draft.exposureFactors || [];
+    if (Array.isArray(factors) && factors.length > 0) {
+      for (const factor of factors) {
+        if (!factor.factorKey) return 'Exposure Factor is missing a factor type.';
+        if (!config.isValidFactorKey(factor.factorKey)) return `Invalid exposure factor: ${factor.factorKey}`;
+        if (!factor.severity) return `${config.factors[factor.factorKey]?.label || factor.factorKey} needs a severity level.`;
+        if (!config.factorSeverities.includes(factor.severity)) return `Invalid severity for ${config.factors[factor.factorKey]?.label}`;
+      }
+    }
+
+    // Safeguards
+    const safeguards = draft.recommendedSafeguards || [];
+    if (Array.isArray(safeguards) && safeguards.length > 0) {
+      for (const sg of safeguards) {
+        if (!sg.id || !sg.id.trim()) return 'Each safeguard must have an ID.';
+        if (!sg.label || !sg.label.trim()) return 'Enter a safeguard name for all safeguards.';
+        if (!sg.category) return `Complete all required fields for safeguard: ${sg.label}.`;
+        if (!config.safeguardCategories.includes(sg.category)) return `Invalid category for safeguard: ${sg.label}`;
+        if (!sg.type) return `Select a type for safeguard: ${sg.label}.`;
+        if (!config.safeguardTypes.includes(sg.type)) return `Invalid type for safeguard: ${sg.label}`;
+        if (!sg.description || !sg.description.trim()) return `Add a description for safeguard: ${sg.label}.`;
+        if (!sg.instructions || !sg.instructions.trim()) return `Add instructions for safeguard: ${sg.label}.`;
+        if (!sg.impactLevel) return `Select an impact level for safeguard: ${sg.label}.`;
+        if (!config.safeguardImpacts[sg.impactLevel]) return `Invalid impact level for safeguard: ${sg.label}`;
+
+        // Check semantic rule: mitigates/manages cannot have reducesFactors
+        if ((sg.impactLevel === 'mitigates' || sg.impactLevel === 'manages') &&
+            Array.isArray(sg.reducesFactors) && sg.reducesFactors.length > 0) {
+          return `Safeguard "${sg.label}" marked as "${sg.impactLevel}" cannot claim to reduce exposure factors.`;
+        }
+
+        // Validate factors if present
+        if (Array.isArray(sg.reducesFactors) && sg.reducesFactors.length > 0) {
+          for (const factorKey of sg.reducesFactors) {
+            if (!config.isValidFactorKey(factorKey)) return `Invalid factor in safeguard: ${sg.label}`;
+          }
+        }
+
+        // Availability validation (optional)
+        if (sg.availability && !config.safeguardAvailability.includes(sg.availability)) {
+          return `Invalid availability for safeguard: ${sg.label}`;
+        }
+      }
+    }
+
+    // Residual exposure
+    const residual = draft.residualExposure || [];
+    if (Array.isArray(residual) && residual.length > 0) {
+      for (let i = 0; i < residual.length; i++) {
+        const re = residual[i];
+        if (!re.exposureFactor) return `Entry ${i + 1} in "What Remains" needs an exposure factor.`;
+        if (!config.isValidFactorKey(re.exposureFactor)) return `Invalid exposure factor in "What Remains" entry ${i + 1}`;
+        if (!re.statement || !re.statement.trim()) return `Entry ${i + 1} in "What Remains" needs a statement.`;
+        if (!re.reason || !re.reason.trim()) return `Entry ${i + 1} in "What Remains" needs an explanation for why it remains.`;
+      }
+    }
+
+    // Generic fallback
+    return 'Digital Exposure data is incomplete or invalid. Please review all sections.';
+  }
+
+  return null; // All v2 validations passed
+}
 
 /**
  * Validate that a draft is publication-ready
