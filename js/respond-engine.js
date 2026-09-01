@@ -54,7 +54,22 @@ class RespondEngine {
       this.flags[answerOption.flag] = true;
     }
 
-    // Advance to next question
+    // Check for branching: answer may declare what happens next
+    if (answerOption && answerOption.nextQuestion) {
+      if (answerOption.nextQuestion === 'result') {
+        // Skip remaining questions; show result
+        return { hasMore: false, interruptForSafety: false };
+      } else {
+        // Jump to a named question
+        const nextQIndex = this.content.questions.findIndex(q => q.id === answerOption.nextQuestion);
+        if (nextQIndex >= 0) {
+          this.currentQuestionIndex = nextQIndex;
+          return { hasMore: true, interruptForSafety: false };
+        }
+      }
+    }
+
+    // Default sequential behavior
     if (this.currentQuestionIndex < this.content.questions.length - 1) {
       this.currentQuestionIndex++;
       return { hasMore: true, interruptForSafety: false };
