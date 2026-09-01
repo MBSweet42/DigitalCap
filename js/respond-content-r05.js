@@ -20,7 +20,11 @@ const R05_BULLYING = {
         { label: 'No', value: 'no' },
         { label: 'I\'m not sure', value: 'unsure' }
       ],
-      flag: 'immediate_threat'
+      interruptBehavior: {
+        trigger: 'immediate-safety',
+        triggerValue: 'yes',
+        treatUnsureAsRisk: true
+      }
     },
     {
       id: 'q2',
@@ -28,6 +32,7 @@ const R05_BULLYING = {
       text: 'What\'s happening?',
       description: '',
       type: 'incident-cards',
+      captureAs: 'incidentType',
       answers: [
         {
           label: 'Mean or hurtful messages',
@@ -74,11 +79,10 @@ const R05_BULLYING = {
       description: '',
       type: 'yes-no-unsure',
       answers: [
-        { label: 'Yes', value: 'yes' },
+        { label: 'Yes', value: 'yes', flag: 'school_related' },
         { label: 'No', value: 'no' },
         { label: 'I\'m not sure', value: 'unsure' }
-      ],
-      flag: 'school_related'
+      ]
     }
   ],
 
@@ -138,9 +142,17 @@ const R05_BULLYING = {
     ]
   },
 
-  // DEEPER HELP SECTIONS (progressive disclosure)
-  deeperHelp: {
-    talk: {
+  // PRIMARY ACTIONS RULES (data-driven selection)
+  primaryActionsRules: [
+    { when: { flag: 'impersonation' }, use: 'impersonation' },
+    { when: { flag: 'image_related' }, use: 'images' }
+  ],
+
+  // DEEPER HELP SECTIONS (progressive disclosure, data-driven)
+  deeperHelpSections: [
+    {
+      id: 'talk',
+      show: 'always',
       title: '💬 Talk to my child',
       opener: '"I\'m glad you told me. Can you show me or tell me what has been happening?"',
       points: [
@@ -151,7 +163,9 @@ const R05_BULLYING = {
         'Make clear that asking for help doesn\'t automatically mean losing their device.'
       ]
     },
-    reporting: {
+    {
+      id: 'reporting',
+      show: 'always',
       title: '📱 Reporting & blocking',
       intro: 'If you\'re ready to take action:',
       points: [
@@ -162,7 +176,10 @@ const R05_BULLYING = {
         'Keep records of what you reported and when.'
       ]
     },
-    school: {
+    {
+      id: 'school',
+      show: 'whenFlag',
+      flag: 'school_related',
       title: '🏫 Involving the school',
       intro: 'When students from school are involved:',
       points: [
@@ -173,7 +190,9 @@ const R05_BULLYING = {
         'The school may be able to help with documentation if needed.'
       ]
     },
-    prevent: {
+    {
+      id: 'prevent',
+      show: 'always',
       title: '🛡️ Prevent this happening again',
       intro: 'Steps you can take together:',
       points: [
@@ -184,7 +203,7 @@ const R05_BULLYING = {
         'Let your child know you\'re there if they need support.'
       ]
     }
-  },
+  ],
 
   // IMMEDIATE SAFETY (shown when threat flag is set)
   immediateSafety: {

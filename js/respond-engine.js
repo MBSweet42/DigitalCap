@@ -32,32 +32,26 @@ class RespondEngine {
 
     this.answers[question.id] = value;
 
-    // Question 1: Check for immediate threat that interrupts normal flow
-    if (question.id === 'q1') {
-      this.flags.immediate_threat = (value === 'yes');
-      if (value === 'yes') {
-        // Interrupt: go to immediate safety result instead of normal flow
+    // Check for interrupt behavior (e.g., immediate safety)
+    if (question.interruptBehavior && question.interruptBehavior.trigger === 'immediate-safety') {
+      if (value === question.interruptBehavior.triggerValue) {
+        this.flags.immediate_threat = true;
         return { hasMore: false, interruptForSafety: true };
       }
-      // If unsure, note it but continue
-      if (value === 'unsure') {
+      if (question.interruptBehavior.treatUnsureAsRisk && value === 'unsure') {
         this.flags.threat_unsure = true;
       }
     }
 
-    // Question 2: Incident type selection
-    if (question.id === 'q2') {
+    // Capture incident type if question declares it
+    if (question.captureAs === 'incidentType') {
       this.incidentType = value;
-      // Track flags based on incident type
-      const answerOption = question.answers.find(a => a.value === value);
-      if (answerOption && answerOption.flag) {
-        this.flags[answerOption.flag] = true;
-      }
     }
 
-    // Question 3: School connection
-    if (question.id === 'q3') {
-      this.flags.school_related = (value === 'yes');
+    // Track flags from answer metadata
+    const answerOption = question.answers.find(a => a.value === value);
+    if (answerOption && answerOption.flag) {
+      this.flags[answerOption.flag] = true;
     }
 
     // Advance to next question
@@ -110,14 +104,17 @@ class RespondEngine {
       notes: ''
     };
 
-    // Determine which primary actions to show
-    if (this.flags.impersonation) {
-      result.primaryActions = this.content.primaryActions.impersonation;
-    } else if (this.flags.image_related) {
-      result.primaryActions = this.content.primaryActions.images;
-    } else {
-      result.primaryActions = this.content.primaryActions.default;
+    // Determine which primary actions to show using rules
+    let selectedActionKey = 'default';
+    if (this.content.primaryActionsRules && Array.isArray(this.content.primaryActionsRules)) {
+      for (const rule of this.content.primaryActionsRules) {
+        if (this._evaluateRuleCondition(rule.when)) {
+          selectedActionKey = rule.use;
+          break;
+        }
+      }
     }
+    result.primaryActions = this.content.primaryActions[selectedActionKey] || this.content.primaryActions.default || [];
 
     // Resolve recommendations: optional title replacement with fallback safety
     result.primaryActions = result.primaryActions.map(action => {
@@ -130,40 +127,24 @@ class RespondEngine {
       return action;
     });
 
-    // Always include talk section
-    result.deeperHelp.push({
-      id: 'talk',
-      title: this.content.deeperHelp.talk.title,
-      opener: this.content.deeperHelp.talk.opener,
-      points: this.content.deeperHelp.talk.points
-    });
-
-    // Always include reporting section
-    result.deeperHelp.push({
-      id: 'reporting',
-      title: this.content.deeperHelp.reporting.title,
-      intro: this.content.deeperHelp.reporting.intro,
-      points: this.content.deeperHelp.reporting.points
-    });
-
-    // Include school section only if school-related
-    if (this.flags.school_related) {
-      result.deeperHelp.push({
-        id: 'school',
-        title: this.content.deeperHelp.school.title,
-        intro: this.content.deeperHelp.school.intro,
-        points: this.content.deeperHelp.school.points
+    // Assemble deeper-help sections using data-driven logic
+    if (this.content.deeperHelpSections && Array.isArray(this.content.deeperHelpSections)) {
+      this.content.deeperHelpSections.forEach(section => {
+        if (this._shouldShowDeeperHelpSection(section)) {
+          result.deeperHelp.push({
+            id: section.id,
+            title: section.title,
+            opener: section.opener,
+            intro: section.intro,
+            points: section.points
+          });
+          // Track school option for backward compatibility
+          if (section.id === 'school') {
+            result.showSchoolOption = true;
+          }
+        }
       });
-      result.showSchoolOption = true;
     }
-
-    // Always include prevention section
-    result.deeperHelp.push({
-      id: 'prevent',
-      title: this.content.deeperHelp.prevent.title,
-      intro: this.content.deeperHelp.prevent.intro,
-      points: this.content.deeperHelp.prevent.points
-    });
 
     // If threat was unsure, add a small note
     if (this.flags.threat_unsure) {
@@ -171,6 +152,26 @@ class RespondEngine {
     }
 
     return result;
+  }
+
+  // Helper: Evaluate a rule condition
+  _evaluateRuleCondition(condition) {
+    if (!condition) return false;
+    if (condition.flag) {
+      return this.flags[condition.flag] === true;
+    }
+    return false;
+  }
+
+  // Helper: Determine if a deeper-help section should be shown
+  _shouldShowDeeperHelpSection(section) {
+    if (section.show === 'always') return true;
+    if (section.show === 'whenFlag' && section.flag) {
+      return this.flags[section.flag] === true;
+    }
+    if (section.show === 'never') return false;
+    // Default: show (backward compatibility)
+    return true;
   }
 
   // Get immediate safety result
