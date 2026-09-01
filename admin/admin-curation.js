@@ -14,6 +14,7 @@ import {
   serverTimestamp,
   onSnapshot,
   writeBatch,
+  deleteField,
 } from 'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js';
 
 let currentUser = null;
@@ -807,7 +808,7 @@ function renderSafeguardCard(draftId, index, safeguard) {
   const factorsSelected = (sg.reducesFactors || []).join(',');
 
   return `
-    <div class="admin-safeguard-card" data-draft-id="${draftId}" data-index="${index}" style="border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem; background: var(--bg-white);">
+    <div class="admin-safeguard-card" data-draft-id="${draftId}" data-index="${index}" data-safeguard-id="${sg.id || ''}" style="border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem; background: var(--bg-white);">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
         <strong style="font-size: 0.95rem;">Safeguard #${index + 1}</strong>
         <button type="button" onclick="removeSafeguard('${draftId}', ${index})" style="background: var(--danger); color: white; border: none; padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Remove</button>
@@ -879,7 +880,7 @@ function renderSafeguardCard(draftId, index, safeguard) {
 
         <div>
           <label style="display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.25rem;">Limitations</label>
-          <textarea class="admin-safeguard-limitations" data-draft-id="${draftId}" data-index="${index}" maxlength="300" placeholder="What are the limitations?" style="width: 100%; min-height: 60px; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px;">${escapeHtml(sg.limitations || '')}</textarea>
+          <textarea class="admin-safeguard-limitations" data-draft-id="${draftId}" data-index="${index}" maxlength="300" placeholder="What are the limitations?" style="width: 100%; min-height: 60px; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px;">${escapeHtml((sg.limitations || []).join('\n'))}</textarea>
         </div>
       </div>
     </div>
@@ -1014,6 +1015,174 @@ window.removeResidual = function(draftId, index) {
 };
 
 /**
+ * Collect exposure factors from form (Phase 4D persistence)
+ */
+function collectExposureFactors(draftId) {
+  const factors = [];
+  const config = window.DigitalCapExposure;
+  if (!config) return factors;
+
+  config.factorKeys.forEach(factorKey => {
+    const checkbox = document.querySelector(`.admin-factor-checkbox[data-draft-id="${draftId}"][data-factor-key="${factorKey}"]`);
+    if (checkbox && checkbox.checked) {
+      const severity = document.querySelector(`.admin-factor-severity[data-draft-id="${draftId}"][data-factor-key="${factorKey}"]`)?.value || '';
+      const evidence = document.querySelector(`.admin-factor-evidence[data-draft-id="${draftId}"][data-factor-key="${factorKey}"]`)?.value.trim() || '';
+
+      factors.push({
+        factorKey: factorKey,
+        severity: severity,
+        evidence: evidence
+      });
+    }
+  });
+
+  return factors;
+}
+
+/**
+ * Generate or preserve stable safeguard ID
+ */
+function generateOrPreserveSafeguardId(draftId, index, labelValue) {
+  const card = document.querySelector(`.admin-safeguard-card[data-draft-id="${draftId}"][data-index="${index}"]`);
+
+  // Check if ID already exists in data attribute
+  let existingId = card?.getAttribute('data-safeguard-id');
+  if (existingId && existingId.trim()) {
+    return existingId;
+  }
+
+  // Generate new UUID
+  const newId = crypto.randomUUID();
+  if (card) {
+    card.setAttribute('data-safeguard-id', newId);
+  }
+  return newId;
+}
+
+/**
+ * Collect recommended safeguards from form (Phase 4D persistence)
+ */
+function collectRecommendedSafeguards(draftId) {
+  const safeguards = [];
+  const config = window.DigitalCapExposure;
+  if (!config) return safeguards;
+
+  const container = document.getElementById(`curation-safeguards-container-${draftId}`);
+  if (!container) return safeguards;
+
+  container.querySelectorAll('.admin-safeguard-card').forEach((card, index) => {
+    const label = card.querySelector('.admin-safeguard-label')?.value.trim() || '';
+    const category = card.querySelector('.admin-safeguard-category')?.value || '';
+    const type = card.querySelector('.admin-safeguard-type')?.value || '';
+    const description = card.querySelector('.admin-safeguard-description')?.value.trim() || '';
+    const instructions = card.querySelector('.admin-safeguard-instructions')?.value.trim() || '';
+    const impact = card.querySelector('.admin-safeguard-impact')?.value || '';
+    const availability = card.querySelector('.admin-safeguard-availability')?.value || '';
+    const limitations = card.querySelector('.admin-safeguard-limitations')?.value.trim() || '';
+
+    // Preserve if ANY meaningful field is filled (Correction 2 - preserve meaningful partial cards)
+    const hasMeaningful = label || category || type || description || instructions || impact || availability || limitations;
+    if (!hasMeaningful) return;  // Skip completely empty card
+
+    // Collect reducesFactors only if impact is 'reduces'
+    const reducesFactors = [];
+    if (impact === 'reduces') {
+      card.querySelectorAll('.admin-safeguard-factor:checked').forEach(checkbox => {
+        const factorKey = checkbox.getAttribute('data-factor');
+        if (factorKey) reducesFactors.push(factorKey);
+      });
+    }
+
+    // Generate or preserve stable ID
+    const safeguardId = generateOrPreserveSafeguardId(draftId, index, label);
+
+    // Convert limitations textarea to array
+    const limitationsArray = limitations
+      ? limitations.split('\n').map(l => l.trim()).filter(l => l.length > 0)
+      : [];
+
+    safeguards.push({
+      id: safeguardId,
+      label: label,
+      category: category,
+      type: type,
+      description: description,
+      instructions: instructions,
+      reducesFactors: reducesFactors,
+      impactLevel: impact,
+      availability: availability,
+      limitations: limitationsArray.length > 0 ? limitationsArray : []
+    });
+  });
+
+  return safeguards;
+}
+
+/**
+ * Collect residual exposure entries from form (Phase 4D persistence)
+ */
+function collectResidualExposure(draftId) {
+  const residual = [];
+
+  const container = document.getElementById(`curation-residual-container-${draftId}`);
+  if (!container) return residual;
+
+  container.querySelectorAll('.admin-residual-card').forEach(card => {
+    const factor = card.querySelector('.admin-residual-factor')?.value || '';
+    const statement = card.querySelector('.admin-residual-statement')?.value.trim() || '';
+    const reason = card.querySelector('.admin-residual-reason')?.value.trim() || '';
+    const mitigationsText = card.querySelector('.admin-residual-mitigations')?.value.trim() || '';
+
+    // Preserve if ANY meaningful field is filled (Correction 2 - preserve meaningful partial cards)
+    const hasMeaningful = factor || statement || reason || mitigationsText;
+    if (!hasMeaningful) return;  // Skip completely empty card
+
+    // Convert mitigations textarea to array
+    const mitigations = mitigationsText
+      ? mitigationsText.split('\n').map(m => m.trim()).filter(m => m.length > 0)
+      : [];
+
+    residual.push({
+      exposureFactor: factor,
+      statement: statement,
+      reason: reason,
+      mitigations: mitigations.length > 0 ? mitigations : []
+    });
+  });
+
+  return residual;
+}
+
+/**
+ * Check if any meaningful v2 data was entered
+ */
+function hasMeaningfulV2DraftData(formData) {
+  if (!formData) return false;
+
+  const {
+    exposureLevel, exposureExplanation, exposureFactors,
+    exposureFloor, floorRationale, recommendedSafeguards,
+    protectedExposureLevel, residualExposure
+  } = formData;
+
+  // Check top-level fields
+  if (exposureLevel || exposureExplanation) return true;
+
+  // Check arrays
+  if (exposureFactors && exposureFactors.length > 0) return true;
+  if (recommendedSafeguards && recommendedSafeguards.length > 0) return true;
+  if (residualExposure && residualExposure.length > 0) return true;
+
+  // Check floor fields
+  if (exposureFloor || floorRationale) return true;
+
+  // Check protected level
+  if (protectedExposureLevel) return true;
+
+  return false;
+}
+
+/**
  * Save curation draft
  */
 window.saveCurationDraft = async function(draftId) {
@@ -1071,6 +1240,28 @@ window.saveCurationDraft = async function(draftId) {
 
   const scriptOpenerText = document.getElementById(`curation-scriptopener-${draftId}`).value.trim();
 
+  // Phase 4D: Collect v2 Digital Exposure draft data
+  const exposureLevel = document.getElementById(`curation-exposure-level-${draftId}`)?.value || '';
+  const exposureExplanation = document.getElementById(`curation-exposure-explain-${draftId}`)?.value.trim() || '';
+  const exposureFactors = collectExposureFactors(draftId);
+  const exposureFloor = document.getElementById(`curation-exposure-floor-${draftId}`)?.value || '';
+  const floorRationale = document.getElementById(`curation-floor-rationale-${draftId}`)?.value.trim() || '';
+  const recommendedSafeguards = collectRecommendedSafeguards(draftId);
+  const protectedExposureLevel = document.getElementById(`curation-protected-level-${draftId}`)?.value || '';
+  const residualExposure = collectResidualExposure(draftId);
+
+  // Build v2 data object for conditional persistence
+  const v2DraftData = {
+    exposureLevel: exposureLevel || undefined,
+    exposureExplanation: exposureExplanation || undefined,
+    exposureFactors: exposureFactors.length > 0 ? exposureFactors : undefined,
+    exposureFloor: exposureFloor || undefined,
+    floorRationale: floorRationale || undefined,
+    recommendedSafeguards: recommendedSafeguards.length > 0 ? recommendedSafeguards : undefined,
+    protectedExposureLevel: protectedExposureLevel || undefined,
+    residualExposure: residualExposure.length > 0 ? residualExposure : undefined
+  };
+
   // Compute safety label
   const safetyLabels = {
     1: '🔴 CRITICAL RISK',
@@ -1115,6 +1306,30 @@ window.saveCurationDraft = async function(draftId) {
     updatedAt: serverTimestamp(),
     updatedBy: currentUser.uid
   };
+
+  // Phase 4D: Sparse v2 field persistence
+  // Only add v2 fields if curator entered meaningful data
+  if (hasMeaningfulV2DraftData(v2DraftData)) {
+    if (v2DraftData.exposureLevel) updateData.exposureLevel = v2DraftData.exposureLevel;
+    if (v2DraftData.exposureExplanation) updateData.exposureExplanation = v2DraftData.exposureExplanation;
+    if (v2DraftData.exposureFactors) updateData.exposureFactors = v2DraftData.exposureFactors;
+    if (v2DraftData.exposureFloor) updateData.exposureFloor = v2DraftData.exposureFloor;
+    if (v2DraftData.floorRationale) updateData.floorRationale = v2DraftData.floorRationale;
+    if (v2DraftData.recommendedSafeguards) updateData.recommendedSafeguards = v2DraftData.recommendedSafeguards;
+    if (v2DraftData.protectedExposureLevel) updateData.protectedExposureLevel = v2DraftData.protectedExposureLevel;
+    if (v2DraftData.residualExposure) updateData.residualExposure = v2DraftData.residualExposure;
+  } else {
+    // If curator cleared all v2 data, remove stale v2 fields from Firestore
+    // This ensures old v2 values don't persist invisibly after intentional deletion
+    updateData.exposureLevel = deleteField();
+    updateData.exposureExplanation = deleteField();
+    updateData.exposureFactors = deleteField();
+    updateData.exposureFloor = deleteField();
+    updateData.floorRationale = deleteField();
+    updateData.recommendedSafeguards = deleteField();
+    updateData.protectedExposureLevel = deleteField();
+    updateData.residualExposure = deleteField();
+  }
 
   try {
     await updateDoc(doc(db, 'appsCurations', draftId), updateData);
