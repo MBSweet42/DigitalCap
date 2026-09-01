@@ -1,0 +1,343 @@
+// Digital Exposure Level - Centralized Configuration & Helpers
+// Phase 4A: Shared data structures and validation logic
+// Exposes single global namespace: window.DigitalCapExposure
+
+(function() {
+  'use strict';
+
+  // ========== EXPOSURE LEVELS ==========
+
+  const LEVELS = {
+    LOWER: 'lower',
+    MODERATE: 'moderate',
+    HIGHER: 'higher',
+    VERY_HIGH: 'very_high'
+  };
+
+  // ========== ORDINAL MAPPING ==========
+  // Lower number = less exposure
+  const ORDINAL = {
+    lower: 1,
+    moderate: 2,
+    higher: 3,
+    very_high: 4
+  };
+
+  // ========== PUBLIC LABELS ==========
+
+  const LABELS = {
+    lower: 'Lower Exposure',
+    moderate: 'Moderate Exposure',
+    higher: 'Higher Exposure',
+    very_high: 'Very High Exposure'
+  };
+
+  // Badges with emoji for display
+  const BADGES = {
+    lower: '🟢 Lower Exposure',
+    moderate: '🟡 Moderate Exposure',
+    higher: '🟠 Higher Exposure',
+    very_high: '🔴 Very High Exposure'
+  };
+
+  // ========== COLORS FOR BADGES ==========
+  // Not a safety judgment; visual organization only
+
+  const COLORS = {
+    lower: {
+      text: '#2EC4B6',
+      bg: 'rgba(46, 196, 182, 0.15)'
+    },
+    moderate: {
+      text: '#FFB703',
+      bg: 'rgba(255, 183, 3, 0.15)'
+    },
+    higher: {
+      text: '#FF8C42',
+      bg: 'rgba(255, 140, 66, 0.15)'
+    },
+    very_high: {
+      text: '#FF6B6B',
+      bg: 'rgba(255, 107, 107, 0.15)'
+    }
+  };
+
+  // ========== EXPOSURE FACTORS ==========
+
+  const FACTORS = {
+    communication: {
+      key: 'communication',
+      label: 'Direct Communication'
+    },
+    unknown_people_contact: {
+      key: 'unknown_people_contact',
+      label: 'Contact from Unknown People'
+    },
+    public_visibility: {
+      key: 'public_visibility',
+      label: 'Public Visibility'
+    },
+    location_personal_data: {
+      key: 'location_personal_data',
+      label: 'Location & Personal Information Exposure'
+    },
+    content_exposure: {
+      key: 'content_exposure',
+      label: 'Unfiltered Content Discovery'
+    },
+    content_persistence: {
+      key: 'content_persistence',
+      label: 'Limited Control Over Shared Content'
+    },
+    money_transactions: {
+      key: 'money_transactions',
+      label: 'Financial Transactions'
+    },
+    outside_access: {
+      key: 'outside_access',
+      label: 'External Links & Off-Platform Access'
+    }
+  };
+
+  // Quick reference array of valid factor keys
+  const FACTOR_KEYS = Object.keys(FACTORS);
+
+  // ========== VALIDATION CONSTANTS ==========
+
+  const FACTOR_SEVERITIES = ['low', 'medium', 'high'];
+
+  const SAFEGUARD_IMPACTS = {
+    REDUCES: 'reduces',
+    MITIGATES: 'mitigates',
+    MANAGES: 'manages'
+  };
+
+  const SAFEGUARD_CATEGORIES = ['privacy', 'communication', 'content', 'financial', 'location', 'behavior'];
+
+  const SAFEGUARD_TYPES = ['setting', 'feature', 'device', 'behavior'];
+
+  const SAFEGUARD_AVAILABILITY = ['always', 'some_accounts', 'requires_premium'];
+
+  // ========== HELPER FUNCTIONS ==========
+
+  /**
+   * Validate exposure level
+   * @param {*} value - Value to check
+   * @returns {boolean} True if value is a valid exposure level
+   */
+  function isValidExposureLevel(value) {
+    return value === 'lower' ||
+           value === 'moderate' ||
+           value === 'higher' ||
+           value === 'very_high';
+  }
+
+  /**
+   * Get ordinal value for exposure level
+   * @param {string} level - Exposure level string
+   * @returns {number|null} Ordinal value (1-4) or null if invalid
+   */
+  function getExposureOrdinal(level) {
+    if (typeof level !== 'string') return null;
+    return ORDINAL[level] || null;
+  }
+
+  /**
+   * Validate ordinal relationship: floor <= protected <= base
+   * @param {string} floor - Exposure floor level
+   * @param {string} protectedLevel - Protected exposure level
+   * @param {string} base - Base exposure level
+   * @returns {boolean} True if ordinal relationship is valid
+   */
+  function validateOrdinalRelationship(floor, protectedLevel, base) {
+    const ordFloor = getExposureOrdinal(floor);
+    const ordProtected = getExposureOrdinal(protectedLevel);
+    const ordBase = getExposureOrdinal(base);
+
+    if (ordFloor === null || ordProtected === null || ordBase === null) {
+      return false;
+    }
+
+    return ordFloor <= ordProtected && ordProtected <= ordBase;
+  }
+
+  /**
+   * Validate exposure factor key
+   * @param {*} value - Value to check
+   * @returns {boolean} True if value is a valid factor key
+   */
+  function isValidFactorKey(value) {
+    return FACTOR_KEYS.includes(value);
+  }
+
+  /**
+   * Detect legacy Safety Rating data (v1)
+   * @param {*} app - App object to check
+   * @returns {boolean} True if object has valid legacy Safety Rating
+   */
+  function isLegacySafetyData(app) {
+    if (!app || typeof app !== 'object') return false;
+
+    const rating = app.safetyRating;
+    const label = app.safetyLabel;
+
+    // safetyRating must be numeric 1, 2, 3, or 4
+    if (typeof rating !== 'number' || ![1, 2, 3, 4].includes(rating)) {
+      return false;
+    }
+
+    // safetyLabel must be a non-empty string
+    if (typeof label !== 'string' || label.trim().length === 0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Validate complete v2 Digital Exposure Level data
+   * @param {*} app - App object to check
+   * @returns {boolean} True only if complete, valid v2 data structure
+   */
+  function isCompleteV2ExposureData(app) {
+    if (!app || typeof app !== 'object') return false;
+
+    // schemaVersion must be 2
+    if (app.schemaVersion !== 2) return false;
+
+    // exposureLevel must be valid enum
+    if (!isValidExposureLevel(app.exposureLevel)) return false;
+
+    // exposureFactors must be array
+    if (!Array.isArray(app.exposureFactors)) return false;
+
+    // If factors present, validate each
+    if (app.exposureFactors.length > 0) {
+      for (const factor of app.exposureFactors) {
+        if (!isValidFactorKey(factor.factorKey)) return false;
+        if (!FACTOR_SEVERITIES.includes(factor.severity)) return false;
+      }
+    }
+
+    // exposureFloor must be valid enum
+    if (!isValidExposureLevel(app.exposureFloor)) return false;
+
+    // floorRationale must be non-empty string
+    if (typeof app.floorRationale !== 'string' || app.floorRationale.trim().length === 0) {
+      return false;
+    }
+
+    // protectedExposureLevel must be valid enum
+    if (!isValidExposureLevel(app.protectedExposureLevel)) return false;
+
+    // recommendedSafeguards must be array (may be empty)
+    if (!Array.isArray(app.recommendedSafeguards)) return false;
+
+    // Validate each safeguard if present
+    if (app.recommendedSafeguards.length > 0) {
+      for (const safeguard of app.recommendedSafeguards) {
+        // Required fields
+        if (typeof safeguard.id !== 'string' || safeguard.id.trim().length === 0) return false;
+        if (typeof safeguard.label !== 'string' || safeguard.label.trim().length === 0) return false;
+        if (!SAFEGUARD_CATEGORIES.includes(safeguard.category)) return false;
+        if (!SAFEGUARD_TYPES.includes(safeguard.type)) return false;
+        if (typeof safeguard.description !== 'string' || safeguard.description.trim().length === 0) return false;
+        if (typeof safeguard.instructions !== 'string' || safeguard.instructions.trim().length === 0) return false;
+        if (!Object.values(SAFEGUARD_IMPACTS).includes(safeguard.impactLevel)) return false;
+
+        // reducesFactors must be array
+        if (!Array.isArray(safeguard.reducesFactors)) return false;
+
+        // Validate each factor key
+        for (const factor of safeguard.reducesFactors) {
+          if (!isValidFactorKey(factor)) return false;
+        }
+
+        // INTEGRITY RULE:
+        // Only "reduces" impact can claim to reduce factors
+        // "mitigates" and "manages" must NOT have reducesFactors
+        if ((safeguard.impactLevel === 'mitigates' || safeguard.impactLevel === 'manages') &&
+            safeguard.reducesFactors.length > 0) {
+          return false;
+        }
+
+        // availability optional, but if present must be valid
+        if (safeguard.availability !== undefined && !SAFEGUARD_AVAILABILITY.includes(safeguard.availability)) {
+          return false;
+        }
+
+        // limitations optional, but if present must be array
+        if (safeguard.limitations !== undefined && !Array.isArray(safeguard.limitations)) {
+          return false;
+        }
+      }
+    }
+
+    // residualExposure must be array (may be empty)
+    if (!Array.isArray(app.residualExposure)) return false;
+
+    // Validate each residual exposure if present
+    if (app.residualExposure.length > 0) {
+      for (const residual of app.residualExposure) {
+        if (!isValidFactorKey(residual.exposureFactor)) return false;
+        if (typeof residual.statement !== 'string' || residual.statement.trim().length === 0) return false;
+        if (typeof residual.reason !== 'string' || residual.reason.trim().length === 0) return false;
+
+        // mitigations optional, but if present must be array
+        if (residual.mitigations !== undefined && !Array.isArray(residual.mitigations)) {
+          return false;
+        }
+      }
+    }
+
+    // exposureExplanation must be non-empty string
+    if (typeof app.exposureExplanation !== 'string' || app.exposureExplanation.trim().length === 0) {
+      return false;
+    }
+
+    // CRITICAL: Ordinal relationship must be valid
+    // floor <= protected <= base (in ordinal values)
+    if (!validateOrdinalRelationship(app.exposureFloor, app.protectedExposureLevel, app.exposureLevel)) {
+      return false;
+    }
+
+    // All validations passed
+    return true;
+  }
+
+  /**
+   * Check if app has any valid rating (v1 or v2)
+   * @param {*} app - App object to check
+   * @returns {boolean} True if has either complete v2 or legacy v1 data
+   */
+  function hasAnyRating(app) {
+    return isCompleteV2ExposureData(app) || isLegacySafetyData(app);
+  }
+
+  // ========== EXPOSE GLOBAL NAMESPACE ==========
+
+  window.DigitalCapExposure = {
+    // Configuration constants
+    levels: LEVELS,
+    ordinal: ORDINAL,
+    labels: LABELS,
+    badges: BADGES,
+    colors: COLORS,
+    factors: FACTORS,
+    factorKeys: FACTOR_KEYS,
+    factorSeverities: FACTOR_SEVERITIES,
+    safeguardImpacts: SAFEGUARD_IMPACTS,
+    safeguardCategories: SAFEGUARD_CATEGORIES,
+    safeguardTypes: SAFEGUARD_TYPES,
+    safeguardAvailability: SAFEGUARD_AVAILABILITY,
+
+    // Validation helpers
+    isValidExposureLevel: isValidExposureLevel,
+    getExposureOrdinal: getExposureOrdinal,
+    validateOrdinalRelationship: validateOrdinalRelationship,
+    isValidFactorKey: isValidFactorKey,
+    isLegacySafetyData: isLegacySafetyData,
+    isCompleteV2ExposureData: isCompleteV2ExposureData,
+    hasAnyRating: hasAnyRating
+  };
+})();
