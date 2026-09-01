@@ -1108,6 +1108,67 @@ button {
     font-size: 0.9rem;
 }
 
+/* Digital Exposure UI (v2) */
+
+.admin-exposure-details {
+    margin-bottom: 0;
+}
+
+.admin-exposure-details summary {
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.admin-exposure-details summary:hover {
+    background: var(--primary-dark) !important;
+}
+
+.admin-exposure-details[open] > summary {
+    background: var(--primary) !important;
+    color: white;
+}
+
+.admin-exposure-factor {
+    transition: background-color 0.2s ease;
+}
+
+.admin-exposure-factor:hover {
+    background: var(--bg-white);
+}
+
+.admin-factor-details {
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+.admin-safeguard-card,
+.admin-residual-card {
+    animation: slideDown 0.2s ease-out;
+    transition: box-shadow 0.2s ease;
+}
+
+.admin-safeguard-card:hover,
+.admin-residual-card:hover {
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.2);
+}
+
+.admin-safeguard-factors-div {
+    padding: 0.75rem;
+    background: var(--bg-light);
+    border-radius: 4px;
+    border-left: 3px solid var(--secondary);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .admin-container {
