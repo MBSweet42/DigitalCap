@@ -13,7 +13,8 @@ const appsCompleteV2 = [
         description: 'Short-form video platform with a highly personalized recommendation system and potential effects on sleep, mood, and well-being with heavy use.',
         hasChat: true,
         chatDetails: 'Private messaging with followers; easily accessible to strangers',
-        hasOpenInternet: false,
+        hasOpenInternet: true,
+        internetDetails: 'Creator profiles can include external website links, and ads may contain destination links',
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
@@ -73,7 +74,8 @@ const appsCompleteV2 = [
         description: 'Messaging app with disappearing messages and location sharing, which can make some safety concerns harder to spot.',
         hasChat: true,
         chatDetails: 'DMs with anyone; messages disappear (but can be screenshot)',
-        hasOpenInternet: false,
+        hasOpenInternet: true,
+        internetDetails: 'Users can attach links to Snaps and share links in messages; eligible Public Profiles can also include website links',
         hasLocationTracking: true,
         locationDetails: 'Snap Map shows real-time location to friends (and can be set to public)',
         whyThisMatters: {
@@ -196,7 +198,8 @@ const appsCompleteV2 = [
         description: 'Gaming platform with in-game chat, sophisticated scam networks, and predator presence.',
         hasChat: true,
         chatDetails: 'In-game chat with other players; predators use to move conversations to Discord',
-        hasOpenInternet: false,
+        hasOpenInternet: true,
+        internetDetails: 'Approved social links can lead to external services such as YouTube, Discord, and Twitch. Availability varies by surface and requires age verification; some social links are limited to older teens',
         hasLocationTracking: false,
         resourceIds: ['common-sense-media'],
         whyThisMatters: {
@@ -1541,7 +1544,8 @@ const appsCompleteV2 = [
         description: 'Encrypted messaging app focused on privacy and security.',
         hasChat: true,
         chatDetails: 'Direct messages, group messages, voice and video calls',
-        hasOpenInternet: false,
+        hasOpenInternet: true,
+        internetDetails: 'Users can send and receive clickable external links in messages',
         hasLocationTracking: false,
         whyThisMatters: {
             title: 'Why This Matters',
