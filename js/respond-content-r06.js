@@ -144,12 +144,12 @@ const R06_HACKED = {
       {
         number: 1,
         title: 'Use the platform\'s official account recovery process',
-        text: 'Visit the platform\'s recovery page. You\'ll verify your identity using recovery email, phone, security questions, or other methods.'
+        text: 'Use the platform\'s official account recovery process and follow the verification steps it provides.'
       },
       {
         number: 2,
         title: 'Follow the verification steps',
-        text: 'Complete whatever identity verification the platform requests. Recovery time varies depending on the verification method needed.'
+        text: 'Complete whatever identity verification the platform requests. Follow any status or next-step instructions provided by the platform.'
       },
       {
         number: 3,
@@ -305,10 +305,10 @@ const R06_HACKED = {
       title: 'Getting back into the account',
       intro: 'If the account is locked out, follow the platform\'s official recovery process:',
       points: [
-        'Go to the platform\'s official recovery page (link in primary actions).',
+        'Use the platform\'s official account recovery process.',
         'Follow the identity verification steps requested.',
-        'This might ask for recovery email, phone verification, security questions, or other information you set up when creating the account.',
-        'Recovery time varies depending on verification method; some are instant, others may take longer.',
+        'Follow the verification steps provided by the platform. Recovery methods vary by platform and account.',
+        'Follow any status or next-step instructions provided by the platform.',
         'If official recovery doesn\'t work, use the platform\'s support channel to get help.'
       ]
     },

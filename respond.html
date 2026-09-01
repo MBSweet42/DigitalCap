@@ -910,6 +910,20 @@
                 }
             }
 
+            // Add account recovery selector to recovery section (R06 only)
+            const recoveryHelp = Array.from(document.querySelectorAll('.respond-help-section')).find(section => {
+                const title = section.querySelector('.respond-help-header span:first-child');
+                return title && title.textContent.includes('Getting back into the account');
+            });
+
+            if (recoveryHelp) {
+                const contentDiv = recoveryHelp.querySelector('.respond-help-content');
+                if (contentDiv) {
+                    contentDiv.dataset.platformPurpose = 'account-recovery';
+                    createPlatformResourceSelector('account-recovery', 'Need platform-specific account recovery help?', contentDiv);
+                }
+            }
+
             // Load resources asynchronously (don't block rendering)
             if (result.notes && result.notes.resourceIds && result.notes.resourceIds.length > 0) {
                 getResources(result.notes.resourceIds).then(resources => {
