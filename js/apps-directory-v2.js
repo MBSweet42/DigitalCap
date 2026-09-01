@@ -296,19 +296,23 @@ function renderAppsList(apps) {
 }
 
 function renderAppCard(app, isExpanded) {
-    const safetyColor = getSafetyColor(app.safetyRating);
-    const safetyBg = getSafetyBg(app.safetyRating);
+    const ratingDisplay = getRatingDisplay(app);
 
     let card = `
         <div class="app-card" data-app-id="${String(app.id)}" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s ease;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                 <div style="flex: 1;">
                     <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">${app.name}</h3>
-                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
-                        <span style="background: ${safetyBg}; color: ${safetyColor}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
-                            ${app.safetyLabel}
-                        </span>
-                        <span style="color: var(--text-gray); font-size: 0.9rem;">${app.category}</span>
+                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">`;
+
+    // Render rating badge only if valid rating exists
+    if (ratingDisplay.mode !== 'none') {
+        card += `<span style="background: ${ratingDisplay.bgColor}; color: ${ratingDisplay.textColor}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            ${ratingDisplay.label}
+                        </span>`;
+    }
+
+    card += `<span style="color: var(--text-gray); font-size: 0.9rem;">${app.category}</span>
                     </div>
                 </div>
                 <div style="text-align: right; margin-left: 1rem; white-space: nowrap; font-size: 0.85rem; color: var(--secondary); font-weight: 600;">
@@ -730,6 +734,52 @@ function getSafetyBg(rating) {
     if (rating === 3) return 'rgba(255, 140, 66, 0.15)';
     if (rating === 4) return 'rgba(255, 183, 3, 0.15)';
     return 'rgba(46, 196, 182, 0.15)';
+}
+
+function getRatingDisplay(app) {
+    // Graceful fallback if config namespace is unavailable
+    if (!window.DigitalCapExposure) {
+        // Legacy v1 detection without Phase 4A helpers
+        if (typeof app.safetyRating === 'number' && [1, 2, 3, 4].includes(app.safetyRating) &&
+            typeof app.safetyLabel === 'string' && app.safetyLabel.trim().length > 0) {
+            return {
+                mode: 'v1',
+                label: app.safetyLabel,
+                textColor: getSafetyColor(app.safetyRating),
+                bgColor: getSafetyBg(app.safetyRating)
+            };
+        }
+        return { mode: 'none' };
+    }
+
+    // Use Phase 4A helpers for validation
+    const config = window.DigitalCapExposure;
+
+    // Check for complete v2 first (takes precedence)
+    if (config.isCompleteV2ExposureData(app)) {
+        const level = app.exposureLevel;
+        const badge = config.badges[level];
+        const colors = config.colors[level];
+        return {
+            mode: 'v2',
+            label: badge,
+            textColor: colors.text,
+            bgColor: colors.bg
+        };
+    }
+
+    // Fall back to legacy v1
+    if (config.isLegacySafetyData(app)) {
+        return {
+            mode: 'v1',
+            label: app.safetyLabel,
+            textColor: getSafetyColor(app.safetyRating),
+            bgColor: getSafetyBg(app.safetyRating)
+        };
+    }
+
+    // No valid rating
+    return { mode: 'none' };
 }
 
 function escapeHtml(text) {
