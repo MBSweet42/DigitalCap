@@ -524,6 +524,7 @@ function displayCurationForm(draftId, draftData) {
         <fieldset class="admin-curation-fieldset">
           <legend>Digital Exposure Framework (v2)</legend>
           <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 1rem;">Measures exposure pathways the app creates. Does not label an app as safe or unsafe. Structured UI for future publication.</p>
+          <button type="button" class="admin-curation-btn" style="margin-bottom: 1rem; background-color: #4CAF50;" onclick="openAIAssessmentImporter('${draftId}')">📥 Import AI Assessment</button>
 
           <!-- Base Exposure -->
           <details class="admin-exposure-details">
@@ -2552,4 +2553,174 @@ function showDraftAppsError(msg) {
   setTimeout(() => {
     errorDiv.remove();
   }, 5000);
+}
+
+// ============================================
+// AI ASSESSMENT IMPORTER (Phase C)
+// ============================================
+
+/**
+ * Open AI Assessment importer modal
+ */
+window.openAIAssessmentImporter = function(draftId) {
+  if (!db || !currentUser) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'admin-curation-modal';
+  modal.id = `ai-importer-modal-${draftId}`;
+  modal.innerHTML = `
+    <div class="admin-curation-modal-backdrop" onclick="closeAIAssessmentImporter('${draftId}')"></div>
+    <div class="admin-curation-modal-content" style="max-width: 600px;">
+      <button class="admin-curation-modal-close" onclick="closeAIAssessmentImporter('${draftId}')">✕</button>
+      <h2 style="margin-top: 0;">Import AI Assessment</h2>
+
+      <div style="background: var(--bg-light); padding: 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.5; color: var(--text-gray);">
+        <p><strong>How to use:</strong></p>
+        <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+          <li>Paste a complete AI-generated assessment as JSON</li>
+          <li>Click "Validate & Import" to check and import</li>
+          <li>The imported values will be available for review in the Digital Exposure section</li>
+        </ol>
+      </div>
+
+      <div class="admin-curation-form-group">
+        <label for="ai-assessment-json-${draftId}">Assessment JSON</label>
+        <textarea
+          id="ai-assessment-json-${draftId}"
+          placeholder="{&#10;  &quot;schemaVersion&quot;: 2,&#10;  &quot;exposureLevel&quot;: &quot;higher&quot;,&#10;  &quot;exposureExplanation&quot;: &quot;Explanation...&quot;,&#10;  &quot;exposureFactors&quot;: [&quot;communication&quot;],&#10;  &quot;protectedExposureLevel&quot;: &quot;moderate&quot;,&#10;  &quot;recommendedSafeguards&quot;: [{&quot;label&quot;: &quot;...&quot;, &quot;instructions&quot;: &quot;...&quot;}],&#10;  &quot;protectedExplanation&quot;: &quot;Explanation...&quot;&#10;}"
+          style="width: 100%; min-height: 300px; padding: 0.75rem; font-family: monospace; font-size: 0.85rem; border: 1px solid var(--border-light); border-radius: 4px;"
+        ></textarea>
+      </div>
+
+      <div class="admin-curation-actions" style="justify-content: flex-end; gap: 0.5rem;">
+        <button type="button" class="admin-curation-btn admin-curation-close" onclick="closeAIAssessmentImporter('${draftId}')">Cancel</button>
+        <button type="button" class="admin-curation-btn" style="background-color: #4CAF50;" onclick="validateAndImportAIAssessment('${draftId}')">✓ Validate & Import</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+};
+
+/**
+ * Close AI Assessment importer modal
+ */
+window.closeAIAssessmentImporter = function(draftId) {
+  const modal = document.getElementById(`ai-importer-modal-${draftId}`);
+  if (modal) {
+    modal.remove();
+  }
+};
+
+/**
+ * Validate and import AI Assessment JSON
+ */
+window.validateAndImportAIAssessment = async function(draftId) {
+  if (!db || !currentUser) return;
+
+  const textarea = document.getElementById(`ai-assessment-json-${draftId}`);
+  if (!textarea) return;
+
+  const jsonText = textarea.value.trim();
+  if (!jsonText) {
+    showAIImporterError(draftId, 'Please paste a JSON assessment.');
+    return;
+  }
+
+  try {
+    // Step 1: Parse JSON
+    let assessmentData;
+    try {
+      assessmentData = JSON.parse(jsonText);
+    } catch (parseError) {
+      showAIImporterError(draftId, 'Invalid JSON format. Please check the syntax and try again.');
+      return;
+    }
+
+    // Step 2: Require schemaVersion === 2
+    if (assessmentData.schemaVersion !== 2) {
+      showAIImporterError(draftId, 'Missing or invalid schemaVersion. Assessment must have schemaVersion: 2');
+      return;
+    }
+
+    // Step 3: Validate with shared validator (includes schemaVersion in validation only)
+    if (!window.DigitalCapExposure || !window.DigitalCapExposure.isCompleteV2ExposureData(assessmentData)) {
+      showAIImporterError(draftId, 'Assessment does not match the required schema. Please check: schemaVersion (2), exposureLevel, exposureExplanation, exposureFactors, protectedExposureLevel, recommendedSafeguards, and protectedExplanation.');
+      return;
+    }
+
+    // Step 4: Extract ONLY the six allowed fields (schemaVersion NOT written)
+    const allowedFields = {
+      exposureLevel: assessmentData.exposureLevel,
+      exposureExplanation: assessmentData.exposureExplanation,
+      exposureFactors: assessmentData.exposureFactors,
+      protectedExposureLevel: assessmentData.protectedExposureLevel,
+      recommendedSafeguards: assessmentData.recommendedSafeguards,
+      protectedExplanation: assessmentData.protectedExplanation
+    };
+
+    // Step 5: Update ONLY appsCurations (NOT appsPublished)
+    await updateDoc(doc(db, 'appsCurations', draftId), {
+      ...allowedFields,
+      updatedAt: serverTimestamp(),
+      updatedBy: currentUser.uid
+    });
+
+    // Step 6: Show success
+    showAIImporterSuccess(draftId, 'Assessment imported! Review the values in the Digital Exposure section.');
+
+    // Step 7: Close modal and reload the draft so imported values can be reviewed
+    setTimeout(() => {
+      window.closeAIAssessmentImporter(draftId);
+      // Reload the draft to show imported values
+      window.loadAndDisplayDraft(draftId);
+    }, 500);
+
+  } catch (error) {
+    console.error('AI Importer: Import error:', error);
+    showAIImporterError(draftId, `Failed to import assessment: ${error.message}`);
+  }
+};
+
+/**
+ * Show error message in AI importer modal
+ */
+function showAIImporterError(draftId, msg) {
+  const modal = document.getElementById(`ai-importer-modal-${draftId}`);
+  if (!modal) return;
+
+  const existingError = modal.querySelector('.admin-curation-modal-error');
+  if (existingError) existingError.remove();
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'admin-curation-modal-error';
+  errorDiv.innerHTML = `<strong>Error:</strong> ${escapeHtml(msg)}`;
+
+  const actionsDiv = modal.querySelector('.admin-curation-actions');
+  if (actionsDiv) {
+    modal.insertBefore(errorDiv, actionsDiv);
+  } else {
+    modal.appendChild(errorDiv);
+  }
+}
+
+/**
+ * Show success message in AI importer modal
+ */
+function showAIImporterSuccess(draftId, msg) {
+  const modal = document.getElementById(`ai-importer-modal-${draftId}`);
+  if (!modal) return;
+
+  const successDiv = document.createElement('div');
+  successDiv.className = 'admin-curation-modal-error';
+  successDiv.style.borderColor = '#4CAF50';
+  successDiv.style.color = '#4CAF50';
+  successDiv.innerHTML = `✓ ${escapeHtml(msg)}`;
+
+  const actionsDiv = modal.querySelector('.admin-curation-actions');
+  if (actionsDiv) {
+    modal.insertBefore(successDiv, actionsDiv);
+  } else {
+    modal.appendChild(successDiv);
+  }
 }

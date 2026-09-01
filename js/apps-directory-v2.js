@@ -388,6 +388,85 @@ function renderAppDetails(app) {
         `;
     }
 
+    // SECTION 1.6: Digital Exposure Framework (v2)
+    if (window.DigitalCapExposure && window.DigitalCapExposure.isCompleteV2ExposureData(app)) {
+        const config = window.DigitalCapExposure;
+        const baseLevel = app.exposureLevel;
+        const baseBadge = config.badges[baseLevel] || baseLevel;
+        const baseColors = config.colors[baseLevel] || {};
+
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">📊 Digital Exposure Level</h4>
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span style="background: ${baseColors.bg}; color: ${baseColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">
+                            ${baseBadge}
+                        </span>
+                        <span style="color: var(--text-gray); font-size: 0.9rem;">Without recommended safeguards</span>
+                    </div>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;"><strong>Why this level:</strong> ${app.exposureExplanation}</p>
+        `;
+
+        // Exposure factors
+        if (Array.isArray(app.exposureFactors) && app.exposureFactors.length > 0) {
+            details += `
+                <div style="margin: 1rem 0 0 0; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: var(--text-dark);">Exposure factors present:</p>
+                    <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: var(--text-gray);">
+            `;
+            app.exposureFactors.forEach(factor => {
+                const factorKey = typeof factor === 'string' ? factor : factor.factorKey;
+                const factorLabel = config.factors[factorKey]?.label || factorKey;
+                details += `<li style="margin-bottom: 0.25rem;">${factorLabel}</li>`;
+            });
+            details += `</ul></div>`;
+        }
+
+        details += `</div>`;
+
+        // Protected exposure level section
+        if (app.protectedExposureLevel && app.protectedExplanation) {
+            const protectedLevel = app.protectedExposureLevel;
+            const protectedBadge = config.badges[protectedLevel] || protectedLevel;
+            const protectedColors = config.colors[protectedLevel] || {};
+
+            details += `
+                <div style="background: rgba(76, 175, 80, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid #4CAF50; margin-top: 1.5rem;">
+                    <h5 style="color: #4CAF50; margin: 0 0 0.75rem 0; font-size: 1rem;">With Recommended Safeguards</h5>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span style="background: ${protectedColors.bg}; color: ${protectedColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">
+                            ${protectedBadge}
+                        </span>
+                        <span style="color: var(--text-gray); font-size: 0.9rem;">After applying these safeguards</span>
+                    </div>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;">${app.protectedExplanation}</p>
+            `;
+
+            // Recommended safeguards
+            if (Array.isArray(app.recommendedSafeguards) && app.recommendedSafeguards.length > 0) {
+                details += `
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(76, 175, 80, 0.2);">
+                        <p style="margin: 0 0 0.75rem 0; font-weight: 600; color: var(--text-dark);">Ways to reduce exposure:</p>
+                        <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: var(--text-gray);">
+                `;
+                app.recommendedSafeguards.forEach(safeguard => {
+                    details += `
+                        <li style="margin-bottom: 1rem;">
+                            <strong>${safeguard.label}</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-gray);">${safeguard.instructions}</span>
+                        </li>
+                    `;
+                });
+                details += `</ul></div>`;
+            }
+
+            details += `</div>`;
+        }
+
+        details += `</div>`;
+    }
+
     // SECTION 2: Real-World Risks (3-5 bullets)
     if (app.hiddenDangers && app.hiddenDangers.length > 0) {
         details += `
