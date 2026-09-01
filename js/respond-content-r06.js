@@ -12,7 +12,7 @@ const R06_HACKED = {
     {
       id: 'safety-screening',
       number: 1,
-      text: 'Is anyone in immediate physical danger or being threatened with harm?',
+      text: 'Before we work on the account, is the person who accessed it threatening your child or creating an immediate safety concern?',
       description: '',
       type: 'yes-no-unsure',
       answers: [
@@ -362,13 +362,13 @@ const R06_HACKED = {
       id: 'talk-with-child',
       show: 'always',
       title: 'Talk with your child about what happened',
-      intro: 'Understanding what happened helps prevent future problems:',
+      intro: 'Understanding what happened helps prevent future problems—and reinforces that your child can come to you for help:',
       points: [
         'Ask open-ended questions: "Can you tell me what happened?" rather than accusatory ones.',
         'Listen without immediately assigning blame. Many compromises happen accidentally (shared password, phishing link, reused password).',
         'Ask if they clicked something unusual, shared a code, or used the same password elsewhere.',
         'Reassure them that reporting the problem was the right thing to do.',
-        'Avoid absolute statements like "I won\'t take your device away" since you don\'t know your family\'s rules, but emphasize solving the problem together.',
+        'Make clear that asking for help with account security doesn\'t automatically mean losing their device. Handling the immediate problem comes first.',
         'Use this as a learning moment to discuss password safety and recognizing phishing or suspicious messages.'
       ]
     },
