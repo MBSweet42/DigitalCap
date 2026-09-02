@@ -1555,7 +1555,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Pinterest can have a lot of beauty and health content that actually isn\'t healthy. Let\'s talk about what you\'re following."'
         },
-        sources: 'Parent communities, body image research'
+        sources: 'Parent communities, body image research',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Pinterest\'s recommendation algorithm escalates content discovery, often leading users down rabbit holes toward extreme fitness, eating disorder, and self-harm content. Pins are persistent, publicly visible by default, and link to external websites. Content consumption can reinforce body image concerns through algorithmic amplification.',
+        exposureFactors: ['content_exposure', 'public_visibility', 'outside_access', 'content_persistence'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Set account to private and review following list',
+                instructions: 'Go to Settings > Privacy and safety. Set account to private. Regularly review the boards and accounts you or your child is following; remove those focused on extreme fitness, dieting, or concerning health content.'
+            },
+            {
+                label: 'Use search filters and muting features',
+                instructions: 'When searching, use filters to exclude certain topics. Pin the "Not for me" option on concerning content pins to improve recommendation filtering.'
+            },
+            {
+                label: 'Monitor for behavioral changes related to body image',
+                instructions: 'Watch for signs of disordered eating, body image anxiety, or obsession with fitness trends. Check pins occasionally to see what the algorithm is recommending.'
+            }
+        ],
+        protectedExplanation: 'Restricting visibility and curating the accounts followed can reduce algorithmic escalation. However, the algorithm remains optimized to surface content that keeps users engaged.'
     },
     {
         id: 23,
@@ -2153,7 +2175,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Signal is a secure app. I can\'t read your messages, which is fine; but I want to understand why you\'re using it and who you\'re talking to."'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Signal is an encrypted messaging app designed for privacy. The primary exposure is not the app\'s technical design, but rather the fact that end-to-end encryption means parents cannot monitor conversations. This creates an opportunity for communication with unknown people that parents are unaware of. External links can be shared in messages.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'outside_access'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Focus on trust-based communication about Signal\'s use',
+                instructions: 'Rather than attempting to monitor (which is not possible with end-to-end encryption), have explicit conversations about why they need encrypted messaging and who they are communicating with. This app works better with family trust than surveillance.'
+            },
+            {
+                label: 'Establish expectations about who they communicate with',
+                instructions: 'Ask directly: Who are you messaging on Signal? Are these people you know in real life or online contacts? Make clear that you expect them to communicate only with known contacts and to tell you if someone inappropriate contacts them.'
+            },
+            {
+                label: 'Monitor for behavioral indicators rather than messages',
+                instructions: 'Watch for changes in mood, secretiveness, sleep disruption, or withdrawal. These behavioral signs are more reliable than trying to intercept encrypted messages.'
+            }
+        ],
+        protectedExplanation: 'If your child is using Signal, establishing explicit expectations about who they communicate with and maintaining open conversation is more effective than attempting to monitor encrypted messages. The encryption itself is not the exposure—the lack of transparency about who they\'re communicating with is.'
     },
     {
         id: 31,
@@ -2210,7 +2254,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"WeChat has a lot of features. Let\'s review your settings and who\'s in your groups."'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'WeChat is a comprehensive messaging and social platform with multiple exposure vectors. Group chats can include unknown adult participants without user control. The app includes payment features that allow spending. Location sharing can be enabled. Mini programs and embedded content can expose users to adult material.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'money_transactions', 'location_personal_data', 'outside_access'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Restrict group chat membership and review existing groups',
+                instructions: 'Review all group chats your child is in. Ask who each group member is. Do not allow joining new groups without approval. Disable group notifications if possible to reduce constant group pressure.'
+            },
+            {
+                label: 'Disable or restrict payment features',
+                instructions: 'Go to Settings > Account > Payment settings. Disable payment features or set restrictions on spending. Require approval for any purchases.'
+            },
+            {
+                label: 'Review and disable location sharing',
+                instructions: 'Settings > Privacy > Location. Turn off location sharing. This prevents others from tracking your location in real time.'
+            }
+        ],
+        protectedExplanation: 'Restricting group membership, disabling payments, and controlling location sharing can meaningfully reduce exposure. However, adult content and group dynamics remain less controllable.'
     },
     {
         id: 32,
@@ -2261,7 +2327,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Viber uses your phone number which might be searchable online. Let\'s review who\'s contacting you."'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Viber is a phone-number-based messaging app where users can receive messages and voice calls from any number. The primary exposure is that a user\'s phone number can be found online or shared, and there is less content moderation than mainstream apps. Group chats can include unknown international participants.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Block and ignore messages from unknown numbers',
+                instructions: 'Set your privacy settings to filter messages from unknown contacts. You can still receive them in a separate folder, but they will not notify you immediately. Review periodically and block any suspicious numbers.'
+            },
+            {
+                label: 'Do not accept calls from unknown numbers',
+                instructions: 'Configure call settings to reject or silence calls from non-contacts. This prevents voice call harassment from strangers.'
+            },
+            {
+                label: 'Leave unwanted group chats immediately',
+                instructions: 'If added to a group chat with unknown people, leave immediately. Do not engage or respond. Report abusive group chats.'
+            }
+        ],
+        protectedExplanation: 'Filtering unknown contacts, blocking calls, and leaving unwanted groups can reduce exposure. However, the core phone-number-based design means strangers can still discover and contact users if they obtain the number.'
     },
     {
         id: 33,
@@ -2316,7 +2404,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Valorant is competitive and people get mean in voice chat. I want to make sure you\'re healthy while playing."'
         },
-        sources: 'Gaming communities, Valorant forums'
+        sources: 'Gaming communities, Valorant forums',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Valorant is a competitive team-based shooter where players communicate with random teammates globally via voice chat. The game\'s competitive nature creates an environment where toxicity is common, including racist, sexist, and harassing language. Spending is required for cosmetics and agents. Sleep disruption from late-night ranked grinding is common.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure', 'money_transactions'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Disable voice chat or use mute functionality',
+                instructions: 'Settings > Audio > Voice Chat. Consider disabling entirely or muting all players by default. Use ping system to communicate instead. Only enable voice chat for friends.'
+            },
+            {
+                label: 'Set strict daily playtime limits',
+                instructions: 'Use device-level controls (iOS Screen Time, Android Digital Wellbeing) to enforce a hard limit on Valorant playtime. Ranked climbing is designed to be highly addictive; limits are necessary.'
+            },
+            {
+                label: 'Require approval for any spending',
+                instructions: 'Use family account controls to require permission for any cosmetic purchases. Review accounts monthly for unauthorized spending. Explain that cosmetics do not improve gameplay.'
+            }
+        ],
+        protectedExplanation: 'Disabling voice chat, enforcing playtime limits, and controlling spending can reduce exposure. However, matched gameplay with random players means exposure to toxicity remains if voice chat is enabled.'
     },
     {
         id: 34,
@@ -2372,7 +2482,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Apex Legends is free but expensive to actually play because of cosmetics. Let\'s talk about spending and who you\'re playing with."'
         },
-        sources: 'Parent forums, gaming safety'
+        sources: 'Parent forums, gaming safety',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Apex Legends matches players with random squadmates through global matchmaking. Communication happens through voice chat. The game\'s free-to-play model uses aggressive cosmetic monetization targeting younger players. Random player contact creates exposure to toxicity and predatory behavior. In-game spending can accumulate quickly.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'money_transactions', 'content_exposure'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Play with friends only or disable voice chat',
+                instructions: 'Settings > Audio > Party Chat. Limit squad play to real-life friends only. Alternatively, disable voice chat entirely and use ping system for team communication.'
+            },
+            {
+                label: 'Monitor and restrict cosmetic spending strictly',
+                instructions: 'Use family account controls to require approval for all purchases. Review spending monthly. Set a clear budget ($0 is valid) and explain that cosmetics are cosmetic—they do not improve gameplay or provide an advantage.'
+            },
+            {
+                label: 'Enforce playtime limits using device controls',
+                instructions: 'Use iOS Screen Time or Android Digital Wellbeing to set a hard daily limit on the app. The game is designed to be maximally addictive; parental limits are necessary.'
+            }
+        ],
+        protectedExplanation: 'Restricting squad play to friends and controlling spending can meaningfully reduce exposure. However, if voice chat is enabled with random players, exposure to toxicity and unknown contacts remains.'
     },
     {
         id: 35,
@@ -2429,7 +2561,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Call of Duty\'s community can be really toxic. I want to make sure you\'re healthy and not internalizing the harassment."'
         },
-        sources: 'Gaming communities, parent forums'
+        sources: 'Gaming communities, parent forums',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Call of Duty is a popular multiplayer shooter with notoriously toxic voice chat. Players communicate with random teammates globally. The community normalized racist, homophobic, and sexist language, along with death threats and severe harassment. The game uses seasonal content and battle pass systems designed to maximize engagement and play time.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure', 'money_transactions'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Mute all players by default or disable voice chat',
+                instructions: 'Settings > Audio > Voice Chat. Select "Mute All" by default, or disable voice chat entirely. Enable voice only for parties of real-life friends you have vetted.'
+            },
+            {
+                label: 'Set strict daily playtime limits',
+                instructions: 'Use device-level controls (iOS Screen Time, Android Digital Wellbeing) to enforce a hard limit. The seasonal battle pass system is specifically designed to maximize engagement; parental limits are necessary.'
+            },
+            {
+                label: 'Have explicit conversations about toxic language',
+                instructions: 'Discuss that slurs, harassment, and death threats are never acceptable, even in gaming. Make clear you will enforce consequences if they repeat language they hear in the game.'
+            }
+        ],
+        protectedExplanation: 'Muting voice chat and enforcing playtime limits can significantly reduce exposure to toxicity and harassment. However, if voice communication is enabled with random players, exposure to extreme language remains.'
     },
     {
         id: 36,
@@ -2481,7 +2635,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Chatroulette connects you to random strangers who will expose sexual content to you. Adults use it specifically to sexually harass children. You cannot use this."'
         },
-        sources: 'NCMEC, law enforcement, parent communities'
+        sources: 'NCMEC, law enforcement, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Chatroulette randomly matches video chats with strangers globally with no age verification. Adults explicitly use the platform to expose themselves sexually to minors. Users encounter explicit sexual content immediately and unavoidably. There is no moderation, reporting, or safety infrastructure.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure', 'public_visibility'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Do not use this platform',
+                instructions: 'This platform is designed and actively used to sexually expose minors. There is no way to use it safely. The only safe option is complete avoidance.'
+            },
+            {
+                label: 'If accidentally used, seek support immediately',
+                instructions: 'If your child encounters sexual content, talk to them about it. Report to NCMEC CyberTipline (CyberTipline.org) or local law enforcement.'
+            },
+            {
+                label: 'Use device and network controls to block access',
+                instructions: 'Block chatroulette.com at the network level or on the device. Monitor browser history for any random video chat platforms. If found, discuss immediately.'
+            }
+        ],
+        protectedExplanation: 'There is no meaningful way to reduce exposure while using Chatroulette. The safeguard is complete avoidance. If you know a minor is using random video chat platforms, intervention is necessary.'
     },
     {
         id: 37,
@@ -2534,7 +2710,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Dating apps like OkCupid have adults who specifically target teenagers. They lie about their age. This is not safe for you."'
         },
-        sources: 'NCMEC, trafficking organizations'
+        sources: 'NCMEC, trafficking organizations',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'OkCupid is marketed as 18+ but age verification is minimal, and adults actively use the platform to target teenagers. Proximity matching displays location data, enabling local predators to identify and approach victims. Direct messaging with matched users creates channels for sextortion and exploitation. The platform facilitates adult-minor contact.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'location_personal_data', 'outside_access'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Do not use dating apps under 18',
+                instructions: 'Dating apps are designed for adults. Their safety features and age verification cannot prevent adults from targeting minors. Using dating apps as a minor significantly increases exploitation risk.'
+            },
+            {
+                label: 'If discovered on this app, intervention is necessary',
+                instructions: 'If you discover your teen using OkCupid or similar dating apps, have a direct conversation about predator tactics, sextortion, and trafficking. Monitor device for any dating app use. Consider professional support if they have been contacted inappropriately.'
+            },
+            {
+                label: 'Understand sextortion and exploitation tactics',
+                instructions: 'Learn the warning signs: requests for photos, pressure to move to private chat, flattery, claims of love, financial requests. If your child has engaged, report to NCMEC CyberTipline or local law enforcement.'
+            }
+        ],
+        protectedExplanation: 'The safest approach for minors is complete non-use of dating apps. If a minor has been using OkCupid, their exposure to exploitation is very high and requires intervention.'
     },
     {
         id: 38,
@@ -2587,7 +2785,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Bumble says it\'s safer, but it\'s still a dating app with predators hunting teenagers. You can\'t use this."'
         },
-        sources: 'NCMEC, law enforcement, parent communities'
+        sources: 'NCMEC, law enforcement, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Bumble is a dating app marketed as 18+ with safety features, but age verification in practice is broken. Adults actively use Bumble to target teenagers. Proximity matching exposes location data to unknown users. Direct messaging with matched users creates exploitation channels. The "women message first" feature does not reduce predatory contact.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'location_personal_data', 'outside_access'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Do not use dating apps under 18',
+                instructions: 'Despite safety marketing, dating apps facilitate adult-minor contact. Age verification cannot prevent predators from accessing minors. The exposure to exploitation is very high.'
+            },
+            {
+                label: 'Monitor for dating app use and understand the risk',
+                instructions: 'If you discover your teen on Bumble or similar apps, intervention is necessary. Discuss predator tactics specifically targeting teenagers through dating apps. Report inappropriate contact to NCMEC CyberTipline.'
+            },
+            {
+                label: 'Recognize that "safer" marketing does not reduce risk',
+                instructions: 'Bumble\'s feature of requiring women to message first does not prevent predators from targeting minors or reduce exploitation risk. Marketing that implies safety can create false confidence.'
+            }
+        ],
+        protectedExplanation: 'The safest approach is complete non-use by minors. If a minor has used Bumble, they have been exposed to predatory contact and require support.'
     },
     {
         id: 39,
@@ -2642,6 +2862,28 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I want to understand your Slack communities. Who runs them and who\'s in them?"'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Slack is designed for workplace communication but is used by teenagers to create informal group communities and friend networks. Private channels can include unknown participants. The lack of workspace-level moderation means inappropriate content can be shared freely. Teenagers may also access parent or family workspaces, exposing them to adult conversations.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure', 'outside_access'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Review workspace membership and channel access',
+                instructions: 'Ask about all Slack workspaces they are in and their purpose. For each workspace, understand who is an admin, who can invite new members, and which channels they have access to. Limit access to workspaces created for actual team collaboration, not informal friend groups.'
+            },
+            {
+                label: 'Restrict access to parent/family workspaces',
+                instructions: 'If you use Slack for work or family coordination, set clear boundaries about which channels your teen can access. Many work conversations are not appropriate for teenagers. Use workspace-level permissions to restrict access.'
+            },
+            {
+                label: 'Discuss appropriate content for Slack communities',
+                instructions: 'Explain that Slack workspaces they create should have clear purposes. Discuss what content is acceptable and what is not. File-sharing makes it easy to spread explicit content; discuss this risk.'
+            }
+        ],
+        protectedExplanation: 'Reviewing workspace membership, restricting access to adult workspaces, and setting community guidelines can reduce exposure. However, if your teen creates or administers a workspace with loose moderation, exposure to inappropriate content remains.'
     }
 ];
