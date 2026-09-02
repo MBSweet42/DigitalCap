@@ -62,7 +62,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know TikTok is fun, but I\'m concerned about something. Studies show it can affect sleep and mood in kids your age. Let\'s talk about what you\'re watching and how it makes you feel."'
         },
-        sources: 'Common Sense Media, NCBI (eating disorders/social media), parent communities, Reddit r/parenting'
+        sources: 'Common Sense Media, NCBI (eating disorders/social media), parent communities, Reddit r/parenting',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'TikTok\'s algorithm aggressively personalizes the For You feed based on watch time and engagement, often surfacing extreme content within hours. Users can receive contact from unknown followers through DMs. Content is public by default, and the app employs numerous engagement signals to maximize screen time.',
+        exposureFactors: ['content_exposure', 'unknown_people_contact', 'public_visibility', 'communication'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Set account to private and restrict DMs to friends only',
+                instructions: 'Go to Settings > Privacy and safety. Set account to private. Under Direct messages, select \"Allow direct messages from\" and choose \"Friends only\". This blocks contact from strangers.'
+            },
+            {
+                label: 'Monitor the For You Page regularly for concerning content',
+                instructions: 'Review what the algorithm is recommending regularly. If you see eating disorder content, self-harm, or extreme trends, the For You feed has learned those patterns. You can \"not interested\" individual videos, but consider taking a break.'
+            },
+            {
+                label: 'Enforce strict time limits using device-level controls',
+                instructions: 'Do not rely on TikTok\'s built-in timer (users reset it constantly). Use your device\'s app timer (iOS Screen Time or Android Digital Wellbeing) to enforce a hard limit. Set to 30-60 minutes daily.'
+            }
+        ],
+        protectedExplanation: 'Enabling strict privacy settings (private account, DM restrictions to friends only), monitoring the For You feed regularly, and enforcing time limits can meaningfully reduce exposure. However, the algorithm remains optimized for engagement over safety.'
     },
     {
         id: 2,
@@ -123,7 +145,25 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I love that you use Snapchat with your friends, but I need to make sure you\'re safe. Let\'s look at your location settings together, and I want to turn off Snap Map."'
         },
-        sources: 'NCMEC/NetSmartz, parenting forums, Snapchat safety reports, Reddit r/parenting'
+        sources: 'NCMEC/NetSmartz, parenting forums, Snapchat safety reports, Reddit r/parenting',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Snapchat\'s disappearing messages make it difficult to monitor for grooming. Snap Map shows real-time location to friends (and can be set to public). The app is designed around the assumption that messages vanish, encouraging users to overshare personal information.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'location_personal_data', 'public_visibility'],
+        protectedExposureLevel: 'higher',
+        recommendedSafeguards: [
+            {
+                label: 'Disable Snap Map and set to Ghost Mode immediately',
+                instructions: 'Open Snapchat > Camera > tap your profile icon > Snap Map. Tap your name at the top > Settings (gear icon) > See My Location > Ghost Mode. This completely hides your location from everyone. Verify it is enabled before your teen uses the app.'
+            },
+            {
+                label: 'Restrict friend requests and contact to people you know',
+                instructions: 'Settings > Privacy > View My Story (set to \"Friends\") and Contact Me (set to \"Friends\"). Do not accept friend requests from people you do not know. Disappearing messages mean you cannot monitor conversations anyway.'
+            }
+        ],
+        protectedExplanation: 'Disabling Snap Map and restricting contact to known friends significantly reduces location exposure and some communication risks. However, disappearing messages still make monitoring for abuse impossible.'
     },
     {
         id: 3,
@@ -186,7 +226,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I\'ve heard some concerning things about Discord and older people connecting with kids. I trust you, but I want to make sure you\'re safe. Can we talk about your Discord friends?"'
         },
-        sources: 'Texas Attorney General lawsuit and Agreed Temporary Injunction (2026), NCMEC, parenting communities'
+        sources: 'Texas Attorney General lawsuit and Agreed Temporary Injunction (2026), NCMEC, parenting communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Discord is built for communities where minors can join servers with thousands of unknown users. Voice and video chat with strangers is common. Moderation varies wildly by server, and predators actively recruit in Discord communities.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'outside_access'],
+        protectedExposureLevel: 'higher',
+        recommendedSafeguards: [
+            {
+                label: 'Join only friend-based servers and avoid public communities',
+                instructions: 'Do not join large public communities or servers with hundreds of users. Only join private servers where all members are real-life friends. Be extremely cautious about join links from online contacts.'
+            },
+            {
+                label: 'Disable direct messages from non-friends',
+                instructions: 'User Settings > Privacy & Safety > Direct Messages (toggle off \"Allow direct messages from server members\"). This blocks DMs from people not on your friends list, limiting contact from unknown users in servers.'
+            },
+            {
+                label: 'Avoid voice and video chat with people you do not know',
+                instructions: 'Only use voice/video with close friends. Never accept voice or video calls from server members you have not met in person. If someone invites you to a \"game\" or \"stream\" in voice, this is a common grooming tactic.'
+            }
+        ],
+        protectedExplanation: 'Joining only friend-based or heavily moderated servers, disabling voice/video in public channels, and limiting community participation to close friends significantly reduces exposure. However, the platform remains designed for mass communication.'
     },
     {
         id: 4,
@@ -249,7 +311,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know Roblox is fun, but I\'m worried about scams. Kids are losing real money. Let\'s talk about how you get Robux and if anyone has asked you to go on Discord."'
         },
-        sources: 'FBI findings on violent online networks, Roblox scam reports, parenting communities'
+        sources: 'FBI findings on violent online networks, Roblox scam reports, parenting communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Roblox games often include chat with unknown players. User-generated content (games) is unfiltered, and some games include inappropriate content or gambling mechanics. Contact with adult strangers during gameplay is common.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'money_transactions'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Enable strict chat restrictions in Account Settings',
+                instructions: 'Settings > Privacy > Chat Mode. Choose \"No Chat\" (the most restrictive) or \"Friends Only\". This prevents contact with unknown players. In-game messages are still possible but reduced.'
+            },
+            {
+                label: 'Disable in-game spending and purchases',
+                instructions: 'Settings > Billing > Spending Limit. Set to $0.00 or \"None\" to prevent accidental purchases. Roblox games often use peer pressure (\"buy this item everyone has\") to drive spending.'
+            },
+            {
+                label: 'Play only games from trusted creators and friends',
+                instructions: 'Avoid newer, unknown games. Stick to popular games from established creators. Play with friends or in private servers when possible. Use Roblox\'s group feature to play with known players only.'
+            }
+        ],
+        protectedExplanation: 'Enabling chat restrictions, limiting gameplay to trusted friends, and disabling in-game purchases significantly reduce exposure. Parental controls help but some risk remains inherent to user-generated content.'
     },
     {
         id: 5,
@@ -292,7 +376,29 @@ const appsCompleteV2 = [
                 'Root cause matters more than the app itself'
             ]
         },
-        sources: 'Qustodio, Safes.so, parenting communities, security researchers'
+        sources: 'Qustodio, Safes.so, parenting communities, security researchers',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Fake calculator apps (apps disguised as calculators but containing social networking, dating, or messaging features) harvest personal data and location information. They often request excessive permissions and are frequently malware or privacy-invasive.',
+        exposureFactors: ['location_personal_data', 'content_exposure'],
+        protectedExposureLevel: 'higher',
+        recommendedSafeguards: [
+            {
+                label: 'Do not install or use fake calculator apps',
+                instructions: 'Use the legitimate system calculator (built into iOS/Android). If an app is labeled as a calculator but has social features or requires unusual permissions, it is likely fake. Do not install it.'
+            },
+            {
+                label: 'Review app permissions before installation',
+                instructions: 'Before installing any app, check what permissions it requests. A calculator should never request location, camera, contacts, or microphone permissions. If it does, it is fake.'
+            },
+            {
+                label: 'Install only from official app stores',
+                instructions: 'Use only the Apple App Store or Google Play Store. Do not side-load apps from third-party sites or links. Official app stores have review processes (though imperfect) that reduce the risk of fake apps.'
+            }
+        ],
+        protectedExplanation: 'No in-app safeguards can reliably protect against these apps because the entire application is deceptive. The only effective protection is avoiding the app entirely. No configuration changes reduce the risk.'
     },
     {
         id: 6,
@@ -351,7 +457,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know YouTube has some amazing educational content, but I\'m concerned about how the algorithm works. Let\'s talk about what you\'re watching and where the recommendations take you."'
         },
-        sources: 'YouTube Safety, Common Sense Media, parent communities'
+        sources: 'YouTube Safety, Common Sense Media, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'YouTube\'s recommendation algorithm can surface inappropriate content, but age-restricted content helps significantly. The platform allows comments and community features where strangers can interact. Most content is curated by creators.',
+        exposureFactors: ['content_exposure', 'unknown_people_contact', 'outside_access'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Enable YouTube Restricted Mode',
+                instructions: 'Sign into YouTube. Go to Settings (icon in top right) > Restricted Mode. Toggle on \"Activate Restricted Mode\". This filters out age-inappropriate content. Note: This applies to the account, so if shared device, account sign-in is required.'
+            },
+            {
+                label: 'Disable or hide profile and community interactions',
+                instructions: 'YouTube > Your channel > Settings > Basic info > Channel visibility (set to \"Not listed\"). This hides your profile from strangers. Settings > Privacy > Keep all my subscriptions private (toggle on).'
+            },
+            {
+                label: 'Turn off comment visibility and community posts',
+                instructions: 'If your teen has a channel, do not enable community posts (for channels under 1,000 subscribers, it is disabled by default). Disable comments on any uploaded videos. Use Settings > Community to restrict who can comment.'
+            }
+        ],
+        protectedExplanation: 'YouTube Restricted Mode, limiting profile visibility, and disabling comments/messaging significantly reduce exposure. Unlike TikTok, YouTube content is not algorithmic rabbit holes - users must actively search or click.'
     },
     {
         id: 7,
@@ -411,7 +539,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I\'ve heard Instagram can really affect how kids feel about themselves. I want to make sure you\'re safe and healthy. Can we talk about what you\'re seeing on your feed?"'
         },
-        sources: 'Common Sense Media, NCBI, parent communities'
+        sources: 'Common Sense Media, NCBI, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Instagram\'s algorithm personalizes content and can surface eating disorder, self-harm, or inappropriate content. The \"Explore\" page uses machine learning to maximize engagement. Contact from unknown followers is possible through DMs.',
+        exposureFactors: ['content_exposure', 'unknown_people_contact', 'public_visibility', 'communication'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Switch to a private account and restrict DMs',
+                instructions: 'Settings > Privacy and security > Account privacy (toggle on \"Private account\"). Under \"Messages and story replies\", select \"Requests\" so only followers can DM. This blocks unknown contact.'
+            },
+            {
+                label: 'Limit time on the Explore page and Reels',
+                instructions: 'Set a daily reminder. The Explore page uses Instagram\'s algorithm to show personalizable content, similar to TikTok but less aggressive. Reels are short-form video with algorithmic recommendation. Avoid spending time there.'
+            },
+            {
+                label: 'Monitor who can see your posts and location tags',
+                instructions: 'Settings > Privacy and security. Check \"Who can see your posts?\" and \"Story\". Disable location tags on posts. Do not share your real location in captions. Predators use location data to identify where you spend time.'
+            }
+        ],
+        protectedExplanation: 'Private account, DM restrictions to followers only, and limiting time on the Explore page significantly reduce exposure. The algorithm remains less aggressive than TikTok, but still optimized for engagement.'
     },
     {
         id: 8,
@@ -469,7 +619,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I\'m not trying to ban Reddit, but I\'m worried about some communities there. Predators specifically use Reddit to find lonely kids and pretend to support them. Let\'s talk about which communities you\'re in."'
         },
-        sources: 'NCMEC, parenting communities, Reddit safety reports'
+        sources: 'NCMEC, parenting communities, Reddit safety reports',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Reddit hosts unfiltered content from thousands of communities. Users can encounter sexual content, self-harm guidance, and extreme ideology. Contact with unknown users is possible through DMs and public discussions.',
+        exposureFactors: ['content_exposure', 'unknown_people_contact', 'communication'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Disable direct messages from non-approved users',
+                instructions: 'User Settings > Privacy & Safety > Who can send you private messages (select \"Everyone\" only if approved users; otherwise select \"Trusted\")). This limits unwanted contact from strangers.'
+            },
+            {
+                label: 'Curate subreddit subscriptions and use filters',
+                instructions: 'Subscribe only to communities aligned with interests. Avoid r/random or r/all which surface unfiltered content. Use Reddit\'s user filters to block specific subreddits from appearing. Avoid subreddits known for harmful content.'
+            },
+            {
+                label: 'Do not create an account with your real name or photo',
+                instructions: 'Reddit allows anonymous usernames. Do not link your Reddit account to Instagram, Facebook, or use your real name as your username. Keep Reddit separate from your identity to reduce tracking.'
+            }
+        ],
+        protectedExplanation: 'Subreddit filtering and DM restrictions help, but Reddit\'s design (public discussions, minimal moderation) means exposure remains moderate even with safeguards. Users must actively manage their feed.'
     },
     {
         id: 9,
@@ -523,7 +695,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know BeReal shows your location. I want to make sure predators can\'t find you. Let\'s check those settings."'
         },
-        sources: 'BeReal official privacy policy, parenting communities'
+        sources: 'BeReal official privacy policy, parenting communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'BeReal shares real-time location and phone camera images with friends. The app is designed to capture unfiltered moments. Social pressure to share (and to view others\' content) is high among teen users.',
+        exposureFactors: ['location_personal_data', 'public_visibility', 'communication'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Limit your friends list to close real-life friends only',
+                instructions: 'Do not accept friend requests from people you have not met. BeReal is designed for close friend circles. A friend list of 50+ people defeats the purpose and increases exposure to people who may screenshot or share your image.'
+            },
+            {
+                label: 'Use location fake/blur features if available',
+                instructions: 'Check BeReal\'s location settings. If available, enable location faking or blurring. Some versions allow you to set a generic location instead of exact coordinates. Review the current version in the app store for available privacy options.'
+            },
+            {
+                label: 'Disable notifications to reduce social pressure',
+                instructions: 'Settings > Notifications > disable \"BeReal notification\". Disabling the alert reduces the social pressure to respond immediately. You can still use the app, but at your own pace, not based on push notifications driving FOMO.'
+            }
+        ],
+        protectedExplanation: 'Limiting friend group to close real-life friends, faking location, and disabling notifications significantly reduce exposure. The app itself shares location and real-time photos, so protection is limited.'
     },
     {
         id: 10,
@@ -583,7 +777,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I noticed Yubo is on your phone. Yubo is actually a dating app for adults 18+. I want to understand how it got there and what\'s been happening. Let\'s talk about it without judgment."'
         },
-        sources: 'Yubo official privacy policy and age requirements, parenting communities'
+        sources: 'Yubo official privacy policy and age requirements, parenting communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Yubo is a live-streaming app built to connect with strangers. Live streams often include location (implied or stated), and users can receive contact from unknown people. The app is used by minors to broadcast to strangers.',
+        exposureFactors: ['unknown_people_contact', 'public_visibility', 'communication', 'location_personal_data'],
+        protectedExposureLevel: 'higher',
+        recommendedSafeguards: [
+            {
+                label: 'Stream only to friends or disable public streaming',
+                instructions: 'Go to Settings > Privacy > Live Streaming Visibility (set to \"Friends only\" or \"Private\"). Do not enable public streams. Even with these settings, your stream is still visible in the app.'
+            },
+            {
+                label: 'Never share location or identifying details during streams',
+                instructions: 'Do not mention where you are, what school you attend, or identifying details during live streams. Assume anything you say could be recorded and shared. Predators actively watch Yubo live streams to identify minors.'
+            },
+            {
+                label: 'Disable direct messaging from strangers',
+                instructions: 'Settings > Privacy > Direct Messages (set to \"Friends only\" or \"Disabled\"). This blocks contact from people who are not on your friends list, though viewers of your stream can still see your username.'
+            }
+        ],
+        protectedExplanation: 'Privacy settings help minimally because Yubo\'s core feature is public streaming. Even with settings restricted to friends-only, the live streaming mechanic exposes users to others. Effective protection requires limiting use or avoiding the app.'
     },
     {
         id: 11,
@@ -640,7 +856,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I\'m not trying to spy on you, but I need to make sure you know how to stay safe online. Let\'s talk about what happens when you click a link from someone online."'
         },
-        sources: 'Common Sense Media, parenting communities'
+        sources: 'Common Sense Media, parenting communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'lower',
+        exposureExplanation: 'Web browsers themselves are neutral tools. Exposure depends entirely on which websites are visited. Modern browsers include parental controls and filtering options.',
+        exposureFactors: [],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Enable parental controls and safe search in browser settings',
+                instructions: 'Chrome: Settings > Parental controls (requires supervised account) > enable content filters. Safari: Settings > Screen Time > Content restrictions > Websites (set to Limit Adult Content). Firefox: Settings > General > Browsing > enable safe search.'
+            },
+            {
+                label: 'Use browser extensions to block ads and trackers',
+                instructions: 'Install uBlock Origin and Privacy Badger (Chrome, Firefox, Edge). These block most ads and prevent tracking across websites. This reduces exposure to malicious ads and behavioral tracking.'
+            },
+            {
+                label: 'Set up a separate browser profile for your teen',
+                instructions: 'Chrome: Create a supervised child account with safe search enforced. Safari: Enable Screen Time. This ensures settings cannot be easily disabled and history is visible to you.'
+            }
+        ],
+        protectedExplanation: 'Browser-level protections (parental controls, safe search, ad blocker, tracker blocking) provide good baseline protection. The effectiveness depends on the child\'s discipline and the sites they visit.'
     },
     {
         id: 13,
@@ -686,7 +924,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Messenger Kids is nice because I can see your messages and help you stay safe. Let\'s keep talking about who you\'re talking to."'
         },
-        sources: 'Facebook/Meta safety resources'
+        sources: 'Facebook/Meta safety resources',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Twitch is a live-streaming platform where streamers broadcast to audiences (sometimes hundreds of thousands). Viewers can interact via live chat with unknown people. Some streams are age-inappropriate. Audience behavior varies by streamer.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'content_exposure', 'outside_access'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Avoid chat in streams you do not know or with unmoderated communities',
+                instructions: 'Only chat in streams with active moderation (mods removing spam/inappropriate behavior). Chat in large public streams (1000+ viewers) is often toxic. Lurk (watch without chatting) in unfamiliar streams.'
+            },
+            {
+                label: 'Use slow mode and followers-only chat settings',
+                instructions: 'If streaming: Settings > Channel > Moderation. Enable Slow Mode (1-30 second delay between messages) and Followers Only (only followers can chat). This reduces spam and contact from new followers.'
+            },
+            {
+                label: 'Do not share personal information or schedule in chat',
+                instructions: 'Do not mention your real name, location, school, or when you will be online/offline. Chat messages are public and logged. Predators monitor chats to identify minors.'
+            }
+        ],
+        protectedExplanation: 'Restricting chat to followers or enabling slowmode, avoiding chat in unknown streams, and limiting to well-moderated communities significantly reduce exposure. The live-streaming nature still exposes users to strangers.'
     },
     {
         id: 15,
@@ -742,7 +1002,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Twitch streamers are strangers. I need to make sure you know that and that you\'re safe in the chat."'
         },
-        sources: 'Parent communities, Twitch safety reports'
+        sources: 'Parent communities, Twitch safety reports',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'X (Twitter) defaults to public profiles where anyone can see all posts and interact. Harassment and contact from unknown users is common. The algorithm can surface extreme content. Some accounts impersonate minors to harvest data.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'public_visibility', 'content_exposure'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Set account to private and restrict direct messages',
+                instructions: 'Settings > Privacy > Account (toggle \"Private account\" on). Under Privacy, set \"Direct messages\" to \"Followers only\". This prevents strangers from contacting you and requires approval to follow.'
+            },
+            {
+                label: 'Mute keywords and accounts related to harassment or harmful content',
+                instructions: 'Settings > Muted words > add keywords. Mute accounts that engage in harassment. Report any accounts that send harassing or explicit messages. X\'s block feature is more powerful than mute for persistent harassers.'
+            },
+            {
+                label: 'Do not engage with strangers or retweet your location/schedule',
+                instructions: 'Do not reply to unknown accounts engaging with your posts. Do not post location info, your school, or your plans/schedule. Predators and scammers harvest this data from public accounts.'
+            }
+        ],
+        protectedExplanation: 'Private account, DM restrictions to followers, and muting keywords significantly reduce unwanted contact and content exposure. However, public engagement still exposes users to strangers.'
     },
     {
         id: 16,
@@ -799,7 +1081,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"X/Twitter has a lot of harmful content and predators. Let\'s talk about how you\'re using it and how to stay safe."'
         },
-        sources: 'Parent communities, Twitter safety reports'
+        sources: 'Parent communities, Twitter safety reports',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'lower',
+        exposureExplanation: 'WhatsApp is contact-based (requires phone number). Conversations are end-to-end encrypted. Contact is limited to people who have your number. The app does not have a public profile, algorithmic feed, or in-app discovery.',
+        exposureFactors: ['communication'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Be selective about who has your phone number',
+                instructions: 'Only share your phone number with people you know and trust. Do not post your number publicly or on social media. Online contacts requesting your number may be predators.'
+            },
+            {
+                label: 'Use disappearing messages for sensitive conversations',
+                instructions: 'In group or individual chats, enable \"Disappearing messages\" (Chat > 3 dots > Disappearing messages). Select a time (e.g., 24 hours). Messages auto-delete, reducing the risk if a device is compromised.'
+            },
+            {
+                label: 'Enable end-to-end encryption notification and media visibility',
+                instructions: 'WhatsApp encrypts by default. Enable Settings > Privacy > Last seen (toggle off) to hide when you were last active. Settings > Privacy > Profile photo (set to \"My contacts\" only) to prevent profiling by strangers.'
+            }
+        ],
+        protectedExplanation: 'WhatsApp\'s design (contact-based, encrypted, no public profile) provides strong baseline protection. Additional safeguards provide minor incremental benefit.'
     },
     {
         id: 17,
@@ -857,7 +1161,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"WhatsApp is encrypted, so I can\'t read your messages. But I need to make sure you know who you\'re talking to. Can we review your contacts?"'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Telegram is contact-based like WhatsApp but with more discovery features. The app allows searches to find users by username. Large public groups can have thousands of members. Encrypted messaging is optional (not default).',
+        exposureFactors: ['communication', 'unknown_people_contact'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Set username search visibility to contacts only',
+                instructions: 'Settings > Privacy and Security > Phone number (toggle \"Who can see my phone number?\" to \"My contacts\"). Settings > Privacy and Security > Username (disable it or set to \"Nobody\", reducing discoverability via search).'
+            },
+            {
+                label: 'Avoid joining large public groups or channels',
+                instructions: 'Do not click links to join public groups with hundreds of members. If you join, do not engage. Public groups are monitored by predators. Stick to private groups with real-life friends.'
+            },
+            {
+                label: 'Use Secret Chats for sensitive conversations',
+                instructions: 'For important conversations, use Secret Chats (tap and hold a contact > Start Secret Chat). Secret Chats use stronger encryption and messages are not synced across devices. However, regular chats are already fairly secure.'
+            }
+        ],
+        protectedExplanation: 'Restricting username search visibility and avoiding public groups significantly reduce contact from strangers. Default encryption is weaker than WhatsApp, but privacy settings help.'
     },
     {
         id: 18,
@@ -912,7 +1238,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Telegram is used by predators and for distributing illegal content. I need to understand why you\'re using it and who you\'re talking to."'
         },
-        sources: 'NCMEC, law enforcement reports, parent communities'
+        sources: 'NCMEC, law enforcement reports, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Minecraft multiplayer includes chat with unknown players. Realms (official servers) are moderated, but community servers often have minimal moderation. User-generated content can include inappropriate builds or chat.',
+        exposureFactors: ['communication', 'unknown_people_contact'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Play offline or on private servers with friends only',
+                instructions: 'Use single-player mode or create a private Realm (requires subscription) for friends only. Do not join public servers or realm codes shared by strangers. Public servers often lack moderation of chat and behavior.'
+            },
+            {
+                label: 'Disable or minimize chat in multiplayer',
+                instructions: 'In multiplayer settings, you can hide chat. If you must play multiplayer, do not engage with other players\' chat. Communication in Minecraft servers can expose you to scams and grooming.'
+            },
+            {
+                label: 'Do not share your username with people you don\'t know',
+                instructions: 'Do not post your Minecraft username on social media or share it with online contacts. This prevents random players from finding you on servers. Use a username that does not match your real name.'
+            }
+        ],
+        protectedExplanation: 'Playing offline, on private servers with trusted friends, or on official Realms significantly reduces contact with strangers. Playing single-player Minecraft has no exposure.'
     },
     {
         id: 19,
@@ -970,7 +1318,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I know Minecraft is fun, but predators use it to find kids. Tell me who you\'re playing with and how you met them."'
         },
-        sources: 'Parent communities, gaming safety reports'
+        sources: 'Parent communities, gaming safety reports',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Facebook\'s algorithm personalizes content and can surface eating disorder content or dating scams. Friend requests from strangers are common. The platform collects extensive behavioral data and has a history of privacy breaches.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'public_visibility', 'content_exposure'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Set profile to friends-only and restrict friend requests',
+                instructions: 'Settings > Privacy > Who can see your profile? (set to \"Friends only\"). Settings > Who can contact you? (set to \"Friends only\"). This requires friend approval before anyone can message or see your profile.'
+            },
+            {
+                label: 'Limit who can see your posts and tagged photos',
+                instructions: 'Posts: When posting, click the audience selector (before posting) and select \"Friends only\". For past posts, Settings > Privacy > Limit past posts (toggle on to restrict past posts to friends).'
+            },
+            {
+                label: 'Review and delete apps and games that access your account',
+                instructions: 'Settings > Apps and websites > Remove any apps you no longer use. Facebook apps harvest extensive user data. Limit which apps have access to your profile information.'
+            }
+        ],
+        protectedExplanation: 'Private profile, friend-only friend lists, and limiting visibility of posts and tagged photos significantly reduce exposure. Facebook\'s data collection remains extensive, but visibility controls help.'
     },
     {
         id: 20,
@@ -1028,7 +1398,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Facebook collects a lot of your information. Let\'s review your privacy settings together."'
         },
-        sources: 'Common Sense Media, parent communities'
+        sources: 'Common Sense Media, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Fortnite is a multiplayer game with voice chat between players. Squad matches include contact with unknown players. The game includes a cosmetics shop and limited in-game social features.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'money_transactions'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Play only squad matches with friends, not with randoms',
+                instructions: 'Use squad mode only with real-life friends. Do not enable \"Fill\" which adds random players. Solo mode avoids all squad chat. If you must play squad, use Discord or another platform only with known players.'
+            },
+            {
+                label: 'Mute all players or use push-to-talk voice chat only',
+                instructions: 'Audio settings > toggle mute all players. Or use push-to-talk (only transmit when button held), not open-mic. This prevents casual contact and reduces exposure to toxic chat.'
+            },
+            {
+                label: 'Disable cosmetics purchases and set spending limit',
+                instructions: 'Fortnite store defaults to showing cosmetics for purchase. Set up two-factor authentication and a spending limit in your Epic Games account settings. This prevents impulse purchases and scams.'
+            }
+        ],
+        protectedExplanation: 'Playing in squad with trusted friends, disabling voice chat, and avoiding cosmetics purchases significantly reduce exposure. Solo play or creative mode has no multiplayer contact.'
     },
     {
         id: 21,
@@ -1085,7 +1477,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Fortnite has voice chat with strangers. I need to make sure you\'re safe and that you\'re not spending money without asking."'
         },
-        sources: 'Parent communities, gaming safety reports'
+        sources: 'Parent communities, gaming safety reports',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Pinterest\'s algorithm recommends content based on pins saved. The explore page can surface eating disorder, self-harm, or extreme content. Contact with other users is possible through messaging.',
+        exposureFactors: ['content_exposure', 'unknown_people_contact', 'communication'],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Set profile to private and restrict messages',
+                instructions: 'Settings > Who can message you? (set to \"People you follow\" or \"No one\"). Settings > Privacy (toggle \"Make profile private\" on). This hides your boards and followers from strangers.'
+            },
+            {
+                label: 'Curate saved pins and avoid the explore tab',
+                instructions: 'Save pins only on boards related to your genuine interests. Avoid clicking \"Explore\", \"Trending\", or following random accounts. If you notice eating disorder content in your feed, delete the boards and reset your recommendations.'
+            },
+            {
+                label: 'Do not share personal information in pin descriptions or board names',
+                instructions: 'Avoid naming boards with your name, age, or identifying info. Do not pin your address, school, or schedule. Pin descriptions are visible to followers and can be discovered by strangers.'
+            }
+        ],
+        protectedExplanation: 'Private profile, message restrictions, and curating pinned content (avoiding problematic boards) significantly reduce exposure. Pinterest\'s algorithm is generally less aggressive than TikTok or Instagram.'
     },
     {
         id: 22,
@@ -1275,7 +1689,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"League of Legends is competitive and the chat can be really mean. I want to make sure you\'re healthy while playing."'
         },
-        sources: 'Gaming communities, parent forums'
+        sources: 'Gaming communities, parent forums',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'League of Legends is a competitive multiplayer game with text chat between teams. In-game communication with unknown players is required for ranked play. Some players are toxic. The game includes cosmetics purchases.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'money_transactions'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Mute all team chat or play non-ranked modes only',
+                instructions: 'Settings > Interface > All chat (toggle \"All chat\" off). This disables chat from enemy team and reduces team drama. Play Normal games (not Ranked) to avoid the most toxic players. ARAM (All Random All Mid) mode has faster games and less pressure.'
+            },
+            {
+                label: 'Do not share summoner name, Discord server, or contact info in chat',
+                instructions: 'Do not engage with players who ask for your Discord, Twitch, or off-platform contact information. Predators target competitive players. Keep gaming contact in-game only.'
+            },
+            {
+                label: 'Set spending limit on cosmetics and disable in-app purchases',
+                instructions: 'League has cosmetics, battle passes, and loot boxes. Set up two-factor authentication on your Riot account. Disable purchase notifications if possible. Budget strictly for cosmetics—some players spend $100+ monthly on cosmetics.'
+            }
+        ],
+        protectedExplanation: 'Playing casually (avoiding ranked), muting all chat, and limiting to ARAM (random character mode) significantly reduce exposure. Competitive ranked play exposes players to toxic team communication.'
     },
     {
         id: 25,
@@ -1329,7 +1765,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"I want to talk about Omegle. Have you heard of it? It was shut down because it wasn\'t safe."'
         },
-        sources: 'NCMEC, law enforcement, parent communities'
+        sources: 'NCMEC, law enforcement, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Omegle is designed for video chat with complete strangers. There is no moderation or user verification. The platform is notorious for exposing minors to sexual content, predatory adults, and sextortion. Most users will encounter explicit content within minutes.',
+        exposureFactors: ['unknown_people_contact', 'content_exposure', 'communication', 'public_visibility'],
+        protectedExposureLevel: 'very_high',
+        recommendedSafeguards: [
+            {
+                label: 'Do not use Omegle',
+                instructions: 'Omegle is not a safe platform for minors. The app is designed to connect you with random strangers, and most users will encounter explicit sexual content, predators, and sextortion attempts within minutes. Better alternatives exist for meeting people with shared interests.'
+            },
+            {
+                label: 'If contacted by someone claiming to know you from Omegle, do not engage',
+                instructions: 'Predators use Omegle to identify minors, take screenshots of their video, and then contact them on Instagram, TikTok, or other platforms claiming to have evidence. Do not engage. Block and report immediately.'
+            },
+            {
+                label: 'Consider using Discord for community and friend-based connection instead',
+                instructions: 'If seeking connection, Discord communities based on shared interests (gaming, hobbies, art) are safer for supervised interaction. You still need to be careful, but Discord at least allows community moderation and reporting.'
+            }
+        ],
+        protectedExplanation: 'Omegle\'s entire design is based on connecting with random strangers. No in-app settings can reduce this risk. Effective protection requires avoiding the app entirely.'
     },
     {
         id: 26,
@@ -1387,7 +1845,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Dating apps like Tinder have adults who specifically hunt teenagers. They lie about their age and intentions. I need to know if you\'re using these apps."'
         },
-        sources: 'NCMEC, trafficking reports, law enforcement'
+        sources: 'NCMEC, trafficking reports, law enforcement',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'very_high',
+        exposureExplanation: 'Tinder is a dating app designed for adult connection. Minors using Tinder face exposure to adult predators, sextortion, and dating scams. The app collects location data and allows anonymous profiles.',
+        exposureFactors: ['unknown_people_contact', 'communication', 'location_personal_data', 'money_transactions'],
+        protectedExposureLevel: 'very_high',
+        recommendedSafeguards: [
+            {
+                label: 'Do not use Tinder if under 18',
+                instructions: 'Tinder is a dating app designed for adults 18+. Using it as a minor exposes you to adult predators. The app violates terms of service for minors and does not provide meaningful protections.'
+            },
+            {
+                label: 'Report or block anyone who behaves inappropriately',
+                instructions: 'If someone asks for money, personal information, or sends sexual content, report them immediately. However, reporting does not undo the exposure. The best protection is not using the app.'
+            },
+            {
+                label: 'Recognize common sextortion and money scams',
+                instructions: 'On Tinder: \"Send me photos\", \"I need money for medical emergency\", \"I\'ll pay you for photos\", \"Let\'s move to WhatsApp quickly\" are all common scams targeting minors. Do not respond. Do not send anything.'
+            }
+        ],
+        protectedExplanation: 'Tinder is an adult dating platform. No in-app settings reduce the fundamental risk of exposure to predatory adults. Effective protection requires not using the app.'
     },
     {
         id: 27,
@@ -1443,7 +1923,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Kik is known as an app where predators specifically hunt kids. I need to understand why you have it and if you\'re safe."'
         },
-        sources: 'NCMEC, law enforcement, parent communities'
+        sources: 'NCMEC, law enforcement, parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Kik is a messaging app where users can search for and contact strangers by username. The app has minimal moderation and is known for being used by predators to contact minors.',
+        exposureFactors: ['unknown_people_contact', 'communication'],
+        protectedExposureLevel: 'higher',
+        recommendedSafeguards: [
+            {
+                label: 'Disable username search so strangers cannot find you',
+                instructions: 'Settings > Privacy > Allow me to be found by username (toggle off). This prevents strangers from searching for and messaging you. However, group chats may still expose you to unknown users.'
+            },
+            {
+                label: 'Do not accept messages or join groups with unknown users',
+                instructions: 'Only message friends you know in real life. Do not join group chats with people you have not met. Predators use Kik group chats to identify minors and isolate them.'
+            },
+            {
+                label: 'Do not share personal information or photos',
+                instructions: 'Do not send photos or personal details to anyone on Kik. Do not share your name, location, school, or anything identifying. If asked for photos, assume it is a predator and block immediately.'
+            }
+        ],
+        protectedExplanation: 'Kik\'s core design enables contact from strangers. Even with privacy settings, the app remains fundamentally designed for stranger connection. In-app protections are limited.'
     },
     {
         id: 28,
@@ -1499,23 +2001,45 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Nextdoor posts your home address to strangers in your neighborhood. I don\'t want you using it, and I won\'t post photos of you there either."'
         },
-        sources: 'Parent communities, safety advocates'
+        sources: 'Parent communities, safety advocates',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Nextdoor is a neighborhood social network where users are identified by neighborhood and first name. Posts are visible to neighbors. Some users share addresses and home details. Location data is shared by default.',
+        exposureFactors: ['location_personal_data', 'public_visibility', 'communication'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Do not share identifying household details or routines',
+                instructions: 'Do not post about when you are away from home, upcoming vacations, valuable items you own, or which door you use. Do not post photos showing your house number or address.'
+            },
+            {
+                label: 'Review privacy settings and limit visibility',
+                instructions: 'Settings > Privacy > Visibility (set to specific neighbors, not all neighborhood). Do not enable Nextdoor app notifications (reduces social pressure to engage). Control what your profile shares about you.'
+            },
+            {
+                label: 'Be cautious about personal information in posts and comments',
+                instructions: 'Use first name only (no last name or middle initials). Do not mention your school, workplace, or social media handles. Predators scan neighborhood apps to identify minors in specific areas.'
+            }
+        ],
+        protectedExplanation: 'Limiting what you share, avoiding identifying home location, and not accepting friend requests from strangers help, but the app is neighborhood-based so some location exposure is inherent.'
     },
     {
         id: 29,
-        name: 'Houseparty',
+        name: 'Houseparty (Shut Down in 2020)',
         category: 'Video Chat / Gaming',
         ageRecommendation: 13,
         safetyRating: 3,
-        safetyLabel: '🟠 HIGH RISK',
-        description: 'Video group chat app with integrated games.',
+        safetyLabel: '🟠 HIGH RISK (Historical)',
+        description: 'Video group chat app with integrated games that was shut down by Epic Games in December 2020. Educational value remains for understanding group video chat risks.',
         hasChat: true,
         chatDetails: 'Group video chat with up to 8 people',
         hasOpenInternet: false,
         hasLocationTracking: false,
         whyThisMatters: {
-            title: 'Why This Matters',
-            content: 'Houseparty allows video chat with groups of people. Kids can be added to group calls with strangers. Safety features are minimal. Screen sharing and recording happen without clear notification. Adults have used Houseparty to meet and exploit children.'
+            title: 'Why This Matters (Historical)',
+            content: 'Houseparty was a group video chat app that was shut down in December 2020. While the app is no longer operational, understanding its risks helps parents recognize similar group video chat platforms and discuss online safety.'
         },
         hiddenDangers: [
             'Can be added to group video calls with strangers',
@@ -1554,7 +2078,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Houseparty group calls can include people you don\'t know. I want to make sure you\'re only chatting with kids you actually know."'
         },
-        sources: 'Parent communities'
+        sources: 'Parent communities',
+
+        // Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'higher',
+        exposureExplanation: 'Houseparty is a video chat app that facilitates group calls with friends and friends-of-friends. The app encourages spontaneous connection and recommends users who might be \"fun\" to call. Predators can join group calls and contact minors privately after meeting in groups.',
+        exposureFactors: ['communication', 'unknown_people_contact', 'outside_access'],
+        protectedExposureLevel: 'moderate',
+        recommendedSafeguards: [
+            {
+                label: 'Disable \"Add Me\" and broadcast features entirely',
+                instructions: 'Settings > Privacy > \"Add Me\" (toggle off). Settings > Broadcast (disable if available). This prevents strangers from discovering and calling you. You can still call friends, but cannot be called by discovery.'
+            },
+            {
+                label: 'Join only group calls where all participants are real-life friends',
+                instructions: 'Do not accept group call invitations from people you have only met online. Verify that everyone in the group call is someone you know and trust in real life. Predators pose as friends\' friends in group calls.'
+            },
+            {
+                label: 'Consider disabling the app when not actively using it',
+                instructions: 'Houseparty is designed for spontaneous video calls. The app is installed (active) on your device by default. Consider disabling or deleting when not in active use with your close friend group.'
+            }
+        ],
+        protectedExplanation: 'Disabling the \"Add Me\" feature, restricting who can invite you to calls, and avoiding public broadcasts significantly reduce exposure. However, friend-of-friend recommendations still allow connection with strangers.'
     },
     {
         id: 30,
