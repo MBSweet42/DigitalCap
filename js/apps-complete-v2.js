@@ -1196,7 +1196,29 @@ const appsCompleteV2 = [
             ],
             scriptOpener: '"Among Us has chat with strangers. I need to make sure you know they might not be who they say they are."'
         },
-        sources: 'Parent communities, gaming safety reports'
+        sources: 'Parent communities, gaming safety reports',
+
+        // PHASE C: Digital Exposure Level v2
+        schemaVersion: 2,
+        exposureLevel: 'moderate',
+        exposureExplanation: 'Among Us includes public multiplayer where players may interact with unknown players. Child accounts use Quick Chat by default, which restricts communication to preset phrases. Full text chat requires parental permission.',
+        exposureFactors: [
+            'communication',
+            'unknown_people_contact',
+            'public_visibility'
+        ],
+        protectedExposureLevel: 'lower',
+        recommendedSafeguards: [
+            {
+                label: 'Keep chat in Quick Chat mode',
+                instructions: 'Child accounts default to Quick Chat (preset phrases only). Do not enable Free Chat without understanding that it allows typed messages to unknown players.'
+            },
+            {
+                label: 'Play private or friends-only games',
+                instructions: 'Use private lobbies to play only with people you know, rather than joining public lobbies with unknown players.'
+            }
+        ],
+        protectedExplanation: 'Quick Chat mode (default for child accounts) and private games together significantly reduce exposure to unknown players and restrict communication to safe preset phrases.'
     },
     {
         id: 24,
