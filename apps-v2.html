@@ -15,10 +15,10 @@
             <a href="index.html" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="apps-v2.html">Check an App</a></li>
+                <li><a href="apps-v2.html">App Check</a></li>
                 <li><a href="respond.html">Something Happened?</a></li>
-                <li><a href="protect.html">Protect My Family</a></li>
-                <li><a href="conversation.html">Start a Conversation</a></li>
+                <li><a href="protect.html">Protect Yourself</a></li>
+                <li><a href="conversation.html">Conversation Guides</a></li>
                 <li><a href="teachers.html">For Educators</a></li>
             </ul>
         </div>
@@ -26,15 +26,15 @@
 
     <main class="container">
         <h1>📱 App Check</h1>
-        <p class="subtitle">Your child uses or wants an app? See what it does, what to watch for, and what to consider before saying yes.</p>
+        <p class="subtitle">Research an app for yourself or someone you're helping. See what it does, understand its Digital Exposure, and learn what to consider.</p>
 
-        <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Search for an app to see its age guidance, real-world risks, important settings, and conversation tips.</p>
+        <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Search for an app to see its features, real-world risks, privacy settings, and conversation tips.</p>
 
         <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
             <input
                 type="text"
                 id="appSearch"
-                placeholder="Search for an app your child uses or wants to use..."
+                placeholder="Search for an app..."
                 style="flex: 1; min-width: 200px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem;"
             >
             <button class="btn btn-secondary" onclick="showCustomAppForm()">
@@ -47,7 +47,7 @@
 
         <!-- Age Filter -->
         <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
-            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">🎯 Find apps for your child's age</p>
+            <p style="margin: 0 0 1rem 0; color: var(--text-dark); font-weight: 600;">🎯 Explore apps by age guidance</p>
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                 <button class="age-filter-btn" onclick="filterByAge('all')" data-age="all" style="background: var(--primary); color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">Any Age Recommendation</button>
                 <button class="age-filter-btn" onclick="filterByAge('6-8')" data-age="6-8" style="background: var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">Ages 6-8</button>
@@ -105,7 +105,7 @@
     ">↑ Back to Top</button>
 
     <footer class="footer">
-        <p>&copy; 2026 DigitalCap. Resources adapted from trusted sources and parent communities. <a href="about.html">Learn more.</a></p>
+        <p>&copy; 2026 DigitalCap. Digital safety for real life. <a href="about.html">Learn more.</a></p>
     </footer>
 
     <script src="js/main.js?v=1"></script>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#FF6B6B">
-    <title>Protect My Family - DigitalCap</title>
+    <title>Protect Yourself - DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,21 +15,128 @@
             <a href="index.html" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="apps-v2.html">Check an App</a></li>
+                <li><a href="apps-v2.html">App Check</a></li>
                 <li><a href="respond.html">Something Happened?</a></li>
-                <li><a href="protect.html">Protect My Family</a></li>
-                <li><a href="conversation.html">Start a Conversation</a></li>
+                <li><a href="protect.html">Protect Yourself</a></li>
+                <li><a href="conversation.html">Conversation Guides</a></li>
                 <li><a href="teachers.html">For Educators</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <h1>Protect My Family</h1>
-        <p class="subtitle">Help your child use devices safely. Set it up right, establish clear expectations, and stay informed.</p>
+        <h1>Protect Yourself & Others</h1>
+        <p class="subtitle">Improve your own digital safety, protect a child or family member, or help someone you care about stay safe online.</p>
+
+        <!-- Entry Point Selection -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">Who are you protecting?</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                <a href="#protect-myself" style="text-decoration: none; color: inherit;">
+                    <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                        <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.2rem;">🛡️ Protect Myself</h3>
+                        <p style="color: var(--text-gray); margin: 0; line-height: 1.6;">Improve your own digital safety and privacy.</p>
+                    </div>
+                </a>
+
+                <a href="#protect-family" style="text-decoration: none; color: inherit;">
+                    <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                        <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.2rem;">👨‍👩‍👧‍👦 Protect a Child or Family</h3>
+                        <p style="color: var(--text-gray); margin: 0; line-height: 1.6;">Help a child use devices safely and establish clear expectations.</p>
+                    </div>
+                </a>
+
+                <a href="#help-someone" style="text-decoration: none; color: inherit;">
+                    <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                        <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.2rem;">🤝 Help Someone Else</h3>
+                        <p style="color: var(--text-gray); margin: 0; line-height: 1.6;">Support a family member, friend, or older adult with digital safety.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Protect Myself Pathway -->
+        <section id="protect-myself" style="margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Protect Your Own Digital Safety</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">Digital safety isn't just for protecting others. These practical steps help you protect your own accounts, privacy, and security.</p>
+
+            <!-- Privacy Settings -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Review Your Privacy Settings</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Check who can see your accounts, who can message you, and which apps have access to your personal information.</p>
+                <a href="guides/privacy-settings-guide.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review Privacy Settings →</a>
+            </div>
+
+            <!-- Account Security -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Secure Your Accounts</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Use strong passwords, enable two-factor authentication, and keep your recovery information current. These steps help prevent your accounts from being compromised.</p>
+                <a href="safety.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Learn About Account Security →</a>
+            </div>
+
+            <!-- Recognizing Threats -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Recognize Online Threats</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Learn how to spot phishing, scams, fake accounts, and other threats so you can avoid them.</p>
+                <a href="safety.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Learn About Online Threats →</a>
+            </div>
+
+            <!-- What to Do If Something Happened -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">If Something Already Happened</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">If your account was compromised, you encountered a scam, or something concerning happened online, get step-by-step guidance on what to do next.</p>
+                <a href="respond.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Help Now →</a>
+            </div>
+        </section>
+
+        <!-- Protect a Child or Family Pathway -->
+        <section id="protect-family" style="margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Protect a Child or Family</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Not sure which fits your situation? Pick the concern that feels biggest right now. We'll point you to related help along the way.</p>
+
+            <!-- Situation Entry -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">We're setting up a new device</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Start with the protections, rules, and conversations that matter before your child begins using it.</p>
+                    <a href="#new-device-path" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me where to start →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I want to make their current device safer</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Review the settings, apps, boundaries, and warning signs that matter most on a device your child already uses.</p>
+                    <a href="#current-device-review" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me what to review →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I'm worried about gaming</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Understand the risks around chat, spending, other players, and gaming habits, and what you can do about them.</p>
+                    <a href="gaming-guide.html" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Help me with gaming →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I'm worried about who can contact my child</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Review who can message, find, or interact with your child and which privacy settings can reduce unwanted contact.</p>
+                    <a href="guides/privacy-settings-guide.html" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Help me limit contact →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I need help setting limits and boundaries</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Set clear expectations around device use, bedtime, downloads, purchases, gaming, and what happens when rules are broken.</p>
+                    <a href="guides/family-device-rules.html" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Help me set boundaries →</a>
+                </div>
+
+                <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0;">I'm not sure what's appropriate for their age</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Start with age-based guidance to understand which protections, expectations, and conversations make sense right now.</p>
+                    <a href="resources.html" style="color: white; background: var(--primary); padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Show me age guidance →</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Situation Entry -->
-        <section style="margin-bottom: 3rem;">
+        <section style="display: none;">
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">What are you trying to do?</h2>
 
             <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem;">Not sure which fits your situation? Pick the concern that feels biggest right now. We'll point you to related help along the way.</p>
@@ -190,28 +297,65 @@
             </div>
         </section>
 
+        <!-- Help Someone Else Pathway -->
+        <section id="help-someone" style="margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Help Someone Else Stay Safe</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">You can use DigitalCap's guidance to help someone else navigate digital safety—a family member, friend, older adult, student, or anyone you want to support.</p>
+
+            <!-- Supporting a Family Member -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Help a Family Member or Friend</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Whether it's a parent, teenager, sibling, or older adult you're supporting, use the same guidance as above. Explore privacy settings, account security, understanding apps, or knowing what to do if something happens.</p>
+                <a href="#protect-family" style="color: var(--primary); font-weight: 600; text-decoration: none;">Explore Protect a Child or Family →</a>
+            </div>
+
+            <!-- Supporting an Older Adult -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Help an Older Adult Stay Safe Online</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Older adults often face specific online threats. Start with privacy settings, then help them recognize scams, secure their accounts, and know what to do if something goes wrong.</p>
+                <a href="guides/privacy-settings-guide.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review Privacy Settings →</a>
+            </div>
+
+            <!-- Having a Conversation -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Have a Conversation About Digital Safety</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Not sure how to start the conversation? Get guidance, scripts, and talking points that work for different relationships and topics.</p>
+                <a href="conversation.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Explore Conversation Guides →</a>
+            </div>
+
+            <!-- Quick Reference: Apps & Responses -->
+            <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">Learn About Specific Apps or Problems</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Use DigitalCap's App Check and Something Happened tools to help them understand their technology or respond to problems they're facing.</p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <a href="apps-v2.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">App Check →</a>
+                    <a href="respond.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Something Happened →</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Cross-Journey Support -->
         <section style="margin-bottom: 2rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
-            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Looking for something else?</h2>
-            <p style="color: var(--text-gray); margin-bottom: 2rem;">Some questions are better handled by another part of DigitalCap.</p>
+            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Looking for something specific?</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">Other parts of DigitalCap can help with app research, incident response, and conversations.</p>
 
             <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 700px;">
                 <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
-                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Concerned about a specific app?</h3>
-                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">See what the app does, what to watch for, and what to consider.</p>
-                    <a href="apps-v2.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Check an App →</a>
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Research a specific app?</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">Understand what an app does, its risks, and what to consider.</p>
+                    <a href="apps-v2.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">App Check →</a>
                 </div>
 
                 <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
-                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Did something already happen?</h3>
-                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">If you're responding to an online problem rather than trying to prevent one, start here.</p>
-                    <a href="respond.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Something Happened? →</a>
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Responding to an incident?</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">Get step-by-step guidance on what happened and what to do next.</p>
+                    <a href="respond.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Something Happened →</a>
                 </div>
 
                 <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
-                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Need help talking about it?</h3>
-                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">Find conversation guidance and ready-to-use ways to start.</p>
-                    <a href="conversation.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Start a Conversation →</a>
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Want to learn more?</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0;">Explore digital safety topics, guides, and resources.</p>
+                    <a href="safety.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Learn About Digital Safety →</a>
                 </div>
             </div>
         </section>
@@ -220,7 +364,7 @@
     <footer class="footer">
         <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
         <p class="footer-copyright">100% Free • No Ads</p>
-        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Helping families navigate the digital world safely. <a href="about.html">Learn more.</a></p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="about.html">Learn more.</a></p>
     </footer>
 
     <script src="js/main.js"></script>
