@@ -30,6 +30,11 @@ class RespondEngine {
     const question = this.getCurrentQuestion();
     if (!question) return { hasMore: false, interruptForSafety: false };
 
+    // Clear this question and all later answers to prevent stale state
+    this._removeAnswersFrom(this.currentQuestionIndex);
+    // Rebuild all derived state from remaining answers
+    this._rebuildDerivedState();
+
     this.answers[question.id] = value;
 
     // Check for interrupt behavior (e.g., immediate safety)
@@ -190,6 +195,50 @@ class RespondEngine {
     if (section.show === 'never') return false;
     // Default: show (backward compatibility)
     return true;
+  }
+
+  // Helper: Remove answers at or after a given question index
+  _removeAnswersFrom(questionIndex) {
+    for (let i = questionIndex; i < this.content.questions.length; i++) {
+      const question = this.content.questions[i];
+      delete this.answers[question.id];
+    }
+  }
+
+  // Helper: Rebuild flags and incidentType from current answers only
+  _rebuildDerivedState() {
+    this.flags = {};
+    this.incidentType = null;
+
+    // Iterate through questions in order
+    for (let i = 0; i < this.content.questions.length; i++) {
+      const question = this.content.questions[i];
+      const answerValue = this.answers[question.id];
+
+      // If this question hasn't been answered yet, stop
+      if (answerValue === undefined) break;
+
+      // Handle interrupt behavior
+      if (question.interruptBehavior && question.interruptBehavior.trigger === 'immediate-safety') {
+        if (answerValue === question.interruptBehavior.triggerValue) {
+          this.flags.immediate_threat = true;
+        }
+        if (question.interruptBehavior.treatUnsureAsRisk && answerValue === 'unsure') {
+          this.flags.threat_unsure = true;
+        }
+      }
+
+      // Capture incident type
+      if (question.captureAs === 'incidentType') {
+        this.incidentType = answerValue;
+      }
+
+      // Track flags from answer metadata
+      const answerOption = question.answers.find(a => a.value === answerValue);
+      if (answerOption && answerOption.flag) {
+        this.flags[answerOption.flag] = true;
+      }
+    }
   }
 
   // Get immediate safety result

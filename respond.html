@@ -455,6 +455,10 @@
                         <div class="respond-incident-card-label">Hacked or Compromised Account</div>
                         <div class="respond-incident-card-detail">Someone may have accessed, changed, used, or locked you or someone you're helping out of an account.</div>
                     </button>
+                    <button class="respond-incident-card" onclick="selectIncident('phishing')" style="text-align: left;">
+                        <div class="respond-incident-card-label">Scam, Phishing, or Suspicious Contact</div>
+                        <div class="respond-incident-card-detail">A suspicious message, call, link, request, or payment may have been a scam.</div>
+                    </button>
                 </div>
             </div>
 
@@ -485,9 +489,10 @@
     </footer>
 
     <!-- Load Engine and Content -->
-    <script src="js/respond-engine.js"></script>
+    <script src="js/respond-engine.js?v=2"></script>
     <script src="js/respond-content-r05.js"></script>
     <script src="js/respond-content-r06.js?v=2"></script>
+    <script src="js/respond-content-r07.js?v=1"></script>
     <script src="js/respond-recommendations.js"></script>
     <script src="js/resource-loader.js"></script>
     <script src="js/platform-registry.js"></script>
@@ -530,6 +535,9 @@
             } else if (type === 'hacked') {
                 protocolContent = R06_HACKED;
                 selectedProtocol = 'hacked';
+            } else if (type === 'phishing') {
+                protocolContent = R07_PHISHING;
+                selectedProtocol = 'phishing';
             } else {
                 return;
             }
