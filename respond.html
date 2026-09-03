@@ -459,6 +459,10 @@
                         <div class="respond-incident-card-label">Scam, Phishing, or Suspicious Contact</div>
                         <div class="respond-incident-card-detail">A suspicious message, call, link, request, or payment may have been a scam.</div>
                     </button>
+                    <button class="respond-incident-card" onclick="selectIncident('identity-theft')" style="text-align: left;">
+                        <div class="respond-incident-card-label">Identity Theft or Unfamiliar Activity</div>
+                        <div class="respond-incident-card-detail">You found an account, transaction, tax notice, wages, or other activity you do not recognize.</div>
+                    </button>
                 </div>
             </div>
 
@@ -493,6 +497,7 @@
     <script src="js/respond-content-r05.js"></script>
     <script src="js/respond-content-r06.js?v=2"></script>
     <script src="js/respond-content-r07.js?v=1"></script>
+    <script src="js/respond-content-r08.js?v=1"></script>
     <script src="js/respond-recommendations.js"></script>
     <script src="js/resource-loader.js"></script>
     <script src="js/platform-registry.js"></script>
@@ -525,9 +530,11 @@
 
         // Global state
         let selectedProtocol = null;
+        let pendingProtocolAnswer = null;
 
         // Select incident type and start protocol
         function selectIncident(type) {
+            pendingProtocolAnswer = null;
             let protocolContent;
             if (type === 'bullying') {
                 protocolContent = R05_BULLYING;
@@ -538,6 +545,9 @@
             } else if (type === 'phishing') {
                 protocolContent = R07_PHISHING;
                 selectedProtocol = 'phishing';
+            } else if (type === 'identity-theft') {
+                protocolContent = R08_IDENTITY_THEFT;
+                selectedProtocol = 'identity-theft';
             } else {
                 return;
             }
@@ -610,6 +620,15 @@
 
         // Select an answer
         function selectAnswer(value) {
+            const question = engine.getCurrentQuestion();
+            const answerOption = question.answers.find(a => a.value === value);
+
+            // Check for protocol routing (R08 → R06 or R07)
+            if (answerOption && answerOption.routeToProtocol) {
+                handleProtocolRoute(answerOption, value);
+                return;
+            }
+
             const result = engine.answerQuestion(value);
 
             if (result.interruptForSafety) {
@@ -622,6 +641,75 @@
                 // Done - show results
                 showResults();
             }
+        }
+
+        // Handle protocol routing (R08 → R06 or R07)
+        function handleProtocolRoute(answerOption, answerValue) {
+            if (answerOption.routeToProtocol === 'hacked') {
+                // Route to R06 (account-hacked)
+                const audienceFlag = getAudienceFlagFromEngine();
+                const r06AudienceValue = mapR08AudienceToR06(audienceFlag);
+
+                // Start R06 engine
+                engine = new RespondEngine(R06_HACKED);
+                selectedProtocol = 'hacked';
+                pendingProtocolAnswer = null;
+
+                // Answer R06's whose-account question
+                const q0 = engine.getCurrentQuestion();
+                if (q0 && q0.id === 'whose-account' && r06AudienceValue) {
+                    engine.answerQuestion(r06AudienceValue);
+                }
+
+                // Render next question
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+            } else if (answerOption.routeToProtocol === 'phishing') {
+                // Route to R07 (scam-info-shared)
+                pendingProtocolAnswer = answerOption.pendingAnswer;
+
+                // Start R07 engine
+                engine = new RespondEngine(R07_PHISHING);
+                selectedProtocol = 'phishing';
+
+                // Show R07's safety question (first question)
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+            }
+        }
+
+        // Get the audience flag from current R08 engine
+        function getAudienceFlagFromEngine() {
+            if (engine.flags.affected_self) return 'affected_self';
+            if (engine.flags.affected_other) return 'affected_other';
+            if (engine.flags.affected_unsure) return 'affected_unsure';
+            return null;
+        }
+
+        // Map R08 audience flags to R06 answer values
+        function mapR08AudienceToR06(audienceFlag) {
+            const mapping = {
+                'affected_self': 'self',
+                'affected_other': 'other',
+                'affected_unsure': 'unsure'
+            };
+            return mapping[audienceFlag] || null;
+        }
+
+        // Apply a pending answer when the question contains that answer
+        function applyPendingAnswerIfAvailable() {
+            if (!pendingProtocolAnswer) return false;
+
+            const question = engine.getCurrentQuestion();
+            if (!question) return false;
+
+            const answerExists = question.answers.some(a => a.value === pendingProtocolAnswer);
+            if (answerExists) {
+                engine.answerQuestion(pendingProtocolAnswer);
+                pendingProtocolAnswer = null;
+                return true;
+            }
+            return false;
         }
 
         // Show immediate safety result
@@ -648,12 +736,20 @@
 
         // Continue from immediate safety to normal guidance
         function continueToBullying() {
-            // Questions are now answered (1=yes), continue with Q2
-            if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
-                engine.currentQuestionIndex++;
+            // For R07 with pending answer: apply the pending answer automatically
+            if (selectedProtocol === 'phishing' && pendingProtocolAnswer) {
+                applyPendingAnswerIfAvailable();
                 document.getElementById('resultsContainer').classList.remove('active');
                 document.getElementById('questionContainer').classList.add('active');
-                renderQuestion();
+                showResults();
+            } else {
+                // Default: advance to next question
+                if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                    engine.currentQuestionIndex++;
+                    document.getElementById('resultsContainer').classList.remove('active');
+                    document.getElementById('questionContainer').classList.add('active');
+                    renderQuestion();
+                }
             }
         }
 
@@ -1006,6 +1102,7 @@
             }
             engine = null;
             selectedProtocol = null;
+            pendingProtocolAnswer = null;
 
             // Reset shared platform context for new journey
             respondContext.platform = null;
