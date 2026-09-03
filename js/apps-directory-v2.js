@@ -594,7 +594,7 @@ function renderAppDetails(app) {
                     <div style="font-size: 0.85rem; color: var(--text-gray);">Use DigitalCap's conversation guides to help start the discussion.</div>
                 </a>
                 <a href="protect.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
-                    <div style="font-weight: 600; margin-bottom: 0.25rem;">Protect My Family</div>
+                    <div style="font-weight: 600; margin-bottom: 0.25rem;">Protect Yourself</div>
                     <div style="font-size: 0.85rem; color: var(--text-gray);">Review practical steps for safer devices, accounts, and boundaries.</div>
                 </a>
                 <a href="respond.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">

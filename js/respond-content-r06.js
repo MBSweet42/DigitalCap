@@ -8,11 +8,25 @@ const R06_HACKED = {
   description: 'Someone may have accessed your child\'s account without permission. DigitalCap will help you figure out the safest next steps and point you to the platform\'s official recovery tools.',
 
   questions: [
+    // WHOSE ACCOUNT QUESTION
+    {
+      id: 'whose-account',
+      number: 1,
+      text: 'Whose account is affected?',
+      description: 'Choose the answer that comes closest. The security steps apply either way.',
+      type: 'yes-no-unsure',
+      answers: [
+        { label: 'My account', value: 'self', flag: 'affected_self' },
+        { label: 'Someone else\'s account', value: 'other', flag: 'affected_other' },
+        { label: 'I\'m not sure', value: 'unsure', flag: 'affected_unsure' }
+      ]
+    },
+
     // UNIVERSAL SAFETY QUESTION
     {
       id: 'safety-screening',
-      number: 1,
-      text: 'Before we work on the account, is the person who accessed it threatening your child or creating an immediate safety concern?',
+      number: 2,
+      text: 'Is the person who accessed the account threatening the account owner or creating an immediate safety concern?',
       description: '',
       type: 'yes-no-unsure',
       answers: [
@@ -30,9 +44,9 @@ const R06_HACKED = {
     // ACCESS STATUS QUESTION
     {
       id: 'access-status',
-      number: 2,
-      text: 'Can your child still log into the account?',
-      description: 'If you\'re not sure, try logging in first. If the login works, choose Yes. If the account won\'t let your child in, choose No.',
+      number: 3,
+      text: 'Can the account owner still log into the account?',
+      description: 'If you\'re not sure, try logging in first. If the login works, choose Yes. If the account won\'t let the account owner in, choose No.',
       type: 'yes-no-unsure',
       answers: [
         {
@@ -59,19 +73,19 @@ const R06_HACKED = {
     // INDICATOR QUESTION (only if can_access)
     {
       id: 'indicators',
-      number: 3,
+      number: 4,
       text: 'Which best describes what you noticed?',
       description: '',
       type: 'incident-cards',
       answers: [
         {
-          label: 'Someone is posting or messaging as my child',
+          label: 'Someone is posting or messaging as the account owner',
           value: 'impersonation',
           detail: 'Unauthorized posts, messages, or account activity.',
           flag: 'impersonation'
         },
         {
-          label: 'We saw a login or device we don\'t recognize',
+          label: 'We saw a login or device the account owner doesn\'t recognize',
           value: 'unfamiliar-access',
           detail: 'Unknown location, device, or login time.',
           flag: 'unfamiliar_access'
@@ -83,7 +97,7 @@ const R06_HACKED = {
           flag: 'settings_changed'
         },
         {
-          label: 'My child shared a password or verification code',
+          label: 'A password or verification code was shared',
           value: 'shared-credentials',
           detail: 'Someone gained account access through a shared code or password.',
           flag: 'shared_credentials'
@@ -121,12 +135,12 @@ const R06_HACKED = {
       {
         number: 2,
         title: 'Review signed-in devices or sessions',
-        text: 'Sign out anything unfamiliar or devices your child doesn\'t recognize.'
+        text: 'Sign out anything unfamiliar or devices the account owner doesn\'t recognize.'
       },
       {
         number: 3,
         title: 'Verify recovery information',
-        text: 'Check that recovery email, phone number, or other recovery methods are still correct and belong to your child.'
+        text: 'Check that recovery email, phone number, or other recovery methods are still correct and belong to the account owner.'
       },
       {
         number: 4,
@@ -214,8 +228,8 @@ const R06_HACKED = {
       },
       {
         number: 5,
-        title: 'Talk with your child about credential safety',
-        text: 'Explain why passwords and verification codes should never be shared, even with trusted friends.'
+        title: 'Discuss credential safety',
+        text: 'Explain why passwords and verification codes should never be shared, even with trusted friends or contacts.'
       }
     ],
 
@@ -261,7 +275,7 @@ const R06_HACKED = {
       {
         number: 4,
         title: 'Review connected apps and remove anything unfamiliar',
-        text: 'Revoke access to apps or services your child doesn\'t recognize.'
+        text: 'Revoke access to apps or services the account owner doesn\'t recognize.'
       },
       {
         number: 5,
@@ -287,7 +301,7 @@ const R06_HACKED = {
       show: 'whenFlag',
       flag: 'can_access',
       title: 'Secure the account after recovery',
-      intro: 'If your child can still access the account, these steps help prevent future unauthorized access:',
+      intro: 'If the account owner can still access the account, these steps help prevent future unauthorized access:',
       points: [
         'Change the password to something new and unique.',
         'Sign out any unrecognized devices from account settings.',
@@ -317,7 +331,7 @@ const R06_HACKED = {
       id: 'check-other-accounts',
       show: 'always',
       title: 'Check other accounts for the same password',
-      intro: 'If your child reused this password on other accounts, they\'re at risk too:',
+      intro: 'If this password was reused on other accounts, they\'re at risk too:',
       points: [
         'Identify other accounts that use the same password.',
         'Change the password on each of those accounts to something unique.',
@@ -332,13 +346,13 @@ const R06_HACKED = {
       show: 'whenFlag',
       flag: 'impersonation',
       title: 'Addressing impersonation and unauthorized posts',
-      intro: 'If someone posted or messaged as your child:',
+      intro: 'If someone posted or messaged as the account owner:',
       points: [
         'Review recent activity to see what was posted or sent.',
         'Screenshot or record anything important before reporting or removing it.',
         'Use the platform\'s report abuse/impersonation feature to flag unauthorized content.',
         'Delete or ask the platform to remove any inappropriate or harmful posts.',
-        'If messages were sent to friends, a quick "my account was compromised" message can help clear up confusion.'
+        'If messages were sent to contacts, a quick "my account was compromised" message can help clear up confusion.'
       ]
     },
 
@@ -361,14 +375,14 @@ const R06_HACKED = {
     {
       id: 'talk-with-child',
       show: 'always',
-      title: 'Talk with your child about what happened',
-      intro: 'Understanding what happened helps prevent future problems—and reinforces that your child can come to you for help:',
+      title: 'Talk about what happened',
+      intro: 'Understanding what happened helps prevent future problems:',
       points: [
         'Ask open-ended questions: "Can you tell me what happened?" rather than accusatory ones.',
         'Listen without immediately assigning blame. Many compromises happen accidentally (shared password, phishing link, reused password).',
-        'Ask if they clicked something unusual, shared a code, or used the same password elsewhere.',
+        'Ask if they or the account owner clicked something unusual, shared a code, or used the same password elsewhere.',
         'Reassure them that reporting the problem was the right thing to do.',
-        'Make clear that asking for help with account security doesn\'t automatically mean losing their device. Handling the immediate problem comes first.',
+        'Avoid blame or punishment for reporting the issue. Handling the immediate problem comes first.',
         'Use this as a learning moment to discuss password safety and recognizing phishing or suspicious messages.'
       ]
     },
@@ -381,10 +395,10 @@ const R06_HACKED = {
       points: [
         'Create strong, unique passwords for each account. Use a password manager to keep track.',
         'Enable two-factor authentication on important accounts.',
-        'Never share passwords, verification codes, or recovery codes—not even with close friends.',
+        'Never share passwords, verification codes, or recovery codes—not even with close friends or contacts.',
         'Be cautious of suspicious links in messages, emails, or posts. Official accounts won\'t ask you to log in outside the official app/website.',
         'Review account privacy settings regularly and check connected apps/services.',
-        'Keep checking in with your child about account safety. Most platforms have security features and settings they offer.'
+        'Keep discussing account safety practices. Most platforms have security features and settings worth understanding.'
       ]
     }
   ],
@@ -393,7 +407,7 @@ const R06_HACKED = {
   immediateSafety: {
     title: 'Safety comes first',
     content: [
-      'If your child or someone else is in immediate physical danger, call 911 or your local emergency number right now.',
+      'If the account owner or anyone else is in immediate physical danger, call 911 or your local emergency number right now.',
       'If the threat is not immediate but is specific or credible (location, timing, method), preserve the information and consider contacting local law enforcement.',
       'Do not wait for DigitalCap if there is a real threat of harm.',
       'After addressing immediate safety, you can get additional guidance below.'
@@ -406,7 +420,7 @@ const R06_HACKED = {
     resourceIds: ['988-crisis-lifeline'],
     content: [
       'If you\'re unsure about access status, try logging in with the current password. If login fails, the account is likely locked out. If it works, the account is accessible.',
-      'If your child is showing signs of extreme distress about the account compromise, consider contacting a trusted adult or counselor.',
+      'If the account owner is showing signs of extreme distress about the account compromise, consider contacting a trusted adult or counselor.',
       'If there are threats of harm involved, contact local law enforcement.'
     ]
   },
