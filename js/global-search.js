@@ -37,7 +37,7 @@ function buildSearchIndex() {
                 title: app.name,
                 description: app.description,
                 category: app.category,
-                url: 'apps-v2.html',
+                url: '/app-check',
                 keywords: [app.name, app.category, ...(app.hiddenDangers || [])]
             });
         });
@@ -45,10 +45,10 @@ function buildSearchIndex() {
 
     // Add safety articles
     const safetyArticles = [
-        { title: 'Password Safety', url: 'safety.html', keywords: ['password', 'account', 'security', 'phishing'] },
-        { title: 'Grooming & Predators', url: 'safety.html', keywords: ['grooming', 'predator', 'exploitation', 'safety'] },
-        { title: 'Cyberbullying', url: 'safety.html', keywords: ['cyberbullying', 'bullying', 'harassment', 'mean'] },
-        { title: 'Screen Time & Health', url: 'safety.html', keywords: ['screen time', 'health', 'sleep', 'addiction'] }
+        { title: 'Password Safety', url: '/understand', keywords: ['password', 'account', 'security', 'phishing'] },
+        { title: 'Grooming & Predators', url: '/understand', keywords: ['grooming', 'predator', 'exploitation', 'safety'] },
+        { title: 'Cyberbullying', url: '/understand', keywords: ['cyberbullying', 'bullying', 'harassment', 'mean'] },
+        { title: 'Screen Time & Health', url: '/understand', keywords: ['screen time', 'health', 'sleep', 'addiction'] }
     ];
     safetyArticles.forEach(article => {
         searchIndex.push({
@@ -80,9 +80,9 @@ function buildSearchIndex() {
     const resources = [
         { title: 'Family Guides', url: 'resources.html', keywords: ['family', 'guides', 'age', 'resources'] },
         { title: 'Emergency Hotlines', url: 'hotlines.html', keywords: ['hotline', 'crisis', 'help', 'support', 'emergency'] },
-        { title: 'Curated Expert Resources', url: 'resources-links.html', keywords: ['resources', 'expert', 'common sense media', 'research'] },
+        { title: 'Curated Expert Resources', url: '/trusted-sources', keywords: ['resources', 'expert', 'common sense media', 'research'] },
         { title: 'Gaming Safety', url: 'gaming-guide.html', keywords: ['gaming', 'fortnite', 'roblox', 'discord', 'xbox'] },
-        { title: 'Teacher Lesson Plans', url: 'teachers.html', keywords: ['teacher', 'lesson', 'curriculum', 'classroom'] },
+        { title: 'Teacher Lesson Plans', url: '/educators', keywords: ['teacher', 'lesson', 'curriculum', 'classroom'] },
         { title: 'Interactive Tools', url: 'interactive.html', keywords: ['quiz', 'checklist', 'tool', 'parental controls'] }
     ];
     resources.forEach(resource => {

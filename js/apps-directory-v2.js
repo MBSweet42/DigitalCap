@@ -589,7 +589,7 @@ function renderAppDetails(app) {
         <div style="margin-bottom: 2rem;">
             <h4 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.1rem;">What Can I Do Next?</h4>
             <div style="display: flex; gap: 1rem; flex-direction: column;">
-                <a href="conversation.html" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
+                <a href="/talk" style="padding: 1rem; background: var(--bg-light); border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--primary); text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(78, 205, 196, 0.1)'" onmouseout="this.style.background='var(--bg-light)'">
                     <div style="font-weight: 600; margin-bottom: 0.25rem;">Talk About It</div>
                     <div style="font-size: 0.85rem; color: var(--text-gray);">Use DigitalCap's conversation guides to help start the discussion.</div>
                 </a>

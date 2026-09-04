@@ -323,7 +323,7 @@ function showCustomAppForm() {
         if (input.length > 0) {
             const exists = appsCompleteV2.find(a => a.name.toLowerCase() === input);
             if (exists) {
-                dupCheck.innerHTML = `✓ "${exists.name}" is already in our database! <a href="apps-v2.html" onclick="closeCustomAppModal()">Click here to search for it</a> and add your experience.`;
+                dupCheck.innerHTML = `✓ "${exists.name}" is already in our database! <a href="/app-check" onclick="closeCustomAppModal()">Click here to search for it</a> and add your experience.`;
                 dupCheck.style.color = '#4ECDC4';
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.5';

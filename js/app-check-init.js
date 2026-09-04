@@ -79,7 +79,7 @@ export function initializeAppCheckForSubmissions() {
  *
  * 4. For LOCAL TESTING (localhost only):
  *    - Run: python -m http.server 8000
- *    - Open: http://127.0.0.1:8000/apps-v2.html
+ *    - Open: http://127.0.0.1:8000/app-check
  *    - Check browser console for debug token
  *    - Firebase Console → App Check → Manage debug tokens
  *    - Register the debug token for localhost

@@ -16,6 +16,22 @@
       "*-service-account-key.json",
       "*-firebase-adminsdk-*.json",
       "serviceAccountKey.json"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      { "source": "/index.html", "destination": "/", "type": 301 },
+      { "source": "/index", "destination": "/", "type": 301 },
+      { "source": "/apps-v2.html", "destination": "/app-check", "type": 301 },
+      { "source": "/apps-v2", "destination": "/app-check", "type": 301 },
+      { "source": "/safety.html", "destination": "/understand", "type": 301 },
+      { "source": "/safety", "destination": "/understand", "type": 301 },
+      { "source": "/conversation.html", "destination": "/talk", "type": 301 },
+      { "source": "/conversation", "destination": "/talk", "type": 301 },
+      { "source": "/teachers.html", "destination": "/educators", "type": 301 },
+      { "source": "/teachers", "destination": "/educators", "type": 301 },
+      { "source": "/resources-links.html", "destination": "/trusted-sources", "type": 301 },
+      { "source": "/resources-links", "destination": "/trusted-sources", "type": 301 }
     ]
   }
 }
