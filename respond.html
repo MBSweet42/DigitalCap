@@ -463,6 +463,10 @@
                         <div class="respond-incident-card-label">Identity Theft or Unfamiliar Activity</div>
                         <div class="respond-incident-card-detail">You found an account, transaction, tax notice, wages, or other activity you do not recognize.</div>
                     </button>
+                    <button class="respond-incident-card" onclick="selectIncident('intimate-images')" style="text-align: left;">
+                        <div class="respond-incident-card-label">Intimate Images or Sextortion</div>
+                        <div class="respond-incident-card-detail">An intimate image was shared, threatened, requested, or used to pressure someone.</div>
+                    </button>
                 </div>
             </div>
 
@@ -494,10 +498,11 @@
 
     <!-- Load Engine and Content -->
     <script src="js/respond-engine.js?v=2"></script>
-    <script src="js/respond-content-r05.js"></script>
+    <script src="js/respond-content-r05.js?v=2"></script>
     <script src="js/respond-content-r06.js?v=2"></script>
     <script src="js/respond-content-r07.js?v=1"></script>
     <script src="js/respond-content-r08.js?v=1"></script>
+    <script src="js/respond-content-r09.js?v=1"></script>
     <script src="js/respond-recommendations.js"></script>
     <script src="js/resource-loader.js"></script>
     <script src="js/platform-registry.js"></script>
@@ -507,6 +512,9 @@
     <script>
         // State
         let engine = null;
+        let routeOrigin = null; // Tracks if we came from another protocol (e.g., 'R05')
+        let carriedAudienceAnswer = null; // Carries R05 audience answer into R09 (self/other/unsure)
+        let pendingAudienceApply = false; // Flag: audience answer is waiting to be applied in R09
 
         // Shared platform context for current RESPOND journey
         const respondContext = { platform: null };
@@ -548,6 +556,9 @@
             } else if (type === 'identity-theft') {
                 protocolContent = R08_IDENTITY_THEFT;
                 selectedProtocol = 'identity-theft';
+            } else if (type === 'intimate-images') {
+                protocolContent = R09_INTIMATE_IMAGES;
+                selectedProtocol = 'intimate-images';
             } else {
                 return;
             }
@@ -557,6 +568,11 @@
         // Start the protocol
         function startProtocol(protocolContent) {
             engine = new RespondEngine(protocolContent);
+            // Clear route origin when starting fresh (handleProtocolRoute sets it after for R05→R09)
+            routeOrigin = null;
+            // Clear carried audience when starting fresh (handleProtocolRoute sets it for R05→R09)
+            carriedAudienceAnswer = null;
+            pendingAudienceApply = false;
             document.getElementById('introSection').classList.remove('active');
             document.getElementById('questionContainer').classList.add('active');
             renderQuestion();
@@ -618,12 +634,85 @@
             document.getElementById('backBtn').style.display = engine.canGoBack() ? 'block' : 'none';
         }
 
+        // Set combination flags for R09 scenario-specific action selection
+        function setR09CombinationFlags() {
+            const f = engine.flags;
+
+            // Clear any existing combination flags first
+            const combinationFlagNames = [
+                'minor_with_file', 'minor_without_file',
+                'adult_self_with_file', 'adult_other_with_file', 'adult_self_without_file', 'adult_other_without_file',
+                'synthetic_adult_self_with_file', 'synthetic_adult_other', 'synthetic_minor', 'synthetic_age_unsure',
+                'threat_minor_with_file', 'threat_minor_without_file', 'threat_adult_self_with_file', 'threat_adult_other', 'threat_no_image'
+            ];
+            combinationFlagNames.forEach(flag => {
+                delete f[flag];
+            });
+
+            // Threat with demand combinations (highest priority)
+            if (f.threat_with_demand) {
+                if (f.no_image_exists) {
+                    f.threat_no_image = true;
+                } else if (f.content_created_minor && f.has_file) {
+                    f.threat_minor_with_file = true;
+                } else if (f.content_created_minor && (f.no_file || f.file_unsure)) {
+                    f.threat_minor_without_file = true;
+                } else if (f.content_created_adult && f.affected_self && f.has_file) {
+                    f.threat_adult_self_with_file = true;
+                } else if (f.content_created_adult && f.affected_other) {
+                    f.threat_adult_other = true;
+                }
+                return;
+            }
+
+            // Synthetic content combinations
+            if (f.synthetic_content) {
+                if (f.content_created_adult && f.affected_self && f.has_file) {
+                    f.synthetic_adult_self_with_file = true;
+                } else if (f.content_created_adult && f.affected_other) {
+                    f.synthetic_adult_other = true;
+                } else if (f.content_created_minor) {
+                    f.synthetic_minor = true;
+                } else if (f.age_unsure) {
+                    f.synthetic_age_unsure = true;
+                }
+                return;
+            }
+
+            // No image exists (prevents Take It Down / StopNCII)
+            if (f.no_image_exists) {
+                // Already handled by rule
+                return;
+            }
+
+            // Real content combinations (age and file-specific)
+            if (f.content_created_minor) {
+                if (f.has_file) {
+                    f.minor_with_file = true;
+                } else if (f.no_file || f.file_unsure) {
+                    f.minor_without_file = true;
+                }
+            } else if (f.content_created_adult) {
+                if (f.has_file && f.affected_self) {
+                    f.adult_self_with_file = true;
+                } else if (f.has_file && f.affected_other) {
+                    f.adult_other_with_file = true;
+                } else if (f.no_file || f.file_unsure) {
+                    if (f.affected_self) {
+                        f.adult_self_without_file = true;
+                    } else if (f.affected_other) {
+                        f.adult_other_without_file = true;
+                    }
+                }
+            }
+        }
+
         // Select an answer
         function selectAnswer(value) {
             const question = engine.getCurrentQuestion();
             const answerOption = question.answers.find(a => a.value === value);
 
-            // Check for protocol routing (R08 → R06 or R07)
+            // Check for protocol routing (R08 → R06 or R07, R05 → R09)
             if (answerOption && answerOption.routeToProtocol) {
                 handleProtocolRoute(answerOption, value);
                 return;
@@ -631,9 +720,17 @@
 
             const result = engine.answerQuestion(value);
 
+            // Set combination flags for R09 scenario-specific routing
+            if (selectedProtocol === 'intimate-images') {
+                setR09CombinationFlags();
+            }
+
             if (result.interruptForSafety) {
-                // Immediate safety interruption
+                // Immediate safety interruption (physical danger)
                 showImmediateSafety();
+            } else if (question.id === 'emotional-crisis' && (engine.flags.emotional_crisis || engine.flags.emotional_unsure)) {
+                // Emotional crisis safety panel (separate from physical danger)
+                showEmotionalCrisisSafety();
             } else if (result.hasMore) {
                 // More questions
                 renderQuestion();
@@ -643,7 +740,7 @@
             }
         }
 
-        // Handle protocol routing (R08 → R06 or R07)
+        // Handle protocol routing (R08 → R06 or R07, R05 → R09)
         function handleProtocolRoute(answerOption, answerValue) {
             if (answerOption.routeToProtocol === 'hacked') {
                 // Route to R06 (account-hacked)
@@ -673,6 +770,45 @@
                 selectedProtocol = 'phishing';
 
                 // Show R07's safety question (first question)
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+            } else if (answerOption.routeToProtocol === 'intimate-images') {
+                // Route to R09 (intimate-images) from R05 (bullying)
+                // Preserve R05's physical safety answer without repeating the interrupt
+                const r05SafetyAnswer = engine.answers['q1']; // 'yes', 'no', or 'unsure'
+                const r05AudienceAnswer = engine.answers['q2']; // 'self', 'other', or 'unsure'
+
+                // Save the route origin so Back can return to R05
+                routeOrigin = 'R05';
+
+                // Save the audience answer for later application
+                carriedAudienceAnswer = r05AudienceAnswer;
+                pendingAudienceApply = false; // Will be set to true after emotional crisis
+
+                // Start R09 engine
+                engine = new RespondEngine(R09_INTIMATE_IMAGES);
+                selectedProtocol = 'intimate-images';
+                pendingProtocolAnswer = null;
+
+                // Apply R05's physical-safety answer to R09 Q1
+                // The user already handled this question and any interrupt in R05
+                // So we apply the answer and advance without re-interrupting
+                if (r05SafetyAnswer) {
+                    const q0 = engine.getCurrentQuestion();
+                    if (q0 && q0.id === 'safety-physical') {
+                        const result = engine.answerQuestion(r05SafetyAnswer);
+                        // Do not show interrupt again - user already saw it in R05
+                        // Just advance to next question if an interrupt would have occurred
+                        if (result.interruptForSafety) {
+                            // Manually advance without showing the physical-safety interrupt
+                            if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                                engine.currentQuestionIndex++;
+                            }
+                        }
+                    }
+                }
+
+                // Render next question (should be Q2: emotional crisis)
                 document.getElementById('questionContainer').classList.add('active');
                 renderQuestion();
             }
@@ -712,18 +848,19 @@
             return false;
         }
 
-        // Show immediate safety result
+        // Show immediate safety result (physical danger)
         function showImmediateSafety() {
             document.getElementById('questionContainer').classList.remove('active');
 
             const safetyResult = engine.getImmediateSafetyResult();
+
             let html = `
                 <div class="respond-immediate-safety">
                     <h2>${safetyResult.content.title}</h2>
                     ${safetyResult.content.content.map(p => `<p>${p}</p>`).join('')}
                 </div>
                 <div class="respond-finish-controls">
-                    <button class="btn btn-primary respond-continue-btn" onclick="continueToBullying()">
+                    <button class="btn btn-primary respond-continue-btn" onclick="continueFromSafety()">
                         Continue to Guidance
                     </button>
                     <button class="btn btn-outline" onclick="startOver()">Start Over</button>
@@ -734,8 +871,32 @@
             document.getElementById('resultsContainer').classList.add('active');
         }
 
-        // Continue from immediate safety to normal guidance
-        function continueToBullying() {
+        // Show emotional crisis safety panel (separate from physical danger)
+        function showEmotionalCrisisSafety() {
+            document.getElementById('questionContainer').classList.remove('active');
+
+            const crisisContent = engine.content.emotionalCrisisSafety;
+
+            let html = `
+                <div class="respond-immediate-safety">
+                    <h2>${crisisContent.title}</h2>
+                    ${crisisContent.content.map(p => `<p>${p}</p>`).join('')}
+                </div>
+                <div class="respond-finish-controls">
+                    <button class="btn btn-primary respond-continue-btn" onclick="continueFromEmotionalCrisis()">
+                        Continue to Guidance
+                    </button>
+                    <button class="btn btn-outline" onclick="changeEmotionalCrisisAnswer()">Change my answer</button>
+                    <button class="btn btn-outline" onclick="startOver()">Start Over</button>
+                </div>
+            `;
+
+            document.getElementById('resultsContainer').innerHTML = html;
+            document.getElementById('resultsContainer').classList.add('active');
+        }
+
+        // Continue from physical-safety interrupt
+        function continueFromSafety() {
             // For R07 with pending answer: apply the pending answer automatically
             if (selectedProtocol === 'phishing' && pendingProtocolAnswer) {
                 applyPendingAnswerIfAvailable();
@@ -749,12 +910,115 @@
                     document.getElementById('resultsContainer').classList.remove('active');
                     document.getElementById('questionContainer').classList.add('active');
                     renderQuestion();
+                } else {
+                    // At end, show results
+                    document.getElementById('resultsContainer').classList.remove('active');
+                    showResults();
                 }
             }
         }
 
+        // Continue from emotional-crisis safety panel
+        function continueFromEmotionalCrisis() {
+            // If we have a carried audience answer from R05, apply it after emotional crisis
+            if (carriedAudienceAnswer && pendingAudienceApply === false && selectedProtocol === 'intimate-images') {
+                pendingAudienceApply = true;
+                // Advance to next question (affected-person question)
+                if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                    engine.currentQuestionIndex++;
+                    // Check if we're at the affected-person question
+                    const currentQ = engine.getCurrentQuestion();
+                    if (currentQ && currentQ.id === 'affected-person') {
+                        // Automatically apply the carried answer
+                        const result = engine.answerQuestion(carriedAudienceAnswer);
+                        // Clear the carried answer after applying
+                        carriedAudienceAnswer = null;
+                        pendingAudienceApply = false;
+                        // Continue to next question
+                        if (result.hasMore) {
+                            if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                                engine.currentQuestionIndex++;
+                                document.getElementById('resultsContainer').classList.remove('active');
+                                document.getElementById('questionContainer').classList.add('active');
+                                renderQuestion();
+                            } else {
+                                document.getElementById('resultsContainer').classList.remove('active');
+                                showResults();
+                            }
+                        } else {
+                            document.getElementById('resultsContainer').classList.remove('active');
+                            showResults();
+                        }
+                    } else {
+                        // Not at affected-person question yet, continue normally
+                        document.getElementById('resultsContainer').classList.remove('active');
+                        document.getElementById('questionContainer').classList.add('active');
+                        renderQuestion();
+                    }
+                } else {
+                    // At end, show results
+                    document.getElementById('resultsContainer').classList.remove('active');
+                    showResults();
+                }
+            } else {
+                // No carried audience or normal flow, advance normally
+                if (engine.currentQuestionIndex < engine.content.questions.length - 1) {
+                    engine.currentQuestionIndex++;
+                    document.getElementById('resultsContainer').classList.remove('active');
+                    document.getElementById('questionContainer').classList.add('active');
+                    renderQuestion();
+                } else {
+                    // At end, show results
+                    document.getElementById('resultsContainer').classList.remove('active');
+                    showResults();
+                }
+            }
+        }
+
+        // Return from emotional-crisis panel to re-answer the question
+        function changeEmotionalCrisisAnswer() {
+            document.getElementById('resultsContainer').classList.remove('active');
+            document.getElementById('questionContainer').classList.add('active');
+            renderQuestion();
+        }
+
+        // Backward compatibility: map old function name to new one
+        function continueToBullying() {
+            continueFromSafety();
+        }
+
         // Go back
         function goBack() {
+            // Special handling for R05-to-R09 routing
+            if (routeOrigin === 'R05' && selectedProtocol === 'intimate-images' && engine.currentQuestionIndex === 1) {
+                // User is on R09 Q2 (emotional-crisis), first visible question after routing
+                // Return to R05 Q3 (images answer) instead of R09 Q1
+                // Reconstruct R05 engine at the point where user selected images
+                const r05Engine = new RespondEngine(R05_BULLYING);
+
+                // Answer R05 Q1 with the original answer (we saved it)
+                const r05Q1Answer = engine.answers['safety-physical'];
+                if (r05Q1Answer) {
+                    r05Engine.answerQuestion(r05Q1Answer);
+                }
+
+                // Answer R05 Q2 (audience) with the carried answer
+                if (carriedAudienceAnswer) {
+                    r05Engine.answerQuestion(carriedAudienceAnswer);
+                }
+
+                // Return to R05 Q3 (incident type question) for re-selection
+                engine = r05Engine;
+                selectedProtocol = 'bullying';
+                routeOrigin = null;
+                carriedAudienceAnswer = null;
+                pendingAudienceApply = false;
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+                return;
+            }
+
+            // Normal back behavior
             if (engine.currentQuestionIndex === 0) {
                 // At first question, return to chooser
                 startOver();
@@ -1103,6 +1367,9 @@
             engine = null;
             selectedProtocol = null;
             pendingProtocolAnswer = null;
+            routeOrigin = null; // Clear any routing context
+            carriedAudienceAnswer = null; // Clear carried R05 audience
+            pendingAudienceApply = false; // Clear pending audience flag
 
             // Reset shared platform context for new journey
             respondContext.platform = null;
