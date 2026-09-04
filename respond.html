@@ -418,6 +418,61 @@
             .respond-finish-controls button {
                 width: 100%;
             }
+
+            .respond-scam-assessment {
+                padding: 1.25rem;
+            }
+
+            .respond-scam-assessment-heading {
+                font-size: 1.1rem;
+            }
+
+            .respond-scam-assessment-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Scam Assessment Card - Dark Theme */
+        .respond-scam-assessment {
+            background: var(--respond-bg);
+            border: 2px solid var(--respond-border);
+            border-left: 4px solid var(--respond-accent);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .respond-scam-assessment-heading {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .respond-scam-assessment-title {
+            color: var(--respond-text);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .respond-scam-assessment-text {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .respond-scam-assessment-reassurance {
+            color: var(--secondary);
+            font-weight: 600;
+            font-style: normal;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--respond-border);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -456,8 +511,8 @@
                         <div class="respond-incident-card-detail">Someone may have accessed, changed, used, or locked you or someone you're helping out of an account.</div>
                     </button>
                     <button class="respond-incident-card" onclick="selectIncident('phishing')" style="text-align: left;">
-                        <div class="respond-incident-card-label">Scam, Phishing, or Suspicious Contact</div>
-                        <div class="respond-incident-card-detail">A suspicious message, call, link, request, or payment may have been a scam.</div>
+                        <div class="respond-incident-card-label">I Got a Suspicious Message, Call, or Request</div>
+                        <div class="respond-incident-card-detail">Someone contacted me, frightened or pressured me, asked for money or gift cards, wanted information, or told me to click or install something.</div>
                     </button>
                     <button class="respond-incident-card" onclick="selectIncident('identity-theft')" style="text-align: left;">
                         <div class="respond-incident-card-label">Identity Theft or Unfamiliar Activity</div>
@@ -500,7 +555,7 @@
     <script src="js/respond-engine.js?v=2"></script>
     <script src="js/respond-content-r05.js?v=2"></script>
     <script src="js/respond-content-r06.js?v=2"></script>
-    <script src="js/respond-content-r07.js?v=1"></script>
+    <script src="js/respond-content-r07.js?v=3"></script>
     <script src="js/respond-content-r08.js?v=1"></script>
     <script src="js/respond-content-r09.js?v=1"></script>
     <script src="js/respond-recommendations.js"></script>
@@ -513,6 +568,8 @@
         // State
         let engine = null;
         let routeOrigin = null; // Tracks if we came from another protocol (e.g., 'R05')
+        let r07RouteState = null; // Saves R07 state before routing to R06 or R08
+        let r07ShowHandoffNotice = false; // Flag: show handoff notice once, then remove after first answer
         let carriedAudienceAnswer = null; // Carries R05 audience answer into R09 (self/other/unsure)
         let pendingAudienceApply = false; // Flag: audience answer is waiting to be applied in R09
 
@@ -567,9 +624,12 @@
 
         // Start the protocol
         function startProtocol(protocolContent) {
+            removeR07HandoffNotice();
             engine = new RespondEngine(protocolContent);
             // Clear route origin when starting fresh (handleProtocolRoute sets it after for R05→R09)
             routeOrigin = null;
+            r07RouteState = null; // Clear saved R07 route state
+            r07ShowHandoffNotice = false; // Clear handoff notice flag
             // Clear carried audience when starting fresh (handleProtocolRoute sets it for R05→R09)
             carriedAudienceAnswer = null;
             pendingAudienceApply = false;
@@ -707,6 +767,73 @@
             }
         }
 
+        function setR07CombinationFlags() {
+            const f = engine.flags;
+
+            // Clear any existing R07 combination flags first
+            const combinationFlagNames = [
+                'no-action-taken', 'engagement-ongoing', 'link-opened', 'credentials-shared',
+                'personal-info-shared', 'remote-access-allowed', 'gift-cards-purchased-not-shared',
+                'gift-card-numbers-shared', 'money-sent', 'action-unsure',
+                'government_impersonation_detected'
+            ];
+            combinationFlagNames.forEach(flag => {
+                delete f[flag];
+            });
+
+            // Map Q5 answer to primary action set (Q5 is most significant)
+            if (f.no_action_taken) {
+                f['no-action-taken'] = true;
+                // Detect government impersonation
+                if (f.story_legal_threat && (f.requested_gift_cards || f.requested_money || f.requested_personal_info)) {
+                    f.government_impersonation_detected = true;
+                }
+            } else if (f.engagement_ongoing) {
+                f['engagement-ongoing'] = true;
+                if (f.story_legal_threat && (f.requested_gift_cards || f.requested_money)) {
+                    f.government_impersonation_detected = true;
+                }
+            } else if (f.link_opened) {
+                f['link-opened'] = true;
+            } else if (f.credentials_shared) {
+                f['credentials-shared'] = true;
+            } else if (f.personal_info_shared) {
+                f['personal-info-shared'] = true;
+            } else if (f.remote_access_allowed) {
+                f['remote-access-allowed'] = true;
+            } else if (f.gift_cards_purchased_not_shared) {
+                f['gift-cards-purchased-not-shared'] = true;
+                // Gift-card scams are always clear signs
+                if (f.requested_gift_cards) {
+                    f.government_impersonation_detected = true;
+                }
+            } else if (f.gift_card_numbers_shared) {
+                f['gift-card-numbers-shared'] = true;
+                if (f.requested_gift_cards && f.story_legal_threat) {
+                    f.government_impersonation_detected = true;
+                }
+            } else if (f.money_sent) {
+                f['money-sent'] = true;
+            } else if (f.identity_misuse_detected) {
+                // Will route to R08
+                return;
+            } else if (f.account_compromised_detected) {
+                // Will route to R06
+                return;
+            } else if (f.action_unsure) {
+                f['action-unsure'] = true;
+            }
+        }
+
+        // Remove R07 handoff notice from DOM and clear flag
+        function removeR07HandoffNotice() {
+            const handoffNotice = document.querySelector('.handoff-notice');
+            if (handoffNotice) {
+                handoffNotice.remove();
+            }
+            r07ShowHandoffNotice = false;
+        }
+
         // Select an answer
         function selectAnswer(value) {
             const question = engine.getCurrentQuestion();
@@ -720,9 +847,29 @@
 
             const result = engine.answerQuestion(value);
 
+            // Remove handoff notice after first answer in routed pathway
+            if (r07ShowHandoffNotice) {
+                removeR07HandoffNotice();
+            }
+
             // Set combination flags for R09 scenario-specific routing
             if (selectedProtocol === 'intimate-images') {
                 setR09CombinationFlags();
+            }
+
+            // Set combination flags for R07 scenario-specific routing
+            if (selectedProtocol === 'phishing') {
+                setR07CombinationFlags();
+                // Check for protocol routing within R07 results
+                if (engine.flags.identity_misuse_detected && !result.hasMore) {
+                    // Route to R08 (Identity Theft)
+                    handleR07ToR08Route();
+                    return;
+                } else if (engine.flags.account_compromised_detected && !result.hasMore) {
+                    // Route to R06 (Hacked Account)
+                    handleR07ToR06Route();
+                    return;
+                }
             }
 
             if (result.interruptForSafety) {
@@ -830,6 +977,84 @@
                 'affected_unsure': 'unsure'
             };
             return mapping[audienceFlag] || null;
+        }
+
+        // Handle R07 → R06 route (account compromised)
+        function handleR07ToR06Route() {
+            const audienceFlag = getAudienceFlagFromEngine();
+            const r06AudienceValue = mapR08AudienceToR06(audienceFlag);
+
+            // Save R07 state before replacing engine
+            r07RouteState = {
+                answers: { ...engine.answers },
+                flags: { ...engine.flags },
+                currentQuestionIndex: engine.currentQuestionIndex,
+                audience: audienceFlag
+            };
+
+            // Save route origin so Back can return to R07
+            routeOrigin = 'R07';
+
+            // Start R06 engine
+            engine = new RespondEngine(R06_HACKED);
+            selectedProtocol = 'hacked';
+            pendingProtocolAnswer = null;
+
+            // Answer R06's whose-account question with carried audience
+            const q0 = engine.getCurrentQuestion();
+            if (q0 && q0.id === 'whose-account' && r06AudienceValue) {
+                engine.answerQuestion(r06AudienceValue);
+            }
+
+            // Show handoff explanation (will be removed after first answer)
+            removeR07HandoffNotice(); // Remove any existing notice first
+            r07ShowHandoffNotice = true;
+            const handoffMsg = document.createElement('div');
+            handoffMsg.className = 'handoff-notice';
+            handoffMsg.innerHTML = 'Because someone entered or took control of the account, DigitalCap is continuing with account-recovery questions.';
+            document.getElementById('questionContainer').insertBefore(handoffMsg, document.getElementById('questionContainer').firstChild);
+
+            // Render next question
+            renderQuestion();
+        }
+
+        // Handle R07 → R08 route (identity misuse)
+        function handleR07ToR08Route() {
+            const audienceFlag = getAudienceFlagFromEngine();
+            const r08AudienceValue = audienceFlag ? audienceFlag.replace('affected_', '').replace('_', '-') : null;
+
+            // Save R07 state before replacing engine
+            r07RouteState = {
+                answers: { ...engine.answers },
+                flags: { ...engine.flags },
+                currentQuestionIndex: engine.currentQuestionIndex,
+                audience: audienceFlag
+            };
+
+            // Save route origin so Back can return to R07
+            routeOrigin = 'R07';
+
+            // Start R08 engine
+            engine = new RespondEngine(R08_IDENTITY_THEFT);
+            selectedProtocol = 'identity-theft';
+            pendingProtocolAnswer = null;
+
+            // Answer R08's whose-information question with carried audience
+            const q0 = engine.getCurrentQuestion();
+            if (q0 && q0.id === 'affected-person' && r08AudienceValue) {
+                engine.answerQuestion(r08AudienceValue);
+            }
+
+            // Show handoff explanation (will be removed after first answer)
+            removeR07HandoffNotice(); // Remove any existing notice first
+            r07ShowHandoffNotice = true;
+            const handoffMsg = document.createElement('div');
+            handoffMsg.className = 'handoff-notice';
+            handoffMsg.innerHTML = 'Because the information may already be in use, DigitalCap is continuing with identity-recovery questions.';
+            document.getElementById('questionContainer').insertBefore(handoffMsg, document.getElementById('questionContainer').firstChild);
+
+            // Render next question
+            renderQuestion();
         }
 
         // Apply a pending answer when the question contains that answer
@@ -1018,6 +1243,61 @@
                 return;
             }
 
+            // Special handling for R07-to-R06 or R07-to-R08 routing
+            if (routeOrigin === 'R07' && r07RouteState && (selectedProtocol === 'hacked' || selectedProtocol === 'identity-theft') && engine.currentQuestionIndex === 1) {
+                // User is on R06 or R08's first visible question after routing from R07
+                // Return to R07 Q5 (completed-action question) to allow re-selection
+                const r07Engine = new RespondEngine(R07_PHISHING);
+
+                // Restore Q1 through Q4 answers in correct order
+                if (r07RouteState.answers) {
+                    const answers = r07RouteState.answers;
+                    const questions = r07Engine.content.questions;
+
+                    // Q1: safety-screening (restore and suppress interrupt)
+                    const q1Question = questions[0];
+                    if (q1Question && q1Question.id === 'safety-screening' && answers[q1Question.id]) {
+                        const q1Result = r07Engine.answerQuestion(answers[q1Question.id]);
+                        // If Q1 would normally trigger safety interrupt, advance internally without displaying
+                        if (q1Result.interruptForSafety) {
+                            r07Engine.currentQuestionIndex++;
+                        }
+                    }
+
+                    // Q2: audience (now currentQuestionIndex should be 1)
+                    const q2Question = questions[1];
+                    if (q2Question && q2Question.id === 'audience' && answers[q2Question.id]) {
+                        r07Engine.answerQuestion(answers[q2Question.id]);
+                    }
+
+                    // Q3: scam-story (now currentQuestionIndex should be 2)
+                    const q3Question = questions[2];
+                    if (q3Question && q3Question.id === 'scam-story' && answers[q3Question.id]) {
+                        r07Engine.answerQuestion(answers[q3Question.id]);
+                    }
+
+                    // Q4: requested-action (now currentQuestionIndex should be 3)
+                    const q4Question = questions[3];
+                    if (q4Question && q4Question.id === 'requested-action' && answers[q4Question.id]) {
+                        r07Engine.answerQuestion(answers[q4Question.id]);
+                    }
+
+                    // Now currentQuestionIndex should be 4, pointing to Q5
+                    // Do NOT restore old flags - they will derive from the replayed Q1-Q4 answers
+                    // This prevents stale routing flags (account_compromised_detected, etc.) from carrying over
+                }
+
+                // Return to R07 Q5 for re-selection
+                engine = r07Engine;
+                selectedProtocol = 'phishing';
+                routeOrigin = null;
+                r07RouteState = null;
+                removeR07HandoffNotice();
+                document.getElementById('questionContainer').classList.add('active');
+                renderQuestion();
+                return;
+            }
+
             // Normal back behavior
             if (engine.currentQuestionIndex === 0) {
                 // At first question, return to chooser
@@ -1034,6 +1314,21 @@
             const result = engine.assembleResult();
 
             let html = '';
+
+            // Scam assessment (R07-specific)
+            if (selectedProtocol === 'phishing' && engine.content.scamAssessment) {
+                const assessment = engine.content.scamAssessment.buildAssessment(engine.flags, engine.answers);
+                if (assessment.title) {
+                    html += `
+                        <div class="respond-scam-assessment">
+                            <h2 class="respond-scam-assessment-heading">${engine.content.scamAssessment.heading}</h2>
+                            <h3 class="respond-scam-assessment-title">${assessment.title}</h3>
+                            <p class="respond-scam-assessment-text">${assessment.text}</p>
+                            ${assessment.reassurance ? `<p class="respond-scam-assessment-reassurance">${assessment.reassurance}</p>` : ''}
+                        </div>
+                    `;
+                }
+            }
 
             // Primary actions
             html += `
@@ -1361,6 +1656,7 @@
 
         // Start over
         function startOver() {
+            removeR07HandoffNotice();
             if (engine) {
                 engine.restart();
             }
@@ -1368,6 +1664,8 @@
             selectedProtocol = null;
             pendingProtocolAnswer = null;
             routeOrigin = null; // Clear any routing context
+            r07RouteState = null; // Clear saved R07 route state
+            r07ShowHandoffNotice = false; // Clear handoff notice flag
             carriedAudienceAnswer = null; // Clear carried R05 audience
             pendingAudienceApply = false; // Clear pending audience flag
 
