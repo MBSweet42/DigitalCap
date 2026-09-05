@@ -20,7 +20,7 @@ const conversationStarters = [
     {
         id: 4,
         ageGroup: 'Young Kids (6-10)',
-        question: 'What's the difference between a "real friend" and a friend online?'
+        question: 'What\'s the difference between a "real friend" and a friend online?'
     },
     {
         id: 5,
