@@ -23,6 +23,7 @@
     <title>Gaming Safety Guide | DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/glossary.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-simple">
@@ -42,11 +43,11 @@
     <main class="container">
         <div style="text-align: center; margin-bottom: 2rem;">
             <h1>🎮 Gaming Safety Guide</h1>
-            <p class="subtitle">What parents need to know about in-game chat, toxic players, predators, and spending traps.</p>
+            <p class="subtitle">Understand in-game chat, gaming communities, spending, and what to watch for—whether you're a parent, educator, gamer, or mentor.</p>
         </div>
 
         <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
-            <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why this matters:</strong> Gaming is a huge part of kids' social lives today. But in-game chat, multiplayer communities, and anonymous players create unique risks parents need to understand.</p>
+            <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why this matters:</strong> Gaming is a major part of social life for many people. In-game chat, multiplayer communities, and interactions with strangers create real considerations worth understanding if you game yourself or support someone who does.</p>
         </div>
 
         <button class="text-to-speech-btn" id="ttsBtn" onclick="toggleTextToSpeech()">
@@ -56,32 +57,32 @@
         <!-- In-Game Chat Dangers -->
         <div class="article-section-v2">
             <div class="section-header" onclick="toggleSection(this)">
-                <h3>🗣️ In-Game Chat: The Hidden Danger</h3>
+                <h3>🗣️ In-Game Chat: What You Should Know</h3>
                 <span class="section-toggle">▶</span>
             </div>
             <div class="section-content">
-                <h4>Why in-game chat is different from texts:</h4>
-                <p>In-game chat is often <strong>invisible to parents</strong>. Unlike text messages or Discord, most games don't keep chat history you can review later, and parents rarely have access to monitor it.</p>
+                <h4>Why in-game chat is different from text messages:</h4>
+                <p>In-game chat is often <strong>less visible than text messages</strong>. Unlike texting apps or Discord, most games don't keep chat history you can review later, and those supervising someone often can't monitor it directly.</p>
 
                 <div class="do-dont-grid">
                     <div class="do-section">
-                        <h4>✅ Do Know</h4>
+                        <h4>✅ What to Understand</h4>
                         <ul>
-                            <li>In-game chat exposes your child to strangers worldwide</li>
-                            <li>Predators pose as other kids to build trust ("grooming")</li>
-                            <li>Kids give away location clues in casual conversation</li>
-                            <li>Toxic players use harassment and hate speech</li>
-                            <li>Your child can be tricked into sharing personal info</li>
+                            <li>In-game chat connects you with strangers from around the world</li>
+                            <li>Some people try to build trust gradually over time (called <span data-glossary="grooming">grooming</span>) in order to manipulate or exploit someone</li>
+                            <li>People can share location clues in casual conversation without realizing how much information they are revealing</li>
+                            <li>Toxic players may use <span data-glossary="harassment">harassment</span> or hate speech</li>
+                            <li>People can be manipulated into sharing personal information, especially when trust has been built over time</li>
                         </ul>
                     </div>
                     <div class="dont-section">
-                        <h4>❌ Don't:</h4>
+                        <h4>⚠️ Things to Consider</h4>
                         <ul>
-                            <li>Assume your child will tell you about weird interactions</li>
-                            <li>Trust that the game filters out predators</li>
-                            <li>Let them play online games without voice chat controls</li>
-                            <li>Believe "everyone in this game is a kid"; they're not</li>
-                            <li>Think being friends with a player online means they're safe</li>
+                            <li>Don't assume someone will automatically report uncomfortable interactions</li>
+                            <li>Game moderation has limits—it can't prevent all problematic behavior</li>
+                            <li>Voice chat settings should be configured with control in mind</li>
+                            <li>Online players include adults, not just other young people</li>
+                            <li>Being friendly with someone online doesn't guarantee they're trustworthy</li>
                         </ul>
                     </div>
                 </div>
@@ -152,13 +153,13 @@
             <div class="section-content">
                 <p>Many gamers use Discord (a chat app) alongside games to voice chat with friends. This creates a <strong>second layer</strong> where predators can operate.</p>
 
-                <h4>Risks on Discord:</h4>
+                <h4>Considerations for Discord:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li><strong>Private servers:</strong> Invite-only groups where moderation is nonexistent</li>
-                    <li><strong>Age-gated communities:</strong> Servers claiming to be "18+" but rarely verify</li>
-                    <li><strong>Direct messages:</strong> Anyone can DM your child, including predators who befriended them in-game</li>
-                    <li><strong>File sharing:</strong> Players can send links, malware, or inappropriate content</li>
-                    <li><strong>Grooming:</strong> Predators use Discord for private conversations after meeting kids in games</li>
+                    <li><strong>Private servers:</strong> Invite-only groups where moderation may be limited or absent</li>
+                    <li><strong>Age-gated communities:</strong> Servers claiming to be "18+" but verification is rare</li>
+                    <li><strong>Direct messages:</strong> Anyone can message, including people who met someone in-game and may not be trustworthy</li>
+                    <li><strong>File sharing:</strong> Players can send links containing <span data-glossary="malware">malware</span> or inappropriate content</li>
+                    <li><strong><span data-glossary="grooming">Grooming</span>:</strong> Some people use Discord for private one-on-one conversations after initial contact in games</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Parent controls on Discord:</h4>
@@ -221,30 +222,30 @@
         <!-- Toxic Gaming Culture -->
         <div class="article-section-v2">
             <div class="section-header" onclick="toggleSection(this)">
-                <h3>😤 Toxic Gaming Culture & Harassment</h3>
+                <h3>😤 Online Gaming Culture & Harassment</h3>
                 <span class="section-toggle">▶</span>
             </div>
             <div class="section-content">
-                <p>Competitive online games often have toxic communities. Your child may experience:</p>
+                <p>Competitive online games can sometimes have negative community behavior. Gamers may experience:</p>
 
-                <h4>Types of toxicity:</h4>
+                <h4>Behaviors that can happen:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li><strong>Rage quits:</strong> Players screaming and cursing when they lose</li>
-                    <li><strong>Sexism:</strong> Girls being targeted with sexual comments</li>
-                    <li><strong>Racism:</strong> Slurs and racist jokes in voice chat</li>
-                    <li><strong>Bullying:</strong> Mocking kids for being "bad" at the game</li>
-                    <li><strong>Harassment:</strong> Following kids into multiple games to harass them</li>
+                    <li><strong>Aggressive reactions:</strong> Players yelling or using harsh language when losing</li>
+                    <li><strong>Sexism:</strong> Gendered slurs and sexual comments directed at women and girls</li>
+                    <li><strong>Racism:</strong> Racial slurs and racist jokes in chat or voice</li>
+                    <li><strong>Mocking:</strong> Jokes at someone's expense for their skill level</li>
+                    <li><strong><span data-glossary="harassment">Harassment</span>:</strong> Repeated targeted behavior across multiple games or platforms</li>
                 </ul>
 
-                <h4 style="margin-top: 1.5rem;">How to help:</h4>
+                <h4 style="margin-top: 1.5rem;">If this happens:</h4>
                 <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
-                    <strong>If they experience harassment:</strong><br>
-                    • Tell them it's NOT their fault<br>
-                    • Help them <strong>block, mute, report</strong> the player immediately<br>
-                    • Check privacy settings so only friends can contact them<br>
-                    • Save screenshots as evidence<br>
-                    • Report to the game's support team<br><br>
-                    <strong>Conversation starter:</strong> "Have any players ever said mean things to you? You can tell me; I won't take the game away."
+                    <strong>Steps to consider:</strong><br>
+                    • Remember: negative behavior from others reflects on them, not on you<br>
+                    • Use in-game tools: <strong>block, mute, report</strong> the player<br>
+                    • Review privacy settings to limit who can contact you<br>
+                    • Save screenshots if the behavior continues<br>
+                    • Report the behavior through the game's support system<br><br>
+                    <strong>Conversation starter:</strong> "Have you had any interactions in games that made you uncomfortable? I'm here to listen and help figure out next steps."
                 </div>
             </div>
         </div>
@@ -256,13 +257,13 @@
                 <span class="section-toggle">▶</span>
             </div>
             <div class="section-content">
-                <h4>Create a family gaming plan:</h4>
+                <h4>Things to consider for balanced gaming:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li><strong>Time limits:</strong> School nights (30-60 min), weekends (1-2 hrs)</li>
-                    <li><strong>Break requirements:</strong> 20/20/20 rule (every 20 min, look at something 20 ft away for 20 sec)</li>
-                    <li><strong>No gaming before homework/school:</strong> Prioritize what matters</li>
-                    <li><strong>Gaming is social, not private:</strong> Play in common areas, not bedroom with door closed</li>
-                    <li><strong>Friend-only rule:</strong> Only play multiplayer with kids they know in real life</li>
+                    <li><strong>Time boundaries:</strong> Set limits that work for school/work and other priorities</li>
+                    <li><strong>Break rhythm:</strong> Take regular breaks (every 20-30 minutes to look away from screen)</li>
+                    <li><strong>Prioritize obligations:</strong> Homework, school, sleep, chores before gaming</li>
+                    <li><strong>Gaming visibility:</strong> Play in shared spaces or keep some visibility into what's happening</li>
+                    <li><strong>Who you play with:</strong> Limit multiplayer to people you know, or carefully chosen communities</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Games that are safer:</h4>
@@ -284,14 +285,14 @@
         <!-- Key Takeaway -->
         <section style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid var(--success); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
             <h3 style="color: var(--success); margin-top: 0;">🎯 Key Takeaway</h3>
-            <p style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 1rem;">Gaming is a normal, fun part of growing up. The goal isn't to ban gaming; it's to <strong>make it safe and balanced</strong>.</p>
+            <p style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 1rem;">Gaming is a normal, important part of how many people spend time online. The goal isn't to eliminate gaming, but to <strong>make it safer and more balanced</strong>.</p>
             <ul style="color: var(--text-dark);">
-                <li><strong>Know which games they play</strong> and who they play with</li>
-                <li><strong>Keep payment methods secure</strong> to prevent accidental spending</li>
-                <li><strong>Monitor without invading privacy:</strong> check in, don't spy</li>
-                <li><strong>Have ongoing conversations</strong> about their experiences</li>
-                <li><strong>Model healthy habits:</strong> they're watching how you use tech too</li>
-                <li><strong>Create a support system:</strong> they should feel safe telling you about problems</li>
+                <li><strong>Stay informed about what games are being played</strong> and who is involved</li>
+                <li><strong>Manage payment methods</strong> to prevent unintended spending</li>
+                <li><strong>Stay connected without hovering:</strong> check in on experiences, notice changes</li>
+                <li><strong>Have ongoing conversations</strong> about gaming and online interactions</li>
+                <li><strong>Model healthy tech use:</strong> the people you support will notice how you use technology</li>
+                <li><strong>Create space for honest conversation:</strong> people should feel safe reporting problems</li>
             </ul>
         </section>
     </main>
