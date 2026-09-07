@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Practice deciding what to verify when encountering questionable online content.">
+    <title>Deepfake Detective | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .activity-header {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .activity-header h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .activity-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .metadata-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metadata-value {
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        .section-intro {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-intro h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .section-intro p {
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0 2rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .framework-box h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .framework-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .framework-step {
+            background: var(--bg-white);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .scenarios {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .scenario-number {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .scenario-content {
+            padding: 1.5rem;
+        }
+
+        .scenario-text {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .choices {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-white);
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .choice-button:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%);
+        }
+
+        .choice-button:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .reasoning {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .reasoning.show {
+            display: block;
+        }
+
+        .reasoning h4 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1rem;
+        }
+
+        .reasoning p {
+            margin: 0.5rem 0;
+        }
+
+        .key-takeaway {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .key-takeaway p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        .key-takeaway strong {
+            color: var(--primary);
+        }
+
+        .keep-learning {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .keep-learning h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .keep-learning p {
+            color: var(--text-gray);
+            margin: 0.75rem 0;
+            line-height: 1.6;
+        }
+
+        .guide-links {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .guide-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            width: fit-content;
+        }
+
+        .guide-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .activity-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .metadata {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .framework-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="activity-header">
+            <h1>🔍 Deepfake Detective</h1>
+            <p>The goal is not to become a human AI detector. The goal is to become better at verification.</p>
+            <div class="metadata">
+                <div class="metadata-item">
+                    <div class="metadata-label">Practice</div>
+                    <div class="metadata-value">Verification skills</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Time</div>
+                    <div class="metadata-value">About 10–15 minutes</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Works for</div>
+                    <div class="metadata-value">Yourself, families, groups, educators</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-intro">
+            <h2>What You'll Practice</h2>
+            <p>You'll decide what to VERIFY when you encounter questionable online content. Rather than looking for visual proof, you'll practice checking sources, context, and independent reporting.</p>
+            <p>A realistic image is not proof that something happened. A strange-looking image is not proof that AI made it. The practical skill is knowing where to look for real evidence.</p>
+        </section>
+
+        <section class="framework-box">
+            <h3>Verification Framework</h3>
+            <p>When you encounter content you're unsure about, follow this order:</p>
+            <ol style="color: var(--text-gray); line-height: 1.8;">
+                <li><strong>Source</strong> — Where did this come from originally?</li>
+                <li><strong>Provenance</strong> — Can you trace its history?</li>
+                <li><strong>Corroboration</strong> — Do other reliable sources confirm it?</li>
+                <li><strong>Context</strong> — When and where was this supposed to happen?</li>
+                <li><strong>Content clues</strong> — What details can you check?</li>
+                <li><strong>Tools</strong> — Are there reverse-image searches or fact-checkers?</li>
+            </ol>
+            <h3 style="margin-top: 1.5rem;">Quick Framework</h3>
+            <div class="framework-steps">
+                <div class="framework-step">STOP</div>
+                <div class="framework-step">SOURCE</div>
+                <div class="framework-step">SEARCH</div>
+                <div class="framework-step">CONFIRM</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Try It</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">For each scenario, think about what you would actually check before believing or sharing it. Select your choice, then see the reasoning.</p>
+
+            <div class="scenarios">
+                <!-- Scenario 1 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 1</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            <strong>A dramatic photo is circulating on social media.</strong> It supposedly shows something that happened in your city today. You don't recognize the source, but the image looks realistic and has already been shared hundreds of times.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Find the original source or photographer</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check for independent news reporting</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Look closely at details that seem odd</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Share it because it's already spread widely</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Good reasons to verify:</h4>
+                            <p><strong>Find the original source</strong> — Photos get reposted constantly. Finding who originally posted it tells you a lot. Did it come from a news outlet? A social media account? Someone claiming to be there?</p>
+                            <p><strong>Check for independent reporting</strong> — If something significant happened today, local news should be covering it. If no news outlet is reporting it, that's a strong clue.</p>
+                            <p><strong>Look at details</strong> — This is useful, but not as proof. Strange details might mean the image is AI-generated, but they might also mean poor lighting, a camera glitch, or something that just looks odd to you.</p>
+                            <p><strong>Sharing because it spread widely</strong> — This is a common trap. Things spread on social media regardless of whether they're true.</p>
+                            <p><em>The key question: Can you find independent confirmation? If not, wait.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 2</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            <strong>A video clip appears to show a public figure saying something shocking.</strong> It's edited to be short, no context is given, and you can't find it on the figure's official accounts or channels.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Search for the full, original video</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check the person's official accounts and statements</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Look for news coverage of what the clip shows</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Share it to warn people</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Good reasons to verify:</h4>
+                            <p><strong>Find the full original video</strong> — Short clips without context are especially risky. The context before or after the clip might completely change the meaning.</p>
+                            <p><strong>Check official accounts</strong> — If it's a real statement, the person or their official channels should have it. If they deny it or clarify it, that's important information.</p>
+                            <p><strong>Look for news coverage</strong> — Major statements by public figures get reported. If this is real and significant, news outlets should be covering it.</p>
+                            <p><strong>Sharing without verification</strong> — Even if it turns out to be real, sharing unverified clips spreads incomplete information and fuels confusion.</p>
+                            <p><em>The key point: Context matters. A short clip without the full story is inherently unreliable.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 3</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            <strong>Someone points out distorted hands or strange text in an image and says:</strong> "See? This is definitely AI. AI always messes those things up." The image otherwise looks completely realistic.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Assume it's AI because of the visual flaws</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check other sources and context before deciding</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Use the visual flaws as one clue, but not proof</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Assume it's real because most of it looks normal</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Here's the nuance:</h4>
+                            <p><strong>Visual flaws as proof</strong> — This is a common trap. Hands or text might be distorted because of compression, camera angles, poor lighting, or photo editing. Visual flaws are a clue worth investigating, but they're not proof.</p>
+                            <p><strong>Use visual flaws as one clue</strong> — This is better. Strange details can be worth noting, but they should be combined with source checks and corroboration.</p>
+                            <p><strong>Assuming it's real because it looks mostly normal</strong> — This is also incomplete. Realistic appearance doesn't prove anything either.</p>
+                            <p><em>The key insight: AI detection from visual clues alone is unreliable. Check the story, not just the image.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 4 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 4</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            <strong>An image looks completely realistic with no obvious visual mistakes.</strong> Someone says: "It looks real, so it must be real."
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because it looks realistic</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Distrust it just because AI might exist</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check the source and context regardless of appearance</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Run it through an AI detector tool</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Why appearance doesn't tell the whole story:</h4>
+                            <p><strong>Trust it because it looks real</strong> — This misses the point. Both AI-generated and human-created images can look realistic. Appearance alone isn't evidence.</p>
+                            <p><strong>Check the source and context</strong> — This is the right approach. Regardless of what the image looks like, verify where it came from, who posted it, and what independent sources say about the claim.</p>
+                            <p><strong>AI detector tools</strong> — These exist, but they're not reliable. They give false positives and false negatives. They're one tool among many, not definitive proof.</p>
+                            <p><em>The bigger point: AI-generated doesn't automatically mean false. Human-created doesn't automatically mean true. Check the actual claim, not just the medium.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="key-takeaway">
+            <h2 style="color: var(--primary); margin: 0 0 1rem 0;">Check the story, not just the image.</h2>
+            <p><strong>AI-generated does not automatically mean false.</strong><br>
+            <strong>Human-created does not automatically mean true.</strong></p>
+            <p>The question is not "Is this AI?" The question is "Is this claim true?" And to answer that, you need sources, context, and corroboration.</p>
+        </section>
+
+        <section class="keep-learning">
+            <h2>Keep Learning</h2>
+            <p>Want to go deeper into verification and understanding deepfakes? Check out these DigitalCap guides:</p>
+            <div class="guide-links">
+                <a href="/guides/deepfakes" class="guide-link">Deepfakes & AI-Generated Media</a>
+                <a href="/guides/verify-online" class="guide-link">Verify Online Information</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function showReasoning(button) {
+            const scenario = button.closest('.scenario-content');
+            const reasoning = scenario.querySelector('.reasoning');
+            reasoning.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

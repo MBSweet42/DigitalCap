@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Practice evaluating where online information came from before deciding whether to trust or share it.">
+    <title>Source Check | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .activity-header {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .activity-header h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .activity-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .metadata-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metadata-value {
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        .section-intro {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-intro h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .section-intro p {
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0 2rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .framework-box h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .framework-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .framework-step {
+            background: var(--bg-white);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .examples {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .example-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .example-number {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .example-content {
+            padding: 1.5rem;
+        }
+
+        .example-text {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .choices {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-white);
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .choice-button:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%);
+        }
+
+        .choice-button:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .reasoning {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .reasoning.show {
+            display: block;
+        }
+
+        .reasoning h4 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1rem;
+        }
+
+        .reasoning p {
+            margin: 0.5rem 0;
+        }
+
+        .key-takeaways {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .key-takeaways h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .takeaway-item {
+            background: var(--bg-white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .takeaway-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .takeaway-item strong {
+            color: var(--primary);
+        }
+
+        .takeaway-item p {
+            color: var(--text-gray);
+            margin: 0.5rem 0 0 0;
+            line-height: 1.6;
+        }
+
+        .keep-learning {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .keep-learning h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .keep-learning p {
+            color: var(--text-gray);
+            margin: 0.75rem 0;
+            line-height: 1.6;
+        }
+
+        .guide-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .guide-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .activity-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .metadata {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .framework-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="activity-header">
+            <h1>🔎 Source Check</h1>
+            <p>Learn to evaluate where online information came from before deciding whether to trust or share it.</p>
+            <div class="metadata">
+                <div class="metadata-item">
+                    <div class="metadata-label">Practice</div>
+                    <div class="metadata-value">Source evaluation</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Time</div>
+                    <div class="metadata-value">About 10–15 minutes</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Works for</div>
+                    <div class="metadata-value">Yourself, families, groups, educators</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-intro">
+            <h2>What You'll Practice</h2>
+            <p>Before sharing or believing online information, it helps to know: <strong>Where did this actually come from?</strong></p>
+            <p>A polished presentation doesn't guarantee accuracy. A high search ranking doesn't prove reliability. A friend shared it doesn't make it trustworthy. This activity helps you ask better questions about source quality.</p>
+        </section>
+
+        <section class="framework-box">
+            <h3>The Framework</h3>
+            <div class="framework-steps">
+                <div class="framework-step">STOP</div>
+                <div class="framework-step">SOURCE</div>
+                <div class="framework-step">SEARCH</div>
+                <div class="framework-step">CONFIRM</div>
+            </div>
+            <p style="margin-top: 1.5rem; color: var(--text-gray);">When you encounter information online, pause before you believe or share it. Ask where it came from, search for it independently, and confirm it with other sources.</p>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Try It</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">For each example, think about what you would actually do. Select a choice to see the reasoning.</p>
+
+            <div class="examples">
+                <!-- Example 1: Screenshot -->
+                <div class="example-card">
+                    <div class="example-number">Example 1</div>
+                    <div class="example-content">
+                        <div class="example-text">
+                            <strong>A screenshot of a headline is shared on social media.</strong> The headline makes a surprising claim. You can see the text, but not the URL or publication date.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Search the headline to find the original article</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because it looks like a real headline</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check if other news sites are reporting it</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Share it because it's already circulating</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Why source matters here:</h4>
+                            <p><strong>Search the headline</strong> — This is the right move. When you find the original, you learn: Did this come from a major news outlet or a random blog? What's the full article? When was it published? Is there new information that contradicts it?</p>
+                            <p><strong>Trust because it looks like a real headline</strong> — Screenshots are easy to fake. Even if it looks real, you need to verify it actually exists.</p>
+                            <p><strong>Check other news sites</strong> — Excellent practice. If this is a significant story, other news outlets should be covering it too. If only one source reports it (or if no source reports it), that tells you something.</p>
+                            <p><strong>Share because it's circulating</strong> — This spreads unverified information. Screenshots hide important context.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2: Search Result / Social Media -->
+                <div class="example-card">
+                    <div class="example-number">Example 2</div>
+                    <div class="example-content">
+                        <div class="example-text">
+                            <strong>A Facebook post appears high in your search results</strong> and makes a factual health claim. It has hundreds of likes and shares.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because it's a high search result</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because it has many likes and shares</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check whether health authorities or experts confirm it</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Assume it's false because it's on Facebook</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Understanding search and social:</h4>
+                            <p><strong>High search result = reliable?</strong> No. Search engines rank pages based on popularity and relevance, not accuracy. A popular social media post ranks high, but popularity doesn't prove truth.</p>
+                            <p><strong>Many likes and shares = reliable?</strong> No. Posts spread regardless of accuracy. Popularity on social media reflects engagement, not evidence.</p>
+                            <p><strong>Check expert sources</strong> — This is the right approach. For health claims, check what health authorities, medical organizations, or qualified experts say. Compare multiple reliable sources.</p>
+                            <p><strong>Assume it's false because it's on Facebook?</strong> Not the right approach either. Individual posts can vary wildly. The point is checking the source and evidence, not the platform alone.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3: Polished website -->
+                <div class="example-card">
+                    <div class="example-number">Example 3</div>
+                    <div class="example-content">
+                        <div class="example-text">
+                            <strong>A polished website makes a factual claim but provides no sources or citations.</strong> The site looks professional and has good design, but when you look for who wrote it or where the evidence comes from, there's nothing.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because the website looks professional</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Look for sources, citations, or evidence on the site</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Search independently to verify the claim</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Dismiss it without checking further</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Design does not equal credibility:</h4>
+                            <p><strong>Professional design = reliable information?</strong> No. A polished website is easier to read, but it doesn't guarantee accurate content. Anyone can make a professional-looking site.</p>
+                            <p><strong>Look for sources and evidence</strong> — Excellent. Reliable sources cite where their information comes from. If a site makes claims but provides no evidence, that's a red flag.</p>
+                            <p><strong>Search independently</strong> — This is the real check. Search the claim on your own. Do authoritative sources confirm it? Do experts debate it? What does the actual evidence show?</p>
+                            <p><strong>Dismiss without checking</strong> — Not quite. The better approach is skepticism combined with independent research.</p>
+                            <p><em>Key insight: Presentation quality is not source quality.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 4: Secondhand claim -->
+                <div class="example-card">
+                    <div class="example-number">Example 4</div>
+                    <div class="example-content">
+                        <div class="example-text">
+                            <strong>A friend sends you a post saying: "Everyone is saying this is true."</strong> You see no actual source or evidence, just the claim repackaged.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Trust it because your friend shared it</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Search for the original claim and actual evidence</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Dismiss it because you don't recognize the source</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Share it with a note that everyone is saying it</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Secondhand claims are risky:</h4>
+                            <p><strong>Trust because a friend shared it?</strong> Your friends can share inaccurate information without meaning to. Trust the person, but verify the claim.</p>
+                            <p><strong>Search for the original</strong> — Yes. Find the actual source and evidence. Has the claim been verified? What do authoritative sources say?</p>
+                            <p><strong>Dismiss without checking?</strong> Not the best approach. Some claims that come secondhand are true; others aren't. You need to investigate.</p>
+                            <p><strong>Share saying "everyone is saying it"</strong> — This spreads an unverified claim without any actual evidence. It's an appeal to popularity, not truth.</p>
+                            <p><em>Key insight: "Everyone is saying it" is not evidence. Find the actual claim and the actual evidence.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 5: Direct evidence -->
+                <div class="example-card">
+                    <div class="example-number">Example 5</div>
+                    <div class="example-content">
+                        <div class="example-text">
+                            <strong>A claim links directly to a scientific study, a government report, or a primary source.</strong> You can read the actual evidence yourself rather than rely on someone's interpretation of it.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Accept it automatically because it has a source</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Read the source to understand what it actually says</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Ignore it because it's too technical</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Check if other experts interpret it the same way</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Primary sources are better, but not automatic proof:</h4>
+                            <p><strong>Accept it automatically?</strong> Having a source is better than having none, but it's not the end of the investigation. Even studies can be interpreted different ways or have limitations.</p>
+                            <p><strong>Read the source</strong> — Great practice. You might find that the claim misrepresents what the study actually says. You might find important limitations or nuances.</p>
+                            <p><strong>Ignore because it's technical?</strong> If you don't understand it, that's okay. Summaries from reliable sources can help. But dismissing something you can't read isn't the same as evaluating it.</p>
+                            <p><strong>Check other interpretations</strong> — Excellent. Scientists and experts sometimes disagree about what studies mean. Seeing multiple perspectives helps.</p>
+                            <p><em>Key insight: Having evidence is good. Understanding what the evidence actually shows is better.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="key-takeaways">
+            <h2>Key Insights</h2>
+            <div class="takeaway-item">
+                <strong>🔍 Presentation quality is not source quality.</strong>
+                <p>Professional design, polished writing, and confident tone don't guarantee accuracy.</p>
+            </div>
+            <div class="takeaway-item">
+                <strong>⚡ Strong emotional pressure is a reason to slow down, not speed up.</strong>
+                <p>Outrageous claims, urgent language, and appeal to emotion are signs to pause and verify more carefully.</p>
+            </div>
+            <div class="takeaway-item">
+                <strong>✓ You don't have to prove something is fake before choosing not to trust, act on, or share it.</strong>
+                <p>If you can't verify a claim, it's okay to wait or skip it. You don't have to convince others it's false.</p>
+            </div>
+            <div class="takeaway-item">
+                <strong>📊 Search results may surface many types of content.</strong>
+                <p>Social media posts, forums, user-generated content, and AI summaries all show up alongside traditional news and research. Search engines help you find information. They don't guarantee that every result is reliable.</p>
+            </div>
+            <div class="takeaway-item">
+                <strong>🎯 The difference between source, screenshot, repost, and evidence matters.</strong>
+                <p>A screenshot of a headline is not the same as the original article. A social media share is not the same as the original source. Evidence is different from an appeal to popularity.</p>
+            </div>
+        </section>
+
+        <section class="keep-learning">
+            <h2>Keep Learning</h2>
+            <p>Want to deepen your verification skills? Explore DigitalCap's guide to verifying online information:</p>
+            <a href="/guides/verify-online" class="guide-link">Verify Online Information →</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function showReasoning(button) {
+            const example = button.closest('.example-content');
+            const reasoning = example.querySelector('.reasoning');
+            reasoning.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

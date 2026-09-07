@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Practice deciding what information makes sense to share with an AI tool.">
+    <title>Would You Share This With AI? | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .activity-header {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .activity-header h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .activity-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .metadata-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metadata-value {
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        .section-intro {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-intro h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .section-intro p {
+            color: var(--text-gray);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .framework-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0 2rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .framework-box h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .framework-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .framework-step {
+            background: var(--bg-white);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .scenarios {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .scenario-number {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .scenario-content {
+            padding: 1.5rem;
+        }
+
+        .scenario-text {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .choices {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-white);
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .choice-button:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%);
+        }
+
+        .choice-button:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .reasoning {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .reasoning.show {
+            display: block;
+        }
+
+        .reasoning h4 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1rem;
+        }
+
+        .reasoning p {
+            margin: 0.5rem 0;
+        }
+
+        .reasoning ul {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .reasoning li {
+            margin: 0.5rem 0;
+        }
+
+        .category-box {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .category-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .category-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .low-concern { border-left: 4px solid #4ecd c4; }
+        .think-first { border-left: 4px solid #FFB86C; }
+        .dont-share { border-left: 4px solid #FF6B6B; }
+
+        .keep-learning {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .keep-learning h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .keep-learning p {
+            color: var(--text-gray);
+            margin: 0.75rem 0;
+            line-height: 1.6;
+        }
+
+        .guide-links {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .guide-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            width: fit-content;
+        }
+
+        .guide-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .activity-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .metadata {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .framework-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="activity-header">
+            <h1>🤖 Would You Share This With AI?</h1>
+            <p>Learn to decide what information makes sense to share with an AI tool.</p>
+            <div class="metadata">
+                <div class="metadata-item">
+                    <div class="metadata-label">Practice</div>
+                    <div class="metadata-value">Intentional information sharing</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Time</div>
+                    <div class="metadata-value">About 10–15 minutes</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Works for</div>
+                    <div class="metadata-value">Yourself, families, groups, educators</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-intro">
+            <h2>What You'll Practice</h2>
+            <p>This is not about "never share personal information with AI." That's too simplistic.</p>
+            <p>The real skill is <strong>intentional sharing</strong>: knowing what information an AI tool actually needs versus what's unnecessary, identifying when you don't have the right to share something, and understanding how privacy works beyond just training.</p>
+        </section>
+
+        <section class="framework-box">
+            <h3>Three Core Questions</h3>
+            <ol style="color: var(--text-gray); line-height: 1.8; margin: 0;">
+                <li><strong>Do I have the right to share this information with this tool?</strong></li>
+                <li><strong>Does the tool actually need this information?</strong></li>
+                <li><strong>Can I remove details that aren't necessary?</strong></li>
+            </ol>
+            <h3 style="margin-top: 1.5rem;">Quick Framework</h3>
+            <div class="framework-steps">
+                <div class="framework-step">NEED</div>
+                <div class="framework-step">MINIMIZE</div>
+                <div class="framework-step">CHECK SETTINGS</div>
+            </div>
+            <p style="margin-top: 1.5rem; color: var(--text-gray);"><strong>Share what the tool needs, not everything you have.</strong></p>
+        </section>
+
+        <section style="margin-bottom: 2rem;">
+            <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 1rem;">Privacy Concerns Beyond Training</h3>
+            <p style="color: var(--text-gray); line-height: 1.6; margin-bottom: 1rem;">Privacy involves more than whether your data trains the AI model. It also includes:</p>
+            <ul style="color: var(--text-gray); margin: 0 0 1rem 1.5rem; line-height: 1.8;">
+                <li>How long does the tool store your conversation?</li>
+                <li>Can humans review what you share?</li>
+                <li>Do connected apps or features access your data?</li>
+                <li>Does the tool remember and personalize based on your history?</li>
+                <li>Do workplace, school, or family policies apply to the tool you're using?</li>
+            </ul>
+            <p style="color: var(--text-gray);">Training is one privacy question, not the only privacy question.</p>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Try It</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">For each scenario, think about whether and how you'd share information with an AI. Select a choice to see the reasoning.</p>
+
+            <div class="scenarios">
+                <!-- Scenario 1 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 1</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            You want AI to help rewrite a generic email. No private information is needed.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share freely</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Check settings before sharing</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — Too risky</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Lower Concern</h4>
+                            <p>If the email contains no personal, confidential, or sensitive information, this is relatively safe. The AI doesn't need identifying details to help. Still worth considering: Are you using a work or school account? Does your organization have policies about AI tool use?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 2</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            You want AI to summarize a document containing someone's full name, address, phone number, and account information.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share the whole document</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Remove identifying details first</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — This is someone else's information</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Think First / Don't Share As-Is</h4>
+                            <p>This involves other people's private information. Before using AI, ask: <strong>Do I have the right to share this?</strong> If this is someone's personal document, you probably don't. If you own or manage the information, you can still minimize: Remove names, phone numbers, and account details that aren't essential to what the AI needs to do. Summarize the information instead of pasting the raw document.</p>
+                            <p><strong>Key questions:</strong> Is this my information or someone else's? Do I have permission? Can I remove identifying details?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 3</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            You want AI to help brainstorm a birthday party theme.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share freely</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Consider who the party is for</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — Too much personal information</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Think First</h4>
+                            <p>Brainstorming itself is low-risk. But consider whether you're mentioning a child's name, age, or other identifying details. The AI doesn't need those to help brainstorm. You could instead say "a 10-year-old" rather than a name. Lower Concern if you're only sharing the theme and ages, not identifying details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 4 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 4</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            You want AI to improve a work document containing confidential company or client information.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share it</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Check company policy first</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — Violates confidentiality</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Think First or Don't Share</h4>
+                            <p>Workplace policies matter here. Many organizations restrict using external AI tools with confidential information. Before sharing any work document, check your employee handbook or ask your manager. Even if the AI tool is trustworthy, your company may have contractual or legal obligations about sharing confidential data. If policy says no, don't. If policy allows it, you might still minimize by removing names, account numbers, or client details that aren't essential to what the AI is helping with.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 5 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 5</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            You want help understanding a medical term and are considering pasting an entire medical record into an AI tool.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share the full record</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Share only the medical term or symptom</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — Medical records are too sensitive</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Think First / Lower Concern</h4>
+                            <p><strong>This is not medical advice from us — talk to a doctor about your health.</strong> But for the privacy question: A full medical record contains dates, doctor names, diagnoses, and identifying information. The AI doesn't need that to explain a term. Share just the term or specific symptom you're asking about, not the entire record. Example: Instead of pasting a scan report, ask "What does 'hyperplasia' mean?" That gets you the information you need without exposing your full medical history.</p>
+                            <p>Also consider: Does your healthcare provider have policies about AI use? Some healthcare systems restrict external AI access to patient data.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 6 -->
+                <div class="scenario-card">
+                    <div class="scenario-number">Scenario 6</div>
+                    <div class="scenario-content">
+                        <div class="scenario-text">
+                            A classmate privately wrote something in a shared document. You want AI to help improve it. The classmate doesn't know you're considering this.
+                        </div>
+                        <div class="choices">
+                            <button class="choice-button" onclick="showReasoning(this)">Lower Concern — Share it without asking</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Think First — Ask permission first</button>
+                            <button class="choice-button" onclick="showReasoning(this)">Don't Share — It's not your work</button>
+                        </div>
+                        <div class="reasoning">
+                            <h4>Think First / Ask Permission</h4>
+                            <p>This introduces the question: <strong>Do I have the right to share this?</strong> Just because something is accessible to you doesn't mean you have permission to share it with others (including AI). If someone else wrote it and shared it only with you, using an AI tool to help improve it involves sharing their work without their knowledge or permission. The respectful approach: Ask first. Most people will say yes, and then you both benefit from the AI's help.</p>
+                            <p>If this were your own collaborative work together, it's different — but still worth checking your classmate is comfortable with it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin: 2rem 0 1.5rem 0;">The Three Categories Explained</h2>
+
+            <div class="category-box low-concern">
+                <div class="category-label">🟢 Lower Concern</div>
+                <div class="category-description">
+                    The information is minimal, non-sensitive, and the tool doesn't need identifying details. Examples: asking for writing help, brainstorming general ideas, explaining technical terms. Still consider: workplace/school policies, who controls the tool.
+                </div>
+            </div>
+
+            <div class="category-box think-first">
+                <div class="category-label">🟡 Think First</div>
+                <div class="category-description">
+                    The tool might be useful, but you should check: Do I have the right to share this? Can I remove unnecessary details? Are there workplace/school/family policies? Does the tool store data? Examples: improving something that involves other people's information, using a work device, sharing something with stored history. Take a moment before deciding.
+                </div>
+            </div>
+
+            <div class="category-box dont-share">
+                <div class="category-label">🔴 Don't Share As-Is</div>
+                <div class="category-description">
+                    This contains sensitive, confidential, or other people's identifying information that should be removed or handled differently first. Examples: full medical records with names and dates, company secrets, unencrypted passwords or account numbers, someone else's private writing without permission. Remove identifying details or ask permission before using an AI tool.
+                </div>
+            </div>
+        </section>
+
+        <section class="keep-learning">
+            <h2>Keep Learning</h2>
+            <p>Want to understand more about privacy with AI and specific tools like ChatGPT? Explore these DigitalCap guides:</p>
+            <div class="guide-links">
+                <a href="/guides/sharing-with-ai" class="guide-link">Sharing Information With AI →</a>
+                <a href="/guides/chatgpt-privacy-controls" class="guide-link">ChatGPT Privacy & Controls →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function showReasoning(button) {
+            const scenario = button.closest('.scenario-content');
+            const reasoning = scenario.querySelector('.reasoning');
+            reasoning.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
