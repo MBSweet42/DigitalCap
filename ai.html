@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Understand AI, use it well, recognize manipulated content, understand privacy and settings, respond to AI scams, and explore broader questions about AI's impact on society.">
+    <link rel="canonical" href="https://digitalcap.org/ai">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalcap.org/ai">
+    <meta property="og:title" content="AI & Digital Life | DigitalCap">
+    <meta property="og:description" content="Understand AI, use it well, recognize manipulated content, understand privacy and settings, respond to AI scams, and explore broader questions about AI's impact on society.">
+    <meta property="og:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="DigitalCap - Smart Limits. No Cap.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI & Digital Life | DigitalCap">
+    <meta name="twitter:description" content="Understand AI, use it well, recognize manipulated content, understand privacy and settings, respond to AI scams, and explore broader questions about AI's impact on society.">
+    <meta name="twitter:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta name="twitter:image:alt" content="DigitalCap - Smart Limits. No Cap.">
+    <title>AI & Digital Life | DigitalCap</title>
+    <link rel="icon" type="image/png" href="images/branding/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/glossary.js"></script>
+    <style>
+        .ai-path-card {
+            display: block;
+            padding: 2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .ai-path-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .ai-path-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-path-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .ai-path-card p {
+            color: var(--text-gray);
+            margin: 0 0 1.5rem 0;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .ai-path-cta {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .ai-path-card:hover .ai-path-cta {
+            text-decoration: underline;
+        }
+
+        .ai-philosophy-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .ai-philosophy-box h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .ai-philosophy-box p {
+            color: var(--text-gray);
+            margin: 0.75rem 0;
+            line-height: 1.7;
+        }
+
+        .ai-philosophy-box p:first-of-type {
+            margin-top: 0;
+        }
+
+        .ai-philosophy-box p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .ai-path-section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .ai-path-section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .ai-path-section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .ai-path-section > p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 0 2rem 0;
+            line-height: 1.6;
+        }
+
+        .ai-guides-preview {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .ai-guides-preview h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .ai-guides-preview ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ai-guides-preview li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .ai-guides-preview li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .ai-heard-section {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .ai-heard-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .ai-heard-section p {
+            color: var(--text-gray);
+            margin: 0 0 1rem 0;
+            line-height: 1.6;
+        }
+
+        .ai-heard-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .ai-heard-example {
+            background: var(--bg-light);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .ai-heard-section .ai-heard-status {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .ai-path-card {
+                padding: 1.5rem;
+            }
+
+            .ai-path-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .ai-philosophy-box {
+                padding: 1.5rem;
+            }
+
+            .ai-path-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin-bottom: 0.5rem;">🤖 AI & Digital Life</h1>
+            <p class="subtitle">AI is becoming part of everyday life. DigitalCap helps you understand what it can do, where it might go wrong, how to recognize misleading content, what information AI may use, and what choices you have.</p>
+        </section>
+
+        <!-- DigitalCap's Approach to AI -->
+        <section class="ai-philosophy-box">
+            <h2>How DigitalCap Approaches AI</h2>
+            <p>AI is not automatically dangerous. AI is not automatically trustworthy. AI can be useful. AI can make mistakes. Understanding how it works gives people more control over how they use it.</p>
+            <p>Our role is to explain what the technology does, what it can be useful for, what limitations or risks exist, what choices people have, what actions they can take, and where information came from.</p>
+            <p>This section is for anyone—adults, teens, families, caregivers, older adults, educators, and anyone trying to navigate AI in daily life.</p>
+        </section>
+
+        <!-- Six Main Paths -->
+        <section class="ai-path-section" id="understand-ai">
+            <h2>Understand AI</h2>
+            <p>Learn what AI is, how it works, and what makes it different from other technology—without needing a technical background.</p>
+
+            <a href="#understand-ai" class="ai-path-card">
+                <div class="ai-path-icon">📚</div>
+                <h3>Understand AI</h3>
+                <p>What is AI? How does it learn? Why can it sound confident even when it's wrong? Explore the basics in plain language.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Guides in this section:</h4>
+                <ul>
+                    <li><a href="/guides/ai-explained" style="color: var(--primary); text-decoration: none;">AI Explained: What It Is and What It Isn't</a></li>
+                    <li><a href="/guides/what-ai-is-good-at" style="color: var(--primary); text-decoration: none;">What AI Is Actually Good At</a></li>
+                    <li><a href="/guides/ai-hallucinations-verification" style="color: var(--primary); text-decoration: none;">AI Makes Mistakes: Hallucinations & Verification</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use AI Well Section -->
+        <section class="ai-path-section" id="use-ai-well">
+            <h2>Use AI Well</h2>
+            <p>Explore legitimate and valuable ways AI can help you learn, create, organize, and solve problems—while using it thoughtfully.</p>
+
+            <a href="#use-ai-well" class="ai-path-card">
+                <div class="ai-path-icon">✨</div>
+                <h3>Use AI Well</h3>
+                <p>AI can help with learning, accessibility, translation, brainstorming, creativity, and work. Discover responsible ways to use it as a tool to support your thinking.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Guides in this section:</h4>
+                <ul>
+                    <li><a href="/guides/what-ai-is-good-at" style="color: var(--primary); text-decoration: none;">What AI Is Actually Good At</a></li>
+                    <li>AI for Learning, Work & Creativity</li>
+                </ul>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">Additional guides coming soon to DigitalCap.</p>
+            </div>
+        </section>
+
+        <!-- Can I Trust This Section -->
+        <section class="ai-path-section" id="trust-content">
+            <h2>Can I Trust This?</h2>
+            <p>Learn to evaluate AI-generated or questionable content you encounter online. Understand what makes content real, fake, or misleading.</p>
+
+            <a href="#trust-content" class="ai-path-card">
+                <div class="ai-path-icon">🔍</div>
+                <h3>Can I Trust This?</h3>
+                <p>Deepfakes, AI images, AI video, and AI audio can seem convincing. Learn how to verify sources and claims—not just pixels or sounds.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Guides in this section:</h4>
+                <ul>
+                    <li>Deepfakes: Photos, Video & Audio</li>
+                    <li>Can I Trust an AI Detector?</li>
+                    <li>How to Verify Something You See Online</li>
+                    <li><a href="/guides/ai-hallucinations-verification" style="color: var(--primary); text-decoration: none;">AI Makes Mistakes: Hallucinations & Verification</a></li>
+                </ul>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">Additional guides coming soon to DigitalCap.</p>
+            </div>
+        </section>
+
+        <!-- AI Scams & Safety Section -->
+        <section class="ai-path-section" id="ai-scams">
+            <h2>AI Scams & Safety</h2>
+            <p>Understand how AI can be used in scams, impersonation, and manipulation—and what you can do about it.</p>
+
+            <a href="#ai-scams" class="ai-path-card">
+                <div class="ai-path-icon">🚨</div>
+                <h3>AI Scams & Safety</h3>
+                <p>Voice cloning, fake emergencies, impersonation, and financial fraud can feel very real. Learn how to recognize and respond to AI-enabled scams.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Planned guides for this section:</h4>
+                <ul>
+                    <li>Voice Cloning & Impersonation Scams</li>
+                </ul>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">These guides are coming soon to DigitalCap. For immediate help with an online problem, see <a href="/respond" style="color: var(--primary); text-decoration: none;">Something Happened?</a></p>
+            </div>
+        </section>
+
+        <!-- Control Your AI Section -->
+        <section class="ai-path-section" id="control-ai">
+            <h2>Control Your AI</h2>
+            <p>Understand where AI or smart features interact with your information, and what settings or choices you actually have.</p>
+
+            <a href="#control-ai" class="ai-path-card">
+                <div class="ai-path-icon">⚙️</div>
+                <h3>Control Your AI</h3>
+                <p>Google, ChatGPT, Apple Intelligence, Microsoft Copilot, Meta AI, and your browser all have AI features. Learn what information they may use and what control you have.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Planned guides for this section:</h4>
+                <ul>
+                    <li>What Should I Share With AI?</li>
+                    <li>Google AI & Your Information</li>
+                    <li>ChatGPT Privacy & Controls</li>
+                </ul>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">These guides are coming soon to DigitalCap.</p>
+            </div>
+        </section>
+
+        <!-- AI & The Bigger Picture Section -->
+        <section class="ai-path-section" id="bigger-picture">
+            <h2>AI & The Bigger Picture</h2>
+            <p>Explore the wider effects and questions surrounding AI—from environmental impact to jobs to creators and communities.</p>
+
+            <a href="#bigger-picture" class="ai-path-card">
+                <div class="ai-path-icon">🌍</div>
+                <h3>AI & The Bigger Picture</h3>
+                <p>AI has a physical footprint. It uses electricity, water, and cooling. It affects jobs, creators, and communities. Understand the context to make informed choices.</p>
+                <div class="ai-path-cta">Explore This Section →</div>
+            </a>
+
+            <div class="ai-guides-preview">
+                <h4>Planned guides for this section:</h4>
+                <ul>
+                    <li>AI & the Environment: Data Centers, Energy & Water</li>
+                </ul>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">These guides are coming soon to DigitalCap.</p>
+            </div>
+        </section>
+
+        <!-- Heard Something About AI Section -->
+        <section class="ai-heard-section" id="heard-about-ai">
+            <h2>Heard Something About AI?</h2>
+            <p>You might encounter claims about AI that make you wonder: Is that actually true? DigitalCap is building guides to help you unpack common questions and claims.</p>
+
+            <div class="ai-heard-examples">
+                <div class="ai-heard-example">
+                    Can AI read all my email?
+                </div>
+                <div class="ai-heard-example">
+                    Can someone clone my voice?
+                </div>
+                <div class="ai-heard-example">
+                    Can AI detectors prove I used ChatGPT?
+                </div>
+                <div class="ai-heard-example">
+                    How can I tell if a photo is real?
+                </div>
+                <div class="ai-heard-example">
+                    Is AI bad for the environment?
+                </div>
+                <div class="ai-heard-example">
+                    What information should I avoid sharing?
+                </div>
+            </div>
+
+            <p class="ai-heard-status">These questions and more will be addressed in DigitalCap's detailed AI guides as they're published.</p>
+        </section>
+
+        <!-- Related Resources -->
+        <section style="margin-bottom: 2rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Other DigitalCap Resources</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">AI questions often connect to other digital safety topics DigitalCap covers.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 700px;">
+                <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Recognize and Respond to Online Problems</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem;">If something concerning has already happened online, get step-by-step guidance on what to do.</p>
+                    <a href="/respond" style="color: var(--primary); font-weight: 600; text-decoration: none;">Something Happened? →</a>
+                </div>
+
+                <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Understand Privacy and Settings</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem;">Review privacy settings across apps, devices, and platforms to understand what information is being collected.</p>
+                    <a href="/protect" style="color: var(--primary); font-weight: 600; text-decoration: none;">Protect Yourself →</a>
+                </div>
+
+                <div style="background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem;">Explore Digital Safety Topics</h3>
+                    <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem;">Learn about scams, privacy, account security, online behavior, and more in plain language.</p>
+                    <a href="/understand" style="color: var(--primary); font-weight: 600; text-decoration: none;">Learn About Digital Safety →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

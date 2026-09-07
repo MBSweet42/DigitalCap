@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="[TEMPLATE] Replace this with a guide-specific description of what this guide covers.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-guide-template">
+    <title>[TEMPLATE] AI Guide Template - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-verified {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>[TEMPLATE] Guide Title Goes Here</h1>
+            <p class="guide-description">[TEMPLATE] This is a short description of what this guide covers. It should be one to two sentences explaining the topic in plain language.]</p>
+            <div class="guide-verified">Last verified: [TEMPLATE - Month Year]</div>
+        </div>
+
+        <!-- Section 1: What is this? -->
+        <div class="guide-section">
+            <h2>What Is This?</h2>
+            <p>[TEMPLATE] Replace this with a clear explanation of what the topic is. Use plain language. Assume the reader has no technical background. Explain the core concept in 2-3 paragraphs.]</p>
+
+            <div class="guide-callout">
+                <h4>Key Concept</h4>
+                <p>[TEMPLATE] Add an important definition or clarification that helps readers understand the core topic.]</p>
+            </div>
+
+            <p>[TEMPLATE] Continue the explanation with more context or relevant details.]</p>
+        </div>
+
+        <!-- Section 2: Why People Use It / How It's Used -->
+        <div class="guide-section">
+            <h2>Why People Use It</h2>
+            <p>[TEMPLATE] Explain legitimate uses, common scenarios, or reasons why this technology or practice exists. Be balanced—acknowledge both positive and problematic uses.]</p>
+
+            <h3>[TEMPLATE] Example Use Case 1</h3>
+            <p>[TEMPLATE] Describe a specific real-world scenario where this applies.]</p>
+
+            <h3>[TEMPLATE] Example Use Case 2</h3>
+            <p>[TEMPLATE] Describe another scenario. Show variety in how this affects different people.]</p>
+        </div>
+
+        <!-- Section 3: What Should I Know? -->
+        <div class="guide-section">
+            <h2>What Should I Know?</h2>
+            <p>[TEMPLATE] Cover important facts, risks, limitations, or considerations. This is the substantive content section.]</p>
+
+            <h3>[TEMPLATE] Important Point 1</h3>
+            <p>[TEMPLATE] Explain the first key consideration. Use specific examples where helpful.]</p>
+
+            <h3>[TEMPLATE] Important Point 2</h3>
+            <p>[TEMPLATE] Explain the second key consideration.]</p>
+
+            <h3>[TEMPLATE] Important Point 3</h3>
+            <p>[TEMPLATE] Add more detail as needed for thoroughness.]</p>
+
+            <div class="guide-callout">
+                <h4>Common Misconception</h4>
+                <p>[TEMPLATE] Optional: Clarify something people often get wrong about this topic.]</p>
+            </div>
+        </div>
+
+        <!-- Section 4: What Choices Do I Have? -->
+        <div class="guide-section">
+            <h2>What Choices Do I Have?</h2>
+            <p>[TEMPLATE] Explain options, settings, controls, or actions the reader can take. Focus on practical choices.]</p>
+
+            <h3>[TEMPLATE] Choice or Control 1</h3>
+            <p>[TEMPLATE] Describe the option and what happens when someone chooses it. Avoid "TURN THIS OFF NOW" framing. Instead: "Here's what this does. Here's what changes if you adjust it. You decide what works for you."]</p>
+
+            <h3>[TEMPLATE] Choice or Control 2</h3>
+            <p>[TEMPLATE] Describe another option.]</p>
+
+            <div class="guide-callout">
+                <h4>Depends on Your Situation</h4>
+                <p>[TEMPLATE] Optional: Acknowledge that the right choice depends on individual circumstances, age, expertise level, etc.]</p>
+            </div>
+        </div>
+
+        <!-- Section 5: What Can I Do? -->
+        <div class="guide-section">
+            <h2>What Can I Do?</h2>
+            <p>[TEMPLATE] Provide actionable steps or concrete next steps. This might be a checklist, a process, or specific resources.]</p>
+
+            <h3>[TEMPLATE] Step-by-Step if Applicable</h3>
+            <ol>
+                <li>[TEMPLATE] First step</li>
+                <li>[TEMPLATE] Second step</li>
+                <li>[TEMPLATE] Third step</li>
+            </ol>
+
+            <h3>[TEMPLATE] Or: Actionable Takeaways</h3>
+            <ul>
+                <li>[TEMPLATE] Something the reader can do today</li>
+                <li>[TEMPLATE] Something to think about or discuss</li>
+                <li>[TEMPLATE] Where to get more help if needed</li>
+            </ul>
+
+            <div class="guide-callout">
+                <h4>Remember</h4>
+                <p>[TEMPLATE] End with an encouraging or clarifying note.]</p>
+            </div>
+        </div>
+
+        <!-- Section 6: Put It in Context -->
+        <div class="guide-section">
+            <h2>Put It in Context</h2>
+            <p>[TEMPLATE] Explain how this topic connects to broader digital safety, societal issues, or the reader's life. Help them see the bigger picture.]</p>
+
+            <p>[TEMPLATE] This might address: Who else is affected by this? What responsibility belongs to companies, platforms, regulators, or society? How does this fit into the larger AI landscape?]</p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <p>[TEMPLATE] List the official sources, research, or documentation used to create this guide. Prioritize primary sources.]</p>
+            <ul>
+                <li>[TEMPLATE] <a href="#">Source Name: Brief description</a></li>
+                <li>[TEMPLATE] <a href="#">Another Source</a></li>
+                <li>[TEMPLATE] <a href="#">Peer-reviewed research or official documentation</a></li>
+            </ul>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified during the last review date listed at the top of this guide.</p>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides & Resources</h3>
+            <ul>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+                <li>[TEMPLATE] <a href="#">Related guide or resource 1</a></li>
+                <li>[TEMPLATE] <a href="#">Related guide or resource 2</a></li>
+                <li><a href="/respond">Something Happened?</a> – Get help if you encountered a problem online</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

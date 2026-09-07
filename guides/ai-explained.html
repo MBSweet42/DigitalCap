@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI can do some pretty impressive things, but it isn't magic and it doesn't always get things right. Understanding a few basics can make it much easier to use.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-explained">
+    <title>AI Explained: What It Is and What It Isn't - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>AI Explained: What It Is and What It Isn't</h1>
+            <p class="guide-description">AI can do some pretty impressive things, but it isn't magic and it doesn't always get things right. Understanding a few basics can make it much easier to use.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>Artificial intelligence, or AI, is a broad term for computer systems designed to do things like recognize patterns, make predictions, generate content, recommend information or help make decisions.</p>
+
+            <p>You probably already use AI in ways you don't think much about. Spam filters, recommendations, navigation, photo organization and voice assistants can all involve AI.</p>
+
+            <p>Generative AI is a type of AI that creates new content, including text, images, audio, video and computer code.</p>
+
+            <p>Tools like ChatGPT and Gemini are examples of generative AI, but they aren't the only kind of AI.</p>
+
+            <p>Put simply: AI is the bigger category. Generative AI is one type of AI.</p>
+        </div>
+
+        <!-- How does generative AI work? -->
+        <div class="guide-section">
+            <h2>How does generative AI work?</h2>
+            <p>AI models are trained using large amounts of data so they can identify patterns.</p>
+
+            <p>A large language model, or LLM, learns patterns in language. When you give it a prompt, it uses those patterns to generate a response.</p>
+
+            <p>People often say AI "learns," but that doesn't necessarily mean it learns the way a person does.</p>
+
+            <p>It can produce remarkably human-sounding language without that being proof that it thinks, understands or experiences the world the way you do.</p>
+        </div>
+
+        <!-- Why do people use it? -->
+        <div class="guide-section">
+            <h2>Why do people use it?</h2>
+            <p>AI can be genuinely useful.</p>
+
+            <p>People use it to:</p>
+            <ul>
+                <li>brainstorm ideas</li>
+                <li>explain complicated information</li>
+                <li>organize thoughts</li>
+                <li>translate or simplify language</li>
+                <li>practice skills</li>
+                <li>write and understand computer code</li>
+                <li>create images and other content</li>
+                <li>make information more accessible</li>
+                <li>summarize material</li>
+                <li>compare options</li>
+                <li>get past the dreaded blank page</li>
+            </ul>
+
+            <p>It can save time and help people do things they may have struggled to do on their own.</p>
+        </div>
+
+        <!-- What should I know? -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+
+            <h3>AI can sound confident and still be wrong.</h3>
+            <p>Generative AI creates responses based on patterns. It does not automatically verify every statement before presenting it.</p>
+
+            <p>Sometimes it produces information that is false, made up, inconsistent or unsupported. This is commonly called an AI hallucination or confabulation.</p>
+
+            <div class="guide-callout">
+                <h4>Key principle</h4>
+                <p>Confidence is not evidence. A polished, detailed answer can still contain a mistake.</p>
+            </div>
+
+            <h3>AI can also agree with you too much.</h3>
+            <p>AI assistants are often designed to be helpful and cooperative. Sometimes that can turn into excessive agreement, often called sycophancy.</p>
+
+            <p>An AI agreeing with you doesn't necessarily mean your idea is good or your conclusion is correct.</p>
+
+            <p>This matters especially when you're asking for advice or working through something emotional.</p>
+
+            <p>Try asking:</p>
+            <ul>
+                <li>What might I be missing?</li>
+                <li>What assumptions am I making?</li>
+                <li>Give me the strongest argument against this.</li>
+                <li>What information could change this conclusion?</li>
+            </ul>
+
+            <h3>We can trust AI too much, too.</h3>
+            <p>There's another issue called automation bias: our tendency to give an automated answer more weight simply because a system produced it.</p>
+
+            <p>These are three different things worth remembering:</p>
+            <ul>
+                <li><strong>AI can be wrong:</strong> Hallucination or confabulation</li>
+                <li><strong>AI can agree too much:</strong> Sycophancy</li>
+                <li><strong>We can trust it too much:</strong> Automation bias</li>
+            </ul>
+        </div>
+
+        <!-- What choices do I have? -->
+        <div class="guide-section">
+            <h2>What choices do I have?</h2>
+            <p>You don't have to choose between trusting AI completely and never using it.</p>
+
+            <p>Think about what you're asking AI to do.</p>
+
+            <p>Brainstorming birthday-party themes has very different consequences from making a medical, legal or financial decision.</p>
+
+            <p>The more important the outcome, the more important it becomes to verify information and involve an appropriate human expert when needed.</p>
+        </div>
+
+        <!-- What can I do? -->
+        <div class="guide-section">
+            <h2>What can I do?</h2>
+            <p>Try thinking of AI as part of a process:</p>
+
+            <div class="guide-callout">
+                <h4>YOU → AI → YOU</h4>
+                <p><strong>You:</strong> Decide what you're trying to accomplish.</p>
+                <p><strong>AI:</strong> Help explain, brainstorm, organize, generate or explore.</p>
+                <p><strong>You:</strong> Review the result, question it, correct it and decide what to use.</p>
+            </div>
+
+            <p>AI can help you think. It doesn't have to do the thinking for you.</p>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>AI doesn't have to be something you fear or something you trust completely.</p>
+
+            <p>It can be incredibly useful without being infallible.</p>
+
+            <p>Understanding how it works makes it easier to know when to use it, when to question it and when the final decision should stay with you.</p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf">NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</a></li>
+                <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a></li>
+                <li><a href="https://www.anthropic.com/news/towards-understanding-sycophancy-in-language-models">Anthropic: Towards Understanding Sycophancy in Language Models</a></li>
+                <li><a href="https://openai.com/index/expanding-on-sycophancy/">OpenAI: Expanding on what we missed with sycophancy</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/what-ai-is-good-at">What AI Is Actually Good At</a></li>
+                <li><a href="/guides/ai-hallucinations-verification">AI Makes Mistakes: Hallucinations & Verification</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
