@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI can help you learn, organize, create and get work done. Understand where AI helps and where you still need to stay involved.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-learning-work-creativity">
+    <title>AI for Learning, Work & Creativity - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-verified {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>AI for Learning, Work & Creativity</h1>
+            <p class="guide-description">AI can help you learn, organize, create and get work done. The goal isn't to hand over your thinking. It's to understand where AI helps and where you still need to stay involved.</p>
+            <div class="guide-verified">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- Section 1: What is this? -->
+        <div class="guide-section">
+            <h2>What Is This?</h2>
+            <p>Generative AI can help with many different kinds of tasks.</p>
+            <p>People use it to:</p>
+            <ul>
+                <li>explain complicated information</li>
+                <li>brainstorm ideas</li>
+                <li>organize thoughts</li>
+                <li>summarize information</li>
+                <li>translate</li>
+                <li>write and edit</li>
+                <li>create images</li>
+                <li>write computer code</li>
+                <li>plan projects</li>
+                <li>practice skills</li>
+                <li>explore ideas</li>
+                <li>make information more accessible</li>
+            </ul>
+            <p>That doesn't mean AI should do every task for you.</p>
+            <div class="guide-callout">
+                <h4>A useful question to ask</h4>
+                <p><strong>What part of this do I want AI to help with, and what part do I need to do myself?</strong></p>
+            </div>
+        </div>
+
+        <!-- Section 2: Why People Use It -->
+        <div class="guide-section">
+            <h2>Why People Use It</h2>
+            <p>AI can sometimes remove the hardest part of getting started.</p>
+
+            <h3>Explore</h3>
+            <ul>
+                <li>Ask questions.</li>
+                <li>Look at different possibilities.</li>
+                <li>Generate examples.</li>
+                <li>Learn about an unfamiliar topic.</li>
+            </ul>
+
+            <h3>Organize</h3>
+            <ul>
+                <li>Turn rough notes into categories.</li>
+                <li>Build an outline.</li>
+                <li>Create a checklist.</li>
+                <li>Sort information.</li>
+            </ul>
+
+            <h3>Transform</h3>
+            <ul>
+                <li>Rewrite complicated information in simpler language.</li>
+                <li>Translate.</li>
+                <li>Change a paragraph into bullet points.</li>
+                <li>Turn notes into a study guide.</li>
+            </ul>
+
+            <h3>Generate</h3>
+            <ul>
+                <li>Brainstorm titles.</li>
+                <li>Create practice questions.</li>
+                <li>Suggest ideas.</li>
+                <li>Draft possible approaches.</li>
+                <li>Write starter code.</li>
+            </ul>
+
+            <p>These can all be useful. The important part is remembering that useful output and correct output are not always the same thing.</p>
+        </div>
+
+        <!-- Section 3: What Should I Know? -->
+        <div class="guide-section">
+            <h2>What Should I Know?</h2>
+
+            <h3>What AI is Good At</h3>
+            <p>AI is often especially useful when you need:</p>
+            <ul>
+                <li>a starting point</li>
+                <li>several ideas quickly</li>
+                <li>information reformatted</li>
+                <li>help explaining something</li>
+                <li>help organizing information</li>
+                <li>examples</li>
+                <li>practice</li>
+                <li>repetitive work reduced</li>
+            </ul>
+
+            <p>It can also support accessibility. Depending on the tool, AI may help someone:</p>
+            <ul>
+                <li>simplify text</li>
+                <li>describe an image</li>
+                <li>translate language</li>
+                <li>organize thoughts</li>
+                <li>turn spoken ideas into writing</li>
+                <li>create alternative formats</li>
+                <li>communicate more easily</li>
+            </ul>
+
+            <p>For some people, those aren't just conveniences. They can make information or activities much more accessible.</p>
+
+            <h3>AI Limitations</h3>
+            <p>AI can be useful without being an authority. It may:</p>
+            <ul>
+                <li>misunderstand what you mean</li>
+                <li>leave out important context</li>
+                <li>invent information</li>
+                <li>provide outdated information</li>
+                <li>reinforce assumptions in your question</li>
+                <li>give you an answer that sounds better than it actually is</li>
+            </ul>
+
+            <div class="guide-callout">
+                <h4>Rule of thumb</h4>
+                <p><strong>The more important the answer, the more important it is to verify it.</strong></p>
+            </div>
+
+            <h3>AI as a Thinking Partner</h3>
+            <p>A helpful way to use AI is:</p>
+            <p style="margin: 1rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;"><strong>YOU → AI → YOU</strong></p>
+            <p>You bring the question, goal or idea. AI helps you explore it. Then <strong>you come back into the process</strong>.</p>
+            <p>You decide:</p>
+            <ul>
+                <li>Does this make sense?</li>
+                <li>What should change?</li>
+                <li>What did it miss?</li>
+                <li>What do I actually agree with?</li>
+                <li>What should I verify?</li>
+                <li>What is my own contribution?</li>
+            </ul>
+
+            <p>The goal isn't:</p>
+            <p style="margin: 1rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;"><strong>YOU → AI → DONE</strong></p>
+
+            <h3>Learning with AI</h3>
+            <p>AI can help someone learn by:</p>
+            <ul>
+                <li>explaining a topic another way</li>
+                <li>creating examples</li>
+                <li>making flash cards</li>
+                <li>generating practice questions</li>
+                <li>helping identify gaps in understanding</li>
+                <li>comparing two concepts</li>
+                <li>giving feedback on a draft</li>
+                <li>role-playing a conversation</li>
+                <li>helping someone practice a language or skill</li>
+            </ul>
+
+            <p>But there is an important difference between:</p>
+            <p><strong>using AI to help you learn</strong></p>
+            <p>and</p>
+            <p><strong>using AI to avoid learning the thing you were supposed to practice.</strong></p>
+
+            <p>If the goal of an assignment is to practice writing, reasoning, research or problem-solving, having AI do that entire part may defeat the purpose.</p>
+
+            <h3>Is Using AI Cheating?</h3>
+            <p>Not automatically. It depends on:</p>
+            <ul>
+                <li>the assignment</li>
+                <li>the workplace</li>
+                <li>the rules</li>
+                <li>what the AI is doing</li>
+                <li>what you are expected to do yourself</li>
+                <li>whether AI use needs to be disclosed</li>
+            </ul>
+
+            <p>Using AI to brainstorm ideas may be allowed in one class and prohibited in another. Using AI to edit your own writing may be fine in one workplace and inappropriate for confidential material in another. Using AI to explain a math problem can support learning. Having AI complete the entire assignment when the goal is to demonstrate your own understanding is something different.</p>
+
+            <div class="guide-callout">
+                <h4>The core principle</h4>
+                <p><strong>AI isn't automatically cheating. AI isn't automatically dangerous. AI isn't automatically good. What matters is how it's being used.</strong></p>
+            </div>
+
+            <h3>Work</h3>
+            <p>AI can help with work such as:</p>
+            <ul>
+                <li>drafting</li>
+                <li>organizing</li>
+                <li>coding</li>
+                <li>summarizing</li>
+                <li>preparing meeting notes</li>
+                <li>brainstorming</li>
+                <li>formatting</li>
+                <li>researching</li>
+                <li>analyzing information</li>
+            </ul>
+
+            <p>Before using it for workplace information, check:</p>
+            <ul>
+                <li>your employer's AI policy</li>
+                <li>whether the information is confidential</li>
+                <li>whether client/customer information is involved</li>
+                <li>which AI system your organization allows</li>
+                <li>whether the output needs human review</li>
+            </ul>
+
+            <p><strong>Being allowed to read information does not automatically mean you are allowed to upload it into another service.</strong></p>
+
+            <h3>Creativity</h3>
+            <p>AI can help someone explore:</p>
+            <ul>
+                <li>visual ideas</li>
+                <li>writing ideas</li>
+                <li>music concepts</li>
+                <li>characters</li>
+                <li>layouts</li>
+                <li>designs</li>
+                <li>names</li>
+                <li>different versions of something</li>
+            </ul>
+
+            <p>People have different views about AI-generated creative work. Questions about copyright, creator compensation, training data and attribution are still actively debated and sometimes legally contested. You don't need to settle every one of those debates before using an AI tool. You should understand that those debates exist.</p>
+        </div>
+
+        <!-- Section 4: What Choices Do I Have? -->
+        <div class="guide-section">
+            <h2>What Choices Do I Have?</h2>
+            <p>You can decide how much of the process AI handles.</p>
+
+            <h3>AI Starts, I Finish</h3>
+            <p>Ask AI for ideas, then create the final work yourself.</p>
+
+            <h3>I Start, AI Helps</h3>
+            <p>Create your own draft and ask AI for feedback or editing help.</p>
+
+            <h3>AI and I Go Back and Forth</h3>
+            <p>Use AI as a thinking partner.</p>
+
+            <h3>I Don't Use AI for This</h3>
+            <p>Sometimes doing the task yourself is the point. That is also a valid choice.</p>
+        </div>
+
+        <!-- Section 5: What Can I Do? -->
+        <div class="guide-section">
+            <h2>What Can I Do?</h2>
+            <p>When AI helps with something important:</p>
+            <ol>
+                <li>Review the result.</li>
+                <li>Check important facts.</li>
+                <li>Add your own judgment.</li>
+                <li>Follow the rules for the setting you're in.</li>
+                <li>Protect sensitive information.</li>
+                <li>Be clear about AI use when disclosure is expected.</li>
+            </ol>
+
+            <p>And sometimes ask AI:</p>
+            <ul>
+                <li><strong>What might I be missing?</strong></li>
+                <li><strong>What assumptions am I making?</strong></li>
+                <li><strong>Give me another perspective.</strong></li>
+                <li><strong>What parts of this should I verify?</strong></li>
+            </ul>
+        </div>
+
+        <!-- Section 6: Put It in Context -->
+        <div class="guide-section">
+            <h2>Put It in Context</h2>
+            <p>AI can save time. It can support creativity. It can help people learn. It can make some information more accessible.</p>
+            <p>It can also be wrong, incomplete or inappropriate for a particular task.</p>
+            <p>The goal isn't to use AI as much as possible. The goal isn't to avoid AI as much as possible. The goal is to use it intentionally.</p>
+            <div class="guide-callout">
+                <h4>Remember</h4>
+                <p><strong>Use AI as a tool, not an automatic authority.</strong></p>
+            </div>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.unesco.org/en/artificial-intelligence">UNESCO: Artificial Intelligence</a> – Official guidance on AI in education and research</li>
+                <li><a href="https://www.partnershiponai.org/about/">Partnership on AI</a> – Research and resources on responsible AI development and use</li>
+            </ul>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified during the last review date listed at the top of this guide.</p>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides & Resources</h3>
+            <ul>
+                <li><a href="/guides/ai-explained">AI Explained: What It Is and What It Isn't</a></li>
+                <li><a href="/guides/ai-hallucinations-verification">AI Makes Mistakes: Hallucinations & Verification</a></li>
+                <li><a href="/guides/sharing-with-ai">What Should I Share With AI?</a></li>
+                <li><a href="/ai">AI & Digital Life</a></li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

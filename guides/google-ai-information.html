@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Google's AI features can work with information from several Google services. What Gemini can access, save and use depends on the feature, your account and your settings.">
+    <link rel="canonical" href="https://digitalcap.org/guides/google-ai-information">
+    <title>Google AI & Your Information - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-verified {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .settings-notice {
+            background: rgba(78, 205, 196, 0.08);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>Google AI & Your Information</h1>
+            <p class="guide-description">Google's AI features can work with information from several Google services. What Gemini can access, save and use depends on the feature, your account and your settings.</p>
+            <div class="guide-verified">Last verified: September 2026</div>
+            <div class="guide-verified">Region checked: United States</div>
+            <div class="settings-notice">Gemini features and settings change. This guide reflects settings verified in September 2026.</div>
+        </div>
+
+        <!-- Section 1: What is this? -->
+        <div class="guide-section">
+            <h2>What Is This?</h2>
+            <p>Google offers Gemini and other AI-powered features across its products.</p>
+            <p>Depending on what you use and enable, Gemini may work with:</p>
+            <ul>
+                <li>your prompts</li>
+                <li>files</li>
+                <li>photos</li>
+                <li>videos</li>
+                <li>screens</li>
+                <li>Gemini Live interactions</li>
+                <li>information from connected Google services</li>
+                <li>information from certain third-party services</li>
+            </ul>
+            <p>That does <strong>not</strong> mean one Google AI setting automatically gives AI access to everything in your Google account.</p>
+            <div class="guide-callout">
+                <h4>Key principle</h4>
+                <p>Different settings control different things.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: What information can Gemini use? -->
+        <div class="guide-section">
+            <h2>What Information Can Gemini Use?</h2>
+            <p>When you interact directly with Gemini, you may provide things like:</p>
+            <ul>
+                <li>text</li>
+                <li>voice</li>
+                <li>photos</li>
+                <li>files</li>
+                <li>video</li>
+                <li>screenshares</li>
+                <li>webpages</li>
+            </ul>
+            <p>Gemini can also work with <strong>Connected Apps</strong>.</p>
+            <p>Depending on your device, account, settings and eligibility, those may include services such as:</p>
+            <ul>
+                <li>Google Workspace</li>
+                <li>Google Photos</li>
+                <li>Contacts</li>
+                <li>YouTube</li>
+                <li>Search services</li>
+                <li>Phone</li>
+                <li>Messages</li>
+                <li>other supported services</li>
+            </ul>
+            <p>Connected Apps can let Gemini find information or perform tasks using information in those services.</p>
+
+            <h3>Put This Claim in Context</h3>
+            <p><strong>You may have heard:</strong></p>
+            <p style="margin: 1rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px; font-weight: 600;">"Google AI reads all your Drive files."</p>
+
+            <p><strong>What's actually happening?</strong></p>
+            <p>Gemini can work with information in certain connected Google services when those features and permissions are available and enabled. That is different from saying Gemini automatically reads every file in every Google account.</p>
+            <p>What Gemini can access depends on things including:</p>
+            <ul>
+                <li>the feature</li>
+                <li>the account</li>
+                <li>the service</li>
+                <li>your settings</li>
+                <li>permissions</li>
+                <li>whether the app is connected</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Keep Activity -->
+        <div class="guide-section">
+            <h2>Keep Activity</h2>
+            <p>One of the most important Gemini settings is <strong>Keep Activity</strong>.</p>
+
+            <h3>If Keep Activity Is ON</h3>
+            <p>Google says your Gemini chats and things you share with Gemini can be saved in your Gemini Apps Activity.</p>
+            <p>Google may use that activity to:</p>
+            <ul>
+                <li>provide Gemini</li>
+                <li>develop and improve Google services</li>
+                <li>train generative AI models</li>
+                <li>protect users and Google</li>
+            </ul>
+            <p>Some data may be reviewed by human reviewers or service providers. Google says reviewed data sent to service providers is disconnected from your Google Account and may be retained separately.</p>
+            <p>The default auto-delete period for Gemini Apps Activity is currently 18 months, and Google offers other retention options.</p>
+
+            <h3>If Keep Activity Is OFF</h3>
+            <p>Google says future chats:</p>
+            <ul>
+                <li>do not appear in Gemini Apps Activity</li>
+                <li>are not used to train Google's AI models unless you submit feedback</li>
+                <li>may still be retained for up to 72 hours so Google can provide the service, process feedback and protect users</li>
+            </ul>
+            <p>Some Connected Apps are unavailable when Keep Activity is off.</p>
+            <div class="guide-callout">
+                <h4>Important</h4>
+                <p>Turning Keep Activity off affects more than model training. It can also change which Gemini features work.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Audio and Connected Services -->
+        <div class="guide-section">
+            <h2>Audio and Gemini Live</h2>
+            <p>Google currently provides a separate setting for whether certain:</p>
+            <ul>
+                <li>audio</li>
+                <li>Gemini Live video</li>
+                <li>screenshare content</li>
+            </ul>
+            <p>can be used to improve its services.</p>
+            <p>That setting is separate from simply using those features. This is another reason "Does Google train on my Gemini data?" doesn't always have a single yes-or-no answer.</p>
+
+            <h3>Connected Apps</h3>
+            <p>Connected Apps can be useful. For example, someone may want Gemini to:</p>
+            <ul>
+                <li>find information in email</li>
+                <li>locate a document</li>
+                <li>find a photo</li>
+                <li>look at a calendar</li>
+                <li>use information across several Google services</li>
+            </ul>
+
+            <p>Before connecting something, ask:</p>
+            <ul>
+                <li><strong>What can it access?</strong> Which app or type of information is being connected?</li>
+                <li><strong>What will it do with that information?</strong> Is it retrieving information, personalizing responses, completing actions or something else?</li>
+                <li><strong>Can I disconnect it?</strong> Google allows supported apps to be managed in Gemini's Connected Apps settings. Disconnecting an app prevents future access through that connection, but it does not necessarily remove information already present in Gemini Apps Activity or information another service already received.</li>
+            </ul>
+
+            <h3>Personal Intelligence</h3>
+            <p>Google also offers personalization features that can use information from eligible connected Google services to provide more personalized assistance.</p>
+            <p>That may allow Gemini to understand relationships between information in different services and provide answers based on your own information. That can be useful. It also means it is worth knowing when personalization is enabled and which services participate.</p>
+        </div>
+
+        <!-- Section 5: What About Other Google Settings? -->
+        <div class="guide-section">
+            <h2>What About Other Google Settings?</h2>
+            <p>Turning off Gemini Keep Activity does <strong>not</strong> automatically turn off every other Google activity setting.</p>
+            <p>Other Google services may have their own settings, including things such as:</p>
+            <ul>
+                <li>Web & App Activity</li>
+                <li>location-related settings</li>
+                <li>service-specific histories</li>
+            </ul>
+            <p>Think of these as separate controls.</p>
+            <div class="guide-callout">
+                <h4>Core principle</h4>
+                <p><strong>One privacy setting does not control an entire Google account.</strong></p>
+            </div>
+
+            <h3>Work and School Accounts</h3>
+            <p>If you use Google through work, school, or an organization, your administrator may control some Gemini settings. Your organization's version of Gemini may also have different privacy, retention and data-use rules than a personal Google account.</p>
+            <p>So always check which account you are using.</p>
+        </div>
+
+        <!-- Section 6: Why Enable These Features? -->
+        <div class="guide-section">
+            <h2>Why Might I Want These Features On or Off?</h2>
+
+            <h3>Why Enable Connected Features</h3>
+            <p>Connected and personalized AI can be useful because you may be able to ask:</p>
+            <ul>
+                <li>"Find the email about my appointment."</li>
+                <li>"What time is my meeting?"</li>
+                <li>"Find the photo from that trip."</li>
+                <li>"Summarize this document."</li>
+                <li>"Help me use information across these files."</li>
+            </ul>
+            <p>The value comes from giving AI access to relevant context.</p>
+
+            <h3>Why Disable Them</h3>
+            <p>You may prefer:</p>
+            <ul>
+                <li>less saved activity</li>
+                <li>fewer connected services</li>
+                <li>less personalization</li>
+                <li>fewer services sharing information with one another</li>
+            </ul>
+            <p>You may also simply not use the features enough to want the connection.</p>
+            <p>Both choices are reasonable.</p>
+        </div>
+
+        <!-- Section 7: What Choices Do I Have? -->
+        <div class="guide-section">
+            <h2>What Choices Do I Have?</h2>
+            <p>Depending on your account and device, you may be able to:</p>
+            <ul>
+                <li>turn Keep Activity on or off</li>
+                <li>delete Gemini Apps Activity</li>
+                <li>change auto-delete timing</li>
+                <li>connect or disconnect supported apps</li>
+                <li>manage personalization</li>
+                <li>manage saved information</li>
+                <li>manage public links</li>
+                <li>control whether certain audio/video data improves services</li>
+            </ul>
+            <p>These settings can change. Check the current Gemini Privacy Hub before making a decision based on an old screenshot, post or tutorial.</p>
+        </div>
+
+        <!-- Section 8: What Can I Do? -->
+        <div class="guide-section">
+            <h2>What Can I Do?</h2>
+            <p>Instead of asking:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"Is Google AI private?"</p>
+
+            <p>Ask:</p>
+            <ul>
+                <li>What feature am I using?</li>
+                <li>Which account am I using?</li>
+                <li>What information can this feature access?</li>
+                <li>Is my activity being saved?</li>
+                <li>Is it used for model improvement?</li>
+                <li>Is personalization turned on?</li>
+                <li>Which apps are connected?</li>
+                <li>What changes if I turn this setting off?</li>
+            </ul>
+
+            <h3>Put It in Context</h3>
+            <p>AI settings are usually not one switch. Access, storage, personalization, model improvement and connected apps can all be separate.</p>
+            <div class="guide-callout">
+                <h4>Remember</h4>
+                <p><strong>Here's what the setting actually does. Here's what changes if you turn it off. You decide what makes sense for you.</strong></p>
+            </div>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://support.google.com/gemini/answer/13594961">Google Gemini Privacy Hub</a> – Official Google documentation on Gemini settings and data practices</li>
+                <li><a href="https://myaccount.google.com/privacy/">Google Account Privacy Settings</a> – Manage privacy across your Google account</li>
+            </ul>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified during the last review date listed at the top of this guide.</p>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides & Resources</h3>
+            <ul>
+                <li><a href="/guides/sharing-with-ai">What Should I Share With AI?</a></li>
+                <li><a href="/guides/chatgpt-privacy-controls">ChatGPT Privacy & Controls</a></li>
+                <li><a href="/ai">AI & Digital Life</a></li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

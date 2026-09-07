@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI runs on real computers in real data centers. That means it uses electricity, cooling systems and infrastructure. The impact is real, but simple viral numbers rarely tell the whole story.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-environment">
+    <title>AI & the Environment: Data Centers, Energy & Water - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-verified {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>AI & the Environment: Data Centers, Energy & Water</h1>
+            <p class="guide-description">AI runs on real computers in real data centers. That means it uses electricity, cooling systems and infrastructure. The impact is real, but simple viral numbers rarely tell the whole story.</p>
+            <div class="guide-verified">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- Section 1: What is this? -->
+        <div class="guide-section">
+            <h2>What Is This?</h2>
+            <p>AI does not actually live in "the cloud."</p>
+            <p>AI systems run on physical computers. Those computers are housed in data centers.</p>
+            <p>Data centers also support many other digital services, including:</p>
+            <ul>
+                <li>websites</li>
+                <li>cloud storage</li>
+                <li>streaming</li>
+                <li>banking</li>
+                <li>search</li>
+                <li>social media</li>
+                <li>gaming</li>
+                <li>video calls</li>
+                <li>business systems</li>
+                <li>traditional computing</li>
+            </ul>
+            <p>AI is one growing part of that infrastructure.</p>
+        </div>
+
+        <!-- Section 2: Why does AI use electricity? -->
+        <div class="guide-section">
+            <h2>Why Does AI Use Electricity?</h2>
+            <p>Computers need electricity to:</p>
+            <ul>
+                <li>run processors</li>
+                <li>store information</li>
+                <li>move information across networks</li>
+                <li>operate supporting equipment</li>
+                <li>cool equipment</li>
+            </ul>
+            <p>Some AI workloads use specialized, high-performance chips that can require substantial amounts of electricity. Large AI-focused data centers can have much higher power demands than conventional facilities.</p>
+        </div>
+
+        <!-- Section 3: How Much Electricity? -->
+        <div class="guide-section">
+            <h2>How Much Electricity Do Data Centers Use?</h2>
+
+            <h3>2024 Global Data-Center Electricity Use</h3>
+            <p>The International Energy Agency estimates that data centers used about:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">415 terawatt-hours of electricity in 2024</p>
+            <p>That was about:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">approximately 1.5% of global electricity consumption.</p>
+
+            <h3>IEA 2030 Projection (Base Case)</h3>
+            <p>The IEA's base-case projection estimates that global data-center electricity use could reach roughly:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">945 terawatt-hours by 2030</p>
+            <p>or just under:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">3% of global electricity consumption.</p>
+
+            <div class="guide-callout">
+                <h4>Important caveat</h4>
+                <p>These are projections, not guarantees. Future demand depends on things including: AI adoption, hardware efficiency, software efficiency, demand for other digital services, data-center construction, electricity availability, and infrastructure constraints.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: AI vs All Data Centers -->
+        <div class="guide-section">
+            <h2>Is All of That AI?</h2>
+            <p>No. This distinction matters.</p>
+            <p>Data centers existed long before today's generative AI boom. They support enormous amounts of non-AI computing. AI is now one of the most important drivers of growth, particularly because AI workloads increasingly use high-performance accelerated servers.</p>
+            <div class="guide-callout">
+                <h4>Key distinction</h4>
+                <p><strong>Data-center electricity use is not the same thing as AI electricity use.</strong></p>
+            </div>
+        </div>
+
+        <!-- Section 5: United States Impact -->
+        <div class="guide-section">
+            <h2>What About the United States?</h2>
+            <p>The impact can be much larger locally than the global percentage suggests.</p>
+            <p>A Berkeley Lab report published in June 2026 estimates that data centers could account for approximately:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">11.8% of total U.S. electricity use by 2030</p>
+            <p>in its reference case.</p>
+            <p>Its scenario range is approximately:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px;">9.5% to 15.3%.</p>
+            <div class="guide-callout">
+                <h4>This is a projection</h4>
+                <p>This is a projection with substantial uncertainty. It is not a prediction that exactly 11.8% will occur.</p>
+            </div>
+
+            <h3>Why Local Impacts Matter</h3>
+            <p>Data centers are geographically concentrated. A large facility can create substantial new electricity demand in a particular:</p>
+            <ul>
+                <li>city</li>
+                <li>county</li>
+                <li>utility territory</li>
+                <li>grid region</li>
+            </ul>
+            <p>That can matter for:</p>
+            <ul>
+                <li>grid planning</li>
+                <li>new transmission</li>
+                <li>electricity generation</li>
+                <li>infrastructure</li>
+                <li>utility investment</li>
+                <li>community planning</li>
+            </ul>
+            <p>So a relatively small share of global electricity can still create significant local effects.</p>
+        </div>
+
+        <!-- Section 6: Water -->
+        <div class="guide-section">
+            <h2>What About Water?</h2>
+            <p>Some data centers use water directly in cooling systems. Water may also be used indirectly to generate the electricity that powers a data center.</p>
+            <p>But the amount varies enormously. Factors include:</p>
+            <ul>
+                <li>cooling system</li>
+                <li>server efficiency</li>
+                <li>location</li>
+                <li>climate</li>
+                <li>power source</li>
+                <li>server utilization</li>
+                <li>infrastructure efficiency</li>
+                <li>age of equipment</li>
+                <li>workload</li>
+            </ul>
+            <p>A 2025 Berkeley Lab-led study found that workload-level water consumption could vary by <strong>more than 10,000 times</strong> depending on these factors.</p>
+            <div class="guide-callout">
+                <h4>Why this matters</h4>
+                <p>That makes universal claims about the water used by one AI prompt extremely difficult to defend.</p>
+            </div>
+
+            <h3>Viral Claims About Water</h3>
+            <p><strong>You may have heard:</strong></p>
+            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"Every AI prompt uses a bottle of water."</p>
+
+            <p><strong>What's actually happening?</strong></p>
+            <p>AI and data centers can use water. But there is no single universal amount of water used by every prompt. The amount associated with a task can vary dramatically depending on:</p>
+            <ul>
+                <li>which model is used</li>
+                <li>what kind of task it is</li>
+                <li>where the computation happens</li>
+                <li>what hardware runs it</li>
+                <li>how efficiently the server operates</li>
+                <li>how the facility is cooled</li>
+                <li>how the electricity is generated</li>
+            </ul>
+            <p>A short text request, an image generation request, a long reasoning task and model training are not equivalent activities.</p>
+            <div class="guide-callout">
+                <h4>Key insight</h4>
+                <p><strong>Using AI is not one uniform activity.</strong></p>
+            </div>
+        </div>
+
+        <!-- Section 7: Cooling -->
+        <div class="guide-section">
+            <h2>Cooling and Tradeoffs</h2>
+            <p>Does every data center use huge amounts of water? No.</p>
+            <p>Cooling systems differ. Some use:</p>
+            <ul>
+                <li>evaporative cooling</li>
+                <li>closed-loop systems</li>
+                <li>air cooling</li>
+                <li>liquid cooling</li>
+            </ul>
+            <p>Some facilities are designed specifically to reduce or eliminate water use for cooling. There can also be tradeoffs. A cooling design that reduces water use may affect electricity use differently, depending on the system and climate.</p>
+            <p>So the question isn't simply:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"Does this data center use water?"</p>
+            <p>It is:</p>
+            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"How much water, where, under what conditions, and compared with which alternative?"</p>
+        </div>
+
+        <!-- Section 8: Environmental Impact -->
+        <div class="guide-section">
+            <h2>Does AI's Environmental Impact Matter?</h2>
+            <p>AI and data-center growth are creating real:</p>
+            <ul>
+                <li>electricity demand</li>
+                <li>infrastructure needs</li>
+                <li>water considerations</li>
+                <li>emissions impacts</li>
+                <li>local planning challenges</li>
+            </ul>
+            <p>Ignoring those impacts would not make sense. But neither would treating every AI use as environmentally identical.</p>
+
+            <h3>Can AI Help With Environmental Problems?</h3>
+            <p>Potentially. The International Energy Agency identifies possible uses of AI for:</p>
+            <ul>
+                <li>energy-system optimization</li>
+                <li>electricity-grid management</li>
+                <li>renewable-energy forecasting</li>
+                <li>efficiency improvements</li>
+                <li>industrial optimization</li>
+                <li>emissions reduction</li>
+                <li>scientific research</li>
+            </ul>
+            <p>AI may help reduce energy use or emissions in some applications. That does not cancel out the resources required to operate AI. Both things can be true.</p>
+            <div class="guide-callout">
+                <h4>Balanced perspective</h4>
+                <p><strong>AI has an environmental footprint and AI may also be useful for solving environmental and energy problems.</strong></p>
+            </div>
+
+            <h3>Does AI Solve Climate Change?</h3>
+            <p>No. The International Energy Agency describes AI as a potentially useful tool, not a replacement for energy or climate policy.</p>
+            <p>AI cannot eliminate the need for:</p>
+            <ul>
+                <li>cleaner energy</li>
+                <li>efficient infrastructure</li>
+                <li>grid investment</li>
+                <li>responsible planning</li>
+                <li>better equipment</li>
+                <li>policy</li>
+                <li>industry decisions</li>
+            </ul>
+        </div>
+
+        <!-- Section 9: Individual Responsibility -->
+        <div class="guide-section">
+            <h2>What Can Individuals Realistically Do?</h2>
+            <p>You can use AI thoughtfully. That might mean:</p>
+            <ul>
+                <li>not generating things you don't actually need</li>
+                <li>using simpler tools when they work just as well</li>
+                <li>choosing efficient options when they are available</li>
+                <li>keeping devices and services you use in perspective</li>
+                <li>learning about the companies and infrastructure behind your tools</li>
+            </ul>
+
+            <h3>But Here's the Bigger Picture</h3>
+            <p>Individual prompts are only one small part of the larger picture. Some of the biggest environmental choices happen at the level of:</p>
+            <ul>
+                <li>data-center design</li>
+                <li>hardware efficiency</li>
+                <li>cooling</li>
+                <li>model efficiency</li>
+                <li>electricity generation</li>
+                <li>facility location</li>
+                <li>grid planning</li>
+                <li>corporate investment</li>
+                <li>regulation and public policy</li>
+            </ul>
+
+            <div class="guide-callout">
+                <h4>Important perspective</h4>
+                <p><strong>Environmental responsibility should not be reduced to making individual users feel guilty about asking AI a question.</strong></p>
+            </div>
+        </div>
+
+        <!-- Section 10: Put It in Context -->
+        <div class="guide-section">
+            <h2>Put It in Context</h2>
+            <p>You don't need to choose between:</p>
+            <ul>
+                <li>"AI is destroying the environment."</li>
+                <li>"AI's environmental impact doesn't matter."</li>
+            </ul>
+            <p>Neither gives you much useful information. A better understanding is:</p>
+            <ul>
+                <li>AI uses real resources.</li>
+                <li>Use varies enormously.</li>
+                <li>Data centers also support many non-AI services.</li>
+                <li>AI is contributing significantly to new demand.</li>
+                <li>Local impacts can be larger than global averages suggest.</li>
+                <li>Efficiency choices matter.</li>
+                <li>Energy sources matter.</li>
+                <li>Cooling choices matter.</li>
+                <li>Industry and policy decisions matter.</li>
+            </ul>
+
+            <div class="guide-callout">
+                <h4>Core insight</h4>
+                <p><strong>AI has a real-world footprint. You don't have to stop using it to use it thoughtfully.</strong></p>
+            </div>
+
+            <p>And you do not need to accept a viral number just because it sounds precise.</p>
+            <div class="guide-callout">
+                <h4>Remember</h4>
+                <p><strong>A precise number isn't automatically an accurate number.</strong></p>
+            </div>
+
+            <p>When someone tells you exactly how much water or electricity "one AI prompt" uses, ask:</p>
+            <ul>
+                <li><strong>Which model?</strong></li>
+                <li><strong>Which task?</strong></li>
+                <li><strong>Which data center?</strong></li>
+                <li><strong>Which cooling system?</strong></li>
+                <li><strong>Which electricity source?</strong></li>
+                <li><strong>When was it measured?</strong></li>
+            </ul>
+
+            <p>That context matters.</p>
+
+            <div class="guide-callout">
+                <h4>Final thought</h4>
+                <p><strong>AI has a real-world footprint. Understanding it is more useful than either ignoring it or exaggerating it.</strong></p>
+            </div>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.iea.org/reports/global-data-centres-report">International Energy Agency (IEA): Global Data Centres Report</a> – Official data on data center electricity use and projections</li>
+                <li><a href="https://eta.lbl.gov/">Lawrence Berkeley National Laboratory: Energy Technologies Area</a> – Research on U.S. data center electricity use</li>
+                <li><a href="https://www.iea.org/articles/how-to-ensure-artificial-intelligence-benefits-the-environment">IEA: How to Ensure AI Benefits the Environment</a> – Official guidance on AI and environmental considerations</li>
+            </ul>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified during the last review date listed at the top of this guide.</p>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides & Resources</h3>
+            <ul>
+                <li><a href="/guides/ai-explained">AI Explained: What It Is and What It Isn't</a></li>
+                <li><a href="/guides/verify-online">How to Verify Something You See Online</a></li>
+                <li><a href="/ai">AI & Digital Life</a></li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
