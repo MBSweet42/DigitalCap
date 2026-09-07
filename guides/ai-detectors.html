@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI detectors can sometimes provide useful clues, but a detector score is not proof that something was created by AI.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-detectors">
+    <title>Can I Trust an AI Detector? - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>Can I Trust an AI Detector?</h1>
+            <p class="guide-description">AI detectors can sometimes provide useful clues, but a detector score is not proof that something was created by AI.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>AI detectors are tools designed to estimate whether text, images, audio or video may have been generated or manipulated using AI.</p>
+
+            <p>That sounds simple.</p>
+
+            <p>It isn't.</p>
+
+            <p>Detection is an ongoing technical challenge because the systems generating AI content keep changing, the content can be edited, and real-world material doesn't always look like the examples a detector was tested on.</p>
+        </div>
+
+        <!-- So, do AI detectors work? -->
+        <div class="guide-section">
+            <h2>So, do AI detectors work?</h2>
+            <p>Sometimes.</p>
+
+            <p>But that's very different from saying they can reliably determine the truth every time.</p>
+
+            <p>NIST's 2026 deepfake work reports that current detection systems can experience a 45–50% drop in accuracy when moving from academic benchmarks to operational environments.</p>
+
+            <p>Text detectors have their own problems.</p>
+
+            <p>Stanford researchers tested several GPT detectors and found that they incorrectly classified 61.22% of the examined TOEFL essays written by non-native English speakers as AI-generated. The researchers warned about reliability and bias, particularly when detector results could be used to accuse someone of misconduct.</p>
+
+            <p>That doesn't mean every detector is useless.</p>
+
+            <p>It means:</p>
+
+            <div class="guide-callout">
+                <p><strong>A detector result is a clue, not a verdict.</strong></p>
+            </div>
+        </div>
+
+        <!-- What should I know? -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+            <p>Two mistakes are especially important.</p>
+
+            <h3>False positive</h3>
+            <p>The detector says something was generated by AI when a person actually created it.</p>
+
+            <h3>False negative</h3>
+            <p>The detector says something was created by a person when AI actually generated it.</p>
+
+            <p>Both matter.</p>
+
+            <p>A false negative can allow manipulated content to slip through.</p>
+
+            <p>A false positive can wrongly accuse a real person of lying, cheating or creating fake material.</p>
+
+            <h3>What about student work?</h3>
+            <p>This is especially important in education.</p>
+
+            <p>A score like:</p>
+
+            <div class="guide-callout">
+                <p>"92% likely AI-generated"</p>
+            </div>
+
+            <p>may look scientific and definitive.</p>
+
+            <p>It isn't the same thing as proof.</p>
+
+            <p>Detector performance varies by tool, content, model, language and circumstances.</p>
+
+            <p>Because false positives exist, an AI-detector score <strong>should not by itself be treated as proof that a student, employee or writer used AI.</strong></p>
+
+            <p>The Stanford research is particularly important here because it demonstrated how detector errors can disproportionately affect non-native English writers.</p>
+
+            <h3>What about photos and video?</h3>
+            <p>The same basic rule applies.</p>
+
+            <p>Detection tools can be part of an investigation.</p>
+
+            <p>They aren't the whole investigation.</p>
+
+            <p>NIST's current deepfake work specifically tests detectors against adversarial attacks, face and body swaps, context manipulation and more realistic operational conditions because laboratory performance does not necessarily predict performance in the real world.</p>
+        </div>
+
+        <!-- What choices do I have? -->
+        <div class="guide-section">
+            <h2>What choices do I have?</h2>
+            <p>If a detector flags something, don't stop there.</p>
+
+            <p>Ask:</p>
+            <ul>
+                <li>Where did this content come from?</li>
+                <li>Can I find the original?</li>
+                <li>Is there provenance information?</li>
+                <li>Are there independent copies?</li>
+                <li>Does the supposed source confirm it?</li>
+                <li>What other evidence supports the claim?</li>
+            </ul>
+
+            <p>If you're evaluating someone's work, what other evidence exists besides the detector score?</p>
+        </div>
+
+        <!-- What can I do? -->
+        <div class="guide-section">
+            <h2>What can I do?</h2>
+            <p>Think of detection tools as <strong>one layer of evidence.</strong></p>
+
+            <p>DigitalCap's verification framework uses these layers:</p>
+
+            <ol>
+                <li><strong>SOURCE</strong> – Where did it originate?</li>
+                <li><strong>PROVENANCE</strong> – Is there reliable information about its history or creation?</li>
+                <li><strong>CORROBORATION</strong> – Does independent evidence support it?</li>
+                <li><strong>CONTEXT</strong> – Is it being presented with the correct date, location and meaning?</li>
+                <li><strong>CONTENT CLUES</strong> – Does anything inside the content raise questions?</li>
+                <li><strong>DETECTION TOOLS</strong> – What do technical tools suggest?</li>
+            </ol>
+
+            <p>Notice where the detector is.</p>
+
+            <p><strong>It's part of the process, not the final judge.</strong></p>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>We naturally want a tool that can simply tell us:</p>
+
+            <p>REAL</p>
+
+            <p>or</p>
+
+            <p>AI</p>
+
+            <p>That would be convenient.</p>
+
+            <p>Right now, reality is more complicated.</p>
+
+            <p>AI detection can provide information worth considering, but important decisions shouldn't rest on a detector score alone.</p>
+
+            <p><strong>A detector result is a clue, not a verdict.</strong></p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST GenAI: Deepfakes 2026 (NIST AI Risk Management Framework)</a></li>
+                <li><a href="https://arxiv.org/pdf/2304.02819">GPT detectors are biased against non-native English writers (Liang et al., Stanford University)</a></li>
+                <li><a href="https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers">Stanford HAI: AI Detectors Biased Against Non-Native English Writers</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/deepfakes">Deepfakes: Photos, Video & Audio</a></li>
+                <li><a href="/guides/verify-online">How to Verify Something You See Online</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

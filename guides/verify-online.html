@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="You don't have to investigate everything you see online. But when something matters, a few simple verification habits can help you figure out what deserves your trust.">
+    <link rel="canonical" href="https://digitalcap.org/guides/verify-online">
+    <title>How to Verify Something You See Online - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>How to Verify Something You See Online</h1>
+            <p class="guide-description">You don't have to investigate everything you see online. But when something matters, a few simple verification habits can help you figure out what deserves your trust.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>You see a post.</p>
+
+            <p>Or a screenshot.</p>
+
+            <p>Or a video.</p>
+
+            <p>Or a headline.</p>
+
+            <p>Or something an AI told you.</p>
+
+            <p>And you think:</p>
+
+            <p><strong>Is this actually true?</strong></p>
+
+            <p>You don't need a journalism degree or expensive software to investigate many online claims.</p>
+
+            <p>You mostly need to know when to stop and where to look next.</p>
+
+            <p>Research-backed digital-literacy programs teach strategies such as <strong>lateral reading</strong>, where instead of staying on one page and studying it harder, you leave that page and investigate what other sources say about it. This approach is taught by the Digital Inquiry Group through their Civic Online Reasoning program.</p>
+
+            <p>DigitalCap makes that idea easy to remember:</p>
+        </div>
+
+        <!-- STOP → SOURCE → SEARCH → CONFIRM -->
+        <div class="guide-section">
+            <h2>STOP → SOURCE → SEARCH → CONFIRM</h2>
+
+            <h3>STOP</h3>
+            <p>Before reacting, sharing, paying, clicking or panicking:</p>
+
+            <p>Stop.</p>
+
+            <p>This matters especially when something creates a strong emotional reaction.</p>
+
+            <p>Maybe you're:</p>
+            <ul>
+                <li>angry</li>
+                <li>scared</li>
+                <li>excited</li>
+                <li>shocked</li>
+                <li>disgusted</li>
+                <li>desperate to help</li>
+                <li>desperate to warn someone</li>
+            </ul>
+
+            <p>You don't have to decide immediately whether something is true.</p>
+
+            <p>Sometimes the smartest first move is simply:</p>
+
+            <p><strong>Don't share it yet.</strong></p>
+
+            <h3>SOURCE</h3>
+            <p>Ask:</p>
+
+            <p><strong>Where did this actually come from?</strong></p>
+
+            <p>Not:</p>
+            <ul>
+                <li>Who sent it to me?</li>
+                <li>Who reposted it?</li>
+                <li>Which Facebook group did I see it in?</li>
+            </ul>
+
+            <p>Try to find the <strong>original source.</strong></p>
+
+            <p>If it's a screenshot, can you find the original post?</p>
+
+            <p>If it's a quotation, can you find the original speech, interview or document?</p>
+
+            <p>If it's a video, can you find the full recording?</p>
+
+            <p>If it's a statistic, who collected the data?</p>
+
+            <p>If it's an AI answer, what source supports the claim?</p>
+
+            <h3>SEARCH</h3>
+            <p>Now look somewhere else.</p>
+
+            <p>This is sometimes called <strong>lateral reading.</strong></p>
+
+            <p>Instead of spending all your time examining one website, post or video, open another search and investigate it from outside.</p>
+
+            <p>The Digital Inquiry Group's Civic Online Reasoning materials specifically teach lateral reading and other research-backed strategies for evaluating online information.</p>
+
+            <p>Search:</p>
+            <ul>
+                <li>the claim</li>
+                <li>the person's name</li>
+                <li>a distinctive sentence from the post</li>
+                <li>the supposed event</li>
+                <li>the organization</li>
+                <li>the image</li>
+                <li>the statistic</li>
+                <li>the quotation</li>
+            </ul>
+
+            <p>You may discover that the information is accurate.</p>
+
+            <p>You may discover that it's false.</p>
+
+            <p>Or you may discover something very common:</p>
+
+            <p><strong>It's missing context.</strong></p>
+
+            <h3>CONFIRM</h3>
+            <p>Now ask:</p>
+
+            <p><strong>What evidence actually supports this?</strong></p>
+
+            <p>Look for confirmation outside the original claim.</p>
+
+            <p>Depending on the situation, that might mean:</p>
+            <ul>
+                <li>an official agency</li>
+                <li>the organization supposedly involved</li>
+                <li>an original document</li>
+                <li>multiple credible news organizations</li>
+                <li>the full video</li>
+                <li>an original research paper</li>
+                <li>a professional source</li>
+                <li>another independent witness or recording</li>
+            </ul>
+
+            <p><strong>One source repeating another source isn't necessarily independent confirmation.</strong></p>
+
+            <p>Try to trace information back toward where it originated.</p>
+        </div>
+
+        <!-- What should I know? -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+
+            <h3>A screenshot is not a source.</h3>
+            <p>Screenshots can be:</p>
+            <ul>
+                <li>real</li>
+                <li>edited</li>
+                <li>cropped</li>
+                <li>generated</li>
+                <li>recreated</li>
+                <li>old</li>
+                <li>missing context</li>
+                <li>attached to a false explanation</li>
+            </ul>
+
+            <p>If a screenshot matters:</p>
+
+            <p><strong>Try to find the thing being screenshotted.</strong></p>
+
+            <h3>A real photo can support a false story.</h3>
+            <p>The photo may be authentic.</p>
+
+            <p>The caption may not be.</p>
+
+            <p>Old photos and videos can be reposted as if they happened somewhere else or at another time.</p>
+
+            <h3>AI-generated doesn't automatically mean false.</h3>
+            <p>Someone can use AI to create an illustration that is clearly labeled and completely honest about what it is.</p>
+
+            <h3>Human-created doesn't automatically mean true.</h3>
+            <p>People have created misinformation, propaganda, scams, fake quotations and manipulated media for much longer than generative AI has existed.</p>
+
+            <p>The creator being human doesn't verify the claim.</p>
+        </div>
+
+        <!-- What about AI detection tools? -->
+        <div class="guide-section">
+            <h2>What about AI detection tools?</h2>
+            <p>They can help.</p>
+
+            <p>But they shouldn't be your entire verification process.</p>
+
+            <p>NIST's current deepfake work shows why detection performance can decline substantially under real-world conditions.</p>
+
+            <p>Instead of asking only:</p>
+
+            <p><strong>"Was this made by AI?"</strong></p>
+
+            <p>also ask:</p>
+
+            <p><strong>"Is the claim true?"</strong></p>
+
+            <p>Those are not the same question.</p>
+        </div>
+
+        <!-- What about Content Credentials? -->
+        <div class="guide-section">
+            <h2>What about Content Credentials?</h2>
+            <p>Content Credentials may provide useful information about the origin or editing history of some digital media.</p>
+
+            <p>They offer a kind of digital history that can show where media came from and what changes were made to it.</p>
+
+            <p>C2PA specifically explains that provenance information alone cannot tell you whether an image or video depicts something true, accurate or factual. It also warns that the absence of Content Credentials should not mean content should automatically be distrusted.</p>
+
+            <p>Think of provenance as <strong>evidence, not a truth label.</strong></p>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>You do not need to investigate every meme, recipe or silly video you encounter.</p>
+
+            <p>Think about the consequence of being wrong.</p>
+
+            <p>Before you:</p>
+            <ul>
+                <li>send money</li>
+                <li>accuse someone</li>
+                <li>share something alarming</li>
+                <li>make a health decision</li>
+                <li>make a financial decision</li>
+                <li>repeat a damaging claim</li>
+                <li>act on an emergency</li>
+                <li>make an important decision</li>
+            </ul>
+
+            <p>...verification matters more.</p>
+
+            <p>And sometimes you won't be able to determine whether something is true.</p>
+
+            <p>That's okay.</p>
+
+            <p><strong>"I don't know yet" is a perfectly reasonable conclusion.</strong></p>
+
+            <p><strong>You don't have to prove something is fake before deciding not to trust, act on or share it.</strong></p>
+
+            <p>Remember:</p>
+
+            <div class="guide-callout">
+                <h4>STOP → SOURCE → SEARCH → CONFIRM</h4>
+                <p><strong>Check the story, not just the image.</strong></p>
+                <p><strong>Presentation quality is not source quality.</strong></p>
+                <p><strong>Strong emotional pressure is a reason to slow down, not speed up.</strong></p>
+            </div>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://cor.inquirygroup.org/">Digital Inquiry Group / Civic Online Reasoning</a></li>
+                <li><a href="https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html">C2PA and Content Credentials Explainer</a></li>
+                <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST GenAI: Deepfakes 2026 (NIST AI Risk Management Framework)</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/deepfakes">Deepfakes: Photos, Video & Audio</a></li>
+                <li><a href="/guides/ai-detectors">Can I Trust an AI Detector?</a></li>
+                <li><a href="/guides/ai-hallucinations-verification">AI Makes Mistakes: Hallucinations & Verification</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

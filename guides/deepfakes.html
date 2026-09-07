@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI can create incredibly convincing photos, video and audio. You don't need to become an expert at spotting every fake. You need to know what to check when something matters.">
+    <link rel="canonical" href="https://digitalcap.org/guides/deepfakes">
+    <title>Deepfakes: Photos, Video & Audio - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>Deepfakes: Photos, Video & Audio</h1>
+            <p class="guide-description">AI can create incredibly convincing photos, video and audio. You don't need to become an expert at spotting every fake. You need to know what to check when something matters.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>A deepfake is manipulated or synthetic media made using AI to realistically imitate or alter a person, object, place or event.</p>
+
+            <p>Deepfakes can involve:</p>
+            <ul>
+                <li>photos</li>
+                <li>video</li>
+                <li>voices</li>
+                <li>facial expressions</li>
+                <li>movements</li>
+                <li>events that never happened</li>
+            </ul>
+
+            <p>Some are created for entertainment, art, satire or accessibility.</p>
+
+            <p>Others may be used to mislead, impersonate, embarrass, harass or scam someone.</p>
+
+            <p>The technology itself doesn't tell you the intent.</p>
+        </div>
+
+        <!-- Why are deepfakes getting harder to spot? -->
+        <div class="guide-section">
+            <h2>Why are deepfakes getting harder to spot?</h2>
+            <p>AI-generated media has improved quickly.</p>
+
+            <p>You may have heard advice like:</p>
+            <ul>
+                <li>"Count the fingers."</li>
+                <li>"Look at the teeth."</li>
+                <li>"Watch whether they blink."</li>
+                <li>"Check the ears."</li>
+            </ul>
+
+            <p>Those clues have sometimes helped identify poorly generated content.</p>
+
+            <p>But they are <strong>not reliable proof</strong> that something is real or fake.</p>
+
+            <p>AI systems improve. Images get edited. Videos get compressed. Real photographs can contain strange lighting, blur and visual artifacts too.</p>
+
+            <p>NIST's 2026 deepfake work reports that current detection systems can experience a 45–50% drop in accuracy when moving from academic benchmarks to operational environments.</p>
+
+            <p>That means the goal shouldn't be:</p>
+
+            <p><strong>Can I spot the AI?</strong></p>
+
+            <p>A better question is:</p>
+
+            <p><strong>Can I verify what I'm being shown?</strong></p>
+        </div>
+
+        <!-- What should I know? -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+
+            <h3>A realistic image is not proof that something happened.</h3>
+            <p>A convincing photo or video can be generated, altered or shown without its original context.</p>
+
+            <p>But the opposite matters too:</p>
+
+            <h3>A strange-looking image is not proof that AI made it.</h3>
+            <p>Visual clues can give you a reason to investigate.</p>
+
+            <p>They shouldn't be the entire investigation.</p>
+
+            <p>UNESCO has similarly argued that education around deepfakes needs to move beyond simply detecting synthetic media toward broader skills for evaluating information and establishing what is trustworthy.</p>
+        </div>
+
+        <!-- Check the story, not just the image -->
+        <div class="guide-section">
+            <h2>Check the story, not just the image.</h2>
+            <p>Suppose you see a video claiming a public figure said something shocking.</p>
+
+            <p>Instead of zooming in on their fingers for twenty minutes, ask:</p>
+            <ul>
+                <li>Who originally posted this?</li>
+                <li>Is there a longer version?</li>
+                <li>Did the supposed event actually happen?</li>
+                <li>Are credible sources reporting it?</li>
+                <li>Can I find the original recording?</li>
+                <li>Is the date correct?</li>
+                <li>Is this old footage being presented as new?</li>
+            </ul>
+
+            <p>Sometimes the image itself isn't fake.</p>
+
+            <p><strong>The claim attached to it is.</strong></p>
+        </div>
+
+        <!-- What about audio? -->
+        <div class="guide-section">
+            <h2>What about audio?</h2>
+            <p>Audio can be manipulated or generated too.</p>
+
+            <p>A voice that sounds exactly like someone you know is no longer enough, by itself, to prove that person is speaking.</p>
+
+            <p>That becomes especially important when the message involves:</p>
+            <ul>
+                <li>an emergency</li>
+                <li>money</li>
+                <li>secrecy</li>
+                <li>passwords or codes</li>
+                <li>urgent instructions</li>
+                <li>unusual requests</li>
+            </ul>
+
+            <p>We'll cover AI voice cloning and impersonation scams separately in the AI Scams & Safety section.</p>
+
+            <p>For now, remember:</p>
+
+            <p><strong>A familiar voice is not verification.</strong></p>
+        </div>
+
+        <!-- What about Content Credentials? -->
+        <div class="guide-section">
+            <h2>What about Content Credentials?</h2>
+            <p>Some digital media can include <strong>Content Credentials</strong>, based on standards developed by C2PA.</p>
+
+            <p>Think of them as a kind of digital history that may provide information about where media came from or how it was created or edited.</p>
+
+            <p>They can be useful evidence.</p>
+
+            <p>But they aren't a truth button.</p>
+
+            <p>C2PA specifically explains that provenance information alone cannot tell you whether an image or video depicts something true, accurate or factual. It also warns that media without Content Credentials should not automatically be considered untrustworthy.</p>
+
+            <p>So:</p>
+
+            <div class="guide-callout">
+                <p><strong>Content Credentials present?</strong> Useful information.</p>
+                <p><strong>Content Credentials absent?</strong> Not proof of a fake.</p>
+            </div>
+        </div>
+
+        <!-- What can I do? -->
+        <div class="guide-section">
+            <h2>What can I do?</h2>
+            <p>Use the same DigitalCap framework:</p>
+
+            <div class="guide-callout">
+                <h4>STOP → SOURCE → SEARCH → CONFIRM</h4>
+
+                <p><strong>STOP</strong><br>Don't immediately react or share, especially if the content makes you angry, frightened, shocked or excited.</p>
+
+                <p><strong>SOURCE</strong><br>Who originally created or published it?</p>
+
+                <p><strong>SEARCH</strong><br>Look beyond the post. Search the event, person, quotation or image.</p>
+
+                <p><strong>CONFIRM</strong><br>Look for independent evidence that supports what you're being shown.</p>
+            </div>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>AI-generated media is not automatically misinformation.</p>
+
+            <p>A clearly labeled AI illustration can be completely honest.</p>
+
+            <p>A real photograph with a false caption can be completely misleading.</p>
+
+            <p>That's why DigitalCap doesn't want you trying to become a human AI detector.</p>
+
+            <p><strong>Check the story, not just the image.</strong></p>
+
+            <p>You don't have to prove something is a deepfake before deciding not to trust it, act on it or share it.</p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST GenAI: Deepfakes 2026 (NIST AI Risk Management Framework)</a></li>
+                <li><a href="https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html">C2PA and Content Credentials Explainer</a></li>
+                <li><a href="https://www.unesco.org/en/articles/deepfakes-and-crisis-knowing">UNESCO: Deepfakes and the Crisis of Knowing</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/ai-detectors">Can I Trust an AI Detector?</a></li>
+                <li><a href="/guides/verify-online">How to Verify Something You See Online</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
