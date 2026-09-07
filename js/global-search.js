@@ -79,11 +79,12 @@ function buildSearchIndex() {
     // Add resources
     const resources = [
         { title: 'AI & Digital Life', url: '/ai', keywords: ['AI', 'artificial intelligence', 'generative AI', 'ChatGPT', 'Gemini', 'deepfake', 'deepfakes', 'voice cloning', 'AI scams', 'AI privacy', 'AI detector', 'hallucination', 'AI environment'] },
+        { title: 'Learn & Practice', url: '/learn', keywords: ['learn', 'learning', 'activity', 'activities', 'practice', 'digital skills', 'worksheet', 'lesson', 'AI', 'privacy', 'scams'] },
         { title: 'Family Guides', url: 'resources.html', keywords: ['family', 'guides', 'age', 'resources'] },
         { title: 'Emergency Hotlines', url: 'hotlines.html', keywords: ['hotline', 'crisis', 'help', 'support', 'emergency'] },
         { title: 'Curated Expert Resources', url: '/trusted-sources', keywords: ['resources', 'expert', 'common sense media', 'research'] },
         { title: 'Gaming Safety', url: 'gaming-guide.html', keywords: ['gaming', 'fortnite', 'roblox', 'discord', 'xbox'] },
-        { title: 'Teacher Lesson Plans', url: '/educators', keywords: ['teacher', 'lesson', 'curriculum', 'classroom'] },
+        { title: 'Educator Resources', url: '/educators', keywords: ['educator', 'teacher', 'classroom', 'lesson plans', 'worksheets', 'slides', 'students', 'digital citizenship'] },
         { title: 'Interactive Tools', url: 'interactive.html', keywords: ['quiz', 'checklist', 'tool', 'parental controls'] }
     ];
     resources.forEach(resource => {

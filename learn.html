@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Learn digital skills, try activities, and build confidence. Explore guides, practice what you learn, and access resources for learning together.">
+    <link rel="canonical" href="https://digitalcap.org/learn">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalcap.org/learn">
+    <meta property="og:title" content="Learn & Practice | DigitalCap">
+    <meta property="og:description" content="Learn digital skills, try activities, and build confidence with DigitalCap's guides, practice resources, and learning tools.">
+    <meta property="og:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="DigitalCap - Smart Limits. No Cap.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Learn & Practice | DigitalCap">
+    <meta name="twitter:description" content="Learn digital skills, try activities, and build confidence with DigitalCap's guides and practice resources.">
+    <meta name="twitter:image" content="https://digitalcap.org/images/branding/logo-social-share.png">
+    <meta name="twitter:image:alt" content="DigitalCap - Smart Limits. No Cap.">
+    <title>Learn & Practice | DigitalCap</title>
+    <link rel="icon" type="image/png" href="images/branding/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .learn-hero {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .learn-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .learn-hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 1rem auto;
+            line-height: 1.6;
+        }
+
+        .learn-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .learn-path-card {
+            display: block;
+            padding: 2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+            text-align: left;
+        }
+
+        .learn-path-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .learn-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .learn-path-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .learn-path-card p {
+            color: var(--text-gray);
+            margin: 0 0 1.5rem 0;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .learn-cta {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .learn-path-card:hover .learn-cta {
+            text-decoration: underline;
+        }
+
+        .learn-section {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .learn-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .learn-section p {
+            color: var(--text-gray);
+            margin: 0 0 1rem 0;
+            line-height: 1.6;
+        }
+
+        .learn-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .learn-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .learn-callout h3 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .learn-callout p {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .learn-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .learn-paths {
+                gap: 1rem;
+            }
+
+            .learn-path-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="learn-hero">
+            <h1>Learn & Practice</h1>
+            <p>Learn digital skills. Try an activity. Build confidence.</p>
+            <p style="font-size: 1rem; color: var(--text-gray);">Digital safety makes more sense when you can actually practice it. Explore a topic, try something yourself, or use DigitalCap resources to learn together.</p>
+        </section>
+
+        <section class="learn-paths">
+            <a href="/understand" class="learn-path-card">
+                <div class="learn-icon">📚</div>
+                <h3>Learn Something</h3>
+                <p>Explore clear guides about AI, privacy, scams, digital safety, online behavior, and more.</p>
+                <div class="learn-cta">Explore Digital Safety Topics →</div>
+            </a>
+
+            <a href="#practice-section" class="learn-path-card" onclick="document.getElementById('practice-section').scrollIntoView({behavior: 'smooth'}); return false;">
+                <div class="learn-icon">✨</div>
+                <h3>Try an Activity</h3>
+                <p>Practice skills like checking a source, spotting scam tactics, thinking about privacy, and making informed digital choices.</p>
+                <div class="learn-cta">Explore Practice Activities →</div>
+            </a>
+
+            <a href="/educators" class="learn-path-card">
+                <div class="learn-icon">👨‍🏫</div>
+                <h3>Teach or Lead a Group</h3>
+                <p>Use lessons, slides, worksheets, discussion prompts, and activities to learn together or lead a group.</p>
+                <div class="learn-cta">Explore Educator Resources →</div>
+            </a>
+        </section>
+
+        <section class="learn-callout">
+            <h3>🤖 Learning About AI?</h3>
+            <p>Explore AI guides about how AI works, deepfakes, verification, scams, privacy, useful AI tools, and AI's real-world impact.</p>
+            <p style="margin-top: 1rem;"><a href="/ai" style="color: var(--primary); font-weight: 600; text-decoration: none;">Explore AI & Digital Life →</a></p>
+        </section>
+
+        <section class="learn-section">
+            <h2>Ready-to-Use Learning Resources</h2>
+            <p>DigitalCap already includes lessons, slides, worksheets, and activities covering privacy, scams, online behavior, digital citizenship, AI, and more.</p>
+            <p>Many resources were designed for classroom use but can also help families and groups explore digital topics together.</p>
+            <p style="margin-top: 1.5rem;"><a href="/educators" class="btn btn-primary">Browse Educator Resources →</a></p>
+        </section>
+
+        <section class="learn-section" id="practice-section">
+            <h2>Practice What You Learn</h2>
+            <p>DigitalCap activities help you apply digital skills rather than only read about them. Think about what information to share, recognize scam pressure, check a source, evaluate online claims, and build real confidence in your digital choices.</p>
+            <p>We're developing a collection of practice activities to help you reinforce what you've learned from DigitalCap guides. For now, explore our educator resources which include activities and discussion prompts you can use independently or with others.</p>
+            <p style="margin-top: 1.5rem;"><a href="/educators" class="btn btn-secondary">Explore Lessons & Activities →</a></p>
+        </section>
+
+        <section class="learn-section">
+            <h2>For Educators</h2>
+            <p>Looking for classroom-ready resources? DigitalCap's educator portal includes lesson plans, slides, worksheets, discussion prompts, and activities organized by grade band, topic, and time.</p>
+            <p style="margin-top: 1.5rem;"><a href="/educators" class="btn btn-primary">Open the Educator Portal →</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
