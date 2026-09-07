@@ -80,6 +80,26 @@ const DIGITALCAP_GLOSSARY = {
   "personal-information": {
     term: "Personal Information",
     definition: "Information that can identify someone or reveal details about them, such as their name, address, phone number, account information, or location."
+  },
+  ai: {
+    term: "AI",
+    definition: "Technology that can recognize patterns, generate content, make predictions, give recommendations, or help make decisions."
+  },
+  "artificial-intelligence": {
+    term: "Artificial Intelligence",
+    definition: "Technology that can recognize patterns, generate content, make predictions, give recommendations, or help make decisions."
+  },
+  prompt: {
+    term: "Prompt",
+    definition: "A question, instruction, or other input given to an AI system."
+  },
+  hallucination: {
+    term: "Hallucination",
+    definition: "When an AI system generates information that is false, invented, or unsupported but may sound convincing."
+  },
+  "voice-cloning": {
+    term: "Voice Cloning",
+    definition: "Technology that creates a synthetic version of someone's voice using recordings or other voice samples."
   }
 };
 

@@ -78,6 +78,7 @@ function buildSearchIndex() {
 
     // Add resources
     const resources = [
+        { title: 'AI & Digital Life', url: '/ai', keywords: ['AI', 'artificial intelligence', 'generative AI', 'ChatGPT', 'Gemini', 'deepfake', 'deepfakes', 'voice cloning', 'AI scams', 'AI privacy', 'AI detector', 'hallucination', 'AI environment'] },
         { title: 'Family Guides', url: 'resources.html', keywords: ['family', 'guides', 'age', 'resources'] },
         { title: 'Emergency Hotlines', url: 'hotlines.html', keywords: ['hotline', 'crisis', 'help', 'support', 'emergency'] },
         { title: 'Curated Expert Resources', url: '/trusted-sources', keywords: ['resources', 'expert', 'common sense media', 'research'] },
