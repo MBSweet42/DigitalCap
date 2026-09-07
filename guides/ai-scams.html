@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="AI can make scams look, sound and feel more convincing. But many of the tactics scammers use are still very familiar.">
+    <link rel="canonical" href="https://digitalcap.org/guides/ai-scams">
+    <title>AI Scams: What Changes and What Doesn't - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>AI Scams: What Changes and What Doesn't</h1>
+            <p class="guide-description">AI can make scams look, sound and feel more convincing. But many of the tactics scammers use are still very familiar.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>AI can be used in scams to create convincing fake content:</p>
+            <ul>
+                <li>Fake voices (voice cloning)</li>
+                <li>Fake photos, videos, and deepfakes</li>
+                <li>Fake messages and text</li>
+                <li>Convincing fake identities and profiles</li>
+            </ul>
+
+            <p>The technology itself isn't new—scams are as old as communication. What's new is how convincing the fake content can be.</p>
+
+            <p>But here's what matters:</p>
+
+            <div class="guide-callout">
+                <p><strong>AI can change what a scam looks or sounds like. The ways scammers pressure people often look familiar.</strong></p>
+            </div>
+        </div>
+
+        <!-- What Changes -->
+        <div class="guide-section">
+            <h2>What Changes</h2>
+            <p>AI makes the fake content more convincing:</p>
+
+            <h3>Photos and video</h3>
+            <p>AI can generate entirely synthetic photos or videos, or it can alter real ones. A deepfake video of someone saying something they never said can look remarkably real.</p>
+
+            <p>A fake photo of a public figure, event, or product can spread quickly before fact-checking catches up.</p>
+
+            <h3>Voice</h3>
+            <p>Voice cloning can create a synthetic copy of someone's voice using just a short audio sample. A call from someone who sounds exactly like your parent, boss, or friend can feel very real.</p>
+
+            <h3>Text and messages</h3>
+            <p>AI can generate convincing text messages, emails, and social media posts that match someone's writing style or impersonate an authority figure.</p>
+
+            <h3>Identities and profiles</h3>
+            <p>AI can create fake dating profiles, social media accounts, and online identities with generated photos, convincing stories, and realistic conversation patterns.</p>
+
+            <p>The result: Scams that look, sound, and feel more convincing than before.</p>
+        </div>
+
+        <!-- What Doesn't Change -->
+        <div class="guide-section">
+            <h2>What Doesn't Change</h2>
+            <p>But despite the new tools, scammers still use the same tactics to pressure people:</p>
+
+            <h3>Urgency</h3>
+            <p>Act now. This won't wait. You have only hours. This is time-limited.</p>
+
+            <h3>Secrecy</h3>
+            <p>Don't tell anyone. Keep this private. Don't ask anyone else about it.</p>
+
+            <h3>Emotional pressure</h3>
+            <p>Fear, shame, embarrassment, guilt, panic, love, excitement—whatever emotion motivates action without thinking.</p>
+
+            <h3>Authority</h3>
+            <p>Impersonating a boss, government official, bank, legal authority, or someone in power.</p>
+
+            <h3>Isolation</h3>
+            <p>Asking you not to verify the story by calling back, asking someone else, or checking independent sources.</p>
+
+            <h3>Unusual payment requests</h3>
+            <p>Asking for payment by wire transfer, gift cards, cryptocurrency, or other hard-to-reverse methods.</p>
+
+            <h3>Requests for credentials or codes</h3>
+            <p>Asking for passwords, authentication codes, or security information.</p>
+
+            <p>These warning signs work whether the threat comes through a realistic deepfake video or a simple text message.</p>
+        </div>
+
+        <!-- What Should I Know -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+
+            <h3>Romance scams and AI</h3>
+            <p>The FTC reports that romance scams have become more convincing with AI.</p>
+
+            <p>Scammers create fake profiles with AI-generated photos, write compelling messages, develop relationships over weeks or months, and eventually ask for money for emergencies, travel, investment opportunities, or to cover debts.</p>
+
+            <p>Warning signs still apply:</p>
+            <ul>
+                <li>The person can never meet in person (always excuses)</li>
+                <li>Escalating declarations of love and trust-building</li>
+                <li>Eventually requests for money</li>
+            </ul>
+
+            <p>AI makes the profile photos and messages more convincing. The manipulation tactics are the same.</p>
+
+            <h3>Sextortion and manipulated images</h3>
+            <p>Sextortion scams use fake or manipulated intimate images to threaten and extort money from victims.</p>
+
+            <p>This can involve:</p>
+            <ul>
+                <li>AI-generated fake explicit images created from ordinary social media photos</li>
+                <li>Actual intimate images obtained through social engineering or hacking</li>
+                <li>Deepfake or edited versions of real images</li>
+            </ul>
+
+            <p>The extortionist threatens to send the fake images to friends, family, or employer unless the victim pays.</p>
+
+            <div class="guide-callout">
+                <p><strong>The fact that an image is fake does not make the threat or harm fake.</strong></p>
+            </div>
+
+            <p>Real extortion is happening, even if the images are synthetic. The FBI reports that victims who pay are often targeted again by the same extortionist or by copycat criminals.</p>
+
+            <h3>Emergency scams</h3>
+            <p>Scammers impersonate family members, employers, or officials claiming an emergency (accident, medical crisis, legal problem, arrest) that requires immediate payment.</p>
+
+            <p>AI voice cloning makes these scams more convincing. But the manipulation is still:</p>
+            <ul>
+                <li>Urgency and panic</li>
+                <li>Emotional pressure</li>
+                <li>Requests for secrecy ("don't tell anyone")</li>
+                <li>Isolation from verification</li>
+            </ul>
+
+            <h3>Watch the behavior, not just the technology</h3>
+            <p>Instead of trying to spot whether something is AI-generated, watch for scam behaviors:</p>
+
+            <ul>
+                <li>Is someone pressuring you to act quickly?</li>
+                <li>Are they asking you to keep it secret?</li>
+                <li>Are they asking for unusual payment or credentials?</li>
+                <li>Are they blocking you from verifying the story independently?</li>
+            </ul>
+
+            <p>These warning signs work whether the scam is high-tech or low-tech.</p>
+        </div>
+
+        <!-- What Can I Do -->
+        <div class="guide-section">
+            <h2>What can I do?</h2>
+            <p>When something urgent or suspicious comes your way, use this framework:</p>
+
+            <div class="guide-callout">
+                <h4>STOP → VERIFY ELSEWHERE → THEN ACT</h4>
+
+                <p><strong>STOP</strong><br>Don't immediately respond or comply, especially if the request involves money, passwords, credentials, or sensitive information.</p>
+
+                <p><strong>VERIFY ELSEWHERE</strong><br>Contact the person or organization independently. Use a phone number from a document you trust, a website you know is official, or contact information from your own records—not the contact information the message provided.</p>
+
+                <p><strong>THEN ACT</strong><br>After you've verified through an independent channel, then decide how to respond.</p>
+            </div>
+
+            <p>You do not have to prove someone is using AI before refusing to comply or share information.</p>
+
+            <div class="guide-callout">
+                <p><strong>I'm going to verify this first.</strong></p>
+            </div>
+
+            <p>That's a complete sentence. You don't need to explain why, or prove anything, or commit to acting on the request.</p>
+
+            <p>Verify somewhere else before money, credentials or sensitive information move anywhere.</p>
+        </div>
+
+        <!-- If You're Being Pressured -->
+        <div class="guide-section">
+            <h2>If you're being pressured or extorted</h2>
+
+            <h3>Sextortion or image-based threats</h3>
+            <p>If someone is threatening to share intimate images (real or fake) unless you pay:</p>
+
+            <ul>
+                <li>Do not pay. Paying does not stop the extortion—victims report continued demands.</li>
+                <li>Do not engage with the extortionist. Block them and do not respond.</li>
+                <li>Report the threat to the FBI's Internet Crime Complaint Center at <a href="https://ic3.gov/" style="color: var(--primary); text-decoration: underline;">ic3.gov</a>.</li>
+                <li>Report to the platform where the threat originated.</li>
+            </ul>
+
+            <p>If the image was taken when you were under 18, NCMEC's Take It Down service may be able to help. If the person shown is over 18 in the image, StopNCII may be another option. These services also accept qualifying manipulated or deepfake intimate images. Both have eligibility requirements and work with participating platforms.</p>
+
+            <h3>Other scams and fraud</h3>
+            <ul>
+                <li>Hang up or stop communication immediately.</li>
+                <li>Report the scam to the FTC at <a href="https://reportfraud.ftc.gov/" style="color: var(--primary); text-decoration: underline;">ReportFraud.ftc.gov</a>.</li>
+                <li>Report to the FBI at <a href="https://ic3.gov/" style="color: var(--primary); text-decoration: underline;">ic3.gov</a>.</li>
+                <li>If money was involved, contact your bank or payment service immediately to see if the transaction can be reversed.</li>
+            </ul>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>AI is a tool. It can make scams more convincing. But the fundamental threat isn't new.</p>
+
+            <p>Scammers have always:</p>
+            <ul>
+                <li>Used urgency to bypass thinking</li>
+                <li>Created fake identities and relationships</li>
+                <li>Impersonated authority or trusted people</li>
+                <li>Asked for money or sensitive information</li>
+                <li>Isolated victims from verification</li>
+            </ul>
+
+            <p>AI makes the fake more convincing. It doesn't change how to respond.</p>
+
+            <div class="guide-callout">
+                <p><strong>Strong emotional pressure is a reason to slow down, not speed up.</strong></p>
+            </div>
+
+            <p>When something triggers fear, panic, shame, guilt, or excitement, that's when you most need to verify independently before acting.</p>
+
+            <p>That's not paranoia. That's how you stay safe.</p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://consumer.ftc.gov/consumer-alerts/2026/02/why-cant-new-love-interest-meet-person">FTC: Why Can't That New Love Interest Meet in Person?</a></li>
+                <li><a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/sextortion">FBI: Sextortion</a></li>
+                <li><a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/sextortion/financially-motivated-sextortion">FBI: Financially Motivated Sextortion</a></li>
+                <li><a href="https://takeitdown.ncmec.org/faq/">NCMEC: Take It Down FAQ</a></li>
+                <li><a href="https://stopncii.org/faq/">StopNCII: FAQ</a></li>
+                <li><a href="https://reportfraud.ftc.gov/">FTC Report Fraud</a></li>
+                <li><a href="https://ic3.gov/">FBI Internet Crime Complaint Center (IC3)</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/voice-cloning-scams">Voice Cloning & Impersonation Scams</a></li>
+                <li><a href="/guides/deepfakes">Deepfakes: Photos, Video & Audio</a></li>
+                <li><a href="/guides/verify-online">How to Verify Something You See Online</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

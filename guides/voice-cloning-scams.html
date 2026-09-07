@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="A voice can sound exactly like someone you know and still be fake. Learn how voice cloning works, what scammers are trying to do, and how to verify before you act.">
+    <link rel="canonical" href="https://digitalcap.org/guides/voice-cloning-scams">
+    <title>Voice Cloning & Impersonation Scams - DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/glossary.js"></script>
+    <style>
+        /* Guide-specific styles */
+        .guide-header {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header .guide-description {
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .guide-reviewed {
+            background: var(--primary-light);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .guide-section p {
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            color: var(--text-dark);
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-callout {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .guide-callout h4 {
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .guide-callout p {
+            margin: 0;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .guide-sources {
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-sources h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-sources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-sources li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .guide-sources li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-sources a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-sources a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-related {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-related h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-related ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-related li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .guide-related li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .guide-related a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .guide-related a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-back-link:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .guide-header {
+                padding: 1.5rem;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+
+            .guide-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .guide-sources,
+            .guide-related {
+                padding: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .guide-back-link,
+            .navbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .guide-header,
+            .guide-section,
+            .guide-sources,
+            .guide-related {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect Yourself</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/educators">For Educators</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
+
+        <div class="guide-header">
+            <h1>Voice Cloning & Impersonation Scams</h1>
+            <p class="guide-description">A voice can sound exactly like someone you know and still be fake. Learn how voice cloning works, what scammers are trying to do, and how to verify before you act.</p>
+            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        </div>
+
+        <!-- What is this? -->
+        <div class="guide-section">
+            <h2>What is this?</h2>
+            <p>Voice cloning uses AI to create a synthetic copy of someone's voice. In some cases, the technology can work from a relatively short audio sample.</p>
+
+            <p>Voice cloning itself has legitimate uses—accessibility, entertainment, creative projects—but it can also be used to impersonate someone.</p>
+
+            <p>When scammers use voice cloning, the goal is usually:</p>
+            <ul>
+                <li>Pretending to be someone you know (family member, friend, colleague)</li>
+                <li>Pretending to be an authority figure (government official, employer, bank)</li>
+                <li>Creating fake calls that sound urgent or emotional</li>
+                <li>Requesting money, passwords, codes, or sensitive information</li>
+            </ul>
+
+            <p>The scammer counts on:</p>
+            <ul>
+                <li>The familiar voice triggering automatic trust</li>
+                <li>The emotional pressure of the situation (emergency, urgency)</li>
+                <li>Your instinct to help quickly without verifying</li>
+            </ul>
+        </div>
+
+        <!-- Why should I know about this? -->
+        <div class="guide-section">
+            <h2>Why should I know about this?</h2>
+            <p>A voice that sounds exactly like someone you know is no longer enough, by itself, to prove that person is calling.</p>
+
+            <p>This matters especially when the message involves:</p>
+            <ul>
+                <li>An emergency (medical, legal, accident)</li>
+                <li>Money (bills, investments, payments)</li>
+                <li>Secrecy ("don't tell anyone")</li>
+                <li>Passwords or codes</li>
+                <li>Urgent instructions</li>
+                <li>Unusual requests</li>
+            </ul>
+
+            <p>The FTC has documented scammers using voice cloning to impersonate family members in emergency situations, requesting urgent payment for medical bills, bail, or car accidents.</p>
+
+            <p>The FBI has documented malicious campaigns using AI voice to impersonate senior U.S. officials and to request authentication codes through vishing (voice phishing) tactics.</p>
+        </div>
+
+        <!-- What should I know? -->
+        <div class="guide-section">
+            <h2>What should I know?</h2>
+
+            <h3>Listen for these pressure tactics</h3>
+            <p>Scammers using voice cloning often rely on:</p>
+            <ul>
+                <li><strong>Urgency</strong> – "I need this money in the next hour"</li>
+                <li><strong>Secrecy</strong> – "Don't tell anyone about this"</li>
+                <li><strong>Emotional pressure</strong> – Fear, shame, or panic about the situation</li>
+                <li><strong>Authority</strong> – Acting as someone with power or authority</li>
+                <li><strong>Isolation</strong> – Asking you not to verify by calling back or asking someone else</li>
+            </ul>
+
+            <p>These are familiar scam tactics, whether the voice is synthetic or real.</p>
+
+            <h3>Workplace impersonation</h3>
+            <p>Scammers may clone a boss's or executive's voice to request payment for unexpected expenses, wire transfers, or sensitive information. Same tactic: urgency, emotional pressure, request for secrecy.</p>
+
+            <h3>Family code words don't guarantee security</h3>
+            <p>Some families use code words as a safety practice ("I'll text you a code word to prove it's me"). This can help, but it's not foolproof—code words can be guessed, overheard, or socially engineered.</p>
+
+            <p>Independent verification is stronger.</p>
+
+            <div class="guide-callout">
+                <p><strong>A familiar voice is not verification.</strong></p>
+            </div>
+        </div>
+
+        <!-- What can I do? -->
+        <div class="guide-section">
+            <h2>What can I do?</h2>
+            <p>Use this framework if someone calls with an unexpected request:</p>
+
+            <div class="guide-callout">
+                <h4>STOP → VERIFY ELSEWHERE → THEN ACT</h4>
+
+                <p><strong>STOP</strong><br>Don't immediately comply, especially if the request involves money, passwords, or urgent action.</p>
+
+                <p><strong>VERIFY ELSEWHERE</strong><br>Contact the person or organization using a phone number, email, or website you know is theirs—not the contact information the caller gave you. Use a phone number from an official document, your own records, or a directory.</p>
+
+                <p><strong>THEN ACT</strong><br>After you've verified through an independent channel, then take action if the request is real.</p>
+            </div>
+
+            <p>For example, if someone claiming to be your bank calls about fraud:</p>
+            <ul>
+                <li>Hang up</li>
+                <li>Call your bank using the number on your debit card or bank statement</li>
+                <li>Ask if there was fraud on your account</li>
+                <li>Then handle any necessary action</li>
+            </ul>
+
+            <p>If someone claiming to be a family member calls with an emergency:</p>
+            <ul>
+                <li>Don't send money immediately</li>
+                <li>Call that family member back on their phone number (from your phone, not a number the caller gave)</li>
+                <li>Ask directly: Is this really you? Is this emergency real?</li>
+                <li>Then help if the emergency is real</li>
+            </ul>
+
+            <p>The voice can be fake. Verification should happen outside the conversation.</p>
+        </div>
+
+        <!-- If you already sent money -->
+        <div class="guide-section">
+            <h2>If you already sent money</h2>
+            <p>If you realize you were scammed after sending money:</p>
+
+            <h3>Act quickly</h3>
+            <ul>
+                <li><strong>Contact your bank or payment service immediately.</strong> Ask if the transaction can be reversed or if the recipient's account can be frozen.</li>
+                <li><strong>Report the fraud to the FTC</strong> at <a href="https://reportfraud.ftc.gov/" style="color: var(--primary); text-decoration: underline;">ReportFraud.ftc.gov</a>. This helps the FTC track scam trends.</li>
+                <li><strong>Report internet-based fraud to the FBI</strong> at <a href="https://ic3.gov/" style="color: var(--primary); text-decoration: underline;">ic3.gov</a> (Internet Crime Complaint Center).</li>
+            </ul>
+
+            <p>Report the incident to local law enforcement if requested. Save all evidence: phone records, messages, call logs, screenshots.</p>
+        </div>
+
+        <!-- Put it in context -->
+        <div class="guide-section">
+            <h2>Put it in context</h2>
+            <p>Scammers have always used urgency, emotional pressure, and impersonation.</p>
+
+            <p>Voice cloning is a new tool that makes the impersonation more convincing, not a fundamentally new threat.</p>
+
+            <p>The response is the same:</p>
+
+            <div class="guide-callout">
+                <p><strong>When something feels urgent or unusual, verify it through an independent channel before complying.</strong></p>
+            </div>
+
+            <p>You don't have to be an expert at spotting fake voices. You just need to follow one simple rule: if money or sensitive information is involved, verify outside the conversation before acting.</p>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="guide-sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes">FTC: Scammers Use AI To Enhance Their Family Emergency Schemes</a></li>
+                <li><a href="https://consumer.ftc.gov/articles/scammers-use-fake-emergencies-steal-your-money">FTC: Scammers Use Fake Emergencies To Steal Your Money</a></li>
+                <li><a href="https://consumer.ftc.gov/features/how-avoid-imposter-scams">FTC: How To Avoid Imposter Scams</a></li>
+                <li><a href="https://www.fbi.gov/investigate/cyber/alerts/2025/senior-us-officials-continue-to-be-impersonated-in-malicious-messaging-campaign">FBI: Senior U.S. Officials Continue To Be Impersonated in Malicious Messaging Campaign</a></li>
+                <li><a href="https://reportfraud.ftc.gov/">FTC Report Fraud</a></li>
+                <li><a href="https://ic3.gov/">FBI Internet Crime Complaint Center (IC3)</a></li>
+            </ul>
+        </div>
+
+        <!-- Related Resources Section -->
+        <div class="guide-related">
+            <h3>Related DigitalCap Guides</h3>
+            <ul>
+                <li><a href="/guides/ai-scams">AI Scams: What Changes and What Doesn't</a></li>
+                <li><a href="/guides/deepfakes">Deepfakes: Photos, Video & Audio</a></li>
+                <li><a href="/guides/verify-online">How to Verify Something You See Online</a></li>
+                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
+            </ul>
+        </div>
+
+        <!-- Spacing before footer -->
+        <div style="margin-bottom: 2rem;"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
