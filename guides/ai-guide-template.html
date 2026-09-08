@@ -209,6 +209,90 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
+        /* Details/Summary Styling (Progressive Disclosure) */
+        details {
+            margin-bottom: 1rem;
+        }
+
+        details summary {
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--bg-light);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            list-style: none;
+            user-select: none;
+        }
+
+        details summary:hover {
+            background: var(--bg-white);
+            border-color: var(--primary);
+        }
+
+        details summary:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        details summary::marker {
+            content: '';
+        }
+
+        details summary::before {
+            content: '▶ ';
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        details[open] summary::before {
+            content: '▼ ';
+        }
+
+        details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: none;
+        }
+
+        details > div {
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-top: none;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        details > div h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.1rem;
+        }
+
+        details > div h3:first-child {
+            margin-top: 0;
+        }
+
+        details > div p {
+            margin: 0 0 1rem 0;
+        }
+
+        details > div ul,
+        details > div ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        details > div li {
+            margin-bottom: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             .guide-header {
                 padding: 1.5rem;
@@ -229,6 +313,15 @@
             .guide-sources,
             .guide-related {
                 padding: 1.5rem;
+            }
+
+            details summary {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            details > div {
+                padding: 1rem;
             }
         }
 
@@ -251,7 +344,8 @@
             .guide-header,
             .guide-section,
             .guide-sources,
-            .guide-related {
+            .guide-related,
+            details {
                 page-break-inside: avoid;
                 box-shadow: none;
                 border: 1px solid #ccc;
@@ -260,6 +354,102 @@
     </style>
 </head>
 <body>
+    <!--
+    ╔════════════════════════════════════════════════════════════════════════════════╗
+    ║                    DIGITALCAP AI GUIDE FORMULA v1                              ║
+    ║                                                                                ║
+    ║  This template encodes the approved visitor-facing architecture for all AI     ║
+    ║  guides on DigitalCap. All AI guides must follow this structure exactly.       ║
+    ║                                                                                ║
+    ║  REQUIRED VISITOR-FACING STRUCTURE:                                           ║
+    ║  1. Back Navigation (subtle)                                                  ║
+    ║  2. Title (one H1)                                                            ║
+    ║  3. Short Intro (1-2 paragraphs)                                              ║
+    ║  4. The Quick Version (concise answer)                                        ║
+    ║  5. Want More Help? (ALL detail in native <details> dropdowns only)           ║
+    ║  6. Sources (attribution only)                                                ║
+    ║  7. What Would You Like to Do Next? (navigation only)                         ║
+    ║                                                                                ║
+    ║  CONTENT BUCKET RULE:                                                         ║
+    ║  Every piece of content must belong to exactly one of four buckets:            ║
+    ║                                                                                ║
+    ║  A. QUICK                                                                      ║
+    ║     Does the visitor need this to leave with a useful answer?                 ║
+    ║     → Place in: The Quick Version section                                      ║
+    ║                                                                                ║
+    ║  B. DETAIL                                                                     ║
+    ║     Explanation, examples, caveats, context, choices, deeper help?           ║
+    ║     → Place in: A <details> dropdown within "Want More Help?"                 ║
+    ║                                                                                ║
+    ║  C. EVIDENCE                                                                   ║
+    ║     Where did the information come from?                                      ║
+    ║     → Place in: Sources section                                               ║
+    ║                                                                                ║
+    ║  D. NEXT                                                                       ║
+    ║     Where should DigitalCap take the visitor next?                            ║
+    ║     → Place in: "What Would You Like to Do Next?" section                     ║
+    ║                                                                                ║
+    ║  If content does not fit A, B, C, or D: it does not belong.                   ║
+    ║                                                                                ║
+    ║  ABSOLUTE GUIDE RULE:                                                         ║
+    ║  After "Want More Help?" all substantive educational content must live        ║
+    ║  inside native <details> elements. The ONLY content allowed after the        ║
+    ║  final dropdown is: Sources, Related Resources, and navigation.               ║
+    ║                                                                                ║
+    ║  Permanent substantive sections after dropdowns = 0 (ZERO). No exceptions.    ║
+    ║                                                                                ║
+    ║  GUIDE ORDERING FORMULA (preferred but not mandatory):                        ║
+    ║  1. What should I do / what matters most?                                     ║
+    ║  2. How does this work / why does this happen?                                ║
+    ║  3. What should I know / limitations / caveats?                               ║
+    ║  4. Topic-specific deeper questions                                           ║
+    ║  5. Put it in context                                                         ║
+    ║                                                                                ║
+    ║  Use as many dropdowns as needed (typical: 3-7). Optimize for architecture,  ║
+    ║  not for identical count across guides.                                       ║
+    ║                                                                                ║
+    ║  INTERACTION LANGUAGE:                                                        ║
+    ║  • Card/Row + Arrow (→) = Navigate away from this guide                       ║
+    ║  • Details/Summary + Triangle (▶/▼) = Expand information in place             ║
+    ║  • Button = Navigate within guided experience (inside ai.html paths)          ║
+    ║  • Plain text = Not interactive                                               ║
+    ║                                                                                ║
+    ║  ACCESSIBILITY CONTRACT:                                                      ║
+    ║  ✓ Semantic H1/H2/H3 hierarchy maintained                                     ║
+    ║  ✓ Native <details>/<summary> (no custom collapse JS)                         ║
+    ║  ✓ Entire summary row tappable (≥44px touch target)                           ║
+    ║  ✓ Visible disclosure indicator (▶/▼)                                         ║
+    ║  ✓ Keyboard support (Enter/Space on summary)                                  ║
+    ║  ✓ Visible focus states                                                       ║
+    ║  ✓ No nested interactive controls                                             ║
+    ║  ✓ Readable line length (not full-width giant text)                           ║
+    ║  ✓ Touch-friendly spacing                                                     ║
+    ║  ✓ No horizontal overflow (test at ~375px width)                              ║
+    ║  ✓ Sources always reachable                                                   ║
+    ║  ✓ Navigation back to AI always present                                       ║
+    ║                                                                                ║
+    ║  VALIDATION CHECKLIST (verify before publish):                               ║
+    ║  [ ] Exactly one H1                                                           ║
+    ║  [ ] Exactly one Quick Version section                                        ║
+    ║  [ ] Exactly one "Want More Help?" section                                    ║
+    ║  [ ] All substantive detail after Quick Version is inside <details>           ║
+    ║  [ ] Permanent substantive sections after dropdowns = 0                       ║
+    ║  [ ] Sources section present                                                  ║
+    ║  [ ] Next-step navigation present                                             ║
+    ║  [ ] No permanent article-style sections below dropdown area                  ║
+    ║  [ ] No information wall visible on first load                                ║
+    ║  [ ] Native details/summary elements used (not custom collapse)               ║
+    ║  [ ] No nested interactive controls (no button in summary)                    ║
+    ║  [ ] Destination cards fully clickable (not just linked text)                 ║
+    ║  [ ] Mobile verified at ~375px (viewport test)                                ║
+    ║  [ ] No horizontal overflow on mobile                                         ║
+    ║  [ ] Existing qualifiers preserved (can, may, often, should, might)          ║
+    ║  [ ] No new unsupported factual claims                                        ║
+    ║  [ ] No review-date badges or outdated verification notices                  ║
+    ║                                                                                ║
+    ╚════════════════════════════════════════════════════════════════════════════════╝
+    -->
+
     <nav class="navbar navbar-simple">
         <div class="nav-container">
             <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
@@ -275,129 +465,108 @@
     </nav>
 
     <main class="container">
+        <!-- 1. SUBTLE BACK NAVIGATION -->
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
+        <!-- 2. TITLE & SHORT INTRO (1-2 paragraphs) -->
         <div class="guide-header">
-            <h1>[TEMPLATE] Guide Title Goes Here</h1>
-            <p class="guide-description">[TEMPLATE] This is a short description of what this guide covers. It should be one to two sentences explaining the topic in plain language.]</p>
-            <div class="guide-verified">Last verified: [TEMPLATE - Month Year]</div>
+            <h1>[TEMPLATE] Guide Title</h1>
+            <p class="guide-description">[TEMPLATE] One to two short sentences explaining what this guide covers, in plain language. Orient the visitor quickly.</p>
         </div>
 
-        <!-- Section 1: What is this? -->
+        <!-- 3. THE QUICK VERSION -->
         <div class="guide-section">
-            <h2>What Is This?</h2>
-            <p>[TEMPLATE] Replace this with a clear explanation of what the topic is. Use plain language. Assume the reader has no technical background. Explain the core concept in 2-3 paragraphs.]</p>
-
-            <div class="guide-callout">
-                <h4>Key Concept</h4>
-                <p>[TEMPLATE] Add an important definition or clarification that helps readers understand the core topic.]</p>
-            </div>
-
-            <p>[TEMPLATE] Continue the explanation with more context or relevant details.]</p>
-        </div>
-
-        <!-- Section 2: Why People Use It / How It's Used -->
-        <div class="guide-section">
-            <h2>Why People Use It</h2>
-            <p>[TEMPLATE] Explain legitimate uses, common scenarios, or reasons why this technology or practice exists. Be balanced—acknowledge both positive and problematic uses.]</p>
-
-            <h3>[TEMPLATE] Example Use Case 1</h3>
-            <p>[TEMPLATE] Describe a specific real-world scenario where this applies.]</p>
-
-            <h3>[TEMPLATE] Example Use Case 2</h3>
-            <p>[TEMPLATE] Describe another scenario. Show variety in how this affects different people.]</p>
-        </div>
-
-        <!-- Section 3: What Should I Know? -->
-        <div class="guide-section">
-            <h2>What Should I Know?</h2>
-            <p>[TEMPLATE] Cover important facts, risks, limitations, or considerations. This is the substantive content section.]</p>
-
-            <h3>[TEMPLATE] Important Point 1</h3>
-            <p>[TEMPLATE] Explain the first key consideration. Use specific examples where helpful.]</p>
-
-            <h3>[TEMPLATE] Important Point 2</h3>
-            <p>[TEMPLATE] Explain the second key consideration.]</p>
-
-            <h3>[TEMPLATE] Important Point 3</h3>
-            <p>[TEMPLATE] Add more detail as needed for thoroughness.]</p>
-
-            <div class="guide-callout">
-                <h4>Common Misconception</h4>
-                <p>[TEMPLATE] Optional: Clarify something people often get wrong about this topic.]</p>
-            </div>
-        </div>
-
-        <!-- Section 4: What Choices Do I Have? -->
-        <div class="guide-section">
-            <h2>What Choices Do I Have?</h2>
-            <p>[TEMPLATE] Explain options, settings, controls, or actions the reader can take. Focus on practical choices.]</p>
-
-            <h3>[TEMPLATE] Choice or Control 1</h3>
-            <p>[TEMPLATE] Describe the option and what happens when someone chooses it. Avoid "TURN THIS OFF NOW" framing. Instead: "Here's what this does. Here's what changes if you adjust it. You decide what works for you."]</p>
-
-            <h3>[TEMPLATE] Choice or Control 2</h3>
-            <p>[TEMPLATE] Describe another option.]</p>
-
-            <div class="guide-callout">
-                <h4>Depends on Your Situation</h4>
-                <p>[TEMPLATE] Optional: Acknowledge that the right choice depends on individual circumstances, age, expertise level, etc.]</p>
-            </div>
-        </div>
-
-        <!-- Section 5: What Can I Do? -->
-        <div class="guide-section">
-            <h2>What Can I Do?</h2>
-            <p>[TEMPLATE] Provide actionable steps or concrete next steps. This might be a checklist, a process, or specific resources.]</p>
-
-            <h3>[TEMPLATE] Step-by-Step if Applicable</h3>
-            <ol>
-                <li>[TEMPLATE] First step</li>
-                <li>[TEMPLATE] Second step</li>
-                <li>[TEMPLATE] Third step</li>
-            </ol>
-
-            <h3>[TEMPLATE] Or: Actionable Takeaways</h3>
+            <h2>The Quick Version</h2>
+            <!-- Provide useful answer even if visitor reads nothing else -->
+            <p>[TEMPLATE] This is the concise summary. Normally 2-5 points. Give a useful answer that stands alone.</p>
             <ul>
-                <li>[TEMPLATE] Something the reader can do today</li>
-                <li>[TEMPLATE] Something to think about or discuss</li>
-                <li>[TEMPLATE] Where to get more help if needed</li>
+                <li>[TEMPLATE] First key point</li>
+                <li>[TEMPLATE] Second key point</li>
+                <li>[TEMPLATE] Additional point if relevant</li>
             </ul>
-
-            <div class="guide-callout">
-                <h4>Remember</h4>
-                <p>[TEMPLATE] End with an encouraging or clarifying note.]</p>
-            </div>
         </div>
 
-        <!-- Section 6: Put It in Context -->
+        <!-- 4. WANT MORE HELP? (ALL substantive detail in <details> dropdowns) -->
         <div class="guide-section">
-            <h2>Put It in Context</h2>
-            <p>[TEMPLATE] Explain how this topic connects to broader digital safety, societal issues, or the reader's life. Help them see the bigger picture.]</p>
+            <h2>Want More Help?</h2>
 
-            <p>[TEMPLATE] This might address: Who else is affected by this? What responsibility belongs to companies, platforms, regulators, or society? How does this fit into the larger AI landscape?]</p>
+            <!-- DROPDOWN 1 EXAMPLE: How/Why -->
+            <details>
+                <summary>[TEMPLATE] How does this work?</summary>
+                <div>
+                    <p>[TEMPLATE] Explanation of the mechanism, process, or reason. This is one of the substantive topics that gets its own dropdown.</p>
+                    <h3>[TEMPLATE] Subpoint if needed</h3>
+                    <p>[TEMPLATE] Elaborate as needed. Use examples. Preserve existing qualifiers (can, may, often).</p>
+                </div>
+            </details>
+
+            <!-- DROPDOWN 2 EXAMPLE: Limitations/Caveats -->
+            <details>
+                <summary>[TEMPLATE] What should I know?</summary>
+                <div>
+                    <p>[TEMPLATE] Limitations, caveats, risks, or important context. Answer common questions about this topic.</p>
+                    <h3>[TEMPLATE] Important limitation</h3>
+                    <p>[TEMPLATE] Explain a key limitation or misconception people have.</p>
+                </div>
+            </details>
+
+            <!-- DROPDOWN 3 EXAMPLE: Choices/Controls -->
+            <details>
+                <summary>[TEMPLATE] What choices do I have?</summary>
+                <div>
+                    <p>[TEMPLATE] Explain options, settings, or decisions available to the visitor. Frame as "here's what this does" not "TURN THIS OFF NOW".</p>
+                    <h3>[TEMPLATE] Option 1</h3>
+                    <p>[TEMPLATE] Describe what this choice is and what happens if selected.</p>
+                    <h3>[TEMPLATE] Option 2</h3>
+                    <p>[TEMPLATE] Describe another choice.</p>
+                </div>
+            </details>
+
+            <!-- DROPDOWN 4 EXAMPLE: Actions/Next Steps -->
+            <details>
+                <summary>[TEMPLATE] What can I do?</summary>
+                <div>
+                    <p>[TEMPLATE] Actionable steps or concrete next steps. This might be a checklist, a process, or specific resources.</p>
+                    <ol>
+                        <li>[TEMPLATE] First actionable step</li>
+                        <li>[TEMPLATE] Second actionable step</li>
+                        <li>[TEMPLATE] Third actionable step</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- DROPDOWN 5 EXAMPLE: Context -->
+            <details>
+                <summary>[TEMPLATE] Put it in context</summary>
+                <div>
+                    <p>[TEMPLATE] Connect this topic to broader digital safety, societal issues, or the visitor's life. Help them see the bigger picture.</p>
+                    <p>[TEMPLATE] This might address: Who else is affected? What responsibility belongs to companies, platforms, regulators? How does this fit into the larger landscape?</p>
+                </div>
+            </details>
+
+            <!-- NOTE: Add additional dropdowns as needed for this specific guide.
+                 Use topic-specific labels. The architecture is fixed; labels are flexible.
+                 Typical guides use 3-7 dropdowns. Never force identical counts. -->
         </div>
 
-        <!-- Sources Section -->
+        <!-- 5. SOURCES (Attribution only - no teaching here) -->
         <div class="guide-sources">
             <h2>Sources</h2>
-            <p>[TEMPLATE] List the official sources, research, or documentation used to create this guide. Prioritize primary sources.]</p>
             <ul>
-                <li>[TEMPLATE] <a href="#">Source Name: Brief description</a></li>
-                <li>[TEMPLATE] <a href="#">Another Source</a></li>
+                <li>[TEMPLATE] <a href="#">Source Name: Brief description or documentation link</a></li>
+                <li>[TEMPLATE] <a href="#">Another authoritative source</a></li>
                 <li>[TEMPLATE] <a href="#">Peer-reviewed research or official documentation</a></li>
             </ul>
-            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified during the last review date listed at the top of this guide.</p>
+            <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 1rem;">All sources were accessed and verified in [TEMPLATE - Month Year].</p>
         </div>
 
-        <!-- Related Resources Section -->
+        <!-- 6. NAVIGATION (What would you like to do next?) -->
         <div class="guide-related">
-            <h3>Related DigitalCap Guides & Resources</h3>
+            <h3>What Would You Like to Do Next?</h3>
             <ul>
-                <li><a href="/ai">AI & Digital Life</a> – Overview of DigitalCap's AI section</li>
-                <li>[TEMPLATE] <a href="#">Related guide or resource 1</a></li>
-                <li>[TEMPLATE] <a href="#">Related guide or resource 2</a></li>
-                <li><a href="/respond">Something Happened?</a> – Get help if you encountered a problem online</li>
+                <li><a href="/ai">← Back to AI & Digital Life</a></li>
+                <li>[TEMPLATE] <a href="#">Related DigitalCap guide or resource</a></li>
+                <li><a href="/respond">Something Happened? → Get help if you encountered a problem online</a></li>
             </ul>
         </div>
 

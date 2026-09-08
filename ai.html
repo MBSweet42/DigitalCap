@@ -136,62 +136,32 @@
             <!-- Path screen content rendered here by JavaScript -->
         </section>
 
+        <!-- Try an Activity -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.5rem;">Try an activity</h2>
+            <p style="color: var(--text-gray); margin: 0 0 2rem 0;">Practice a few of these skills for yourself.</p>
 
-        <!-- Heard Something About AI Section -->
-        <section class="ai-heard-section" id="heard-about-ai">
-            <h2>Heard Something About AI?</h2>
-            <p>AI claims spread quickly. Some are true, some are false, and a lot of them need context.</p>
-            <p style="color: var(--text-gray); margin-bottom: 2rem;">You don't have to become an AI expert. Slow down, check the claim, and look at what is actually happening.</p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 700px;">
+                <a href="/activities/deepfake-detective" style="display: block; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <h3 style="color: var(--primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Deepfake Detective</h3>
+                        <span style="color: var(--primary); font-weight: 600; font-size: 1.2rem;">→</span>
+                    </div>
+                </a>
 
-            <!-- Context Check 1 -->
-            <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
-                <p style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.95rem;"><strong>You may have heard:</strong></p>
-                <h3 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.2rem;">"You can always spot an AI image by looking at the hands."</h3>
+                <a href="/activities/source-check" style="display: block; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <h3 style="color: var(--primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Source Check</h3>
+                        <span style="color: var(--primary); font-weight: 600; font-size: 1.2rem;">→</span>
+                    </div>
+                </a>
 
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What's actually happening</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">AI-generated images sometimes contain visual mistakes, but those clues are not reliable proof. AI systems improve, real photos can look strange, and edited images can create the same kinds of odd details.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">Also important</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">A realistic image is not proof that something happened. A strange-looking image is not proof that AI made it.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What you can do</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1.5rem 0;">Check the source, search for the original, look for independent evidence, and use visual clues as clues rather than proof.</p>
-
-                <a href="/guides/verify-online" style="color: var(--primary); font-weight: 600; text-decoration: none;">Learn how to verify what you see →</a>
-            </div>
-
-            <!-- Context Check 2 -->
-            <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
-                <p style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.95rem;"><strong>You may have heard:</strong></p>
-                <h3 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.2rem;">"ChatGPT trains on everything you say."</h3>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What's actually happening</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">Not universally. How information may be used depends on your account, settings, the feature you are using, and how the information entered ChatGPT.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">Also important</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">Model training, chat history, Memory, connected apps, storage, and sharing are different things.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What you can do</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1.5rem 0;">Check your Data Controls and Memory settings, understand what connected apps can access, and think before sharing sensitive information.</p>
-
-                <a href="/guides/chatgpt-privacy-controls" style="color: var(--primary); font-weight: 600; text-decoration: none;">Understand ChatGPT privacy controls →</a>
-            </div>
-
-            <!-- Context Check 3 -->
-            <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--secondary);">
-                <p style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.95rem;"><strong>You may have heard:</strong></p>
-                <h3 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.2rem;">"Every AI prompt uses a bottle of water."</h3>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What's actually happening</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">AI and data centers can use water directly for cooling and indirectly through electricity generation, but there is no single universal amount of water used by every prompt.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">Also important</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1rem 0;">Water use can vary enormously depending on the workload, hardware, cooling system, location, electricity source, utilization, and other infrastructure factors.</p>
-
-                <h4 style="color: var(--primary); margin: 1.5rem 0 0.5rem 0; font-size: 1rem;">What you can do</h4>
-                <p style="color: var(--text-dark); margin: 0 0 1.5rem 0;">Be cautious with precise per-prompt claims that do not explain how the number was calculated or what system it describes.</p>
-
-                <a href="/guides/ai-environment" style="color: var(--primary); font-weight: 600; text-decoration: none;">Put AI's environmental impact in context →</a>
+                <a href="/activities/share-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <h3 style="color: var(--primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Would You Share This With AI?</h3>
+                        <span style="color: var(--primary); font-weight: 600; font-size: 1.2rem;">→</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -243,12 +213,150 @@
     <script src="js/main.js"></script>
 
     <script>
-        // AI Path A Prototype - Verification Path
+        /*
+        ╔════════════════════════════════════════════════════════════════════════════════╗
+        ║                  DIGITALCAP GUIDED PATH FORMULA v1                             ║
+        ║                                                                                ║
+        ║  This implementation encodes the approved interaction pattern for the          ║
+        ║  AI & Digital Life guided path. All AI path development must follow this      ║
+        ║  contract exactly.                                                             ║
+        ║                                                                                ║
+        ║  GUIDED PATH CONTRACT:                                                         ║
+        ║                                                                                ║
+        ║  1. HUMAN SITUATION (Entry)                                                   ║
+        ║     Ask: "What are you trying to figure out?"                                 ║
+        ║     Offer 2-3 focused situation options (not exhaustive list).                ║
+        ║                                                                                ║
+        ║  2. ONE CLARIFYING QUESTION (Optional)                                        ║
+        ║     Only if the answer materially changes the guidance.                       ║
+        ║     Example: "What are you checking?" (image/voice/post/unsure)              ║
+        ║     Do NOT ask multiple questions in sequence.                                ║
+        ║                                                                                ║
+        ║  3. FOCUSED RESULT                                                            ║
+        ║     Must contain, in this order:                                              ║
+        ║                                                                                ║
+        ║     A. WHAT THIS MEANS                                                        ║
+        ║        Short, calm explanation of the visitor's situation.                   ║
+        ║        1-2 paragraphs maximum.                                                ║
+        ║                                                                                ║
+        ║     B. WHAT I'D DO NEXT                                                       ║
+        ║        3-5 practical next steps maximum.                                      ║
+        ║        Numbered list or short bullets.                                        ║
+        ║        Concrete, actionable (not "learn more" or "think about").              ║
+        ║                                                                                ║
+        ║     C. START HERE                                                             ║
+        ║        Exactly one primary destination when possible.                         ║
+        ║        Entire destination card clickable.                                     ║
+        ║        Card + arrow (→) = navigate away from path.                            ║
+        ║        Label: "Start here" or similar.                                        ║
+        ║                                                                                ║
+        ║     D. OPTIONAL HELP (0-3 secondary destinations)                             ║
+        ║        Each destination has its own full-width clickable row/card.            ║
+        ║        Label: "Want to understand more?" or similar.                          ║
+        ║        Each item is its own link/card.                                        ║
+        ║                                                                                ║
+        ║     E. PRACTICE (Only if relevant activity exists)                            ║
+        ║        Interactive activity to reinforce the concept.                         ║
+        ║        Example: "Deepfake Detective" activity link.                           ║
+        ║        Only if a directly relevant activity is available.                     ║
+        ║                                                                                ║
+        ║     F. GET HELP (Only if Respond or similar is relevant)                      ║
+        ║        Direct link to Something Happened? or related help.                    ║
+        ║        Only if the situation involves immediate danger or action needed.      ║
+        ║                                                                                ║
+        ║     G. NAVIGATION                                                             ║
+        ║        "Change my answer" button (goes back one level)                        ║
+        ║        "Start over" button (returns to entry)                                 ║
+        ║                                                                                ║
+        ║  CONTENT BUCKET RULE (AI Path Context):                                       ║
+        ║                                                                                ║
+        ║  A. RESULT ANSWER                                                             ║
+        ║     Does the visitor get clarity without leaving this page?                  ║
+        ║     → Render inside #aiPathExperience                                         ║
+        ║                                                                                ║
+        ║  B. GUIDE FOR MORE                                                            ║
+        ║     Do they need detailed explanation, background, or how-to?               ║
+        ║     → Link to a specific /guides/[topic] page                                ║
+        ║                                                                                ║
+        ║  C. PRACTICE OPPORTUNITY                                                      ║
+        ║     Should they try this skill interactively?                                ║
+        ║     → Link to /activities/[activity]                                          ║
+        ║                                                                                ║
+        ║  D. IMMEDIATE HELP                                                            ║
+        ║     Do they need real-time response or escalation?                           ║
+        ║     → Link to /respond or crisis line                                         ║
+        ║                                                                                ║
+        ║  KEY CONSTRAINT: Result gives the answer. Guide gives the explanation.       ║
+        ║  Result must NOT become a mini-article. No hidden document architecture.      ║
+        ║                                                                                ║
+        ║  INTERACTION LANGUAGE:                                                        ║
+        ║  • CARD / ROW + → = GO SOMEWHERE (navigate to a guide, activity, or tool)   ║
+        ║  • DETAILS / SUMMARY + ▶ = OPEN MORE HERE (expand info in place)             ║
+        ║  • BUTTON = NAVIGATE INSIDE GUIDED EXPERIENCE (change answer, start over)    ║
+        ║  • PLAIN TEXT = NOT INTERACTIVE                                              ║
+        ║                                                                                ║
+        ║  HARD RULES - DO NOT VIOLATE:                                                ║
+        ║  ✗ No URL hashes for state (no #state1, #state2)                             ║
+        ║  ✗ No window.scrollIntoView() for state management                            ║
+        ║  ✗ No window.scrollTo() for navigation                                        ║
+        ║  ✗ No page reload for state transitions                                       ║
+        ║  ✗ No parallel/hidden architecture (Path C forbidden)                         ║
+        ║  ✗ Result must not have information wall                                      ║
+        ║  ✗ No giant clickable area with only tiny text inside                        ║
+        ║  ✗ No nested interactive controls (button in card heading, link in button)   ║
+        ║  ✗ Card headline NOT secretly the only clickable target                       ║
+        ║  ✓ Only current guided screen renders inside #aiPathExperience               ║
+        ║  ✓ Start over returns to shared entry (not separate entry per path)          ║
+        ║  ✓ Back returns exactly one level (not multiple or zero)                      ║
+        ║  ✓ Whole visual destination cards are clickable                               ║
+        ║  ✓ Plain text is never secretly interactive                                   ║
+        ║                                                                                ║
+        ║  ACCESSIBILITY CONTRACT:                                                      ║
+        ║  ✓ Semantic heading hierarchy                                                 ║
+        ║  ✓ Keyboard navigation (buttons work with Enter/Space)                       ║
+        ║  ✓ Visible focus states on all interactive elements                          ║
+        ║  ✓ Touch targets ≥44px                                                       ║
+        ║  ✓ Text contrast meets WCAG AA                                               ║
+        ║  ✓ No color-only communication                                                ║
+        ║  ✓ Mobile responsive (tested at ~375px)                                       ║
+        ║                                                                                ║
+        ║  MOBILE-FIRST CONTRACT:                                                       ║
+        ║  Test at approximately 375px viewport width.                                 ║
+        ║  • Entry screen visible without scroll                                        ║
+        ║  • Result screen gives answer in first viewport                              ║
+        ║  • Destinations fully readable without horizontal scroll                      ║
+        ║  • All buttons/links easily tappable                                          ║
+        ║  • "Start over" always reachable                                              ║
+        ║                                                                                ║
+        ║  VALIDATION CHECKLIST (before publishing a new path):                        ║
+        ║  [ ] Entry asks "What are you trying to figure out?"                         ║
+        ║  [ ] Options are focused (not exhaustive list)                                ║
+        ║  [ ] Clarifying question only if answer changes guidance                     ║
+        ║  [ ] Result contains: Explanation → Next Steps → Primary Link → Optional     ║
+        ║  [ ] "Start here" destination is entire card clickable                        ║
+        ║  [ ] Arrow (→) means navigate away from path                                  ║
+        ║  [ ] "Start over" returns to shared entry                                     ║
+        ║  [ ] "Back" returns exactly one level                                         ║
+        ║  [ ] No URL hash state                                                        ║
+        ║  [ ] No scroll() for state management                                         ║
+        ║  [ ] All text is clickable or all text is plain (no ambiguous text)          ║
+        ║  [ ] Mobile tested at ~375px                                                  ║
+        ║  [ ] No information wall on result screen                                     ║
+        ║  [ ] Touch targets ≥44px minimum                                              ║
+        ║  [ ] Keyboard navigation working (Enter/Space on buttons)                    ║
+        ║  [ ] Only current screen in #aiPathExperience                                 ║
+        ║  [ ] No hidden Path C or parallel architecture                                ║
+        ║                                                                                ║
+        ╚════════════════════════════════════════════════════════════════════════════════╝
+        */
+
+        // AI Path A/B Implementation
         // Manages state and rendering for the guided-path experience
 
         const aiPathState = {
-            currentScreen: 'entry', // 'entry', 'question', 'resultA1', 'resultA2', 'resultA3', 'resultA4'
-            selectedPath: null // Will store the user's choice
+            currentScreen: 'entry', // 'entry', 'pathA-question', 'resultA1-4', 'pathB-question', 'resultB1-5', 'pathC-question', 'resultC1-5', 'pathD-question', 'resultD1-5'
+            selectedPath: null, // 'pathA', 'pathB', 'pathC', or 'pathD'
+            selectedAnswer: null // Will store answer choice for paths
         };
 
         function renderScreen() {
@@ -258,8 +366,8 @@
                 case 'entry':
                     renderEntry();
                     break;
-                case 'question':
-                    renderQuestion();
+                case 'pathA-question':
+                    renderPathAQuestion();
                     break;
                 case 'resultA1':
                     renderResultImageVideo();
@@ -273,6 +381,93 @@
                 case 'resultA4':
                     renderResultUnsure();
                     break;
+                case 'pathB-question':
+                    renderPathBQuestion();
+                    break;
+                case 'resultB1':
+                    renderResultFactExplanation();
+                    break;
+                case 'resultB2':
+                    renderResultAdvice();
+                    break;
+                case 'resultB3':
+                    renderResultImportantDecision();
+                    break;
+                case 'resultB4':
+                    renderResultCreativeWork();
+                    break;
+                case 'resultB5':
+                    renderResultNotSure();
+                    break;
+                case 'pathC-question':
+                    renderPathCQuestion();
+                    break;
+                case 'resultC1':
+                    renderResultUnderstandAI();
+                    break;
+                case 'resultC2':
+                    renderResultLearnStudy();
+                    break;
+                case 'resultC3':
+                    renderResultWorkTask();
+                    break;
+                case 'resultC4':
+                    renderResultCreateBrainstorm();
+                    break;
+                case 'resultC5':
+                    renderResultNotSureYet();
+                    break;
+                case 'pathD-question':
+                    renderPathDQuestion();
+                    break;
+                case 'resultD1':
+                    renderResultPersonalInfo();
+                    break;
+                case 'resultD2':
+                    renderResultOthersInfo();
+                    break;
+                case 'resultD3':
+                    renderResultSensitiveInfo();
+                    break;
+                case 'resultD4':
+                    renderResultFileUpload();
+                    break;
+                case 'resultD5':
+                    renderResultGeneralPrivacy();
+                    break;
+                case 'pathE-question':
+                    renderPathEQuestion();
+                    break;
+                case 'resultE1':
+                    renderResultVoiceAudioImpersonation();
+                    break;
+                case 'resultE2':
+                    renderResultUrgencyMoneyInfo();
+                    break;
+                case 'resultE3':
+                    renderResultSuspiciousContent();
+                    break;
+                case 'resultE4':
+                    renderResultAlreadyHappened();
+                    break;
+                case 'resultE5':
+                    renderResultENotSure();
+                    break;
+                case 'pathF-question':
+                    renderPathFQuestion();
+                    break;
+                case 'resultF1':
+                    renderResultAIImageClaim();
+                    break;
+                case 'resultF2':
+                    renderResultChatGPTTrainingClaim();
+                    break;
+                case 'resultF3':
+                    renderResultWaterClaim();
+                    break;
+                case 'resultF4':
+                    renderResultSomethingElse();
+                    break;
             }
         }
 
@@ -280,15 +475,41 @@
             const container = document.getElementById('aiPathExperience');
             container.innerHTML = `
                 <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What are you trying to figure out?</h2>
-                <p style="color: var(--text-gray); margin: 0 0 2rem 0; line-height: 1.6;">This prototype focuses on one DigitalCap path. Select below to start.</p>
-                <button type="button" onclick="selectPath()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                <p style="color: var(--text-gray); margin: 0 0 2rem 0; line-height: 1.6;">Select your situation to get guidance.</p>
+
+                <button type="button" onclick="selectPathA()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
                     <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I saw or heard something and I'm not sure I should trust it</h3>
                     <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Images, videos, voices, calls, screenshots, posts, articles, claims, and other things you find online.</p>
+                </button>
+
+                <button type="button" onclick="selectPathB()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">AI gave me an answer and I'm not sure I should trust it</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Answers to questions, explanations, advice, recommendations, or writing from an AI tool.</p>
+                </button>
+
+                <button type="button" onclick="selectPathC()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I want to use AI and I'm not sure where to start</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Learning, work, everyday tasks, writing, brainstorming, creating, or just understanding what AI can help with.</p>
+                </button>
+
+                <button type="button" onclick="selectPathD()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I'm trying to figure out what I should share with AI</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Personal information, someone else's information, work or school material, photos, documents, or anything sensitive.</p>
+                </button>
+
+                <button type="button" onclick="selectPathE()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I think AI may be involved in a scam, impersonation, or something harmful</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Voice cloning, fake messages or images, urgent requests, impersonation, money requests, or something that already happened.</p>
+                </button>
+
+                <button type="button" onclick="selectPathF()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I keep hearing something about AI and want to know what's actually true</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">AI rumors, viral claims, privacy questions, environmental claims, or things that sound certain but need context.</p>
                 </button>
             `;
         }
 
-        function renderQuestion() {
+        function renderPathAQuestion() {
             const container = document.getElementById('aiPathExperience');
             container.innerHTML = `
                 <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What are you checking?</h2>
@@ -357,7 +578,7 @@
                 </div>
 
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
                     <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
                 </div>
             `;
@@ -391,7 +612,7 @@
                 </a>
 
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
                     <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
                 </div>
             `;
@@ -428,7 +649,7 @@
                 </div>
 
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
                     <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
                 </div>
             `;
@@ -467,14 +688,269 @@
                 </div>
 
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
                     <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
                 </div>
             `;
         }
 
-        function selectPath() {
-            aiPathState.currentScreen = 'question';
+        function renderPathBQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What kind of answer are you checking?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">AI can sound confident even when an answer is incomplete, outdated, misleading, or wrong. How much checking makes sense depends partly on what you're using the answer for.</p>
+
+                <button type="button" onclick="goToResult('resultB1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">A fact or explanation</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultB2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Advice or a recommendation</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultB3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Something for an important decision</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultB4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Writing, brainstorming, code, or other creative work</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultB5')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I'm not sure</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultFactExplanation() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're checking a fact or explanation</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can sound certain even when an answer is incomplete, outdated, misleading, or wrong. Confidence is not evidence.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Identify the actual claim.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for an independent reliable source.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check whether the information is current enough for the question.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Confirm important details somewhere outside the AI answer.</strong></li>
+                    <li><strong>Match the amount of checking to how much the answer matters.</strong></li>
+                </ol>
+
+                <a href="/guides/ai-hallucinations-verification" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI Can Sound Certain and Still Be Wrong</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand why AI sounds confident, and how to verify what matters. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                    <a href="/guides/verify-online" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">How to Verify Something You See Online</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathB()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultAdvice() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're checking advice or a recommendation</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI is useful for exploring possibilities, not automatic authority. The final judgment is always yours.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Treat the AI answer as an option, not an instruction.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask what information or assumptions the recommendation depends on.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Think about context the AI may not know.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Compare the recommendation with another reliable source or option when it matters.</strong></li>
+                    <li><strong>Make the final judgment yourself.</strong></li>
+                </ol>
+
+                <a href="/guides/what-ai-is-good-at" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What AI Is Good At</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand what AI excels at and what it can't do. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/ai-learning-work-creativity" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">AI for Learning, Work & Creativity</span> →
+                    </a>
+                    <a href="/guides/verify-online" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">How to Verify Something You See Online</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathB()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultImportantDecision() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're using AI for an important decision</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">The more important the answer, the more important it is to verify it. AI can help prepare your thinking, but should not be your only source.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not rely on the AI answer as the only source.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Verify important factual claims using reliable, current information.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for missing context, assumptions, or alternatives.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>When the situation calls for qualified human expertise, use AI to help prepare questions or understand terms rather than replacing that expertise.</strong></li>
+                    <li><strong>You make the decision.</strong></li>
+                </ol>
+
+                <a href="/guides/ai-hallucinations-verification" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI Can Sound Certain and Still Be Wrong</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand why verification matters for important decisions. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                    <a href="/guides/verify-online" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">How to Verify Something You See Online</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathB()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultCreativeWork() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're using AI to help create something</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can help create the first version. You decide what becomes the final version. The YOU → AI → YOU cycle puts you back in control.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Review the output yourself.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check factual claims before using them.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Test code or technical output instead of assuming it works.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Edit for your actual purpose, judgment, and voice.</strong></li>
+                    <li><strong>Follow any rules that apply to the situation where you're using it.</strong></li>
+                </ol>
+
+                <a href="/guides/ai-learning-work-creativity" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI for Learning, Work & Creativity</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn how to use AI as a creative partner while keeping control. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathB()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultNotSure() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're not sure how much to trust the answer</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">The amount of verification should match how much the answer matters. Here's a proportional framework:</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">Low stakes</h3>
+                <p style="color: var(--text-dark); margin: 0 0 1rem 0; font-size: 0.95rem;"><strong>Brainstorming, wording ideas, casual exploration:</strong> Review it and use your judgment.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">More factual</h3>
+                <p style="color: var(--text-dark); margin: 0 0 1rem 0; font-size: 0.95rem;"><strong>Names, dates, statistics, explanations, current events:</strong> Check the important claims somewhere else.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">Higher stakes</h3>
+                <p style="color: var(--text-dark); margin: 0 0 2rem 0; font-size: 0.95rem;"><strong>Answers that could materially affect health, money, rights, safety, education, work, or other important decisions:</strong> Do not rely on the AI answer alone.</p>
+
+                <a href="/guides/ai-hallucinations-verification" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI Can Sound Certain and Still Be Wrong</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand how to assess whether and when to verify AI answers. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                    <a href="/guides/verify-online" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">How to Verify Something You See Online</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathB()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function selectPathA() {
+            aiPathState.currentScreen = 'pathA-question';
+            aiPathState.selectedPath = 'pathA';
+            renderScreen();
+        }
+
+        function selectPathB() {
+            aiPathState.currentScreen = 'pathB-question';
+            aiPathState.selectedPath = 'pathB';
+            renderScreen();
+        }
+
+        function selectPathC() {
+            aiPathState.currentScreen = 'pathC-question';
+            aiPathState.selectedPath = 'pathC';
+            renderScreen();
+        }
+
+        function selectPathD() {
+            aiPathState.currentScreen = 'pathD-question';
+            aiPathState.selectedPath = 'pathD';
+            renderScreen();
+        }
+
+        function selectPathE() {
+            aiPathState.currentScreen = 'pathE-question';
+            aiPathState.selectedPath = 'pathE';
+            renderScreen();
+        }
+
+        function selectPathF() {
+            aiPathState.currentScreen = 'pathF-question';
+            aiPathState.selectedPath = 'pathF';
             renderScreen();
         }
 
@@ -484,8 +960,42 @@
         }
 
         function goBack() {
-            // From result screens: return to question
-            aiPathState.currentScreen = 'question';
+            // From Path A result screens: return to Path A question
+            if (aiPathState.selectedPath === 'pathA') {
+                aiPathState.currentScreen = 'pathA-question';
+            } else {
+                aiPathState.currentScreen = 'pathA-question';
+            }
+            renderScreen();
+        }
+
+        function goBackPathB() {
+            // From Path B result screens: return to Path B question
+            aiPathState.currentScreen = 'pathB-question';
+            renderScreen();
+        }
+
+        function goBackPathC() {
+            // From Path C result screens: return to Path C question
+            aiPathState.currentScreen = 'pathC-question';
+            renderScreen();
+        }
+
+        function goBackPathD() {
+            // From Path D result screens: return to Path D question
+            aiPathState.currentScreen = 'pathD-question';
+            renderScreen();
+        }
+
+        function goBackPathE() {
+            // From Path E result screens: return to Path E question
+            aiPathState.currentScreen = 'pathE-question';
+            renderScreen();
+        }
+
+        function goBackPathF() {
+            // From Path F result screens: return to Path F question
+            aiPathState.currentScreen = 'pathF-question';
             renderScreen();
         }
 
@@ -499,7 +1009,790 @@
             // From any result: reset completely and return to entry
             aiPathState.currentScreen = 'entry';
             aiPathState.selectedPath = null;
+            aiPathState.selectedAnswer = null;
             renderScreen();
+        }
+
+        function renderPathCQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What do you want AI to help with?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Different tasks benefit from different approaches. Pick what's closest to what you're thinking about.</p>
+
+                <button type="button" onclick="goToResult('resultC1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Understand AI and what it can do</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultC2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Learn or study something</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultC3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Get something done for work or an everyday task</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultC4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Write, brainstorm, or create something</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultC5')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I'm not sure yet</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultUnderstandAI() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Understanding AI and how it works</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">You do not need to understand every technical detail to use AI thoughtfully. A useful place to start is understanding what AI is, what it tends to do well, and where it has limitations.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Learn the basic idea</strong> of how generative AI works.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look at the kinds of tasks</strong> AI tends to handle well.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Learn where AI can make mistakes</strong> or miss context.</li>
+                    <li><strong>Try a low-stakes task</strong> and review what it gives you.</li>
+                </ol>
+
+                <a href="/guides/ai-explained" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Is AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">An introduction to how AI works, what it can and can't do. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathC()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultLearnStudy() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Using AI to learn or study</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can be useful for explaining ideas, generating examples, helping you practice, organizing information, and working through a problem. It should support your thinking rather than replace it.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Tell AI what you're trying to understand.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask for an explanation at the level you need.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask questions</strong> or request another example if something is unclear.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check important factual information</strong> when accuracy matters.</li>
+                    <li><strong>Put the answer into your own understanding</strong> or work.</li>
+                </ol>
+
+                <a href="/guides/ai-learning-work-creativity" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI for Learning, Work & Creativity</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn how to use AI as a thinking partner while keeping control. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/ai-hallucinations-verification" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">AI Can Sound Certain and Still Be Wrong</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathC()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultWorkTask() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Using AI for work or everyday tasks</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can help organize, summarize, brainstorm, draft, compare options, or break a task into steps. You still decide what information to give it and whether the result works for your situation.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Start with the specific task</strong> you want help with.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Give useful context</strong> without sharing more information than necessary.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask AI to help with one step</strong> or produce a first version.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Review the result</strong> for accuracy and usefulness.</li>
+                    <li><strong>Revise, ask follow-up questions, or make the final decision</strong> yourself.</li>
+                </ol>
+
+                <a href="/guides/ai-learning-work-creativity" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI for Learning, Work & Creativity</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn how to use AI as a thinking partner while keeping control. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                    <a href="/guides/sharing-with-ai" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What Information Can I Safely Share with AI?</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathC()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultCreateBrainstorm() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Using AI to write, brainstorm, or create</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can help generate ideas, explore approaches, organize thoughts, or create a first draft. The useful part is often the back-and-forth, not simply accepting the first output.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Tell AI what you're trying to create.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Give it the audience, goal, or constraints</strong> that matter.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask for ideas or a first version.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Review and reshape the result.</strong></li>
+                    <li><strong>Make the final version yours.</strong></li>
+                </ol>
+
+                <a href="/guides/ai-learning-work-creativity" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI for Learning, Work & Creativity</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn how to use AI as a creative partner while keeping control. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/what-ai-is-good-at" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What AI Is Good At</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathC()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultNotSureYet() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You don't need a perfect use case</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Start with something small, low-stakes, and easy for you to review. The best way to understand AI is to try it and see what works.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Pick a task you already understand.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask AI to explain, organize, brainstorm, or draft</strong> something about it.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look at what it did well</strong> and what you would change.</li>
+                    <li><strong>Try again with clearer instructions</strong> or a different approach.</li>
+                </ol>
+
+                <a href="/guides/what-ai-is-good-at" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What AI Is Good At</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand what AI excels at and where to start. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/ai-explained" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What Is AI?</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathC()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderPathDQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What kind of information are you thinking about sharing?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Different types of information deserve different care. Knowing what you're sharing helps you make a good decision.</p>
+
+                <button type="button" onclick="goToResult('resultD1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">My own personal or private information</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultD2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Information about someone else</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultD3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Work, school, client, or other sensitive information</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultD4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">A photo, file, document, or recording</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultD5')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I'm just wondering about AI privacy in general</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultPersonalInfo() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Sharing your own personal or private information</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Before sharing personal information with an AI tool, consider whether the tool actually needs it. The safest default is to share the minimum amount needed for the task.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask whether the AI actually needs the information.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Remove details that are not necessary.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Avoid sharing passwords, security codes, financial account details,</strong> or similar credentials.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the tool's privacy and data controls</strong> when the information matters.</li>
+                    <li><strong>Consider another way to complete the task</strong> if the information is highly sensitive.</li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn what to consider before sharing information with AI tools. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/chatgpt-privacy-controls" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">ChatGPT Privacy Controls</span> (if you use ChatGPT) →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathD()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultOthersInfo() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Sharing information about someone else</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Someone else's information deserves the same care as your own, and sometimes more. Before sharing it, consider whether you have a reason and the right to put that information into the tool.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Ask whether the task can be done without identifying the person.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Remove names and unnecessary identifying details</strong> when possible.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Avoid sharing private conversations, records, or sensitive details</strong> unless appropriate.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Consider whether the person would reasonably expect</strong> the information to be shared this way.</li>
+                    <li><strong>Use another approach</strong> if you're unsure whether you should share it.</li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn what to consider before sharing information with AI tools. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <button type="button" onclick="goBackPathD()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultSensitiveInfo() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Sharing work, school, client, or sensitive information</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Workplaces, schools, organizations, and clients may have rules about what can be entered into AI tools. Even useful AI features may not be appropriate for confidential or restricted material.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Check whether your organization has an AI or data-sharing policy.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Remove confidential or identifying information</strong> when possible.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Use approved tools</strong> if your organization requires them.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Share only what the task actually needs.</strong></li>
+                    <li><strong>Ask before uploading</strong> if you're unsure about sensitive material.</li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn what to consider before sharing information with AI tools. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/ai-learning-work-creativity" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">AI for Learning, Work & Creativity</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathD()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultFileUpload() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Sharing a photo, file, document, or recording</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">A file can contain much more information than what you immediately see. Before uploading it, think about both the visible content and any private information contained inside it.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Look through the file before uploading it.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Remove information the AI does not need.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Pay attention to names, contact information, account details, private conversations,</strong> or other sensitive content.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the tool's privacy settings or policies</strong> if the file matters.</li>
+                    <li><strong>Use a safer copy or another method</strong> if you're uncomfortable uploading the original.</li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn what to consider before sharing information with AI tools. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/chatgpt-privacy-controls" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">ChatGPT Privacy Controls</span> (if you use ChatGPT) →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathD()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultGeneralPrivacy() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Understanding AI privacy</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI privacy is not one single setting. Useful questions include what you share, what the service stores, how long it keeps information, what settings are available, and whether information may be used to improve the service. Different tools handle these questions differently.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Start by sharing less</strong> when you do not need to share more.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the privacy controls</strong> for the specific AI tool you use.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Review settings again</strong> when features or accounts change.</li>
+                    <li><strong>Treat especially sensitive information</strong> more cautiously.</li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Learn what to consider before sharing information with different AI tools. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Also useful</h4>
+                    <a href="/guides/chatgpt-privacy-controls" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">ChatGPT Privacy Controls</span> (tool-specific example) →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathD()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderPathEQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What best matches what happened?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Different types of harmful situations need different responses.</p>
+
+                <button type="button" onclick="goToResult('resultE1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">A voice, phone call, or audio sounded like someone I know</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultE2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Someone is urgently asking for money, information, or action</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultE3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I received a suspicious image, video, message, or account</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultE4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Something already happened and I need help responding</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultE5')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I'm not sure</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultVoiceAudioImpersonation() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">A familiar voice is not verification</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can make convincing voice impersonation easier, but you don't need to determine whether a voice is AI-generated before protecting yourself. What matters is whether you can verify who is actually contacting you through another method you already trust.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Pause before acting,</strong> especially if the caller wants money, information, secrecy, or immediate action.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>End the call or pause the conversation</strong> if you can do so safely.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Verify using a trusted method.</strong> Contact the person using a phone number or method you already know to be legitimate.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not rely on voice or caller ID alone.</strong></li>
+                    <li>If something has already happened, use the Respond path to get step-by-step guidance.</li>
+                </ol>
+
+                <a href="/guides/voice-cloning-scams" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">Voice Cloning & Impersonation Scams</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand voice cloning, recognize scams, and protect yourself. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathE()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultUrgencyMoneyInfo() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Urgency + secrecy = verify before acting</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Scams often create urgency, secrecy, fear, or pressure so you act before checking. Strong emotional pressure is a reason to slow down, not speed up. The verification step is the same whether the request seems to involve AI or not.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Stop before paying, sharing information, or clicking anything.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not rely on contact information in the suspicious message.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Verify through a separate trusted source.</strong> Use a phone number, website, or contact method you already know.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the request itself,</strong> not just whether the message looks convincing.</li>
+                    <li>If you've already paid, shared information, or gave access, get step-by-step help through the Respond path.</li>
+                </ol>
+
+                <a href="/guides/ai-scams" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI, Scams & Manipulation</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">How AI changes scams and what you can do. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/voice-cloning-scams" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Voice Cloning & Impersonation Scams</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathE()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultSuspiciousContent() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You don't have to prove it's fake before choosing not to trust it</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">You do not need to prove that something was AI-generated before deciding not to trust it. The more useful question is whether the claim, account, image, or request can be verified through independent sources.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Pause before sharing or acting on it.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for the original source.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Search for the same claim somewhere independent.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check whether trusted reporting, official information, or other evidence confirms it.</strong></li>
+                    <li>If the content is being used to scam, threaten, impersonate, or harm someone, use the Respond path.</li>
+                </ol>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Use STOP → SOURCE → SEARCH → CONFIRM. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/deepfakes" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Deepfakes: Photos, Video & Audio</span> →
+                    </a>
+                    <a href="/guides/ai-detectors" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Can I Trust an AI Detector?</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathE()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultAlreadyHappened() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Something happened? Get help</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">If money was sent, information was shared, an account was accessed, someone was threatened, or another harmful event already happened, the next step is responding to what happened. You do not need to first prove AI was involved.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Stop further contact or activity</strong> when safe to do so.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Preserve useful information</strong> such as messages, receipts, usernames, or account notices when appropriate.</li>
+                    <li>Use DigitalCap Respond to get guidance based on what actually happened.</li>
+                </ol>
+
+                <a href="/respond" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Get help now</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">Something Happened?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Step-by-step guidance on what to do based on what happened. <span style="color: var(--primary); font-weight: 600;">Get help →</span></p>
+                </a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathE()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultENotSure() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Focus on the behavior, not the technology</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">You do not have to determine whether AI was involved before deciding to slow down and verify something. Focus on the behavior: impersonation, pressure, suspicious requests, unusual contact, or something that does not add up.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not act under pressure.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Verify the person, organization, or story somewhere else.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not send money or sensitive information</strong> until you are comfortable it is legitimate.</li>
+                    <li>If something already happened, use the Respond path for step-by-step guidance.</li>
+                </ol>
+
+                <a href="/guides/ai-scams" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">AI, Scams & Manipulation</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">How AI changes scams and what you can do. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/verify-online" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">How to Verify Something You See Online</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathE()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderPathFQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What are you hearing?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Some AI claims have a piece of truth but leave out important context. Pick one to see what matters.</p>
+
+                <button type="button" onclick="goToResult('resultF1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">You can always spot an AI image by looking at the hands.</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultF2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">ChatGPT trains on everything you say.</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultF3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Every AI prompt uses a bottle of water.</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultF4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">Something else about AI</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultAIImageClaim() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Visual clues are clues, not proof</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI-generated images sometimes contain visual mistakes, but those clues are not reliable proof. AI systems improve, real photos can look strange, and edited images can create the same kinds of odd details. The useful skill is verification, not trying to become a human AI detector.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Treat visual oddities as clues, not proof.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for the original source and context.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check whether the underlying story or claim can be confirmed elsewhere.</strong></li>
+                    <li><strong>Avoid relying on a single AI-detection trick.</strong></li>
+                </ol>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Use STOP → SOURCE → SEARCH → CONFIRM. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/deepfakes" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Deepfakes: Photos, Video & Audio</span> →
+                    </a>
+                    <a href="/guides/ai-detectors" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Can I Trust an AI Detector?</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathF()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultChatGPTTrainingClaim() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">AI privacy depends on the tool and your settings</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">The statement "ChatGPT trains on everything you say" is too broad. But the bigger question matters for any AI tool: what happens to information you share? That depends on the service you're using, your account type, available privacy controls, how long information is kept, and current service policies. Training is one privacy question, not the only one.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Think about what information you are about to share.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Share only what the tool actually needs.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the privacy and data controls for the service you use.</strong></li>
+                    <li><strong>Think separately about sharing, storage, retention, and how information may be used.</strong></li>
+                </ol>
+
+                <a href="/guides/sharing-with-ai" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">What Information Can I Safely Share with AI?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">General guidance that applies to any AI tool. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/chatgpt-privacy-controls" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Using ChatGPT? Check its privacy controls →</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathF()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultWaterClaim() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">The real environmental footprint is more complicated</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI has a real environmental footprint, including electricity and water use. But simple per-prompt claims can leave out major differences in models, hardware, cooling systems, location, workloads, and measurement. The goal is not a single universal number, but understanding the real impact in context.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Be cautious with viral per-prompt numbers presented as universal facts.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for what the estimate actually measured.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the source, system, location, and assumptions behind the number.</strong></li>
+                    <li><strong>Use broader research to understand the real-world footprint in context.</strong></li>
+                </ol>
+
+                <a href="/guides/ai-environment" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">Put AI's Environmental Impact in Context</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understand water use, energy consumption, and how to evaluate environmental claims. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathF()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultSomethingElse() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">AI claims often sound simpler than the truth</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI claims are often presented as simple yes/no statements even when the real answer depends on the tool, context, date, or evidence. You do not need to automatically believe or dismiss a claim just because it is about AI. Confidence is not evidence.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Identify the exact claim being made.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Look for the original source.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check whether current reliable information supports it.</strong></li>
+                    <li><strong>Separate what is known from what is prediction, opinion, or exaggeration.</strong></li>
+                </ol>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A practical guide to checking claims and evaluating sources. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/ai-explained" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">What is AI, and Why Does it Matter?</span> →
+                    </a>
+                    <a href="/guides/ai-hallucinations-verification" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">AI Hallucinations & How to Verify Answers</span> →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBackPathF()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change answer</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
         }
 
         // Initialize on page load
