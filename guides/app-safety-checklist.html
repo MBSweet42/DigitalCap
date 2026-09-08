@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Safety Checklist - DigitalCap</title>
+    <title>How to Evaluate an App - DigitalCap</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,6 @@
 
         .container {
             max-width: 8.5in;
-            min-height: 11in;
             margin: 20px auto;
             background: white;
             padding: 40px;
@@ -31,14 +30,14 @@
         .header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 4px solid #FF6B6B;
+            border-bottom: 4px solid #4ECDC4;
             padding-bottom: 20px;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 800;
-            color: #FF6B6B;
+            color: #4ECDC4;
             margin-bottom: 10px;
         }
 
@@ -69,6 +68,42 @@
             margin-bottom: 15px;
         }
 
+        .intro-box {
+            background: #F0F8F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .intro-text {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .question-box {
+            background: #FFF8F0;
+            border-left: 4px solid #FF6B6B;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .question-title {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
         .checklist-item {
             display: flex;
             gap: 12px;
@@ -76,7 +111,7 @@
             padding: 10px;
             background: #F8F9FA;
             border-radius: 6px;
-            border-left: 3px solid #FF6B6B;
+            border-left: 3px solid #4ECDC4;
             align-items: flex-start;
         }
 
@@ -84,11 +119,11 @@
             width: 18px;
             height: 18px;
             min-width: 18px;
-            border: 2px solid #FF6B6B;
+            border: 2px solid #4ECDC4;
             border-radius: 3px;
             flex-shrink: 0;
             cursor: pointer;
-            accent-color: #FF6B6B;
+            accent-color: #4ECDC4;
             margin-top: 2px;
         }
 
@@ -107,6 +142,27 @@
             color: #636E72;
         }
 
+        .framework-box {
+            background: #E8F4F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .framework-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .framework-text {
+            font-size: 13px;
+            color: #636E72;
+            line-height: 1.6;
+        }
+
         .tip-box {
             background: #FFE66D;
             border-left: 4px solid #FFB703;
@@ -120,6 +176,15 @@
             font-weight: 700;
             color: #2D3436;
             margin-bottom: 5px;
+        }
+
+        a {
+            color: #4ECDC4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         @media print {
@@ -139,106 +204,377 @@
     <div class="container">
         <div class="header">
             <div class="logo">DigitalCap</div>
-            <div class="title">📱 App Safety Checklist</div>
-            <div class="subtitle">Before downloading an app, use this checklist to evaluate the real risks</div>
+            <div class="title">How to Evaluate an App</div>
+            <div class="subtitle">Find information about any app, understand what it can do, and decide what makes sense for you.</div>
         </div>
 
         <div class="section">
-            <div class="section-title">🔍 BASIC INFORMATION</div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">What is this app designed to do?</div>
-                    <div class="item-description">Understand the app's primary purpose before allowing access</div>
+            <div class="section-title">START WITH APP CHECK</div>
+            <p class="intro-text">
+                DigitalCap reviews many popular apps through <a href="/app-check">App Check</a>. If you're researching an app that's already reviewed, App Check provides:
+            </p>
+            <div class="intro-box">
+                <div class="intro-text">
+                    • What the app can expose you to (Digital Exposure)<br/>
+                    • Specific capabilities and features<br/>
+                    • Recommended safeguards and settings<br/>
+                    • Age guidance where relevant<br/>
+                    • Conversation tips and red flags<br/>
+                    • Sourced safety information
                 </div>
             </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Is there a minimum age requirement?</div>
-                    <div class="item-description">Check official app stores (Apple/Google) for age ratings</div>
+            <p class="intro-text">
+                If DigitalCap hasn't reviewed the app yet, use this guide to investigate it yourself.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">CONFIRM YOU HAVE THE RIGHT APP</div>
+            <p class="intro-text">
+                Before investigating, make sure you're researching the correct app.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Check these details:</div>
+                <div class="question-text">• Exact app name (spelling matters)</div>
+                <div class="question-text">• Developer or company name</div>
+                <div class="question-text">• App icon/logo (can you see it?)</div>
+                <div class="question-text">• Official app-store listing (Apple App Store or Google Play)</div>
+                <div class="question-text">• Official website if the developer has one</div>
+            </div>
+            <p class="intro-text">
+                Why? Apps can have similar names. Copycat or outdated listings exist. Researching the wrong version will produce misleading information.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">UNDERSTAND WHAT THE APP DOES</div>
+            <p class="intro-text">
+                Before evaluating exposure, understand the app's purpose and how it works.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Ask yourself:</div>
+                <div class="question-text">• What is this app designed to do?</div>
+                <div class="question-text">• Is it social (connecting people)?</div>
+                <div class="question-text">• Does it include messaging or chat?</div>
+                <div class="question-text">• Does it include user-generated content?</div>
+                <div class="question-text">• Does it connect to the open web?</div>
+                <div class="question-text">• Does it use location?</div>
+                <div class="question-text">• Does it involve AI or recommendations?</div>
+                <div class="question-text">• Does it include purchases or upgrades?</div>
+                <div class="question-text">• Can people upload or share content?</div>
+            </div>
+            <p class="intro-text">
+                A capability is not automatically a problem. The goal is to understand what is possible, then decide if that fits your needs.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">CHECK PERMISSIONS</div>
+            <p class="intro-text">
+                Apps request permission to access your device's features. Understanding why an app needs each permission helps you make an informed choice.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Common permissions to consider:</div>
+                <div class="question-text">• Camera (for video calls, photos)</div>
+                <div class="question-text">• Microphone (for audio/calls)</div>
+                <div class="question-text">• Location (GPS or approximate location)</div>
+                <div class="question-text">• Contacts (access to your contact list)</div>
+                <div class="question-text">• Photos & Media (access to your files)</div>
+                <div class="question-text">• Notifications (alerts to your screen)</div>
+                <div class="question-text">• Calendar or Health data (if applicable)</div>
+            </div>
+            <p class="intro-text">
+                Key question: <strong>Does this permission make sense for the feature I want to use?</strong>
+            </p>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Example:</strong> A video-call app reasonably needs camera and microphone access for calls to work. A map app may need location for navigation. A simple note-taking app requesting precise location would deserve investigation.
                 </div>
             </div>
+            <p class="intro-text">
+                Most device settings let you review or change permissions later. You don't necessarily have to say yes to every permission to use an app.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">LOOK AT PRIVACY & DATA</div>
+            <p class="intro-text">
+                Find and review what information the app collects and how it's used.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Look for:</div>
+                <div class="question-text">• Privacy policy (usually linked on app-store page or developer website)</div>
+                <div class="question-text">• What information is collected (account data, usage, location, etc.)</div>
+                <div class="question-text">• Why it's collected (essential vs. optional)</div>
+                <div class="question-text">• Whether data is used for advertising or personalization</div>
+                <div class="question-text">• Whether information is shared with third parties</div>
+                <div class="question-text">• Whether an account is required</div>
+                <div class="question-text">• How to delete your information or remove your account</div>
+            </div>
+            <p class="intro-text">
+                Privacy policies can be difficult to read. Useful questions: Can I find it? Does it identify what's collected? Does it explain why? Does it explain who it's shared with?
+            </p>
+            <p class="intro-text">
+                Start with official sources (app-store listing, developer website, official help pages) rather than third-party summaries.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">COMMUNICATION & OTHER USERS</div>
+            <p class="intro-text">
+                If an app connects people, understand how contact and communication work.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Consider:</div>
+                <div class="question-text">• Can users communicate with other users?</div>
+                <div class="question-text">• Who can start a conversation (friends only, anyone, etc.)?</div>
+                <div class="question-text">• Are messages public or private?</div>
+                <div class="question-text">• Can messages disappear or be deleted?</div>
+                <div class="question-text">• Can someone block another user?</div>
+                <div class="question-text">• Can someone report inappropriate behavior or content?</div>
+                <div class="question-text">• Is there moderation by the company?</div>
+                <div class="question-text">• Can someone control who contacts them?</div>
+            </div>
+            <p class="intro-text">
+                Communicating with people you don't already know is not automatically harmful. Exposure depends on who can start contact, available privacy controls, whether reporting/blocking tools exist, moderation practices, and how the app is being used.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">CONTENT & EXTERNAL ACCESS</div>
+            <p class="intro-text">
+                Understand how content reaches you and where it can lead.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Investigate:</div>
+                <div class="question-text">• Is content chosen by you, recommended by an algorithm, or both?</div>
+                <div class="question-text">• Is user-generated content available?</div>
+                <div class="question-text">• Can people search broadly for content?</div>
+                <div class="question-text">• Are content controls or filters available?</div>
+                <div class="question-text">• Can links lead outside the app?</div>
+                <div class="question-text">• Is there an in-app browser?</div>
+                <div class="question-text">• Can embedded video or web content appear inside the app?</div>
+            </div>
+            <p class="intro-text">
+                An app may appear to have a limited purpose while still providing access to broader content through links, browsers, videos, or chat. Understanding these pathways helps you make an informed choice.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PURCHASES, SUBSCRIPTIONS & ADVERTISING</div>
+            <p class="intro-text">
+                Understand potential costs and advertising before downloading.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Check:</div>
+                <div class="question-text">• Does the app cost money to download?</div>
+                <div class="question-text">• Are there in-app purchases? What do they cost?</div>
+                <div class="question-text">• Are there subscriptions? Do they auto-renew?</div>
+                <div class="question-text">• Is there free trial or paid trial access?</div>
+                <div class="question-text">• Is there premium currency or special items for purchase?</div>
+                <div class="question-text">• Does the app display advertising?</div>
+                <div class="question-text">• Are there spending controls or parental controls?</div>
+            </div>
+            <p class="intro-text">
+                The official app-store listing usually shows pricing and purchase options. Review before downloading to understand potential costs.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">SAFEGUARDS & CONTROLS</div>
+            <p class="intro-text">
+                Investigate what tools exist to manage your experience and protect yourself.
+            </p>
+            <div class="question-box">
+                <div class="question-title">Look for:</div>
+                <div class="question-text">• Privacy settings (who can see your profile, posts, etc.)</div>
+                <div class="question-text">• Communication controls (who can contact you)</div>
+                <div class="question-text">• Block and report tools</div>
+                <div class="question-text">• Content controls or filters</div>
+                <div class="question-text">• Notification settings (what alerts you get)</div>
+                <div class="question-text">• Location controls</div>
+                <div class="question-text">• Account security features (password reset, 2-factor authentication, etc.)</div>
+                <div class="question-text">• Parental or guardian controls if available</div>
+            </div>
+            <p class="intro-text">
+                Safeguards can change how exposure works, but no setting guarantees perfect protection. Investigate what tools exist to help you maintain control.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">CHECK MORE THAN ONE SOURCE</div>
+            <p class="intro-text">
+                Compare information from multiple credible sources before deciding.
+            </p>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Start with official sources:</strong><br/>
+                    • App-store listing<br/>
+                    • Developer website<br/>
+                    • Official privacy policy<br/>
+                    • Official help/support pages
+                </div>
+            </div>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Then check additional sources:</strong><br/>
+                    • Established digital-safety organizations<br/>
+                    • Professional reviews and journalism<br/>
+                    • Community experiences and discussions<br/>
+                    • User reviews on the app store
+                </div>
+            </div>
+            <p class="intro-text">
+                User reviews can reveal patterns and real experiences. A single viral post, TikTok, or Reddit comment should not automatically be treated as proof. Look for consensus across multiple sources instead of relying on one story.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PUT IT TOGETHER: UNDERSTAND YOUR CHOICE</div>
+            <p class="intro-text">
+                Use this framework to organize what you've learned:
+            </p>
+            <div class="framework-box">
+                <div class="framework-label">CAPABILITY: What can this app do?</div>
+                <div class="framework-text">What features, access, and connections does it enable?</div>
+            </div>
+            <div class="framework-box">
+                <div class="framework-label">EXPOSURE: What could that expose me to?</div>
+                <div class="framework-text">What information is collected? Who might contact me? What content could I encounter? Can it send me outside the app?</div>
+            </div>
+            <div class="framework-box">
+                <div class="framework-label">SAFEGUARDS: What controls exist?</div>
+                <div class="framework-text">What privacy settings, blocking tools, content filters, or parental controls are available?</div>
+            </div>
+            <div class="framework-box">
+                <div class="framework-label">CONTEXT: What matters in my situation?</div>
+                <div class="framework-text">My age, needs, maturity, how I plan to use it, who I know on it, my experience with similar apps.</div>
+            </div>
+            <div class="framework-box">
+                <div class="framework-label">CHOICE: Does this make sense for me?</div>
+                <div class="framework-text">Given everything above, what choice feels right?</div>
+            </div>
+            <p class="intro-text">
+                <strong>Important:</strong> Two people can reasonably make different choices about the same app. What works for one person may not work for another.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">EVALUATION CHECKLIST</div>
+            <p class="intro-text">
+                Use this checklist to track your investigation. This is a tool to help you remember what to investigate—not a scoring system.
+            </p>
+
             <div class="checklist-item">
-                <div class="checkbox"></div>
+                <input type="checkbox" class="checkbox">
                 <div class="item-text">
-                    <div class="item-label">Who developed this app?</div>
-                    <div class="item-description">Verify it's from a legitimate, established company or creator</div>
+                    <div class="item-label">I confirmed I'm researching the correct app and developer</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I understand the app's main purpose and features</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I reviewed permissions and understand why each is requested</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I checked the privacy policy and data collection practices</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I know whether users can communicate with each other</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I looked for reporting, blocking, and moderation tools</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I checked for external links, browsers, or embedded content</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I reviewed purchases, subscriptions, and advertising</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I explored privacy settings and available safeguards</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I checked multiple sources for information</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I understand what exposure matters to me in this case</div>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" class="checkbox">
+                <div class="item-text">
+                    <div class="item-label">I know what questions I still have or who I want to talk to</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-title">🔐 PRIVACY & DATA</div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Does it ask for permission to access location?</div>
-                    <div class="item-description">Question why the app needs to know where your child is</div>
+            <div class="section-title">STILL HAVE QUESTIONS?</div>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Want DigitalCap to review this app?</strong><br/>
+                    If this app isn't in <a href="/app-check">App Check</a> yet, you can suggest it to DigitalCap for review.
                 </div>
             </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Does it ask for camera/microphone access?</div>
-                    <div class="item-description">Only grant if essential to the app's function</div>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Want to discuss your choice?</strong><br/>
+                    Talk with someone you trust: a parent, caregiver, teacher, counselor, or friend. Evaluating an app together often leads to better decisions than deciding alone.
                 </div>
             </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Does it require a login or account?</div>
-                    <div class="item-description">If yes, review privacy policy and parental controls first</div>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Is the privacy policy easy to understand?</div>
-                    <div class="item-description">Red flag if it's written in confusing legal language</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">💬 COMMUNICATION & SOCIAL</div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Can your child chat with strangers?</div>
-                    <div class="item-description">Look for unsupervised messaging, live chat, or multiplayer features</div>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Are there reporting/blocking tools?</div>
-                    <div class="item-description">Can your child easily report harassment or inappropriate behavior?</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">💰 IN-APP SPENDING</div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Does the app offer in-app purchases?</div>
-                    <div class="item-description">Enable purchase restrictions in your device settings</div>
-                </div>
-            </div>
-            <div class="checklist-item">
-                <div class="checkbox"></div>
-                <div class="item-text">
-                    <div class="item-label">Does it have a battle pass or premium currency?</div>
-                    <div class="item-description">These are designed to encourage spending</div>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <strong>Concerned about something specific?</strong><br/>
+                    Explore DigitalCap's other resources for help with cyberbullying, online safety, digital wellness, or conversation guides with family.
                 </div>
             </div>
         </div>
 
         <div class="tip-box">
-            <div class="tip-label">💡 PARENT TIP</div>
-            Keep this checklist handy and review it BEFORE saying yes to a new app. Have a conversation with your child about why you're asking these questions—it teaches them to think critically about privacy and safety too.
+            <div class="tip-label">💡 KEY PRINCIPLE</div>
+            Evaluating an app is about understanding what it can do and what that means for you—not about assigning a universal "safe" or "unsafe" label. The same app can be a good fit for one person and not for another, depending on their age, needs, maturity, and situation.
         </div>
     </div>
 </body>
