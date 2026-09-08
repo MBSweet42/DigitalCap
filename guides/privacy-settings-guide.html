@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Settings Setup Guide - DigitalCap</title>
+    <title>Review Your Privacy & Contact Settings - DigitalCap</title>
     <style>
         * {
             margin: 0;
@@ -68,46 +68,32 @@
             margin-top: 20px;
         }
 
-        .step-box {
+        .setting-box {
             background: #F8F9FA;
-            border-left: 4px solid #FF6B6B;
+            border-left: 4px solid #4ECDC4;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 6px;
         }
 
-        .step-number {
-            font-weight: 700;
-            color: white;
-            background: #FF6B6B;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .step-title {
+        .setting-title {
             font-weight: 700;
             color: #2D3436;
-            margin-bottom: 5px;
-        }
-
-        .step-description {
-            font-size: 13px;
-            color: #636E72;
             margin-bottom: 8px;
         }
 
-        .code {
+        .setting-description {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .tradeoff {
             background: white;
             border-left: 2px solid #4ECDC4;
-            padding: 8px;
+            padding: 10px;
             margin-top: 8px;
-            font-family: 'Courier New', monospace;
             font-size: 12px;
             color: #2D3436;
             border-radius: 4px;
@@ -123,29 +109,29 @@
 
         .app-name {
             font-weight: 700;
-            color: #FF6B6B;
+            color: #4ECDC4;
             margin-bottom: 8px;
             font-size: 14px;
         }
 
-        .app-steps {
+        .app-settings {
             list-style: none;
             font-size: 13px;
             color: #2D3436;
         }
 
-        .app-steps li {
+        .app-settings li {
             padding: 6px 0;
             border-bottom: 1px dotted #DFE6E9;
         }
 
-        .app-steps li:last-child {
+        .app-settings li:last-child {
             border-bottom: none;
         }
 
         .tip-box {
-            background: #FFE66D;
-            border-left: 4px solid #FFB703;
+            background: #E8F4F8;
+            border-left: 4px solid #4ECDC4;
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
@@ -156,6 +142,24 @@
             font-weight: 700;
             color: #2D3436;
             margin-bottom: 5px;
+        }
+
+        .warning-box {
+            background: #FFF4E6;
+            border-left: 4px solid #FFB703;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .prompt-box {
+            background: #F0F8F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 13px;
         }
 
         input[type="checkbox"] {
@@ -184,151 +188,310 @@
     <div class="container">
         <div class="header">
             <div class="logo">DigitalCap</div>
-            <div class="title">🔐 Privacy Settings Setup Guide</div>
-            <div class="subtitle">Step-by-step for Instagram, TikTok, Snapchat, Discord, and more. Make these changes TODAY.</div>
+            <div class="title">Review Your Privacy & Contact Settings</div>
+            <div class="subtitle">Understand what common privacy controls do and choose the settings that fit how you use your accounts.</div>
         </div>
 
         <div class="section">
-            <div class="section-title">WHY THIS MATTERS</div>
-            <p style="margin-bottom: 10px; font-size: 13px;">Default settings on social apps are designed to maximize engagement and data collection—not protect your child's privacy. Changing these settings can:</p>
-            <ul style="margin-left: 20px; font-size: 13px; color: #636E72;">
-                <li>Limit who can contact your child</li>
-                <li>Prevent strangers from finding their location</li>
-                <li>Reduce algorithm-driven addiction</li>
-                <li>Protect their personal information</li>
+            <div class="section-title">START WITH WHAT YOU WANT TO CONTROL</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Privacy settings vary across platforms, but they usually address a few key areas. Think about which of these matter most to you or the account holder:</p>
+
+            <div class="setting-box">
+                <div class="setting-title">Who can see posts, profile, and content</div>
+                <div class="setting-description">Most platforms let you control whether your account is public or private, and who can see individual posts. Consider who you want to share content with and whether you're comfortable with that audience.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Who can contact or message you</div>
+                <div class="setting-description">Messaging controls let you limit direct contact to friends, followers, or specific groups. You can also handle message requests separately—messages from people you don't follow often go into a separate inbox.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Location sharing</div>
+                <div class="setting-description">Some services share location through posts, check-ins, maps, or dedicated features. You can control whether your location appears in content and who can see it. Device-level permissions also affect whether apps can access your location.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Activity and online status</div>
+                <div class="setting-description">Many apps show whether you're currently online or when you were last active. You can often disable this so only you know when you're using the app.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Tags, mentions, and comments</div>
+                <div class="setting-description">You can usually control whether people can tag you in posts or comments, and whether tagged content shows on your profile or requires approval first.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Connected apps and permissions</div>
+                <div class="setting-description">Apps you've connected to your account may have access to your data or the ability to post on your behalf. Periodically review and remove apps you no longer use.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Device permissions (camera, microphone, location, contacts)</div>
+                <div class="setting-description">Your phone or computer controls which apps can access camera, microphone, location, photos, and contacts. You can allow access for the features you use and deny it for the rest.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Purchase and account protections</div>
+                <div class="setting-description">You can require passwords or authentication before purchases, and control recovery options for account access.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Notifications</div>
+                <div class="setting-description">Notifications are designed to bring you back to an app. You can reduce or disable them if they feel distracting or create pressure to respond immediately.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Account discovery and contact syncing</div>
+                <div class="setting-description">Some apps let others find you by phone number, email, or by syncing device contacts. You can control whether your account shows up in search and whether to allow contact syncing.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PUBLIC VS. PRIVATE ACCOUNTS</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">The difference matters—and the right choice depends on your goals.</p>
+
+            <div class="setting-box">
+                <div class="setting-title">Private accounts</div>
+                <div class="setting-description">Limit who can follow the account and see posts. Good if you want to control your audience and keep content among people you choose.</div>
+                <div class="tradeoff"><strong>Tradeoff:</strong> You may need to approve follow requests, and people can't discover you as easily.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Public accounts</div>
+                <div class="setting-description">Anyone can see posts and follow. This can make sense for creators, businesses, organizations, or people intentionally sharing publicly. It can also mean more visibility and reach.</div>
+                <div class="tradeoff"><strong>Tradeoff:</strong> Your content is visible to a wider audience, including people you don't know.</div>
+            </div>
+
+            <p style="font-size: 13px; color: #636E72; margin-top: 15px;">The important part is understanding who can see the information and being comfortable with that choice.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">MESSAGES AND CONTACT</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Most platforms offer options like:</p>
+
+            <div class="setting-box">
+                <div class="setting-title">Everyone</div>
+                <div class="setting-description">Anyone can send you messages.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Followers or friends</div>
+                <div class="setting-description">Only people you follow back or who follow you can message you directly.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Message requests or filtered inboxes</div>
+                <div class="setting-description">Messages from people you don't know go into a separate folder you can review without seeing notifications.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Limited or nobody</div>
+                <div class="setting-description">Only people you explicitly allow can contact you, or messaging is disabled entirely.</div>
+            </div>
+
+            <p style="font-size: 13px; color: #636E72; margin-top: 15px;">Choose the option that fits how you use the platform and who you want to hear from.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">LOCATION SHARING</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Location information can be shared in several ways:</p>
+
+            <ul style="font-size: 13px; color: #636E72; margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>In posts or check-ins:</strong> You tag a location when you share content.</li>
+                <li><strong>Metadata in photos:</strong> Photos taken with a phone often contain location data.</li>
+                <li><strong>Dedicated location features:</strong> Some apps let you share your location with friends or on a map.</li>
+                <li><strong>Device permissions:</strong> Apps can request access to your device's location (GPS).</li>
+            </ul>
+
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Key questions to ask:</p>
+            <ul style="font-size: 13px; color: #636E72; margin-left: 20px; margin-bottom: 15px;">
+                <li>Does the app need location access for features you use?</li>
+                <li>Who can see your location—friends only, followers, or anyone?</li>
+                <li>Is location sharing continuous or temporary?</li>
+                <li>Can you turn it off easily?</li>
+            </ul>
+
+            <p style="font-size: 13px; color: #636E72;">Review your location settings to ensure they match who you want to share that information with.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">DEVICE PERMISSIONS</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Your phone or computer controls which apps can access certain hardware and data. Common permissions include:</p>
+
+            <div class="setting-box">
+                <div class="setting-title">Location, camera, microphone, contacts, photos</div>
+                <div class="setting-description">Apps may need these for features like video calls, photo sharing, or location-based services.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Bluetooth and local network</div>
+                <div class="setting-description">Some apps need access to connect to nearby devices or your home network.</div>
+            </div>
+
+            <p style="font-size: 13px; color: #636E72; margin-top: 15px;"><strong>Principle:</strong> Allow the access you need for the features you use. If an app doesn't need a permission for how you use it, consider limiting it. You can often change permissions later if you need a feature.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">NOTIFICATIONS</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Notifications are designed to bring you back to an app and keep you informed. If they feel distracting or create pressure to respond immediately, you can reduce or disable some of them:</p>
+
+            <ul style="font-size: 13px; color: #636E72; margin-left: 20px; margin-bottom: 15px;">
+                <li>Turn off non-essential notifications</li>
+                <li>Disable sound or vibration alerts</li>
+                <li>Set specific times when notifications are allowed</li>
+                <li>Disable badges that show unread counts</li>
+            </ul>
+
+            <p style="font-size: 13px; color: #636E72;">You're in control of how much each app interrupts you.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">FOR PARENTS AND CAREGIVERS</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">If you're helping someone else review privacy settings, consider:</p>
+
+            <div class="setting-box">
+                <div class="setting-title">Age, maturity, and independence</div>
+                <div class="setting-description">Privacy and supervision expectations often change as a young person grows. What makes sense at 10 may be different at 13 or 16.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">The purpose of the account</div>
+                <div class="setting-description">Is it for messaging friends, sharing hobbies, gaming, learning, or something else? The purpose can affect which settings matter most.</div>
+            </div>
+
+            <div class="setting-box">
+                <div class="setting-title">Household expectations and values</div>
+                <div class="setting-description">Different families have different comfort levels with privacy and visibility online. Your choices should reflect what makes sense for your household.</div>
+            </div>
+
+            <div class="prompt-box">
+                <strong>Consider discussing:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px; font-size: 13px;">
+                    <li>Who should be able to contact them and how</li>
+                    <li>What information stays private</li>
+                    <li>Location sharing and when it's useful</li>
+                    <li>Purchases and spending limits</li>
+                    <li>What to do when something feels uncomfortable or confusing</li>
+                    <li>How to ask for help without fear of losing device access immediately</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PLATFORM EXAMPLES</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">App interfaces change frequently, so we're not providing step-by-step menu paths that may become outdated. Instead, here are the main privacy areas to look for on each platform:</p>
+
+            <div class="app-guide">
+                <div class="app-name">Instagram</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Consider reviewing:</p>
+                <ul class="app-settings">
+                    <li>Account privacy (public vs. private)</li>
+                    <li>Message requests and who can message you</li>
+                    <li>Story audience and visibility</li>
+                    <li>Tags and mentions</li>
+                    <li>Activity status visibility</li>
+                    <li>Location permissions on your device</li>
+                </ul>
+                <p style="font-size: 12px; color: #636E72; margin-top: 10px;"><em>App interfaces change, so check Instagram's official Help Center for current menu locations.</em></p>
+            </div>
+
+            <div class="app-guide">
+                <div class="app-name">TikTok</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Consider reviewing:</p>
+                <ul class="app-settings">
+                    <li>Account privacy settings</li>
+                    <li>Who can message you</li>
+                    <li>Who can comment on videos</li>
+                    <li>Duet and stitch permissions</li>
+                    <li>Notifications</li>
+                    <li>Wellbeing and screen time features</li>
+                </ul>
+                <p style="font-size: 12px; color: #636E72; margin-top: 10px;"><em>App interfaces change, so check TikTok's official Safety Center for current menu locations.</em></p>
+            </div>
+
+            <div class="app-guide">
+                <div class="app-name">Snapchat</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Consider reviewing:</p>
+                <ul class="app-settings">
+                    <li>Who can contact you</li>
+                    <li>Location sharing preferences</li>
+                    <li>Who can view your story</li>
+                    <li>Friend finder and contact sync options</li>
+                </ul>
+                <p style="font-size: 12px; color: #636E72; margin-top: 10px;"><em>Note: Snapchat's location features let you share your location with chosen friends. Review who can see your location and whether you want to use these features.</em></p>
+            </div>
+
+            <div class="app-guide">
+                <div class="app-name">Discord</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Consider reviewing:</p>
+                <ul class="app-settings">
+                    <li>Direct message permissions</li>
+                    <li>Server member message settings</li>
+                    <li>Privacy and safety filters</li>
+                    <li>Voice and video settings</li>
+                    <li>Which servers you've joined</li>
+                </ul>
+                <p style="font-size: 12px; color: #636E72; margin-top: 10px;"><em>App interfaces change, so check Discord's Help Center for current menu locations.</em></p>
+            </div>
+
+            <div class="app-guide">
+                <div class="app-name">Facebook and Messenger</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Consider reviewing:</p>
+                <ul class="app-settings">
+                    <li>Post visibility and audience</li>
+                    <li>Who can message you</li>
+                    <li>Connected apps and permissions</li>
+                    <li>Device location permissions</li>
+                </ul>
+                <p style="font-size: 12px; color: #636E72; margin-top: 10px;"><em>App interfaces change, so check Facebook's Help Center for current menu locations.</em></p>
+            </div>
+
+            <p style="font-size: 13px; color: #636E72; margin-top: 20px;">If the menu path looks different than expected, use the platform's official Help or Safety Center—they stay current as interfaces change.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">DEVICE-LEVEL PRIVACY</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Your phone or computer has settings that affect all apps:</p>
+
+            <div class="app-guide">
+                <div class="app-name">iPhone (iOS)</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Look for:</p>
+                <ul class="app-settings">
+                    <li>Settings → Privacy → Location Services, Camera, Microphone, Contacts</li>
+                    <li>Settings → App Store → Require password for purchases</li>
+                    <li>Settings → Screen Time for app limits and downtime</li>
+                </ul>
+            </div>
+
+            <div class="app-guide">
+                <div class="app-name">Android</div>
+                <p style="font-size: 13px; color: #636E72; margin-bottom: 10px;">Look for:</p>
+                <ul class="app-settings">
+                    <li>Settings → Apps & notifications → Permissions</li>
+                    <li>Settings → Google Play Store → Parental controls</li>
+                    <li>Settings → Digital Wellbeing for app timers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">REVIEW PERIODICALLY</div>
+            <p style="font-size: 13px; color: #636E72; margin-bottom: 15px;">Privacy settings and platform features change. It can be useful to review them periodically, especially:</p>
+            <ul style="font-size: 13px; color: #636E72; margin-left: 20px;">
+                <li>After a major app update</li>
+                <li>When adding a new device</li>
+                <li>If your account use or goals change</li>
+                <li>When age and independence shift (for young people)</li>
             </ul>
         </div>
 
-        <div class="section">
-            <div class="section-title">INSTAGRAM PRIVACY SETUP</div>
-
-            <div class="app-guide">
-                <div class="app-name">Essential Settings:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Account Private (Make it private—strangers can't see their posts)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Who can see your story? → Close Friends only (not public)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Who can send you messages? → Friends only (not Everyone)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Allow message requests from non-followers? → OFF</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Location → Turn off location access entirely</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Activity Status → OFF (so no one knows when they're online)</li>
-                </ul>
-            </div>
-
-            <div class="tip-box" style="font-size: 12px;">
-                <div class="tip-label">Why these matter:</div>
-                A private account means strangers (and predators) can't follow them without approval. Limiting DMs prevents creepy messages. Hiding activity status prevents being tracked.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">TIKTOK PRIVACY SETUP</div>
-
-            <div class="app-guide">
-                <div class="app-name">Essential Settings:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy and safety → Account privacy → Private account</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy and safety → Who can message me? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy and safety → Who can comment? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy and safety → Who can see your watch history? → Nobody</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Notifications → Disable notifications (stops algorithm addiction)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Wellbeing → Restrict logging in to recommended times only</li>
-                </ul>
-            </div>
-
-            <div class="tip-box" style="font-size: 12px;">
-                <div class="tip-label">Why these matter:</div>
-                TikTok's algorithm is designed to be addictive. Turning off notifications reduces urges to check. Restricting message senders prevents contact from strangers. Limiting watch history prevents algorithm tracking.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">SNAPCHAT PRIVACY SETUP</div>
-
-            <div class="app-guide">
-                <div class="app-name">Essential Settings:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Who can contact me? → Friends (not Everyone)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Who can see my location? → Nobody (turn off Snap Map)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Who can view my story? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Notifications → Turn off</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Location Services → Disable (in phone settings, not just app)</li>
-                </ul>
-            </div>
-
-            <div class="tip-box" style="font-size: 12px;">
-                <div class="tip-label">Why these matter:</div>
-                Snapchat's Snap Map lets anyone see exactly where your child is in real-time. This is a major safety risk. Allowing friends-only contact prevents strangers from reaching them.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">DISCORD PRIVACY SETUP</div>
-
-            <div class="app-guide">
-                <div class="app-name">Essential Settings:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> User Settings → Privacy & Safety → Restrict who can DM you to friends only</li>
-                    <li><input type="checkbox" class="checkbox"> User Settings → Privacy & Safety → Turn off Allow direct messages from server members</li>
-                    <li><input type="checkbox" class="checkbox"> User Settings → Privacy & Safety → Explicit content filter → ON</li>
-                    <li><input type="checkbox" class="checkbox"> User Settings → Voice & Video → Voice activity should be ON (not automatic push-to-talk with strangers)</li>
-                    <li><input type="checkbox" class="checkbox"> Review Servers they've joined—Discord servers can have predators. Only allow joining pre-vetted/school servers</li>
-                </ul>
-            </div>
-
-            <div class="tip-box" style="font-size: 12px;">
-                <div class="tip-label">Why these matter:</div>
-                Discord is a favorite platform for gamers but has predator risks. Limiting DMs prevents grooming. Explicit content filter blocks adult servers. Ask to approve servers before joining.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">FACEBOOK & MESSENGER PRIVACY SETUP</div>
-
-            <div class="app-guide">
-                <div class="app-name">Essential Settings:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Who can see your posts? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Who can message you? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Apps and Websites → Review connected apps (remove any they don't recognize)</li>
-                    <li><input type="checkbox" class="checkbox"> Messenger → People → Who can contact you? → Friends only</li>
-                    <li><input type="checkbox" class="checkbox"> Location Services (in phone settings) → OFF for Facebook</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PHONE-LEVEL PRIVACY SETTINGS</div>
-
-            <div class="app-guide">
-                <div class="app-name">For iPhone (iOS):</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Location Services → OFF (or per-app: turn off for social apps)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Microphone → Review and deny access to unnecessary apps</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Privacy → Camera → Review and deny access to unnecessary apps</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → App Store → Require password for purchases (or use Screen Time parental controls)</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Screen Time → Enable, set app limits, and block at app store (requires parent password)</li>
-                </ul>
-            </div>
-
-            <div class="app-guide" style="margin-top: 15px;">
-                <div class="app-name">For Android:</div>
-                <ul class="app-steps">
-                    <li><input type="checkbox" class="checkbox"> Settings → Apps & notifications → Permissions → Location → Review and deny</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Apps & notifications → Permissions → Camera → Review and deny</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Apps & notifications → Permissions → Microphone → Review and deny</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Google Play Store → Parental controls → Set PIN and restrict content rating</li>
-                    <li><input type="checkbox" class="checkbox"> Settings → Digital Wellbeing → Enable app timers and downtime</li>
-                </ul>
-            </div>
-        </div>
-
         <div class="tip-box">
-            <div class="tip-label">💡 IMPORTANT REMINDERS</div>
+            <div class="tip-label">Key Points</div>
             <ul style="margin-left: 15px; font-size: 13px; color: #2D3436;">
-                <li><strong>Do this WITH your child.</strong> Explain why each setting matters. They're more likely to keep settings if they understand.</li>
-                <li><strong>These settings may change.</strong> Apps update their interface regularly. Review settings every 3-6 months.</li>
-                <li><strong>Settings + conversations = safety.</strong> Privacy settings alone don't prevent problems. Have ongoing conversations about online safety too.</li>
-                <li><strong>Check what apps they actually have.</strong> These are the most dangerous, but new apps appear constantly. Ask them what's popular now.</li>
+                <li>There's no single "correct" privacy setting that works for everyone. Your choices depend on who you are, what you use the platform for, and who you want to reach.</li>
+                <li>Understanding what a setting does is more important than following a checklist. Make choices that fit your comfort level and goals.</li>
+                <li>Privacy settings are just one part of online safety. Judgment and communication matter too.</li>
             </ul>
         </div>
     </div>

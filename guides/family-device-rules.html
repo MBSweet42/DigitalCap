@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Device Rules - DigitalCap</title>
+    <title>Build Your Family's Digital Agreement - DigitalCap</title>
     <style>
         * {
             margin: 0;
@@ -68,97 +68,35 @@
             margin-top: 20px;
         }
 
-        .rule-box {
+        .agreement-box {
             background: #F8F9FA;
-            border-left: 4px solid #FF6B6B;
-            padding: 15px;
-            margin-bottom: 12px;
+            border-left: 4px solid #4ECDC4;
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: 6px;
         }
 
-        .rule-number {
-            font-weight: 700;
-            color: #FF6B6B;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .rule-title {
+        .agreement-prompt {
             font-weight: 700;
             color: #2D3436;
-            margin-bottom: 5px;
+            margin-bottom: 12px;
+            font-size: 14px;
         }
 
-        .rule-description {
+        .prompt-item {
             font-size: 13px;
             color: #636E72;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            margin-left: 15px;
         }
 
-        .consequence {
-            background: white;
-            border-left: 2px solid #FFB703;
+        .fillable {
+            border-bottom: 1px solid #2D3436;
+            min-height: 80px;
+            margin-top: 10px;
             padding: 8px;
-            margin-top: 8px;
-            font-size: 12px;
-            color: #2D3436;
-            border-radius: 4px;
-        }
-
-        .consequence-label {
-            font-weight: 600;
-            color: #FFB703;
-        }
-
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin: 1px 8px 0 0;
-            cursor: pointer;
-            accent-color: #FF6B6B;
-            vertical-align: top;
-        }
-
-        .contract-box {
-            background: #FFE66D;
-            border: 2px solid #FFB703;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .contract-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 15px;
-        }
-
-        .signature-line {
-            border-bottom: 2px solid #2D3436;
-            height: 30px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .signature-label {
-            font-size: 11px;
-            color: #636E72;
-            margin-top: 3px;
-        }
-
-        .signature-row {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 15px;
-        }
-
-        .signature-item {
-            flex: 1;
-            text-align: center;
+            background: white;
+            border-radius: 3px;
         }
 
         .tip-box {
@@ -173,7 +111,58 @@
         .tip-label {
             font-weight: 700;
             color: #2D3436;
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            font-size: 13px;
+            color: #636E72;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .section-divider {
+            border-top: 2px solid #DFE6E9;
+            margin: 30px 0;
+        }
+
+        .signature-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 6px;
+        }
+
+        .signature-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .signature-item {
+            flex: 1;
+        }
+
+        .signature-label {
+            font-size: 12px;
+            color: #636E72;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #2D3436;
+            height: 25px;
             margin-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 1px 8px 0 0;
+            cursor: pointer;
+            accent-color: #4ECDC4;
+            vertical-align: top;
         }
 
         @media print {
@@ -193,123 +182,371 @@
     <div class="container">
         <div class="header">
             <div class="logo">DigitalCap</div>
-            <div class="title">📋 Family Device Rules</div>
-            <div class="subtitle">Printable house rules for phones, tablets, and computers. Post on the fridge or child's door.</div>
+            <div class="title">Build Your Family's Digital Agreement</div>
+            <div class="subtitle">A flexible worksheet for talking about devices, accounts, privacy, gaming, purchases, and what to do when something goes wrong.</div>
         </div>
 
         <div class="section">
-            <div class="section-title">THE RULES</div>
+            <p class="intro-text">
+                There isn't one set of digital rules that works for every household. Families have different needs, values, and comfort levels. This worksheet provides areas to discuss and areas to write down what you agree on. The key is clarity and communication—and revisiting the agreement as circumstances and age change.
+            </p>
 
-            <div class="rule-box">
-                <div class="rule-number">Rule 1</div>
-                <div class="rule-title">No phones at meals or family time</div>
-                <div class="rule-description">Family dinners, car rides, and activities are device-free. This includes parents—model the behavior you want.</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> Device is confiscated for the rest of the day.
-                </div>
-            </div>
+            <p class="intro-text">
+                You don't need to fill this out all at once. Pick topics that matter most to your household, have the conversation, and write down what you decide. The agreement can change as your needs change.
+            </p>
+        </div>
 
-            <div class="rule-box">
-                <div class="rule-number">Rule 2</div>
-                <div class="rule-title">No screens one hour before bed</div>
-                <div class="rule-description">Blue light keeps your brain awake. Put devices in the charging station by 8 PM (or 1 hour before your bedtime).</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> Device is taken until the next morning.
-                </div>
-            </div>
+        <div class="section-divider"></div>
 
-            <div class="rule-box">
-                <div class="rule-number">Rule 3</div>
-                <div class="rule-title">Always ask before downloading a new app</div>
-                <div class="rule-description">We'll check it together using the DigitalCap App Safety Checklist. No exceptions—this protects your privacy and safety.</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> App is deleted and screen time is reduced for one week.
-                </div>
-            </div>
+        <div class="section">
+            <div class="section-title">DEVICE-FREE TIMES AND PLACES</div>
 
-            <div class="rule-box">
-                <div class="rule-number">Rule 4</div>
-                <div class="rule-title">Never share personal information online</div>
-                <div class="rule-description">Real name, phone number, address, school name, or location (via check-ins) stay private. Even if a "friend" asks.</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> Loss of device access for one week + conversation about why this matters.
-                </div>
-            </div>
+            <div class="agreement-box">
+                <div class="agreement-prompt">Are there times or places where devices should be put away?</div>
+                <div class="prompt-item">• Meals?</div>
+                <div class="prompt-item">• Homework time?</div>
+                <div class="prompt-item">• Family activities or gatherings?</div>
+                <div class="prompt-item">• Overnight (sleeping)?</div>
+                <div class="prompt-item">• Other times?</div>
 
-            <div class="rule-box">
-                <div class="rule-number">Rule 5</div>
-                <div class="rule-title">Tell an adult immediately if something feels weird or unsafe</div>
-                <div class="rule-description">Mean comments, strange messages from adults, pressure from friends, or anything that makes you uncomfortable. NO punishment will happen—we're here to help.</div>
-                <div class="consequence">
-                    <span class="consequence-label">Reward:</span> We work together to solve the problem. Your safety is more important than the rule.
-                </div>
-            </div>
-
-            <div class="rule-box">
-                <div class="rule-number">Rule 6</div>
-                <div class="rule-title">Respect others' privacy and property online</div>
-                <div class="rule-description">Don't share other people's photos, videos, or personal info. Don't cyberbully or spread rumors. The internet is permanent.</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> Device access suspended until the person harmed receives an apology. Screen time reduced for two weeks.
-                </div>
-            </div>
-
-            <div class="rule-box">
-                <div class="rule-number">Rule 7</div>
-                <div class="rule-title">Ask before making purchases inside apps</div>
-                <div class="rule-description">In-app spending adds up fast. Even small purchases require permission. If the rule is broken, you pay the charge from your allowance.</div>
-                <div class="consequence">
-                    <span class="consequence-label">If broken:</span> You reimburse the cost. Device confiscated for one week.
-                </div>
-            </div>
-
-            <div class="rule-box">
-                <div class="rule-number">Rule 8</div>
-                <div class="rule-title">Parents have access to all accounts and passwords</div>
-                <div class="rule-description">We're not spying—we're keeping you safe. We may check your device occasionally, and you should be okay with that.</div>
-                <div class="consequence">
-                    <span class="consequence-label">Note:</span> Privacy is earned through trust. Follow these rules, and we'll respect your growing independence.
-                </div>
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-title">SIGNED AGREEMENT</div>
-            <div class="contract-box">
-                <div class="contract-title">We agree to follow these family device rules</div>
+            <div class="section-title">BEDTIME & DEVICE CHARGING</div>
 
-                <div class="signature-row">
-                    <div class="signature-item">
-                        <div style="font-size: 12px; font-weight: 600; margin-bottom: 10px;">Child's Name (Print)</div>
-                        <div class="signature-line"></div>
-                        <div class="signature-label">Child's Signature</div>
-                    </div>
+            <div class="agreement-box">
+                <div class="agreement-prompt">Where will devices charge overnight?</div>
+                <div class="prompt-item">• In a common area?</div>
+                <div class="prompt-item">• Outside bedrooms?</div>
+                <div class="prompt-item">• In charging stations?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Are there different expectations for school nights vs. weekends?</div>
+                <div class="prompt-item">• Different bedtimes or charging times?</div>
+                <div class="prompt-item">• Different rules for screen time?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Does the agreement apply to parents/adults too?</div>
+                <div class="prompt-item">• Should adults model the same habits?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">NEW APPS AND GAMES</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Can apps and games be downloaded independently, or should they be discussed first?</div>
+                <div class="prompt-item">• Do all downloads need permission?</div>
+                <div class="prompt-item">• Are there certain apps that are always okay? Are there categories to avoid?</div>
+                <div class="prompt-item">• What information should be checked before downloading (age rating, permissions, reviews)?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-label">Note:</div>
+                <p style="font-size: 12px;">DigitalCap has an App Check tool that can help evaluate new apps before downloading.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PURCHASES AND SPENDING</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Are in-app purchases, game purchases, or digital content allowed?</div>
+                <div class="prompt-item">• Is permission needed every time?</div>
+                <div class="prompt-item">• Are there spending limits?</div>
+                <div class="prompt-item">• Who pays?</div>
+                <div class="prompt-item">• How should accidental purchases be handled?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PRIVACY AND PERSONAL INFORMATION</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">What personal information should stay private or be shared carefully?</div>
+                <div class="prompt-item">• Real name</div>
+                <div class="prompt-item">• School or workplace</div>
+                <div class="prompt-item">• Phone number</div>
+                <div class="prompt-item">• Address</div>
+                <div class="prompt-item">• Live location or location history</div>
+                <div class="prompt-item">• Photos and videos</div>
+                <div class="prompt-item">• Account visibility (public vs. private)</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-label">Note:</div>
+                <p style="font-size: 12px;">Many legitimate online activities require personal information. The key is thinking about who needs it, why they need it, and whether the source is legitimate.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PASSWORDS AND ACCOUNT ACCESS</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">How will account access and passwords be managed?</div>
+                <div class="prompt-item">• For younger children: Will caregivers manage accounts directly?</div>
+                <div class="prompt-item">• For older children/teens: What level of supervision or oversight makes sense?</div>
+                <div class="prompt-item">• Will recovery information or emergency access be shared?</div>
+                <div class="prompt-item">• How will increasing independence be handled as they grow?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-label">Note:</div>
+                <p style="font-size: 12px;">Different approaches work for different families. Some have shared passwords for young children, use password managers, set up recovery emails, or agree to review accounts together at certain ages. DigitalCap doesn't recommend one universal approach—what matters is clarity and honesty about what you agree on.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">LOCATION SHARING</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">When, if ever, should location be shared?</div>
+                <div class="prompt-item">• Will you use family location sharing apps?</div>
+                <div class="prompt-item">• Should location be shared with friends online?</div>
+                <div class="prompt-item">• Who can see location information?</div>
+                <div class="prompt-item">• Is it continuous or temporary?</div>
+                <div class="prompt-item">• How easily can it be turned off?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">ONLINE FRIENDS AND MESSAGING</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">What's okay when it comes to online contact and friends?</div>
+                <div class="prompt-item">• Can they message people they know in person?</div>
+                <div class="prompt-item">• What about message requests from people they don't know?</div>
+                <div class="prompt-item">• Are online-only friendships okay?</div>
+                <div class="prompt-item">• Can they join group chats?</div>
+                <div class="prompt-item">• What should they do if a message makes them uncomfortable or confused?</div>
+                <div class="prompt-item">• How can they ask for help?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">GAMING</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">If gaming is part of device use, what's important?</div>
+                <div class="prompt-item">• In-game chat and voice chat?</div>
+                <div class="prompt-item">• Multiplayer with strangers or friends?</div>
+                <div class="prompt-item">• In-game purchases?</div>
+                <div class="prompt-item">• Play time or time limits?</div>
+                <div class="prompt-item">• Game age ratings or content preferences?</div>
+                <div class="prompt-item">• Streaming or recording gameplay?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PHOTOS, VIDEOS, AND SHARING OTHERS' CONTENT</div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">What are the expectations around photos, videos, and sharing?</div>
+                <div class="prompt-item">• Can they share photos of friends without asking?</div>
+                <div class="prompt-item">• Can they post videos of others?</div>
+                <div class="prompt-item">• What about sharing others' content on social media?</div>
+                <div class="prompt-item">• Are there types of photos/videos that should never be shared?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WHEN SOMETHING FEELS UNCOMFORTABLE, UNSAFE, OR WRONG</div>
+
+            <div class="intro-text">
+                If something uncomfortable, confusing, unsafe, embarrassing, or unexpected happens online, asking for help should be easier than hiding the problem. This section is about how to handle those moments with safety first.
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Who can they talk to if something goes wrong?</div>
+                <div class="prompt-item">• Is there more than one trusted adult they can approach?</div>
+                <div class="prompt-item">• How should they initiate the conversation?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">What happens first when there's a problem?</div>
+                <div class="prompt-item">• Do you handle the immediate issue first (removing contact, blocking, leaving a situation)?</div>
+                <div class="prompt-item">• When is evidence preserved or saved?</div>
+                <div class="prompt-item">• Who else needs to know (other parents, school, authorities)?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">When will you use DigitalCap's "Something Happened" resource?</div>
+                <div class="prompt-item">• DigitalCap has guidance for responding to mean comments, uncomfortable contact, pressure, and other situations. Should you review it together?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-label">Important:</div>
+                <p style="font-size: 12px;">Handle the immediate problem first. Safety comes first. Decisions about consequences or changes to rules can come later, once the person is safe and supported.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WHEN AGREEMENTS ARE BROKEN</div>
+
+            <div class="intro-text">
+                When an agreement isn't followed, there's usually a reason to address it. But the response depends on what happened and what makes sense for your family. Different families handle this differently, and that's okay.
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">If an agreement is broken, what response makes sense?</div>
+                <div class="prompt-item">• A conversation about what happened?</div>
+                <div class="prompt-item">• A temporary change in settings or access?</div>
+                <div class="prompt-item">• Paying back a cost (for unauthorized purchases)?</div>
+                <div class="prompt-item">• Repairing harm (apologizing, taking responsibility)?</div>
+                <div class="prompt-item">• Revisiting whether the rule is realistic or whether supervision needs to change?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our approach:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-label">Principle:</div>
+                <p style="font-size: 12px;">DigitalCap doesn't recommend one consequence system for every family. What matters is being clear about what happens if an agreement is broken, and having that conversation before a problem occurs so expectations are understood.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">GROWING INDEPENDENCE</div>
+
+            <div class="intro-text">
+                As young people grow, their privacy, independence, responsibility, and supervision can change. These changes should happen thoughtfully and with communication.
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">What responsibilities or behaviors show readiness for more independence?</div>
+                <div class="prompt-item">• Being honest about device use and online activity?</div>
+                <div class="prompt-item">• Making good decisions when adults aren't watching?</div>
+                <div class="prompt-item">• Following agreements without being reminded?</div>
+                <div class="prompt-item">• Asking for help when needed?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Which protections or supervision can change over time?</div>
+                <div class="prompt-item">• Password sharing or account access?</div>
+                <div class="prompt-item">• Location sharing?</div>
+                <div class="prompt-item">• Approval requirements for apps or purchases?</div>
+                <div class="prompt-item">• Screen time or device limits?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+
+            <div class="agreement-box">
+                <div class="agreement-prompt">Which safety practices should stay the same regardless of age?</div>
+                <div class="prompt-item">• What will you always discuss or check in about?</div>
+
+                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
+                <div class="fillable"></div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="signature-box">
+            <div style="font-size: 14px; font-weight: 700; margin-bottom: 15px; color: #2D3436;">Our Family Agreement</div>
+
+            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
+                <strong>Household/Family:</strong>
+                <div class="fillable" style="min-height: 30px;"></div>
+            </div>
+
+            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
+                <strong>Date created:</strong>
+                <div class="fillable" style="min-height: 30px;"></div>
+            </div>
+
+            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
+                <strong>When we'll review this agreement:</strong>
+                <div class="fillable" style="min-height: 30px;"></div>
+            </div>
+
+            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
+                <strong>Key points of our agreement:</strong>
+                <div class="fillable" style="min-height: 80px;"></div>
+            </div>
+
+            <div style="font-size: 12px; color: #636E72; margin-top: 20px; font-style: italic;">
+                Optional signatures (not required, but can help show commitment):
+            </div>
+
+            <div class="signature-row" style="margin-top: 20px;">
+                <div class="signature-item">
+                    <div class="signature-label">Young person / household member</div>
+                    <div class="signature-line"></div>
                 </div>
-
-                <div class="signature-row" style="margin-top: 25px;">
-                    <div class="signature-item">
-                        <div style="font-size: 12px; font-weight: 600; margin-bottom: 10px;">Parent's Name (Print)</div>
-                        <div class="signature-line"></div>
-                        <div class="signature-label">Parent's Signature</div>
-                    </div>
+                <div class="signature-item">
+                    <div class="signature-label">Parent / caregiver</div>
+                    <div class="signature-line"></div>
                 </div>
+            </div>
 
-                <div style="text-align: left; margin-top: 20px; font-size: 12px; color: #2D3436;">
-                    <strong>Date:</strong> _______________
-                    <br/><br/>
-                    <strong>Review Date (6 months):</strong> _______________
+            <div class="signature-row">
+                <div class="signature-item">
+                    <div class="signature-label">Other household member (optional)</div>
+                    <div class="signature-line"></div>
                 </div>
             </div>
         </div>
 
-        <div class="tip-box">
-            <div class="tip-label">💡 TIPS FOR SUCCESS</div>
+        <div class="tip-box" style="margin-top: 30px;">
+            <div class="tip-label">Tips for Making This Work</div>
             <ul style="margin-left: 15px; font-size: 13px; color: #2D3436;">
-                <li>Make the rules together, not alone. Kids are more likely to follow rules they helped create.</li>
-                <li>Post these rules somewhere visible—kitchen, bedroom, device itself.</li>
-                <li>Revisit every 6 months. Rules may need to change as kids get older.</li>
-                <li>Be consistent. Enforce rules equally for all children. No exceptions "just this once."</li>
-                <li>Be kind. The goal is safety, not punishment. Make adjustments if rules aren't working.</li>
+                <li><strong>Create expectations together when possible.</strong> People are more likely to follow agreements they helped create.</li>
+                <li><strong>Start with what matters most.</strong> You don't need to fill out every section at once. Pick 2-3 areas and build from there.</li>
+                <li><strong>Adults can model the habits you're discussing.</strong> If device-free family time is the goal, parents should participate too.</li>
+                <li><strong>Revisit agreements regularly.</strong> Plans may need to change as kids get older, as new devices arrive, or as circumstances shift.</li>
+                <li><strong>Clarity is often more useful than assumptions.</strong> A conversation about what you each expect is worth more than guessing.</li>
+                <li><strong>Rules should help support safety and healthy use, not make someone afraid to ask for help.</strong> The point is connection and understanding, not control.</li>
             </ul>
         </div>
     </div>
