@@ -471,7 +471,7 @@ function renderAppDetails(app) {
     if (app.hiddenDangers && app.hiddenDangers.length > 0) {
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Real-World Risks</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Things to Know</h4>
                 <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">
         `;
         app.hiddenDangers.slice(0, 5).forEach(danger => {
@@ -480,11 +480,11 @@ function renderAppDetails(app) {
         details += `</ul></div>`;
     }
 
-    // SECTION 3: Must-Change Settings (step-by-step)
+    // SECTION 3: Recommended Safeguards (step-by-step)
     if (app.parentConcerns && app.parentConcerns.mentalHealth) {
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">⚙️ Must-Change Settings</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">⚙️ Recommended Safeguards</h4>
                 <div style="background: rgba(255, 107, 107, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--primary);">
         `;
 
@@ -529,7 +529,7 @@ function renderAppDetails(app) {
 
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 Start the Conversation</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 Conversation Starters</h4>
                 <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
                     <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(opener)}"</p>
                 </div>
@@ -557,10 +557,10 @@ function renderAppDetails(app) {
             details += `</ul>`;
         }
 
-        // Section 4: Watch For
+        // Section 4: Things to Notice
         if (guide.redFlags && guide.redFlags.length > 0) {
             details += `
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Watch For</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Things to Notice</h4>
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             guide.redFlags.forEach(flag => {
