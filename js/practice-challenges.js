@@ -1,5 +1,14 @@
 // DigitalCap Practice Challenges
-// Interactive scenarios with immediate feedback for kids and parents
+// Judgment-based learning model: help visitors notice patterns, understand context, and make informed choices
+// NOT a pass/fail quiz system
+
+// IMPORTANT: Compatibility mapping for existing scenarios
+// existing correct:true → quality:"strongest" (DigitalCap's recommended response)
+// existing correct:false → quality:"higher-risk" (TEMPORARY fallback - these require full editorial review)
+// In the next content phase, alternatives will be individually classified as either:
+//   - "worth-considering" (valid in some contexts but has tradeoffs)
+//   - "higher-risk" (creates additional risk or is generally less effective)
+// This phase focuses on the learning MODEL, not the full editorial classification of all 40 scenarios.
 
 const practiceChallengData = {
     'spot-the-scam': {
@@ -12,14 +21,14 @@ const practiceChallengData = {
                 scenario: 'You get a text: "Your Apple account will be closed in 24 hours. Click here to verify your password: [link]"',
                 context: 'text message',
                 choices: [
-                    { label: 'A) Click the link immediately to save your account', correct: false },
-                    { label: 'B) Ignore it and go directly to Apple.com to check your account', correct: true },
-                    { label: 'C) Reply to the text asking for more info before clicking', correct: false }
+                    { label: 'A) Click the link immediately to save your account', quality: 'higher-risk' },
+                    { label: 'B) Ignore it and go directly to Apple.com to check your account', quality: 'strongest' },
+                    { label: 'C) Reply to the text asking for more info before clicking', quality: 'higher-risk' }
                 ],
                 feedback: {
                     correct: 'This is a phishing scam. Real companies never ask for passwords via text or email. Always go directly to the official website/app.',
-                    whyMatters: 'Scammers trick you into clicking malicious links that steal your password. Once they have it, they can access all your accounts and personal info.',
-                    parentTip: 'Ask: "Have you ever gotten a message asking you to verify a password or login? What would you do?"'
+                    whyMatters: 'Malicious links steal your password, giving scammers access to all your accounts and personal information.',
+                    parentTip: 'Have you gotten a message asking you to verify a password or login? What would you do?'
                 }
             },
             {
@@ -27,14 +36,14 @@ const practiceChallengData = {
                 scenario: 'Instagram DM from someone you don\'t know: "OMG I saw your TikTok! You\'re so funny. Check out my video: [link]"',
                 context: 'direct message',
                 choices: [
-                    { label: 'A) Click the link to see their video', correct: false },
-                    { label: 'B) Politely decline and don\'t click unknown links', correct: true },
-                    { label: 'C) Ask for their TikTok username first, then click', correct: false }
+                    { label: 'A) Click the link to see their video', quality: "higher-risk" },
+                    { label: 'B) Politely decline and don\'t click unknown links', quality: "strongest" },
+                    { label: 'C) Verify their identity before clicking (ask mutual friends, check their profile history)', quality: "worth-considering" }
                 ],
                 feedback: {
                     correct: 'Good choice. Unknown links can contain malware or lead to fake profiles designed to build trust before asking for personal info.',
-                    whyMatters: 'This is a common grooming tactic. Predators compliment you to build rapport, then gradually escalate conversations to personal questions.',
-                    parentTip: 'Ask: "Has anyone you don\'t know ever DM\'d you with compliments? What did you do?"'
+                    whyMatters: 'This is a common grooming tactic. Compliments build rapport before predators escalate to personal questions.',
+                    parentTip: 'When does someone you don\'t know start messaging you with compliments?'
                 }
             },
             {
@@ -42,9 +51,9 @@ const practiceChallengData = {
                 scenario: 'Email: "URGENT: You\'ve won a $100 gift card! Claim it now. Just enter your date of birth and last 4 digits of your SSN."',
                 context: 'email',
                 choices: [
-                    { label: 'A) Enter the info quickly before the offer expires', correct: false },
-                    { label: 'B) Delete the email - legitimate contests don\'t ask for SSN digits', correct: true },
-                    { label: 'C) Ask a friend for their SSN to verify the request', correct: false }
+                    { label: 'A) Enter the info quickly before the offer expires', quality: "higher-risk" },
+                    { label: 'B) Delete the email - legitimate contests don\'t ask for SSN digits', quality: "strongest" },
+                    { label: 'C) Ask a friend for their SSN to verify the request', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Correct! Real companies never ask for social security numbers via email. This is identity theft.',
@@ -57,9 +66,9 @@ const practiceChallengData = {
                 scenario: 'Snapchat from a friend: "I\'m selling Fortnite skins super cheap! Click here to buy - crypto only"',
                 context: 'instant message',
                 choices: [
-                    { label: 'A) Click the link and complete the crypto purchase', correct: false },
-                    { label: 'B) Ask the friend directly (voice/in-person) if they really sent this', correct: true },
-                    { label: 'C) Buy a small amount to test if it\'s legit', correct: false }
+                    { label: 'A) Click the link and complete the crypto purchase', quality: "higher-risk" },
+                    { label: 'B) Ask the friend directly (voice/in-person) if they really sent this', quality: "strongest" },
+                    { label: 'C) Buy a small amount to test if it\'s legit', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Good instinct! Your friend\'s account might be hacked. Always verify unusual requests through another method.',
@@ -72,9 +81,9 @@ const practiceChallengData = {
                 scenario: 'Reddit post: "I can teach you how to get free Robux! Just watch this video and enter your account info in the comments."',
                 context: 'social media',
                 choices: [
-                    { label: 'A) Follow the instructions to get free Robux', correct: false },
-                    { label: 'B) Leave it alone - this is a classic account theft scam', correct: true },
-                    { label: 'C) Comment asking for proof before entering your info', correct: false }
+                    { label: 'A) Follow the instructions to get free Robux', quality: "higher-risk" },
+                    { label: 'B) Leave it alone - this is a classic account theft scam', quality: "strongest" },
+                    { label: 'C) Comment asking for proof before entering your info', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Absolutely right. There\'s no legitimate way to get free Robux. Anyone offering it is trying to steal your account.',
@@ -87,9 +96,9 @@ const practiceChallengData = {
                 scenario: 'You get a pop-up while gaming: "CONGRATULATIONS! Your device has a virus! Click here to clean it now!"',
                 context: 'In-game or website pop-up',
                 choices: [
-                    { label: 'A) Click it to protect your device', correct: false },
-                    { label: 'B) Close the pop-up and run a legitimate antivirus scan instead', correct: true },
-                    { label: 'C) Tell your parents to click it for you', correct: false }
+                    { label: 'A) Click it to protect your device', quality: "higher-risk" },
+                    { label: 'B) Close the pop-up and run a legitimate antivirus scan instead', quality: "strongest" },
+                    { label: 'C) Tell your parents to click it for you', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect! This is a fake security warning designed to trick you into downloading malware.',
@@ -102,9 +111,9 @@ const practiceChallengData = {
                 scenario: 'Email from "Amazon": "We need to verify your payment method. Click here to update billing." You don\'t have an Amazon account.',
                 context: 'email',
                 choices: [
-                    { label: 'A) Click to see what\'s happening', correct: false },
-                    { label: 'B) Delete it - it\'s a phishing attempt sent to wrong person', correct: true },
-                    { label: 'C) Reply asking them to verify they have the right person', correct: false }
+                    { label: 'A) Click to see what\'s happening', quality: "higher-risk" },
+                    { label: 'B) Delete it - it\'s a phishing attempt sent to wrong person', quality: "strongest" },
+                    { label: 'C) Reply asking them to verify they have the right person', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Correct! Scammers send phishing emails to millions hoping SOMEONE will have that account.',
@@ -117,9 +126,9 @@ const practiceChallengData = {
                 scenario: 'Your friend\'s Snapchat sent you: "Hey wanna buy some followers? Super cheap!" This is unlike them.',
                 context: 'Snapchat message',
                 choices: [
-                    { label: 'A) Say yes and check out the link', correct: false },
-                    { label: 'B) Don\'t click; call or text your friend directly to ask if they really sent this', correct: true },
-                    { label: 'C) Block them without asking', correct: false }
+                    { label: 'A) Say yes and check out the link', quality: "higher-risk" },
+                    { label: 'B) Don\'t click; call or text your friend directly to ask if they really sent this', quality: "strongest" },
+                    { label: 'C) Block them without asking', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great instinct! Their account might be hacked. Always verify through another contact method.',
@@ -132,9 +141,9 @@ const practiceChallengData = {
                 scenario: 'You see an ad: "Make $500/week from home! No experience needed. Just pay $29 to start."',
                 context: 'Social media ad',
                 choices: [
-                    { label: 'A) Pay the fee to start earning quickly', correct: false },
-                    { label: 'B) Avoid it - legitimate jobs don\'t require upfront fees', correct: true },
-                    { label: 'C) Ask a friend if it\'s real first', correct: false }
+                    { label: 'A) Pay the fee to start earning quickly', quality: "higher-risk" },
+                    { label: 'B) Avoid it - legitimate jobs don\'t require upfront fees', quality: "strongest" },
+                    { label: 'C) Ask a friend if it\'s real first', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Absolutely right. Any job asking for money upfront is a scam.',
@@ -147,9 +156,9 @@ const practiceChallengData = {
                 scenario: 'Text message: "Hi from Nintendo! You won a free Nintendo Switch! Claim it: [link]"',
                 context: 'text message',
                 choices: [
-                    { label: 'A) Click the link to claim your prize', correct: false },
-                    { label: 'B) Delete it - you didn\'t enter any contest', correct: true },
-                    { label: 'C) Ask your parents if you can click it', correct: false }
+                    { label: 'A) Click the link to claim your prize', quality: "higher-risk" },
+                    { label: 'B) Delete it - you didn\'t enter any contest', quality: "strongest" },
+                    { label: 'C) Ask your parents if you can click it', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect! You can\'t win something you didn\'t enter.',
@@ -170,9 +179,9 @@ const practiceChallengData = {
                 scenario: 'Random person: "Hi! I saw your profile and think you\'re really cool. Do you go to [Your School Name]?"',
                 context: 'Instagram DM from unknown account',
                 choices: [
-                    { label: 'A) Answer them - they seem friendly and compliment you', correct: false },
-                    { label: 'B) Don\'t respond; block if they keep messaging', correct: true },
-                    { label: 'C) Ask how they know your school name', correct: false }
+                    { label: 'A) Answer them - they seem friendly and compliment you', quality: "higher-risk" },
+                    { label: 'B) Don\'t respond; block if they keep messaging', quality: "strongest" },
+                    { label: 'C) Ask how they know your school name', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart. This is a common grooming tactic. Building rapport is the first step before asking for personal info.',
@@ -185,9 +194,9 @@ const practiceChallengData = {
                 scenario: 'Discord friend request from "xXgamer420Xx" - account is brand new with no profile picture.',
                 context: 'Discord',
                 choices: [
-                    { label: 'A) Accept to see what servers they\'re in', correct: false },
-                    { label: 'B) Ignore and don\'t accept stranger requests', correct: true },
-                    { label: 'C) Accept but don\'t talk to them', correct: false }
+                    { label: 'A) Accept to see what servers they\'re in', quality: "higher-risk" },
+                    { label: 'B) Ignore and don\'t accept stranger requests', quality: "strongest" },
+                    { label: 'C) Accept but don\'t talk to them', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Good judgment. New accounts with no profile info are often bots or people hiding their identity.',
@@ -200,14 +209,14 @@ const practiceChallengData = {
                 scenario: 'TikTok DM from someone with 500K followers: "Your dance video is amazing! Can we collab? Message me on Snapchat instead."',
                 context: 'TikTok',
                 choices: [
-                    { label: 'A) Add them on Snapchat - they\'re a popular creator!', correct: false },
-                    { label: 'B) Politely decline and keep communication on public platforms only', correct: true },
-                    { label: 'C) Ask to see their previous collabs before deciding', correct: false }
+                    { label: 'A) Add them on Snapchat - they\'re a popular creator!', quality: "higher-risk" },
+                    { label: 'B) Politely decline and keep communication on public platforms only', quality: "strongest" },
+                    { label: 'C) Ask for their portfolio link or past collaboration examples first', quality: "worth-considering" }
                 ],
                 feedback: {
                     correct: 'Excellent. Requests to move to private platforms are a major red flag, even from accounts that look legitimate.',
-                    whyMatters: 'Disappearing messages on Snapchat are specifically chosen because they hide evidence of inappropriate conversations.',
-                    parentTip: 'Ask: "Why would someone ask to move a conversation to a private app? What does that tell you about their intentions?"'
+                    whyMatters: 'Moving to private platforms hides the conversation and makes it easier to pressure or manipulate.',
+                    parentTip: 'Notice the pattern: compliments, offer of opportunity, request to move to private app.'
                 }
             },
             {
@@ -215,9 +224,9 @@ const practiceChallengData = {
                 scenario: 'Roblox: Someone says "Add me on Discord for the private gaming group. It\'s so cool!" and gives you a link.',
                 context: 'In-game chat',
                 choices: [
-                    { label: 'A) Click the Discord link and join the group', correct: false },
-                    { label: 'B) Ask a parent before clicking any links from strangers', correct: true },
-                    { label: 'C) Check their Roblox profile first', correct: false }
+                    { label: 'A) Click the Discord link and join the group', quality: "higher-risk" },
+                    { label: 'B) Ask a parent before clicking any links from strangers', quality: "strongest" },
+                    { label: 'C) Check their Roblox profile first', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Exactly right. Never click links from people you don\'t know without asking a trusted adult first.',
@@ -230,9 +239,9 @@ const practiceChallengData = {
                 scenario: 'Snapchat from a "friend": "Hey, can you send me a selfie? I want to draw you in my art class."',
                 context: 'Snapchat from account claiming to be a schoolmate',
                 choices: [
-                    { label: 'A) Send a cute selfie - they\'re in your class', correct: false },
-                    { label: 'B) Verify with the friend IN PERSON before sending anything', correct: true },
-                    { label: 'C) Send a silly face/funny photo instead of a serious one', correct: false }
+                    { label: 'A) Send a cute selfie - they\'re in your class', quality: "higher-risk" },
+                    { label: 'B) Verify with the friend IN PERSON before sending anything', quality: "strongest" },
+                    { label: 'C) Send a silly face/funny photo instead of a serious one', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect response. Accounts can be hacked or faked. Always verify through another method first.',
@@ -245,9 +254,9 @@ const practiceChallengData = {
                 scenario: 'YouTube comment from someone: "OMG your channel is amazing! I\'m starting my own. Want to be friends on private Discord?" Account has 0 subscribers.',
                 context: 'YouTube',
                 choices: [
-                    { label: 'A) Join their Discord - they seem like a fan', correct: false },
-                    { label: 'B) Don\'t engage; don\'t click suspicious invites from strangers', correct: true },
-                    { label: 'C) Join to check it out but don\'t give personal info', correct: false }
+                    { label: 'A) Join their Discord - they seem like a fan', quality: "higher-risk" },
+                    { label: 'B) Don\'t engage; don\'t click suspicious invites from strangers', quality: "strongest" },
+                    { label: 'C) Join to check it out but don\'t give personal info', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart choice. Invites to private servers from strangers are a major red flag.',
@@ -260,9 +269,9 @@ const practiceChallengData = {
                 scenario: 'BeReal notification from unknown account: "Hey! You\'re really pretty. Want to BeReal together?" They follow 50 accounts, all teenagers.',
                 context: 'BeReal app',
                 choices: [
-                    { label: 'A) Accept the friend request - they seem nice', correct: false },
-                    { label: 'B) Don\'t accept; this pattern (following many teens) is predatory behavior', correct: true },
-                    { label: 'C) Accept but set your profile to private', correct: false }
+                    { label: 'A) Accept the friend request - they seem nice', quality: "higher-risk" },
+                    { label: 'B) Don\'t accept; this pattern (following many teens) is predatory behavior', quality: "strongest" },
+                    { label: 'C) Accept but set your profile to private', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Excellent observation. Adults targeting teenagers often create accounts that follow many young users.',
@@ -275,9 +284,9 @@ const practiceChallengData = {
                 scenario: 'TikTok DM from "a girl your age": "OMG I love your vibe! I\'m doing a challenge with prizes. Want to join?" Account is 2 days old.',
                 context: 'TikTok',
                 choices: [
-                    { label: 'A) Join the challenge - might be fun', correct: false },
-                    { label: 'B) Ignore it; brand new accounts messaging you are suspicious', correct: true },
-                    { label: 'C) Ask them more about the challenge first', correct: false }
+                    { label: 'A) Join the challenge - might be fun', quality: "higher-risk" },
+                    { label: 'B) Ignore it; brand new accounts messaging you are suspicious', quality: "strongest" },
+                    { label: 'C) Ask them more about the challenge first', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect! Brand new accounts targeting you specifically are red flags.',
@@ -290,9 +299,9 @@ const practiceChallengData = {
                 scenario: 'Instagram DM from "a modeling agency": "We saw your photos! You could make money. Here\'s how to apply: [link]"',
                 context: 'Instagram',
                 choices: [
-                    { label: 'A) Click the link and fill out the modeling application', correct: false },
-                    { label: 'B) Don\'t click; research the agency first and ask a parent', correct: true },
-                    { label: 'C) Send them more photos so they can evaluate you', correct: false }
+                    { label: 'A) Click the link and fill out the modeling application', quality: "higher-risk" },
+                    { label: 'B) Don\'t click; research the agency first and ask a parent', quality: "strongest" },
+                    { label: 'C) Send them more photos so they can evaluate you', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart! Legitimate agencies don\'t scout via Instagram DMs.',
@@ -305,9 +314,9 @@ const practiceChallengData = {
                 scenario: 'Snapchat friend: "I have a video of you. You need to message me on this other app or I\'m sending it to everyone." (You never sent them anything.)',
                 context: 'Snapchat',
                 choices: [
-                    { label: 'A) Message them on the other app to find out what they have', correct: false },
-                    { label: 'B) Take a screenshot, block them, and tell a trusted adult immediately', correct: true },
-                    { label: 'C) Ignore them - they\'re probably bluffing', correct: false }
+                    { label: 'A) Message them on the other app to find out what they have', quality: "higher-risk" },
+                    { label: 'B) Take a screenshot, block them, and tell a trusted adult immediately', quality: "strongest" },
+                    { label: 'C) Ignore them - they\'re probably bluffing', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect response. This is sextortion - a serious crime. Adults need to help.',
@@ -328,9 +337,9 @@ const practiceChallengData = {
                 scenario: 'You want to download a new photo editing app. It asks for: camera, photo library, location, contacts, and microphone access.',
                 context: 'App permissions request',
                 choices: [
-                    { label: 'A) Grant all permissions - most apps ask for them', correct: false },
-                    { label: 'B) Only grant camera and photo library; deny location, contacts, and microphone', correct: true },
-                    { label: 'C) Deny everything and don\'t download the app', correct: false }
+                    { label: 'A) Grant all permissions - most apps ask for them', quality: "higher-risk" },
+                    { label: 'B) Only grant camera and photo library; deny location, contacts, and microphone', quality: "strongest" },
+                    { label: 'C) Deny everything and don\'t download the app', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart! A photo editor doesn\'t need location, contacts, or microphone. Limit permissions to what the app actually uses.',
@@ -343,9 +352,9 @@ const practiceChallengData = {
                 scenario: 'Game privacy policy says: "We collect your location, browsing history, and will share it with advertising partners."',
                 context: 'Before downloading',
                 choices: [
-                    { label: 'A) Download it - you have nothing to hide', correct: false },
-                    { label: 'B) Look for an alternative game with better privacy', correct: true },
-                    { label: 'C) Download it but never open the app', correct: false }
+                    { label: 'A) Download it - you have nothing to hide', quality: "higher-risk" },
+                    { label: 'B) Look for an alternative game with better privacy', quality: "strongest" },
+                    { label: 'C) Download it but never open the app', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great choice. Sharing location and browsing data with advertisers is risky. Find apps that respect privacy.',
@@ -358,9 +367,9 @@ const practiceChallengData = {
                 scenario: 'A messaging app doesn\'t mention encryption in its privacy policy. It stores "all messages on our servers permanently."',
                 context: 'App description',
                 choices: [
-                    { label: 'A) Use it - free messaging is useful', correct: false },
-                    { label: 'B) Use an app that clearly states end-to-end encryption instead', correct: true },
-                    { label: 'C) Use it but never send personal info', correct: false }
+                    { label: 'A) Use it - free messaging is useful', quality: "higher-risk" },
+                    { label: 'B) Use an app that clearly states end-to-end encryption instead', quality: "strongest" },
+                    { label: 'C) Use it but never send personal info', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Correct. Unencrypted messages mean the company (and hackers) can read your conversations. Choose encrypted options.',
@@ -373,9 +382,9 @@ const practiceChallengData = {
                 scenario: 'A social media app asks to "sync with your contacts." The fine print says it uploads and stores your entire contact list.',
                 context: 'Permission request',
                 choices: [
-                    { label: 'A) Grant permission - syncing is convenient', correct: false },
-                    { label: 'B) Deny permission - your contacts\' info shouldn\'t be uploaded to their servers', correct: true },
-                    { label: 'C) Grant it once, then turn it off later', correct: false }
+                    { label: 'A) Grant permission - syncing is convenient', quality: "higher-risk" },
+                    { label: 'B) Deny permission - your contacts\' info shouldn\'t be uploaded to their servers', quality: "strongest" },
+                    { label: 'C) Grant it once, then turn it off later', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Excellent. Your contacts\' personal info belongs to them, not the app. Don\'t let apps collect and store it.',
@@ -388,9 +397,9 @@ const practiceChallengData = {
                 scenario: 'You notice a game app has a setting "Share my activity with friends." It\'s defaulted to ON.',
                 context: 'In-app settings',
                 choices: [
-                    { label: 'A) Leave it on - your friends want to know what you\'re playing', correct: false },
-                    { label: 'B) Turn it OFF unless you specifically want to share activity', correct: true },
-                    { label: 'C) Leave it on but hide which specific games you play', correct: false }
+                    { label: 'A) Leave it on - your friends want to know what you\'re playing', quality: "higher-risk" },
+                    { label: 'B) Turn it OFF unless you specifically want to share activity', quality: "strongest" },
+                    { label: 'C) Leave it on but hide which specific games you play', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Good instinct. Default-ON tracking is designed to get you to share without thinking. Turn off by default.',
@@ -403,9 +412,9 @@ const practiceChallengData = {
                 scenario: 'A fitness app asks for: age, weight, height, location, camera, and medical data. The description is only "track your health."',
                 context: 'App permissions request',
                 choices: [
-                    { label: 'A) Grant all permissions - it needs your health data', correct: false },
-                    { label: 'B) Only grant what\'s absolutely necessary; deny location and camera', correct: true },
-                    { label: 'C) Deny everything and don\'t use the app', correct: false }
+                    { label: 'A) Grant all permissions - it needs your health data', quality: "higher-risk" },
+                    { label: 'B) Only grant what\'s absolutely necessary; deny location and camera', quality: "strongest" },
+                    { label: 'C) Deny everything and don\'t use the app', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Correct! A fitness app doesn\'t need camera or location to work.',
@@ -418,9 +427,9 @@ const practiceChallengData = {
                 scenario: 'You\'re installing a free keyboard app. It asks for access to "everything you type." Privacy policy is vague.',
                 context: 'Keyboard app',
                 choices: [
-                    { label: 'A) Install it - free keyboards are common', correct: false },
-                    { label: 'B) Don\'t install it - keyboard access to your typing is a serious privacy risk', correct: true },
-                    { label: 'C) Install it but don\'t use it for passwords', correct: false }
+                    { label: 'A) Install it - free keyboards are common', quality: "higher-risk" },
+                    { label: 'B) Don\'t install it - keyboard access to your typing is a serious privacy risk', quality: "strongest" },
+                    { label: 'C) Install it but don\'t use it for passwords', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Excellent! Never give keyboard apps access to everything you type.',
@@ -433,9 +442,9 @@ const practiceChallengData = {
                 scenario: 'A social media app\'s privacy policy: "We may sell aggregated user data to third parties." It also requires location.',
                 context: 'Before downloading',
                 choices: [
-                    { label: 'A) Download it - everyone does this', correct: false },
-                    { label: 'B) Choose an app with stronger privacy; this one explicitly sells data', correct: true },
-                    { label: 'C) Download it but don\'t share your location', correct: false }
+                    { label: 'A) Download it - everyone does this', quality: "higher-risk" },
+                    { label: 'B) Choose an app with stronger privacy; this one explicitly sells data', quality: "strongest" },
+                    { label: 'C) Download it but don\'t share your location', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart choice! Apps that explicitly say they sell data are being honest, but it\'s still a privacy concern.',
@@ -448,9 +457,9 @@ const practiceChallengData = {
                 scenario: 'A popular gaming app shows ads every 2 minutes and asks for permission to access your photos and files.',
                 context: 'Game app',
                 choices: [
-                    { label: 'A) Grant permissions - ads are normal for free games', correct: false },
-                    { label: 'B) Deny permissions; a game doesn\'t need photo/file access just to show ads', correct: true },
-                    { label: 'C) Grant permissions but disable notifications', correct: false }
+                    { label: 'A) Grant permissions - ads are normal for free games', quality: "higher-risk" },
+                    { label: 'B) Deny permissions; a game doesn\'t need photo/file access just to show ads', quality: "strongest" },
+                    { label: 'C) Grant permissions but disable notifications', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect! Too many ads combined with excessive permissions is a sign the app is designed to collect data.',
@@ -463,9 +472,9 @@ const practiceChallengData = {
                 scenario: 'You find an app that looks like YouTube but it\'s from an unknown publisher. It asks for "unrestricted storage access."',
                 context: 'Unknown app',
                 choices: [
-                    { label: 'A) Install it - it might be a YouTube alternative', correct: false },
-                    { label: 'B) Don\'t install it; use the official YouTube app instead', correct: true },
-                    { label: 'C) Ask friends if they\'ve heard of it', correct: false }
+                    { label: 'A) Install it - it might be a YouTube alternative', quality: "higher-risk" },
+                    { label: 'B) Don\'t install it; use the official YouTube app instead', quality: "strongest" },
+                    { label: 'C) Ask friends if they\'ve heard of it', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great instinct! Unknown apps claiming to be famous services are often malware.',
@@ -486,9 +495,9 @@ const practiceChallengData = {
                 scenario: 'Your 12-year-old comes home upset because classmates are making fun of them on TikTok. They want to keep using it to "fit in."',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "If it\'s hurting you, you need to stop using it."', correct: false },
-                    { label: 'B) "Let\'s talk about what\'s happening and explore options together (take a break, change privacy settings, block bullies)."', correct: true },
-                    { label: 'C) "Everyone gets bullied online. It\'s not a big deal."', correct: false }
+                    { label: 'A) "If it\'s hurting you, you need to stop using it."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s talk about what\'s happening and explore options together (take a break, change privacy settings, block bullies)."', quality: "strongest" },
+                    { label: 'C) "Everyone gets bullied online. It\'s not a big deal."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect. Listen first, then explore solutions together. Bullying affects mental health and needs real conversation.',
@@ -501,9 +510,9 @@ const practiceChallengData = {
                 scenario: 'Your 14-year-old\'s friend got their account hacked. Now they\'re asking your kid for their password to "help recover it."',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "Just give them your password - they\'re your friend."', correct: false },
-                    { label: 'B) "Tell them no. Even friends should use official recovery processes, not passwords."', correct: true },
-                    { label: 'C) "Help them but change your password afterward."', correct: false }
+                    { label: 'A) "Just give them your password - they\'re your friend."', quality: "higher-risk" },
+                    { label: 'B) "Tell them no. Even friends should use official recovery processes, not passwords."', quality: "strongest" },
+                    { label: 'C) "Help them but change your password afterward."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Exactly. Never share passwords, even with friends. Help by contacting support together, not by sharing access.',
@@ -516,9 +525,9 @@ const practiceChallengData = {
                 scenario: 'Your 16-year-old says "Everyone\'s using Instagram, and if I don\'t use it, I\'ll miss out on social plans." You\'re concerned about screen time and privacy.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "Absolutely not. No Instagram."', correct: false },
-                    { label: 'B) "Let\'s set specific rules together: privacy settings locked down, time limits, and weekly check-ins."', correct: true },
-                    { label: 'C) "Fine, use it, but I\'ll monitor everything you post."', correct: false }
+                    { label: 'A) "Absolutely not. No Instagram."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s set specific rules together: privacy settings locked down, time limits, and weekly check-ins."', quality: "strongest" },
+                    { label: 'C) "Fine, use it, but I\'ll monitor everything you post."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great approach. Collaboration + boundaries work better than bans or secret monitoring. Build trust.',
@@ -531,9 +540,9 @@ const practiceChallengData = {
                 scenario: 'Your 13-year-old asks if they can play Fortnite online with older teenagers they met in a Discord server.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "Sure, gaming is harmless. Have fun!"', correct: false },
-                    { label: 'B) "Let\'s learn about who these players are, set voice chat to friends-only, and establish gaming time limits."', correct: true },
-                    { label: 'C) "Absolutely not. You can\'t talk to strangers online."', correct: false }
+                    { label: 'A) "Sure, gaming is harmless. Have fun!"', quality: "higher-risk" },
+                    { label: 'B) "Let\'s learn about who these players are, set voice chat to friends-only, and establish gaming time limits."', quality: "strongest" },
+                    { label: 'C) "Absolutely not. You can\'t talk to strangers online."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Smart. Don\'t ban it; manage it thoughtfully. Voice chat with strangers in games is a real safety risk.',
@@ -546,9 +555,9 @@ const practiceChallengData = {
                 scenario: 'You find out your 15-year-old has been trading in-game items worth hundreds of dollars with online strangers without your permission.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "You\'re grounded and losing all gaming privileges."', correct: false },
-                    { label: 'B) "Let\'s discuss why you did this, the financial risk, and how to handle money online going forward."', correct: true },
-                    { label: 'C) "Just be more careful next time. Don\'t get caught."', correct: false }
+                    { label: 'A) "You\'re grounded and losing all gaming privileges."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s discuss why you did this, the financial risk, and how to handle money online going forward."', quality: "strongest" },
+                    { label: 'C) "Just be more careful next time. Don\'t get caught."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect. Stay calm, understand their reasoning, and teach financial responsibility. This is a teaching moment.',
@@ -561,9 +570,9 @@ const practiceChallengData = {
                 scenario: 'Your 13-year-old was added to a group chat at school. Now there\'s an embarrassing rumor being spread about them. They\'re avoiding school.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "Just ignore them. Kids are mean. You\'ll get over it."', correct: false },
-                    { label: 'B) "Let\'s screenshot everything, talk to the school, and have a plan to keep you safe while we handle this."', correct: true },
-                    { label: 'C) "Delete social media so this doesn\'t happen again."', correct: false }
+                    { label: 'A) "Just ignore them. Kids are mean. You\'ll get over it."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s screenshot everything, talk to the school, and have a plan to keep you safe while we handle this."', quality: "strongest" },
+                    { label: 'C) "Delete social media so this doesn\'t happen again."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Excellent approach. Take cyberbullying seriously, document it, and involve school/authorities.',
@@ -576,9 +585,9 @@ const practiceChallengData = {
                 scenario: 'Your 11-year-old got a message from "a friend" asking for a photo. You\'re worried it might be a predator. Your child is upset you\'re questioning it.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) Force them to delete the app and forbid them from talking to that friend.', correct: false },
-                    { label: 'B) "I\'m concerned about your safety. Let\'s verify this is really your friend by asking them in person tomorrow."', correct: true },
-                    { label: 'C) "It\'s probably fine. If you trust them, it\'s okay."', correct: false }
+                    { label: 'A) Force them to delete the app and forbid them from talking to that friend.', quality: "higher-risk" },
+                    { label: 'B) "I\'m concerned about your safety. Let\'s verify this is really your friend by asking them in person tomorrow."', quality: "strongest" },
+                    { label: 'C) "It\'s probably fine. If you trust them, it\'s okay."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect balance! You\'re protecting them while respecting their autonomy and giving them a voice.',
@@ -591,9 +600,9 @@ const practiceChallengData = {
                 scenario: 'Your 16-year-old wants to be a TikTok creator and posts daily. You\'re concerned about privacy, but don\'t want to crush their dreams.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "Absolutely not. TikTok is dangerous. You can\'t post."', correct: false },
-                    { label: 'B) "Let\'s talk about what YOU want to share. Review privacy settings together. Agree on what\'s off-limits (family, home address, school, routines)."', correct: true },
-                    { label: 'C) "Go ahead. Just don\'t share anything too personal."', correct: false }
+                    { label: 'A) "Absolutely not. TikTok is dangerous. You can\'t post."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s talk about what YOU want to share. Review privacy settings together. Agree on what\'s off-limits (family, home address, school, routines)."', quality: "strongest" },
+                    { label: 'C) "Go ahead. Just don\'t share anything too personal."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great! Support their creativity while setting smart boundaries. This teaches digital citizenship.',
@@ -606,9 +615,9 @@ const practiceChallengData = {
                 scenario: 'Your 12-year-old comes to you scared: "Someone online told me to delete our messages or they\'ll tell everyone what I said." They\'re terrified.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "What did you say? You shouldn\'t be talking to strangers!"', correct: false },
-                    { label: 'B) "This isn\'t your fault. We\'re going to screenshot everything and report this. Let\'s get help together."', correct: true },
-                    { label: 'C) "Don\'t worry about it. They\'re just trying to scare you."', correct: false }
+                    { label: 'A) "What did you say? You shouldn\'t be talking to strangers!"', quality: "higher-risk" },
+                    { label: 'B) "This isn\'t your fault. We\'re going to screenshot everything and report this. Let\'s get help together."', quality: "strongest" },
+                    { label: 'C) "Don\'t worry about it. They\'re just trying to scare you."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Perfect. Normalize talking to you, don\'t shame them, and take action. This builds trust for future problems.',
@@ -621,9 +630,9 @@ const practiceChallengData = {
                 scenario: 'Your 14-year-old argues that "Everyone has their location on with their friends - why can\'t I?" You\'re worried about safety.',
                 context: 'Parent-kid scenario',
                 choices: [
-                    { label: 'A) "No. Turn off location sharing immediately."', correct: false },
-                    { label: 'B) "Let\'s talk about when location sharing is safe. Real friends vs. strangers. Emergency access vs. constant tracking."', correct: true },
-                    { label: 'C) "Fine, but only during school hours."', correct: false }
+                    { label: 'A) "No. Turn off location sharing immediately."', quality: "higher-risk" },
+                    { label: 'B) "Let\'s talk about when location sharing is safe. Real friends vs. strangers. Emergency access vs. constant tracking."', quality: "strongest" },
+                    { label: 'C) "Fine, but only during school hours."', quality: "higher-risk" }
                 ],
                 feedback: {
                     correct: 'Great! Location sharing with REAL friends in emergencies is different from constant tracking by strangers.',
@@ -686,8 +695,7 @@ function showScenario() {
     const container = document.getElementById('scenarioDisplay');
     container.innerHTML = `
         <div class="scenario-header">
-            <div class="scenario-progress">${currentScenarioIndex + 1} / ${challenge.scenarios.length}</div>
-            <div class="scenario-score">Score: ${score}/${challenge.scenarios.length}</div>
+            <div class="scenario-progress">Scenario ${currentScenarioIndex + 1} of ${challenge.scenarios.length}</div>
         </div>
 
         <div class="scenario-content">
@@ -699,7 +707,7 @@ function showScenario() {
 
             <div class="choices">
                 ${scenario.choices.map((choice, idx) => `
-                    <button class="choice-btn" onclick="submitAnswer(${idx}, ${scenario.choices[idx].correct})">
+                    <button class="choice-btn" onclick="submitAnswer(${idx}, '${scenario.choices[idx].quality}')">
                         ${choice.label}
                     </button>
                 `).join('')}
@@ -708,31 +716,48 @@ function showScenario() {
     `;
 }
 
-function submitAnswer(choiceIndex, isCorrect) {
+function submitAnswer(choiceIndex, quality) {
     if (!currentChallenge) return;
 
     const challenge = practiceChallengData[currentChallenge];
     const scenario = challenge.scenarios[currentScenarioIndex];
     const selectedChoice = scenario.choices[choiceIndex];
 
-    if (isCorrect) score++;
-
     scenariosAttempted.push({
         scenario: scenario.scenario,
         selected: selectedChoice.label,
-        correct: isCorrect,
+        quality: quality,
         feedback: scenario.feedback
     });
 
-    showFeedback(scenario.feedback, isCorrect);
+    showFeedback(scenario.feedback, quality);
 }
 
-function showFeedback(feedback, isCorrect) {
+function showFeedback(feedback, quality) {
     const container = document.getElementById('scenarioDisplay');
+
+    let qualityLabel = '';
+    let qualityColor = '';
+    let qualityIcon = '';
+
+    if (quality === 'strongest') {
+        qualityLabel = 'Strong choice';
+        qualityColor = '#2ecc71';
+        qualityIcon = '✓';
+    } else if (quality === 'worth-considering') {
+        qualityLabel = 'Worth considering';
+        qualityColor = '#f39c12';
+        qualityIcon = '→';
+    } else if (quality === 'higher-risk') {
+        qualityLabel = 'Higher-risk choice';
+        qualityColor = '#e74c3c';
+        qualityIcon = '⚠';
+    }
+
     container.innerHTML = `
-        <div class="feedback-box" style="border-left: 4px solid ${isCorrect ? '#2ecc71' : '#e74c3c'};">
-            <div class="feedback-header" style="color: ${isCorrect ? '#2ecc71' : '#e74c3c'};">
-                ${isCorrect ? '✓ Correct!' : '✗ Not quite'}
+        <div class="feedback-box" style="border-left: 4px solid ${qualityColor};">
+            <div class="feedback-header" style="color: ${qualityColor};">
+                ${qualityIcon} ${qualityLabel}
             </div>
 
             <div class="feedback-section">
@@ -741,7 +766,7 @@ function showFeedback(feedback, isCorrect) {
             </div>
 
             <div class="feedback-section">
-                <h3>Parent Discussion Tip</h3>
+                <h3>Talk It Through</h3>
                 <p><em>${feedback.parentTip}</em></p>
             </div>
 
@@ -765,32 +790,22 @@ function showSummary() {
 
     const challenge = practiceChallengData[currentChallenge];
     const totalScenarios = challenge.scenarios.length;
-    const percentage = Math.round((score / totalScenarios) * 100);
 
     const container = document.getElementById('scenarioDisplay');
     container.innerHTML = `
         <div class="summary-box">
             <h2>Challenge Complete!</h2>
 
-            <div class="score-display">
-                <div class="score-circle">${percentage}%</div>
-                <p>You got <strong>${score} out of ${totalScenarios}</strong> correct.</p>
-            </div>
-
-            <div class="summary-feedback">
-                ${percentage === 100
-                    ? '<p>Perfect! You\'re a digital safety expert!</p>'
-                    : percentage >= 80
-                    ? '<p>Excellent work! You know the key safety concepts.</p>'
-                    : percentage >= 60
-                    ? '<p>Good effort! Review the scenarios you missed and try again.</p>'
-                    : '<p>Keep practicing! Digital safety skills improve with exposure to real scenarios.</p>'
-                }
+            <div class="summary-feedback" style="margin: 2rem 0;">
+                <p>You worked through ${totalScenarios} real-world digital situations.</p>
+                <p>Digital safety isn't about getting a perfect score. It's about noticing patterns, understanding context, and thinking through your options.</p>
+                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-gray);">Want to practice more? Try another challenge or explore DigitalCap's guides and activities.</p>
             </div>
 
             <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-direction: column;">
                 <button class="btn btn-primary" onclick="tryAnotherChallenge()">Try Another Scenario</button>
                 <button class="btn btn-secondary" onclick="backToCategories()">Back to Challenges</button>
+                <button class="btn btn-secondary" onclick="backToLearn()">Back to Learn & Practice</button>
             </div>
         </div>
     `;
@@ -807,6 +822,10 @@ function backToCategories() {
     currentChallenge = null;
     document.getElementById('challengeCategories').style.display = 'grid';
     document.getElementById('challengeContainer').style.display = 'none';
+}
+
+function backToLearn() {
+    window.location.href = '/learn';
 }
 
 // Run initialization when page loads
