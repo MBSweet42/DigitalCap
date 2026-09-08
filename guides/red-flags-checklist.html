@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Flags Checklist - DigitalCap</title>
+    <title>Signs Online May Need Attention - DigitalCap</title>
     <style>
         * {
             margin: 0;
@@ -29,14 +29,14 @@
         .header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 4px solid #E74C3C;
+            border-bottom: 4px solid #4ECDC4;
             padding-bottom: 20px;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 800;
-            color: #E74C3C;
+            color: #4ECDC4;
             margin-bottom: 10px;
         }
 
@@ -61,84 +61,124 @@
             font-size: 16px;
             font-weight: 700;
             color: white;
-            background: #E74C3C;
+            background: #4ECDC4;
             padding: 10px 15px;
             border-radius: 6px;
             margin-bottom: 15px;
             margin-top: 20px;
         }
 
-        .flag-box {
-            background: #FFF5F5;
+        .intro-text {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .context-box {
+            background: #F0F8F8;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .context-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 8px;
+        }
+
+        .context-text {
+            font-size: 13px;
+            color: #636E72;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .sign-box {
+            background: #FFF8F0;
+            border-left: 4px solid #FF6B6B;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .sign-title {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .sign-description {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 8px;
+        }
+
+        .when-concerning {
+            background: white;
+            border-left: 2px solid #FF6B6B;
+            padding: 10px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #636E72;
+            border-radius: 4px;
+        }
+
+        .notice-box {
+            background: #FFF5F0;
+            border-left: 4px solid #FFB366;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .notice-label {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 8px;
+        }
+
+        .notice-text {
+            font-size: 13px;
+            color: #636E72;
+            line-height: 1.6;
+        }
+
+        .stronger-box {
+            background: #FFE8E8;
             border-left: 4px solid #E74C3C;
             padding: 15px;
             margin-bottom: 12px;
             border-radius: 6px;
         }
 
-        .checkbox {
-            width: 18px;
-            height: 18px;
-            min-width: 18px;
-            border: 2px solid #E74C3C;
-            border-radius: 3px;
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: top;
-            cursor: pointer;
-            accent-color: #E74C3C;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .flag-title {
+        .stronger-title {
             font-weight: 700;
-            color: #E74C3C;
-            margin-bottom: 5px;
-            font-size: 15px;
+            color: #C0392B;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
 
-        .flag-description {
+        .stronger-description {
             font-size: 13px;
             color: #2D3436;
             margin-bottom: 8px;
         }
 
-        .what-to-do {
+        .stronger-context {
             background: white;
-            border-left: 2px solid #FF6B6B;
+            border-left: 2px solid #E74C3C;
             padding: 10px;
             margin-top: 8px;
-            font-size: 12px;
-            color: #2D3436;
+            font-size: 13px;
+            color: #636E72;
             border-radius: 4px;
         }
 
-        .what-to-do-label {
-            font-weight: 600;
-            color: #FF6B6B;
-        }
-
-        .severity-badge {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .severity-high {
-            background: #FFE66D;
-            color: #E74C3C;
-        }
-
-        .severity-medium {
-            background: #E8D4F1;
-            color: #7B2D8E;
-        }
-
-        .emergency-box {
+        .crisis-box {
             background: #FFE66D;
             border: 2px solid #E74C3C;
             padding: 20px;
@@ -146,24 +186,31 @@
             margin-top: 20px;
         }
 
-        .emergency-title {
+        .crisis-title {
             font-size: 14px;
             font-weight: 700;
             color: #E74C3C;
             margin-bottom: 10px;
         }
 
-        .emergency-text {
+        .crisis-text {
             font-size: 13px;
             color: #2D3436;
             margin-bottom: 8px;
         }
 
-        .emergency-number {
-            font-size: 14px;
+        .crisis-item {
+            font-size: 13px;
+            color: #2D3436;
+            margin-bottom: 6px;
+            margin-left: 20px;
+        }
+
+        .crisis-resources {
+            font-size: 13px;
             font-weight: 700;
             color: #E74C3C;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
         @media print {
@@ -183,130 +230,301 @@
     <div class="container">
         <div class="header">
             <div class="logo">DigitalCap</div>
-            <div class="title">🚩 Red Flags Checklist</div>
-            <div class="subtitle">Warning signs that something might be wrong online. Keep this handy and trust your gut.</div>
+            <div class="title">Signs Something Online May Need Attention</div>
+            <div class="subtitle">Some changes are normal. Others may point to pressure, exploitation, bullying, or crisis. Context matters.</div>
         </div>
 
         <div class="section">
-            <div class="section-title">BEHAVIORAL RED FLAGS</div>
+            <div class="section-title">UNDERSTANDING CONTEXT</div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Secretive behavior with devices</div>
-                <div class="flag-description">Your child quickly closes apps or hides their screen when you walk by. Uses passwords you don't know about. Gets defensive when asked about what they're doing online.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Have a calm conversation. It could be innocent (they like privacy) or serious (they're hiding something). Ask gently: "I noticed you close your screen. Is everything okay?"
-                </div>
+            <p class="intro-text">
+                A single behavior does not automatically mean something harmful is happening. Many normal activities can look concerning without context.
+            </p>
+
+            <div class="context-box">
+                <div class="context-label">Examples that may be normal on their own:</div>
+                <div class="context-text">• Wanting more privacy with devices</div>
+                <div class="context-text">• Making new online friends</div>
+                <div class="context-text">• Spending more time online</div>
+                <div class="context-text">• Being annoyed when interrupted</div>
+                <div class="context-text">• Changes in interests</div>
+                <div class="context-text">• Using devices late occasionally</div>
+                <div class="context-text">• Receiving gifts or items in games or communities</div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Extreme mood swings related to device use</div>
-                <div class="flag-description">Your child is happy while online but angry, anxious, or sad when they have to stop. They cry or throw tantrums when devices are taken away. They seem obsessed with checking their phone.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> This suggests possible addiction or cyberbullying. Reduce screen time gradually. Talk to your pediatrician if the behavior continues.
-                </div>
-            </div>
+            <p class="intro-text">
+                These behaviors may deserve a conversation or observation, but not immediate alarm.
+            </p>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Sleep problems, especially refusing to put down their phone</div>
-                <div class="flag-description">Your child stays up past midnight on their device. They're exhausted but refuse to stop. They sneak their phone into bed. Their grades are declining due to sleep deprivation.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Enforce a no-screens-in-bedroom rule. Use parental controls to disable internet after bedtime. This is often a sign of addiction.
-                </div>
-            </div>
+            <p class="intro-text">
+                More concerning patterns to look for:
+            </p>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-medium">⚠️ MEDIUM CONCERN</div>
-                <div class="flag-title">Neglecting real-world activities</div>
-                <div class="flag-description">Your child has stopped playing sports, seeing friends in person, or doing hobbies they used to love. They only want to be online. Their grades are dropping.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Have a conversation about balance. Consider reducing screen time and encouraging offline activities.
-                </div>
+            <div class="context-box">
+                <div class="context-text">• Sudden changes in behavior or mood</div>
+                <div class="context-text">• Signs of fear or distress around online interactions</div>
+                <div class="context-text">• Secrecy that appears connected to pressure from another person</div>
+                <div class="context-text">• Requests to hide a relationship or conversation</div>
+                <div class="context-text">• Multiple concerning signs occurring together</div>
+                <div class="context-text">• Requests for sexual content or personal information</div>
+                <div class="context-text">• Demands, threats, or manipulation</div>
+                <div class="context-text">• Evidence that someone is not who they claim to be</div>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-title">SOCIAL RED FLAGS</div>
+            <div class="section-title">SOMETHING TO NOTICE</div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">New online "friends" you've never heard of</div>
-                <div class="flag-description">Your child suddenly has new friends from online. They don't know them in real life. They spend a lot of time chatting with them privately. You've never video called to verify they're real kids.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Ask to meet these friends via video call. Ask your child questions about them. Adults posing as kids is common—trust your instincts.
+            <p class="intro-text">
+                These behaviors can have many normal explanations. They deserve a calm conversation or closer attention, but not automatic alarm. Look for context and patterns.
+            </p>
+
+            <div class="notice-box">
+                <div class="notice-label">Wanting More Privacy</div>
+                <div class="notice-text">
+                    Seeking privacy with devices is normal and developmentally appropriate. Concern increases if the privacy appears connected to fear, pressure from another person, sudden distress, or repeated attempts to conceal contact that seems harmful.
                 </div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Receiving gifts or money from online friends</div>
-                <div class="flag-description">An online "friend" is sending your child gift cards, money, or buying them in-game items. They're being unusually nice or generous.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> This is a classic grooming tactic. DO NOT accept the gifts. Block the person immediately. Report them to the platform. Tell law enforcement if this continues.
+            <div class="notice-box">
+                <div class="notice-label">New Online Friends or Communities</div>
+                <div class="notice-text">
+                    Making friends in gaming, school communities, shared interests, hobbies, and online spaces is common. This becomes more concerning if someone pressures the person to keep the relationship secret, move conversations to private or disappearing channels, share personal information, send images, or avoid telling trusted adults.
                 </div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Being asked to keep secrets from parents</div>
-                <div class="flag-description">An online person is asking your child not to tell you about them. Phrases like "your parents wouldn't understand" or "this is just between us" are RED FLAGS.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> This is grooming behavior. Block immediately. Report to law enforcement if the person is sexual in nature.
+            <div class="notice-box">
+                <div class="notice-label">Spending More Time Online</div>
+                <div class="notice-text">
+                    More online time has many explanations: new friends, school projects, hobbies, games, learning, or connection to communities. It becomes concerning if time online regularly prevents sleep, schoolwork, relationships, or daily responsibilities, or if someone seems distressed about their own use but cannot stop.
                 </div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Being cyberbullied or sent mean messages</div>
-                <div class="flag-description">Your child receives hurtful comments, threats, or rumors about them spread online. They're being excluded or ganged up on. They mention wanting to hurt themselves.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Screenshot everything. Report to the platform. Contact school if bullies are classmates. If self-harm is mentioned, call 988 (Suicide & Crisis Lifeline) immediately.
+            <div class="notice-box">
+                <div class="notice-label">Mood Changes Around Online Interactions</div>
+                <div class="notice-text">
+                    Mood can be affected by online interactions. This is common in friendships, gaming, social media, and community spaces. More concerning patterns include intense distress after specific messages, fear of a particular person, panic when contacted, or persistent withdrawal combined with evidence of bullying or threats.
                 </div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-medium">⚠️ MEDIUM CONCERN</div>
-                <div class="flag-title">Constant comparison and low self-esteem</div>
-                <div class="flag-description">Your child compares themselves to others online. They're anxious about likes and comments. They say negative things about themselves: "I'm ugly," "Nobody likes me."</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Consider limiting time on comparison-heavy apps (Instagram, TikTok). Talk about how social media is a highlight reel, not reality.
+            <div class="notice-box">
+                <div class="notice-label">Receiving Gifts or Items</div>
+                <div class="notice-text">
+                    Receiving gifts, gift cards, in-game items, or money from online friends can be normal in gaming, communities, and friendships. This becomes more concerning if gifts are tied to pressure for secrecy, personal information, sexual content, promises of repayment, demands, or attempts to move the relationship to private channels.
+                </div>
+            </div>
+
+            <div class="notice-box">
+                <div class="notice-label">Changes in Sleep or Energy</div>
+                <div class="notice-text">
+                    Sleep changes have many causes: development, school schedule, activities, excitement, stress, or content that is engaging or upsetting. If online activity is consistently keeping someone awake, disrupting sleep, causing distress, or someone feels they cannot stop despite wanting to, that is worth addressing together.
+                </div>
+            </div>
+
+            <div class="notice-box">
+                <div class="notice-label">Self-Consciousness About Appearance or Popularity</div>
+                <div class="notice-text">
+                    Comparison and self-consciousness about how people look or how many likes a post receives are common on social media, especially during adolescence. This becomes more concerning if it causes persistent distress, interferes with daily functioning, or is combined with signs of bullying, exclusion, or deliberate cruelty from peers.
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-title">CONTENT RED FLAGS</div>
+            <div class="section-title">STRONGER WARNING SIGNS</div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Accessing or sharing sexual content</div>
-                <div class="flag-description">You find images, videos, or text of a sexual nature. Your child is sending or receiving nudes. They're being pressured to share intimate photos.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Do not delete evidence. Contact local law enforcement immediately. This is a federal crime if minors are involved.
+            <p class="intro-text">
+                These behaviors more directly indicate pressure, exploitation, coercion, or immediate harm. They deserve prompt attention and may require escalation to adults, professionals, or authorities.
+            </p>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Pressure to Keep a Relationship Secret</div>
+                <div class="stronger-description">
+                    Someone asks the person not to tell trusted adults about them. Phrases like "your parents wouldn't understand" or "this is just between us" can be a warning sign of grooming behavior.
+                </div>
+                <div class="stronger-context">
+                    Action: Prioritize conversation. Ask calm questions. Do not make the person feel ashamed. If the relationship involves an unknown adult, that is a specific concern.
                 </div>
             </div>
 
-            <div class="flag-box">
-                <div class="severity-badge severity-high">⚠️ HIGH CONCERN</div>
-                <div class="flag-title">Watching concerning or disturbing content</div>
-                <div class="flag-description">You notice your child watching violent, graphic, or disturbing videos. They're seeking content related to self-harm or eating disorders.</div>
-                <div class="what-to-do">
-                    <span class="what-to-do-label">What to do:</span> Use parental controls to block the content. Have a conversation about why it's harmful. If they're expressing self-harm thoughts, contact a mental health professional.
+            <div class="stronger-box">
+                <div class="stronger-title">Requests for Personal Information or Images</div>
+                <div class="stronger-description">
+                    Someone asks for home address, school name, phone number, full name, location, or intimate images. This can be a warning sign of exploitation or grooming.
+                </div>
+                <div class="stronger-context">
+                    Action: Do not provide the information or images. Block and report the person. Talk with a trusted adult or contact the National Center for Missing & Exploited Children's CyberTipline.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Sexual Contact, Solicitation, or Pressure</div>
+                <div class="stronger-description">
+                    Someone sends sexual messages, images, or video; asks the person to send intimate photos or videos; or pressures them to engage in sexual conversation or activity online.
+                </div>
+                <div class="stronger-context">
+                    Action: Do not delete evidence. Report to the platform and to the National Center for Missing & Exploited Children's CyberTipline immediately. Contact local law enforcement. This is a federal crime if minors are involved.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Threats to Share Content or Personal Information</div>
+                <div class="stronger-description">
+                    Someone threatens to share intimate images, embarrassing photos, or personal information unless the person complies with demands (money, more images, silence about the relationship, etc.). This is sextortion or blackmail.
+                </div>
+                <div class="stronger-context">
+                    Action: Do not pay money or comply with demands. Save all evidence. Report to the platform, law enforcement, and the FBI's Internet Crime Complaint Center (IC3). Contact the National Center for Missing & Exploited Children's CyberTipline.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Demands for Money or Payment</div>
+                <div class="stronger-description">
+                    Someone asks for money, gift cards, or payment in exchange for keeping the relationship secret, returning content, not sharing information, or continuing the friendship.
+                </div>
+                <div class="stronger-context">
+                    Action: Do not send money. This is extortion. Report to law enforcement and the platform. Contact the FBI's IC3.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Deceptive Behavior or Impersonation</div>
+                <div class="stronger-description">
+                    Someone claims to be a peer (another kid, a friend, a classmate) but evidence suggests they are an adult or not who they claim. Examples: age inconsistencies, stories that don't match, video calls revealing someone older, using photos that are not theirs, or behavior that escalates to romantic or sexual content.
+                </div>
+                <div class="stronger-context">
+                    Action: End contact. Do not agree to in-person meetings. Report to the platform. Talk with a trusted adult or contact the National Center for Missing & Exploited Children's CyberTipline.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Plans for Secret In-Person Meetings</div>
+                <div class="stronger-description">
+                    Someone the person has only met online wants to meet in person but asks them to keep it secret from trusted adults or to go alone.
+                </div>
+                <div class="stronger-context">
+                    Action: Do not agree to meet alone. Tell a trusted adult immediately. If someone is pressuring this, that is a warning sign of potential exploitation.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Threats, Intimidation, or Coercion</div>
+                <div class="stronger-description">
+                    Someone threatens harm to the person, their family, their reputation, or their safety. Or someone repeatedly tries to control who they talk to, what they do, or what they share.
+                </div>
+                <div class="stronger-context">
+                    Action: Take threats seriously. If there is a credible threat of immediate harm, contact 911. For ongoing threats, save evidence and report to law enforcement.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Bullying, Harassment, or Exclusion</div>
+                <div class="stronger-description">
+                    Someone repeatedly sends hurtful messages, spreads rumors, excludes the person from communities, or tries to damage their reputation or relationships.
+                </div>
+                <div class="stronger-context">
+                    Action: Screenshot evidence. Block and report the person on the platform. If bullies are classmates, involve school. For DigitalCap's full guidance on how to respond, see our "Something Happened?" guide.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Self-Harm or Suicidal Thoughts</div>
+                <div class="stronger-description">
+                    The person talks about wanting to hurt themselves or die. They mention suicide, cutting, or other self-harm. This may be connected to bullying, pressure online, or other crisis.
+                </div>
+                <div class="stronger-context">
+                    Action: Take this seriously. Call the 988 Suicide & Crisis Lifeline immediately (call or text 988). If there is immediate physical danger, call 911. Connect the person with a mental health professional or emergency services.
+                </div>
+            </div>
+
+            <div class="stronger-box">
+                <div class="stronger-title">Threats of Harm to Others</div>
+                <div class="stronger-description">
+                    The person says they want to hurt, harm, or threaten another person. Or someone online is threatening to harm them or others.
+                </div>
+                <div class="stronger-context">
+                    Action: If there is a credible threat of immediate harm, call 911. Report to law enforcement. Report the threat to the platform.
                 </div>
             </div>
         </div>
 
-        <div class="emergency-box">
-            <div class="emergency-title">🚨 IF YOU SEE THESE, ACT IMMEDIATELY:</div>
-            <div class="emergency-text">
-                ✓ Sexual contact with minors or attempted contact<br/>
-                ✓ Threats of violence or harm<br/>
-                ✓ Child is being blackmailed or extorted<br/>
-                ✓ Child is expressing suicidal thoughts
+        <div class="section">
+            <div class="crisis-box">
+                <div class="crisis-title">🚨 IMMEDIATE CRISIS SITUATIONS</div>
+
+                <div class="crisis-text">
+                    Contact emergency services or crisis resources immediately in these situations:
+                </div>
+
+                <div class="crisis-item">
+                    ✓ Someone is in immediate physical danger
+                </div>
+
+                <div class="crisis-item">
+                    ✓ The person is talking about suicide or self-harm
+                </div>
+
+                <div class="crisis-item">
+                    ✓ There is a credible threat of violence
+                </div>
+
+                <div class="crisis-item">
+                    ✓ The person is being sexually exploited or abused
+                </div>
+
+                <div class="crisis-item">
+                    ✓ The person is being extorted or blackmailed
+                </div>
+
+                <div class="crisis-item">
+                    ✓ A child is experiencing contact from someone who may be attempting sexual exploitation or grooming
+                </div>
+
+                <div class="crisis-resources">
+                    <strong>CALL 911</strong> for immediate danger or emergency
+                    <br/><br/>
+                    <strong>Call or text 988</strong> (Suicide & Crisis Lifeline) for suicide or self-harm thoughts
+                    <br/><br/>
+                    <strong>Report to CyberTipline.org</strong> (National Center for Missing & Exploited Children) for child exploitation or abuse
+                    <br/><br/>
+                    <strong>Report to IC3.gov</strong> (FBI Internet Crime Complaint Center) for extortion, blackmail, or fraud
+                </div>
             </div>
-            <div class="emergency-number">CONTACT LAW ENFORCEMENT: 911 or your local police department<br/>NATIONAL CENTER FOR MISSING & EXPLOITED CHILDREN: CyberTipline.org<br/>SUICIDE CRISIS: Call 988</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">CONVERSATIONS, NOT SURVEILLANCE</div>
+
+            <p class="intro-text">
+                When you notice something concerning, a calm conversation is usually more effective than surveillance, punishment, or control. A few approaches:
+            </p>
+
+            <div class="context-box">
+                <div class="context-label">Start with curiosity, not accusations:</div>
+                <div class="context-text">
+                    "I noticed you seem upset after checking your messages. Is everything okay?" is better than "I know you're hiding something."
+                </div>
+            </div>
+
+            <div class="context-box">
+                <div class="context-label">Make it safe to tell you:</div>
+                <div class="context-text">
+                    If the person tells you about something concerning, your first job is to stay calm and make them feel safe, not to punish them for telling you. You can address the situation after they feel supported.
+                </div>
+            </div>
+
+            <div class="context-box">
+                <div class="context-label">Help them identify what is and isn't okay:</div>
+                <div class="context-text">
+                    "No one should ask you to keep a relationship secret from me" or "It's not okay for someone to ask for your photos" gives clear information without shame.
+                </div>
+            </div>
+
+            <div class="context-box">
+                <div class="context-label">Involve professionals when needed:</div>
+                <div class="context-text">
+                    For serious concerns (threats, exploitation, self-harm, crisis), involve appropriate professionals: school counselors, mental health providers, law enforcement, or crisis services.
+                </div>
+            </div>
         </div>
     </div>
 </body>
