@@ -203,20 +203,19 @@
 
         .guide-back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 0;
+            background: none;
+            border: none;
             color: var(--primary);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .guide-back-link:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -287,52 +286,54 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>ChatGPT Privacy & Controls</h1>
-            <p class="guide-description">ChatGPT has separate controls for model improvement, Memory, Temporary Chat and connected apps. Understanding the difference makes the settings much easier to use.</p>
-            <div class="guide-verified">Last verified: September 2026</div>
-            <div class="settings-notice">ChatGPT features and settings change. This guide reflects settings verified in September 2026.</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">ChatGPT Privacy & Controls</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">ChatGPT has separate controls for model improvement, Memory, Temporary Chat and connected apps. Understanding the difference makes the settings much easier to use.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Verified September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">ChatGPT features and settings change. This guide reflects settings verified in September 2026.</p>
         </div>
 
-        <!-- Section 1: What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What Is This?</h2>
-            <p>When people ask:</p>
-            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"Does ChatGPT use my information?"</p>
-            <p>they may actually be asking several different questions.</p>
-            <p>For example:</p>
-            <ul>
-                <li>Is my conversation stored?</li>
-                <li>Does it appear in my history?</li>
-                <li>Can ChatGPT remember information for future chats?</li>
-                <li>Can it use my conversation to improve models?</li>
-                <li>Can it access another app I've connected?</li>
-                <li>Does my workplace have different rules?</li>
-            </ul>
-            <div class="guide-callout">
-                <h4>Key insight</h4>
-                <p>Those are not all the same thing.</p>
-            </div>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>"Does ChatGPT use my information?" is more than one question</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">When you ask this, you might mean: Is it stored? Is it in my history? Can it remember it? Can it train models with it? Can it access my connected apps? The answer depends on which setting you're asking about.</p>
+
+            <h3>ChatGPT has separate controls for different purposes</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;"><strong>Model Improvement:</strong> Whether new chats train OpenAI's models. <strong>Memory:</strong> Whether ChatGPT remembers past context. <strong>Temporary Chat:</strong> For conversations that don't affect your history. <strong>Connected Apps:</strong> Access to your email, calendar, or other services.</p>
+
+            <h3>Turning one setting off doesn't automatically turn off another</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Disabling Model Improvement doesn't disable Memory. Disabling Memory doesn't disable app access. Understanding these separate controls gives you more precise choices.</p>
+
+            <h3>Your account type matters</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;">Personal accounts, workplace accounts, and school accounts have different default settings and protections. Check which account you're using.</p>
         </div>
 
-        <!-- Section 2: Model Improvement -->
+        <!-- Want More Help? -->
         <div class="guide-section">
-            <h2>Model Improvement</h2>
-            <p>For personal ChatGPT accounts, OpenAI currently provides a setting called:</p>
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: Model Improvement -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Model Improvement (Improve the Model for Everyone)</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>For personal ChatGPT accounts, OpenAI provides a setting called:</p>
             <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">Improve the Model for Everyone</p>
             <p>You can manage it in <strong>Settings → Data Controls</strong>.</p>
+
+            <h3>What it does</h3>
             <p>If you turn it off, OpenAI says new conversations can still appear in your chat history but are not used to train ChatGPT.</p>
+
             <div class="guide-callout">
                 <h4>Important distinction</h4>
                 <p><strong>Chat history and model improvement are separate controls.</strong></p>
             </div>
 
-            <h3>What You May Have Heard</h3>
-            <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">"ChatGPT trains on everything you say."</p>
-
-            <h3>What's Actually Happening</h3>
+            <h3>What's actually happening</h3>
             <p>Not universally. How information is used depends on:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>your account type</li>
                 <li>your settings</li>
                 <li>what feature you're using</li>
@@ -340,40 +341,54 @@
                 <li>whether information comes through certain connected apps</li>
                 <li>whether you submit feedback</li>
             </ul>
-            <p>For personal accounts, users can turn off model improvement. OpenAI also says Business, Enterprise and Edu workspace data is not used to train generalized models by default.</p>
-        </div>
 
-        <!-- Section 3: Memory -->
-        <div class="guide-section">
-            <h2>Memory</h2>
-            <p>Memory is another separate feature.</p>
+            <p>For personal accounts, users can turn off model improvement. OpenAI also says Business, Enterprise and Edu workspace data is not used to train generalized models by default.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: Memory -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Memory</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>Memory is a separate feature from model training.</p>
+
+            <h3>What Memory does</h3>
             <p>When enabled, Memory can help ChatGPT use useful context from:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>chats</li>
                 <li>files</li>
                 <li>connected apps</li>
             </ul>
+
             <p>to personalize future responses. That might include things like:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>a project you're working on</li>
                 <li>your preferences</li>
                 <li>recurring context</li>
                 <li>information you don't want to explain repeatedly</li>
             </ul>
+
             <p>Memory is managed through <strong>Settings → Personalization → Memory</strong>.</p>
+
+            <h3>Memory vs. Training</h3>
             <p>Turning model improvement off does not automatically mean Memory is off. Turning Memory off does not automatically mean model improvement is off.</p>
+
             <div class="guide-callout">
                 <h4>Key distinction</h4>
                 <p><strong>Memory and model training are different questions.</strong></p>
             </div>
-        </div>
+                </div>
+            </details>
 
-        <!-- Section 4: Temporary Chat -->
-        <div class="guide-section">
-            <h2>Temporary Chat</h2>
+            <!-- Expandable: Temporary Chat -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Temporary Chat</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Temporary Chat gives you another way to control how a particular conversation is handled.</p>
-            <p>As of September 2026, a Temporary Chat:</p>
-            <ul>
+
+            <h3>What it does (as of September 2026)</h3>
+            <p>A Temporary Chat:</p>
+            <ul style="margin-left: 1rem;">
                 <li>is not used to improve OpenAI's models while it remains temporary</li>
                 <li>does not create new memories</li>
                 <li>can be retained for up to 30 days for safety purposes</li>
@@ -382,111 +397,126 @@
 
             <h3>Expanded Temporary Chat Controls</h3>
             <p>OpenAI expanded Temporary Chat controls in August 2026. You may now be able to choose whether a Temporary Chat uses existing personalization such as:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>Memory</li>
                 <li>custom instructions</li>
                 <li>connected plugins/apps</li>
             </ul>
+
             <p>A personalized Temporary Chat can use existing information without creating new memories.</p>
+
             <div class="guide-callout">
                 <h4>Important distinction</h4>
                 <p><strong>Temporary does not always mean ChatGPT starts with no information about you. It depends on whether personalization is enabled for that Temporary Chat.</strong></p>
             </div>
 
-            <h3>If You Save a Temporary Chat</h3>
-            <p>If you choose to save one, OpenAI converts it into a regular conversation. It then follows your normal account:</p>
-            <ul>
+            <h3>If you save a Temporary Chat</h3>
+            <p>If you choose to save one, OpenAI converts it into a regular conversation. It then follows your normal account settings for:</p>
+            <ul style="margin-left: 1rem;">
                 <li>history</li>
                 <li>personalization</li>
                 <li>Memory</li>
                 <li>model-improvement settings</li>
             </ul>
-            <p>So "temporary" describes how the conversation is handled while it remains temporary.</p>
-        </div>
 
-        <!-- Section 5: Connected Apps and Data -->
-        <div class="guide-section">
-            <h2>Connected Apps and Your Data</h2>
+            <p>"Temporary" describes how the conversation is handled while it remains temporary.</p>
+                </div>
+            </details>
 
+            <!-- Expandable: Connected Apps -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Connected Apps and Your Data</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <h3>General Connected Apps</h3>
-            <p>ChatGPT can connect to supported external services. Depending on the feature and account, those may include things like:</p>
-            <ul>
+            <p>ChatGPT can connect to supported external services. Depending on the feature and account, those may include:</p>
+            <ul style="margin-left: 1rem;">
                 <li>email</li>
                 <li>calendars</li>
                 <li>contacts</li>
                 <li>cloud storage</li>
                 <li>workplace or productivity services</li>
             </ul>
+
             <p>Connecting an app lets ChatGPT work with eligible information from that service. That is separate from the question of whether the information trains a generalized model.</p>
 
-            <h3>Connected Google Apps</h3>
+            <h3>Special handling for Google Apps</h3>
             <p>OpenAI currently gives data directly accessed from connected Google apps special treatment. OpenAI says it does <strong>not</strong> train generalized models directly on data accessed from connected Google apps, even when <strong>Improve the Model for Everyone</strong> is on, except in specific situations such as:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>the user submitting feedback</li>
                 <li>manually copying, pasting or uploading the information</li>
                 <li>certain information becoming part of a generated response</li>
             </ul>
+
             <p>Policies can change, so this should be rechecked periodically.</p>
+
             <div class="guide-callout">
                 <h4>Core principle</h4>
                 <p><strong>Access and training are separate questions.</strong></p>
             </div>
 
-            <h3>Can Connected Information Affect Memory?</h3>
+            <h3>Can connected information affect Memory?</h3>
             <p>Potentially. If Memory is enabled, OpenAI says eligible information from connected services may be used to personalize ChatGPT, subject to settings and feature-specific rules.</p>
-            <p>Again:</p>
-            <ul>
+
+            <p>Remember:</p>
+            <ul style="margin-left: 1rem;">
                 <li>app access</li>
                 <li>Memory</li>
                 <li>model improvement</li>
             </ul>
-            <p>are different controls.</p>
-        </div>
 
-        <!-- Section 6: Work and School -->
-        <div class="guide-section">
-            <h2>Work and School Accounts</h2>
-            <p>If you use ChatGPT through:</p>
-            <ul>
-                <li>work</li>
-                <li>school</li>
-                <li>an organization</li>
-            </ul>
-            <p>your workspace may have different privacy protections or administrator-controlled settings.</p>
+            <p>are different controls.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: Work and School -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Work and School Accounts</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>If you use ChatGPT through work, school, or an organization, your workspace may have different privacy protections or administrator-controlled settings.</p>
+
+            <h3>Workspace data protection</h3>
             <p>OpenAI states that Business, Enterprise and Edu data is not used to train its generalized models by default. Organizations may also control:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>available apps</li>
                 <li>sharing</li>
                 <li>retention</li>
                 <li>permissions</li>
                 <li>workspace features</li>
             </ul>
-            <p>Always check which account or workspace you are using.</p>
-        </div>
 
-        <!-- Section 7: Public Sharing -->
-        <div class="guide-section">
-            <h2>Public Sharing</h2>
+            <p><strong>Always check which account or workspace you are using.</strong></p>
+                </div>
+            </details>
+
+            <!-- Expandable: Public Sharing -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Public Sharing</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>ChatGPT can create shareable versions of conversations. Before sharing one, review what is included.</p>
-            <p>A conversation may contain:</p>
-            <ul>
+
+            <h3>What gets shared</h3>
+            <p>A shared conversation link includes everything in that conversation:</p>
+            <ul style="margin-left: 1rem;">
                 <li>names</li>
                 <li>personal details</li>
                 <li>uploaded information</li>
                 <li>work information</li>
                 <li>things you forgot were earlier in the conversation</li>
             </ul>
+
             <div class="guide-callout">
                 <h4>Remember</h4>
                 <p><strong>Private conversation + public share button = potentially public information.</strong></p>
             </div>
-        </div>
+                </div>
+            </details>
 
-        <!-- Section 8: Choices and Checklist -->
-        <div class="guide-section">
-            <h2>What Choices Do I Have?</h2>
+            <!-- Expandable: Your Settings Checklist -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Your Settings Checklist</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Depending on your account, you may be able to:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>turn model improvement on or off</li>
                 <li>enable or disable Memory</li>
                 <li>review your Memory summary</li>
@@ -499,22 +529,22 @@
                 <li>manage sharing</li>
             </ul>
 
-            <h3>What Changes If I Turn Things Off?</h3>
-            <p>Different settings do different things.</p>
+            <h3>What changes when you turn things off?</h3>
+            <p>Different settings do different things:</p>
 
-            <h3>Turn Off "Improve the Model for Everyone"</h3>
+            <h4>Turn Off "Improve the Model for Everyone"</h4>
             <p>Your regular conversations can remain in history, but new chats are not used for model improvement.</p>
 
-            <h3>Turn Off Memory</h3>
+            <h4>Turn Off Memory</h4>
             <p>ChatGPT stops using Memory to personalize future conversations according to your current Memory settings.</p>
 
-            <h3>Use Temporary Chat</h3>
+            <h4>Use Temporary Chat</h4>
             <p>The conversation is handled separately from normal chats and is not used to improve models while temporary.</p>
 
-            <h3>Disconnect an App</h3>
+            <h4>Disconnect an App</h4>
             <p>ChatGPT loses future access through that connection, though disconnecting an app does not necessarily remove information already present elsewhere.</p>
 
-            <h3>Your Settings Checklist</h3>
+            <h3>Quick decision points</h3>
             <div class="guide-callout">
                 <h4>MODEL</h4>
                 <p>Do I want new chats used for model improvement?</p>
@@ -539,24 +569,28 @@
                 <h4>SHARE</h4>
                 <p>Am I creating a link someone else can open?</p>
             </div>
-        </div>
 
-        <!-- Section 9: Put It in Context -->
-        <div class="guide-section">
-            <h2>Put It in Context</h2>
+            <h3>Put it in context</h3>
             <p>"Does ChatGPT use my data?" is too broad a question to have one simple answer.</p>
+
             <p>A better question is:</p>
+
             <p style="margin: 1rem 0; font-weight: 600; padding-left: 1rem; border-left: 4px solid var(--secondary);">What information is being used, for what purpose, under which setting?</p>
+
             <div class="guide-callout">
                 <h4>Core principle</h4>
                 <p><strong>Training, storage, history, Memory, connected apps and sharing are different things.</strong></p>
             </div>
+
             <p>Understanding that gives you much more control than simply choosing between:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>"AI is private"</li>
                 <li>"Everything I type becomes public."</li>
             </ul>
+
             <p>Neither is a useful description of how the system actually works.</p>
+                </div>
+            </details>
         </div>
 
         <!-- Sources Section -->

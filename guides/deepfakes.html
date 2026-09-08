@@ -277,19 +277,42 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>Deepfakes: Photos, Video & Audio</h1>
-            <p class="guide-description">AI can create incredibly convincing photos, video and audio. You don't need to become an expert at spotting every fake. You need to know what to check when something matters.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">Deepfakes: Photos, Video & Audio</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">AI can create incredibly convincing photos, video and audio. You don't need to become an expert at spotting every fake. You need to know what to check when something matters.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>AI-generated photos, video, and audio are getting more convincing</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Deepfakes can realistically imitate or alter people, objects, places and events. Detection accuracy drops 45-50% between lab conditions and real-world use.</p>
+
+            <h3>Visual clues aren't reliable proof</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Finger counting, teeth-checking, and blinking analysis can't reliably distinguish real from AI-generated media. Both can look strange for legitimate reasons.</p>
+
+            <h3>Check the story, not just the image</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Ask: Who posted this? Is there a longer version? Did the supposed event happen? Are credible sources reporting it? A realistic image doesn't prove the story attached to it.</p>
+
+            <h3>A familiar voice is not verification</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;">Audio can be generated or manipulated. Verify through independent channels when messages involve money, emergencies, passwords, or urgent requests.</p>
+        </div>
+
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: What deepfakes are -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What deepfakes are and why they're getting harder to spot</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>A deepfake is manipulated or synthetic media made using AI to realistically imitate or alter a person, object, place or event.</p>
 
             <p>Deepfakes can involve:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>photos</li>
                 <li>video</li>
                 <li>voices</li>
@@ -298,11 +321,113 @@
                 <li>events that never happened</li>
             </ul>
 
-            <p>Some are created for entertainment, art, satire or accessibility.</p>
+            <p>Some are created for entertainment, art, satire or accessibility. Others may be used to mislead, impersonate, embarrass, harass or scam someone. The technology itself doesn't tell you the intent.</p>
 
-            <p>Others may be used to mislead, impersonate, embarrass, harass or scam someone.</p>
+            <h3>Why they're getting harder to spot</h3>
+            <p>AI-generated media has improved quickly. You may have heard advice like "Count the fingers," "Look at the teeth," "Watch whether they blink," or "Check the ears."</p>
 
-            <p>The technology itself doesn't tell you the intent.</p>
+            <p>Those clues have sometimes helped identify poorly generated content. But they are <strong>not reliable proof</strong> that something is real or fake.</p>
+
+            <p>AI systems improve. Images get edited. Videos get compressed. Real photographs can contain strange lighting, blur and visual artifacts too.</p>
+
+            <p>NIST's 2026 deepfake work reports that current detection systems can experience a 45–50% drop in accuracy when moving from academic benchmarks to operational environments.</p>
+
+            <p>That means the goal shouldn't be: <strong>Can I spot the AI?</strong></p>
+
+            <p>A better question is: <strong>Can I verify what I'm being shown?</strong></p>
+                </div>
+            </details>
+
+            <!-- Expandable: Key principles -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What you should know about deepfakes</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>A realistic image is not proof that something happened</h3>
+            <p>A convincing photo or video can be generated, altered or shown without its original context.</p>
+
+            <h3>But the opposite matters too</h3>
+            <h3>A strange-looking image is not proof that AI made it</h3>
+            <p>Visual clues can give you a reason to investigate. They shouldn't be the entire investigation.</p>
+
+            <p>UNESCO has similarly argued that education around deepfakes needs to move beyond simply detecting synthetic media toward broader skills for evaluating information and establishing what is trustworthy.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: Check the story -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Check the story, not just the image</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>Suppose you see a video claiming a public figure said something shocking.</p>
+
+            <p>Instead of zooming in on their fingers for twenty minutes, ask:</p>
+            <ul style="margin-left: 1rem;">
+                <li>Who originally posted this?</li>
+                <li>Is there a longer version?</li>
+                <li>Did the supposed event actually happen?</li>
+                <li>Are credible sources reporting it?</li>
+                <li>Can I find the original recording?</li>
+                <li>Is the date correct?</li>
+                <li>Is this old footage being presented as new?</li>
+            </ul>
+
+            <p>Sometimes the image itself isn't fake. <strong>The claim attached to it is.</strong></p>
+                </div>
+            </details>
+
+            <!-- Expandable: Audio and Content Credentials -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Audio deepfakes and Content Credentials</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>Audio can be manipulated or generated too</h3>
+            <p>A voice that sounds exactly like someone you know is no longer enough, by itself, to prove that person is speaking.</p>
+
+            <p>That becomes especially important when the message involves:</p>
+            <ul style="margin-left: 1rem;">
+                <li>an emergency</li>
+                <li>money</li>
+                <li>secrecy</li>
+                <li>passwords or codes</li>
+                <li>urgent instructions</li>
+                <li>unusual requests</li>
+            </ul>
+
+            <p><strong>A familiar voice is not verification.</strong> Verify through independent channels when anything seems urgent or unusual.</p>
+
+            <h3>What about Content Credentials?</h3>
+            <p>Some digital media can include <strong>Content Credentials</strong>, based on standards developed by C2PA.</p>
+
+            <p>Think of them as a kind of digital history that may provide information about where media came from or how it was created or edited. They can be useful evidence.</p>
+
+            <p>But they aren't a truth button. C2PA specifically explains that provenance information alone cannot tell you whether an image or video depicts something true, accurate or factual. It also warns that media without Content Credentials should not automatically be considered untrustworthy.</p>
+
+            <div class="guide-callout">
+                <p><strong>Content Credentials present?</strong> Useful information.</p>
+                <p><strong>Content Credentials absent?</strong> Not proof of a fake.</p>
+            </div>
+
+            <h3>Verification framework: STOP → SOURCE → SEARCH → CONFIRM</h3>
+            <div class="guide-callout">
+                <h4>STOP</h4>
+                <p>Don't immediately react or share, especially if the content makes you angry, frightened, shocked or excited.</p>
+
+                <h4>SOURCE</h4>
+                <p>Who originally created or published it?</p>
+
+                <h4>SEARCH</h4>
+                <p>Look beyond the post. Search the event, person, quotation or image.</p>
+
+                <h4>CONFIRM</h4>
+                <p>Look for independent evidence that supports what you're being shown.</p>
+            </div>
+
+            <h3>Put it in context</h3>
+            <p>AI-generated media is not automatically misinformation. A clearly labeled AI illustration can be completely honest. A real photograph with a false caption can be completely misleading.</p>
+
+            <p><strong>Check the story, not just the image.</strong></p>
+
+            <p>You don't have to prove something is a deepfake before deciding not to trust it, act on it or share it.</p>
+                </div>
+            </details>
         </div>
 
         <!-- Why are deepfakes getting harder to spot? -->

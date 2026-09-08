@@ -193,20 +193,19 @@
 
         .guide-back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 0;
+            background: none;
+            border: none;
             color: var(--primary);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .guide-back-link:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -277,21 +276,46 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>Voice Cloning & Impersonation Scams</h1>
-            <p class="guide-description">A voice can sound exactly like someone you know and still be fake. Learn how voice cloning works, what scammers are trying to do, and how to verify before you act.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">Voice Cloning & Impersonation Scams</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">A voice can sound exactly like someone you know and still be fake. Learn how voice cloning works, what scammers are trying to do, and how to verify before you act.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>Voice cloning can now impersonate someone convincingly</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">AI-generated voices can sound exactly like someone you know. A familiar voice is no longer proof that person is calling.</p>
+
+            <h3>Scammers use it for emergency money requests</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">They impersonate family members ("I need bail money") or employers ("transfer funds immediately") and rely on urgency and emotional pressure.</p>
+
+            <h3>If someone calls with an urgent request for money or passwords, don't act immediately</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Hang up and call them back using a phone number you know is theirs—not one the caller gave you.</p>
+
+            <h3>Verification happens outside the conversation</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;"><strong>Contact the person or organization independently</strong> before sending money, sharing passwords, or following urgent instructions.</p>
+        </div>
+
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: How voice cloning works -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">How voice cloning works and why you should know</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>What is voice cloning?</h3>
             <p>Voice cloning uses AI to create a synthetic copy of someone's voice. In some cases, the technology can work from a relatively short audio sample.</p>
 
             <p>Voice cloning itself has legitimate uses—accessibility, entertainment, creative projects—but it can also be used to impersonate someone.</p>
 
-            <p>When scammers use voice cloning, the goal is usually:</p>
-            <ul>
+            <h3>When scammers use it</h3>
+            <p>The goal is usually:</p>
+            <ul style="margin-left: 1rem;">
                 <li>Pretending to be someone you know (family member, friend, colleague)</li>
                 <li>Pretending to be an authority figure (government official, employer, bank)</li>
                 <li>Creating fake calls that sound urgent or emotional</li>
@@ -299,20 +323,17 @@
             </ul>
 
             <p>The scammer counts on:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>The familiar voice triggering automatic trust</li>
                 <li>The emotional pressure of the situation (emergency, urgency)</li>
                 <li>Your instinct to help quickly without verifying</li>
             </ul>
-        </div>
 
-        <!-- Why should I know about this? -->
-        <div class="guide-section">
-            <h2>Why should I know about this?</h2>
+            <h3>Why this matters</h3>
             <p>A voice that sounds exactly like someone you know is no longer enough, by itself, to prove that person is calling.</p>
 
             <p>This matters especially when the message involves:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>An emergency (medical, legal, accident)</li>
                 <li>Money (bills, investments, payments)</li>
                 <li>Secrecy ("don't tell anyone")</li>
@@ -324,15 +345,15 @@
             <p>The FTC has documented scammers using voice cloning to impersonate family members in emergency situations, requesting urgent payment for medical bills, bail, or car accidents.</p>
 
             <p>The FBI has documented malicious campaigns using AI voice to impersonate senior U.S. officials and to request authentication codes through vishing (voice phishing) tactics.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- What should I know? -->
-        <div class="guide-section">
-            <h2>What should I know?</h2>
-
-            <h3>Listen for these pressure tactics</h3>
+            <!-- Expandable: Pressure tactics -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Watch for these pressure tactics</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Scammers using voice cloning often rely on:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li><strong>Urgency</strong> – "I need this money in the next hour"</li>
                 <li><strong>Secrecy</strong> – "Don't tell anyone about this"</li>
                 <li><strong>Emotional pressure</strong> – Fear, shame, or panic about the situation</li>
@@ -353,11 +374,13 @@
             <div class="guide-callout">
                 <p><strong>A familiar voice is not verification.</strong></p>
             </div>
-        </div>
+                </div>
+            </details>
 
-        <!-- What can I do? -->
-        <div class="guide-section">
-            <h2>What can I do?</h2>
+            <!-- Expandable: What to do -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What to do if someone calls with a request</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Use this framework if someone calls with an unexpected request:</p>
 
             <div class="guide-callout">
@@ -370,43 +393,47 @@
                 <p><strong>THEN ACT</strong><br>After you've verified through an independent channel, then take action if the request is real.</p>
             </div>
 
-            <p>For example, if someone claiming to be your bank calls about fraud:</p>
-            <ul>
+            <h3>Example: Your bank calls about fraud</h3>
+            <ul style="margin-left: 1rem;">
                 <li>Hang up</li>
                 <li>Call your bank using the number on your debit card or bank statement</li>
                 <li>Ask if there was fraud on your account</li>
                 <li>Then handle any necessary action</li>
             </ul>
 
-            <p>If someone claiming to be a family member calls with an emergency:</p>
-            <ul>
+            <h3>Example: A family member calls with an emergency</h3>
+            <ul style="margin-left: 1rem;">
                 <li>Don't send money immediately</li>
                 <li>Call that family member back on their phone number (from your phone, not a number the caller gave)</li>
                 <li>Ask directly: Is this really you? Is this emergency real?</li>
                 <li>Then help if the emergency is real</li>
             </ul>
 
-            <p>The voice can be fake. Verification should happen outside the conversation.</p>
-        </div>
+            <p><strong>The voice can be fake. Verification should happen outside the conversation.</strong></p>
+                </div>
+            </details>
 
-        <!-- If you already sent money -->
-        <div class="guide-section">
-            <h2>If you already sent money</h2>
+            <!-- Expandable: If you already sent money -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">If you already sent money</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>If you realize you were scammed after sending money:</p>
 
             <h3>Act quickly</h3>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li><strong>Contact your bank or payment service immediately.</strong> Ask if the transaction can be reversed or if the recipient's account can be frozen.</li>
                 <li><strong>Report the fraud to the FTC</strong> at <a href="https://reportfraud.ftc.gov/" style="color: var(--primary); text-decoration: underline;">ReportFraud.ftc.gov</a>. This helps the FTC track scam trends.</li>
                 <li><strong>Report internet-based fraud to the FBI</strong> at <a href="https://ic3.gov/" style="color: var(--primary); text-decoration: underline;">ic3.gov</a> (Internet Crime Complaint Center).</li>
             </ul>
 
             <p>Report the incident to local law enforcement if requested. Save all evidence: phone records, messages, call logs, screenshots.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- Put it in context -->
-        <div class="guide-section">
-            <h2>Put it in context</h2>
+            <!-- Expandable: Put it in context -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Put it in context</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Scammers have always used urgency, emotional pressure, and impersonation.</p>
 
             <p>Voice cloning is a new tool that makes the impersonation more convincing, not a fundamentally new threat.</p>
@@ -418,6 +445,8 @@
             </div>
 
             <p>You don't have to be an expert at spotting fake voices. You just need to follow one simple rule: if money or sensitive information is involved, verify outside the conversation before acting.</p>
+                </div>
+            </details>
         </div>
 
         <!-- Sources Section -->

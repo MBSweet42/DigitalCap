@@ -36,14 +36,10 @@
         }
 
         .guide-reviewed {
-            background: var(--primary-light);
-            color: var(--text-dark);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            display: inline;
+            margin-top: 0.5rem;
         }
 
         .guide-section {
@@ -193,20 +189,19 @@
 
         .guide-back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 0;
+            background: none;
+            border: none;
             color: var(--primary);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .guide-back-link:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -277,42 +272,38 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>How to Verify Something You See Online</h1>
-            <p class="guide-description">You don't have to investigate everything you see online. But when something matters, a few simple verification habits can help you figure out what deserves your trust.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">How to Verify Something You See Online</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">You don't have to investigate everything. But when something matters, a few simple habits help you figure out what deserves your trust.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
-            <p>You see a post.</p>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">Use this approach to verify almost anything:</p>
 
-            <p>Or a screenshot.</p>
+            <h3>STOP</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;"><strong>Don't react, share, or act yet.</strong> Pause before you decide.</p>
 
-            <p>Or a video.</p>
+            <h3>SOURCE</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;"><strong>Find the original.</strong> Where did this actually come from?</p>
 
-            <p>Or a headline.</p>
+            <h3>SEARCH</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;"><strong>Look elsewhere.</strong> Search outside the original to confirm or challenge it.</p>
 
-            <p>Or something an AI told you.</p>
-
-            <p>And you think:</p>
-
-            <p><strong>Is this actually true?</strong></p>
-
-            <p>You don't need a journalism degree or expensive software to investigate many online claims.</p>
-
-            <p>You mostly need to know when to stop and where to look next.</p>
-
-            <p>Research-backed digital-literacy programs teach strategies such as <strong>lateral reading</strong>, where instead of staying on one page and studying it harder, you leave that page and investigate what other sources say about it. This approach is taught by the Digital Inquiry Group through their Civic Online Reasoning program.</p>
-
-            <p>DigitalCap makes that idea easy to remember:</p>
+            <h3>CONFIRM</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;"><strong>Check the evidence.</strong> What independent sources actually support this claim?</p>
         </div>
 
-        <!-- STOP → SOURCE → SEARCH → CONFIRM -->
+        <!-- Want More Help? -->
         <div class="guide-section">
-            <h2>STOP → SOURCE → SEARCH → CONFIRM</h2>
+            <h2>Want more help?</h2>
 
+            <!-- Expandable: How to check it -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Show me how to check it</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <h3>STOP</h3>
             <p>Before reacting, sharing, paying, clicking or panicking:</p>
 
@@ -321,7 +312,7 @@
             <p>This matters especially when something creates a strong emotional reaction.</p>
 
             <p>Maybe you're:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>angry</li>
                 <li>scared</li>
                 <li>excited</li>
@@ -343,7 +334,7 @@
             <p><strong>Where did this actually come from?</strong></p>
 
             <p>Not:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>Who sent it to me?</li>
                 <li>Who reposted it?</li>
                 <li>Which Facebook group did I see it in?</li>
@@ -371,7 +362,7 @@
             <p>The Digital Inquiry Group's Civic Online Reasoning materials specifically teach lateral reading and other research-backed strategies for evaluating online information.</p>
 
             <p>Search:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>the claim</li>
                 <li>the person's name</li>
                 <li>a distinctive sentence from the post</li>
@@ -398,7 +389,7 @@
             <p>Look for confirmation outside the original claim.</p>
 
             <p>Depending on the situation, that might mean:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>an official agency</li>
                 <li>the organization supposedly involved</li>
                 <li>an original document</li>
@@ -412,15 +403,16 @@
             <p><strong>One source repeating another source isn't necessarily independent confirmation.</strong></p>
 
             <p>Try to trace information back toward where it originated.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- What should I know? -->
-        <div class="guide-section">
-            <h2>What should I know?</h2>
-
+            <!-- Expandable: What should I know? -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What should I know?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <h3>A screenshot is not a source.</h3>
             <p>Screenshots can be:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>real</li>
                 <li>edited</li>
                 <li>cropped</li>
@@ -449,11 +441,13 @@
             <p>People have created misinformation, propaganda, scams, fake quotations and manipulated media for much longer than generative AI has existed.</p>
 
             <p>The creator being human doesn't verify the claim.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- What about AI detection tools? -->
-        <div class="guide-section">
-            <h2>What about AI detection tools?</h2>
+            <!-- Expandable: AI detection tools -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What about AI detection tools?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>They can help.</p>
 
             <p>But they shouldn't be your entire verification process.</p>
@@ -469,11 +463,13 @@
             <p><strong>"Is the claim true?"</strong></p>
 
             <p>Those are not the same question.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- What about Content Credentials? -->
-        <div class="guide-section">
-            <h2>What about Content Credentials?</h2>
+            <!-- Expandable: Content Credentials -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What about Content Credentials?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Content Credentials may provide useful information about the origin or editing history of some digital media.</p>
 
             <p>They offer a kind of digital history that can show where media came from and what changes were made to it.</p>
@@ -481,17 +477,19 @@
             <p>C2PA specifically explains that provenance information alone cannot tell you whether an image or video depicts something true, accurate or factual. It also warns that the absence of Content Credentials should not mean content should automatically be distrusted.</p>
 
             <p>Think of provenance as <strong>evidence, not a truth label.</strong></p>
-        </div>
+                </div>
+            </details>
 
-        <!-- Put it in context -->
-        <div class="guide-section">
-            <h2>Put it in context</h2>
+            <!-- Expandable: Context matters -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Put it in context</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>You do not need to investigate every meme, recipe or silly video you encounter.</p>
 
             <p>Think about the consequence of being wrong.</p>
 
             <p>Before you:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>send money</li>
                 <li>accuse someone</li>
                 <li>share something alarming</li>
@@ -520,10 +518,13 @@
                 <p><strong>Presentation quality is not source quality.</strong></p>
                 <p><strong>Strong emotional pressure is a reason to slow down, not speed up.</strong></p>
             </div>
+                </div>
+            </details>
         </div>
 
+
         <!-- Sources Section -->
-        <div class="guide-sources">
+        <div class="guide-sources" id="sources">
             <h2>Sources</h2>
             <ul>
                 <li><a href="https://cor.inquirygroup.org/">Digital Inquiry Group / Civic Online Reasoning</a></li>

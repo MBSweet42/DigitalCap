@@ -287,20 +287,41 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>Google AI & Your Information</h1>
-            <p class="guide-description">Google's AI features can work with information from several Google services. What Gemini can access, save and use depends on the feature, your account and your settings.</p>
-            <div class="guide-verified">Last verified: September 2026</div>
-            <div class="guide-verified">Region checked: United States</div>
-            <div class="settings-notice">Gemini features and settings change. This guide reflects settings verified in September 2026.</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">Google AI & Your Information</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">Google's AI features can work with information from several Google services. What Gemini can access, save and use depends on the feature, your account and your settings.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Verified September 2026 · United States · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Gemini features and settings change. This guide reflects settings verified in September 2026.</p>
         </div>
 
-        <!-- Section 1: What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What Is This?</h2>
-            <p>Google offers Gemini and other AI-powered features across its products.</p>
-            <p>Depending on what you use and enable, Gemini may work with:</p>
-            <ul>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>Gemini can work with information from several Google services and connected apps</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">But it doesn't automatically access everything in your Google account. What it can access depends on the feature, your settings, permissions, and which services are connected.</p>
+
+            <h3>Keep Activity is the main control for training and saving</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">With Keep Activity ON: Chats saved and may train models. With Keep Activity OFF: Chats not saved or used for training (with limited exceptions), though some features may be unavailable.</p>
+
+            <h3>Enabling a feature doesn't automatically enable everything else</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Turning on Gemini in Gmail doesn't turn on Gemini in Photos. Connected apps must be explicitly enabled. Check settings for each service and app.</p>
+
+            <h3>Different settings control different things</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;">Activity saving, model training, memory, and connected-app access are separate controls. Understanding each helps you make intentional choices.</p>
+        </div>
+
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: What Gemini can use -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What information Gemini can access and work with</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>Google offers Gemini and other AI-powered features across its products. Depending on what you use and enable, Gemini may work with:</p>
+            <ul style="margin-left: 1rem;">
                 <li>your prompts</li>
                 <li>files</li>
                 <li>photos</li>
@@ -310,56 +331,23 @@
                 <li>information from connected Google services</li>
                 <li>information from certain third-party services</li>
             </ul>
-            <p>That does <strong>not</strong> mean one Google AI setting automatically gives AI access to everything in your Google account.</p>
-            <div class="guide-callout">
-                <h4>Key principle</h4>
-                <p>Different settings control different things.</p>
-            </div>
-        </div>
 
-        <!-- Section 2: What information can Gemini use? -->
-        <div class="guide-section">
-            <h2>What Information Can Gemini Use?</h2>
-            <p>When you interact directly with Gemini, you may provide things like:</p>
-            <ul>
-                <li>text</li>
-                <li>voice</li>
-                <li>photos</li>
-                <li>files</li>
-                <li>video</li>
-                <li>screenshares</li>
-                <li>webpages</li>
-            </ul>
-            <p>Gemini can also work with <strong>Connected Apps</strong>.</p>
-            <p>Depending on your device, account, settings and eligibility, those may include services such as:</p>
-            <ul>
-                <li>Google Workspace</li>
-                <li>Google Photos</li>
-                <li>Contacts</li>
-                <li>YouTube</li>
-                <li>Search services</li>
-                <li>Phone</li>
-                <li>Messages</li>
-                <li>other supported services</li>
-            </ul>
+            <p>That does NOT mean one Google AI setting automatically gives AI access to everything in your Google account.</p>
+
+            <h3>When you interact directly with Gemini</h3>
+            <p>You may provide text, voice, photos, files, video, screenshares, or webpages.</p>
+
+            <h3>Connected Apps</h3>
+            <p>Gemini can also work with Connected Apps. Depending on your device, account, settings and eligibility, those may include: Google Workspace, Google Photos, Contacts, YouTube, Search services, Phone, Messages, and other supported services.</p>
+
             <p>Connected Apps can let Gemini find information or perform tasks using information in those services.</p>
 
-            <h3>Put This Claim in Context</h3>
-            <p><strong>You may have heard:</strong></p>
-            <p style="margin: 1rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.05); border-left: 4px solid var(--secondary); border-radius: 4px; font-weight: 600;">"Google AI reads all your Drive files."</p>
+            <h3>Common claim: "Google AI reads all your Drive files"</h3>
+            <p><strong>What's actually happening?</strong> Gemini can work with information in certain connected Google services when those features and permissions are available and enabled. That is different from automatically reading every file in every Google account.</p>
 
-            <p><strong>What's actually happening?</strong></p>
-            <p>Gemini can work with information in certain connected Google services when those features and permissions are available and enabled. That is different from saying Gemini automatically reads every file in every Google account.</p>
-            <p>What Gemini can access depends on things including:</p>
-            <ul>
-                <li>the feature</li>
-                <li>the account</li>
-                <li>the service</li>
-                <li>your settings</li>
-                <li>permissions</li>
-                <li>whether the app is connected</li>
-            </ul>
-        </div>
+            <p>What Gemini can access depends on: the feature, the account, the service, your settings, permissions, and whether the app is connected.</p>
+                </div>
+            </details>
 
         <!-- Section 3: Keep Activity -->
         <div class="guide-section">

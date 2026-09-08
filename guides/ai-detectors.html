@@ -193,20 +193,19 @@
 
         .guide-back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 0;
+            background: none;
+            border: none;
             color: var(--primary);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .guide-back-link:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -277,64 +276,83 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>Can I Trust an AI Detector?</h1>
-            <p class="guide-description">AI detectors can sometimes provide useful clues, but a detector score is not proof that something was created by AI.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">Can I Trust an AI Detector?</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">AI detectors can sometimes provide useful clues, but a detector score is not proof that something was created by AI.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>AI detectors are sometimes helpful, but they're not foolproof</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Detection is an ongoing technical challenge because AI systems keep changing, content can be edited, and real-world material doesn't match lab test conditions.</p>
+
+            <h3>A detector score is a clue, not proof</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">NIST found that detection systems can lose 45-50% accuracy when moving from academic testing to real-world conditions.</p>
+
+            <h3>Text detectors can falsely accuse human writers</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">Stanford research showed that text detectors incorrectly flagged 61% of TOEFL essays by non-native English speakers as AI-generated—disproportionately affecting certain groups.</p>
+
+            <h3>Use detectors as one layer of evidence, not the final answer</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;"><strong>When investigating content or evaluating work, combine detector results with other evidence:</strong> source verification, provenance checks, corroboration, and context analysis.</p>
+        </div>
+
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: How detectors work -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">How AI detectors work and why they struggle</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>What are AI detectors?</h3>
             <p>AI detectors are tools designed to estimate whether text, images, audio or video may have been generated or manipulated using AI.</p>
 
-            <p>That sounds simple.</p>
+            <p>That sounds simple. It isn't.</p>
 
-            <p>It isn't.</p>
+            <h3>Why detection is challenging</h3>
+            <p>Detection is an ongoing technical challenge because:</p>
+            <ul style="margin-left: 1rem;">
+                <li>The systems generating AI content keep changing</li>
+                <li>Content can be edited or modified</li>
+                <li>Real-world material doesn't always look like the examples a detector was tested on</li>
+            </ul>
 
-            <p>Detection is an ongoing technical challenge because the systems generating AI content keep changing, the content can be edited, and real-world material doesn't always look like the examples a detector was tested on.</p>
-        </div>
-
-        <!-- So, do AI detectors work? -->
-        <div class="guide-section">
-            <h2>So, do AI detectors work?</h2>
-            <p>Sometimes.</p>
-
-            <p>But that's very different from saying they can reliably determine the truth every time.</p>
-
+            <h3>Real-world accuracy</h3>
             <p>NIST's 2026 deepfake work reports that current detection systems can experience a 45–50% drop in accuracy when moving from academic benchmarks to operational environments.</p>
 
-            <p>Text detectors have their own problems.</p>
+            <p>That doesn't mean every detector is useless. It means a detector result needs to be understood in context.</p>
+                </div>
+            </details>
 
-            <p>Stanford researchers tested several GPT detectors and found that they incorrectly classified 61.22% of the examined TOEFL essays written by non-native English speakers as AI-generated. The researchers warned about reliability and bias, particularly when detector results could be used to accuse someone of misconduct.</p>
-
-            <p>That doesn't mean every detector is useless.</p>
-
-            <p>It means:</p>
-
-            <div class="guide-callout">
-                <p><strong>A detector result is a clue, not a verdict.</strong></p>
-            </div>
-        </div>
-
-        <!-- What should I know? -->
-        <div class="guide-section">
-            <h2>What should I know?</h2>
-            <p>Two mistakes are especially important.</p>
-
+            <!-- Expandable: False positives and negatives -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">False positives and false negatives—why both matter</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <h3>False positive</h3>
             <p>The detector says something was generated by AI when a person actually created it.</p>
 
             <h3>False negative</h3>
             <p>The detector says something was created by a person when AI actually generated it.</p>
 
-            <p>Both matter.</p>
+            <h3>Why both are serious problems</h3>
+            <p>A false negative can allow manipulated content to slip through without being noticed.</p>
 
-            <p>A false negative can allow manipulated content to slip through.</p>
+            <p>A false positive can wrongly accuse a real person of lying, cheating or creating fake material—causing real harm.</p>
 
-            <p>A false positive can wrongly accuse a real person of lying, cheating or creating fake material.</p>
+            <div class="guide-callout">
+                <p><strong>A detector result is a clue, not a verdict.</strong></p>
+            </div>
+                </div>
+            </details>
 
-            <h3>What about student work?</h3>
+            <!-- Expandable: Student work -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What about student work or evaluating someone's writing?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>This is especially important in education.</p>
 
             <p>A score like:</p>
@@ -343,52 +361,65 @@
                 <p>"92% likely AI-generated"</p>
             </div>
 
-            <p>may look scientific and definitive.</p>
+            <p>may look scientific and definitive. It isn't the same thing as proof.</p>
 
-            <p>It isn't the same thing as proof.</p>
-
-            <p>Detector performance varies by tool, content, model, language and circumstances.</p>
-
-            <p>Because false positives exist, an AI-detector score <strong>should not by itself be treated as proof that a student, employee or writer used AI.</strong></p>
-
-            <p>The Stanford research is particularly important here because it demonstrated how detector errors can disproportionately affect non-native English writers.</p>
-
-            <h3>What about photos and video?</h3>
-            <p>The same basic rule applies.</p>
-
-            <p>Detection tools can be part of an investigation.</p>
-
-            <p>They aren't the whole investigation.</p>
-
-            <p>NIST's current deepfake work specifically tests detectors against adversarial attacks, face and body swaps, context manipulation and more realistic operational conditions because laboratory performance does not necessarily predict performance in the real world.</p>
-        </div>
-
-        <!-- What choices do I have? -->
-        <div class="guide-section">
-            <h2>What choices do I have?</h2>
-            <p>If a detector flags something, don't stop there.</p>
-
-            <p>Ask:</p>
-            <ul>
-                <li>Where did this content come from?</li>
-                <li>Can I find the original?</li>
-                <li>Is there provenance information?</li>
-                <li>Are there independent copies?</li>
-                <li>Does the supposed source confirm it?</li>
-                <li>What other evidence supports the claim?</li>
+            <h3>Why detector performance varies</h3>
+            <p>Detector performance varies by:</p>
+            <ul style="margin-left: 1rem;">
+                <li>tool</li>
+                <li>content</li>
+                <li>model</li>
+                <li>language</li>
+                <li>circumstances</li>
             </ul>
 
-            <p>If you're evaluating someone's work, what other evidence exists besides the detector score?</p>
-        </div>
+            <h3>The Stanford finding on bias</h3>
+            <p>Stanford researchers tested several GPT detectors and found that they incorrectly classified 61.22% of the examined TOEFL essays written by non-native English speakers as AI-generated.</p>
 
-        <!-- What can I do? -->
-        <div class="guide-section">
-            <h2>What can I do?</h2>
+            <p>Because false positives exist, <strong>an AI-detector score should not by itself be treated as proof that a student, employee or writer used AI.</strong></p>
+
+            <p>The Stanford research demonstrates how detector errors can disproportionately affect non-native English writers and other groups.</p>
+
+            <h3>What to do instead</h3>
+            <p>If a detector flags something, don't stop there. Ask:</p>
+            <ul style="margin-left: 1rem;">
+                <li>What other evidence exists besides the detector score?</li>
+                <li>Does the work match this student's or writer's usual output?</li>
+                <li>Are there patterns suggesting the flag might be a false positive?</li>
+                <li>What does the broader context suggest?</li>
+            </ul>
+                </div>
+            </details>
+
+            <!-- Expandable: Photos and video -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What about photos and video detection?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>The same basic rule applies to visual media.</p>
+
+            <p>Detection tools can be part of an investigation. They aren't the whole investigation.</p>
+
+            <p>NIST's current deepfake work specifically tests detectors against:</p>
+            <ul style="margin-left: 1rem;">
+                <li>adversarial attacks</li>
+                <li>face and body swaps</li>
+                <li>context manipulation</li>
+                <li>more realistic operational conditions</li>
+            </ul>
+
+            <p>Laboratory performance does not necessarily predict performance in the real world.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: A better approach -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What should I do instead?</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Think of detection tools as <strong>one layer of evidence.</strong></p>
 
             <p>DigitalCap's verification framework uses these layers:</p>
 
-            <ol>
+            <ol style="margin-left: 1rem;">
                 <li><strong>SOURCE</strong> – Where did it originate?</li>
                 <li><strong>PROVENANCE</strong> – Is there reliable information about its history or creation?</li>
                 <li><strong>CORROBORATION</strong> – Does independent evidence support it?</li>
@@ -397,29 +428,14 @@
                 <li><strong>DETECTION TOOLS</strong> – What do technical tools suggest?</li>
             </ol>
 
-            <p>Notice where the detector is.</p>
+            <p>Notice where the detector is. <strong>It's part of the process, not the final judge.</strong></p>
 
-            <p><strong>It's part of the process, not the final judge.</strong></p>
-        </div>
+            <h3>Put it in context</h3>
+            <p>We naturally want a tool that can simply tell us: REAL or AI. That would be convenient.</p>
 
-        <!-- Put it in context -->
-        <div class="guide-section">
-            <h2>Put it in context</h2>
-            <p>We naturally want a tool that can simply tell us:</p>
-
-            <p>REAL</p>
-
-            <p>or</p>
-
-            <p>AI</p>
-
-            <p>That would be convenient.</p>
-
-            <p>Right now, reality is more complicated.</p>
-
-            <p>AI detection can provide information worth considering, but important decisions shouldn't rest on a detector score alone.</p>
-
-            <p><strong>A detector result is a clue, not a verdict.</strong></p>
+            <p>Right now, reality is more complicated. AI detection can provide information worth considering, but important decisions shouldn't rest on a detector score alone.</p>
+                </div>
+            </details>
         </div>
 
         <!-- Sources Section -->

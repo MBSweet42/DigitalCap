@@ -193,20 +193,19 @@
 
         .guide-back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 0;
+            background: none;
+            border: none;
             color: var(--primary);
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .guide-back-link:hover {
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -277,29 +276,55 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>AI Explained: What It Is and What It Isn't</h1>
-            <p class="guide-description">AI can do some pretty impressive things, but it isn't magic and it doesn't always get things right. Understanding a few basics can make it much easier to use.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">AI Explained: What It Is and What It Isn't</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">AI can do some pretty impressive things, but it isn't magic and it doesn't always get things right. Understanding a few basics can make it much easier to use.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
+
+            <h3>AI is a broad term for computer systems that recognize patterns and make decisions</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">You already use it in spam filters, recommendations, photo organization and voice assistants. Generative AI is one type that creates new content.</p>
+
+            <h3>AI can be useful but isn't magical</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">It can help you brainstorm, explain things, write code, and organize information. But it doesn't think the way you do.</p>
+
+            <h3>Confidence is not evidence</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">AI can sound completely confident while being completely wrong. It produces hallucinations and made-up information without verification.</p>
+
+            <h3>Use the YOU → AI → YOU framework</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;">You decide what you want, AI helps you explore, then <strong>you</strong> review, question, and decide what's actually useful.</p>
+        </div>
+
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: What AI is -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What AI is and types of AI</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>Artificial intelligence, or AI, is a broad term for computer systems designed to do things like recognize patterns, make predictions, generate content, recommend information or help make decisions.</p>
 
             <p>You probably already use AI in ways you don't think much about. Spam filters, recommendations, navigation, photo organization and voice assistants can all involve AI.</p>
 
+            <h3>Generative AI</h3>
             <p>Generative AI is a type of AI that creates new content, including text, images, audio, video and computer code.</p>
 
             <p>Tools like ChatGPT and Gemini are examples of generative AI, but they aren't the only kind of AI.</p>
 
             <p>Put simply: AI is the bigger category. Generative AI is one type of AI.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- How does generative AI work? -->
-        <div class="guide-section">
-            <h2>How does generative AI work?</h2>
+            <!-- Expandable: How it works -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">How generative AI works</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>AI models are trained using large amounts of data so they can identify patterns.</p>
 
             <p>A large language model, or LLM, learns patterns in language. When you give it a prompt, it uses those patterns to generate a response.</p>
@@ -307,15 +332,17 @@
             <p>People often say AI "learns," but that doesn't necessarily mean it learns the way a person does.</p>
 
             <p>It can produce remarkably human-sounding language without that being proof that it thinks, understands or experiences the world the way you do.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- Why do people use it? -->
-        <div class="guide-section">
-            <h2>Why do people use it?</h2>
+            <!-- Expandable: Why people use it -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Why people use AI</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>AI can be genuinely useful.</p>
 
             <p>People use it to:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>brainstorm ideas</li>
                 <li>explain complicated information</li>
                 <li>organize thoughts</li>
@@ -330,13 +357,14 @@
             </ul>
 
             <p>It can save time and help people do things they may have struggled to do on their own.</p>
-        </div>
+                </div>
+            </details>
 
-        <!-- What should I know? -->
-        <div class="guide-section">
-            <h2>What should I know?</h2>
-
-            <h3>AI can sound confident and still be wrong.</h3>
+            <!-- Expandable: What you should know -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">What you should know about AI limitations</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>AI can sound confident and still be wrong</h3>
             <p>Generative AI creates responses based on patterns. It does not automatically verify every statement before presenting it.</p>
 
             <p>Sometimes it produces information that is false, made up, inconsistent or unsupported. This is commonly called an AI hallucination or confabulation.</p>
@@ -346,7 +374,7 @@
                 <p>Confidence is not evidence. A polished, detailed answer can still contain a mistake.</p>
             </div>
 
-            <h3>AI can also agree with you too much.</h3>
+            <h3>AI can also agree with you too much</h3>
             <p>AI assistants are often designed to be helpful and cooperative. Sometimes that can turn into excessive agreement, often called sycophancy.</p>
 
             <p>An AI agreeing with you doesn't necessarily mean your idea is good or your conclusion is correct.</p>
@@ -354,27 +382,29 @@
             <p>This matters especially when you're asking for advice or working through something emotional.</p>
 
             <p>Try asking:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li>What might I be missing?</li>
                 <li>What assumptions am I making?</li>
                 <li>Give me the strongest argument against this.</li>
                 <li>What information could change this conclusion?</li>
             </ul>
 
-            <h3>We can trust AI too much, too.</h3>
+            <h3>We can trust AI too much, too</h3>
             <p>There's another issue called automation bias: our tendency to give an automated answer more weight simply because a system produced it.</p>
 
             <p>These are three different things worth remembering:</p>
-            <ul>
+            <ul style="margin-left: 1rem;">
                 <li><strong>AI can be wrong:</strong> Hallucination or confabulation</li>
                 <li><strong>AI can agree too much:</strong> Sycophancy</li>
                 <li><strong>We can trust it too much:</strong> Automation bias</li>
             </ul>
-        </div>
+                </div>
+            </details>
 
-        <!-- What choices do I have? -->
-        <div class="guide-section">
-            <h2>What choices do I have?</h2>
+            <!-- Expandable: Making choices -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Making choices about AI use</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
             <p>You don't have to choose between trusting AI completely and never using it.</p>
 
             <p>Think about what you're asking AI to do.</p>
@@ -382,11 +412,8 @@
             <p>Brainstorming birthday-party themes has very different consequences from making a medical, legal or financial decision.</p>
 
             <p>The more important the outcome, the more important it becomes to verify information and involve an appropriate human expert when needed.</p>
-        </div>
 
-        <!-- What can I do? -->
-        <div class="guide-section">
-            <h2>What can I do?</h2>
+            <h3>The YOU → AI → YOU framework</h3>
             <p>Try thinking of AI as part of a process:</p>
 
             <div class="guide-callout">
@@ -397,16 +424,15 @@
             </div>
 
             <p>AI can help you think. It doesn't have to do the thinking for you.</p>
-        </div>
 
-        <!-- Put it in context -->
-        <div class="guide-section">
-            <h2>Put it in context</h2>
+            <h3>Put it in context</h3>
             <p>AI doesn't have to be something you fear or something you trust completely.</p>
 
             <p>It can be incredibly useful without being infallible.</p>
 
             <p>Understanding how it works makes it easier to know when to use it, when to question it and when the final decision should stay with you.</p>
+                </div>
+            </details>
         </div>
 
         <!-- Sources Section -->

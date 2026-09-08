@@ -25,53 +25,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/glossary.js"></script>
     <style>
-        .ai-path-card {
-            display: block;
-            padding: 2rem;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-            background: var(--bg-white);
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .ai-path-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .ai-path-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .ai-path-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin: 0 0 0.75rem 0;
-            font-weight: 600;
-        }
-
-        .ai-path-card p {
-            color: var(--text-gray);
-            margin: 0 0 1.5rem 0;
-            line-height: 1.5;
-            font-size: 1rem;
-        }
-
-        .ai-path-cta {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        .ai-path-card:hover .ai-path-cta {
-            text-decoration: underline;
-        }
 
         .ai-philosophy-box {
             background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
@@ -102,65 +55,6 @@
             margin-bottom: 0;
         }
 
-        .ai-path-section {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .ai-path-section:first-of-type {
-            border-top: none;
-            padding-top: 0;
-        }
-
-        .ai-path-section h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .ai-path-section > p {
-            color: var(--text-gray);
-            font-size: 1rem;
-            max-width: 700px;
-            margin: 0 0 2rem 0;
-            line-height: 1.6;
-        }
-
-        .ai-guides-preview {
-            background: var(--bg-white);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .ai-guides-preview h4 {
-            color: var(--primary);
-            font-size: 1rem;
-            margin: 0 0 1rem 0;
-            font-weight: 600;
-        }
-
-        .ai-guides-preview ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .ai-guides-preview li {
-            padding: 0.5rem 0;
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .ai-guides-preview li::before {
-            content: "→ ";
-            color: var(--secondary);
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
 
         .ai-heard-section {
             background: var(--bg-white);
@@ -209,20 +103,8 @@
         }
 
         @media (max-width: 768px) {
-            .ai-path-card {
-                padding: 1.5rem;
-            }
-
-            .ai-path-card h3 {
-                font-size: 1.2rem;
-            }
-
             .ai-philosophy-box {
                 padding: 1.5rem;
-            }
-
-            .ai-path-section h2 {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -244,198 +126,16 @@
 
     <main class="container">
         <section style="margin-bottom: 2rem;">
-            <h1 style="color: var(--primary); margin-bottom: 0.5rem;">🤖 AI & Digital Life</h1>
+            <h1 style="color: var(--primary); margin-bottom: 0.5rem;">AI & Digital Life</h1>
             <p class="subtitle">AI is everywhere. You don't have to understand all of it. Start with what you're trying to figure out.</p>
             <p style="color: var(--text-gray); margin-top: 1rem; font-size: 0.95rem;">AI can be useful, and it can get things wrong. DigitalCap helps you understand enough to make informed choices about how you use it.</p>
         </section>
 
-        <!-- What Do You Want Help With - Six Main Choices -->
-        <section style="margin-bottom: 3rem;">
-            <h2 style="color: var(--primary); margin-bottom: 2rem; text-align: center;">What do you want help with?</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <a href="#understand-ai" class="ai-path-card">
-                    <div class="ai-path-icon">🧠</div>
-                    <h3>Understand AI</h3>
-                    <p>What is it? What can it actually do? Why does it make mistakes?</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-                <a href="#use-ai-well" class="ai-path-card">
-                    <div class="ai-path-icon">✨</div>
-                    <h3>Use AI Well</h3>
-                    <p>Learn, work, create, and get better results from AI.</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-                <a href="#trust-content" class="ai-path-card">
-                    <div class="ai-path-icon">🔍</div>
-                    <h3>Can I Trust This?</h3>
-                    <p>Check images, videos, information, and AI-generated content.</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-                <a href="#ai-scams" class="ai-path-card">
-                    <div class="ai-path-icon">🚨</div>
-                    <h3>AI Scams & Safety</h3>
-                    <p>Voice clones, impersonation, fake emergencies, and scams.</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-                <a href="#privacy-ai" class="ai-path-card">
-                    <div class="ai-path-icon">⚙️</div>
-                    <h3>Privacy & Your AI</h3>
-                    <p>Understand what you're sharing and what you can control.</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-                <a href="#bigger-picture" class="ai-path-card">
-                    <div class="ai-path-icon">🌍</div>
-                    <h3>AI & the Bigger Picture</h3>
-                    <p>Energy, water, data centers, and AI's broader impact.</p>
-                    <div class="ai-path-cta">Explore This Section →</div>
-                </a>
-            </div>
+        <!-- AI PATH PROTOTYPE CONTAINER -->
+        <section id="aiPathExperience" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; min-height: 400px;">
+            <!-- Path screen content rendered here by JavaScript -->
         </section>
 
-        <!-- Not Sure Where to Start -->
-        <section style="background: var(--bg-light); border-left: 4px solid var(--secondary); border-radius: 8px; padding: 2rem; margin-bottom: 3rem;">
-            <h2 style="color: var(--primary); margin: 0 0 1.5rem 0;">Not sure where to start?</h2>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="margin-bottom: 1rem;"><a href="#trust-content" style="color: var(--primary); text-decoration: underline; font-weight: 500;">I found an image or video online and want to know if it's real.</a> → Can I Trust This?</li>
-                <li style="margin-bottom: 1rem;"><a href="#understand-ai" style="color: var(--primary); text-decoration: underline; font-weight: 500;">I just want to understand what AI actually is.</a> → Understand AI</li>
-                <li style="margin-bottom: 1rem;"><a href="#privacy-ai" style="color: var(--primary); text-decoration: underline; font-weight: 500;">I'm wondering what information I should share with AI.</a> → Privacy & Your AI</li>
-                <li><a href="#ai-scams" style="color: var(--primary); text-decoration: underline; font-weight: 500;">I think someone is using AI to scam me or someone I know.</a> → AI Scams & Safety</li>
-            </ul>
-        </section>
-
-        <!-- Six Main Paths -->
-        <section class="ai-path-section" id="understand-ai">
-            <h2>Understand AI</h2>
-            <p>What is AI? How does it work, and why does it sometimes make mistakes? Get the basics in plain language without needing a technical background.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/ai-explained" style="color: var(--primary); text-decoration: none;">AI Explained: What It Is and What It Isn't</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Also Explore</strong></h4>
-                <ul>
-                    <li><a href="/guides/what-ai-is-good-at" style="color: var(--primary); text-decoration: none;">What AI Is Actually Good At</a></li>
-                    <li><a href="/guides/ai-hallucinations-verification" style="color: var(--primary); text-decoration: none;">AI Makes Mistakes: Hallucinations & Verification</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Use AI Well Section -->
-        <section class="ai-path-section" id="use-ai-well">
-            <h2>Use AI Well</h2>
-            <p>Explore legitimate and valuable ways AI can help you learn, create, organize, and solve problems—while using it thoughtfully.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/ai-learning-work-creativity" style="color: var(--primary); text-decoration: none;">AI for Learning, Work & Creativity</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Also Explore</strong></h4>
-                <ul>
-                    <li><a href="/guides/what-ai-is-good-at" style="color: var(--primary); text-decoration: none;">What AI Is Actually Good At</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Can I Trust This Section -->
-        <section class="ai-path-section" id="trust-content">
-            <h2>Can I Trust This?</h2>
-            <p>Learn to evaluate AI-generated or questionable content you encounter online. Understand what makes content real, fake, or misleading.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/verify-online" style="color: var(--primary); text-decoration: none;">How to Verify Something You See Online</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Also Explore</strong></h4>
-                <ul>
-                    <li><a href="/guides/deepfakes" style="color: var(--primary); text-decoration: none;">Deepfakes: Photos, Video & Audio</a></li>
-                    <li><a href="/guides/ai-detectors" style="color: var(--primary); text-decoration: none;">Can I Trust an AI Detector?</a></li>
-                    <li><a href="/guides/ai-hallucinations-verification" style="color: var(--primary); text-decoration: none;">AI Makes Mistakes: Hallucinations & Verification</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Try It</strong></h4>
-                <p style="margin: 0 0 0.75rem 0; color: var(--text-gray); font-size: 0.95rem;">Practice identifying AI-generated and misleading content:</p>
-                <ul>
-                    <li><a href="/activities/deepfake-detective" style="color: var(--primary); text-decoration: none;">Deepfake Detective</a> (10-15 minutes)</li>
-                    <li><a href="/activities/source-check" style="color: var(--primary); text-decoration: none;">Source Check</a> (10-15 minutes)</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- AI Scams & Safety Section -->
-        <section class="ai-path-section" id="ai-scams">
-            <h2>AI Scams & Safety</h2>
-            <p>Understand how AI can be used in scams, impersonation, and manipulation—and what you can do about it.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/voice-cloning-scams" style="color: var(--primary); text-decoration: none;">Voice Cloning & Impersonation Scams</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Also Explore</strong></h4>
-                <ul>
-                    <li><a href="/guides/ai-scams" style="color: var(--primary); text-decoration: none;">AI Scams: What Changes and What Doesn't</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Privacy & Your AI Section -->
-        <section class="ai-path-section" id="privacy-ai">
-            <h2>Privacy & Your AI</h2>
-            <p>Understand what information AI tools may collect and use, and what privacy controls and choices you have.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/sharing-with-ai" style="color: var(--primary); text-decoration: none;">What Should I Share With AI?</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Also Explore</strong></h4>
-                <ul>
-                    <li><a href="/guides/chatgpt-privacy-controls" style="color: var(--primary); text-decoration: none;">ChatGPT Privacy & Controls</a></li>
-                    <li><a href="/guides/google-ai-information" style="color: var(--primary); text-decoration: none;">Google AI & Your Information</a></li>
-                </ul>
-            </div>
-
-            <div class="ai-guides-preview" style="margin-top: 2rem;">
-                <h4 style="margin-bottom: 1rem;"><strong>Try It</strong></h4>
-                <p style="margin: 0 0 0.75rem 0; color: var(--text-gray); font-size: 0.95rem;">Practice deciding what to share with AI:</p>
-                <ul>
-                    <li><a href="/activities/share-with-ai" style="color: var(--primary); text-decoration: none;">Would You Share This With AI?</a> (10-15 minutes)</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- AI & The Bigger Picture Section -->
-        <section class="ai-path-section" id="bigger-picture">
-            <h2>AI & The Bigger Picture</h2>
-            <p>Explore the wider effects and questions surrounding AI—from environmental impact to jobs to creators and communities.</p>
-
-            <div class="ai-guides-preview">
-                <h4 style="margin-bottom: 1rem;"><strong>Start Here</strong></h4>
-                <ul>
-                    <li><a href="/guides/ai-environment" style="color: var(--primary); text-decoration: none;">AI & the Environment: Data Centers, Energy & Water</a></li>
-                </ul>
-            </div>
-        </section>
 
         <!-- Heard Something About AI Section -->
         <section class="ai-heard-section" id="heard-about-ai">
@@ -541,5 +241,271 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <script>
+        // AI Path A Prototype - Verification Path
+        // Manages state and rendering for the guided-path experience
+
+        const aiPathState = {
+            currentScreen: 'entry', // 'entry', 'question', 'resultA1', 'resultA2', 'resultA3', 'resultA4'
+            selectedPath: null // Will store the user's choice
+        };
+
+        function renderScreen() {
+            const container = document.getElementById('aiPathExperience');
+
+            switch(aiPathState.currentScreen) {
+                case 'entry':
+                    renderEntry();
+                    break;
+                case 'question':
+                    renderQuestion();
+                    break;
+                case 'resultA1':
+                    renderResultImageVideo();
+                    break;
+                case 'resultA2':
+                    renderResultVoiceCall();
+                    break;
+                case 'resultA3':
+                    renderResultPost();
+                    break;
+                case 'resultA4':
+                    renderResultUnsure();
+                    break;
+            }
+        }
+
+        function renderEntry() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What are you trying to figure out?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 2rem 0; line-height: 1.6;">This prototype focuses on one DigitalCap path. Select below to start.</p>
+                <button type="button" onclick="selectPath()" style="display: block; width: 100%; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-weight: 600; font-size: 1.1rem;">I saw or heard something and I'm not sure I should trust it</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Images, videos, voices, calls, screenshots, posts, articles, claims, and other things you find online.</p>
+                </button>
+            `;
+        }
+
+        function renderQuestion() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.5rem;">What are you checking?</h2>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Select what you're trying to verify.</p>
+
+                <button type="button" onclick="goToResult('resultA1')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">An image or video</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultA2')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">A voice or phone call</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultA3')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 1rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">A post, screenshot, article, or claim</strong>
+                </button>
+
+                <button type="button" onclick="goToResult('resultA4')" style="display: block; width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-white); text-align: left; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; margin-bottom: 2rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <strong style="color: var(--primary);">I'm not sure what I saw or heard</strong>
+                </button>
+
+                <div style="margin-top: 2rem;">
+                    <button type="button" onclick="goBackToEntry()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Back</button>
+                </div>
+            `;
+        }
+
+        function renderResultImageVideo() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're checking an image or video</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Images and videos can be real, edited, AI-generated, or simply shown without the right context. You do not need to become an expert at spotting AI. The more useful skill is checking where something came from and whether other reliable sources support it.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <p style="color: var(--text-gray); margin: 0 0 0.5rem 0; font-size: 0.95rem;"><strong>Use STOP → SOURCE → SEARCH → CONFIRM</strong></p>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Stop.</strong> Before sharing or acting, give yourself time to check.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Source.</strong> Find out who originally posted or created it.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Search.</strong> Look for the original image/video and other reporting about it.</li>
+                    <li><strong>Confirm.</strong> See whether reliable independent sources support the same story.</li>
+                </ol>
+                <p style="color: var(--text-gray); margin: 0 0 2rem 0; font-style: italic; font-size: 0.9rem;">Visual clues can be useful, but they aren't proof. A realistic image isn't automatically real, and a strange-looking image isn't automatically AI-generated.</p>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 1.05rem; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A quick answer: use STOP → SOURCE → SEARCH → CONFIRM. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to understand more?</h4>
+                    <a href="/guides/deepfakes" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Deepfakes: Photos, Video & Audio</span> →
+                    </a>
+                    <a href="/guides/ai-detectors" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Can I Trust an AI Detector?</span> →
+                    </a>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to practice?</h4>
+                    <a href="/activities/deepfake-detective" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Deepfake Detective</span> — 10-15 minutes →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultVoiceCall() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're checking a voice or phone call</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">AI can make convincing voice impersonation easier, but you do not need to determine whether a voice is AI-generated before protecting yourself. A familiar voice is not verification.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Pause before acting,</strong> especially if the caller wants money, information, secrecy, or immediate action.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Verify somewhere else.</strong> Contact the person using a number or method you already know.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Do not rely on the voice or caller ID alone.</strong></li>
+                    <li>If something has already happened, use DigitalCap's <strong>Something Happened?</strong> tool.</li>
+                </ol>
+
+                <a href="/guides/voice-cloning-scams" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">Voice Cloning & Impersonation Scams</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A complete guide to understanding voice cloning, recognizing scams, and protecting yourself. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <a href="/respond" style="display: block; background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Something already happened?</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; margin: 0 0 0.75rem 0;">Something Happened?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Get step-by-step guidance on what to do. <span style="color: var(--primary); font-weight: 600;">Get help →</span></p>
+                </a>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultPost() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">You're checking a post, screenshot, article, or claim</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">Something appearing in search results, being widely shared, or looking professional does not automatically make it reliable. Start with where the information actually came from.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">What I'd do next</h3>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Find the original source.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Check the date and context.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Search for independent confirmation.</strong></li>
+                    <li style="margin-bottom: 0.5rem;"><strong>For screenshots or quotes,</strong> look for the original post, statement, article, or recording.</li>
+                    <li><strong>Slow down when something creates strong emotion or urgency.</strong></li>
+                </ol>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; font-style: italic; font-size: 0.9rem;">Presentation quality is not source quality.</p>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A practical guide to checking where online information came from and whether to trust it. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to practice?</h4>
+                    <a href="/activities/source-check" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Source Check</span> — 10-15 minutes →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function renderResultUnsure() {
+            const container = document.getElementById('aiPathExperience');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.5rem;">Not sure what you're checking? That's okay.</h2>
+
+                <p style="color: var(--text-dark); line-height: 1.6; margin: 0 0 1.5rem 0;">You don't have to identify whether something is AI-generated before deciding whether to trust it. Start with the source and the story around it.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem 0; font-size: 1.1rem;">Try this approach</h3>
+                <p style="color: var(--text-gray); margin: 0 0 0.5rem 0; font-size: 0.95rem;"><strong>STOP → SOURCE → SEARCH → CONFIRM</strong></p>
+                <ol style="color: var(--text-dark); margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Stop</strong> before acting or sharing. Give yourself time to check.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Source:</strong> Where did this come from originally?</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Search:</strong> Look for more information and reporting about it.</li>
+                    <li><strong>Confirm:</strong> Do reliable independent sources support the same story?</li>
+                </ol>
+
+                <a href="/guides/verify-online" style="display: block; background: var(--bg-white); border: 2px solid var(--primary); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--secondary); text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+                    <h4 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">Start here</h4>
+                    <h3 style="color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 0 0.75rem 0;">How to Verify Something You See Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A straightforward guide that works whether you're checking images, videos, posts, or claims. <span style="color: var(--primary); font-weight: 600;">Open guide →</span></p>
+                </a>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-gray); margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 600;">Want to practice?</h4>
+                    <a href="/activities/deepfake-detective" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 0.5rem; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Deepfake Detective</span> — 10-15 minutes →
+                    </a>
+                    <a href="/activities/source-check" style="display: block; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-dark); cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent';">
+                        <span style="color: var(--primary); font-weight: 600;">Source Check</span> — 10-15 minutes →
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" onclick="goBack()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">← Change what I'm checking</button>
+                    <button type="button" onclick="startOver()" style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: var(--bg-white); color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.backgroundColor='var(--bg-light)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='var(--bg-white)';">Start over</button>
+                </div>
+            `;
+        }
+
+        function selectPath() {
+            aiPathState.currentScreen = 'question';
+            renderScreen();
+        }
+
+        function goToResult(resultScreen) {
+            aiPathState.currentScreen = resultScreen;
+            renderScreen();
+        }
+
+        function goBack() {
+            // From result screens: return to question
+            aiPathState.currentScreen = 'question';
+            renderScreen();
+        }
+
+        function goBackToEntry() {
+            // From question screen: return to entry
+            aiPathState.currentScreen = 'entry';
+            renderScreen();
+        }
+
+        function startOver() {
+            // From any result: reset completely and return to entry
+            aiPathState.currentScreen = 'entry';
+            aiPathState.selectedPath = null;
+            renderScreen();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderScreen();
+        });
+    </script>
 </body>
 </html>

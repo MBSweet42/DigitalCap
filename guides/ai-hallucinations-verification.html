@@ -277,32 +277,156 @@
     <main class="container">
         <a href="/ai" class="guide-back-link">← Back to AI & Digital Life</a>
 
-        <div class="guide-header">
-            <h1>AI Makes Mistakes: Hallucinations & Verification</h1>
-            <p class="guide-description">AI can give you an answer that sounds completely believable and is still wrong. Here's why that happens and what to do when accuracy matters.</p>
-            <div class="guide-reviewed">Last reviewed: September 2026</div>
+        <div style="margin-bottom: 2rem;">
+            <h1 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 2rem;">AI Makes Mistakes: Hallucinations & Verification</h1>
+            <p style="color: var(--text-gray); margin: 0.5rem 0 0 0; line-height: 1.6; font-size: 1rem;">AI can give you an answer that sounds completely believable and is still wrong. Here's why that happens and what to do when accuracy matters.</p>
+            <p style="color: var(--text-gray); margin: 0.75rem 0 0 0; font-size: 0.85rem;">Reviewed September 2026 · <a href="#sources" style="color: var(--primary); text-decoration: none;">Sources</a></p>
         </div>
 
-        <!-- What is this? -->
+        <!-- The Quick Version -->
         <div class="guide-section">
-            <h2>What is this?</h2>
-            <p>You ask an AI a question.</p>
+            <h2>The quick version</h2>
+            <p style="color: var(--text-dark); margin: 0 0 1.5rem 0; font-weight: 500;">What you need to know:</p>
 
-            <p>It gives you a detailed answer.</p>
+            <h3>AI can sound completely confident while being completely wrong</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">It invents dates, quotes, book titles, studies, citations, and links—all presented in the exact same confident tone as when it's correct.</p>
 
-            <p>There are dates. Names. Maybe even citations.</p>
+            <h3>This is called hallucination or confabulation—not intentional deception</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">It's how generative AI works: generating patterns without automatically verifying them against reliable sources.</p>
 
-            <p>It sounds confident.</p>
+            <h3>Asking "Are you sure?" is not verification</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0.75rem 0;">The AI might confidently repeat the same wrong answer, give a different wrong answer, or seem to "correct" itself. Real verification means checking the claim outside the AI conversation.</p>
 
-            <p>There's just one problem.</p>
+            <h3>Use the STOP → SOURCE → SEARCH → CONFIRM framework</h3>
+            <p style="color: var(--text-dark); margin: 0 0 0 0;">When accuracy matters, verify: Stop before acting, find sources, search independently, and confirm with trustworthy sources outside the AI.</p>
+        </div>
 
-            <p>Some of it isn't true.</p>
+        <!-- Want More Help? -->
+        <div class="guide-section">
+            <h2>Want more help?</h2>
+
+            <!-- Expandable: Understanding hallucinations -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Why AI hallucinations happen</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <p>You ask an AI a question. It gives you a detailed answer with dates, names, and maybe even citations. It sounds confident.</p>
+
+            <p>But some of it isn't true.</p>
 
             <p>Generative AI can produce false, fabricated, inconsistent or unsupported information. This is commonly called an AI hallucination. NIST also uses the term confabulation.</p>
 
-            <p>This isn't necessarily the AI intentionally trying to deceive you.</p>
+            <h3>How it happens</h3>
+            <p>A language model generates responses based on patterns it learned during training and the information available in its current context.</p>
 
-            <p>It comes from how generative AI produces answers.</p>
+            <p>Its job is to generate a useful response. That does not automatically mean every claim has been checked against a reliable source.</p>
+
+            <p>This is why an AI can sometimes invent:</p>
+            <ul style="margin-left: 1rem;">
+                <li>facts</li>
+                <li>dates</li>
+                <li>quotes</li>
+                <li>book titles</li>
+                <li>court cases</li>
+                <li>studies</li>
+                <li>statistics</li>
+                <li>citations</li>
+                <li>links</li>
+                <li>features that don't exist</li>
+            </ul>
+
+            <p>And it presents them in exactly the same confident tone it uses when it's correct.</p>
+
+            <p><strong>A convincing answer and a correct answer are not the same thing.</strong></p>
+
+            <h3>Why people still use AI</h3>
+            <p>Because it can be extremely useful even though it makes mistakes.</p>
+
+            <p>We use plenty of tools that aren't perfect. The goal isn't to expect perfection. It's to understand the limitation.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: Key things to know -->
+            <details style="cursor: pointer; margin-bottom: 1.5rem;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Key things to know about AI mistakes</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>Asking "Are you sure?" isn't verification</h3>
+            <p>The AI might reconsider its answer. It might also confidently tell you the same incorrect thing again. Or confidently replace it with a different incorrect answer.</p>
+
+            <p>Verification means checking the claim somewhere outside the answer itself.</p>
+
+            <h3>Citations aren't automatically proof</h3>
+            <p>An AI can sometimes generate citations that don't exist or cite a real source that doesn't actually support the claim.</p>
+
+            <p>When a source matters:</p>
+
+            <p>Open it and check that:</p>
+            <ol style="margin-left: 1rem;">
+                <li>the source exists</li>
+                <li>it is the source it claims to be</li>
+                <li>it actually supports the statement</li>
+            </ol>
+
+            <h3>Current information can be another challenge</h3>
+            <p>AI systems differ in whether and how they can access current information.</p>
+
+            <p>Don't assume an answer is current just because it sounds current. Look for dates and verify time-sensitive information.</p>
+                </div>
+            </details>
+
+            <!-- Expandable: What to do -->
+            <details style="cursor: pointer;">
+                <summary style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; padding: 0.75rem 0;">Verification framework and putting it in context</summary>
+                <div style="padding: 0 0 0 1rem; border-left: 2px solid var(--border-color); margin-top: 1rem;">
+            <h3>Not everything needs the same level of checking</h3>
+            <p>You probably don't need three independent sources for:</p>
+            <div class="guide-callout">
+                <p>"Give me silly names for my fantasy football team."</p>
+            </div>
+
+            <p>You should be much more careful with:</p>
+            <ul style="margin-left: 1rem;">
+                <li>health</li>
+                <li>legal information</li>
+                <li>finances</li>
+                <li>safety</li>
+                <li>breaking news</li>
+                <li>academic research</li>
+                <li>important dates</li>
+                <li>statistics</li>
+                <li>quotations</li>
+                <li>information about real people</li>
+            </ul>
+
+            <p>Think about the consequence of being wrong.</p>
+
+            <h3>Verification framework: STOP → SOURCE → SEARCH → CONFIRM</h3>
+            <div class="guide-callout">
+                <h4>STOP</h4>
+                <p>If the answer matters, don't act just because it sounds convincing.</p>
+
+                <h4>SOURCE</h4>
+                <p>Ask where the information comes from. Then actually look at the source when possible.</p>
+
+                <h4>SEARCH</h4>
+                <p>Look outside the AI conversation. Search the claim yourself.</p>
+
+                <h4>CONFIRM</h4>
+                <p>See whether trustworthy independent sources support it. For important decisions, use the appropriate professional or authoritative source too.</p>
+            </div>
+
+            <h3>Put it in context</h3>
+            <p>AI isn't the only source of bad information. People make mistakes. Websites publish errors. Old information gets repeated. Social posts remove context. Screenshots get manipulated.</p>
+
+            <p>AI simply gives us another reason to practice a skill that was already important: Verify what matters.</p>
+
+            <p>You don't have to fact-check every sentence an AI ever gives you. But when an answer could meaningfully affect what you believe, share or do, slow down and check.</p>
+
+            <div class="guide-callout">
+                <p><strong>Confidence is not evidence.</strong></p>
+                <p><strong>The more important the answer, the more important it is to verify it.</strong></p>
+            </div>
+                </div>
+            </details>
         </div>
 
         <!-- Why does this happen? -->
