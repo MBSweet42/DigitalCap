@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screen Time & Sleep Guide - DigitalCap</title>
+    <title>Understanding Screen Time & Sleep - DigitalCap</title>
     <style>
         * {
             margin: 0;
@@ -29,14 +29,14 @@
         .header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 4px solid #FF6B6B;
+            border-bottom: 4px solid #4ECDC4;
             padding-bottom: 20px;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 800;
-            color: #FF6B6B;
+            color: #4ECDC4;
             margin-bottom: 10px;
         }
 
@@ -61,14 +61,21 @@
             font-size: 16px;
             font-weight: 700;
             color: white;
-            background: #FF6B6B;
+            background: #4ECDC4;
             padding: 10px 15px;
             border-radius: 6px;
             margin-bottom: 15px;
             margin-top: 20px;
         }
 
-        .recommendation-box {
+        .intro-text {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .mechanism-box {
             background: #F8F9FA;
             border-left: 4px solid #4ECDC4;
             padding: 15px;
@@ -76,68 +83,143 @@
             border-radius: 6px;
         }
 
-        .age-label {
+        .mechanism-title {
             font-weight: 700;
-            color: #4ECDC4;
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .recommendation-text {
             color: #2D3436;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
 
-        .recommendation-detail {
+        .mechanism-description {
             font-size: 13px;
             color: #636E72;
+            line-height: 1.6;
         }
 
-        .why-box {
-            background: #E8F4F8;
+        .option-box {
+            background: #F0F8F8;
             border-left: 4px solid #4ECDC4;
             padding: 12px;
-            margin-top: 8px;
+            margin-bottom: 10px;
             border-radius: 4px;
             font-size: 13px;
         }
 
-        .why-label {
-            font-weight: 600;
-            color: #4ECDC4;
-            margin-bottom: 3px;
+        .question-box {
+            background: #FFF8F0;
+            border-left: 4px solid #FF6B6B;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
         }
 
-        .tips-list {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        .tips-list li {
-            padding: 10px;
+        .question-label {
+            font-weight: 700;
+            color: #2D3436;
             margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 13px;
+            color: #636E72;
+            margin-bottom: 6px;
+        }
+
+        .sign-box {
             background: #F8F9FA;
-            border-left: 3px solid #FF6B6B;
+            border-left: 4px solid #FF6B6B;
+            padding: 12px;
+            margin-bottom: 10px;
             border-radius: 4px;
+            font-size: 13px;
         }
 
-        .tips-list strong {
-            color: #FF6B6B;
-        }
-
-        .warning-box {
-            background: #FFE66D;
-            border-left: 4px solid #FFB703;
+        .caregiver-box {
+            background: #E8F4F8;
+            border-left: 4px solid #4ECDC4;
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
             font-size: 13px;
         }
 
-        .warning-label {
+        .caregiver-label {
             font-weight: 700;
             color: #2D3436;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        .experiment-box {
+            background: #F0F8F8;
+            border: 2px solid #4ECDC4;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .experiment-title {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .experiment-option {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .experiment-questions {
+            background: white;
+            border-left: 2px solid #4ECDC4;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .source-box {
+            background: #F8F9FA;
+            border-left: 4px solid #4ECDC4;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .source-title {
+            font-weight: 700;
+            color: #2D3436;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .source-link {
+            display: block;
+            margin-bottom: 10px;
+            color: #4ECDC4;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        .attribution {
+            font-size: 12px;
+            color: #636E72;
+            font-style: italic;
+            margin-top: 3px;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            cursor: pointer;
+            accent-color: #4ECDC4;
+            vertical-align: middle;
         }
 
         @media print {
@@ -157,84 +239,262 @@
     <div class="container">
         <div class="header">
             <div class="logo">DigitalCap</div>
-            <div class="title">⏰ Screen Time & Sleep Guide</div>
-            <div class="subtitle">Why screen time matters, healthy habits, and how to enforce limits without conflict</div>
+            <div class="title">Understanding Screen Time & Sleep</div>
+            <div class="subtitle">Screen time isn't all the same. Learn how digital use can affect sleep and daily life, then decide what works for you or your family.</div>
         </div>
 
         <div class="section">
-            <div class="section-title">📊 RECOMMENDED SCREEN TIME BY AGE</div>
+            <div class="section-title">SCREEN TIME ISN'T JUST A NUMBER</div>
+            <p class="intro-text">
+                The same amount of screen time can involve very different activities and purposes. Someone might spend two hours on homework, video calls with family, creating music, gaming with friends, learning a skill, or watching videos. Each experience is different.
+            </p>
 
-            <div class="recommendation-box">
-                <div class="age-label">Ages 6-8</div>
-                <div class="recommendation-text"><strong>1-2 hours per day</strong> of quality content</div>
-                <div class="recommendation-detail">Focus on educational programs and co-viewing when possible</div>
-                <div class="why-box">
-                    <div class="why-label">Why:</div>
-                    Young brains are still developing. Limited screen time allows more time for physical play, social interaction, and creative play—all essential for healthy development.
+            <p class="intro-text">
+                Instead of only asking "How many hours?" it can be more useful to consider:
+            </p>
+
+            <div class="question-box">
+                <div class="question-label">Questions to think about:</div>
+                <div class="question-text">• What is the screen being used for?</div>
+                <div class="question-text">• How does the person feel during and after?</div>
+                <div class="question-text">• Is it interfering with sleep?</div>
+                <div class="question-text">• Is it crowding out responsibilities or activities that matter?</div>
+                <div class="question-text">• Is stopping easy when someone needs or wants to stop?</div>
+                <div class="question-text">• Is the experience useful, enjoyable, stressful, supportive, or upsetting?</div>
+            </div>
+
+            <p class="intro-text">
+                The American Academy of Pediatrics recommends focusing on the quality and context of digital-media interactions rather than only total screen time. Digital media is used for school, work, connecting with friends and family, games, social media, entertainment, hobbies, learning, and more.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">HOW DIGITAL USE CAN AFFECT SLEEP</div>
+            <p class="intro-text">
+                Research shows that digital media use can affect how and when people sleep. Several factors may contribute, and they often work together:
+            </p>
+
+            <div class="mechanism-box">
+                <div class="mechanism-title">Time Displacement</div>
+                <div class="mechanism-description">Scrolling, gaming, watching, chatting, or other activities can push bedtime later simply by taking up time when sleep would otherwise happen.</div>
+            </div>
+
+            <div class="mechanism-box">
+                <div class="mechanism-title">Content and Cognitive Arousal</div>
+                <div class="mechanism-description">Exciting, stressful, emotional, or highly engaging content may make it harder to wind down and relax before sleep.</div>
+            </div>
+
+            <div class="mechanism-box">
+                <div class="mechanism-title">Notifications and Alerts</div>
+                <div class="mechanism-description">Sounds, vibrations, and the urge to check alerts can interrupt sleep or make it harder to fall asleep.</div>
+            </div>
+
+            <div class="mechanism-box">
+                <div class="mechanism-title">Device Availability</div>
+                <div class="mechanism-description">A device within reach can make checking it during the night more likely, interfering with sleep duration and quality.</div>
+            </div>
+
+            <div class="mechanism-box">
+                <div class="mechanism-title">Light Exposure</div>
+                <div class="mechanism-description">Light emitted by screens, including blue-wavelength light, can affect melatonin secretion and circadian timing. However, light is only one part of the picture—time, content, notifications, and device access also matter.</div>
+            </div>
+
+            <p class="intro-text">
+                These factors often interact, and individual people experience them differently. Not everyone is affected the same way.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WHAT YOU CAN TRY</div>
+            <p class="intro-text">
+                Since different factors affect sleep, experimenting with different changes can help identify what makes a difference for you or your household. These are options, not requirements:
+            </p>
+
+            <div class="option-box">Try a quieter wind-down period before bed without screens or notifications.</div>
+
+            <div class="option-box">Consider putting your phone on Do Not Disturb mode overnight so alerts don't interrupt sleep.</div>
+
+            <div class="option-box">Reduce unnecessary notifications on apps so they don't interrupt sleep.</div>
+
+            <div class="option-box">Try charging a device away from the bed instead of on the nightstand.</div>
+
+            <div class="option-box">If a phone is needed as an alarm, consider placing it farther away so it's less tempting to check.</div>
+
+            <div class="option-box">Try reducing highly stimulating or stressful content close to bedtime and notice whether it affects sleep.</div>
+
+            <div class="option-box">Use night settings or reduced brightness on screens if they make viewing more comfortable, while understanding this doesn't address other factors like notifications or engaging content.</div>
+
+            <p class="intro-text" style="margin-top: 20px;">
+                <strong>AAP Recommendation:</strong> The American Academy of Pediatrics recommends avoiding screen exposure for about an hour before bedtime and keeping devices out of bedrooms at night when practical. This reflects both the research on light and sleep and the broader goal of protecting sleep opportunity.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">NOTICE WHAT'S BEING DISPLACED</div>
+            <p class="intro-text">
+                A useful question is not simply "Was a screen used?" but rather whether digital use regularly interferes with things that matter:
+            </p>
+
+            <div class="question-box">
+                <div class="question-label">Consider whether digital use is regularly interfering with:</div>
+                <div class="question-text">• Sleep (duration or quality)</div>
+                <div class="question-text">• School or work</div>
+                <div class="question-text">• Physical activity or movement</div>
+                <div class="question-text">• Relationships with friends or family</div>
+                <div class="question-text">• Meals or mealtimes</div>
+                <div class="question-text">• Responsibilities at home or school</div>
+                <div class="question-text">• Hobbies or offline activities someone values</div>
+            </div>
+
+            <p class="intro-text">
+                Context matters. Someone spending several hours creating digital art, completing schoolwork, talking with distant family, or using accessibility tools is experiencing something different from someone staying awake several hours longer than intended scrolling. The question is whether the time and activity are aligned with what the person wants or needs to do.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WHEN DIGITAL USE STARTS INTERFERING WITH DAILY LIFE</div>
+            <p class="intro-text">
+                Sometimes digital use becomes a concern when it starts getting in the way of daily life or causing distress. Possible signs worth paying attention to include:
+            </p>
+
+            <div class="sign-box">• Repeatedly staying online longer than intended, even when someone wants to stop</div>
+
+            <div class="sign-box">• Regularly losing sleep because of device use, and it happening often enough to be noticeable</div>
+
+            <div class="sign-box">• Difficulty stopping or reducing use even when someone wants to</div>
+
+            <div class="sign-box">• Missing important responsibilities, schoolwork, or commitments because of use</div>
+
+            <div class="sign-box">• Significant conflict or distress around use—either during use or when trying to stop</div>
+
+            <div class="sign-box">• Important relationships or activities being displaced or neglected</div>
+
+            <div class="sign-box">• Feeling that the use is no longer enjoyable but continuing anyway</div>
+
+            <p class="intro-text">
+                One sign by itself does not necessarily mean digital use is a problem. Context matters. If digital use is causing persistent distress or significantly interfering with daily functioning, consider talking with a pediatrician, doctor, mental-health professional, or other appropriate healthcare professional. They can provide personalized guidance based on individual circumstances.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">FOR PARENTS, CAREGIVERS & EDUCATORS</div>
+
+            <div class="caregiver-box">
+                <div class="caregiver-label">There is no universal hour limit that applies to every person or household.</div>
+                <p class="intro-text">
+                    Different families have different needs and circumstances. What works for one household may not work for another. Consider:
+                </p>
+                <div class="question-box">
+                    <div class="question-text">• Age and developmental stage</div>
+                    <div class="question-text">• Sleep needs and school schedule</div>
+                    <div class="question-text">• School, work, or learning responsibilities</div>
+                    <div class="question-text">• Social connection and hobbies</div>
+                    <div class="question-text">• Physical activity needs</div>
+                    <div class="question-text">• Accessibility needs (assistive technology, communication tools)</div>
+                    <div class="question-text">• What the digital use is for</div>
+                    <div class="question-text">• Whether use is causing problems</div>
                 </div>
             </div>
 
-            <div class="recommendation-box">
-                <div class="age-label">Ages 9-12</div>
-                <div class="recommendation-text"><strong>1-2.5 hours per day</strong>, balanced with other activities</div>
-                <div class="recommendation-detail">Mix entertainment with educational content. Monitor content closely.</div>
-                <div class="why-box">
-                    <div class="why-label">Why:</div>
-                    This age group is more susceptible to algorithm-driven addiction and social comparison. Strong limits now prevent unhealthy habits later.
+            <p class="intro-text">
+                When developmentally appropriate, collaborative discussion can be more effective than one-sided rules. Possible conversation starters:
+            </p>
+
+            <div class="question-box">
+                <div class="question-label">Questions to discuss together:</div>
+                <div class="question-text">• What do you like doing online?</div>
+                <div class="question-text">• Is anything online making it harder to sleep?</div>
+                <div class="question-text">• Do notifications wake you up at night?</div>
+                <div class="question-text">• Are there nights when you stay online longer than you mean to?</div>
+                <div class="question-text">• What evening routine would feel realistic for you?</div>
+                <div class="question-text">• Is there anything we could change as a household?</div>
+            </div>
+
+            <p class="intro-text">
+                Adults can model the same habits they are discussing with young people. If device-free mealtimes or screen-free bedrooms are the goal, parents and other adults should participate too.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">TRY IT FOR A WEEK</div>
+            <p class="intro-text">
+                Experimentation can help identify what actually makes a difference. This approach reinforces learning and observation rather than punishment.
+            </p>
+
+            <div class="experiment-box">
+                <div class="experiment-title">Choose ONE change to try:</div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Turn on Do Not Disturb overnight
+                </div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Stop nonessential screen use about an hour before bed
+                </div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Charge the phone farther from the bed
+                </div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Turn off unnecessary nighttime notifications
+                </div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Choose calmer content before bed
+                </div>
+
+                <div class="experiment-option">
+                    <input type="checkbox"> Other: _______________________________
+                </div>
+
+                <div class="experiment-questions">
+                    <strong>Before the week:</strong> How is sleep going now?
+                    <br/><br/>
+                    <strong>After a week:</strong>
+                    <br/>• Did falling asleep change?
+                    <br/>• Did nighttime waking change?
+                    <br/>• Did morning tiredness change?
+                    <br/>• Did the change feel realistic?
                 </div>
             </div>
 
-            <div class="recommendation-box">
-                <div class="age-label">Ages 13-15</div>
-                <div class="recommendation-text"><strong>2-3 hours per day</strong> with established boundaries</div>
-                <div class="recommendation-detail">Teens need more independence, but structure still matters. Avoid screens 1 hour before bed.</div>
-                <div class="why-box">
-                    <div class="why-label">Why:</div>
-                    Teen brains are developing judgment and impulse control. Boundaries teach healthy self-regulation before they leave home.
+            <p class="intro-text">
+                This experiment reinforces observation and individual differences rather than assuming a change will work the same way for everyone.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="source-box">
+                <div class="source-title">Sources & Learn More</div>
+
+                <div class="source-link">
+                    <strong>American Academy of Pediatrics</strong>
+                    <br/>Screen Time Guidelines
+                    <br/><a href="https://www.aap.org/en/patient-care/media-and-children/center-of-excellence-on-social-media-and-youth-mental-health/qa-portal/qa-portal-library/qa-portal-library-questions/screen-time-guidelines" target="_blank" rel="noopener noreferrer">https://www.aap.org/en/patient-care/media-and-children/center-of-excellence-on-social-media-and-youth-mental-health/qa-portal/qa-portal-library/qa-portal-library-questions/screen-time-guidelines</a>
+                    <div class="attribution">Accessed 2026</div>
                 </div>
-            </div>
-        </div>
 
-        <div class="section">
-            <div class="section-title">🛏️ THE SLEEP CONNECTION</div>
-            <p style="margin-bottom: 10px; font-weight: 600;">Blue light from screens suppresses melatonin (the sleep hormone). This is why screen use before bed ruins sleep quality.</p>
+                <div class="source-link">
+                    <strong>American Academy of Pediatrics</strong>
+                    <br/>Digital Ecosystems, Children, and Adolescents: Policy Statement
+                    <br/><a href="https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy" target="_blank" rel="noopener noreferrer">https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy</a>
+                    <div class="attribution">Pediatrics, 2026</div>
+                </div>
 
-            <ul class="tips-list">
-                <li><strong>No screens 1 hour before bed</strong> — Switch to reading, conversation, or quiet activities</li>
-                <li><strong>No phones in the bedroom</strong> — Keep devices in a common charging station overnight</li>
-                <li><strong>Don't use screens to fall asleep</strong> — This creates dependency and disrupts sleep cycles</li>
-                <li><strong>Recommend 8-10 hours of sleep for kids</strong> — This requires bedtimes early enough to achieve this</li>
-            </ul>
-        </div>
+                <div class="source-link">
+                    <strong>American Academy of Pediatrics</strong>
+                    <br/>Digital Ecosystems, Children, and Adolescents: Technical Report
+                    <br/><a href="https://publications.aap.org/pediatrics/article/157/2/e2025075321/206128/Digital-Ecosystems-Children-and-Adolescents" target="_blank" rel="noopener noreferrer">https://publications.aap.org/pediatrics/article/157/2/e2025075321/206128/Digital-Ecosystems-Children-and-Adolescents</a>
+                    <div class="attribution">Pediatrics, 2026</div>
+                </div>
 
-        <div class="section">
-            <div class="section-title">✅ STRATEGIES FOR HEALTHY LIMITS</div>
-
-            <ul class="tips-list">
-                <li><strong>Set device-free times:</strong> Meals, car rides, and family time are phone-free zones for EVERYONE</li>
-                <li><strong>Use parental controls:</strong> App limits, screen time tracking, and content filters are your tools</li>
-                <li><strong>Model good behavior:</strong> If you're constantly on your phone, your child will be too</li>
-                <li><strong>Make the case together:</strong> Explain WHY limits exist (not just "because I said so")</li>
-                <li><strong>Offer alternatives:</strong> Boredom drives screen use. Have real activities ready: board games, outdoor time, hobbies</li>
-                <li><strong>Avoid using screens as a reward/punishment:</strong> This makes them seem more valuable</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="section-title">⚠️ RED FLAGS FOR ADDICTION</div>
-            <p style="margin-bottom: 10px; font-weight: 600; color: #E74C3C;">If your child shows any of these, screen time may be unhealthy:</p>
-
-            <ul class="tips-list">
-                <li><strong>Extreme moodiness when screens are taken away</strong></li>
-                <li><strong>Lies about how much time they've been using screens</strong></li>
-                <li><strong>Neglecting homework, friends, sports, or sleep for screen time</strong></li>
-                <li><strong>Can't sit through a meal without their phone</strong></li>
-                <li><strong>Declining grades or loss of interest in previous hobbies</strong></li>
-            </ul>
-
-            <div class="warning-box">
-                <div class="warning-label">💡 If you see these signs:</div>
-                Have a calm conversation about what's happening. Consider a temporary (1-2 week) screen break. If the issue persists, talk to your pediatrician—addiction is real and treatable.
+                <div class="source-link">
+                    <strong>American Psychological Association</strong>
+                    <br/>Health Advisory on Social Media Use in Adolescence
+                    <br/><a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use" target="_blank" rel="noopener noreferrer">https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use</a>
+                    <div class="attribution">Accessed 2026</div>
+                </div>
             </div>
         </div>
     </div>
