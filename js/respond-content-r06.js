@@ -5,7 +5,7 @@
 const R06_HACKED = {
   id: 'R06',
   title: 'Hacked or Compromised Account',
-  description: 'Someone may have accessed your child\'s account without permission. DigitalCap will help you figure out the safest next steps and point you to the platform\'s official recovery tools.',
+  description: 'Someone may have accessed an account without permission. DigitalCap will help you figure out the next steps and point you to the platform\'s official recovery tools.',
 
   questions: [
     // WHOSE ACCOUNT QUESTION
@@ -150,7 +150,7 @@ const R06_HACKED = {
       {
         number: 5,
         title: 'Review connected apps and third-party access',
-        text: 'Remove any apps or connected services that your child doesn\'t recognize or no longer use.'
+        text: 'Remove any apps or connected services the account owner doesn\'t recognize or no longer uses.'
       }
     ],
 
@@ -224,7 +224,7 @@ const R06_HACKED = {
       {
         number: 4,
         title: 'Verify recovery information is secure',
-        text: 'Make sure recovery email, phone, and backup options are only accessible to your child.'
+        text: 'Make sure recovery email, phone, and backup options are only accessible to the account owner.'
       },
       {
         number: 5,
@@ -408,7 +408,7 @@ const R06_HACKED = {
     title: 'Safety comes first',
     content: [
       'If the account owner or anyone else is in immediate physical danger, call 911 or your local emergency number right now.',
-      'If the threat is not immediate but is specific or credible (location, timing, method), preserve the information and consider contacting local law enforcement.',
+      'If there is a threat of harm that is not immediate, preserve the information if it is safe to do so and consider contacting local law enforcement or appropriate local support.',
       'Do not wait for DigitalCap if there is a real threat of harm.',
       'After addressing immediate safety, you can get additional guidance below.'
     ]
@@ -420,7 +420,7 @@ const R06_HACKED = {
     resourceIds: ['988-crisis-lifeline'],
     content: [
       'If you\'re unsure about access status, try logging in with the current password. If login fails, the account is likely locked out. If it works, the account is accessible.',
-      'If the account owner is showing signs of extreme distress about the account compromise, consider contacting a trusted adult or counselor.',
+      'If the account owner is extremely distressed about the account compromise, consider contacting someone they trust or appropriate local support.',
       'If there are threats of harm involved, contact local law enforcement.'
     ]
   },

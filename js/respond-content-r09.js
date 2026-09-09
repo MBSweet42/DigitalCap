@@ -586,7 +586,7 @@ const R09_INTIMATE_IMAGES = {
     {
       id: 'safe-evidence',
       show: 'always',
-      title: '💾 Preserve safe evidence',
+      title: 'Preserve safe evidence',
       intro: 'Gather evidence that helps law enforcement without redistribution:',
       points: [
         'Save threat messages and demands',
@@ -602,7 +602,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'take-it-down',
       show: 'whenFlag',
       flag: 'content_created_minor',
-      title: '🗑️ Take It Down (for content created when person was under 18)',
+      title: 'Take It Down (for content created when person was under 18)',
       intro: 'If the image was created when the depicted person was under 18, even if they are now an adult:',
       points: [
         'Visit <a href="https://takeitdown.ncmec.org/" target="_blank" rel="noopener noreferrer" aria-label="Take It Down, opens in a new tab">takeitdown.ncmec.org</a>',
@@ -618,7 +618,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'stop-ncii',
       show: 'whenFlag',
       flag: 'content_created_adult',
-      title: '🛑 StopNCII (for adult content)',
+      title: 'StopNCII (for adult content)',
       intro: 'If the image was created when the depicted person was 18 or older:',
       points: [
         'Visit <a href="https://stopncii.org/create-your-case/" target="_blank" rel="noopener noreferrer" aria-label="StopNCII, opens in a new tab">stopncii.org</a>',
@@ -634,7 +634,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'child-exploitation',
       show: 'whenFlag',
       flag: 'content_created_minor',
-      title: '🚨 Report child exploitation',
+      title: 'Report child exploitation',
       intro: 'Content involving someone under 18 requires reporting to law enforcement:',
       points: [
         '<strong>NCMEC CyberTipline:</strong> <a href="https://report.cybertip.org/" target="_blank" rel="noopener noreferrer" aria-label="NCMEC CyberTipline, opens in a new tab">report.cybertip.org</a> or <a href="tel:18008435678" style="color: var(--respond-accent); text-decoration: underline;">call 1-800-THE-LOST (1-800-843-5678)</a>',
@@ -648,7 +648,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'sextortion-reporting',
       show: 'whenFlag',
       flag: 'threat_with_demand',
-      title: '📞 Report sextortion or extortion',
+      title: 'Report sextortion or extortion',
       intro: 'Extortion using threats or demands is a serious crime. Report to multiple agencies:',
       points: [
         '<strong>FBI Tips:</strong> <a href="https://tips.fbi.gov/" target="_blank" rel="noopener noreferrer" aria-label="FBI Tips, opens in a new tab">tips.fbi.gov</a> (extortion and sextortion reporting)',
@@ -661,7 +661,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'money-sent',
       show: 'whenFlag',
       flag: 'threat_with_demand',
-      title: '💳 If money was already sent',
+      title: 'If money was already sent',
       intro: 'Act immediately if the person sent money:',
       points: [
         'Contact your payment provider (bank, credit card company, payment app, gift card issuer, etc.) right away and report the fraud',
@@ -675,7 +675,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'emotional-support',
       show: 'whenFlag',
       flag: 'emotional_crisis',
-      title: '💙 Emotional support and crisis resources',
+      title: 'Emotional support and crisis resources',
       intro: 'This situation is not the person\'s fault. Support is available:',
       points: [
         '<strong>988 Suicide & Crisis Lifeline:</strong> <a href="tel:988" style="color: var(--respond-accent); text-decoration: underline;">Call 988</a> or <a href="sms:988" style="color: var(--respond-accent); text-decoration: underline;">text 988</a> (available 24/7 in the US). Chat at <a href="https://chat.988lifeline.org/" target="_blank" rel="noopener noreferrer" aria-label="988 chat, opens in a new tab" style="color: var(--respond-accent); text-decoration: underline;">988lifeline.org</a>',
@@ -689,7 +689,7 @@ const R09_INTIMATE_IMAGES = {
       id: 'helping-someone',
       show: 'whenFlag',
       flag: 'affected_other',
-      title: '🤝 You\'re helping someone else',
+      title: 'You\'re helping someone else',
       intro: 'Your support matters:',
       points: [
         'Encourage the affected person to report to the platform and authorities themselves when possible',
@@ -703,7 +703,7 @@ const R09_INTIMATE_IMAGES = {
     {
       id: 'platform-reporting',
       show: 'always',
-      title: '📱 Report to the platform',
+      title: 'Report to the platform',
       intro: 'Every platform has an abuse or privacy reporting tool:',
       points: [
         'Look for "Report" or "Block" options on the account or post',
@@ -718,7 +718,7 @@ const R09_INTIMATE_IMAGES = {
     title: 'Immediate physical danger',
     content: [
       'If anyone is in immediate physical danger, an attempt is in progress, or an urgent medical emergency is happening, call 911 or your local emergency number right now.',
-      'If the threat is specific or credible (a location, timing, or method), preserve the information and contact local law enforcement.',
+      'If there is a threat of harm that is not immediate, preserve the information if it is safe to do so and consider contacting local law enforcement or appropriate local support.',
       'Do not wait for DigitalCap if there is a real threat of harm.',
       'After addressing immediate safety, you can get additional guidance below.'
     ]
@@ -741,7 +741,7 @@ const R09_INTIMATE_IMAGES = {
     title: 'When to treat this as urgent',
     resourceIds: ['988-crisis-lifeline'],
     content: [
-      'If you\'re unsure whether a threat is credible, contact local law enforcement or another trusted local support resource for guidance.',
+      'If you\'re unsure about a threat of harm, contact local law enforcement or another trusted local support resource for guidance.',
       'If the affected person is showing signs of extreme distress or emotional crisis, <a href="tel:988" style="color: var(--respond-accent); text-decoration: underline;">call 988</a> or <a href="sms:988" style="color: var(--respond-accent); text-decoration: underline;">text 988</a>, or contact a mental health professional.',
       'Your judgment about the situation matters most.'
     ]

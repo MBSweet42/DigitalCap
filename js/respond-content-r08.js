@@ -218,7 +218,7 @@ const R08_IDENTITY_THEFT = {
       {
         number: 3,
         title: 'Contact the relevant institution',
-        text: 'If it\'s a specific bank or card issue, contact that institution directly. If it\'s an online account, use the R06 pathway.'
+        text: 'If it\'s a specific bank or card issue, contact that institution directly. If it\'s an online account, choose Hacked or Compromised Account.'
       }
     ],
     default: [
@@ -235,7 +235,7 @@ const R08_IDENTITY_THEFT = {
       {
         number: 3,
         title: 'Contact the relevant institution or return to the main menu',
-        text: 'For a specific bank or card issue, contact that institution. For an online account, return to the main menu and select the R06 pathway.'
+        text: 'For a specific bank or card issue, contact that institution. For an online account, return to the main menu and choose Hacked or Compromised Account.'
       }
     ]
   },

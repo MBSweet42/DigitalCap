@@ -1,8 +1,5 @@
 // Article Renderer v2 Fixed - Clean article flow with scripts after each
 
-let currentUtterance = null;
-let isSpeaking = false;
-
 document.addEventListener('DOMContentLoaded', function() {
     const isAccordionPage = document.body.querySelector('.safety-page, .etiquette-page') !== null;
     renderArticlesClean(isAccordionPage);
@@ -20,21 +17,35 @@ function renderArticlesClean(accordionMode = false) {
         articleDiv.setAttribute('data-article-id', article.id);
 
         // Intro section - with accordion mode support
-        let introHtml = `
-            <div class="article-intro"${accordionMode ? ` onclick="toggleArticleAccordion(${article.id})" style="cursor: pointer;"` : ''}>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div style="flex: 1;">
-                        <h2>${article.title}</h2>
-                        <p>${article.intro}</p>
-                    </div>${accordionMode ? `<span class="article-toggle-arrow" style="font-size: 1.5rem; margin-left: 1rem; flex-shrink: 0;">▼</span>` : ''}
-                </div>
-            </div>`;
+        let introHtml = '';
+        if (accordionMode) {
+            introHtml = `
+                <h2 style="margin: 0; padding: 0;">
+                    <button type="button" class="article-toggle-btn" aria-expanded="false" aria-controls="content-${article.id}" onclick="toggleArticleAccordion(${article.id})" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; border: none; background: none; color: inherit; font-size: inherit; cursor: pointer; text-align: left; padding: 0; text-decoration: none;">
+                        <span style="flex: 1;">
+                            <span style="display: block; font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem;">${article.title}</span>
+                            <span style="display: block; font-size: 0.95rem; font-weight: 400; color: var(--text-dark); margin: 0;">${article.intro}</span>
+                        </span>
+                        <span class="article-toggle-arrow" style="font-size: 1.5rem; margin-left: 1rem; flex-shrink: 0; transition: transform 0.2s ease;">▼</span>
+                    </button>
+                </h2>`;
+        } else {
+            introHtml = `
+                <div class="article-intro">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div style="flex: 1;">
+                            <h2>${article.title}</h2>
+                            <p>${article.intro}</p>
+                        </div>
+                    </div>
+                </div>`;
+        }
 
         let html = introHtml;
 
         // Content wrapper - for accordion mode, wrap sections in collapsible div
         if (accordionMode) {
-            html += `<div class="article-content-wrapper" data-article-id="${article.id}" style="display: none; padding: 0;">`;
+            html += `<div id="content-${article.id}" class="article-content-wrapper" data-article-id="${article.id}" style="display: none; padding: 0;">`;
         } else {
             html += `<div style="padding: 0;">`;
         }
@@ -55,7 +66,7 @@ function renderArticlesClean(accordionMode = false) {
                 // Parent pop-up box
                 html += `
                     <div class="section-type-parent-popup">
-                        <h4>👨‍👩‍👧 Parent Pop-Up</h4>
+                        <h4>Support Note</h4>
                         <h5 style="color: var(--primary); margin-top: 0.75rem;">${section.title.replace('Parent Pop-Up: ', '')}</h5>
                         <div>${section.content}</div>
                     </div>
@@ -64,7 +75,7 @@ function renderArticlesClean(accordionMode = false) {
                 // Callout box
                 html += `
                     <div class="section-type-callout">
-                        <h4>⚠️ ${section.title}</h4>
+                        <h4>${section.title}</h4>
                         <div>${section.content}</div>
                     </div>
                 `;
@@ -72,7 +83,7 @@ function renderArticlesClean(accordionMode = false) {
                 // Takeaway box
                 html += `
                     <div class="section-type-takeaway">
-                        <h4>📌 ${section.title}</h4>
+                        <h4>${section.title}</h4>
                         <div>${section.content}</div>
                     </div>
                 `;
@@ -80,11 +91,13 @@ function renderArticlesClean(accordionMode = false) {
                 // Expandable section
                 html += `
                     <div class="article-section-v2" style="margin: 1rem 0; box-shadow: none;">
-                        <div class="section-header" onclick="toggleSectionContent(this)" style="cursor: pointer;">
-                            <h3>${section.title}</h3>
-                            <span class="section-toggle">▼</span>
-                        </div>
-                        <div class="section-content" id="${sectionId}" style="display: none;">
+                        <h3 style="margin: 0; padding: 0;">
+                            <button type="button" class="section-header-btn" aria-expanded="false" aria-controls="${sectionId}" onclick="toggleSectionContent(this)" style="display: flex; justify-content: space-between; align-items: center; width: 100%; border: none; background: none; color: inherit; font-size: inherit; cursor: pointer; text-align: left; padding: 0; text-decoration: none; font-weight: 600;">
+                                <span>${section.title}</span>
+                                <span class="section-toggle" style="margin-left: 0.5rem; flex-shrink: 0; transition: transform 0.2s ease;">▼</span>
+                            </button>
+                        </h3>
+                        <div class="section-content" id="${sectionId}" style="display: none; padding-top: 1rem;">
                             ${section.content}
                         </div>
                     </div>
@@ -96,11 +109,13 @@ function renderArticlesClean(accordionMode = false) {
                     const cardId = `${sectionId}-card-${cardIdx}`;
                     html += `
                         <div class="article-section-v2" style="margin-bottom: 0.75rem; box-shadow: none;">
-                            <div class="section-header" onclick="toggleSectionContent(this)" style="cursor: pointer;">
-                                <h3 style="margin: 0; font-size: 1.1rem;">${card.label}</h3>
-                                <span class="section-toggle">▼</span>
-                            </div>
-                            <div class="section-content" id="${cardId}" style="display: none;">
+                            <h3 style="margin: 0; padding: 0; font-size: 1.1rem;">
+                                <button type="button" class="section-header-btn" aria-expanded="false" aria-controls="${cardId}" onclick="toggleSectionContent(this)" style="display: flex; justify-content: space-between; align-items: center; width: 100%; border: none; background: none; color: inherit; font-size: 1.1rem; cursor: pointer; text-align: left; padding: 0; text-decoration: none; font-weight: 600;">
+                                    <span>${card.label}</span>
+                                    <span class="section-toggle" style="margin-left: 0.5rem; flex-shrink: 0; transition: transform 0.2s ease;">▼</span>
+                                </button>
+                            </h3>
+                            <div class="section-content" id="${cardId}" style="display: none; padding-top: 1rem;">
                                 ${card.content}
                             </div>
                         </div>
@@ -123,7 +138,7 @@ function renderArticlesClean(accordionMode = false) {
             scriptSection.innerHTML = `
                 <div style="margin-top: 2.5rem; padding-top: 2rem; padding-bottom: 3rem; border-top: 3px solid var(--primary);">
                     <h3 style="color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        💬 Parent Conversation Scripts
+                        Conversation Guides
                     </h3>
                     <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Click any script below to open it. Customize and use as needed!</p>
 
@@ -151,17 +166,44 @@ function toggleSection(sectionId) {
     toggle.classList.toggle('open');
 }
 
+function toggleSectionContent(button) {
+    const contentId = button.getAttribute('aria-controls');
+    const content = document.getElementById(contentId);
+    const toggle = button.querySelector('.section-toggle');
+
+    if (!content) return;
+
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        button.setAttribute('aria-expanded', 'true');
+        if (toggle) {
+            toggle.style.transform = 'rotate(180deg)';
+        }
+    } else {
+        content.style.display = 'none';
+        button.setAttribute('aria-expanded', 'false');
+        if (toggle) {
+            toggle.style.transform = 'rotate(0deg)';
+        }
+    }
+}
+
 function toggleArticleAccordion(articleId) {
     const contentWrapper = document.querySelector(`.article-content-wrapper[data-article-id="${articleId}"]`);
     const article = document.querySelector(`[data-article-id="${articleId}"]`);
+    const button = article.querySelector('.article-toggle-btn');
     const arrow = article.querySelector('.article-toggle-arrow');
 
     if (contentWrapper) {
         const isCurrentlyOpen = contentWrapper.style.display !== 'none';
 
-        // Close all other articles
+        // Close all other articles and reset their buttons
         document.querySelectorAll('.article-content-wrapper').forEach(wrapper => {
             wrapper.style.display = 'none';
+            const btn = wrapper.parentElement.querySelector('.article-toggle-btn');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+            }
         });
 
         document.querySelectorAll('.article-toggle-arrow').forEach(a => {
@@ -171,81 +213,12 @@ function toggleArticleAccordion(articleId) {
         // Toggle current article
         if (!isCurrentlyOpen) {
             contentWrapper.style.display = 'block';
+            if (button) {
+                button.setAttribute('aria-expanded', 'true');
+            }
             if (arrow) {
                 arrow.style.transform = 'rotate(180deg)';
             }
         }
     }
 }
-
-// ===== TEXT-TO-SPEECH =====
-
-function toggleTextToSpeech() {
-    const btn = document.getElementById('ttsBtn');
-
-    if (isSpeaking) {
-        stopTextToSpeech();
-        return;
-    }
-
-    const text = gatherArticleText();
-
-    if ('speechSynthesis' in window) {
-        currentUtterance = new SpeechSynthesisUtterance(text);
-        currentUtterance.rate = 0.95;
-        currentUtterance.pitch = 1;
-
-        currentUtterance.onstart = function() {
-            isSpeaking = true;
-            btn.classList.add('playing');
-            btn.textContent = '⏸️ Pause';
-        };
-
-        currentUtterance.onend = function() {
-            isSpeaking = false;
-            btn.classList.remove('playing');
-            btn.textContent = '🔊 Read Aloud';
-        };
-
-        currentUtterance.onerror = function() {
-            isSpeaking = false;
-            btn.classList.remove('playing');
-            btn.textContent = '🔊 Read Aloud';
-        };
-
-        window.speechSynthesis.speak(currentUtterance);
-    } else {
-        alert('Text-to-speech is not supported in your browser.');
-    }
-}
-
-function stopTextToSpeech() {
-    window.speechSynthesis.cancel();
-    isSpeaking = false;
-    const btn = document.getElementById('ttsBtn');
-    btn.classList.remove('playing');
-    btn.textContent = '🔊 Read Aloud';
-}
-
-function gatherArticleText() {
-    const container = document.getElementById('articlesContainer');
-    let text = '';
-
-    // Gather all text content
-    container.querySelectorAll('h2, h3, h4, p, li').forEach(el => {
-        if (el.textContent.trim()) {
-            text += el.textContent.trim() + '. ';
-        }
-    });
-
-    return text;
-}
-
-// Keyboard shortcut: Press 's' to toggle read aloud
-document.addEventListener('keydown', function(e) {
-    if (e.key === 's' || e.key === 'S') {
-        if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-            toggleTextToSpeech();
-        }
-    }
-});

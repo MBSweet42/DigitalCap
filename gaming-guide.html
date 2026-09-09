@@ -50,10 +50,6 @@
             <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why this matters:</strong> Gaming is a major part of social life for many people. In-game chat, multiplayer communities, and interactions with strangers create real considerations worth understanding if you game yourself or support someone who does.</p>
         </div>
 
-        <button class="text-to-speech-btn" id="ttsBtn" onclick="toggleTextToSpeech()">
-            🔊 Read Aloud
-        </button>
-
         <!-- In-Game Chat Dangers -->
         <div class="article-section-v2">
             <div class="section-header" onclick="toggleSection(this)">
@@ -314,27 +310,6 @@
             }
         }
 
-        function toggleTextToSpeech() {
-            const btn = document.getElementById('ttsBtn');
-            const mainContent = document.querySelector('main');
-
-            if (btn.classList.contains('playing')) {
-                speechSynthesis.cancel();
-                btn.classList.remove('playing');
-                btn.textContent = '🔊 Read Aloud';
-            } else {
-                const text = mainContent.innerText;
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 0.9;
-                utterance.onend = () => {
-                    btn.classList.remove('playing');
-                    btn.textContent = '🔊 Read Aloud';
-                };
-                speechSynthesis.speak(utterance);
-                btn.classList.add('playing');
-                btn.textContent = '⏸️ Stop Reading';
-            }
-        }
     </script>
 
     <script type="module" src="js/firebase-config.js"></script>

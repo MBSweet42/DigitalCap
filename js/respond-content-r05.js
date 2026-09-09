@@ -179,7 +179,7 @@ const R05_BULLYING = {
     {
       id: 'talk',
       show: 'always',
-      title: '💬 Talk with the person affected',
+      title: 'Talk with the person affected',
       opener: '"I\'m glad you told me. Can you show me or tell me what has been happening?"',
       points: [
         'Listen before deciding what happens next.',
@@ -193,7 +193,7 @@ const R05_BULLYING = {
       id: 'self-support',
       show: 'whenFlag',
       flag: 'affected_self',
-      title: '🤝 Getting support for yourself',
+      title: 'Getting support for yourself',
       intro: 'You do not have to handle this alone.',
       points: [
         'Tell someone you trust what is happening and ask them to help you document or report it.',
@@ -208,7 +208,7 @@ const R05_BULLYING = {
       id: 'helper-support',
       show: 'whenFlag',
       flag: 'affected_other',
-      title: '🤝 Helping someone else',
+      title: 'Helping someone else',
       intro: 'Thank them for telling you and let them know they are not alone.',
       points: [
         'Listen without blaming them or taking over immediately.',
@@ -222,7 +222,7 @@ const R05_BULLYING = {
       id: 'unsure-support',
       show: 'whenFlag',
       flag: 'affected_unsure',
-      title: '🤔 When you\'re unsure',
+      title: 'When you\'re unsure',
       intro: 'Start by identifying who is being targeted and what support they need.',
       points: [
         'Preserve the relevant messages, usernames, URLs, and dates.',
@@ -234,7 +234,7 @@ const R05_BULLYING = {
     {
       id: 'reporting',
       show: 'always',
-      title: '📱 Reporting & blocking',
+      title: 'Reporting & blocking',
       intro: 'If you\'re ready to take action:',
       points: [
         'Save relevant information first (usernames, dates, account names).',
@@ -248,7 +248,7 @@ const R05_BULLYING = {
       id: 'school',
       show: 'whenFlag',
       flag: 'school_related',
-      title: '🏢 Involving the school, workplace, or organization',
+      title: 'Involving the school, workplace, or organization',
       intro: 'When people from school, workplace, or a community group are involved:',
       points: [
         'Contact the relevant school, workplace, or organization leader (counselor, HR, manager, coach, organizer).',
@@ -261,7 +261,7 @@ const R05_BULLYING = {
     {
       id: 'prevent',
       show: 'always',
-      title: '🛡️ Prevent this from happening again',
+      title: 'Prevent this from happening again',
       intro: 'Steps to take together:',
       points: [
         'Review who can message, friend request, or invite the affected person.',
@@ -278,7 +278,7 @@ const R05_BULLYING = {
     title: 'Safety comes first',
     content: [
       'If anyone is in immediate physical danger, call 911 or your local emergency number right now.',
-      'If the threat is not immediate but is specific or credible (location, timing, method), preserve the information and consider contacting local law enforcement.',
+      'If there is a threat of harm that is not immediate, preserve the information if it is safe to do so and consider contacting local law enforcement or appropriate local support.',
       'Do not wait for DigitalCap if there is a real threat of harm.',
       'After addressing immediate safety, you can get additional guidance below.'
     ]
@@ -289,7 +289,7 @@ const R05_BULLYING = {
     title: 'When to treat this as urgent:',
     resourceIds: ['988-crisis-lifeline'],
     content: [
-      'If you\'re unsure but the threat feels specific or believable, contact local law enforcement.',
+      'If you\'re unsure about a threat of harm, contact local law enforcement or appropriate local support for guidance.',
       'If the affected person is showing signs of extreme distress, withdrawal, or thoughts of self-harm, contact the 988 Suicide & Crisis Lifeline (call or text 988) or a mental health professional.',
       'Most of the time, unwanted online messages don\'t constitute an emergency, but your judgment matters most.'
     ]

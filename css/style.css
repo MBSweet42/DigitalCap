@@ -1257,39 +1257,6 @@ main {
     }
 }
 
-/* Text-to-Speech Button */
-.text-to-speech-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--secondary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
-}
-
-.text-to-speech-btn:hover {
-    background: #38a89e;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.text-to-speech-btn:active,
-.text-to-speech-btn:focus {
-    background: #38a89e;
-    transform: translateY(0);
-    outline: none;
-}
-
-.text-to-speech-btn.playing {
-    background: var(--primary);
-}
-
 /* Article Nav */
 .article-nav {
     display: flex;

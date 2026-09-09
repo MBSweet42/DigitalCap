@@ -7,28 +7,29 @@ const parentConversationScripts = [
         articleId: 1,
         title: 'The Password Safety Talk',
         description: 'Foundation conversation about strong passwords and why they matter',
-        script: `Parent: "Hey, I want to talk about passwords. Do you know why passwords are important?"
+        script: `You: "Hey, I want to talk about passwords. Do you know why they're important?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "Right. Your password is like a key to your room. If someone has it, they can go through your stuff, change things, and pretend to be you. That's why we need STRONG passwords."
+You: "Right. Your password is like a key to your account. If someone has it, they can change things, read your messages, and pretend to be you. That's why we need passwords that are hard to guess."
 
-Parent: "A strong password has at least 12 letters, numbers, and symbols mixed together. NOT your name or birthday. Can we create one together?"
+You: "A longer password is generally stronger. It can be words strung together—like a passphrase—or a mix of letters and numbers. Whatever you can remember or keep secure. And it should be different for each account that matters."
 
-Child: [you create password together]
+Other person: [you talk about creating one]
 
-Parent: "Great! One more important rule: NEVER give your password to anyone. Not your best friend, not your crush, nobody. People change, and relationships end. OK?"
+You: "One thing to think about: Be selective about who you share your passwords with. Some relationships shift over time. If you need to share access with someone you trust, a password manager is safer than writing it down or texting it."
 
-Child: [agrees]
+Other person: [responds]
 
-Parent: "If you ever think someone got your password, tell me right away. We'll change it together. No punishment, just teamwork. Deal?"`,
+You: "If you ever think someone got your password, let me know. We'll change it and check what they might have done. No judgment—this happens to lots of people."`,
         whenToUse: 'When setting up a new account or periodically to check in',
         adaptationTips: [
             'Ages 6-10: Use simple examples like "video game accounts" and "house keys"',
-            'Ages 11-13: Discuss peer pressure (friends asking for passwords)',
-            'Ages 14+: Talk about identity theft and account takeover risks',
+            'Ages 11-13: Discuss peer pressure and why keeping passwords private matters',
+            'Ages 14+: Talk about account security, identity theft, and password managers',
             'All ages: Be calm and collaborative, not scary',
-            'Show YOUR password manager as an example of security'
+            'Show a password manager as an example of secure access',
+            'Adapt the language to your relationship; not all conversations need "Parent/Child" structure'
         ]
     },
     {
@@ -36,25 +37,32 @@ Parent: "If you ever think someone got your password, tell me right away. We'll 
         articleId: 1,
         title: 'After a Hacked Account',
         description: 'Immediate response conversation when an account is compromised',
-        script: `Parent: "I noticed someone got into your [app] account. I'm not angry. This happens to tons of people. Let's fix it together."
+        script: `You: "I noticed someone got into your [app] account. This happens to a lot of people. Let's work through it together and get it secured."
 
-Parent: "First, can you tell me what happened? How do you think they got in?"
+Other person: [responds with concern]
 
-Child: [explains]
+You: "First, can you tell me what you think happened? Do you remember clicking anything unusual, or did your password get used somewhere else?"
 
-Parent: "OK, here's what we're doing: We're changing your password right now to something super strong. Then we're checking what they changed and fixing it. Then we're watching for anything weird."
+Other person: [explains]
 
-Parent: "Going forward, let's use a password manager so you don't have to remember a bunch of passwords. And tell me ASAP if anything like this happens again. I'd rather help you fix it than find out later."
+You: "OK. Here's what we'll do: First, let's change your password to something new and strong. Then we'll check what they accessed or changed. Then we can enable two-factor authentication if the app offers it—that adds an extra layer of protection."
 
-Parent: "This doesn't mean you did anything wrong. Hackers are sneaky. You're learning. We're in this together."`,
+Other person: [works through steps together]
+
+You: "Going forward, a password manager can help so you don't have to remember a bunch of passwords. And if you notice anything else unusual, let me know right away."
+
+Other person: [responds]
+
+You: "This doesn't mean you did anything wrong. Account compromises happen. What matters is how we respond. You did the right thing by telling me."`,
         whenToUse: 'Immediately after discovering a hacked account',
         adaptationTips: [
-            'Stay calm; they\'ll be scared/embarrassed already',
-            'Focus on fixing it, not blaming them',
-            'Check account activity together (show what hackers changed)',
-            'Discuss HOW it might have happened (weak password, phishing, reused password)',
-            'Follow up in a week to check for suspicious activity',
-            'Praise them if they reported it to you'
+            'Stay calm; they may already feel scared or embarrassed',
+            'Focus on fixing it and moving forward, not on blame',
+            'Check account activity together (show what was changed)',
+            'Ask how it happened without judgment (weak password, phishing link, reused password)',
+            'Walk through securing the account and enabling 2FA',
+            'Follow up later to check for suspicious activity',
+            'Recognize that they reported it to you - that\'s good'
         ]
     },
     {
@@ -62,58 +70,63 @@ Parent: "This doesn't mean you did anything wrong. Hackers are sneaky. You're le
         articleId: 2,
         title: 'Spotting Scams Talk',
         description: 'Teach critical thinking about suspicious offers and requests',
-        script: `Parent: "I want to teach you about scams because they're everywhere online. Have you ever seen an ad or message that seemed too good to be true?"
+        script: `You: "I want to talk about scams because they're everywhere online. Have you ever seen an offer that seemed too good to be true, or a message asking you to do something unusual?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "That's the trick. Scammers make things SOUND amazing so you'll click. Free Robux, free money, you won a prize... but there's always a catch."
+You: "Scammers often try to create urgency or offer something exciting to get you to act fast without thinking. Free Robux, you've won a prize, your account needs to be verified right now... they're counting on you clicking before you second-guess."
 
-Parent: "Here's the rule: If it's free and amazing, it's a scam. Real companies don't randomly give away stuff. And they don't ask for passwords through links or messages."
+You: "Here's what to watch for: Unexpected requests for your password or personal information. Urgency or threats. Asking you to click a link or download something. Offers that seem unreasonable. Messages from accounts that look official but aren't quite right."
 
-Parent: "If you ever see something that seems weird, here's what you do: (1) Don't click the link. (2) Tell me about it. (3) We'll report it together. Sound good?"
+Other person: [responds]
 
-Child: [agrees]
+You: "If something seems off, here's what helps: Stop. Don't click the link. Go directly to the official app or website instead—type the address yourself. If there's a real problem, you can find out by going straight to the source. And tell me what you saw; I might have more context."
 
-Parent: "Let me show you how to spot the red flags. Look at this email/message. What seems weird about it?"
+Other person: [discusses]
 
-[Point out: spelling errors, urgent language, weird sender, asking for password, etc.]`,
-        whenToUse: 'Regularly, as new scams emerge. Great after seeing a real scam together',
+You: "The trick is taking a breath before clicking. Most scams rely on quick reactions. A few extra seconds of checking can protect you."`,
+        whenToUse: 'Regularly, as new scams emerge. Great after noticing one together online',
         adaptationTips: [
-            'Ages 8-12: Focus on "nothing is free" concept with fun examples',
-            'Ages 13+: Show real examples from their apps (Discord, Roblox, gaming)',
-            'Always practice spotting red flags together',
-            'Emphasize: "Tell me, don\'t click"',
-            'Praise them for reporting suspicious stuff',
-            'Remind them it\'s not their fault if they almost fall for one'
+            'Use real examples from their apps and platforms',
+            'Discuss why people fall for scams (urgency works, offers are tempting)',
+            'Practice spotting red flags together on real messages',
+            'Emphasize the "stop, don\'t click, verify independently" approach',
+            'Recognize when they report suspicious stuff - that\'s learning',
+            'Remind them scams are designed to be convincing; it\'s not a reflection on them if one almost worked',
+            'Note: Spelling/grammar isn\'t reliable anymore; scams can be well-written'
         ]
     },
     {
         id: 4,
         articleId: 3,
         title: 'Grooming Safety Talk - The Early Conversation',
-        description: 'Foundation conversation about online stranger danger (Start early!)',
-        script: `Parent: "I want to talk about something important. Sometimes adults online try to trick kids. Not because the kids did anything wrong, but because the adult is being creepy."
+        description: 'Foundation conversation about online safety and concerning behavior',
+        script: `You: "I want to talk about something important. Sometimes people online do things that aren't safe, and I want you to know what to look for and what to do."
 
-Parent: "Here's what you need to know: Adults who want to be YOUR friend online are being weird. Real friends your age are at school or in your neighborhood."
+Other person: [listens]
 
-Parent: "If an adult online asks where you live, what school you go to, or wants your picture. That's a big red flag. Tell me right away."
+You: "Online friendships can be real and good. But some people online do things that aren't OK - they might ask you personal questions, want to move conversations to private apps, or ask you to keep them secret. Those are warning signs."
 
-Parent: "They might seem nice at first and even send you gifts or money. That's part of the trick. They're trying to win your trust so they can ask for something bad later."
+You: "Here's what matters: If anyone online asks where you live, what school you go to, asks for pictures, or wants to keep talking a secret from the people you trust - that's a red flag. Tell me right away."
 
-Parent: "Your job is simple: Tell me about new online friends. Tell me if anyone asks personal questions. Tell me if anyone asks you to keep secrets from me. I promise I won't be mad. I just want to keep you safe."
+Other person: [responds]
 
-Child: [you listen, reassure]
+You: "Sometimes people who aren't safe will seem really nice or understanding at first. They might say they get you better than anyone else, or send gifts. That's sometimes how they build trust. But the goal is to move the relationship somewhere private, where no one else can see."
 
-Parent: "If anything ever makes you uncomfortable, even if you're not sure why, tell me. We'll figure it out together."`,
+You: "Your job is simple: Tell me about online friends, especially if anyone asks personal questions or wants private conversations. Tell me if anyone asks you to keep something secret from me or other trusted adults. I promise I won't be mad - I just want to help keep you safe."
+
+Other person: [responds]
+
+You: "If anything makes you uncomfortable - even if you're not sure why - that's worth telling me about. We can figure it out together."`,
         whenToUse: 'Start this conversation EARLY (ages 6-8), then revisit regularly',
         adaptationTips: [
-            'Ages 6-10: Keep it simple. "Adults who want to be YOUR friend online = red flag"',
-            'Ages 11-13: Discuss how predators build trust slowly over time',
-            'Ages 14+: Discuss the reality of catfishing, sextortion, and manipulation tactics',
-            'Normalize reporting suspicious behavior',
+            'Ages 6-10: Keep it simple and focused on behavior ("If they ask personal questions or want to keep talking secret")',
+            'Ages 11-13: Discuss how people build trust over time and move conversations to private spaces',
+            'Ages 14+: Talk about catfishing, sextortion, manipulation, and how predators use pressure or shame',
+            'Normalize reporting concerning behavior without judgment',
             'Emphasize: "It\'s not your fault"',
-            'Review their online friends periodically',
-            'Don\'t shame them if they\'ve already been contacted'
+            'Check in regularly about online friendships without being invasive',
+            'Don\'t shame them if they\'ve already had contact with someone concerning'
         ]
     },
     {
@@ -121,30 +134,32 @@ Parent: "If anything ever makes you uncomfortable, even if you're not sure why, 
         articleId: 3,
         title: 'Grooming Safety Talk - Red Flags Check-In',
         description: 'Regular conversation to check for warning signs',
-        script: `Parent: "I want to check in with you about your online friends. Can you tell me who you\'re talking to online these days?"
+        script: `You: "I want to check in about your online friends. Who are you talking to these days?"
 
-Child: [tells you]
+Other person: [tells you]
 
-Parent: "Cool. Do any of them ask you personal questions? Like where you live, what school you go to, or want pictures of you?"
+You: "Do any of them ask you personal questions - like where you live, what school you go to, or for pictures?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "Good question for you: Has anyone online ever said things like 'your parents wouldn\'t understand' or 'let\'s keep this between us'?"
+You: "Has anyone online ever said things like 'your parents wouldn't understand' or 'let's keep this between us'?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "Those are warning signs. Adults trying to do something wrong will try to isolate you from your family. They'll be extra nice, extra understanding, extra interested in what you\'re doing."
+You: "Those are warning signs. People trying to do something wrong often try to create a secret relationship. They might be extra understanding, extra interested in your problems, or make you feel special. It can feel good at first, but it's actually a way of isolating you from people who could help."
 
-Parent: "If that ever happens, I need you to tell me immediately. And I want you to know: if it already has happened, you did NOTHING wrong. The adult is 100% at fault. You're smart to tell me."`,
+Other person: [listens]
+
+You: "If anything like that happens - or if someone pressures you, sends explicit messages, or asks to meet - I need to know. And I want you to be clear: if it's already happened, it's not your fault. The adult's behavior is 100% their responsibility. You did the right thing by telling me."`,
         whenToUse: 'Have this conversation every few months, especially with younger teens',
         adaptationTips: [
-            'Make it casual, not scary',
-            'Ask open-ended questions (not yes/no)',
-            'Listen more than you talk',
-            'Take it seriously if they mention something odd',
-            'Don\'t overreact; stay calm so they keep talking to you',
-            'Know the reporting procedures for their platforms',
-            'Consult CyberTipline (cybertipline.org) if needed'
+            'Keep it casual and supportive, not scary',
+            'Ask open-ended questions and listen more than you talk',
+            'Take what they share seriously',
+            'Stay calm so they feel safe continuing the conversation',
+            'Don\'t shame them if they\'ve mentioned something concerning',
+            'Know how to report on their platforms if needed',
+            'If serious concerns emerge, know when to involve school or authorities'
         ]
     },
     {
@@ -152,27 +167,27 @@ Parent: "If that ever happens, I need you to tell me immediately. And I want you
         articleId: 4,
         title: 'Online Respect Talk',
         description: 'Foundation conversation about treating people with respect online',
-        script: `Parent: "Let's talk about how we treat people online. Is it different from how you treat people in person?"
+        script: `You: "Let's talk about how we treat people online. Is it different from how you treat people in person?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "I've noticed that people are sometimes meaner online. Maybe it's because they're behind a screen, or they think no one will know it was them. But here's the truth: Your words matter online just as much as they do in person."
+You: "People are sometimes different online - maybe because of the distance, or they think it's anonymous. But here's what matters: your words have impact online just like they do in person."
 
-Parent: "Before you post or comment, ask yourself: Would I say this to their face? Is it kind? Is it necessary?"
+You: "Before you post, something useful to think about: Would this feel OK to say to the person's face? Is this what I want to say?"
 
-Parent: "If you see someone being mean to someone else, you have choices: (1) Don't join in. (2) Tell the person 'that's not cool.' (3) Support the person being attacked privately with a kind message."
+You: "If you see someone being treated badly, you have options: Don't participate. Offer support privately. Report it if you think it crosses a line. You're not responsible for fixing everything, but you can choose not to add to it."
 
-Parent: "You're not responsible for fixing everything, but you ARE responsible for not making things worse."
+Other person: [responds]
 
-Parent: "If someone is mean to you, remember: It says more about them than about you. You can block, report, and move on."`,
+You: "And if someone's mean to you, remember - it usually says more about what they're dealing with than about you. You can mute, block, or step away."`,
         whenToUse: 'Regularly, as they navigate social media. Model good behavior yourself',
         adaptationTips: [
-            'Discuss real examples from their own social media',
-            'Talk about why people might be mean (insecurity, bad day, trying to be funny)',
-            'Praise them for being kind online',
-            'Help them understand that their comments have impact',
-            'Model good online behavior yourself; they\'re watching',
-            'Check in periodically about how people are treating them'
+            'Use real examples from their social media if helpful',
+            'Explore why people might post mean things (stress, wanting attention, not thinking)',
+            'Notice when they\'re being kind online',
+            'Help them see their comments matter',
+            'Show them what respectful participation looks like in your own posts',
+            'Check in about how people are treating them'
         ]
     },
     {
@@ -180,91 +195,101 @@ Parent: "If someone is mean to you, remember: It says more about them than about
         articleId: 5,
         title: 'Cyberbullying Response Talk',
         description: 'Immediate conversation if they\'re experiencing cyberbullying',
-        script: `Parent: "I heard that some kids have been mean to you online. I'm sorry that happened. That's not OK."
+        script: `You: "I heard that some people have been mean to you online. I'm sorry that happened. That's not OK."
 
-Parent: "First, I want you to know this is not your fault. The problem is with them, not with you."
+Other person: [responds with emotion]
 
-Parent: "Here's what we're going to do: (1) You're going to take a break from that app for a few days. (2) We're blocking those accounts. (3) We're reporting them to the platform. (4) You're going to talk to [counselor/trusted adult] about how you're feeling."
+You: "First, I want to be clear - this is not your fault. The behavior of others is not a reflection of you."
 
-Parent: "You don't deserve to feel scared or hurt online. And we're going to make sure this stops."
+You: "What happened? Can you tell me what's going on?"
 
-Parent: "If it keeps happening, we might need to tell the school. That's not tattling; that's getting help."
+Other person: [explains]
 
-Parent: "In the meantime, lean on your real friends. Do things that make you feel good. And keep talking to me about how you're doing."
+You: "Here are some options we can consider: You can mute or block those accounts. We can report what happened to the platform. If these people go to your school, telling school leadership might help. And talking with a counselor or someone you trust can help with how you're feeling."
 
-Parent: "You're stronger than you think. We're going to get through this together."`,
+Other person: [responds]
+
+You: "You don't deserve to feel scared or hurt online. What would feel most helpful to you right now - do you need space from that app, or would you rather keep going and we help secure your account?"
+
+Other person: [expresses preferences]
+
+You: "Let's work through this together. I'm here to listen and help with next steps."`,
         whenToUse: 'Immediately after learning about cyberbullying',
         adaptationTips: [
-            'Listen without minimizing their feelings',
-            'Don\'t say "just ignore it" or "don\'t look at it"',
-            'Take concrete action (blocking, reporting)',
-            'Involve school if bullies attend the same school',
-            'Get professional support (counselor) if they\'re struggling',
-            'Follow up regularly to check on them',
-            'Celebrate when things improve'
+            'Listen without dismissing their feelings',
+            'Avoid "just ignore it" - that dismisses real impact',
+            'Ask what would help them, not just take action for them',
+            'Take concrete steps (blocking, reporting) when appropriate',
+            'Involve school if the bullies are from their school',
+            'Connect with professional support if they\'re struggling emotionally',
+            'Follow up regularly to check on how they\'re doing'
         ]
     },
     {
         id: 8,
-        articleId: 7,
+        articleId: 8,
         title: 'Standing Up Online Talk',
-        description: 'Conversation about empathy, pile-ons, and being kind when no one is watching',
-        script: `Parent: "I want to talk about something I've been noticing. How do you think it feels when someone posts something and then gets a bunch of mean comments?"
+        description: 'Conversation about empathy, pile-ons, and choices in online spaces',
+        script: `You: "I want to talk about something. How do you think it feels when someone posts something and then a bunch of people start piling on with criticism or mean comments?"
 
-Child: [responds]
+Other person: [responds]
 
-Parent: "Yeah, it's rough. And here's the thing: Sometimes people aren't mean on purpose. They see 100 other people commenting mean things, so they think it's OK to add their comment too. That's called a pile-on."
+You: "Yeah, that can be really rough. And here's what often happens - a lot of people see others commenting negatively, so it feels normal to add their comment too. That's called a pile-on, and it multiplies the impact."
 
-Parent: "But just because everyone else is doing it doesn't make it right. You're still adding to someone's hurt. Does that make sense?"
+Other person: [listens]
 
-Child: [responds]
+You: "So before you comment on something, it's worth asking: Would I want to have this conversation if the person could hear me? Is this kind of feedback something they asked for? If not, I don't have to participate."
 
-Parent: "So here's what I want you to think about: Before you comment, ask yourself: 'Would I say this to their face? Is this kind?' If the answer is no, don't post it."
+You: "But here's the other side - if you see someone getting attacked and you want to do something, you have options. A private message saying 'People are being rough, but that says more about them' can actually mean something. You don't have to publicly call everything out."
 
-Parent: "Now, here's the other side: If you see someone getting piled on and you want to be kind, you have power. A single message saying 'I'm sorry people are being mean' can mean SO much to someone who's hurting."
+You: "And if you post something and then realize it wasn't cool, you can change it. Delete it, or DM an apology. That's not weakness - that's integrity."
 
-Parent: "And if YOU say something mean and then realize it later, you can fix it. Delete the comment, or DM them and apologize. People respect that."
+Other person: [responds]
 
-Parent: "Kindness online doesn't make you uncool. It makes you the person people actually trust."`,
-        whenToUse: 'After they\'ve seen online pile-ons or bullying. Also great as a regular values check-in',
+You: "People trust those who can think for themselves, not just follow the crowd."`,
+        whenToUse: 'After they\'ve noticed pile-ons online. Also good as a regular conversation about online choices',
         adaptationTips: [
-            'Use real examples from their social media (without shaming them)',
-            'Discuss why people pile-on (trying to be funny, fitting in, not thinking)',
-            'Practice: "What would you say in this situation?"',
-            'Praise them when they show kindness online',
-            'Normalize apologizing and fixing mistakes',
-            'Discuss the difference between having an opinion and being mean'
+            'Reference examples from their social media if relevant',
+            'Explore why people join in (fitting in, group energy, peer pressure)',
+            'Ask: "What would you actually want someone to say if that was you?"',
+            'Notice when they show thoughtfulness online',
+            'Talk about consequences of pile-ons',
+            'Normalize changing your mind and fixing mistakes'
         ]
     },
     {
         id: 9,
-        articleId: 8,
+        articleId: 9,
         title: 'Digital Permanence Talk',
-        description: 'Foundation conversation about digital footprints, screenshots, and thinking before posting',
-        script: `Parent: "Can I ask you something? When you post something online and then delete it, do you think it's really gone?"
+        description: 'Foundation conversation about digital footprints and informed choices about what to post',
+        script: `You: "Let's talk about something that matters with online sharing. When you post something and then delete it, what do you think happens?"
 
-Child: [responds (probably not sure)]
+Other person: [responds]
 
-Parent: "Right. It's not. Someone might have screenshotted it. Or the platform saved it in their servers. Once something's online, it's there forever (even if you delete it)."
+You: "Right - deleting helps, but it's also possible someone screenshotted it, or the platform has archived versions. So deletion reduces how available something is, but doesn't guarantee it was never copied. That's why thinking before posting matters."
 
-Parent: "This matters because someday, colleges and employers will Google you. They might see old posts, pictures, comments (things you posted years ago and forgot about)."
+You: "Also, different information stays available in different ways. A public post might appear in search results. Something you thought was private might have different visibility depending on platform settings."
 
-Parent: "So here's what I want you to think about: Is this something I'd want my future boss to see? Is this something I'll still be OK with in 5 years? If the answer is no, don't post it."
+Other person: [listens]
 
-Parent: "One more thing: Never post pictures of your friends without asking. They might not want their face online, and it's not your choice to make for them."
+You: "This matters because information about you online can affect things. Not because it's definitely there forever - but because some things might stick around longer than you'd want, or be visible to people you didn't plan for."
 
-Parent: "If you ever post something and then realize 'oh no, that was a bad idea,' here's what we do: (1) Delete it as fast as possible. (2) Tell me about it. (3) Learn from it. We all make mistakes."
+You: "That's why it helps to think: Would I be OK if [person I care about] saw this? Could this bother me later? Does it match what I want people to know about me? If yes to any hesitation, I can wait or decide not to post."
 
-Parent: "The key is thinking BEFORE you post, not panicking AFTER."`,
-        whenToUse: 'Regularly as they start social media. Great before they create any account',
+Other person: [responds]
+
+You: "One more thing: Be thoughtful before posting other people's images or information. It's their choice what they share about themselves."
+
+You: "And if you post something and later wish you hadn't, you can delete it. That reduces what's out there."`,
+        whenToUse: 'Regularly as they use social media. Good before they start new accounts',
         adaptationTips: [
-            'Ages 9-12: Focus on "once online, forever" concept with concrete examples',
-            'Ages 13+: Discuss real scenarios (job interviews, college apps, future relationships)',
-            'Show them how to Google themselves',
-            'Discuss privacy settings and what "private" really means',
-            'Talk about screenshot culture: assume nothing is truly temporary',
-            'Emphasize that mistakes can be fixed, but faster is better',
-            'Model good digital footprinting yourself'
+            'Ages 9-12: Talk about who might see what they post (friends, family, teachers, future)',
+            'Ages 13+: Discuss how information they share now might show up in different contexts',
+            'Help them understand privacy settings on their platforms',
+            'Explore screenshot culture and how things spread',
+            'Practice: "Who do I want to see this? Who might actually see it?"',
+            'If they regret posting: deletion works, but faster is better',
+            'Model thoughtful sharing in your own posts'
         ]
     }
 ];

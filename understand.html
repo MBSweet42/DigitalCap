@@ -42,30 +42,62 @@
     <main class="container safety-page">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2rem;">
             <div style="flex: 1;">
-                <h1>🔒 Digital Safety</h1>
-                <p class="subtitle">Learn to protect yourself, recognize threats, and make smart decisions online.</p>
+                <h1>Digital Safety</h1>
+                <p class="subtitle">Build practical skills for navigating digital life, recognizing concerns, and making choices that work for you.</p>
             </div>
-            <button id="backToTop" class="back-to-top-btn" onclick="scrollToTop()" title="Back to top" style="display: none;">⬆️</button>
+            <button id="backToTop" class="back-to-top-btn" onclick="scrollToTop()" title="Back to top" style="display: none;">↑ Top</button>
         </div>
 
-        <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
-            <p style="margin: 0; color: var(--text-dark);"><strong>💡 How to use this page:</strong> Use the menu below to jump to a section. Click section titles to expand/collapse content. Press the 🔊 button to listen. Hit the ⬆️ button to return to the top.</p>
+        <div id="understandHowTo" style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
+            <p style="margin: 0; color: var(--text-dark);"><strong>How to use this page:</strong> Choose a topic below. Click section titles to expand/collapse content.</p>
         </div>
 
-        <!-- Jump to Section Navigation -->
-        <div style="margin-bottom: 2rem; font-size: 0.9rem;">
-            <strong style="color: var(--primary); margin-right: 0.5rem;">📍 Jump to Section:</strong>
-            <div id="jumpNav" style="display: inline-flex; flex-wrap: wrap;">
-                <!-- Populated by JavaScript -->
+
+        <!-- Topic Chooser (Understand-only) -->
+        <div id="topicChooser" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 2rem;">
+            <h2 id="topicChooserHeading" tabindex="-1" style="color: var(--primary); margin-top: 0; margin-bottom: 1.5rem;">What would you like to understand?</h2>
+            <div id="topicButtonsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <button class="topic-btn" data-topic-id="1" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Passwords & Account Security</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Protect your digital life with strong, unique passwords</div>
+                </button>
+                <button class="topic-btn" data-topic-id="2" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Scams & Phishing</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Recognize and avoid deceptive schemes</div>
+                </button>
+                <button class="topic-btn" data-topic-id="3" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Online Relationships & Grooming</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Understand the warning signs of predatory behavior</div>
+                </button>
+                <button class="topic-btn" data-topic-id="4" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Online Respect</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Communicate clearly, respect boundaries, and handle disagreement online</div>
+                </button>
+                <button class="topic-btn" data-topic-id="5" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Cyberbullying</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Recognize and respond to online harassment</div>
+                </button>
+                <button class="topic-btn" data-topic-id="6" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Screen Time & Sleep</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Take care of your physical and mental health</div>
+                </button>
+                <button class="topic-btn" data-topic-id="7" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Social Media & Mental Health</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Navigate social comparison and online pressure</div>
+                </button>
+                <button class="topic-btn" data-topic-id="8" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Online Kindness</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Be a good human online</div>
+                </button>
+                <button class="topic-btn" data-topic-id="9" style="padding: 1rem; text-align: left; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+                    <strong style="color: var(--primary);">Digital Footprints</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Understand what can happen to information you share online</div>
+                </button>
             </div>
         </div>
-
-        <button class="text-to-speech-btn" id="ttsBtn" onclick="toggleTextToSpeech()">
-            🔊 Read Aloud
-        </button>
 
         <!-- AI & Digital Life -->
-        <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; margin-bottom: 2rem;">
+        <div id="understandAiCallout" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; margin-bottom: 2rem;">
             <h3 style="color: var(--primary); margin-top: 0;">AI & Digital Life</h3>
             <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Understand AI, recognize deepfakes and scams, explore privacy choices, verify what you see, and learn how AI fits into everyday digital life.</p>
             <a href="/ai" class="btn btn-primary">Explore AI & Digital Life →</a>
@@ -76,23 +108,25 @@
         <!-- Conversation Guides -->
         <div id="article-conversation-guides" data-article-id="conversation-guides" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
             <h2 style="color: var(--primary); margin-top: 0;">Conversation Guides</h2>
-            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Ready-to-use scripts for talking to your child about digital safety. Click any link to read the full dialogue.</p>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Conversation starters for talking about digital safety. Choose a guide to see an example you can adapt to your situation.</p>
             <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="1" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">The Password Safety Talk:</a> Foundation conversation about strong passwords</li>
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="2" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">After a Hacked Account:</a> What to say when an account is compromised</li>
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="3" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Spotting Scams Talk:</a> Teach them to recognize and avoid scams</li>
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="4" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Grooming Safety Talk - The Early Conversation:</a> Foundation conversation about online stranger danger</li>
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="5" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Grooming Safety Talk - Red Flags Check-In:</a> Regular conversation to watch for red flags</li>
-                <li style="margin-bottom: 0.75rem;"><a href="javascript:void(0)" class="script-link" data-script-id="6" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Online Respect Talk:</a> Teach kindness and respect online</li>
-                <li style="margin-bottom: 0;"><a href="javascript:void(0)" class="script-link" data-script-id="7" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem;">Cyberbullying Response Talk:</a> What to say when they're being bullied online</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="1" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">The Password Safety Talk:</button> Starting a conversation about strong, unique passwords</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="2" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">After a Hacked Account:</button> Responding supportively when an account is compromised</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="3" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Spotting Scams Talk:</button> Recognizing and avoiding deceptive schemes</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="4" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Grooming Safety Talk - The Early Conversation:</button> Foundation conversation about concerning online behavior</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="5" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Grooming Safety Talk - Red Flags Check-In:</button> Regular check-in about online friendships and warning signs</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="6" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Online Respect Talk:</button> Communicating clearly and respectfully online</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="7" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Cyberbullying Response Talk:</button> Supporting someone being targeted online</li>
+                <li style="margin-bottom: 0.75rem;"><button type="button" class="script-link" data-script-id="8" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Standing Up Online Talk:</button> Empathy, pile-ons, and choices in online spaces</li>
+                <li style="margin-bottom: 0;"><button type="button" class="script-link" data-script-id="9" style="color: var(--primary); text-decoration: underline; cursor: pointer; font-weight: 500; font-size: 0.95rem; background: none; border: none; padding: 0;">Digital Permanence Talk:</button> Digital footprints and informed choices about sharing</li>
             </ul>
             <p style="color: var(--text-gray); margin-top: 1.5rem;">Want to talk about a specific app? Check the <a href="/app-check" style="color: var(--primary); text-decoration: underline;">App Directory</a> for risk details, privacy settings, and app-specific talking points.</p>
         </div>
 
         <!-- Related Guides -->
-        <div style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 3rem; text-align: center;">
+        <div id="understandSpecializedGuides" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 3rem; text-align: center;">
             <h3 style="color: var(--primary); margin-top: 0;">Specialized Safety Guides</h3>
-            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Deep-dive into gaming safety, one of the most common parental concerns.</p>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Explore gaming safety, privacy, communication, spending, and other considerations around online games.</p>
             <a href="/gaming-guide" class="btn btn-primary">Explore Gaming Safety Guide →</a>
         </div>
     </main>
@@ -109,6 +143,7 @@
     <script src="js/article-renderer-v2-fixed.js"></script>
     <script src="js/article-interactive-v2-modal-fixed.js"></script>
     <script src="js/conversation-data.js?v=2"></script>
+    <script src="js/understand-topic-selector.js"></script>
 
     <script>
         document.querySelectorAll('.script-link').forEach(link => {
@@ -158,35 +193,7 @@
             }
         }
 
-        #jumpNav a {
-            display: inline;
-            padding: 0;
-            background: none;
-            color: var(--primary);
-            text-decoration: underline;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-            margin: 0 0.25rem;
-        }
-
-        #jumpNav a:hover,
-        #jumpNav a:active,
-        #jumpNav a:focus {
-            color: var(--secondary);
-            background: none;
-            border: none;
-            outline: none;
-        }
-
-        #jumpNav a:not(:last-child)::after {
-            content: " •";
-            margin-right: 0.25rem;
-            color: var(--text-gray);
-        }
-
-        /* Safety page article scroll offset for sticky navbar */
+/* Safety page article scroll offset for sticky navbar */
         .safety-page .article-section-v2[data-article-id] {
             scroll-margin-top: 100px;
         }
@@ -207,45 +214,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Populate jump navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                const jumpNav = document.getElementById('jumpNav');
-                const articles = document.querySelectorAll('.article-section-v2[data-article-id]');
-
-                if (articles.length > 0) {
-                    jumpNav.innerHTML = '';
-                    articles.forEach(article => {
-                        const id = article.getAttribute('data-article-id');
-                        const title = article.querySelector('h2')?.textContent || 'Section';
-                        const link = document.createElement('a');
-                        link.href = `#article-${id}`;
-                        link.textContent = title;
-                        link.onclick = (e) => {
-                            e.preventDefault();
-                            article.scrollIntoView({ behavior: 'smooth' });
-                        };
-                        jumpNav.appendChild(link);
-                    });
-
-                }
-            }, 500);
-        });
-
-
-        window.toggleSectionContent = function(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('.section-toggle');
-            if (content && icon) {
-                if (content.style.display === 'none' || content.style.display === '') {
-                    content.style.display = 'block';
-                    icon.textContent = '▼';
-                } else {
-                    content.style.display = 'none';
-                    icon.textContent = '▶';
-                }
-            }
-        };
     </script>
 
     <script type="module" src="js/firebase-config.js"></script>

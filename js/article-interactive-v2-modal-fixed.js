@@ -1,40 +1,49 @@
 // Article Interactive Features v2 - Modal Version (Fixed Scrolling)
 
+// Track the trigger element for focus return
+let modalTriggerElement = null;
+
 // ===== CONVERSATION SCRIPTS - MODAL VERSION =====
 
 function openScriptModal(scriptId) {
     const script = parentConversationScripts.find(s => s.id === scriptId);
     if (!script) return;
 
+    // Capture the currently focused element (the trigger)
+    modalTriggerElement = document.activeElement;
+
     // Create modal
     const modal = document.createElement('div');
     modal.className = 'script-modal';
     modal.id = `script-modal-${scriptId}`;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', `script-title-${scriptId}`);
     modal.innerHTML = `
         <div class="script-modal-backdrop" onclick="closeScriptModal(${scriptId})"></div>
 
-        <div class="script-modal-content">
-            <button class="script-modal-close" onclick="closeScriptModal(${scriptId})">✕</button>
+        <div class="script-modal-content" tabindex="-1">
+            <button class="script-modal-close" onclick="closeScriptModal(${scriptId})" aria-label="Close dialog">✕</button>
 
-            <h2 style="color: var(--primary); margin-top: 0;">${script.title}</h2>
+            <h2 id="script-title-${scriptId}" style="color: var(--primary); margin-top: 0;">${script.title}</h2>
             <p style="color: var(--text-gray); font-style: italic; margin-bottom: 1.5rem;">${script.description}</p>
 
             <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--primary);">
-                <strong style="color: var(--primary);">📌 When to use:</strong>
+                <strong style="color: var(--primary);">When to use:</strong>
                 <p style="margin: 0.5rem 0 0 0; color: var(--text-gray);">${script.whenToUse}</p>
             </div>
 
             <div style="margin-bottom: 2rem;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">📖 Script</h3>
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Script</h3>
                 <pre class="script-text">${script.script}</pre>
 
                 <button class="btn btn-secondary" onclick="copyScriptText(event, '${script.title.replace(/'/g, "\\'")}', ${scriptId})" style="width: 100%; margin-top: 1rem;">
-                    📋 Copy Script to Clipboard
+                    Copy Script to Clipboard
                 </button>
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary);">
-                <h3 style="color: var(--secondary); margin-top: 0;">💡 Adaptation Tips by Age</h3>
+                <h3 style="color: var(--secondary); margin-top: 0;">Ways to Adapt This Conversation</h3>
                 <ul style="margin: 0.75rem 0 0 1.5rem; color: var(--text-gray); line-height: 1.8;">
                     ${script.adaptationTips.map(tip => `<li>${tip}</li>`).join('')}
                 </ul>
@@ -42,7 +51,7 @@ function openScriptModal(scriptId) {
 
             <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
                 <p style="color: var(--text-gray); font-size: 0.9rem;">
-                    💡 <strong>Pro Tip:</strong> You don't have to read this word-for-word. Make it your own. Your relationship with your child is unique—adjust the language and examples to fit how you normally talk.
+                    <strong>Make it your own:</strong> You don't have to use this word-for-word. Change the language, examples, and level of detail to fit your relationship and situation.
                 </p>
             </div>
         </div>
@@ -55,7 +64,57 @@ function openScriptModal(scriptId) {
         modal.classList.add('open');
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
+        // Set focus to the close button or modal content
+        const closeBtn = modal.querySelector('.script-modal-close');
+        if (closeBtn) {
+            closeBtn.focus();
+        }
+
+        // Focus trap: cycle Tab/Shift+Tab within modal
+        const focusTrapHandler = function(e) {
+            if (e.key !== 'Tab') return;
+
+            const modalContent = modal.querySelector('.script-modal-content');
+            if (!modalContent) return;
+
+            // Get all focusable elements within the modal
+            const focusableSelector = 'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])';
+            const focusableElements = Array.from(modalContent.querySelectorAll(focusableSelector))
+                .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+
+            if (focusableElements.length === 0) return;
+
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+            const activeElement = document.activeElement;
+
+            if (e.shiftKey) {
+                // Shift+Tab: move backward
+                if (activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                // Tab: move forward
+                if (activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        };
+
+        document.addEventListener('keydown', focusTrapHandler);
+        modal.focusTrapHandler = focusTrapHandler;
     }, 10);
+
+    // Add Escape key handler
+    const escapeHandler = function(e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            closeScriptModal(scriptId);
+            document.removeEventListener('keydown', escapeHandler);
+        }
+    };
+    document.addEventListener('keydown', escapeHandler);
 }
 
 function closeScriptModal(scriptId) {
@@ -63,8 +122,17 @@ function closeScriptModal(scriptId) {
     if (modal) {
         modal.classList.remove('open');
         setTimeout(() => {
+            // Remove focus trap handler
+            if (modal.focusTrapHandler) {
+                document.removeEventListener('keydown', modal.focusTrapHandler);
+            }
             modal.remove();
             document.body.style.overflow = 'auto';
+            // Return focus to the trigger element if it still exists
+            if (modalTriggerElement && modalTriggerElement !== document.body) {
+                modalTriggerElement.focus();
+            }
+            modalTriggerElement = null;
         }, 300);
     }
 }
@@ -79,7 +147,7 @@ function copyScriptText(event, scriptTitle, scriptId) {
         // Visual feedback
         const btn = event.target;
         const originalText = btn.textContent;
-        btn.textContent = '✅ Copied!';
+        btn.textContent = 'Copied!';
         setTimeout(() => {
             btn.textContent = originalText;
         }, 2000);
@@ -91,7 +159,7 @@ function copyScriptText(event, scriptTitle, scriptId) {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('✅ Script copied to clipboard!');
+        alert('Script copied to clipboard!');
     });
 }
 

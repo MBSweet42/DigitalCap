@@ -661,7 +661,10 @@
 
             const progress = engine.getProgress();
             document.getElementById('questionNumber').textContent = progress.current + ' of ' + progress.total;
-            document.getElementById('questionText').textContent = question.text;
+            const questionText = document.getElementById('questionText');
+            questionText.textContent = question.text;
+            questionText.setAttribute('tabindex', '-1');
+            questionText.focus({ preventScroll: false });
 
             // Render question description if present
             let descriptionElement = document.getElementById('questionDescription');
@@ -687,7 +690,8 @@
             if (question.type === 'incident-cards') {
                 // Render as cards
                 question.answers.forEach(answer => {
-                    const card = document.createElement('div');
+                    const card = document.createElement('button');
+                    card.type = 'button';
                     card.className = 'respond-incident-card';
                     card.onclick = () => selectAnswer(answer.value);
                     card.innerHTML = `
@@ -1108,8 +1112,11 @@
                 </div>
             `;
 
-            document.getElementById('resultsContainer').innerHTML = html;
-            document.getElementById('resultsContainer').classList.add('active');
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = html;
+            resultsContainer.classList.add('active');
+            resultsContainer.setAttribute('tabindex', '-1');
+            resultsContainer.focus({ preventScroll: false });
         }
 
         // Show emotional crisis safety panel (separate from physical danger)
@@ -1132,8 +1139,11 @@
                 </div>
             `;
 
-            document.getElementById('resultsContainer').innerHTML = html;
-            document.getElementById('resultsContainer').classList.add('active');
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = html;
+            resultsContainer.classList.add('active');
+            resultsContainer.setAttribute('tabindex', '-1');
+            resultsContainer.focus({ preventScroll: false });
         }
 
         // Continue from physical-safety interrupt
@@ -1402,8 +1412,11 @@
                 </div>
             `;
 
-            document.getElementById('resultsContainer').innerHTML = html;
-            document.getElementById('resultsContainer').classList.add('active');
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = html;
+            resultsContainer.classList.add('active');
+            resultsContainer.setAttribute('tabindex', '-1');
+            resultsContainer.focus({ preventScroll: false });
 
             // Attach toggle handlers
             document.querySelectorAll('.respond-help-header').forEach(header => {
@@ -1413,6 +1426,7 @@
                     const isOpening = !content.classList.contains('open');
                     content.classList.toggle('open');
                     toggle.classList.toggle('open');
+                    this.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
 
                     // Re-check platform context when opening a section with a platform selector
                     if (isOpening && content.dataset.platformPurpose) {
@@ -1463,7 +1477,9 @@
                 selectorContainer.style.paddingTop = '1rem';
                 selectorContainer.style.borderTop = '1px solid var(--border-color)';
 
+                const selectId = `respond-platform-${purpose}`;
                 const label = document.createElement('label');
+                label.htmlFor = selectId;
                 label.style.display = 'block';
                 label.style.marginBottom = '0.75rem';
                 label.style.fontSize = '0.95rem';
@@ -1471,6 +1487,7 @@
                 selectorContainer.appendChild(label);
 
                 const selector = document.createElement('select');
+                selector.id = selectId;
                 selector.style.padding = '8px 12px';
                 selector.style.borderRadius = '4px';
                 selector.style.border = '1px solid var(--border-color)';
@@ -1525,7 +1542,7 @@
                             resourceHtml += `<div style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Official ${platformLabel} Help</div>`;
                             resourceHtml += `<div style="font-weight: 500; margin-bottom: 0.5rem;">${res.title}</div>`;
                             if (res.url && (res.url.startsWith('http://') || res.url.startsWith('https://'))) {
-                                resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
+                                resourceHtml += `<a href="${res.url}" target="_blank" rel="noopener noreferrer" aria-label="${platformLabel} help resource, opens in a new tab" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a>`;
                             }
                             resourceHtml += '</div>';
                             resourceContainer.innerHTML = resourceHtml;
@@ -1620,7 +1637,7 @@
                             }
                             resourceHtml += '<br>';
                             if (res.url) {
-                                resourceHtml += `&nbsp;&nbsp;<a href="${res.url}" target="_blank" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a><br>`;
+                                resourceHtml += `&nbsp;&nbsp;<a href="${res.url}" target="_blank" rel="noopener noreferrer" style="color: var(--respond-accent); text-decoration: underline; font-size: 0.9rem;">Learn more</a><br>`;
                             }
                         });
                         container.innerHTML = resourceHtml;
@@ -1659,11 +1676,11 @@
 
             return `
                 <div class="respond-help-section">
-                    <div class="respond-help-header">
+                    <button type="button" class="respond-help-header" aria-expanded="false" aria-controls="help-${help.id}">
                         <span>${help.title}</span>
                         <span class="respond-help-toggle">▼</span>
-                    </div>
-                    <div class="respond-help-content">
+                    </button>
+                    <div class="respond-help-content" id="help-${help.id}">
                         ${contentHtml}
                     </div>
                 </div>
