@@ -23,6 +23,37 @@
     <title>Gaming Safety Guide | DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .section-header {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            background: inherit;
+            border: inherit;
+            padding: 1rem 1.5rem;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .section-header:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .section-header h3 {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .section-header .section-toggle {
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+    </style>
     <script src="js/glossary.js"></script>
 </head>
 <body>
@@ -42,27 +73,27 @@
 
     <main class="container">
         <div style="text-align: center; margin-bottom: 2rem;">
-            <h1>🎮 Gaming Safety Guide</h1>
-            <p class="subtitle">Understand in-game chat, gaming communities, spending, and what to watch for—whether you're a parent, educator, gamer, or mentor.</p>
+            <h1>Gaming Safety Guide</h1>
+            <p class="subtitle">Understand in-game chat, gaming communities, spending, and what to watch for—whether you're a gamer, parent, educator, or mentor.</p>
         </div>
 
         <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); margin-bottom: 2rem;">
-            <p style="margin: 0; color: var(--text-dark);"><strong>💡 Why this matters:</strong> Gaming is a major part of social life for many people. In-game chat, multiplayer communities, and interactions with strangers create real considerations worth understanding if you game yourself or support someone who does.</p>
+            <p style="margin: 0; color: var(--text-dark);"><strong>Why this matters:</strong> Gaming is a major part of social life for many people. In-game chat, multiplayer communities, and interactions with strangers create real considerations worth understanding if you game yourself or support someone who does.</p>
         </div>
 
         <!-- In-Game Chat Dangers -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>🗣️ In-Game Chat: What You Should Know</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-chat-content" onclick="toggleSection(this)">
+                <h3>In-Game Chat: What You Should Know</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-chat-content">
                 <h4>Why in-game chat is different from text messages:</h4>
                 <p>In-game chat is often <strong>less visible than text messages</strong>. Unlike texting apps or Discord, most games don't keep chat history you can review later, and those supervising someone often can't monitor it directly.</p>
 
                 <div class="do-dont-grid">
                     <div class="do-section">
-                        <h4>✅ What to Understand</h4>
+                        <h4>What to Understand</h4>
                         <ul>
                             <li>In-game chat connects you with strangers from around the world</li>
                             <li>Some people try to build trust gradually over time (called <span data-glossary="grooming">grooming</span>) in order to manipulate or exploit someone</li>
@@ -72,7 +103,7 @@
                         </ul>
                     </div>
                     <div class="dont-section">
-                        <h4>⚠️ Things to Consider</h4>
+                        <h4>Things to Consider</h4>
                         <ul>
                             <li>Don't assume someone will automatically report uncomfortable interactions</li>
                             <li>Game moderation has limits—it can't prevent all problematic behavior</li>
@@ -94,40 +125,40 @@
 
         <!-- Specific Game Risks -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>🎯 Popular Games & Specific Risks</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-risks-content" onclick="toggleSection(this)">
+                <h3>Popular Games & Specific Risks</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-risks-content">
                 <h4>Fortnite</h4>
                 <ul style="color: var(--text-gray); margin-left: 1.5rem;">
-                    <li><strong>Chat risks:</strong> Random squad members in every game, voice chat enabled by default</li>
-                    <li><strong>In-game purchases:</strong> Cosmetics ($5-20), Battle Pass ($10), and emotes encourage frequent spending</li>
-                    <li><strong>Community:</strong> Fortnite has a massive global player base, so kids may interact with people they don't know</li>
+                    <li><strong>Chat risks:</strong> Public squad members in every game, often voice chat available</li>
+                    <li><strong>In-game purchases:</strong> Cosmetics, battle passes, and emotes available for purchase</li>
+                    <li><strong>Community:</strong> Large global player base with interactions with unknown players</li>
                     <li><strong>Talk about:</strong> "Do you stick to playing with your friends, or do you squad with randoms?"</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Roblox</h4>
                 <ul style="color: var(--text-gray); margin-left: 1.5rem;">
                     <li><strong>Chat risks:</strong> User-generated worlds = unpredictable content, chat with any player</li>
-                    <li><strong>In-game purchases:</strong> Robux currency ($0.99-$100+), social pressure to have cosmetics</li>
-                    <li><strong>Younger users:</strong> Popular with younger players, while public experiences and communication features can also involve people they don't know.</li>
+                    <li><strong>In-game purchases:</strong> Premium currency available, cosmetics and items can encourage repeated spending</li>
+                    <li><strong>Player base:</strong> Popular with a wide range of ages and abilities; public experiences involve people they don't know</li>
                     <li><strong>Talk about:</strong> "What worlds/games do you play? Do you chat with other players?"</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Minecraft (Multiplayer Servers)</h4>
-                <ul style="color: var(--text-gray); margin-margin-left: 1.5rem;">
-                    <li><strong>Chat risks:</strong> Depends on the server: some moderated, some with free-for-all chat</li>
-                    <li><strong>In-game purchases:</strong> Less than other games, but Realm subscriptions ($8/month)</li>
-                    <li><strong>More controlled option:</strong> Playing only with known friends via LAN or private servers</li>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li><strong>Chat risks:</strong> Depends on the server: some moderated, some with open chat</li>
+                    <li><strong>In-game purchases:</strong> Subscription options available; private servers may have different costs</li>
+                    <li><strong>More controlled option:</strong> Playing only with known friends via private servers</li>
                     <li><strong>Talk about:</strong> "Do you play on public servers or private servers with friends?"</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Call of Duty, Valorant, CS:GO</h4>
                 <ul style="color: var(--text-gray); margin-left: 1.5rem;">
-                    <li><strong>Chat risks:</strong> Competitive games may include harsh language, harassment, or other difficult interactions in voice or text chat.</li>
-                    <li><strong>Content:</strong> Rated M for Mature (17+), but popular with younger teens</li>
-                    <li><strong>In-game purchases:</strong> Weapon skins ($2-20), battle passes, cosmetics</li>
+                    <li><strong>Chat risks:</strong> Competitive games may include harsh language, harassment, or other difficult interactions in voice or text chat</li>
+                    <li><strong>Content:</strong> Rated M for Mature (17+), but played by younger people</li>
+                    <li><strong>In-game purchases:</strong> Weapon cosmetics, battle passes, and other items available for purchase</li>
                     <li><strong>Talk about:</strong> "Do other players say mean things during games? How do you handle it?"</li>
                 </ul>
 
@@ -142,11 +173,11 @@
 
         <!-- Discord & Gaming Communities -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>💬 Discord & Gaming Communities</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-discord-content" onclick="toggleSection(this)">
+                <h3>Discord & Gaming Communities</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-discord-content">
                 <p>Many gamers use Discord (a chat app) alongside games to voice chat with friends. This creates another communication space where interactions may continue outside the game.</p>
 
                 <h4>Considerations for Discord:</h4>
@@ -164,34 +195,36 @@
                     <strong>Consider what kinds of contacts and communities make sense for your situation, and talk about what to do if an interaction becomes uncomfortable or moves into private messages.</strong>
                 </p>
 
-                <h4 style="margin-top: 1.5rem;">Red flags on Discord:</h4>
+                <h4 style="margin-top: 1.5rem;">Red flags in online gaming and Discord:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li>Older players asking to move to private chat</li>
-                    <li>Players asking personal questions (age, location, what school)</li>
-                    <li>Anyone asking for photos or video calls</li>
-                    <li>Players sending links to websites or apps</li>
-                    <li>Being added to servers your child didn't join</li>
+                    <li>Pressure to move conversations to private or less-moderated communication</li>
+                    <li>Repeated personal questions (age, location, school, phone number)</li>
+                    <li>Requests for photos, video calls, or personal information</li>
+                    <li>Unsolicited links to websites, apps, or files</li>
+                    <li>Being added to servers or groups without consent</li>
+                    <li>Requests for secrecy or special "private" relationships</li>
+                    <li>Persistent attempts to build exclusive relationships</li>
                 </ul>
             </div>
         </div>
 
         <!-- In-Game Spending -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>💳 Understanding In-Game Spending</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-spending-content" onclick="toggleSection(this)">
+                <h3>Understanding In-Game Spending</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-spending-content">
                 <p>Many games use design features that can encourage repeated or unplanned spending. Understanding those features can make it easier to set a budget or decide what purchases make sense.</p>
 
                 <h4>Common features to notice:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li><strong>FOMO (Fear of Missing Out):</strong> Limited-time skins/cosmetics that "disappear forever"</li>
-                    <li><strong>Social pressure:</strong> Cosmetics show status; kids feel left out without them</li>
+                    <li><strong>FOMO (Fear of Missing Out):</strong> Limited-time items that "disappear forever"</li>
+                    <li><strong>Social pressure:</strong> Cosmetics show status; some players feel social pressure when others have cosmetics they don't</li>
                     <li><strong>Loot boxes:</strong> Randomized rewards encourage "just one more" purchase</li>
-                    <li><strong>Battle passes:</strong> Monthly subscriptions ($10) that reset each season</li>
-                    <li><strong>Easy payments:</strong> Stored credit cards make purchases 1-click</li>
-                    <li><strong>Peer comparison:</strong> Leaderboards, cosmetics, skins create status hierarchies</li>
+                    <li><strong>Battle passes:</strong> Recurring seasonal subscriptions that reset</li>
+                    <li><strong>Easy payments:</strong> Stored payment methods make purchases quick</li>
+                    <li><strong>Peer comparison:</strong> Leaderboards, cosmetics, and skins create visible status differences</li>
                 </ul>
 
                 <h4 style="margin-top: 1.5rem;">Real spending varies widely:</h4>
@@ -201,22 +234,24 @@
 
                 <h4 style="margin-top: 1.5rem;">Ways to manage spending:</h4>
                 <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid var(--success); padding: 1rem; border-radius: 8px;">
-                    ✅ <strong>Remove your payment method</strong> from their account (they must ask you to buy anything)<br><br>
-                    ✅ <strong>Use gift cards with limits</strong> ($10/month max) instead of credit cards<br><br>
-                    ✅ <strong>Set up parental controls</strong> on app stores to require approval for in-game purchases<br><br>
-                    ✅ <strong>Have a conversation</strong> about why games cost money and what's a reasonable budget<br><br>
-                    ✅ <strong>Check credit card statements</strong> monthly for surprise charges
+                    <strong>Options to consider:</strong><br><br>
+                    • Remove payment methods from accounts and set a time to discuss purchases together<br><br>
+                    • Use prepaid gift cards or allowance-based systems that fit your household budget<br><br>
+                    • Set up account controls on app stores to require approval for purchases<br><br>
+                    • Have ongoing conversations about spending, game economics, and what purchases make sense<br><br>
+                    • Review account activity and statements regularly to catch unauthorized charges<br><br>
+                    • Set a spending limit that fits your situation and adjust it as needed
                 </div>
             </div>
         </div>
 
         <!-- Toxic Gaming Culture -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>😤 Online Gaming Culture & Harassment</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-harassment-content" onclick="toggleSection(this)">
+                <h3>Online Gaming Culture & Harassment</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-harassment-content">
                 <p>Competitive online games can sometimes have negative community behavior. Gamers may experience:</p>
 
                 <h4>Behaviors that can happen:</h4>
@@ -236,31 +271,40 @@
                     • Review privacy settings to limit who can contact you<br>
                     • Save screenshots if the behavior continues<br>
                     • Report the behavior through the game's support system<br><br>
-                    <strong>Conversation starter:</strong> "Have you had any interactions in games that made you uncomfortable? I'm here to listen and help figure out next steps."
+                    <strong>Conversation starter:</strong> "Have you had any interactions in games that made you uncomfortable? I'm here to listen and help figure out next steps." (Adapt for your relationship with the gamer.)
                 </div>
             </div>
         </div>
 
         <!-- Healthy Gaming Habits -->
         <div class="article-section-v2">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h3>✅ Healthy Gaming Habits</h3>
+            <button type="button" class="section-header" aria-expanded="false" aria-controls="gaming-habits-content" onclick="toggleSection(this)">
+                <h3>Healthy Gaming Habits</h3>
                 <span class="section-toggle">▶</span>
-            </div>
-            <div class="section-content">
+            </button>
+            <div class="section-content" id="gaming-habits-content">
                 <h4>Things to consider for balanced gaming:</h4>
                 <ul style="color: var(--text-gray);">
-                    <li><strong>Time boundaries:</strong> Set limits that work for school/work and other priorities</li>
-                    <li><strong>Break rhythm:</strong> Take regular breaks (every 20-30 minutes to look away from screen)</li>
-                    <li><strong>Prioritize obligations:</strong> Homework, school, sleep, chores before gaming</li>
-                    <li><strong>Gaming visibility:</strong> Play in shared spaces or keep some visibility into what's happening</li>
-                    <li><strong>Who you play with:</strong> Limit multiplayer to people you know, or carefully chosen communities</li>
+                    <li><strong>Time boundaries:</strong> Set limits that work with work, school, sleep, and other priorities in your life</li>
+                    <li><strong>Break rhythm:</strong> Take breaks that work for your body and attention—looking away from the screen regularly can help with eye strain and focus</li>
+                    <li><strong>Balance:</strong> Make room for responsibilities, movement, sleep, and other activities alongside gaming</li>
+                    <li><strong>Gaming visibility:</strong> Consider whether shared-space gaming or some visibility into what's happening fits your situation</li>
+                    <li><strong>Who you play with:</strong> Consider who you interact with online and whether private multiplayer or known communities work better for you</li>
                 </ul>
 
-                <h4 style="margin-top: 1.5rem;">Games that are safer:</h4>
-                <p style="color: var(--text-gray); margin: 1rem 0;">Single-player: Zelda, Mario, Stardew Valley, Spiritfarer, Journey<br>
-                Multiplayer with friends only: Minecraft (private), Mario Kart, Splatoon, Animal Crossing<br>
-                Avoid for now: Fortnite, Roblox, Call of Duty, GTA (too many strangers & chat)</p>
+                <h4 style="margin-top: 1.5rem;">What features change the experience?</h4>
+                <p style="color: var(--text-gray); margin: 1rem 0;">Different games have different features. When choosing what to play, consider:</p>
+                <ul style="color: var(--text-gray);">
+                    <li><strong>Public vs. private multiplayer:</strong> Some games connect you only with friends; others match you with strangers</li>
+                    <li><strong>Voice and text chat:</strong> Whether the game includes direct communication with other players</li>
+                    <li><strong>User-generated content:</strong> Games where players create worlds or content (like Roblox or Minecraft servers)</li>
+                    <li><strong>Contact with unknown players:</strong> How much interaction happens with people you don't know</li>
+                    <li><strong>Purchases and subscriptions:</strong> Whether the game includes cosmetics, battle passes, or other spending</li>
+                    <li><strong>Moderation and reporting:</strong> What tools exist to report problems or block others</li>
+                    <li><strong>Privacy and contact controls:</strong> What settings let you control who can message or see your profile</li>
+                    <li><strong>Content rating:</strong> Age recommendations and content type</li>
+                </ul>
+                <p style="color: var(--text-gray); margin-top: 1rem;">What matters most depends on your priorities. Some people prefer single-player or friend-only multiplayer; others enjoy larger communities. The goal is to choose games and settings that fit your comfort level.</p>
 
                 <h4 style="margin-top: 1.5rem;">What to do instead of always gaming:</h4>
                 <ul style="color: var(--text-gray);">
@@ -275,21 +319,21 @@
 
         <!-- Key Takeaway -->
         <section style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid var(--success); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
-            <h3 style="color: var(--success); margin-top: 0;">🎯 Key Takeaway</h3>
+            <h3 style="color: var(--success); margin-top: 0;">Key Takeaway</h3>
             <p style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 1rem;">Gaming is a normal, important part of how many people spend time online. The goal isn't to eliminate gaming, but to <strong>make it safer and more balanced</strong>.</p>
             <ul style="color: var(--text-dark);">
                 <li><strong>Stay informed about what games are being played</strong> and who is involved</li>
-                <li><strong>Manage payment methods</strong> to prevent unintended spending</li>
-                <li><strong>Stay connected without hovering:</strong> check in on experiences, notice changes</li>
+                <li><strong>Manage payment methods and accounts</strong> to prevent unintended spending</li>
+                <li><strong>Stay connected:</strong> check in on experiences, notice changes, remain available to talk</li>
                 <li><strong>Have ongoing conversations</strong> about gaming and online interactions</li>
-                <li><strong>Model healthy tech use:</strong> the people you support will notice how you use technology</li>
-                <li><strong>Create space for honest conversation:</strong> people should feel safe reporting problems</li>
+                <li><strong>Model the tech use you want to see:</strong> people notice how others use technology</li>
+                <li><strong>Create space for honest conversation:</strong> people should feel safe reporting uncomfortable interactions</li>
             </ul>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 DigitalCap. Gaming safety for families. <a href="/interactive">Back to tools.</a></p>
+        <p>&copy; 2026 DigitalCap. Digital safety for real life. <a href="/interactive">Back to tools.</a></p>
     </footer>
 
     <script src="js/main.js"></script>
@@ -300,13 +344,16 @@
         function toggleSection(header) {
             const content = header.nextElementSibling;
             const toggle = header.querySelector('.section-toggle');
+            const isOpen = content.classList.contains('open');
 
-            if (content.classList.contains('open')) {
+            if (isOpen) {
                 content.classList.remove('open');
                 toggle.style.transform = 'rotate(0deg)';
+                header.setAttribute('aria-expanded', 'false');
             } else {
                 content.classList.add('open');
                 toggle.style.transform = 'rotate(90deg)';
+                header.setAttribute('aria-expanded', 'true');
             }
         }
 
