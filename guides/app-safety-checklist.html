@@ -3,579 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Evaluate an App - DigitalCap</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="A practical guide to evaluating apps, understanding their capabilities, and deciding what makes sense for your needs.">
+    <title>How to Evaluate an App | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect & Prepare</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/learn">Learn & Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>How to Evaluate an App</h1>
+        <p class="subtitle">Find information about any app, understand what it can do, and decide what makes sense for you.</p>
+
+        <!-- Introduction -->
+        <section id="intro" style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+            <p style="color: var(--text-gray); margin: 0 0 1rem 0; line-height: 1.8;">Start by checking <a href="/app-check" style="color: var(--primary); font-weight: 600; text-decoration: none;">DigitalCap App Check</a> if the app you're researching may already be reviewed. App Check provides capabilities, safeguards, age guidance, and sourced safety information.</p>
+            <p style="color: var(--text-gray); margin: 0 0 1rem 0; line-height: 1.8;">If the app is not reviewed yet, or if you want to investigate further yourself, this guide helps you work through the important areas. A capability is not automatically a problem. The goal is to understand what the app can do, what access it provides, what controls exist, and whether that fits your needs.</p>
+            <p style="color: var(--text-gray); margin: 0; line-height: 1.8;">You can work through this checklist on screen, or print a blank copy and fill it out by hand.</p>
+        </section>
+
+        <!-- Evaluation Sections -->
+
+        <!-- Confirm App -->
+        <section id="confirm-app" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Confirm you have the right app</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Before investigating, make sure you're researching the correct app. Apps can have similar names. Copycat or outdated listings exist. Researching the wrong version will produce misleading information.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Checklist</h3>
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-app-name" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-app-name" style="cursor: pointer; color: var(--primary); margin: 0;">Exact app name (spelling matters)</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-developer" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-developer" style="cursor: pointer; color: var(--primary); margin: 0;">Developer or company name</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-icon" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-icon" style="cursor: pointer; color: var(--primary); margin: 0;">App icon/logo (can you see it?)</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-appstore" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-appstore" style="cursor: pointer; color: var(--primary); margin: 0;">Official app-store listing (Apple App Store or Google Play)</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="cb-website" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-website" style="cursor: pointer; color: var(--primary); margin: 0;">Official website if the developer has one</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-confirm" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-confirm" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Understand App -->
+        <section id="understand" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Understand what the app does</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">A capability is not automatically a problem. The goal is to understand what is possible, then decide if that fits your needs.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Consider</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-purpose" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-purpose" style="cursor: pointer; color: var(--primary); margin: 0;">What is this app designed to do?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-social" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-social" style="cursor: pointer; color: var(--primary); margin: 0;">Is it social (connecting people)?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-messaging" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-messaging" style="cursor: pointer; color: var(--primary); margin: 0;">Does it include messaging or chat?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-ugc" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-ugc" style="cursor: pointer; color: var(--primary); margin: 0;">Does it include user-generated content?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-web" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-web" style="cursor: pointer; color: var(--primary); margin: 0;">Does it connect to the open web?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-location" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-location" style="cursor: pointer; color: var(--primary); margin: 0;">Does it use location?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-ai" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-ai" style="cursor: pointer; color: var(--primary); margin: 0;">Does it use AI or recommendations?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-purchases2" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-purchases2" style="cursor: pointer; color: var(--primary); margin: 0;">Does it include purchases or upgrades?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-share" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-share" style="cursor: pointer; color: var(--primary); margin: 0;">Can people upload or share content?</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-understand" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-understand" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Permissions -->
+        <section id="permissions" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Check permissions</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1rem; line-height: 1.6;">Apps request permission to access your device's features. Understanding why an app needs each permission helps you make an informed choice.</p>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;"><strong>Key question:</strong> Does this permission make sense for the feature I want to use?</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Common permissions</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-camera" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-camera" style="cursor: pointer; color: var(--primary); margin: 0;">Camera (for video calls, photos)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-microphone" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-microphone" style="cursor: pointer; color: var(--primary); margin: 0;">Microphone (for audio/calls)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-perm-location" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-perm-location" style="cursor: pointer; color: var(--primary); margin: 0;">Location (GPS or approximate location)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-contacts" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-contacts" style="cursor: pointer; color: var(--primary); margin: 0;">Contacts (access to your contact list)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-media" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-media" style="cursor: pointer; color: var(--primary); margin: 0;">Photos & Media (access to your files)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-notifications" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-notifications" style="cursor: pointer; color: var(--primary); margin: 0;">Notifications (alerts to your screen)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-calendar" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-calendar" style="cursor: pointer; color: var(--primary); margin: 0;">Calendar or Health data (if applicable)</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <p style="color: var(--text-gray); margin-bottom: 1rem; line-height: 1.6;">Most device settings let you review or change permissions later. You don't necessarily have to say yes to every permission to use an app.</p>
+                <label for="notes-permissions" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-permissions" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Privacy & Data -->
+        <section id="privacy" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Privacy & data</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Find and review what information the app collects and how it's used. Privacy policies can be difficult to read. Start with official sources (app-store listing, developer website, official help pages) rather than third-party summaries.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Look for</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-policy" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-policy" style="cursor: pointer; color: var(--primary); margin: 0;">Privacy policy (usually linked on app-store page or developer website)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-collected" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-collected" style="cursor: pointer; color: var(--primary); margin: 0;">What information is collected (account data, usage, location, etc.)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-why" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-why" style="cursor: pointer; color: var(--primary); margin: 0;">Why it's collected (essential vs. optional)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-advertising" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-advertising" style="cursor: pointer; color: var(--primary); margin: 0;">Whether data is used for advertising or personalization</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-shared" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-shared" style="cursor: pointer; color: var(--primary); margin: 0;">Whether information is shared with third parties</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-account" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-account" style="cursor: pointer; color: var(--primary); margin: 0;">Whether an account is required</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-delete" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-delete" style="cursor: pointer; color: var(--primary); margin: 0;">How to delete your information or remove your account</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-privacy" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-privacy" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Communication & Users -->
+        <section id="communication" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Communication & other users</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">If an app connects people, understand how contact and communication work. Communicating with people you don't already know is not automatically harmful. Exposure depends on who can start contact, available privacy controls, whether reporting/blocking tools exist, moderation practices, and how the app is being used.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Consider</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-can-communicate" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-can-communicate" style="cursor: pointer; color: var(--primary); margin: 0;">Can users communicate with other users?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-who-contact" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-who-contact" style="cursor: pointer; color: var(--primary); margin: 0;">Who can start a conversation (friends only, anyone, etc.)?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-public-private" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-public-private" style="cursor: pointer; color: var(--primary); margin: 0;">Are messages public or private?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-disappear" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-disappear" style="cursor: pointer; color: var(--primary); margin: 0;">Can messages disappear or be deleted?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-block" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-block" style="cursor: pointer; color: var(--primary); margin: 0;">Can someone block another user?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-report" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-report" style="cursor: pointer; color: var(--primary); margin: 0;">Can someone report inappropriate behavior or content?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-moderation" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-moderation" style="cursor: pointer; color: var(--primary); margin: 0;">Is there moderation by the company?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-control" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-control" style="cursor: pointer; color: var(--primary); margin: 0;">Can someone control who contacts them?</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-communication" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-communication" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Content & External Access -->
+        <section id="content" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Content & external access</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Understand how content reaches you and where it can lead. An app may appear to have a limited purpose while still providing access to broader content through links, browsers, videos, or chat. Understanding these pathways helps you make an informed choice.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Investigate</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-content-choice" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-content-choice" style="cursor: pointer; color: var(--primary); margin: 0;">Is content chosen by you, recommended by an algorithm, or both?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-ugc-available" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-ugc-available" style="cursor: pointer; color: var(--primary); margin: 0;">Is user-generated content available?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-search-broad" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-search-broad" style="cursor: pointer; color: var(--primary); margin: 0;">Can people search broadly for content?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-filters" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-filters" style="cursor: pointer; color: var(--primary); margin: 0;">Are content controls or filters available?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-links-outside" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-links-outside" style="cursor: pointer; color: var(--primary); margin: 0;">Can links lead outside the app?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-browser" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-browser" style="cursor: pointer; color: var(--primary); margin: 0;">Is there an in-app browser?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-embedded" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-embedded" style="cursor: pointer; color: var(--primary); margin: 0;">Can embedded video or web content appear inside the app?</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-content" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-content" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Purchases & Subscriptions -->
+        <section id="purchases" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Purchases & subscriptions</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Understand potential costs and advertising before downloading. The official app-store listing usually shows pricing and purchase options. Review before downloading to understand potential costs.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Check</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-cost" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-cost" style="cursor: pointer; color: var(--primary); margin: 0;">Does the app cost money to download?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-iap" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-iap" style="cursor: pointer; color: var(--primary); margin: 0;">Are there in-app purchases? What do they cost?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-subscription" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-subscription" style="cursor: pointer; color: var(--primary); margin: 0;">Are there subscriptions? Do they auto-renew?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-trial" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-trial" style="cursor: pointer; color: var(--primary); margin: 0;">Is there free trial or paid trial access?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-currency" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-currency" style="cursor: pointer; color: var(--primary); margin: 0;">Is there premium currency or special items for purchase?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-ads" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-ads" style="cursor: pointer; color: var(--primary); margin: 0;">Does the app display advertising?</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-spending-controls" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-spending-controls" style="cursor: pointer; color: var(--primary); margin: 0;">Are there spending controls or parental controls?</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-purchases" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-purchases" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Safeguards & Controls -->
+        <section id="safeguards" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Safeguards & controls</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Investigate what tools exist to manage your experience and protect yourself. Safeguards can change how exposure works, but no setting guarantees perfect protection. Investigate what tools exist to help you maintain control.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Look for</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-privacy-settings" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-privacy-settings" style="cursor: pointer; color: var(--primary); margin: 0;">Privacy settings (who can see your profile, posts, etc.)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-contact-controls" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-contact-controls" style="cursor: pointer; color: var(--primary); margin: 0;">Communication controls (who can contact you)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-block-report" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-block-report" style="cursor: pointer; color: var(--primary); margin: 0;">Block and report tools</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-content-controls" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-content-controls" style="cursor: pointer; color: var(--primary); margin: 0;">Content controls or filters</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-notification-settings" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-notification-settings" style="cursor: pointer; color: var(--primary); margin: 0;">Notification settings (what alerts you get)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-location-controls" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-location-controls" style="cursor: pointer; color: var(--primary); margin: 0;">Location controls</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-security" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-security" style="cursor: pointer; color: var(--primary); margin: 0;">Account security features (password reset, 2-factor authentication, etc.)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-parental" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-parental" style="cursor: pointer; color: var(--primary); margin: 0;">Parental or guardian controls if available</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-safeguards" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-safeguards" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Multiple Sources -->
+        <section id="sources" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Check multiple sources</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Compare information from multiple credible sources before deciding. User reviews can reveal patterns and real experiences. A single viral post, TikTok, or Reddit comment should not automatically be treated as proof. Look for consensus across multiple sources instead of relying on one story.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Start with official sources</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-appstore" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-appstore" style="cursor: pointer; color: var(--primary); margin: 0;">App-store listing</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-website" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-website" style="cursor: pointer; color: var(--primary); margin: 0;">Developer website</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-policy" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-policy" style="cursor: pointer; color: var(--primary); margin: 0;">Official privacy policy</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-source-help" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-help" style="cursor: pointer; color: var(--primary); margin: 0;">Official help/support pages</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Then check additional sources</h3>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-safety" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-safety" style="cursor: pointer; color: var(--primary); margin: 0;">Established digital-safety organizations</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-reviews" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-reviews" style="cursor: pointer; color: var(--primary); margin: 0;">Professional reviews and journalism</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+                    <input type="checkbox" id="cb-source-community" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-community" style="cursor: pointer; color: var(--primary); margin: 0;">Community experiences and discussions</label>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="cb-source-appstore-reviews" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-source-appstore-reviews" style="cursor: pointer; color: var(--primary); margin: 0;">User reviews on the app store</label>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-sources" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">What did you find?</label>
+                <textarea id="notes-sources" placeholder="Write your notes here..." style="width: 100%; height: 120px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+        </section>
+
+        <!-- Final Decision -->
+        <section id="decide" class="eval-content" style="margin-bottom: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Does this app fit what you need?</h2>
+            <p style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Use this framework to organize what you've learned. Remember: Two people can reasonably make different choices about the same app. What works for one person may not work for another.</p>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">What can this app do?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">What features, access, and connections does it enable?</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">What could that expose me to?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">What information is collected? Who might contact me? What content could I encounter? Can it send me outside the app?</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">What controls exist?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">What privacy settings, blocking tools, content filters, or parental controls are available?</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">What matters in my situation?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">My age, needs, maturity, how I plan to use it, who I know on it, my experience with similar apps.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Does this make sense for me?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Given everything above, what choice feels right?</p>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 1.5rem;">
+                <label for="notes-decide" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">Your decision and next steps</label>
+                <textarea id="notes-decide" placeholder="Write your decision and any questions you still have..." style="width: 100%; height: 150px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary); padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Next steps</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem; line-height: 1.6;"><a href="/app-check" style="color: var(--primary); font-weight: 600; text-decoration: none;">Check if DigitalCap has reviewed this app</a> for more detailed information about capabilities and safeguards.</p>
+                <p style="color: var(--text-gray); margin-bottom: 1rem; line-height: 1.6;"><a href="/guides/privacy-settings-guide.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Review privacy settings</a> on your device or this specific app to adjust what permissions and access you allow.</p>
+                <p style="color: var(--text-gray); margin-bottom: 1rem; line-height: 1.6;"><a href="/talk" style="color: var(--primary); font-weight: 600; text-decoration: none;">Have a conversation</a> with someone you trust about your choice—a parent, caregiver, teacher, counselor, or friend.</p>
+                <p style="color: var(--text-gray); margin: 0; line-height: 1.6;"><a href="/protect" style="color: var(--primary); font-weight: 600; text-decoration: none;">Take protective steps</a> to stay safe online, manage device time, and handle situations that come up.</p>
+            </div>
+        </section>
+
+        <!-- Print and Controls -->
+        <div style="text-align: center; margin-bottom: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" id="eval-controls">
+            <button type="button" id="print-eval" style="padding: 0.75rem 2rem; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600;">Print Evaluation</button>
+            <button type="button" id="return-home" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; color: var(--text-gray);">Return Home</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a></p>
+    </footer>
+
+    <script>
+    (function() {
+      // Print button
+      document.getElementById('print-eval').addEventListener('click', () => {
+        window.print();
+      });
+
+      // Return home button
+      document.getElementById('return-home').addEventListener('click', () => {
+        window.location.href = '/';
+      });
+    })();
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.8;
-            color: #2D3436;
-            background: #f5f5f5;
-        }
-
-        .container {
-            max-width: 8.5in;
-            margin: 20px auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            page-break-after: always;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #4ECDC4;
-            padding-bottom: 20px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #4ECDC4;
-            margin-bottom: 10px;
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #636E72;
-            font-style: italic;
-        }
-
-        .section {
-            margin: 25px 0;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-            background: #4ECDC4;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
-
-        .intro-box {
-            background: #F0F8F8;
-            border-left: 4px solid #4ECDC4;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-        }
-
-        .intro-text {
-            font-size: 13px;
-            color: #636E72;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .question-box {
-            background: #FFF8F0;
-            border-left: 4px solid #FF6B6B;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 6px;
-        }
-
-        .question-title {
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 8px;
-        }
-
-        .question-text {
-            font-size: 13px;
-            color: #636E72;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .checklist-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            padding: 10px;
-            background: #F8F9FA;
-            border-radius: 6px;
-            border-left: 3px solid #4ECDC4;
-            align-items: flex-start;
-        }
-
-        .checkbox {
-            width: 18px;
-            height: 18px;
-            min-width: 18px;
-            border: 2px solid #4ECDC4;
-            border-radius: 3px;
-            flex-shrink: 0;
-            cursor: pointer;
-            accent-color: #4ECDC4;
-            margin-top: 2px;
-        }
-
-        .item-text {
-            flex: 1;
-        }
-
-        .item-label {
-            font-weight: 600;
-            color: #2D3436;
-            margin-bottom: 3px;
-        }
-
-        .item-description {
-            font-size: 13px;
-            color: #636E72;
-        }
-
-        .framework-box {
-            background: #E8F4F8;
-            border-left: 4px solid #4ECDC4;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-        }
-
-        .framework-label {
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 6px;
-            font-size: 14px;
-        }
-
-        .framework-text {
-            font-size: 13px;
-            color: #636E72;
-            line-height: 1.6;
-        }
-
-        .tip-box {
-            background: #FFE66D;
-            border-left: 4px solid #FFB703;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            font-size: 13px;
-        }
-
-        .tip-label {
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 5px;
-        }
-
-        a {
-            color: #4ECDC4;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
         @media print {
+            nav, footer, #eval-controls {
+                display: none !important;
+            }
+
             body {
                 background: white;
             }
+
             .container {
                 max-width: 100%;
-                margin: 0;
+                background: white;
                 padding: 0.5in;
-                box-shadow: none;
+            }
+
+            #intro {
+                display: block !important;
+                page-break-after: avoid;
+                margin-bottom: 1rem !important;
+                padding: 1rem !important;
+                background: white !important;
+                border: none !important;
+            }
+
+            .eval-content {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+
+            h1, h2, h3, h4, p, label {
+                color: #000 !important;
+            }
+
+            textarea, input[type="checkbox"] {
+                border: 1px solid #000 !important;
+                background: white !important;
+                color: #000 !important;
+            }
+
+            textarea {
+                height: auto !important;
+                min-height: auto !important;
+            }
+
+            input[type="checkbox"] {
+                width: 16px !important;
+                height: 16px !important;
             }
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">DigitalCap</div>
-            <div class="title">How to Evaluate an App</div>
-            <div class="subtitle">Find information about any app, understand what it can do, and decide what makes sense for you.</div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">START WITH APP CHECK</div>
-            <p class="intro-text">
-                DigitalCap reviews many popular apps through <a href="/app-check">App Check</a>. If you're researching an app that's already reviewed, App Check provides:
-            </p>
-            <div class="intro-box">
-                <div class="intro-text">
-                    • What the app can expose you to (Digital Exposure)<br/>
-                    • Specific capabilities and features<br/>
-                    • Recommended safeguards and settings<br/>
-                    • Age guidance where relevant<br/>
-                    • Conversation tips and red flags<br/>
-                    • Sourced safety information
-                </div>
-            </div>
-            <p class="intro-text">
-                If DigitalCap hasn't reviewed the app yet, use this guide to investigate it yourself.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">CONFIRM YOU HAVE THE RIGHT APP</div>
-            <p class="intro-text">
-                Before investigating, make sure you're researching the correct app.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Check these details:</div>
-                <div class="question-text">• Exact app name (spelling matters)</div>
-                <div class="question-text">• Developer or company name</div>
-                <div class="question-text">• App icon/logo (can you see it?)</div>
-                <div class="question-text">• Official app-store listing (Apple App Store or Google Play)</div>
-                <div class="question-text">• Official website if the developer has one</div>
-            </div>
-            <p class="intro-text">
-                Why? Apps can have similar names. Copycat or outdated listings exist. Researching the wrong version will produce misleading information.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">UNDERSTAND WHAT THE APP DOES</div>
-            <p class="intro-text">
-                Before evaluating exposure, understand the app's purpose and how it works.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Ask yourself:</div>
-                <div class="question-text">• What is this app designed to do?</div>
-                <div class="question-text">• Is it social (connecting people)?</div>
-                <div class="question-text">• Does it include messaging or chat?</div>
-                <div class="question-text">• Does it include user-generated content?</div>
-                <div class="question-text">• Does it connect to the open web?</div>
-                <div class="question-text">• Does it use location?</div>
-                <div class="question-text">• Does it involve AI or recommendations?</div>
-                <div class="question-text">• Does it include purchases or upgrades?</div>
-                <div class="question-text">• Can people upload or share content?</div>
-            </div>
-            <p class="intro-text">
-                A capability is not automatically a problem. The goal is to understand what is possible, then decide if that fits your needs.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">CHECK PERMISSIONS</div>
-            <p class="intro-text">
-                Apps request permission to access your device's features. Understanding why an app needs each permission helps you make an informed choice.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Common permissions to consider:</div>
-                <div class="question-text">• Camera (for video calls, photos)</div>
-                <div class="question-text">• Microphone (for audio/calls)</div>
-                <div class="question-text">• Location (GPS or approximate location)</div>
-                <div class="question-text">• Contacts (access to your contact list)</div>
-                <div class="question-text">• Photos & Media (access to your files)</div>
-                <div class="question-text">• Notifications (alerts to your screen)</div>
-                <div class="question-text">• Calendar or Health data (if applicable)</div>
-            </div>
-            <p class="intro-text">
-                Key question: <strong>Does this permission make sense for the feature I want to use?</strong>
-            </p>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Example:</strong> A video-call app reasonably needs camera and microphone access for calls to work. A map app may need location for navigation. A simple note-taking app requesting precise location would deserve investigation.
-                </div>
-            </div>
-            <p class="intro-text">
-                Most device settings let you review or change permissions later. You don't necessarily have to say yes to every permission to use an app.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">LOOK AT PRIVACY & DATA</div>
-            <p class="intro-text">
-                Find and review what information the app collects and how it's used.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Look for:</div>
-                <div class="question-text">• Privacy policy (usually linked on app-store page or developer website)</div>
-                <div class="question-text">• What information is collected (account data, usage, location, etc.)</div>
-                <div class="question-text">• Why it's collected (essential vs. optional)</div>
-                <div class="question-text">• Whether data is used for advertising or personalization</div>
-                <div class="question-text">• Whether information is shared with third parties</div>
-                <div class="question-text">• Whether an account is required</div>
-                <div class="question-text">• How to delete your information or remove your account</div>
-            </div>
-            <p class="intro-text">
-                Privacy policies can be difficult to read. Useful questions: Can I find it? Does it identify what's collected? Does it explain why? Does it explain who it's shared with?
-            </p>
-            <p class="intro-text">
-                Start with official sources (app-store listing, developer website, official help pages) rather than third-party summaries.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">COMMUNICATION & OTHER USERS</div>
-            <p class="intro-text">
-                If an app connects people, understand how contact and communication work.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Consider:</div>
-                <div class="question-text">• Can users communicate with other users?</div>
-                <div class="question-text">• Who can start a conversation (friends only, anyone, etc.)?</div>
-                <div class="question-text">• Are messages public or private?</div>
-                <div class="question-text">• Can messages disappear or be deleted?</div>
-                <div class="question-text">• Can someone block another user?</div>
-                <div class="question-text">• Can someone report inappropriate behavior or content?</div>
-                <div class="question-text">• Is there moderation by the company?</div>
-                <div class="question-text">• Can someone control who contacts them?</div>
-            </div>
-            <p class="intro-text">
-                Communicating with people you don't already know is not automatically harmful. Exposure depends on who can start contact, available privacy controls, whether reporting/blocking tools exist, moderation practices, and how the app is being used.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">CONTENT & EXTERNAL ACCESS</div>
-            <p class="intro-text">
-                Understand how content reaches you and where it can lead.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Investigate:</div>
-                <div class="question-text">• Is content chosen by you, recommended by an algorithm, or both?</div>
-                <div class="question-text">• Is user-generated content available?</div>
-                <div class="question-text">• Can people search broadly for content?</div>
-                <div class="question-text">• Are content controls or filters available?</div>
-                <div class="question-text">• Can links lead outside the app?</div>
-                <div class="question-text">• Is there an in-app browser?</div>
-                <div class="question-text">• Can embedded video or web content appear inside the app?</div>
-            </div>
-            <p class="intro-text">
-                An app may appear to have a limited purpose while still providing access to broader content through links, browsers, videos, or chat. Understanding these pathways helps you make an informed choice.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PURCHASES, SUBSCRIPTIONS & ADVERTISING</div>
-            <p class="intro-text">
-                Understand potential costs and advertising before downloading.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Check:</div>
-                <div class="question-text">• Does the app cost money to download?</div>
-                <div class="question-text">• Are there in-app purchases? What do they cost?</div>
-                <div class="question-text">• Are there subscriptions? Do they auto-renew?</div>
-                <div class="question-text">• Is there free trial or paid trial access?</div>
-                <div class="question-text">• Is there premium currency or special items for purchase?</div>
-                <div class="question-text">• Does the app display advertising?</div>
-                <div class="question-text">• Are there spending controls or parental controls?</div>
-            </div>
-            <p class="intro-text">
-                The official app-store listing usually shows pricing and purchase options. Review before downloading to understand potential costs.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">SAFEGUARDS & CONTROLS</div>
-            <p class="intro-text">
-                Investigate what tools exist to manage your experience and protect yourself.
-            </p>
-            <div class="question-box">
-                <div class="question-title">Look for:</div>
-                <div class="question-text">• Privacy settings (who can see your profile, posts, etc.)</div>
-                <div class="question-text">• Communication controls (who can contact you)</div>
-                <div class="question-text">• Block and report tools</div>
-                <div class="question-text">• Content controls or filters</div>
-                <div class="question-text">• Notification settings (what alerts you get)</div>
-                <div class="question-text">• Location controls</div>
-                <div class="question-text">• Account security features (password reset, 2-factor authentication, etc.)</div>
-                <div class="question-text">• Parental or guardian controls if available</div>
-            </div>
-            <p class="intro-text">
-                Safeguards can change how exposure works, but no setting guarantees perfect protection. Investigate what tools exist to help you maintain control.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">CHECK MORE THAN ONE SOURCE</div>
-            <p class="intro-text">
-                Compare information from multiple credible sources before deciding.
-            </p>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Start with official sources:</strong><br/>
-                    • App-store listing<br/>
-                    • Developer website<br/>
-                    • Official privacy policy<br/>
-                    • Official help/support pages
-                </div>
-            </div>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Then check additional sources:</strong><br/>
-                    • Established digital-safety organizations<br/>
-                    • Professional reviews and journalism<br/>
-                    • Community experiences and discussions<br/>
-                    • User reviews on the app store
-                </div>
-            </div>
-            <p class="intro-text">
-                User reviews can reveal patterns and real experiences. A single viral post, TikTok, or Reddit comment should not automatically be treated as proof. Look for consensus across multiple sources instead of relying on one story.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PUT IT TOGETHER: UNDERSTAND YOUR CHOICE</div>
-            <p class="intro-text">
-                Use this framework to organize what you've learned:
-            </p>
-            <div class="framework-box">
-                <div class="framework-label">CAPABILITY: What can this app do?</div>
-                <div class="framework-text">What features, access, and connections does it enable?</div>
-            </div>
-            <div class="framework-box">
-                <div class="framework-label">EXPOSURE: What could that expose me to?</div>
-                <div class="framework-text">What information is collected? Who might contact me? What content could I encounter? Can it send me outside the app?</div>
-            </div>
-            <div class="framework-box">
-                <div class="framework-label">SAFEGUARDS: What controls exist?</div>
-                <div class="framework-text">What privacy settings, blocking tools, content filters, or parental controls are available?</div>
-            </div>
-            <div class="framework-box">
-                <div class="framework-label">CONTEXT: What matters in my situation?</div>
-                <div class="framework-text">My age, needs, maturity, how I plan to use it, who I know on it, my experience with similar apps.</div>
-            </div>
-            <div class="framework-box">
-                <div class="framework-label">CHOICE: Does this make sense for me?</div>
-                <div class="framework-text">Given everything above, what choice feels right?</div>
-            </div>
-            <p class="intro-text">
-                <strong>Important:</strong> Two people can reasonably make different choices about the same app. What works for one person may not work for another.
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-title">EVALUATION CHECKLIST</div>
-            <p class="intro-text">
-                Use this checklist to track your investigation. This is a tool to help you remember what to investigate—not a scoring system.
-            </p>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I confirmed I'm researching the correct app and developer</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I understand the app's main purpose and features</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I reviewed permissions and understand why each is requested</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I checked the privacy policy and data collection practices</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I know whether users can communicate with each other</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I looked for reporting, blocking, and moderation tools</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I checked for external links, browsers, or embedded content</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I reviewed purchases, subscriptions, and advertising</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I explored privacy settings and available safeguards</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I checked multiple sources for information</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I understand what exposure matters to me in this case</div>
-                </div>
-            </div>
-
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox">
-                <div class="item-text">
-                    <div class="item-label">I know what questions I still have or who I want to talk to</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">STILL HAVE QUESTIONS?</div>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Want DigitalCap to review this app?</strong><br/>
-                    If this app isn't in <a href="/app-check">App Check</a> yet, you can suggest it to DigitalCap for review.
-                </div>
-            </div>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Want to discuss your choice?</strong><br/>
-                    Talk with someone you trust: a parent, caregiver, teacher, counselor, or friend. Evaluating an app together often leads to better decisions than deciding alone.
-                </div>
-            </div>
-            <div class="intro-box">
-                <div class="intro-text">
-                    <strong>Concerned about something specific?</strong><br/>
-                    Explore DigitalCap's other resources for help with cyberbullying, online safety, digital wellness, or conversation guides with family.
-                </div>
-            </div>
-        </div>
-
-        <div class="tip-box">
-            <div class="tip-label">💡 KEY PRINCIPLE</div>
-            Evaluating an app is about understanding what it can do and what that means for you—not about assigning a universal "safe" or "unsafe" label. The same app can be a good fit for one person and not for another, depending on their age, needs, maturity, and situation.
-        </div>
-    </div>
 </body>
 </html>
