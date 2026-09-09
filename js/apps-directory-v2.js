@@ -293,7 +293,7 @@ function renderAppCard(app, isExpanded) {
     let card = `
         <div class="app-card" data-app-id="${String(app.id)}" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s ease;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div style="flex: 1;">
+                <div style="flex: 1; min-width: 0;">
                     <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">${app.name}</h3>
                     <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">`;
 
@@ -307,7 +307,7 @@ function renderAppCard(app, isExpanded) {
     card += `<span style="color: var(--text-gray); font-size: 0.9rem;">${app.category}</span>
                     </div>
                 </div>
-                <div style="text-align: right; margin-left: 1rem; white-space: nowrap; font-size: 0.85rem; color: var(--secondary); font-weight: 600;">
+                <div style="text-align: right; margin-left: 1rem; white-space: nowrap; font-size: 0.85rem; color: var(--secondary); font-weight: 600; flex-shrink: 0;">
                     ${isExpanded ? '▼ Hide' : '▶ Show Details'}
                 </div>
             </div>
