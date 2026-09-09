@@ -291,34 +291,34 @@ function renderAppCard(app, isExpanded) {
     const ratingDisplay = getRatingDisplay(app);
 
     let card = `
-        <div class="app-card" data-app-id="${String(app.id)}" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s ease;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div class="app-card" data-app-id="${String(app.id)}" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s ease; min-width: 0; max-width: 100%; box-sizing: border-box; overflow-wrap: anywhere;">
+            <div class="app-card-header" style="display: flex; justify-content: space-between; align-items: flex-start; min-width: 0;">
                 <div style="flex: 1; min-width: 0;">
-                    <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark);">${app.name}</h3>
-                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">`;
+                    <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark); overflow-wrap: anywhere;">${app.name}</h3>
+                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; min-width: 0;">`;
 
     // Render rating badge only if valid rating exists
     if (ratingDisplay.mode !== 'none') {
-        card += `<span style="background: ${ratingDisplay.bgColor}; color: ${ratingDisplay.textColor}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+        card += `<span style="background: ${ratingDisplay.bgColor}; color: ${ratingDisplay.textColor}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; flex-shrink: 0;">
                             ${ratingDisplay.label}
                         </span>`;
     }
 
-    card += `<span style="color: var(--text-gray); font-size: 0.9rem;">${app.category}</span>
+    card += `<span style="color: var(--text-gray); font-size: 0.9rem; overflow-wrap: anywhere;">${app.category}</span>
                     </div>
                 </div>
-                <div style="text-align: right; margin-left: 1rem; white-space: nowrap; font-size: 0.85rem; color: var(--secondary); font-weight: 600; flex-shrink: 0;">
+                <div class="app-card-details-btn" style="text-align: right; margin-left: 0.75rem; font-size: 0.85rem; color: var(--secondary); font-weight: 600; flex-shrink: 1; min-width: 0; white-space: normal;">
                     ${isExpanded ? '▼ Hide' : '▶ Show Details'}
                 </div>
             </div>
-            <p style="margin: 0.75rem 0 0 0; color: var(--text-gray); font-size: 0.95rem;">${app.description}</p>
+            <p style="margin: 0.75rem 0 0 0; color: var(--text-gray); font-size: 0.95rem; overflow-wrap: anywhere;">${app.description}</p>
     `;
 
     // Add red flags preview on collapsed view
     if (!isExpanded && app.hiddenDangers && app.hiddenDangers.length > 0) {
         card += `<div style="margin-top: 1rem; padding: 0.75rem; background: rgba(231, 76, 60, 0.05); border-left: 3px solid var(--danger); border-radius: 4px;">
             <p style="margin: 0; color: var(--danger); font-size: 0.85rem; font-weight: 600;">⚠️ Watch For:</p>
-            <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.8rem;">${app.hiddenDangers.slice(0, 2).join(' • ')}</p>
+            <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.8rem; overflow-wrap: anywhere;">${app.hiddenDangers.slice(0, 2).join(' • ')}</p>
         </div>`;
     }
 
@@ -348,12 +348,12 @@ function renderAppDetails(app) {
     details += `
         <div style="margin-bottom: 2rem;">
             <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">What It Is</h4>
-            <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;">${app.description}</p>
+            <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${app.description}</p>
             <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; font-size: 0.85rem;">
-                    <div><strong>Chat:</strong> <span style="color: var(--text-gray);">${app.hasChat ? '✓ Yes' : '✗ No'}</span></div>
-                    <div><strong>External Links:</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
-                    <div><strong>Location:</strong> <span style="color: var(--text-gray);">${app.hasLocationTracking ? '✓ Yes' : '✗ No'}</span></div>
+                    <div style="overflow-wrap: anywhere;"><strong>Chat:</strong> <span style="color: var(--text-gray);">${app.hasChat ? '✓ Yes' : '✗ No'}</span></div>
+                    <div style="overflow-wrap: anywhere;"><strong>External Links:</strong> <span style="color: var(--text-gray);">${app.hasOpenInternet ? '✓ Yes' : '✗ No'}</span></div>
+                    <div style="overflow-wrap: anywhere;"><strong>Location:</strong> <span style="color: var(--text-gray);">${app.hasLocationTracking ? '✓ Yes' : '✗ No'}</span></div>
                 </div>
             </div>
         </div>
@@ -364,7 +364,7 @@ function renderAppDetails(app) {
         details += `
             <div style="margin-bottom: 2rem;">
                 <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Why This Matters</h4>
-                <p style="margin: 0; color: var(--text-gray); line-height: 1.6;">${app.whyThisMatters.content}</p>
+                <p style="margin: 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${app.whyThisMatters.content}</p>
             </div>
         `;
     }
@@ -380,13 +380,13 @@ function renderAppDetails(app) {
             <div style="margin-bottom: 2rem;">
                 <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">📊 Digital Exposure Level</h4>
                 <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <span style="background: ${baseColors.bg}; color: ${baseColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; min-width: 0;">
+                        <span style="background: ${baseColors.bg}; color: ${baseColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem; flex-shrink: 0;">
                             ${baseBadge}
                         </span>
-                        <span style="color: var(--text-gray); font-size: 0.9rem;">Without recommended safeguards</span>
+                        <span style="color: var(--text-gray); font-size: 0.9rem; overflow-wrap: anywhere;">Without recommended safeguards</span>
                     </div>
-                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;"><strong>Why this level:</strong> ${app.exposureExplanation}</p>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;"><strong>Why this level:</strong> ${app.exposureExplanation}</p>
         `;
 
         // Exposure factors
@@ -399,7 +399,7 @@ function renderAppDetails(app) {
             app.exposureFactors.forEach(factor => {
                 const factorKey = typeof factor === 'string' ? factor : factor.factorKey;
                 const factorLabel = config.factors[factorKey]?.label || factorKey;
-                details += `<li style="margin-bottom: 0.25rem;">${factorLabel}</li>`;
+                details += `<li style="margin-bottom: 0.25rem; overflow-wrap: anywhere;">${factorLabel}</li>`;
             });
             details += `</ul></div>`;
         }
@@ -415,13 +415,13 @@ function renderAppDetails(app) {
             details += `
                 <div style="background: rgba(76, 175, 80, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid #4CAF50; margin-top: 1.5rem;">
                     <h5 style="color: #4CAF50; margin: 0 0 0.75rem 0; font-size: 1rem;">With Recommended Safeguards</h5>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <span style="background: ${protectedColors.bg}; color: ${protectedColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; min-width: 0;">
+                        <span style="background: ${protectedColors.bg}; color: ${protectedColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem; flex-shrink: 0;">
                             ${protectedBadge}
                         </span>
-                        <span style="color: var(--text-gray); font-size: 0.9rem;">After applying these safeguards</span>
+                        <span style="color: var(--text-gray); font-size: 0.9rem; overflow-wrap: anywhere;">After applying these safeguards</span>
                     </div>
-                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6;">${app.protectedExplanation}</p>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${app.protectedExplanation}</p>
             `;
 
             // Recommended safeguards
@@ -433,9 +433,9 @@ function renderAppDetails(app) {
                 `;
                 app.recommendedSafeguards.forEach(safeguard => {
                     details += `
-                        <li style="margin-bottom: 1rem;">
-                            <strong>${safeguard.label}</strong><br>
-                            <span style="font-size: 0.9rem; color: var(--text-gray);">${safeguard.instructions}</span>
+                        <li style="margin-bottom: 1rem; overflow-wrap: anywhere;">
+                            <strong style="overflow-wrap: anywhere;">${safeguard.label}</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-gray); overflow-wrap: anywhere;">${safeguard.instructions}</span>
                         </li>
                     `;
                 });
@@ -456,7 +456,7 @@ function renderAppDetails(app) {
                 <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">
         `;
         app.hiddenDangers.slice(0, 5).forEach(danger => {
-            details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${danger}</li>`;
+            details += `<li style="margin-bottom: 0.5rem; line-height: 1.5; overflow-wrap: anywhere;">${danger}</li>`;
         });
         details += `</ul></div>`;
     }
@@ -472,26 +472,26 @@ function renderAppDetails(app) {
         if (app.id === 1) { // TikTok
             details += `
                 <ol style="margin: 0; padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>Restrict DMs:</strong> Settings → Privacy → Direct Messages → "Friends Only"</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Disable Duets/Stitches:</strong> Settings → Privacy → Duet & Stitch → "Only Me"</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Hide Location:</strong> Settings → Privacy → Who Can Find You → disable "Personalized Ads"</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Set Screen Time Limit:</strong> Settings → Digital Wellbeing → Set 60-90 minute limit</li>
-                    <li><strong>Review FYP Weekly:</strong> Ask to see their "For You Page" regularly</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Restrict DMs:</strong> Settings → Privacy → Direct Messages → "Friends Only"</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Disable Duets/Stitches:</strong> Settings → Privacy → Duet & Stitch → "Only Me"</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Hide Location:</strong> Settings → Privacy → Who Can Find You → disable "Personalized Ads"</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Set Screen Time Limit:</strong> Settings → Digital Wellbeing → Set 60-90 minute limit</li>
+                    <li style="overflow-wrap: anywhere;"><strong>Review FYP Weekly:</strong> Ask to see their "For You Page" regularly</li>
                 </ol>
             `;
         } else if (app.id === 2) { // Snapchat
             details += `
                 <ol style="margin: 0; padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>Disable Snap Map:</strong> Settings → Snap Map → "Ghost Mode" (completely hidden)</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Restrict Friend Additions:</strong> Settings → Privacy → Contact Me → "Friends Only"</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Turn Off Location Services:</strong> System Settings → Snapchat → Location → "Never"</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Review Friends List:</strong> Remove anyone they don't personally know</li>
-                    <li><strong>Screenshot Alerts:</strong> Understand Snapchat's screenshot notifications (limited protection)</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Disable Snap Map:</strong> Settings → Snap Map → "Ghost Mode" (completely hidden)</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Restrict Friend Additions:</strong> Settings → Privacy → Contact Me → "Friends Only"</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Turn Off Location Services:</strong> System Settings → Snapchat → Location → "Never"</li>
+                    <li style="margin-bottom: 0.75rem; overflow-wrap: anywhere;"><strong>Review Friends List:</strong> Remove anyone they don't personally know</li>
+                    <li style="overflow-wrap: anywhere;"><strong>Screenshot Alerts:</strong> Understand Snapchat's screenshot notifications (limited protection)</li>
                 </ol>
             `;
         } else {
             details += `
-                <p style="margin: 0; color: var(--text-gray);">
+                <p style="margin: 0; color: var(--text-gray); overflow-wrap: anywhere;">
                     <strong>Privacy First:</strong> Review app Settings → Privacy controls. Look for options to restrict who can message, view location, or access camera/microphone. Disable features not actively used.
                 </p>
             `;
@@ -512,7 +512,7 @@ function renderAppDetails(app) {
             <div style="margin-bottom: 2rem;">
                 <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 Conversation Starters</h4>
                 <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
-                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(opener)}"</p>
+                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6; overflow-wrap: anywhere;">"${escapeHtml(opener)}"</p>
                 </div>
         `;
 
@@ -521,7 +521,7 @@ function renderAppDetails(app) {
             details += `
                 <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">❓ Ask This</h4>
                 <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
-                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6;">"${escapeHtml(guide.startWith)}"</p>
+                    <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6; overflow-wrap: anywhere;">"${escapeHtml(guide.startWith)}"</p>
                 </div>
             `;
         }
@@ -533,7 +533,7 @@ function renderAppDetails(app) {
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             guide.keyPoints.forEach(point => {
-                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(point)}</li>`;
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5; overflow-wrap: anywhere;">${escapeHtml(point)}</li>`;
             });
             details += `</ul>`;
         }
@@ -545,7 +545,7 @@ function renderAppDetails(app) {
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             guide.redFlags.forEach(flag => {
-                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(flag)}</li>`;
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5; overflow-wrap: anywhere;">${escapeHtml(flag)}</li>`;
             });
             details += `</ul>`;
         }
@@ -557,7 +557,7 @@ function renderAppDetails(app) {
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             app.tipsForParents.forEach(tip => {
-                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5;">${escapeHtml(tip)}</li>`;
+                details += `<li style="margin-bottom: 0.5rem; line-height: 1.5; overflow-wrap: anywhere;">${escapeHtml(tip)}</li>`;
             });
             details += `</ul>`;
         }
