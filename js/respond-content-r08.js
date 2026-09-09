@@ -137,18 +137,18 @@ const R08_IDENTITY_THEFT = {
     'tax-issue': [
       {
         number: 1,
-        title: 'Read the IRS letter or notice',
-        text: 'Follow the specific instructions you received.'
+        title: 'Do not act on the notice until you verify it',
+        text: 'If the letter, notice, tax return, or tax information is unfamiliar, do not call numbers, open links, send information, or make a payment based only on what you received.'
       },
       {
         number: 2,
-        title: 'Verify independently using IRS.gov',
-        text: 'Do not use contact information from an unexpected message. Go directly to <a href="https://www.irs.gov/identity-theft-central" target="_blank" rel="noopener noreferrer" aria-label="IRS Identity Theft Central, opens in a new tab">IRS.gov</a>.'
+        title: 'Verify independently through IRS.gov',
+        text: 'Go directly to <a href="https://www.irs.gov/identity-theft-central" target="_blank" rel="noopener noreferrer" aria-label="IRS Identity Theft Central, opens in a new tab">IRS Identity Theft Central</a>. Use IRS.gov to find official contact information and guidance instead of relying on contact details in the unexpected notice.'
       },
       {
         number: 3,
-        title: 'Follow IRS Identity Theft Central guidance',
-        text: 'The IRS will provide situation-specific steps at <a href="https://www.irs.gov/identity-theft-central" target="_blank" rel="noopener noreferrer" aria-label="IRS Identity Theft Central, opens in a new tab">IRS Identity Theft Central</a>.'
+        title: 'Follow the IRS guidance after the notice is verified',
+        text: 'If the notice is confirmed as legitimate, follow the IRS instructions that apply to that specific tax or identity-theft issue. IRS Identity Theft Central can help you identify the appropriate next steps.'
       },
       {
         number: 4,
