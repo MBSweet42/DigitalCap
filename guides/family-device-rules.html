@@ -3,552 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Family's Digital Agreement - DigitalCap</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="An interactive worksheet to help families build shared expectations around devices, apps, privacy, and digital safety.">
+    <title>Build Your Family's Digital Agreement | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect & Prepare</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/learn">Learn & Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Build Your Family's Digital Agreement</h1>
+        <p class="subtitle">An interactive worksheet to help families discuss devices, expectations, and what you agree on together.</p>
+
+        <!-- Introduction -->
+        <section id="intro" style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+            <p style="color: var(--text-gray); margin: 0 0 1rem 0; line-height: 1.8;">There isn't one digital agreement that works for every household. This tool helps families choose the topics that matter to them, talk through their expectations, and write down what they decide. The agreement can change as needs, circumstances, independence, and age change.</p>
+            <p style="color: var(--text-gray); margin: 0; line-height: 1.8;">You don't need to fill this out all at once. Pick topics that matter most to your household, have the conversation, and write down what you agree on.</p>
+        </section>
+
+        <!-- Agreement Details Section -->
+        <section id="agreement-details" style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
+            <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.2rem;">About your agreement</h2>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="household-name" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Household/Family name (optional):</label>
+                <input type="text" id="household-name" style="width: 100%; padding: 0.75rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="date-created" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Date created (optional):</label>
+                <input type="date" id="date-created" style="width: 100%; padding: 0.75rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem;">
+            </div>
+
+            <div style="margin-bottom: 0;">
+                <label for="review-date" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">When will you review this agreement? (optional):</label>
+                <input type="text" id="review-date" placeholder="e.g., Every 3 months, When birthdays happen, Before the school year starts" style="width: 100%; padding: 0.75rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem;">
+            </div>
+        </section>
+
+        <!-- Topic Selector -->
+        <section id="topic-selector" style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
+            <h2 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.2rem;">Choose your agreement topics</h2>
+            <p style="color: var(--text-gray); margin: 0 0 1rem 0; line-height: 1.6;">Select the topics you want to include in your agreement. You can select as many as you want and add more later.</p>
+            <p style="color: var(--text-gray); margin: 0 0 2rem 0; line-height: 1.6;">You can type your agreement here, or choose your topics, print the blank agreement, and fill it out together by hand.</p>
+
+            <fieldset style="border: none; padding: 0; margin: 0;">
+                <legend style="position: absolute; width: 1px; height: 1px; overflow: hidden;">Select agreement topics</legend>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-device-time" value="device-time" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-device-time" style="cursor: pointer; color: var(--primary); font-weight: 500;">Device time & charging</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-apps-games" value="apps-games" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-apps-games" style="cursor: pointer; color: var(--primary); font-weight: 500;">Apps & games</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-purchases" value="purchases" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-purchases" style="cursor: pointer; color: var(--primary); font-weight: 500;">Purchases & spending</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-privacy" value="privacy" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-privacy" style="cursor: pointer; color: var(--primary); font-weight: 500;">Privacy & personal info</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-passwords" value="passwords" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-passwords" style="cursor: pointer; color: var(--primary); font-weight: 500;">Passwords & accounts</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-location" value="location" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-location" style="cursor: pointer; color: var(--primary); font-weight: 500;">Location sharing</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-messaging" value="messaging" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-messaging" style="cursor: pointer; color: var(--primary); font-weight: 500;">Online friends & messaging</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-gaming" value="gaming" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-gaming" style="cursor: pointer; color: var(--primary); font-weight: 500;">Gaming</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-photos" value="photos" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-photos" style="cursor: pointer; color: var(--primary); font-weight: 500;">Photos & sharing</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-problems" value="problems" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-problems" style="cursor: pointer; color: var(--primary); font-weight: 500;">When problems happen</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-broken" value="broken" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-broken" style="cursor: pointer; color: var(--primary); font-weight: 500;">Broken agreements</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" id="cb-independence" value="independence" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                        <label for="cb-independence" style="cursor: pointer; color: var(--primary); font-weight: 500;">Growing independence</label>
+                    </div>
+                </div>
+
+                <button type="button" id="add-selected-topics" style="margin-top: 2rem; padding: 0.75rem 2rem; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600;">Add Selected Topics</button>
+            </fieldset>
+        </section>
+
+        <!-- Added Topics Display -->
+        <section id="added-topics" style="margin-bottom: 3rem;"></section>
+
+        <!-- Topic Content: Device Time & Charging -->
+        <section id="device-time" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="device-time-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Device time & charging</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Are there times or places where devices should be put away?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Consider meals, homework time, family activities, or sleep time.</p>
+                <label for="device-time-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about device-free times:</label>
+                <textarea id="device-time-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Where will devices charge overnight?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Common area? Outside bedrooms? Charging stations?</p>
+                <label for="device-time-2" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about overnight charging:</label>
+                <textarea id="device-time-2" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Are there different expectations for school nights vs. weekends?</h3>
+                <label for="device-time-3" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to on school nights vs. weekends:</label>
+                <textarea id="device-time-3" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Do these expectations apply to adults too?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Should adults model the same habits you're asking others to follow?</p>
+                <label for="device-time-4" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about modeling these habits:</label>
+                <textarea id="device-time-4" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Apps & Games -->
+        <section id="apps-games" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="apps-games-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Apps & games</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Can apps and games be downloaded independently, or should they be discussed first?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">What information should be checked before downloading? What app ratings or categories are okay?</p>
+                <label for="apps-games-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to before downloading a new app or game:</label>
+                <textarea id="apps-games-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <p style="color: var(--text-gray); margin: 0; line-height: 1.6;"><a href="/app-check" style="color: var(--primary); text-decoration: none; font-weight: 600;">Check a specific app</a> to understand what it does, what to watch for, and what settings may matter before downloading.</p>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Purchases & Spending -->
+        <section id="purchases" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="purchases-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Purchases & spending</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Are in-app purchases, game purchases, or digital content allowed?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Is permission needed? Are there spending limits? Who pays? How are accidental purchases handled?</p>
+                <label for="purchases-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about purchases and spending:</label>
+                <textarea id="purchases-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Privacy -->
+        <section id="privacy" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="privacy-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Privacy & personal information</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">What personal information should stay private or be shared carefully?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Real name, school, address, phone number, location, photos, videos, account privacy settings?</p>
+                <label for="privacy-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about privacy and personal information:</label>
+                <textarea id="privacy-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <p style="color: var(--text-gray); margin: 0; line-height: 1.6;">Review your <a href="/guides/privacy-settings-guide.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">privacy settings guide</a> to understand what common privacy controls do and how to adjust them on different platforms.</p>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Passwords -->
+        <section id="passwords" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="passwords-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Passwords & account access</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">How will account access and passwords be managed?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">For younger people, caregivers may manage directly. For older young people or teens, what level of oversight makes sense? How will independence grow over time?</p>
+                <label for="passwords-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about passwords and account access:</label>
+                <textarea id="passwords-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Location -->
+        <section id="location" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="location-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Location sharing</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">When, if ever, should location be shared?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Family location apps? Location sharing with friends? Continuous or temporary? Who can see location?</p>
+                <label for="location-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about location sharing:</label>
+                <textarea id="location-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Messaging -->
+        <section id="messaging" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="messaging-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Online friends & messaging</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">What's okay when it comes to online contact and friends?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Message requests from strangers? Online-only friendships? Group chats? What should they do if a message makes them uncomfortable?</p>
+                <label for="messaging-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about online friends and messaging:</label>
+                <textarea id="messaging-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Gaming -->
+        <section id="gaming" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="gaming-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Gaming</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">If gaming is part of device use, what matters to your household?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">In-game chat? Multiplayer with strangers? In-game purchases? Time limits? Game age ratings?</p>
+                <label for="gaming-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about gaming:</label>
+                <textarea id="gaming-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Photos -->
+        <section id="photos" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="photos-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Photos & sharing</h2>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">What are the expectations around photos, videos, and sharing?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Sharing friends' photos without asking? Posting videos? Types of content that should never be shared?</p>
+                <label for="photos-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about photos, videos, and sharing:</label>
+                <textarea id="photos-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Problems -->
+        <section id="problems" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="problems-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">When problems happen</h2>
+
+            <p style="color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6;">If something uncomfortable, confusing, unsafe, or unexpected happens online, asking for help should be easier than hiding the problem. This section is about how to handle those moments with safety and support first.</p>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Who can they talk to if something goes wrong?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Is there more than one trusted adult? How should they start the conversation?</p>
+                <label for="problems-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to about who they can talk to:</label>
+                <textarea id="problems-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">What happens first when there's a problem?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Handle immediate safety first. Block, remove contact, leave. Preserve evidence if needed. Tell who needs to know.</p>
+                <label for="problems-2" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to do when something goes wrong online:</label>
+                <textarea id="problems-2" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <p style="color: var(--text-gray); margin: 0; line-height: 1.6;"><a href="/respond" style="color: var(--primary); text-decoration: none; font-weight: 600;">DigitalCap Respond</a> has step-by-step guidance for mean comments, uncomfortable contact, pressure, and other situations. Consider reviewing it together.</p>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Broken Agreements -->
+        <section id="broken" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="broken-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Broken agreements</h2>
+
+            <p style="color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6;">When an agreement isn't followed, there's usually a reason to address it. But the response depends on what happened and what makes sense for your household. Different families handle this differently, and that's okay.</p>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">If an agreement is broken, what response makes sense?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">A conversation? Temporary changes? Repairing harm? Checking if the rule is realistic?</p>
+                <label for="broken-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to do if an agreement isn't working:</label>
+                <textarea id="broken-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Topic Content: Growing Independence -->
+        <section id="independence" class="topic-content" style="display: none; margin-bottom: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 id="independence-heading" style="color: var(--primary); margin-bottom: 2rem;" tabindex="-1">Growing independence</h2>
+
+            <p style="color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6;">As people grow, their privacy, independence, responsibility, and supervision can change. These changes should happen thoughtfully and with communication.</p>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">What responsibilities or behaviors show readiness for more independence?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Honesty about device use? Good decisions without supervision? Following agreements? Asking for help?</p>
+                <label for="independence-1" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">How we will recognize readiness for more independence:</label>
+                <textarea id="independence-1" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Which protections or supervision can change over time?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">Password sharing? Location sharing? App approval? Screen time limits?</p>
+                <label for="independence-2" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">How we will adjust protections as independence grows:</label>
+                <textarea id="independence-2" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">Which safety practices should stay the same?</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.9rem;">What will you always discuss or check in about, regardless of age?</p>
+                <label for="independence-3" style="display: block; color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">What we agree to always discuss or check in about:</label>
+                <textarea id="independence-3" style="width: 100%; height: 100px; padding: 1rem; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+            </div>
+
+            <button type="button" class="back-to-topics" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back to Topics</button>
+        </section>
+
+        <!-- Tips Section -->
+        <section id="tips" style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
+            <h2 style="color: var(--primary); margin: 0 0 1.5rem 0;">Tips for making this work</h2>
+            <ul style="color: var(--text-gray); margin: 0; padding-left: 1.5rem; line-height: 2;">
+                <li>Create expectations together when possible. People are more likely to follow agreements they helped create.</li>
+                <li>Start with what matters most. You don't need to fill out every section at once.</li>
+                <li>Adults can model the habits you're discussing. If device-free time matters, adults participate too.</li>
+                <li>Revisit agreements regularly. Plans may change as people grow, as new devices arrive, or as circumstances shift.</li>
+                <li>Clarity is often more useful than assumptions. A conversation about what you each expect is worth more than guessing.</li>
+                <li>Rules should help support safety and healthy use, not make someone afraid to ask for help. The point is connection and understanding, not control.</li>
+            </ul>
+        </section>
+
+        <!-- Sign-off Section -->
+        <section id="sign-off" style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
+            <h2 style="color: var(--primary); margin: 0 0 1rem 0;">We talked about this together</h2>
+            <p style="color: var(--text-gray); margin: 0 0 2rem 0; line-height: 1.6;">This agreement reflects what we talked about and decided together. We can revisit it when our needs change.</p>
+
+            <div style="margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Name</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Signature</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Name</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Signature</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Name</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Signature</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Name</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Signature</p>
+                        <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p style="color: var(--text-gray); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Date</p>
+                <p style="color: var(--primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; height: 2rem; max-width: 300px;"></p>
+            </div>
+        </section>
+
+        <!-- Print & Summary Section -->
+        <section style="text-align: center; margin-bottom: 3rem;">
+            <button type="button" id="print-button" style="padding: 0.75rem 2rem; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; margin-right: 1rem;">Print My Agreement</button>
+            <button type="button" id="back-home" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">Return Home</button>
+        </section>
+
+        <!-- Next Steps -->
+        <section style="margin-bottom: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; text-align: center;">
+            <h2 style="color: var(--primary); margin: 0 0 1.5rem 0; font-size: 1.2rem;">What's next?</h2>
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto;">
+                <a href="/talk" style="display: inline-block; color: var(--primary); font-weight: 600; text-decoration: none;">Get help having the conversation →</a>
+                <a href="/protect" style="display: inline-block; color: var(--primary); font-weight: 600; text-decoration: none;">Take protective steps →</a>
+                <a href="/respond" style="display: inline-block; color: var(--primary); font-weight: 600; text-decoration: none;">Something already happened? Get help →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a></p>
+    </footer>
+
+    <script>
+    // Family Digital Agreement: Multi-Select Topic Builder
+    (function() {
+      const state = {
+        addedTopics: new Set()
+      };
+
+      const topics = {
+        'device-time': 'device-time',
+        'apps-games': 'apps-games',
+        'purchases': 'purchases',
+        'privacy': 'privacy',
+        'passwords': 'passwords',
+        'location': 'location',
+        'messaging': 'messaging',
+        'gaming': 'gaming',
+        'photos': 'photos',
+        'problems': 'problems',
+        'broken': 'broken',
+        'independence': 'independence'
+      };
+
+      const topicOrder = [
+        'device-time',
+        'apps-games',
+        'purchases',
+        'privacy',
+        'passwords',
+        'location',
+        'messaging',
+        'gaming',
+        'photos',
+        'problems',
+        'broken',
+        'independence'
+      ];
+
+      function addSelectedTopics() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][value]');
+        let selectedTopics = [];
+
+        checkboxes.forEach(cb => {
+          if (cb.checked) {
+            selectedTopics.push(cb.value);
+          }
+        });
+
+        if (selectedTopics.length === 0) {
+          return;
+        }
+
+        selectedTopics.forEach(topicId => {
+          state.addedTopics.add(topicId);
+          const topicEl = document.getElementById(topicId);
+          if (topicEl) {
+            topicEl.style.display = 'block';
+            topicEl.classList.add('added-topic');
+          }
+        });
+
+        window.scrollTo(0, document.getElementById('added-topics').offsetTop);
+      }
+
+      // Back to Topics buttons - scroll back to selector
+      document.querySelectorAll('.back-to-topics').forEach(btn => {
+        btn.addEventListener('click', () => {
+          window.scrollTo(0, document.getElementById('topic-selector').offsetTop);
+        });
+      });
+
+      // Add Selected Topics button
+      document.getElementById('add-selected-topics').addEventListener('click', addSelectedTopics);
+
+      // Print button
+      document.getElementById('print-button').addEventListener('click', () => {
+        window.print();
+      });
+
+      // Return home button
+      document.getElementById('back-home').addEventListener('click', () => {
+        window.location.href = '/';
+      });
+
+      // Hash navigation for direct access
+      function handleHashNavigation() {
+        const hash = window.location.hash.substring(1);
+        if (hash in topics) {
+          const checkbox = document.getElementById('cb-' + hash);
+          if (checkbox) {
+            checkbox.checked = true;
+            addSelectedTopics();
+          }
+        }
+      }
+
+      window.addEventListener('hashchange', handleHashNavigation);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.hash) {
+          handleHashNavigation();
+        }
+      });
+    })();
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.8;
-            color: #2D3436;
-            background: #f5f5f5;
-        }
-
-        .container {
-            max-width: 8.5in;
-            margin: 20px auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #4ECDC4;
-            padding-bottom: 20px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #4ECDC4;
-            margin-bottom: 10px;
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #636E72;
-            font-style: italic;
-        }
-
-        .section {
-            margin: 25px 0;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-            background: #4ECDC4;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-
-        .agreement-box {
-            background: #F8F9FA;
-            border-left: 4px solid #4ECDC4;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-        }
-
-        .agreement-prompt {
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-
-        .prompt-item {
-            font-size: 13px;
-            color: #636E72;
-            margin-bottom: 8px;
-            margin-left: 15px;
-        }
-
-        .fillable {
-            border-bottom: 1px solid #2D3436;
-            min-height: 80px;
-            margin-top: 10px;
-            padding: 8px;
-            background: white;
-            border-radius: 3px;
-        }
-
-        .tip-box {
-            background: #E8F4F8;
-            border-left: 4px solid #4ECDC4;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            font-size: 13px;
-        }
-
-        .tip-label {
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 8px;
-        }
-
-        .intro-text {
-            font-size: 13px;
-            color: #636E72;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .section-divider {
-            border-top: 2px solid #DFE6E9;
-            margin: 30px 0;
-        }
-
-        .signature-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: #F8F9FA;
-            border-radius: 6px;
-        }
-
-        .signature-row {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .signature-item {
-            flex: 1;
-        }
-
-        .signature-label {
-            font-size: 12px;
-            color: #636E72;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .signature-line {
-            border-bottom: 1px solid #2D3436;
-            height: 25px;
-            margin-bottom: 5px;
-        }
-
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin: 1px 8px 0 0;
-            cursor: pointer;
-            accent-color: #4ECDC4;
-            vertical-align: top;
-        }
-
         @media print {
+            nav, footer, #topic-selector, .back-to-topics, #print-button, #back-home, #tips, .next-steps {
+                display: none !important;
+            }
+
             body {
                 background: white;
             }
+
             .container {
                 max-width: 100%;
-                margin: 0;
+                background: white;
                 padding: 0.5in;
-                box-shadow: none;
+            }
+
+            .topic-content {
+                display: none !important;
+            }
+
+            .topic-content.added-topic {
+                display: block !important;
+            }
+
+            h1, h2, h3, h4, p, textarea {
+                color: #000 !important;
+            }
+
+            textarea {
+                border: 1px solid #000 !important;
+                background: white !important;
+                height: auto !important;
+                min-height: auto !important;
+            }
+
+            .topic-content section {
+                page-break-inside: avoid;
+            }
+
+            #sign-off {
+                margin-top: 2rem;
+                page-break-inside: avoid;
             }
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">DigitalCap</div>
-            <div class="title">Build Your Family's Digital Agreement</div>
-            <div class="subtitle">A flexible worksheet for talking about devices, accounts, privacy, gaming, purchases, and what to do when something goes wrong.</div>
-        </div>
-
-        <div class="section">
-            <p class="intro-text">
-                There isn't one set of digital rules that works for every household. Families have different needs, values, and comfort levels. This worksheet provides areas to discuss and areas to write down what you agree on. The key is clarity and communication—and revisiting the agreement as circumstances and age change.
-            </p>
-
-            <p class="intro-text">
-                You don't need to fill this out all at once. Pick topics that matter most to your household, have the conversation, and write down what you decide. The agreement can change as your needs change.
-            </p>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <div class="section">
-            <div class="section-title">DEVICE-FREE TIMES AND PLACES</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Are there times or places where devices should be put away?</div>
-                <div class="prompt-item">• Meals?</div>
-                <div class="prompt-item">• Homework time?</div>
-                <div class="prompt-item">• Family activities or gatherings?</div>
-                <div class="prompt-item">• Overnight (sleeping)?</div>
-                <div class="prompt-item">• Other times?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">BEDTIME & DEVICE CHARGING</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Where will devices charge overnight?</div>
-                <div class="prompt-item">• In a common area?</div>
-                <div class="prompt-item">• Outside bedrooms?</div>
-                <div class="prompt-item">• In charging stations?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Are there different expectations for school nights vs. weekends?</div>
-                <div class="prompt-item">• Different bedtimes or charging times?</div>
-                <div class="prompt-item">• Different rules for screen time?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Does the agreement apply to parents/adults too?</div>
-                <div class="prompt-item">• Should adults model the same habits?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">NEW APPS AND GAMES</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Can apps and games be downloaded independently, or should they be discussed first?</div>
-                <div class="prompt-item">• Do all downloads need permission?</div>
-                <div class="prompt-item">• Are there certain apps that are always okay? Are there categories to avoid?</div>
-                <div class="prompt-item">• What information should be checked before downloading (age rating, permissions, reviews)?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-label">Note:</div>
-                <p style="font-size: 12px;">DigitalCap has an App Check tool that can help evaluate new apps before downloading.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PURCHASES AND SPENDING</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Are in-app purchases, game purchases, or digital content allowed?</div>
-                <div class="prompt-item">• Is permission needed every time?</div>
-                <div class="prompt-item">• Are there spending limits?</div>
-                <div class="prompt-item">• Who pays?</div>
-                <div class="prompt-item">• How should accidental purchases be handled?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PRIVACY AND PERSONAL INFORMATION</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">What personal information should stay private or be shared carefully?</div>
-                <div class="prompt-item">• Real name</div>
-                <div class="prompt-item">• School or workplace</div>
-                <div class="prompt-item">• Phone number</div>
-                <div class="prompt-item">• Address</div>
-                <div class="prompt-item">• Live location or location history</div>
-                <div class="prompt-item">• Photos and videos</div>
-                <div class="prompt-item">• Account visibility (public vs. private)</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-label">Note:</div>
-                <p style="font-size: 12px;">Many legitimate online activities require personal information. The key is thinking about who needs it, why they need it, and whether the source is legitimate.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PASSWORDS AND ACCOUNT ACCESS</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">How will account access and passwords be managed?</div>
-                <div class="prompt-item">• For younger children: Will caregivers manage accounts directly?</div>
-                <div class="prompt-item">• For older children/teens: What level of supervision or oversight makes sense?</div>
-                <div class="prompt-item">• Will recovery information or emergency access be shared?</div>
-                <div class="prompt-item">• How will increasing independence be handled as they grow?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-label">Note:</div>
-                <p style="font-size: 12px;">Different approaches work for different families. Some have shared passwords for young children, use password managers, set up recovery emails, or agree to review accounts together at certain ages. DigitalCap doesn't recommend one universal approach—what matters is clarity and honesty about what you agree on.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">LOCATION SHARING</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">When, if ever, should location be shared?</div>
-                <div class="prompt-item">• Will you use family location sharing apps?</div>
-                <div class="prompt-item">• Should location be shared with friends online?</div>
-                <div class="prompt-item">• Who can see location information?</div>
-                <div class="prompt-item">• Is it continuous or temporary?</div>
-                <div class="prompt-item">• How easily can it be turned off?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">ONLINE FRIENDS AND MESSAGING</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">What's okay when it comes to online contact and friends?</div>
-                <div class="prompt-item">• Can they message people they know in person?</div>
-                <div class="prompt-item">• What about message requests from people they don't know?</div>
-                <div class="prompt-item">• Are online-only friendships okay?</div>
-                <div class="prompt-item">• Can they join group chats?</div>
-                <div class="prompt-item">• What should they do if a message makes them uncomfortable or confused?</div>
-                <div class="prompt-item">• How can they ask for help?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">GAMING</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">If gaming is part of device use, what's important?</div>
-                <div class="prompt-item">• In-game chat and voice chat?</div>
-                <div class="prompt-item">• Multiplayer with strangers or friends?</div>
-                <div class="prompt-item">• In-game purchases?</div>
-                <div class="prompt-item">• Play time or time limits?</div>
-                <div class="prompt-item">• Game age ratings or content preferences?</div>
-                <div class="prompt-item">• Streaming or recording gameplay?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">PHOTOS, VIDEOS, AND SHARING OTHERS' CONTENT</div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">What are the expectations around photos, videos, and sharing?</div>
-                <div class="prompt-item">• Can they share photos of friends without asking?</div>
-                <div class="prompt-item">• Can they post videos of others?</div>
-                <div class="prompt-item">• What about sharing others' content on social media?</div>
-                <div class="prompt-item">• Are there types of photos/videos that should never be shared?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">WHEN SOMETHING FEELS UNCOMFORTABLE, UNSAFE, OR WRONG</div>
-
-            <div class="intro-text">
-                If something uncomfortable, confusing, unsafe, embarrassing, or unexpected happens online, asking for help should be easier than hiding the problem. This section is about how to handle those moments with safety first.
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Who can they talk to if something goes wrong?</div>
-                <div class="prompt-item">• Is there more than one trusted adult they can approach?</div>
-                <div class="prompt-item">• How should they initiate the conversation?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">What happens first when there's a problem?</div>
-                <div class="prompt-item">• Do you handle the immediate issue first (removing contact, blocking, leaving a situation)?</div>
-                <div class="prompt-item">• When is evidence preserved or saved?</div>
-                <div class="prompt-item">• Who else needs to know (other parents, school, authorities)?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">When will you use DigitalCap's "Something Happened" resource?</div>
-                <div class="prompt-item">• DigitalCap has guidance for responding to mean comments, uncomfortable contact, pressure, and other situations. Should you review it together?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-label">Important:</div>
-                <p style="font-size: 12px;">Handle the immediate problem first. Safety comes first. Decisions about consequences or changes to rules can come later, once the person is safe and supported.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">WHEN AGREEMENTS ARE BROKEN</div>
-
-            <div class="intro-text">
-                When an agreement isn't followed, there's usually a reason to address it. But the response depends on what happened and what makes sense for your family. Different families handle this differently, and that's okay.
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">If an agreement is broken, what response makes sense?</div>
-                <div class="prompt-item">• A conversation about what happened?</div>
-                <div class="prompt-item">• A temporary change in settings or access?</div>
-                <div class="prompt-item">• Paying back a cost (for unauthorized purchases)?</div>
-                <div class="prompt-item">• Repairing harm (apologizing, taking responsibility)?</div>
-                <div class="prompt-item">• Revisiting whether the rule is realistic or whether supervision needs to change?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our approach:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="tip-box">
-                <div class="tip-label">Principle:</div>
-                <p style="font-size: 12px;">DigitalCap doesn't recommend one consequence system for every family. What matters is being clear about what happens if an agreement is broken, and having that conversation before a problem occurs so expectations are understood.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">GROWING INDEPENDENCE</div>
-
-            <div class="intro-text">
-                As young people grow, their privacy, independence, responsibility, and supervision can change. These changes should happen thoughtfully and with communication.
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">What responsibilities or behaviors show readiness for more independence?</div>
-                <div class="prompt-item">• Being honest about device use and online activity?</div>
-                <div class="prompt-item">• Making good decisions when adults aren't watching?</div>
-                <div class="prompt-item">• Following agreements without being reminded?</div>
-                <div class="prompt-item">• Asking for help when needed?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Which protections or supervision can change over time?</div>
-                <div class="prompt-item">• Password sharing or account access?</div>
-                <div class="prompt-item">• Location sharing?</div>
-                <div class="prompt-item">• Approval requirements for apps or purchases?</div>
-                <div class="prompt-item">• Screen time or device limits?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-
-            <div class="agreement-box">
-                <div class="agreement-prompt">Which safety practices should stay the same regardless of age?</div>
-                <div class="prompt-item">• What will you always discuss or check in about?</div>
-
-                <div style="margin-top: 15px; font-weight: 600; color: #2D3436; font-size: 13px;">Our agreement:</div>
-                <div class="fillable"></div>
-            </div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <div class="signature-box">
-            <div style="font-size: 14px; font-weight: 700; margin-bottom: 15px; color: #2D3436;">Our Family Agreement</div>
-
-            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
-                <strong>Household/Family:</strong>
-                <div class="fillable" style="min-height: 30px;"></div>
-            </div>
-
-            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
-                <strong>Date created:</strong>
-                <div class="fillable" style="min-height: 30px;"></div>
-            </div>
-
-            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
-                <strong>When we'll review this agreement:</strong>
-                <div class="fillable" style="min-height: 30px;"></div>
-            </div>
-
-            <div style="font-size: 13px; color: #636E72; margin-bottom: 20px;">
-                <strong>Key points of our agreement:</strong>
-                <div class="fillable" style="min-height: 80px;"></div>
-            </div>
-
-            <div style="font-size: 12px; color: #636E72; margin-top: 20px; font-style: italic;">
-                Optional signatures (not required, but can help show commitment):
-            </div>
-
-            <div class="signature-row" style="margin-top: 20px;">
-                <div class="signature-item">
-                    <div class="signature-label">Young person / household member</div>
-                    <div class="signature-line"></div>
-                </div>
-                <div class="signature-item">
-                    <div class="signature-label">Parent / caregiver</div>
-                    <div class="signature-line"></div>
-                </div>
-            </div>
-
-            <div class="signature-row">
-                <div class="signature-item">
-                    <div class="signature-label">Other household member (optional)</div>
-                    <div class="signature-line"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tip-box" style="margin-top: 30px;">
-            <div class="tip-label">Tips for Making This Work</div>
-            <ul style="margin-left: 15px; font-size: 13px; color: #2D3436;">
-                <li><strong>Create expectations together when possible.</strong> People are more likely to follow agreements they helped create.</li>
-                <li><strong>Start with what matters most.</strong> You don't need to fill out every section at once. Pick 2-3 areas and build from there.</li>
-                <li><strong>Adults can model the habits you're discussing.</strong> If device-free family time is the goal, parents should participate too.</li>
-                <li><strong>Revisit agreements regularly.</strong> Plans may need to change as kids get older, as new devices arrive, or as circumstances shift.</li>
-                <li><strong>Clarity is often more useful than assumptions.</strong> A conversation about what you each expect is worth more than guessing.</li>
-                <li><strong>Rules should help support safety and healthy use, not make someone afraid to ask for help.</strong> The point is connection and understanding, not control.</li>
-            </ul>
-        </div>
-    </div>
 </body>
 </html>
