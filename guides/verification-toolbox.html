@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="A practical toolbox for verifying images, checking claims, and investigating where online content came from.">
+    <link rel="canonical" href="https://digitalcap.org/guides/verification-toolbox">
+    <title>Verification Toolbox | DigitalCap</title>
+    <link rel="icon" type="image/png" href="../images/branding/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .guide-header {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .guide-header h1 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 2rem;
+        }
+
+        .guide-header p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .framework-box {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .framework-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0 0 0;
+            justify-content: space-between;
+        }
+
+        .framework-step {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.08) 0%, rgba(255, 107, 107, 0.03) 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .tool-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-name {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .tool-section {
+            margin: 1rem 0;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tool-section:last-child {
+            border-bottom: none;
+        }
+
+        .tool-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .tool-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.75rem;
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        .caution-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .caution-box h3 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.1rem;
+        }
+
+        .caution-box p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .framework-steps {
+                flex-direction: column;
+            }
+
+            .guide-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-simple">
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="../images/branding/logo-header-white.png" alt="DigitalCap"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/app-check">App Check</a></li>
+                <li><a href="/respond">Something Happened?</a></li>
+                <li><a href="/protect">Protect & Prepare</a></li>
+                <li><a href="/talk">Conversation Guides</a></li>
+                <li><a href="/learn">Learn & Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="guide-header">
+            <h1>Verification Toolbox</h1>
+            <p>When you encounter an image, video, or claim online and want to understand where it came from, these tools can help you gather better information.</p>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">The Goal</h2>
+            <p style="color: var(--text-gray); line-height: 1.6; margin-bottom: 2rem;">You do not need to prove whether something was made by AI. The goal is to gather better information about where something came from, when it appeared, what other sources say, and what evidence supports it. These tools help with that investigation.</p>
+
+            <div class="framework-box">
+                <h3 style="color: var(--primary); margin: 0 0 1rem 0;">The Verification Framework</h3>
+                <p style="color: var(--text-gray); margin: 0 0 1.5rem 0;">Follow this order when checking something:</p>
+                <div class="framework-steps">
+                    <div class="framework-step">STOP</div>
+                    <div class="framework-step">SOURCE</div>
+                    <div class="framework-step">SEARCH</div>
+                    <div class="framework-step">CONFIRM</div>
+                </div>
+                <p style="color: var(--text-gray); margin: 1.5rem 0 0 0; font-size: 0.95rem;">Pause before reacting. Find where it came from. Search independently. Check for independent confirmation.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Tools & Resources</h2>
+
+            <!-- Google Lens -->
+            <div class="tool-card">
+                <div class="tool-name">Google Lens</div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Does</div>
+                    <p class="tool-description">Search using an image. Results may include similar images, websites containing the image or similar versions, and information related to objects or content in the image.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">When to Use It</div>
+                    <p class="tool-description">When you have an image or screenshot and want to see where else it appears or find related versions and context.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Cannot Prove</div>
+                    <p class="tool-description">Finding or not finding an image does not prove whether it was AI-generated or whether the claim attached to it is true.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">How to Use It</div>
+                    <p class="tool-description">Visit Google, select "Search by image" or "Google Lens," and upload or paste the image.</p>
+                    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" class="tool-link">Go to Google →</a>
+                </div>
+            </div>
+
+            <!-- Google About This Image -->
+            <div class="tool-card">
+                <div class="tool-name">Google "About This Image"</div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Does</div>
+                    <p class="tool-description">Shows when Google first encountered a similar image and other pages where similar versions appear.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">When to Use It</div>
+                    <p class="tool-description">When trying to understand an image's history or whether an older version existed before the current claim.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Cannot Prove</div>
+                    <p class="tool-description">Image history alone does not prove whether the current caption, claim, or interpretation is true. Availability may vary by region and device.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">Learn More</div>
+                    <a href="https://support.google.com/websearch/answer/14177408" target="_blank" rel="noopener noreferrer" class="tool-link">Google's help article on "About This Image" →</a>
+                </div>
+            </div>
+
+            <!-- TinEye -->
+            <div class="tool-card">
+                <div class="tool-name">TinEye</div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Does</div>
+                    <p class="tool-description">Reverse-image search that finds matching or modified versions of an image and shows where versions have appeared online.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">When to Use It</div>
+                    <p class="tool-description">When you want another way to trace an image, find earlier or matching versions, or compare modified copies.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Cannot Prove</div>
+                    <p class="tool-description">No results do not mean an image is fake or AI-generated. A match also does not prove the claim attached to the image.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">Access It</div>
+                    <a href="https://tineye.com/" target="_blank" rel="noopener noreferrer" class="tool-link">Visit TinEye →</a>
+                </div>
+            </div>
+
+            <!-- Google Fact Check Explorer -->
+            <div class="tool-card">
+                <div class="tool-name">Google Fact Check Explorer</div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Does</div>
+                    <p class="tool-description">Search published fact checks about a topic, person, or claim. Aggregates fact-checking work from multiple organizations.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">When to Use It</div>
+                    <p class="tool-description">When a specific factual claim, rumor, quote, image claim, or widely shared story needs checking.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Cannot Prove</div>
+                    <p class="tool-description">Not every claim has been fact-checked. No result does not mean the claim is true or false.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">Access It</div>
+                    <a href="https://toolbox.google.com/factcheck/explore" target="_blank" rel="noopener noreferrer" class="tool-link">Visit Fact Check Explorer →</a>
+                </div>
+            </div>
+
+            <!-- Content Credentials -->
+            <div class="tool-card">
+                <div class="tool-name">Content Credentials & Provenance</div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Can Help With</div>
+                    <p class="tool-description">Some digital content includes metadata about its origin, creation tools, or editing history. This additional information can provide context about how content was made.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">When to Consider It</div>
+                    <p class="tool-description">When looking at images, videos, or other media that may have content credentials or provenance information embedded.</p>
+                </div>
+                <div class="tool-section">
+                    <div class="tool-label">What It Cannot Prove</div>
+                    <p class="tool-description">The absence of content credentials does NOT mean something is fake or AI-generated. Credentials should be considered alongside other evidence, not as definitive proof.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="caution-box">
+            <h3>Remember</h3>
+            <p>These tools are helpful for gathering information, but they're not foolproof. Use multiple tools and approaches together. If something matters—especially if it affects your safety, finances, relationships, health, or important decisions—combine what you learn from tools with critical thinking and, when appropriate, advice from qualified people.</p>
+        </section>
+
+        <section style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Related DigitalCap Guides</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <a href="/guides/verify-online" style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; padding: 1rem; text-decoration: none; color: var(--text-dark); transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem;">How to Verify Something Online</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">A practical guide to checking where information came from.</p>
+                </a>
+                <a href="/guides/deepfakes" style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; padding: 1rem; text-decoration: none; color: var(--text-dark); transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem;">Deepfakes & AI-Generated Media</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Understanding AI-generated images, video, and audio.</p>
+                </a>
+                <a href="/guides/ai-detectors" style="background: var(--bg-light); border: 2px solid var(--border-color); border-radius: 8px; padding: 1rem; text-decoration: none; color: var(--text-dark); transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1rem;">Can I Trust an AI Detector?</h3>
+                    <p style="color: var(--text-gray); margin: 0; font-size: 0.9rem;">Why AI detectors aren't reliable as proof.</p>
+                </a>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem; text-align: center; padding: 2rem; background: var(--bg-light); border-radius: 12px;">
+            <a href="/ai" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(255,107,107,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">Back to AI & Digital Life</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-tagline"><strong>DigitalCap.</strong> Smart Limits. No Cap.</p>
+        <p class="footer-copyright">100% Free • No Ads</p>
+        <p class="footer-copyright" style="margin-top: 0.5rem;">&copy; 2026 DigitalCap. Digital safety for real life. <a href="/about">Learn more.</a> | <a href="/trusted-sources">Trusted Sources</a> | <a href="/hotlines">Crisis Support</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
