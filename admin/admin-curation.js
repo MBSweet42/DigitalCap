@@ -2724,3 +2724,4 @@ function showAIImporterSuccess(draftId, msg) {
     modal.appendChild(successDiv);
   }
 }
+

@@ -321,7 +321,8 @@ function showCustomAppForm() {
         const submitBtn = document.getElementById('submitBtn');
 
         if (input.length > 0) {
-            const exists = appsCompleteV2.find(a => a.name.toLowerCase() === input);
+            // Check against allApps (from apps-directory-v2.js, which loads from Firestore)
+            const exists = typeof allApps !== 'undefined' && allApps.find(a => a.name.toLowerCase() === input);
             if (exists) {
                 dupCheck.innerHTML = `✓ "${exists.name}" is already in our database! <a href="/app-check" onclick="closeCustomAppModal()">Click here to search for it</a> and add your experience.`;
                 dupCheck.style.color = '#4ECDC4';

@@ -9,16 +9,9 @@ let currentCategoryFilter = 'all';
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
     initializeAppDirectory();
-    loadDiscussions();
-    setupEventListeners();
 });
 
-// Load published apps from Firestore after Firebase initializes
-window.addEventListener('load', function() {
-    loadPublishedAppsFromFirestore();
-});
-
-function initializeAppDirectory() {
+async function initializeAppDirectory() {
     // Load parent notes
     if (typeof parentNotesSystem !== 'undefined') {
         parentNotesSystem.loadFromLocalStorage();
@@ -27,21 +20,25 @@ function initializeAppDirectory() {
         customAppsSystem.loadFromLocalStorage();
     }
 
-    // Load apps - with better error handling
-    if (typeof appsCompleteV2 === 'undefined' || !Array.isArray(appsCompleteV2)) {
-        console.error('ERROR: appsCompleteV2 not loaded or not an array', typeof appsCompleteV2);
-        console.error('Available globals:', Object.keys(window).filter(k => k.includes('app') || k.includes('app')));
-        document.getElementById('appsContainer').innerHTML = '<p style="color: red; padding: 2rem;">⚠️ App data failed to load. Try refreshing the page. If problem persists, make sure you\'re using a web server (not opening file:// locally).</p>';
-        return;
+    // Load discussions
+    loadDiscussions();
+    setupEventListeners();
+
+    // Show loading state
+    const container = document.getElementById('appsContainer');
+    if (container) {
+        container.innerHTML = '<p style="color: var(--text-gray); padding: 2rem; text-align: center;">Loading apps...</p>';
     }
 
-    if (!appsCompleteV2 || appsCompleteV2.length === 0) {
-        console.error('ERROR: appsCompleteV2 is empty');
+    // Load published apps from Firestore (all apps are now in Firestore)
+    const appsLoaded = await loadPublishedAppsFromFirestore();
+
+    if (!appsLoaded || allApps.length === 0) {
+        if (container) {
+            container.innerHTML = '<p style="color: red; padding: 2rem;">⚠️ App data failed to load. Try refreshing the page. If problem persists, make sure you\'re using a web server (not opening file:// locally).</p>';
+        }
         return;
     }
-
-    console.log('✅ Apps loaded successfully:', appsCompleteV2.length, 'apps');
-    allApps = [...appsCompleteV2];
 
     // Add custom apps (avoid duplicates)
     if (typeof customAppsSystem !== 'undefined' && customAppsSystem.apps) {
@@ -55,20 +52,20 @@ function initializeAppDirectory() {
         });
     }
 
-    // Render initial list
+    // Single render with all Firestore apps
     renderAppsList(allApps);
 }
 
 /**
  * Load published apps from Firestore (asynchronous)
- * Gracefully handles Firebase unavailability
+ * Returns true if apps were loaded, false otherwise
  */
 async function loadPublishedAppsFromFirestore() {
     try {
         // Check if Firebase is available
         if (!window.digitalCapFirebase || !window.digitalCapFirebase.db) {
-            console.log('ℹ️ Firebase not available - skipping published apps');
-            return;
+            console.error('❌ Firebase not available');
+            return false;
         }
 
         // Dynamically import Firestore functions (compatible with classic scripts)
@@ -80,13 +77,13 @@ async function loadPublishedAppsFromFirestore() {
         const publishedDocs = await getDocs(collection(db, 'appsPublished'));
 
         if (publishedDocs.empty) {
-            console.log('ℹ️ No published apps in Firestore');
-            return;
+            console.error('❌ No published apps in Firestore');
+            return false;
         }
 
         let addedCount = 0;
 
-        // Convert each document to app object and merge
+        // Convert each document to app object
         publishedDocs.forEach(docSnap => {
             try {
                 const publishedData = docSnap.data();
@@ -97,21 +94,9 @@ async function loadPublishedAppsFromFirestore() {
                     return;
                 }
 
-                // Check for duplicate (normalized name comparison)
-                const normalizedPublishedName = publishedData.name.toLowerCase().trim();
-                const isDuplicate = allApps.some(app => {
-                    const normalizedAppName = app.name.toLowerCase().trim();
-                    return normalizedAppName === normalizedPublishedName;
-                });
-
-                if (isDuplicate) {
-                    console.log(`ℹ️ Published app "${publishedData.name}" already exists - skipping`);
-                    return;
-                }
-
                 // Create app object from published document
                 const publishedApp = {
-                    id: docSnap.id, // Use Firestore document ID
+                    id: docSnap.id,
                     name: publishedData.name || '',
                     category: publishedData.category || '',
                     ageRecommendation: publishedData.ageRecommendation ?? 0,
@@ -130,7 +115,6 @@ async function loadPublishedAppsFromFirestore() {
                     tipsForParents: Array.isArray(publishedData.tipsForParents) ? publishedData.tipsForParents : [],
                     parentConversationGuide: publishedData.parentConversationGuide || {},
                     sources: publishedData.sources || '',
-                    // Phase 4B v2 fields: copy from Firestore if present
                     schemaVersion: publishedData.schemaVersion,
                     exposureLevel: publishedData.exposureLevel,
                     exposureExplanation: publishedData.exposureExplanation,
@@ -150,14 +134,11 @@ async function loadPublishedAppsFromFirestore() {
             }
         });
 
-        if (addedCount > 0) {
-            console.log(`✅ Added ${addedCount} published app(s) to directory`);
-            // Re-render directory after successful merge
-            applyFilters();
-        }
+        console.log(`✅ Loaded ${addedCount} apps from Firestore`);
+        return addedCount > 0;
     } catch (error) {
         console.error('❌ Failed to load published apps from Firestore:', error);
-        // Silently fail - existing apps remain intact
+        return false;
     }
 }
 
