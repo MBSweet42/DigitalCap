@@ -192,6 +192,28 @@
             </div>
         </section>
 
+        <!-- Check an App Intermediate Screen -->
+        <section id="check-app-options" style="display: none; margin-bottom: 3rem;">
+            <h2 id="check-app-options-heading" style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;" tabindex="-1">Check an App</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+                <a href="/app-check" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; font-family: inherit; font-size: 1rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.2rem;">Search App Check</h3>
+                    <p style="color: var(--text-gray); margin: 0; line-height: 1.6; flex-grow: 1;">See whether DigitalCap has already reviewed the app and explore its features, Digital Exposure, settings, and considerations.</p>
+                </a>
+
+                <a href="/guides/app-safety-checklist.html" style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; font-family: inherit; font-size: 1rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                    <h3 style="color: var(--primary); margin: 0 0 1rem 0; font-size: 1.2rem;">Evaluate an App Yourself</h3>
+                    <p style="color: var(--text-gray); margin: 0; line-height: 1.6; flex-grow: 1;">Use the App Evaluation Checklist to investigate an app yourself, whether or not it is already in App Check.</p>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="back-check-app-options" class="back-btn" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">← Back</button>
+                <button type="button" id="start-over-check-app-options" class="start-over-btn" style="padding: 0.75rem 2rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-gray);">Start Over</button>
+            </div>
+        </section>
+
 <!-- Device Choice Intermediate Screen -->
         <section id="device-choice" style="display: none; margin-bottom: 3rem;">
             <h2 id="device-choice-heading" style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;" tabindex="-1">Is this a new device or one already being used?</h2>
@@ -245,6 +267,8 @@
             <div style="margin-bottom: 2.5rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--secondary);">
                 <h3 style="color: var(--primary); margin: 0 0 0.5rem 0;">4. Decide what expectations or boundaries make sense</h3>
                 <p style="color: var(--text-gray); margin: 0 0 1.5rem 0; line-height: 1.6;">Different situations call for different expectations. Consider what matters for downloads, purchases, notifications, location sharing, privacy, screen time, and when and how the device is used.</p>
+                <p style="color: var(--text-gray); margin: 0 0 1rem 0; line-height: 1.6;">If you're creating shared household expectations, you can build an agreement together and choose only the topics that fit your situation.</p>
+                <a href="/guides/family-device-rules.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Build Your Digital Agreement →</a>
             </div>
 
             <!-- Contextual guidance for child/support scenarios -->
@@ -385,6 +409,7 @@
         secureAccount: 'secure-account',
         reviewPrivacy: 'review-privacy',
         recognizeThreats: 'recognize-threats',
+        checkAppOptions: 'check-app-options',
         deviceChoice: 'device-choice',
         newDevice: 'new-device-path',
         currentDevice: 'current-device-review'
@@ -394,6 +419,7 @@
         'secure-account': 'secure-account-heading',
         'review-privacy': 'review-privacy-heading',
         'recognize-threats': 'recognize-threats-heading',
+        'check-app-options': 'check-app-options-heading',
         'new-device-path': 'new-device-heading',
         'current-device-review': 'current-device-heading',
         'device-choice': 'device-choice-heading'
@@ -456,9 +482,9 @@
         showStage(stages.deviceChoice);
       });
 
-      // Direct navigation tasks (no intermediate section)
       document.getElementById('btn-check-app').addEventListener('click', () => {
-        window.location.href = '/app-check';
+        state.previousStage = state.currentStage;
+        showStage(stages.checkAppOptions);
       });
 
       document.getElementById('btn-conversation').addEventListener('click', () => {
@@ -484,6 +510,7 @@
       document.getElementById('back-secure-account').addEventListener('click', goBack);
       document.getElementById('back-review-privacy').addEventListener('click', goBack);
       document.getElementById('back-recognize-threats').addEventListener('click', goBack);
+      document.getElementById('back-check-app-options').addEventListener('click', goBack);
       document.getElementById('back-device-choice').addEventListener('click', goBack);
       document.getElementById('back-new-device').addEventListener('click', goBack);
       document.getElementById('back-current-device').addEventListener('click', goBack);
@@ -505,6 +532,9 @@
         } else if (hash === 'recognize-threats') {
           state.previousStage = stages.entry;
           showStage(stages.recognizeThreats);
+        } else if (hash === 'check-app-options') {
+          state.previousStage = stages.entry;
+          showStage(stages.checkAppOptions);
         } else if (hash === 'new-device-path') {
           state.previousStage = stages.deviceChoice;
           showStage(stages.newDevice);
