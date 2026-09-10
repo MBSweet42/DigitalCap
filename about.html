@@ -23,8 +23,9 @@
     <title>About | DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
-<body>
+<body class="about-page">
     <nav class="navbar navbar-simple">
         <div class="nav-container">
             <a href="/" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
@@ -85,16 +86,16 @@
         </section>
 
         <section class="article-section">
-            <h2>Is Something Wrong?</h2>
-            <p>Found inaccurate information, a broken link, or an app we should add? This resource is meant to help people stay safe online, so your feedback matters.</p>
-            <p>Please reach out with corrections or suggestions. Your input helps us improve the hub for everyone.</p>
+            <h2>Found Something Inaccurate?</h2>
+            <p>If you've found inaccurate information, a broken link, or any issue with this site, please let us know. This resource is meant to help people stay safe online, so your feedback matters.</p>
+            <button class="btn btn-primary" onclick="openHelpImproveFeedback({submissionType: 'website_problem', sourcePage: 'About'})">Report an Issue</button>
         </section>
 
         <section class="article-section">
             <h2>License & Use</h2>
             <p>DigitalCap is designed to be useful and shareable. Feel free to:</p>
             <ul>
-                <li>Share the site with other parents and educators</li>
+                <li>Share the site with others who may find it useful</li>
                 <li>Print pages for offline use or classroom discussions</li>
                 <li>Use it as a reference in presentations or guides</li>
             </ul>
