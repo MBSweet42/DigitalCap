@@ -103,7 +103,7 @@ body.homepage-prototype {
         padding-left: 0;
         margin-bottom: 1.5rem;
         background-color: #FFFFFF;
-        min-height: auto;
+        min-height: 280px;
         display: block;
     }
 
@@ -483,6 +483,7 @@ body.homepage-prototype {
 
 @media (max-width: 480px) {
     .homepage-prototype .hero-section {
+        min-height: 240px;
         margin-bottom: 2rem;
     }
 
