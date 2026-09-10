@@ -1,0 +1,410 @@
+/* UNDERSTAND DIGITAL SAFETY LIGHT THEME
+   understand.html - topic-based learning page with expandable content
+   Scoped to understand page only */
+
+/* Root color overrides */
+body {
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+}
+
+/* Main styling */
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.safety-page {
+    background-color: #FFFFFF;
+}
+
+/* Page headings */
+h1 {
+    color: #000000;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #333333;
+}
+
+/* How-to box */
+#understandHowTo {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+    border-color: #E8E8E8 !important;
+}
+
+#understandHowTo p {
+    color: #333333 !important;
+}
+
+/* Topic chooser section */
+#topicChooser {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+#topicChooserHeading {
+    color: #FF6B6B !important;
+}
+
+/* Topic buttons */
+button.topic-btn {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
+button.topic-btn strong {
+    color: #FF6B6B;
+}
+
+button.topic-btn div {
+    color: #333333;
+}
+
+button.topic-btn:hover {
+    background: #F9F9F9 !important;
+    border-color: #FF6B6B !important;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.12);
+}
+
+button.topic-btn:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* AI Callout section */
+#understandAiCallout {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+#understandAiCallout h3 {
+    color: #FF6B6B;
+}
+
+#understandAiCallout p {
+    color: #333333;
+}
+
+#understandAiCallout .btn {
+    background: transparent;
+    border: 2px solid #FF6B6B;
+    color: #FF6B6B;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#understandAiCallout .btn:hover {
+    background: #FF6B6B;
+    color: #FFFFFF;
+}
+
+#understandAiCallout .btn:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Article sections */
+#articlesContainer {
+    color: #000000;
+}
+
+[data-article-id] {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+[data-article-id] h2 {
+    color: #FF6B6B;
+}
+
+[data-article-id] h3 {
+    color: #FF6B6B;
+}
+
+[data-article-id] p {
+    color: #333333;
+}
+
+[data-article-id] ul {
+    color: #333333;
+}
+
+[data-article-id] li {
+    color: #333333;
+}
+
+/* Conversation Guides section */
+#article-conversation-guides {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+#article-conversation-guides h2 {
+    color: #FF6B6B;
+}
+
+#article-conversation-guides p {
+    color: #333333;
+}
+
+#article-conversation-guides ul {
+    color: #333333;
+}
+
+#article-conversation-guides li {
+    color: #333333;
+}
+
+/* Script links (conversation starters) */
+.script-link {
+    background: none !important;
+    border: none !important;
+    color: #FF6B6B;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.script-link:hover {
+    color: #E65555;
+    text-decoration: none;
+}
+
+.script-link:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Specialized guides section */
+#understandSpecializedGuides {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+#understandSpecializedGuides h3 {
+    color: #FF6B6B;
+}
+
+#understandSpecializedGuides p {
+    color: #333333;
+}
+
+#understandSpecializedGuides .btn {
+    background: transparent;
+    border: 2px solid #FF6B6B;
+    color: #FF6B6B;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#understandSpecializedGuides .btn:hover {
+    background: #FF6B6B;
+    color: #FFFFFF;
+}
+
+#understandSpecializedGuides .btn:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* All text using var(--text-gray) */
+[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+[style*="color: var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+/* Borders */
+[style*="border-color: var(--border-color)"],
+[style*="border: 2px solid var(--border-color)"],
+[style*="border: 1px solid var(--border-color)"] {
+    border-color: #E8E8E8 !important;
+}
+
+[style*="border-top: 2px solid var(--border-color)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+[style*="border-left: 4px solid var(--secondary)"] {
+    border-left-color: #4ECDC4 !important;
+}
+
+[style*="background: linear-gradient(135deg, rgba(78, 205, 196"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+}
+
+[style*="background: var(--bg-white)"] {
+    background: #FFFFFF !important;
+}
+
+[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+}
+
+/* Links */
+a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1a5450;
+}
+
+a:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+a:visited {
+    color: #2B7A78;
+}
+
+a[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+    text-decoration: underline;
+}
+
+/* Back-to-top button */
+#backToTop {
+    background: transparent;
+    border: 1px solid #E8E8E8;
+    color: #333333;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+}
+
+#backToTop:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Footer */
+footer {
+    background-color: #F9F9F9;
+    color: #333333;
+    border-top: 1px solid #E8E8E8;
+}
+
+footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:visited {
+    color: #2B7A78;
+}
+
+/* Navbar */
+.navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+.navbar-simple .nav-menu a {
+    color: #FFFFFF;
+}
+
+.navbar-simple .nav-menu a:hover {
+    color: #F0F0F0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    main.container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button.topic-btn {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    div[style*="display: grid; grid-template-columns: repeat(auto-fit"] {
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    main.container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button.topic-btn {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    #backToTop {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    main.container {
+        background: white;
+        box-shadow: none;
+    }
+
+    nav, footer {
+        display: none !important;
+    }
+
+    h1, h2, h3 {
+        color: #000000;
+        page-break-after: avoid;
+    }
+
+    a {
+        color: #2B7A78;
+    }
+}

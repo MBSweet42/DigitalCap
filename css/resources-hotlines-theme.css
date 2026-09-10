@@ -1,0 +1,417 @@
+/* RESOURCES, HOTLINES, TRUSTED SOURCES LIGHT THEME
+   resources.html, hotlines.html, trusted-sources.html (Phase 1A work)
+   Light theme for resource directory pages */
+
+body {
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+h1 {
+    color: #000000;
+    font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+    color: #000000;
+}
+
+.subtitle {
+    color: #333333;
+}
+
+p {
+    color: #333333;
+    line-height: 1.6;
+}
+
+section[style*="background: var(--bg-light)"],
+div[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+}
+
+section[style*="background: var(--bg-white)"],
+div[style*="background: var(--bg-white)"] {
+    background: #FFFFFF !important;
+}
+
+section[style*="background: linear-gradient"],
+div[style*="background: linear-gradient(135deg, rgba(78, 205, 196"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+}
+
+[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+[style*="color: var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+[style*="border-color: var(--border-color)"],
+[style*="border: 2px solid var(--border-color)"],
+[style*="border: 1px solid var(--border-color)"] {
+    border-color: #E8E8E8 !important;
+}
+
+[style*="border-top: 2px solid var(--border-color)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+[style*="border-left: 4px solid var(--secondary)"] {
+    border-left-color: #4ECDC4 !important;
+}
+
+ul, ol {
+    color: #333333;
+}
+
+li {
+    color: #333333;
+    line-height: 1.8;
+}
+
+strong {
+    color: #000000;
+    font-weight: 700;
+}
+
+em {
+    color: #333333;
+}
+
+a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a5450;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+a:visited {
+    color: #2B7A78;
+}
+
+a[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+a[style*="color: var(--primary)"]:hover {
+    text-decoration: none;
+}
+
+/* Resource cards */
+.resource-card,
+[class*="card"] {
+    background: #FFFFFF;
+    border: 2px solid #E8E8E8;
+    color: #000000;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover,
+[class*="card"]:hover {
+    border-color: #FF6B6B;
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.12);
+}
+
+.resource-card h3,
+[class*="card"] h3 {
+    color: #FF6B6B;
+    margin: 0 0 0.5rem 0;
+}
+
+.resource-card p,
+[class*="card"] p {
+    color: #333333;
+    margin: 0;
+}
+
+button {
+    background: #FFFFFF;
+    border: 2px solid #E8E8E8;
+    color: #333333;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+    background: #F9F9F9;
+}
+
+button:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+.btn-primary,
+button.btn-primary {
+    background: transparent;
+    border: 2px solid #FF6B6B;
+    color: #FF6B6B;
+    font-weight: 600;
+}
+
+.btn-primary:hover,
+button.btn-primary:hover {
+    background: #FF6B6B;
+    color: #FFFFFF;
+}
+
+.btn-primary:focus,
+button.btn-primary:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+.btn-secondary,
+button.btn-secondary {
+    background: transparent;
+    border: 2px solid #4ECDC4;
+    color: #4ECDC4;
+    font-weight: 600;
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover {
+    background: #4ECDC4;
+    color: #FFFFFF;
+}
+
+.btn-secondary:focus,
+button.btn-secondary:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea,
+select {
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    color: #000000;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999999;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+    border-color: #FF6B6B;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    background-color: #FFFFFF;
+    border: 2px solid #333333;
+    cursor: pointer;
+    accent-color: #4ECDC4;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+    border-color: #4ECDC4;
+}
+
+label {
+    color: #000000;
+    font-weight: 500;
+}
+
+label[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+label[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+/* Category sections */
+[class*="category"],
+[class*="section"] {
+    border-top: 2px solid #E8E8E8;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+[class*="category"] h2,
+[class*="section"] h2 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #F9F9F9;
+    color: #333333;
+    border-top: 1px solid #E8E8E8;
+}
+
+footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:visited {
+    color: #2B7A78;
+}
+
+/* Navbar */
+.navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+.navbar-simple .logo img {
+    filter: brightness(1);
+}
+
+.navbar-simple .nav-menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navbar-simple .nav-menu a:hover {
+    color: #F0F0F0;
+}
+
+/* Crisis/warning callouts */
+[class*="crisis"],
+[class*="alert"],
+[style*="background: linear-gradient(135deg, rgba(255, 107, 107"] {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%) !important;
+    border-left-color: #FF6B6B !important;
+}
+
+[class*="crisis"] h3,
+[class*="alert"] h3 {
+    color: #FF6B6B;
+}
+
+@media (max-width: 768px) {
+    main.container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    button {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .resource-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main.container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .resource-card {
+        padding: 0.75rem;
+    }
+
+    .resource-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    main.container {
+        background: white;
+        box-shadow: none;
+    }
+
+    nav, footer {
+        display: none !important;
+    }
+
+    a {
+        color: #2B7A78;
+    }
+
+    h1, h2, h3, h4 {
+        color: #000000;
+        page-break-after: avoid;
+    }
+
+    button {
+        display: none !important;
+    }
+}

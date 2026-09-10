@@ -1,0 +1,363 @@
+/* PRIVACY SETTINGS & APP CHECKLIST & FAMILY DEVICE RULES LIGHT THEME
+   Applies to guides/privacy-settings-guide.html, guides/app-safety-checklist.html, guides/family-device-rules.html
+   Light theme for complex interactive tools with topic navigation
+   Scoped to specific guide pages only */
+
+/* Root color overrides for all three guides */
+body {
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+}
+
+/* Main container and body background */
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Page headings */
+h1 {
+    color: #000000;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #333333;
+}
+
+/* Section backgrounds - orientation/introduction boxes */
+section[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+    color: #000000;
+}
+
+section[style*="background: var(--bg-light)"] p {
+    color: #333333;
+}
+
+section[style*="background: var(--bg-light)"] h2,
+section[style*="background: var(--bg-light)"] h3,
+section[style*="background: var(--bg-light)"] h4 {
+    color: #FF6B6B;
+}
+
+section[style*="background: var(--bg-light)"] ul {
+    color: #333333;
+}
+
+section[style*="background: var(--bg-light)"] li {
+    color: #333333;
+}
+
+section[style*="background: var(--bg-light)"] strong {
+    color: #000000;
+}
+
+/* Topic/button container backgrounds */
+section[style*="background: var(--bg-white)"] {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+/* Topic button styling */
+button.topic-button {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #333333;
+}
+
+button.topic-button h3 {
+    color: #FF6B6B;
+}
+
+button.topic-button p {
+    color: #333333;
+}
+
+button.topic-button:hover {
+    border-color: #FF6B6B !important;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.12) !important;
+    background: #F9F9F9;
+}
+
+button.topic-button:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Back to topics / navigation buttons */
+button.back-to-topics {
+    background: transparent !important;
+    border-color: #E8E8E8 !important;
+    color: #333333 !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button.back-to-topics:hover {
+    border-color: #FF6B6B !important;
+    color: #FF6B6B !important;
+}
+
+button.back-to-topics:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* All text using var(--text-gray) inline style */
+[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* All text using var(--text-dark) inline style */
+[style*="color: var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+/* All headings using var(--primary) */
+[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+/* All borders using var(--border-color) */
+[style*="border-color: var(--border-color)"],
+[style*="border: 2px solid var(--border-color)"],
+[style*="border: 1px solid var(--border-color)"] {
+    border-color: #E8E8E8 !important;
+}
+
+[style*="border-top: 2px solid var(--border-color)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+[style*="border-left: 4px solid var(--secondary)"] {
+    border-left-color: #4ECDC4 !important;
+}
+
+/* Form inputs and textareas */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+textarea {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-color: #E8E8E8 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: #999999;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+    border-color: #FF6B6B;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    appearance: checkbox;
+    width: 18px;
+    height: 18px;
+    background-color: #FFFFFF;
+    border: 2px solid #333333;
+    cursor: pointer;
+    accent-color: #4ECDC4;
+}
+
+input[type="checkbox"]:hover {
+    border-color: #4ECDC4;
+}
+
+input[type="checkbox"]:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Labels for form controls */
+label {
+    color: #000000;
+}
+
+label[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+label[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+/* Topic content sections when visible */
+.topic-content {
+    color: #000000;
+}
+
+.topic-content h2 {
+    color: #FF6B6B;
+}
+
+.topic-content p {
+    color: #333333;
+}
+
+.topic-content ul {
+    color: #333333;
+}
+
+.topic-content li {
+    color: #333333;
+}
+
+/* Links within content */
+a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a5450;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+a:visited {
+    color: #2B7A78;
+}
+
+a[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a[style*="color: var(--primary)"]:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #F9F9F9;
+    color: #333333;
+    border-top: 1px solid #E8E8E8;
+}
+
+footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:visited {
+    color: #2B7A78;
+}
+
+/* Navbar */
+.navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+.navbar-simple .logo img {
+    filter: brightness(1);
+}
+
+.navbar-simple .nav-menu a {
+    color: #FFFFFF;
+}
+
+.navbar-simple .nav-menu a:hover {
+    color: #F0F0F0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    main.container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    section[style*="margin-bottom"] {
+        padding: 1.5rem !important;
+    }
+
+    button.topic-button {
+        padding: 1.25rem !important;
+        font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main.container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    section[style*="margin-bottom"] {
+        padding: 1rem !important;
+    }
+
+    button.topic-button {
+        padding: 1rem !important;
+        font-size: 0.85rem;
+    }
+
+    div[style*="display: grid; grid-template-columns: repeat(auto-fit"] {
+        gap: 1rem !important;
+    }
+}
+
+/* Print styles override */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    main.container {
+        background: white;
+        color: black;
+        box-shadow: none;
+    }
+
+    a {
+        color: #2B7A78;
+    }
+
+    h1, h2, h3, h4, .topic-content h2 {
+        color: #000000;
+        page-break-after: avoid;
+    }
+}

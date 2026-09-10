@@ -1,0 +1,232 @@
+/* AI & DIGITAL LIFE LIGHT THEME
+   ai.html - guide about AI, recognition, deepfakes, privacy, etc.
+   Scoped to AI page only */
+
+body {
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+h1 {
+    color: #000000;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #333333;
+}
+
+section[style*="background: var(--bg-light)"],
+div[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+}
+
+section[style*="background: var(--bg-white)"],
+div[style*="background: var(--bg-white)"] {
+    background: #FFFFFF !important;
+}
+
+section[style*="background: linear-gradient"],
+div[style*="background: linear-gradient(135deg, rgba(78, 205, 196"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+}
+
+[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+[style*="color: var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+}
+
+[style*="border-color: var(--border-color)"],
+[style*="border: 2px solid var(--border-color)"],
+[style*="border: 1px solid var(--border-color)"] {
+    border-color: #E8E8E8 !important;
+}
+
+[style*="border-left: 4px solid var(--secondary)"] {
+    border-left-color: #4ECDC4 !important;
+}
+
+h2, h3, h4 {
+    color: #000000;
+}
+
+p {
+    color: #333333;
+}
+
+ul, ol {
+    color: #333333;
+}
+
+li {
+    color: #333333;
+}
+
+a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a5450;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+a:visited {
+    color: #2B7A78;
+}
+
+a[style*="color: var(--primary)"] {
+    color: #FF6B6B !important;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+button {
+    background: #FFFFFF;
+    border: 2px solid #E8E8E8;
+    color: #333333;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+}
+
+button:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background: transparent;
+    border: 2px solid #FF6B6B;
+    color: #FF6B6B;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: #FF6B6B;
+    color: #FFFFFF;
+}
+
+.btn-primary:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    color: #000000;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999999;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+    border-color: #FF6B6B;
+}
+
+footer {
+    background-color: #F9F9F9;
+    color: #333333;
+    border-top: 1px solid #E8E8E8;
+}
+
+footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+.navbar-simple .nav-menu a {
+    color: #FFFFFF;
+}
+
+.navbar-simple .nav-menu a:hover {
+    color: #F0F0F0;
+}
+
+@media (max-width: 768px) {
+    main.container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main.container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    main.container {
+        background: white;
+    }
+
+    nav, footer {
+        display: none !important;
+    }
+}
