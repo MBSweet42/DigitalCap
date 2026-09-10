@@ -1,0 +1,448 @@
+/* HOMEPAGE-SPECIFIC STYLING
+   Light, friendly, bright, welcoming visual refresh
+   Preserves all functionality and structure
+   Does not affect other pages */
+
+/* Override dark theme for homepage only */
+body.homepage-prototype {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.homepage-prototype html {
+    background-color: #FFFFFF;
+}
+
+/* Navbar remains gradient (brand element) */
+.homepage-prototype .navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+/* Hero section - absolute positioned blend layout, horizontal at all wider breakpoints */
+.homepage-prototype .hero-section {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.homepage-prototype .hero-content {
+    margin-bottom: 0;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.homepage-prototype .hero-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #000000;
+    letter-spacing: 0;
+}
+
+.homepage-prototype .hero-title img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+/* Hero image container - absolutely positioned right overlay with white fade */
+.homepage-hero-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    z-index: 1;
+}
+
+/* White-to-transparent gradient fade on left edge of photo */
+.homepage-hero-image::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 35%;
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 35%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.homepage-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+/* Small screens: Stack hero vertically */
+@media (max-width: 760px) {
+    .homepage-prototype .hero-section {
+        display: block;
+        padding-left: 0;
+        min-height: auto;
+        padding: 1.5rem 0;
+    }
+
+    .homepage-hero-image {
+        position: relative;
+        width: 100%;
+        height: 340px;
+        z-index: 1;
+        border-radius: 8px;
+    }
+
+    .homepage-hero-image::before {
+        display: none;
+    }
+
+    .homepage-prototype .hero-content {
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+    }
+
+    .homepage-prototype .hero-title img {
+        max-width: 280px;
+    }
+}
+
+
+/* Hero intro text - improved readability */
+.homepage-prototype .hero-intro {
+    font-size: 1rem;
+    color: #333333;
+    max-width: 100%;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* "What do you need help with?" heading - dark text */
+.homepage-prototype .hero-section h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Primary action cards - compact, tighter presentation */
+.homepage-prototype .primary-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homepage-prototype .action-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.3s ease;
+    background: #F9F9F9;
+    text-align: center;
+    position: relative;
+    min-height: auto;
+}
+
+.homepage-prototype .action-card:nth-child(1) {
+    background: #F0F9F8;
+}
+
+.homepage-prototype .action-card:nth-child(2) {
+    background: #FEF5F5;
+}
+
+.homepage-prototype .action-card:nth-child(3) {
+    background: #FFFBF0;
+}
+
+.homepage-prototype .action-card:nth-child(4) {
+    background: #F0F9F8;
+}
+
+.homepage-prototype .action-card:nth-child(5) {
+    background: #FEF5F5;
+}
+
+.homepage-prototype .action-card:nth-child(6) {
+    background: #FFFBF0;
+}
+
+.homepage-prototype .action-card:hover {
+    border-color: #4ECDC4;
+    box-shadow: 0 4px 16px rgba(78, 205, 196, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Icon container - centered, circular background */
+.action-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.action-icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Icon color rotation: teal, coral, gold, teal, coral, gold */
+.action-card:nth-child(1) .action-icon-circle {
+    background: #4ECDC4;
+}
+
+.action-card:nth-child(2) .action-icon-circle {
+    background: #FF6B6B;
+}
+
+.action-card:nth-child(3) .action-icon-circle {
+    background: #FFB703;
+}
+
+.action-card:nth-child(4) .action-icon-circle {
+    background: #4ECDC4;
+}
+
+.action-card:nth-child(5) .action-icon-circle {
+    background: #FF6B6B;
+}
+
+.action-card:nth-child(6) .action-icon-circle {
+    background: #FFB703;
+}
+
+.action-icon-svg {
+    width: 40px;
+    height: 40px;
+    stroke: #FFFFFF;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Solid icon variant (shield, graduation cap) */
+.action-icon-svg.solid {
+    fill: #FFFFFF;
+}
+
+/* Card heading - dark text */
+.homepage-prototype .action-card h3 {
+    font-size: 1.15rem;
+    color: #000000;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Card description - readable gray */
+.homepage-prototype .action-card p {
+    color: #555555;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+/* CTA link - teal accent */
+.homepage-prototype .action-cta {
+    font-weight: 600;
+    color: #4ECDC4;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.homepage-prototype .action-card:hover .action-cta {
+    text-decoration: underline;
+    color: #2B9E92;
+}
+
+/* Secondary sections - light, clean, tighter spacing */
+.homepage-prototype section[style*="background: linear-gradient"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+    border-color: #E8E8E8 !important;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid #E8E8E8 !important;
+}
+
+.homepage-prototype section[style*="background: var(--bg-white)"] {
+    background: #F9F9F9 !important;
+    border-color: #E8E8E8 !important;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid #E8E8E8 !important;
+}
+
+.homepage-prototype section h2 {
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+.homepage-prototype section p {
+    color: #555555 !important;
+}
+
+.homepage-prototype section a:not(.btn) {
+    color: #4ECDC4 !important;
+}
+
+.homepage-prototype section a:not(.btn):hover {
+    color: #2B9E92 !important;
+}
+
+/* Button styling - secondary button for crisis section */
+.homepage-prototype .btn-secondary {
+    background: #4ECDC4;
+    color: #FFFFFF;
+}
+
+.homepage-prototype .btn-secondary:hover {
+    background: #2B9E92;
+}
+
+/* Footer - light background */
+.homepage-prototype .footer {
+    background-color: #F5F5F5;
+    color: #333333;
+}
+
+.homepage-prototype .footer-tagline {
+    color: #000000;
+    font-weight: 700;
+}
+
+.homepage-prototype .footer-copyright {
+    color: #666666;
+}
+
+.homepage-prototype .footer a {
+    color: #4ECDC4;
+    text-decoration: none;
+}
+
+.homepage-prototype .footer a:hover {
+    text-decoration: underline;
+}
+
+/* Main container - ensure proper background */
+.homepage-prototype main.container {
+    background-color: #FFFFFF;
+    padding: 2rem;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .homepage-prototype .primary-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .homepage-prototype .primary-actions {
+        gap: 1.2rem;
+        grid-template-columns: 1fr;
+    }
+
+    .homepage-prototype .action-card {
+        padding: 1.2rem;
+    }
+
+    .action-icon-circle {
+        width: 64px;
+        height: 64px;
+    }
+
+    .action-icon-svg {
+        width: 36px;
+        height: 36px;
+        stroke-width: 2.2;
+    }
+
+    .homepage-prototype .action-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .homepage-prototype .action-card p {
+        font-size: 0.88rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .homepage-prototype .action-cta {
+        font-size: 0.88rem;
+    }
+
+    .homepage-prototype .hero-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-prototype .hero-intro {
+        font-size: 0.95rem;
+    }
+
+    .homepage-prototype .hero-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .action-icon-circle {
+        width: 56px;
+        height: 56px;
+    }
+
+    .action-icon-svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .homepage-prototype .action-card h3 {
+        font-size: 1rem;
+    }
+
+    .homepage-prototype .action-card p {
+        font-size: 0.85rem;
+    }
+}
