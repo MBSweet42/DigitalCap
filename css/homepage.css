@@ -154,6 +154,7 @@ body.homepage-prototype {
         position: absolute;
         top: 50px;
         left: 1.5rem;
+        width: 175px;
         margin-bottom: 0;
         padding-bottom: 0;
         z-index: 15;
@@ -493,6 +494,7 @@ body.homepage-prototype {
 
     .homepage-prototype .hero-title {
         top: 40px !important;
+        width: 150px !important;
     }
 
     .homepage-prototype .hero-title img {
