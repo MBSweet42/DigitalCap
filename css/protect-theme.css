@@ -1,0 +1,318 @@
+/* PROTECT & PREPARE LIGHT THEME
+   Aligns Protect with approved Homepage, About, App Check, and Respond visual system
+   Scoped to .protect-page body class only
+   Does not affect other pages */
+
+/* Override main page background and text color */
+.protect-page {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Override dark-theme variables inherited from css/style.css */
+.protect-page {
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+}
+
+/* Main container */
+.protect-page main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Page heading */
+.protect-page h1 {
+    color: #000000;
+}
+
+/* Page subtitle */
+.protect-page .subtitle {
+    color: #333333;
+}
+
+/* Entry point section heading */
+.protect-page section#entry-point h2 {
+    color: var(--primary);
+}
+
+/* ENTRY CARDS (7 task choice buttons) */
+.protect-page button[id^="btn-"] {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #000000;
+}
+
+.protect-page button[id^="btn-"] h3 {
+    color: var(--primary);
+}
+
+.protect-page button[id^="btn-"] p {
+    color: #333333;
+}
+
+.protect-page button[id^="btn-"]:hover {
+    background: #F9F9F9;
+    border-color: var(--primary) !important;
+}
+
+.protect-page button[id^="btn-"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* PATHWAY SECTION HEADINGS - All use coral primary */
+.protect-page section[id*="-account"] h2,
+.protect-page section[id*="-privacy"] h2,
+.protect-page section[id*="-threats"] h2,
+.protect-page section[id*="-app"] h2,
+.protect-page section[id*="-device"] h2 {
+    color: var(--primary);
+}
+
+/* PATHWAY INTRO/DESCRIPTION TEXT */
+.protect-page section p[style*="text-align: center"][style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* Content boxes with dark backgrounds - CONVERT TO LIGHT */
+.protect-page div[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+}
+
+.protect-page div[style*="background: var(--bg-light)"] h3 {
+    color: var(--primary);
+}
+
+.protect-page div[style*="background: var(--bg-light)"] h4 {
+    color: var(--primary);
+}
+
+.protect-page div[style*="background: var(--bg-light)"] p,
+.protect-page div[style*="background: var(--bg-light)"] ul,
+.protect-page div[style*="background: var(--bg-light)"] li {
+    color: #333333 !important;
+}
+
+.protect-page div[style*="background: var(--bg-light)"] strong {
+    color: #000000;
+}
+
+/* Border styling on content boxes */
+.protect-page div[style*="border-left: 4px solid var(--secondary)"] {
+    border-left-color: var(--secondary);
+}
+
+/* Section dividers */
+.protect-page section[style*="border-top: 2px solid var(--border-color)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+.protect-page div[style*="border-top: 1px solid var(--border-color)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+/* BACK AND START OVER BUTTONS */
+.protect-page button[id^="back-"],
+.protect-page button[id^="start-over-"] {
+    background: transparent;
+    border-color: #E8E8E8 !important;
+    color: #000000;
+    font-weight: 600;
+}
+
+.protect-page button[id^="back-"]:hover,
+.protect-page button[id^="start-over-"]:hover {
+    background: #F9F9F9;
+    border-color: var(--primary) !important;
+    color: #000000;
+}
+
+.protect-page button[id^="back-"]:focus,
+.protect-page button[id^="start-over-"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Links - Inline links throughout pathways */
+.protect-page a[href*="/understand"],
+.protect-page a[href*="/guides/"],
+.protect-page a[href*="/app-check"],
+.protect-page a[href*="/resources"],
+.protect-page a[href*="/talk"],
+.protect-page a[href*="/respond"],
+.protect-page a {
+    color: #2B7A78;
+    text-decoration: underline;
+}
+
+.protect-page a:hover {
+    color: #1a5450;
+    text-decoration: underline;
+}
+
+.protect-page a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.protect-page a:visited {
+    color: #2B7A78;
+}
+
+/* Preserve button-styled links without underline */
+.protect-page a.btn,
+.protect-page button.btn {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* CHECK APP OPTIONS AND DEVICE CHOICE INTERMEDIATE SCREENS */
+.protect-page section#check-app-options h2,
+.protect-page section#device-choice h2 {
+    color: var(--primary);
+}
+
+/* Intermediate screen cards (a tags with button-like styling) */
+.protect-page section#check-app-options a,
+.protect-page section#device-choice button {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #000000;
+}
+
+.protect-page section#check-app-options a h3,
+.protect-page section#device-choice button h3 {
+    color: var(--primary);
+}
+
+.protect-page section#check-app-options a p,
+.protect-page section#device-choice button p {
+    color: #333333;
+}
+
+.protect-page section#check-app-options a:hover,
+.protect-page section#device-choice button:hover {
+    background: #F9F9F9 !important;
+    border-color: var(--primary) !important;
+}
+
+.protect-page section#check-app-options a:focus,
+.protect-page section#device-choice button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* FOOTER */
+.protect-page footer {
+    color: #333333;
+    background-color: #F9F9F9;
+}
+
+.protect-page footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+.protect-page footer a:hover {
+    text-decoration: underline;
+}
+
+/* COMPREHENSIVE DARK-THEME VARIABLE OVERRIDES */
+
+/* All inline styles using var(--text-gray) */
+.protect-page [style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* All list items inheriting pale color */
+.protect-page ul,
+.protect-page li {
+    color: #333333;
+}
+
+/* All span and div text elements */
+.protect-page span[style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* Nested sections within large boxes */
+.protect-page div[style*="margin-bottom"] h4[style*="color: var(--primary)"] {
+    color: var(--primary);
+}
+
+.protect-page div[style*="padding-top"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+/* Flex and grid containers */
+.protect-page div[style*="display: flex"] {
+    /* Layout preserved, colors overridden by child selectors */
+}
+
+.protect-page div[style*="display: grid"] {
+    /* Layout preserved, colors overridden by child selectors */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .protect-page main.container {
+        padding: 1.5rem;
+    }
+
+    .protect-page h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .protect-page main.container {
+        padding: 1rem;
+    }
+
+    .protect-page h1 {
+        font-size: 1.8rem;
+    }
+
+    .protect-page button[id^="btn-"],
+    .protect-page section#check-app-options a,
+    .protect-page section#device-choice button {
+        padding: 1.5rem;
+    }
+
+    .protect-page button[id^="back-"],
+    .protect-page button[id^="start-over-"] {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .protect-page main.container {
+        padding: 0.75rem;
+    }
+
+    .protect-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .protect-page button[id^="btn-"],
+    .protect-page section#check-app-options a,
+    .protect-page section#device-choice button {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .protect-page button[id^="back-"],
+    .protect-page button[id^="start-over-"] {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .protect-page div[style*="display: flex"][style*="gap"] {
+        flex-direction: column;
+    }
+}
