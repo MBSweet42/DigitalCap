@@ -155,6 +155,7 @@ body.homepage-prototype {
     }
 
     .homepage-prototype .hero-title {
+        width: 175px;
         margin-bottom: 0;
         padding-bottom: 0;
         flex-shrink: 0;
@@ -493,6 +494,10 @@ body.homepage-prototype {
 
     .homepage-prototype .hero-content {
         padding-top: 40px !important;
+    }
+
+    .homepage-prototype .hero-title {
+        width: 150px !important;
     }
 
     .homepage-prototype .hero-title img {
