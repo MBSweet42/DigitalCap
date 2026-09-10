@@ -148,6 +148,7 @@ body.homepage-prototype {
         padding: 0 1.5rem;
         margin-bottom: 0;
         display: block;
+        min-height: 280px;
     }
 
     .homepage-prototype .hero-title {
@@ -490,6 +491,10 @@ body.homepage-prototype {
 
     .homepage-hero-image {
         height: 240px !important;
+    }
+
+    .homepage-prototype .hero-content {
+        min-height: 240px !important;
     }
 
     .homepage-prototype .hero-title {
