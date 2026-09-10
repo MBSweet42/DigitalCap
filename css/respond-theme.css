@@ -1,0 +1,413 @@
+/* RESPOND LIGHT THEME
+   Aligns Something Happened? with approved Homepage and About page visual system
+   Scoped to .respond-page body class only
+   Does not affect other pages */
+
+/* Override Respond custom variables for light theme */
+.respond-page {
+    --respond-bg: #FFFFFF;
+    --respond-text: #000000;
+    --respond-border: #E8E8E8;
+    --respond-accent: #4ECDC4;
+}
+
+/* Override dark-theme variables inherited from css/style.css */
+.respond-page {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Hero section */
+.respond-page .respond-hero {
+    border-bottom-color: #E8E8E8;
+}
+
+.respond-page .respond-hero h1 {
+    color: #FF6B6B;
+}
+
+.respond-page .respond-hero-subtitle {
+    color: #333333;
+}
+
+/* Incident selector section */
+.respond-page .respond-incident-selector {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+}
+
+.respond-page .respond-incident-selector p {
+    color: #333333;
+}
+
+/* Incident card buttons */
+.respond-page .respond-incident-card {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+}
+
+.respond-page .respond-incident-card:hover {
+    background: #F9F9F9;
+    border-color: #4ECDC4;
+}
+
+.respond-page .respond-incident-card-label {
+    color: #000000;
+    font-weight: 600;
+}
+
+.respond-page .respond-incident-card-detail {
+    color: #333333;
+}
+
+/* Question container */
+.respond-page .respond-question-container {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+}
+
+/* Progress and question styling */
+.respond-page .respond-progress {
+    color: #333333;
+}
+
+.respond-page .respond-question-number {
+    background: #4ECDC4;
+    color: #FFFFFF;
+}
+
+.respond-page .respond-question-text {
+    color: #000000;
+}
+
+/* Answer buttons */
+.respond-page .respond-answer-btn {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+    color: #000000;
+}
+
+.respond-page .respond-answer-btn:hover {
+    background: #4ECDC4;
+    color: #FFFFFF;
+    border-color: #4ECDC4;
+}
+
+.respond-page .respond-answer-btn:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+/* Back button */
+.respond-page #backBtn {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #E8E8E8;
+}
+
+.respond-page #backBtn:hover {
+    background: #F9F9F9;
+    border-color: #4ECDC4;
+}
+
+/* Results section */
+.respond-page .respond-results {
+    background: transparent;
+}
+
+/* Primary actions section */
+.respond-page .respond-primary-actions {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+}
+
+.respond-page .respond-primary-actions h2 {
+    color: #FF6B6B;
+}
+
+.respond-page .respond-action-number {
+    background: #4ECDC4;
+    color: #FFFFFF;
+}
+
+.respond-page .respond-action-title {
+    color: #FF6B6B;
+}
+
+.respond-page .respond-action-text {
+    color: #333333;
+}
+
+/* Immediate safety section - PRESERVE SEMANTIC COLOR */
+.respond-page .respond-immediate-safety {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.08) 0%, rgba(231, 76, 60, 0.03) 100%);
+    border-left-color: #E74C3C;
+}
+
+.respond-page .respond-immediate-safety h2 {
+    color: #E74C3C;
+}
+
+.respond-page .respond-immediate-safety p {
+    color: #333333;
+}
+
+/* Deeper Help sections */
+.respond-page .respond-help-section {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.respond-page .respond-help-header {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: transparent;
+}
+
+.respond-page .respond-help-header:hover {
+    background: #F9F9F9;
+    border-color: #E8E8E8;
+}
+
+.respond-page .respond-help-header:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 0;
+}
+
+.respond-page .respond-help-toggle {
+    color: #333333;
+}
+
+/* Help content (when expanded) */
+.respond-page .respond-help-content {
+    color: #333333;
+}
+
+.respond-page .respond-help-opener {
+    color: #000000;
+    font-style: italic;
+}
+
+.respond-page .respond-help-intro {
+    color: #000000;
+}
+
+.respond-page .respond-help-points li {
+    color: #333333;
+}
+
+.respond-page .respond-help-points li:before {
+    color: #4ECDC4;
+}
+
+/* Safety note section - PRESERVE SEMANTIC COLOR */
+.respond-page .respond-safety-note {
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.08) 0%, rgba(243, 156, 18, 0.03) 100%);
+    border-left-color: #F39C12;
+}
+
+.respond-page .respond-safety-note-title {
+    color: #F39C12;
+}
+
+.respond-page .respond-safety-note p {
+    color: #333333;
+}
+
+/* Scam assessment section */
+.respond-page .respond-scam-assessment {
+    background: #FFFFFF;
+    border-color: #E8E8E8;
+    border-left-color: #4ECDC4;
+}
+
+.respond-page .respond-scam-assessment-heading {
+    color: #FF6B6B;
+}
+
+.respond-page .respond-scam-assessment-title {
+    color: #000000;
+}
+
+.respond-page .respond-scam-assessment-text {
+    color: #333333;
+}
+
+.respond-page .respond-scam-assessment-reassurance {
+    color: #4ECDC4;
+    border-top-color: #E8E8E8;
+}
+
+/* Finish/Continue controls */
+.respond-page .respond-finish-controls button {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #E8E8E8;
+}
+
+.respond-page .respond-finish-controls button:hover {
+    background: #F9F9F9;
+    border-color: #4ECDC4;
+}
+
+/* Container styling */
+.respond-page .respond-container {
+    background: transparent;
+}
+
+/* Main content area */
+.respond-page main.container {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+/* Footer */
+.respond-page footer {
+    color: #333333;
+    border-top-color: #E8E8E8;
+}
+
+.respond-page footer a {
+    color: #FF6B6B;
+}
+
+/* COMPREHENSIVE DARK-THEME VARIABLE OVERRIDES */
+
+/* Dynamically created elements with inline var(--text-gray) styles */
+#questionDescription,
+[style*="var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* Form controls with undefined or dark-theme variables */
+select[style*="var(--bg-primary)"],
+select[style*="var(--bg-white)"] {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-color: #E8E8E8 !important;
+}
+
+select[style*="var(--text-primary)"],
+select[style*="var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+/* Platform selector dynamic element styling */
+label[style*="display: block"] {
+    color: #000000 !important;
+}
+
+/* Dynamic resource container styling */
+div[style*="var(--bg-secondary)"],
+div[style*="background-color: var(--bg-secondary)"] {
+    background-color: #F9F9F9 !important;
+}
+
+div[style*="background-color: var(--bg-secondary)"] div {
+    color: #333333 !important;
+}
+
+/* Links in dynamic content */
+a[style*="color: var(--respond-accent)"],
+a[style*="color: var(--secondary)"] {
+    color: #4ECDC4 !important;
+    text-decoration: underline;
+}
+
+a[style*="color: var(--respond-accent)"]:hover,
+a[style*="color: var(--secondary)"]:hover {
+    text-decoration: underline;
+}
+
+/* Border color fixes for dynamic elements */
+div[style*="border-top: 1px solid var(--border-color)"],
+div[style*="border-top: 1px solid var(--respond-border)"] {
+    border-top-color: #E8E8E8 !important;
+}
+
+/* SUPPORT PANEL FIX - "Looking for additional support?" section */
+.respond-page div[style*="border-left: 4px solid var(--secondary)"][style*="background: var(--bg-light)"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+    border-left-color: #4ECDC4 !important;
+}
+
+.respond-page div[style*="border-left: 4px solid var(--secondary)"][style*="background: var(--bg-light)"] p {
+    color: #333333 !important;
+}
+
+/* INLINE LINK FIXES - Links inside Respond results must be readable */
+
+/* Links inheriting pale color from parent containers */
+.respond-page .respond-help-content a,
+.respond-page .respond-primary-actions a,
+.respond-page .respond-scam-assessment a,
+.respond-page .respond-immediate-safety a,
+.respond-page .respond-safety-note a,
+.respond-page a {
+    color: #2B7A78 !important;
+    text-decoration: underline;
+}
+
+.respond-page a:hover {
+    color: #1a5450 !important;
+    text-decoration: underline;
+}
+
+.respond-page a:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+.respond-page a:visited {
+    color: #2B7A78 !important;
+}
+
+/* Override any inline link colors that might be pale or light */
+.respond-page span > a,
+.respond-page p > a,
+.respond-page li > a {
+    color: #2B7A78 !important;
+}
+
+/* Make sure button-styled links remain readable */
+.respond-page a.btn {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .respond-page .respond-container {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .respond-page .respond-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .respond-page .respond-question-text {
+        font-size: 1rem;
+    }
+
+    .respond-page .respond-controls,
+    .respond-page .respond-finish-controls {
+        flex-direction: column;
+    }
+
+    .respond-page .respond-controls button,
+    .respond-page .respond-finish-controls button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .respond-page .respond-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .respond-page .respond-container {
+        padding: 1rem 0.75rem;
+    }
+}
