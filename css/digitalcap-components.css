@@ -1,0 +1,362 @@
+/* DIGITALCAP SHARED COMPONENT LIBRARY
+   Approved light-theme component standards for all redesigned pages
+   Scoped to existing page body classes (.homepage-prototype, .about-page, etc.)
+   Does not affect other pages or dark-theme legacy content
+
+   Load order: css/style.css → css/digitalcap-components.css → page-specific-theme.css
+
+   Component roles:
+   A. Primary CTA (high-priority action)
+   B. Secondary CTA (alternate supporting action)
+   C. Utility Button (Back, Start Over, interface controls)
+   D. Full-Card Link (clickable card/tile)
+   E. Inline Informational Link (text link in body)
+   F. Other (filters, search, semantic alerts)
+*/
+
+/* ==========================================================
+   A. PRIMARY CTA BUTTON
+   Use case: High-priority main call-to-action
+   ========================================================== */
+
+.homepage-prototype .btn-primary,
+.about-page .btn-primary,
+.app-check-page .btn-primary,
+.respond-page .btn-primary,
+.protect-page .btn-primary,
+.talk-page .btn-primary,
+.learn-page .btn-primary {
+    background: #FF6B6B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.homepage-prototype .btn-primary:hover,
+.about-page .btn-primary:hover,
+.app-check-page .btn-primary:hover,
+.respond-page .btn-primary:hover,
+.protect-page .btn-primary:hover,
+.talk-page .btn-primary:hover,
+.learn-page .btn-primary:hover {
+    background: #C92A2A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-prototype .btn-primary:focus,
+.about-page .btn-primary:focus,
+.app-check-page .btn-primary:focus,
+.respond-page .btn-primary:focus,
+.protect-page .btn-primary:focus,
+.talk-page .btn-primary:focus,
+.learn-page .btn-primary:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+/* Mobile minimum touch target: 44x44px */
+@media (max-width: 768px) {
+    .homepage-prototype .btn-primary,
+    .about-page .btn-primary,
+    .app-check-page .btn-primary,
+    .respond-page .btn-primary,
+    .protect-page .btn-primary,
+    .talk-page .btn-primary,
+    .learn-page .btn-primary {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ==========================================================
+   B. SECONDARY CTA BUTTON
+   Use case: Alternate supporting action
+   ========================================================== */
+
+.homepage-prototype .btn-secondary,
+.about-page .btn-secondary,
+.app-check-page .btn-secondary,
+.respond-page .btn-secondary,
+.protect-page .btn-secondary,
+.talk-page .btn-secondary,
+.learn-page .btn-secondary {
+    background: #4ECDC4;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.homepage-prototype .btn-secondary:hover,
+.about-page .btn-secondary:hover,
+.app-check-page .btn-secondary:hover,
+.respond-page .btn-secondary:hover,
+.protect-page .btn-secondary:hover,
+.talk-page .btn-secondary:hover,
+.learn-page .btn-secondary:hover {
+    background: #2B9E92;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-prototype .btn-secondary:focus,
+.about-page .btn-secondary:focus,
+.app-check-page .btn-secondary:focus,
+.respond-page .btn-secondary:focus,
+.protect-page .btn-secondary:focus,
+.talk-page .btn-secondary:focus,
+.learn-page .btn-secondary:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .homepage-prototype .btn-secondary,
+    .about-page .btn-secondary,
+    .app-check-page .btn-secondary,
+    .respond-page .btn-secondary,
+    .protect-page .btn-secondary,
+    .talk-page .btn-secondary,
+    .learn-page .btn-secondary {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ==========================================================
+   C. UTILITY BUTTON
+   Use case: Back, Start Over, interface controls
+   Intentionally NOT lifted on hover (distinguishes from CTAs)
+   ========================================================== */
+
+.respond-page #backBtn,
+.protect-page button[id^="back-"],
+.protect-page button[id^="start-over-"] {
+    background: transparent;
+    color: #000000;
+    border: 2px solid #E8E8E8;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.respond-page #backBtn:hover,
+.protect-page button[id^="back-"]:hover,
+.protect-page button[id^="start-over-"]:hover {
+    background: #F9F9F9;
+    border-color: #4ECDC4;
+    color: #000000;
+}
+
+.respond-page #backBtn:focus,
+.protect-page button[id^="back-"]:focus,
+.protect-page button[id^="start-over-"]:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .respond-page #backBtn,
+    .protect-page button[id^="back-"],
+    .protect-page button[id^="start-over-"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ==========================================================
+   D. FULL-CARD LINK / CLICKABLE CARD
+   Use case: Entire card/tile is the interaction target
+   Hover: teal border + subtle shadow + vertical lift
+   ========================================================== */
+
+/* Normalized full-card styling */
+.homepage-prototype .action-card,
+.respond-page .respond-incident-card,
+.protect-page button[id^="btn-"],
+.talk-page div[style*="background: var(--bg-white)"],
+.learn-page .learn-path-card,
+.learn-page div[style*="display: grid"] a[style*="background: var(--bg-white)"] {
+    background: #FFFFFF;
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+/* Full-card hover: teal border + shadow + vertical lift */
+.homepage-prototype .action-card:hover,
+.respond-page .respond-incident-card:hover,
+.protect-page button[id^="btn-"]:hover,
+.talk-page div[style*="background: var(--bg-white)"]:hover,
+.learn-page .learn-path-card:hover,
+.learn-page div[style*="display: grid"] a[style*="background: var(--bg-white)"]:hover {
+    border-color: #4ECDC4;
+    box-shadow: 0 8px 24px rgba(78, 205, 196, 0.15);
+    transform: translateY(-4px);
+}
+
+/* Full-card focus */
+.homepage-prototype .action-card:focus,
+.respond-page .respond-incident-card:focus,
+.talk-page div[style*="background: var(--bg-white)"]:focus,
+.learn-page .learn-path-card:focus,
+.learn-page div[style*="display: grid"] a[style*="background: var(--bg-white)"]:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+/* Protect entry button focus (buttons need explicit focus on element itself) */
+.protect-page button[id^="btn-"]:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+/* ==========================================================
+   E. INLINE INFORMATIONAL LINK
+   Use case: Text link within paragraphs, content sections
+   Dark teal for superior readability on white (WCAG AAA)
+   ========================================================== */
+
+/* Inline links in content sections */
+.homepage-prototype section a:not(.btn),
+.about-page .article-section a,
+.app-check-page a[href*="/understand"],
+.app-check-page a[href*="/respond"],
+.app-check-page a[href*="/protect"],
+.respond-page .respond-help-content a,
+.protect-page .respond-help-content a,
+.talk-page .respond-help-content a,
+.learn-page .learn-section a,
+.learn-page .learn-callout a {
+    color: #2B7A78;
+    text-decoration: underline;
+    font-weight: inherit;
+}
+
+.homepage-prototype section a:not(.btn):hover,
+.about-page .article-section a:hover,
+.app-check-page a[href*="/understand"]:hover,
+.app-check-page a[href*="/respond"]:hover,
+.app-check-page a[href*="/protect"]:hover,
+.respond-page .respond-help-content a:hover,
+.protect-page .respond-help-content a:hover,
+.talk-page .respond-help-content a:hover,
+.learn-page .learn-section a:hover,
+.learn-page .learn-callout a:hover {
+    color: #1A5450;
+    text-decoration: underline;
+}
+
+.homepage-prototype section a:not(.btn):focus,
+.about-page .article-section a:focus,
+.app-check-page a[href*="/understand"]:focus,
+.app-check-page a[href*="/respond"]:focus,
+.app-check-page a[href*="/protect"]:focus,
+.respond-page .respond-help-content a:focus,
+.protect-page .respond-help-content a:focus,
+.talk-page .respond-help-content a:focus,
+.learn-page .learn-section a:focus,
+.learn-page .learn-callout a:focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+.homepage-prototype section a:not(.btn):visited,
+.about-page .article-section a:visited,
+.app-check-page a[href*="/understand"]:visited,
+.app-check-page a[href*="/respond"]:visited,
+.app-check-page a[href*="/protect"]:visited,
+.respond-page .respond-help-content a:visited,
+.protect-page .respond-help-content a:visited,
+.talk-page .respond-help-content a:visited,
+.learn-page .learn-section a:visited,
+.learn-page .learn-callout a:visited {
+    color: #2B7A78;
+}
+
+/* ==========================================================
+   F. OTHER COMPONENTS
+
+   Filter/Selection Buttons (Age filters, category selectors)
+   Search/Input fields
+   Semantic alert sections (Immediate Safety, Warning)
+   ========================================================== */
+
+/* Age filter buttons - active state */
+.app-check-page .age-filter-btn[style*="background: var(--primary)"] {
+    background: #4ECDC4 !important;
+    color: #FFFFFF !important;
+}
+
+/* Age filter buttons - inactive state */
+.app-check-page .age-filter-btn[style*="background: var(--border-color)"] {
+    background: #E8E8E8 !important;
+    color: #000000 !important;
+}
+
+.app-check-page .age-filter-btn:hover {
+    opacity: 0.85;
+}
+
+/* Search and input fields */
+.app-check-page #appSearch,
+.app-check-page #categoryFilter {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #E8E8E8;
+}
+
+.app-check-page #appSearch:focus,
+.app-check-page #categoryFilter:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 0;
+}
+
+/* Semantic alert sections - preserve danger/warning colors */
+.respond-page .respond-immediate-safety {
+    border-left-color: #E74C3C;
+}
+
+.respond-page .respond-immediate-safety h2 {
+    color: #E74C3C;
+}
+
+.respond-page .respond-safety-note {
+    border-left-color: #F39C12;
+}
+
+.respond-page .respond-safety-note-title {
+    color: #F39C12;
+}
+
+/* ==========================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* Ensure minimum touch targets for all interactive elements */
+    .homepage-prototype .action-card,
+    .respond-page .respond-incident-card,
+    .protect-page button[id^="btn-"],
+    .learn-page .learn-path-card {
+        min-height: 56px;
+    }
+}

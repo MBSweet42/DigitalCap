@@ -164,7 +164,7 @@ body.homepage-prototype {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    border: 1px solid #E8E8E8;
+    border: 2px solid #E8E8E8;
     border-radius: 10px;
     text-decoration: none;
     color: #000000;
@@ -323,11 +323,22 @@ body.homepage-prototype {
 }
 
 .homepage-prototype section a:not(.btn) {
-    color: #4ECDC4 !important;
+    color: #2B7A78 !important;
+    text-decoration: underline;
 }
 
 .homepage-prototype section a:not(.btn):hover {
-    color: #2B9E92 !important;
+    color: #1a5450 !important;
+    text-decoration: underline;
+}
+
+.homepage-prototype section a:not(.btn):focus {
+    outline: 2px solid #FF6B6B;
+    outline-offset: 2px;
+}
+
+.homepage-prototype section a:not(.btn):visited {
+    color: #2B7A78 !important;
 }
 
 /* Button styling - secondary button for crisis section */

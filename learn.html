@@ -23,6 +23,8 @@
     <title>Learn & Practice | DigitalCap</title>
     <link rel="icon" type="image/png" href="images/branding/favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/digitalcap-components.css">
+    <link rel="stylesheet" href="css/learn-theme.css">
     <style>
         .learn-hero {
             text-align: center;
@@ -160,7 +162,7 @@
         }
     </style>
 </head>
-<body>
+<body class="learn-page">
     <nav class="navbar navbar-simple">
         <div class="nav-container">
             <a href="/" class="logo"><img src="images/branding/logo-header-white.png" alt="DigitalCap"></a>
@@ -184,21 +186,18 @@
 
         <section class="learn-paths">
             <a href="/understand" class="learn-path-card">
-                <div class="learn-icon">📚</div>
                 <h3>Learn Something</h3>
                 <p>Explore clear guides about AI, privacy, scams, digital safety, online behavior, and more.</p>
                 <div class="learn-cta">Explore Digital Safety Topics →</div>
             </a>
 
             <a href="#practice-section" class="learn-path-card" onclick="document.getElementById('practice-section').scrollIntoView({behavior: 'smooth'}); return false;">
-                <div class="learn-icon">✨</div>
                 <h3>Try an Activity</h3>
                 <p>Practice skills like checking a source, spotting scam tactics, thinking about privacy, and making informed digital choices.</p>
                 <div class="learn-cta">Explore Practice Activities →</div>
             </a>
 
             <a href="/educators" class="learn-path-card">
-                <div class="learn-icon">👨‍🏫</div>
                 <h3>Teach or Lead a Group</h3>
                 <p>Use lessons, slides, worksheets, discussion prompts, and activities to learn together or lead a group.</p>
                 <div class="learn-cta">Explore Educator Resources →</div>
@@ -206,7 +205,7 @@
         </section>
 
         <section class="learn-callout">
-            <h3>🤖 Learning About AI?</h3>
+            <h3>Learning About AI?</h3>
             <p>Explore AI guides about how AI works, deepfakes, verification, scams, privacy, useful AI tools, and AI's real-world impact.</p>
             <p style="margin-top: 1rem;"><a href="/ai" style="color: var(--primary); font-weight: 600; text-decoration: none;">Explore AI & Digital Life →</a></p>
         </section>
@@ -225,28 +224,24 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
                 <a href="/activities/deepfake-detective" style="display: block; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; background: var(--bg-white);" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔍</div>
                     <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; font-weight: 600;">Deepfake Detective</h3>
                     <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem; line-height: 1.5;">Practice verifying questionable images and videos without relying on visual tricks alone.</p>
                     <p style="color: var(--text-gray); margin: 0; font-size: 0.85rem;">About 10–15 minutes</p>
                 </a>
 
                 <a href="/activities/source-check" style="display: block; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; background: var(--bg-white);" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">📖</div>
                     <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; font-weight: 600;">Source Check</h3>
                     <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem; line-height: 1.5;">Practice checking where online information came from before trusting or sharing it.</p>
                     <p style="color: var(--text-gray); margin: 0; font-size: 0.85rem;">About 10–15 minutes</p>
                 </a>
 
                 <a href="/activities/share-with-ai" style="display: block; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; background: var(--bg-white);" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">🤖</div>
                     <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; font-weight: 600;">Would You Share This With AI?</h3>
                     <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem; line-height: 1.5;">Practice deciding what information makes sense to share with an AI tool and what you may want to remove first.</p>
                     <p style="color: var(--text-gray); margin: 0; font-size: 0.85rem;">About 10–15 minutes</p>
                 </a>
 
                 <a href="/interactive" style="display: block; padding: 1.5rem; border: 2px solid var(--border-color); border-radius: 12px; text-decoration: none; color: var(--text-dark); transition: all 0.3s ease; background: var(--bg-white);" onmouseover="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎯</div>
                     <h3 style="color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; font-weight: 600;">Practice Challenges</h3>
                     <p style="color: var(--text-gray); margin: 0 0 1rem 0; font-size: 0.95rem; line-height: 1.5;">Work through interactive digital-safety scenarios involving scams, messages, privacy, apps, and everyday digital decisions.</p>
                     <p style="color: var(--text-gray); margin: 0; font-size: 0.85rem;">Multiple scenarios available</p>

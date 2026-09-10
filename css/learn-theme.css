@@ -1,0 +1,268 @@
+/* LEARN & PRACTICE LIGHT THEME
+   Aligns Learn with approved Homepage, About, App Check, Respond, Protect, and Talk visual system
+   Scoped to .learn-page body class only
+   Does not affect other pages */
+
+/* Override dark-theme variables inherited from css/style.css */
+.learn-page {
+    background-color: #FFFFFF;
+    color: #000000;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --text-gray: #333333;
+    --text-dark: #000000;
+    --border-color: #E8E8E8;
+}
+
+/* Main container */
+.learn-page main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Hero section */
+.learn-page .learn-hero h1 {
+    color: var(--primary);
+}
+
+.learn-page .learn-hero p {
+    color: #333333;
+}
+
+/* Learning path cards */
+.learn-page .learn-path-card {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #000000 !important;
+}
+
+.learn-page .learn-path-card h3 {
+    color: var(--primary);
+}
+
+.learn-page .learn-path-card p {
+    color: #333333;
+}
+
+.learn-page .learn-path-card:hover {
+    border-color: #4ECDC4 !important;
+}
+
+.learn-page .learn-path-card:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.learn-page .learn-cta {
+    color: var(--primary);
+}
+
+/* Learning sections */
+.learn-page .learn-section {
+    background: #F9F9F9 !important;
+    border-color: #E8E8E8 !important;
+}
+
+.learn-page .learn-section h2 {
+    color: var(--primary);
+}
+
+.learn-page .learn-section p {
+    color: #333333;
+}
+
+.learn-page .learn-section a {
+    color: #2B7A78;
+    text-decoration: underline;
+}
+
+.learn-page .learn-section a:hover {
+    color: #1a5450;
+}
+
+.learn-page .learn-section a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.learn-page .learn-section a:visited {
+    color: #2B7A78;
+}
+
+/* AI callout section */
+.learn-page .learn-callout {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.05) 0%, rgba(78, 205, 196, 0.02) 100%) !important;
+    border-color: #E8E8E8 !important;
+}
+
+.learn-page .learn-callout h3 {
+    color: var(--primary);
+}
+
+.learn-page .learn-callout p {
+    color: #333333;
+}
+
+.learn-page .learn-callout a {
+    color: #2B7A78 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.learn-page .learn-callout a:hover {
+    color: #1a5450;
+    text-decoration: underline;
+}
+
+.learn-page .learn-callout a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.learn-page .learn-callout a:visited {
+    color: #2B7A78;
+}
+
+/* Practice activity cards - inline styled */
+.learn-page div[style*="display: grid"][style*="gap: 1.5rem"] a {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+    color: #000000 !important;
+}
+
+.learn-page div[style*="display: grid"] a[style*="background: var(--bg-white)"] {
+    background: #FFFFFF !important;
+    border-color: #E8E8E8 !important;
+}
+
+.learn-page div[style*="display: grid"] a h3 {
+    color: var(--primary);
+}
+
+.learn-page div[style*="display: grid"] a p {
+    color: #333333;
+}
+
+/* Practice card hover state via inline handlers */
+.learn-page div[style*="display: grid"] a:hover {
+    border-color: #4ECDC4 !important;
+}
+
+.learn-page div[style*="display: grid"] a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Footer */
+.learn-page footer {
+    color: #333333;
+    background-color: #F9F9F9;
+}
+
+.learn-page footer a {
+    color: #2B7A78;
+    text-decoration: none;
+}
+
+.learn-page footer a:hover {
+    text-decoration: underline;
+}
+
+.learn-page footer a:visited {
+    color: #2B7A78;
+}
+
+/* COMPREHENSIVE DARK-THEME VARIABLE OVERRIDES */
+
+/* All elements using var(--text-gray) */
+.learn-page [style*="color: var(--text-gray)"] {
+    color: #333333 !important;
+}
+
+/* All elements using var(--text-dark) */
+.learn-page [style*="color: var(--text-dark)"] {
+    color: #000000 !important;
+}
+
+/* Button styles */
+.learn-page .btn {
+    color: inherit;
+}
+
+.learn-page .btn-primary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.learn-page .btn-primary:hover {
+    background: var(--primary);
+    color: #FFFFFF;
+}
+
+.learn-page .btn-primary:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .learn-page main.container {
+        padding: 1.5rem;
+    }
+
+    .learn-page .learn-hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .learn-page main.container {
+        padding: 1rem;
+    }
+
+    .learn-page .learn-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .learn-page .learn-paths {
+        gap: 1rem;
+    }
+
+    .learn-page .learn-path-card {
+        padding: 1.5rem;
+    }
+
+    .learn-page div[style*="display: grid"][style*="gap: 1.5rem"] {
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .learn-page main.container {
+        padding: 0.75rem;
+    }
+
+    .learn-page .learn-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .learn-page .learn-path-card {
+        padding: 1rem;
+    }
+
+    .learn-page div[style*="display: grid"][style*="minmax(320px"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .learn-page div[style*="display: grid"][style*="minmax(280px"] {
+        grid-template-columns: 1fr !important;
+    }
+}

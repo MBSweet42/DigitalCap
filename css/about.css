@@ -94,21 +94,24 @@ body.about-page {
 
 /* Links within content */
 .about-page .article-section a {
-    color: #4ECDC4;
-    text-decoration: none;
-    font-weight: 500;
+    color: #2B7A78;
+    text-decoration: underline;
+    font-weight: inherit;
     transition: color 0.3s ease;
 }
 
 .about-page .article-section a:hover {
-    color: #2B9E92;
+    color: #1a5450;
     text-decoration: underline;
 }
 
 .about-page .article-section a:focus {
-    outline: 2px solid #4ECDC4;
+    outline: 2px solid #FF6B6B;
     outline-offset: 2px;
-    border-radius: 2px;
+}
+
+.about-page .article-section a:visited {
+    color: #2B7A78;
 }
 
 /* Button styling within article sections */
