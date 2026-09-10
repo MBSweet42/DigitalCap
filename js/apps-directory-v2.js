@@ -317,14 +317,14 @@ function renderAppCard(app, isExpanded) {
     // Add red flags preview on collapsed view
     if (!isExpanded && app.hiddenDangers && app.hiddenDangers.length > 0) {
         card += `<div style="margin-top: 1rem; padding: 0.75rem; background: rgba(231, 76, 60, 0.05); border-left: 3px solid var(--danger); border-radius: 4px;">
-            <p style="margin: 0; color: var(--danger); font-size: 0.85rem; font-weight: 600;">⚠️ Watch For:</p>
+            <p style="margin: 0; color: var(--danger); font-size: 0.85rem; font-weight: 600;">Watch For:</p>
             <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.8rem; overflow-wrap: anywhere;">${app.hiddenDangers.slice(0, 2).join(' • ')}</p>
         </div>`;
     }
 
     // Show age recommendation on card
     card += `<div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: var(--bg-light); border-radius: 6px; font-size: 0.8rem; color: var(--text-gray);">
-        📍 Recommended Age: ${app.ageRecommendation === 0 ? 'Parental Awareness' : app.ageRecommendation + '+'}
+        Recommended Age: ${app.ageRecommendation === 0 ? 'Parental Awareness' : app.ageRecommendation + '+'}
     </div>`;
 
 
@@ -378,7 +378,7 @@ function renderAppDetails(app) {
 
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">📊 Digital Exposure Level</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Digital Exposure Level</h4>
                 <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; min-width: 0;">
                         <span style="background: ${baseColors.bg}; color: ${baseColors.text}; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.95rem; flex-shrink: 0;">
@@ -452,7 +452,7 @@ function renderAppDetails(app) {
     if (app.hiddenDangers && app.hiddenDangers.length > 0) {
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Things to Know</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Things to Know</h4>
                 <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-gray);">
         `;
         app.hiddenDangers.slice(0, 5).forEach(danger => {
@@ -465,7 +465,7 @@ function renderAppDetails(app) {
     if (app.parentConcerns && app.parentConcerns.mentalHealth) {
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">⚙️ Recommended Safeguards</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Recommended Safeguards</h4>
                 <div style="background: rgba(255, 107, 107, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--primary);">
         `;
 
@@ -510,7 +510,7 @@ function renderAppDetails(app) {
 
         details += `
             <div style="margin-bottom: 2rem;">
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💬 Conversation Starters</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Conversation Starters</h4>
                 <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
                     <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6; overflow-wrap: anywhere;">"${escapeHtml(opener)}"</p>
                 </div>
@@ -519,7 +519,7 @@ function renderAppDetails(app) {
         // Section 2: Ask This (only if startWith differs from opener)
         if (showAskThis) {
             details += `
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">❓ Ask This</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Ask This</h4>
                 <div style="background: rgba(78, 205, 196, 0.05); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1.5rem;">
                     <p style="margin: 0; color: var(--text-dark); font-style: italic; line-height: 1.6; overflow-wrap: anywhere;">"${escapeHtml(guide.startWith)}"</p>
                 </div>
@@ -529,7 +529,7 @@ function renderAppDetails(app) {
         // Section 3: Things to Talk About
         if (guide.keyPoints && guide.keyPoints.length > 0) {
             details += `
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">💡 Things to Talk About</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Things to Talk About</h4>
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             guide.keyPoints.forEach(point => {
@@ -541,7 +541,7 @@ function renderAppDetails(app) {
         // Section 4: Things to Notice
         if (guide.redFlags && guide.redFlags.length > 0) {
             details += `
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚩 Things to Notice</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Things to Notice</h4>
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             guide.redFlags.forEach(flag => {
@@ -553,7 +553,7 @@ function renderAppDetails(app) {
         // Section 5: Parent Tips
         if (app.tipsForParents && app.tipsForParents.length > 0) {
             details += `
-                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">🛠️ Parent Tips</h4>
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Helpful Tips</h4>
                 <ul style="margin: 0 0 1.5rem 0; padding-left: 1.5rem; color: var(--text-gray);">
             `;
             app.tipsForParents.forEach(tip => {
@@ -607,7 +607,7 @@ function renderAppDetails(app) {
     details += `
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
             <a href="#" onclick="openHelpImproveFeedback({submissionType: 'app_correction', appName: '${escapeHtml(app.name)}', appId: '${app.id || ''}', sourcePage: 'App Directory'}); return false;" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">
-                💭 Something outdated or incorrect? <span style="color: var(--primary); font-weight: 500;">Let us know</span>
+                Something outdated or incorrect? <span style="color: var(--primary); font-weight: 500;">Let us know</span>
             </a>
         </div>
     `;
@@ -663,7 +663,7 @@ function renderDiscussionSection(app) {
     let html = `
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <strong style="color: var(--primary);">💬 Questions & Discussions</strong>
+                <strong style="color: var(--primary);">Questions & Discussions</strong>
                 <button class="btn btn-secondary" onclick="openDiscussionModal('${app.id}')" style="padding: 0.5rem 1rem; font-size: 0.9rem;">+ Add Comment</button>
             </div>
 
