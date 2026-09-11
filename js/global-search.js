@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeSearch() {
-    // Build search index from available data
-    buildSearchIndex();
+    // Build static search index immediately (articles, resources)
+    buildStaticSearchIndex();
 
-    // Setup search input
+    // Attach search input listeners immediately
     const searchInput = document.getElementById('globalSearch');
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
@@ -24,25 +24,59 @@ function initializeSearch() {
             }
         });
     }
+
+    // Load published apps asynchronously (appends to existing searchIndex)
+    loadAppsFromFirestore();
 }
 
-function buildSearchIndex() {
+function buildStaticSearchIndex() {
     searchIndex = [];
+    addStaticSearchContent();
+}
 
-    // Add apps if available
-    if (typeof appsCompleteV2 !== 'undefined' && Array.isArray(appsCompleteV2)) {
-        appsCompleteV2.forEach(app => {
-            searchIndex.push({
-                type: 'app',
-                title: app.name,
-                description: app.description,
-                category: app.category,
-                url: '/app-check',
-                keywords: [app.name, app.category, ...(app.hiddenDangers || [])]
-            });
+async function loadAppsFromFirestore() {
+    try {
+        if (!window.digitalCapFirebase || !window.digitalCapFirebase.db) {
+            console.log('ℹ️ Firebase not available, skipping app search indexing');
+            return;
+        }
+
+        const { collection, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+        const db = window.digitalCapFirebase.db;
+        const publishedDocs = await getDocs(collection(db, 'appsPublished'));
+
+        if (publishedDocs.empty) {
+            console.log('ℹ️ No published apps in Firestore');
+            return;
+        }
+
+        publishedDocs.forEach(docSnap => {
+            try {
+                const appData = docSnap.data();
+                if (!appData.name || typeof appData.name !== 'string') {
+                    return;
+                }
+
+                searchIndex.push({
+                    type: 'app',
+                    title: appData.name,
+                    description: appData.description || '',
+                    category: appData.category || '',
+                    url: '/app-check',
+                    keywords: [appData.name, appData.category, ...(appData.hiddenDangers || [])]
+                });
+            } catch (error) {
+                console.warn('⚠️ Failed to index app:', error.message);
+            }
         });
-    }
 
+        console.log(`✅ Indexed ${publishedDocs.size} apps for global search`);
+    } catch (error) {
+        console.warn('⚠️ Failed to load apps from Firestore for global search:', error.message);
+    }
+}
+
+function addStaticSearchContent() {
     // Add safety articles
     const safetyArticles = [
         { title: 'Password Safety', url: '/understand', keywords: ['password', 'account', 'security', 'phishing'] },
