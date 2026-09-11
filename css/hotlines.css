@@ -1,0 +1,271 @@
+/* HOTLINES PAGE STYLING
+   Light, friendly, crisis-focused presentation
+   Matches approved homepage visual language
+   Isolated scope: hotlines.html only */
+
+/* Override dark theme for hotlines page */
+body.hotlines-page {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.hotlines-page html {
+    background-color: #FFFFFF;
+}
+
+/* Navbar coordinate with homepage */
+.hotlines-page .navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+/* Main container - light background */
+.hotlines-page main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Page heading */
+.hotlines-page h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.hotlines-page .subtitle {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Section headings */
+.hotlines-page h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 2rem 0 1.5rem 0;
+    line-height: 1.3;
+}
+
+.hotlines-page h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 1rem 0 0.75rem 0;
+    line-height: 1.3;
+}
+
+.hotlines-page h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0.75rem 0 0.5rem 0;
+}
+
+/* Paragraph text */
+.hotlines-page p {
+    font-size: 1rem;
+    color: #555555;
+    margin: 0 0 1rem 0;
+    line-height: 1.8;
+}
+
+/* Lists */
+.hotlines-page ul {
+    margin: 1rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: disc;
+}
+
+.hotlines-page li {
+    margin: 0.75rem 0;
+    color: #555555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.hotlines-page strong {
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Alert/warning sections */
+.hotlines-page > div[style*="background: linear-gradient"] {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.08) 0%, rgba(231, 76, 60, 0.03) 100%) !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #FF6B6B !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Hotline cards - light card styling */
+.hotlines-page .hotline-card {
+    background: #F9F9F9 !important;
+    padding: 1.5rem !important;
+    border: 1px solid #E8E8E8 !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #4ECDC4 !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.hotlines-page .hotline-card:hover {
+    border-left-color: #2B9E92 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.hotlines-page .hotline-card h3 {
+    color: #000000 !important;
+    margin: 0 0 0.75rem 0 !important;
+}
+
+.hotlines-page .hotline-card p {
+    color: #555555 !important;
+}
+
+/* Sections */
+.hotlines-page section {
+    margin-bottom: 2.5rem;
+}
+
+.hotlines-page section[style*="background: var(--bg-white)"] {
+    background: #F9F9F9 !important;
+    border: 1px solid #E8E8E8 !important;
+    padding: 2rem !important;
+    border-radius: 10px !important;
+}
+
+.hotlines-page section[style*="border-left: 4px"] {
+    border-left-color: #4ECDC4 !important;
+}
+
+/* Buttons */
+.hotlines-page .btn-secondary {
+    background: #4ECDC4 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.hotlines-page .btn-secondary:hover {
+    background: #2B9E92 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.2) !important;
+}
+
+/* Links */
+.hotlines-page a {
+    color: #4ECDC4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hotlines-page a:hover {
+    color: #2B9E92;
+    text-decoration: underline;
+}
+
+.hotlines-page a:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Grid layouts */
+.hotlines-page [style*="display: grid"] {
+    gap: 1.5rem !important;
+}
+
+/* Footer */
+.hotlines-page .footer {
+    background-color: #F5F5F5;
+    color: #555555;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid #E8E8E8;
+}
+
+.hotlines-page .footer a {
+    color: #4ECDC4;
+    text-decoration: none;
+}
+
+.hotlines-page .footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .hotlines-page main.container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .hotlines-page h1 {
+        font-size: 2rem;
+    }
+
+    .hotlines-page h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hotlines-page main.container {
+        padding: 1rem;
+    }
+
+    .hotlines-page h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hotlines-page h2 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hotlines-page .subtitle {
+        font-size: 1rem;
+    }
+
+    .hotlines-page [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .hotlines-page .hotline-card {
+        padding: 1.25rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hotlines-page main.container {
+        padding: 0.75rem;
+    }
+
+    .hotlines-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .hotlines-page .hotline-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .hotlines-page p,
+    .hotlines-page li {
+        font-size: 0.95rem;
+    }
+}

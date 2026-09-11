@@ -1,0 +1,328 @@
+/* RESOURCES PAGE STYLING
+   Light, friendly, guides-focused presentation
+   Matches approved homepage visual language
+   Isolated scope: resources.html only */
+
+/* Override dark theme for resources page */
+body.resources-page {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.resources-page html {
+    background-color: #FFFFFF;
+}
+
+/* Navbar coordinate with homepage */
+.resources-page .navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+/* Main container - light background */
+.resources-page main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Page heading */
+.resources-page h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.resources-page .subtitle {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Section headings */
+.resources-page h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 2rem 0 1.5rem 0;
+    line-height: 1.3;
+}
+
+.resources-page h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 1rem 0 0.75rem 0;
+    line-height: 1.3;
+}
+
+.resources-page h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0.75rem 0 0.5rem 0;
+}
+
+/* Paragraph text */
+.resources-page p {
+    font-size: 1rem;
+    color: #555555;
+    margin: 0 0 1rem 0;
+    line-height: 1.8;
+}
+
+/* Lists */
+.resources-page ul {
+    margin: 1rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: disc;
+}
+
+.resources-page li {
+    margin: 0.75rem 0;
+    color: #555555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.resources-page ol {
+    margin: 1rem 0 1rem 1.5rem;
+    padding: 0;
+}
+
+.resources-page strong {
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Intro/alert boxes */
+.resources-page > div[style*="background: linear-gradient"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #4ECDC4 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.resources-page > div[style*="background: rgba(231, 76, 60"] {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.08) 0%, rgba(231, 76, 60, 0.03) 100%) !important;
+    border-left-color: #FF6B6B !important;
+}
+
+.resources-page > div[style*="background: rgba(255, 183, 3"] {
+    background: linear-gradient(135deg, rgba(255, 183, 3, 0.08) 0%, rgba(255, 183, 3, 0.03) 100%) !important;
+    border-left-color: #FFB703 !important;
+}
+
+.resources-page > div[style*="background: rgba(46, 196, 113"] {
+    background: linear-gradient(135deg, rgba(46, 196, 113, 0.08) 0%, rgba(46, 196, 113, 0.03) 100%) !important;
+    border-left-color: #2EC471 !important;
+}
+
+/* Guide cards */
+.resources-page .guide-card {
+    background: #F9F9F9 !important;
+    border: 1px solid #E8E8E8 !important;
+    border-radius: 10px !important;
+    padding: 1.5rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.resources-page .guide-card:hover {
+    border-color: #4ECDC4 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.resources-page .guide-card h3 {
+    color: #000000 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.resources-page .guide-card p {
+    color: #555555 !important;
+}
+
+/* Sections */
+.resources-page section {
+    margin-bottom: 2.5rem;
+}
+
+.resources-page section[style*="background: var(--bg-white)"] {
+    background: #F9F9F9 !important;
+    border: 1px solid #E8E8E8 !important;
+    padding: 2rem !important;
+    border-radius: 10px !important;
+}
+
+.resources-page section[style*="background: var(--bg-light)"] {
+    background: #F9F9F9 !important;
+    border: 1px solid #E8E8E8 !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #4ECDC4 !important;
+}
+
+/* Buttons */
+.resources-page .btn {
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+}
+
+.resources-page .btn-primary {
+    background: #4ECDC4 !important;
+    color: #FFFFFF !important;
+}
+
+.resources-page .btn-primary:hover {
+    background: #2B9E92 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.2) !important;
+}
+
+.resources-page .btn-secondary {
+    background: #FF6B6B !important;
+    color: #FFFFFF !important;
+}
+
+.resources-page .btn-secondary:hover {
+    background: #E85555 !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2) !important;
+}
+
+/* Links */
+.resources-page a {
+    color: #4ECDC4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.resources-page a:hover {
+    color: #2B9E92;
+    text-decoration: underline;
+}
+
+.resources-page a:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Grid layouts */
+.resources-page [style*="display: grid"] {
+    gap: 1.5rem !important;
+}
+
+/* Modal styling */
+.resources-page .modal-content {
+    background: #FFFFFF !important;
+}
+
+.resources-page .modal-content h2,
+.resources-page .modal-content h3 {
+    color: #000000 !important;
+}
+
+.resources-page .modal-content p,
+.resources-page .modal-content li {
+    color: #555555 !important;
+}
+
+/* Footer */
+.resources-page .footer {
+    background-color: #F5F5F5;
+    color: #555555;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid #E8E8E8;
+}
+
+.resources-page .footer a {
+    color: #4ECDC4;
+    text-decoration: none;
+}
+
+.resources-page .footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .resources-page main.container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .resources-page h1 {
+        font-size: 2rem;
+    }
+
+    .resources-page h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-page main.container {
+        padding: 1rem;
+    }
+
+    .resources-page h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .resources-page h2 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .resources-page .subtitle {
+        font-size: 1rem;
+    }
+
+    .resources-page [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .resources-page .guide-card {
+        padding: 1.25rem !important;
+    }
+
+    .resources-page .modal-content {
+        padding: 1.5rem !important;
+        width: 95% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .resources-page main.container {
+        padding: 0.75rem;
+    }
+
+    .resources-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .resources-page .guide-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .resources-page p,
+    .resources-page li {
+        font-size: 0.95rem;
+    }
+}

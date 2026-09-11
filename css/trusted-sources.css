@@ -1,0 +1,259 @@
+/* TRUSTED-SOURCES PAGE STYLING
+   Light, friendly, resource-focused presentation
+   Matches approved homepage visual language
+   Isolated scope: trusted-sources.html only */
+
+/* Override dark theme for trusted-sources page */
+body.trusted-sources-page {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.trusted-sources-page html {
+    background-color: #FFFFFF;
+}
+
+/* Navbar coordinate with homepage */
+.trusted-sources-page .navbar-simple {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+/* Main container - light background */
+.trusted-sources-page main.container {
+    background-color: #FFFFFF;
+    color: #000000;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Page heading */
+.trusted-sources-page h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.trusted-sources-page .subtitle {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Section headings */
+.trusted-sources-page h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 2rem 0 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #4ECDC4;
+    line-height: 1.3;
+}
+
+.trusted-sources-page h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+/* Paragraph text */
+.trusted-sources-page p {
+    font-size: 1rem;
+    color: #555555;
+    margin: 0 0 1rem 0;
+    line-height: 1.8;
+}
+
+/* Lists */
+.trusted-sources-page ul {
+    margin: 1rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: disc;
+}
+
+.trusted-sources-page li {
+    margin: 0.75rem 0;
+    color: #555555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.trusted-sources-page strong {
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Intro box styling */
+.trusted-sources-page > div[style*="background: linear-gradient"] {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(78, 205, 196, 0.03) 100%) !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #4ECDC4 !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Resource cards - light card styling */
+.trusted-sources-page .resource-card {
+    display: block !important;
+    background: #F9F9F9 !important;
+    padding: 1.5rem !important;
+    border: 1px solid #E8E8E8 !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #4ECDC4 !important;
+    text-decoration: none !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.trusted-sources-page .resource-card:hover {
+    border-left-color: #2B9E92 !important;
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.trusted-sources-page .resource-card h3 {
+    color: #000000 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.trusted-sources-page .resource-card p {
+    color: #555555 !important;
+    margin: 0.5rem 0 !important;
+    font-size: 0.95rem !important;
+}
+
+.trusted-sources-page .resource-card span {
+    color: #4ECDC4 !important;
+    font-weight: 600 !important;
+}
+
+/* Sections */
+.trusted-sources-page section {
+    margin-bottom: 2.5rem;
+}
+
+.trusted-sources-page .resource-section {
+    margin-bottom: 3rem;
+}
+
+.trusted-sources-page section[style*="background: var(--bg-white)"] {
+    background: #F9F9F9 !important;
+    border: 1px solid #E8E8E8 !important;
+    padding: 2rem !important;
+    border-radius: 10px !important;
+}
+
+/* Links */
+.trusted-sources-page a {
+    color: #4ECDC4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.trusted-sources-page a:hover {
+    color: #2B9E92;
+    text-decoration: underline;
+}
+
+.trusted-sources-page a:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Grid layouts */
+.trusted-sources-page [style*="display: grid"] {
+    gap: 1.5rem !important;
+}
+
+/* Footer */
+.trusted-sources-page .footer {
+    background-color: #F5F5F5;
+    color: #555555;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid #E8E8E8;
+}
+
+.trusted-sources-page .footer a {
+    color: #4ECDC4;
+    text-decoration: none;
+}
+
+.trusted-sources-page .footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .trusted-sources-page main.container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .trusted-sources-page h1 {
+        font-size: 2rem;
+    }
+
+    .trusted-sources-page h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .trusted-sources-page main.container {
+        padding: 1rem;
+    }
+
+    .trusted-sources-page h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .trusted-sources-page h2 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .trusted-sources-page .subtitle {
+        font-size: 1rem;
+    }
+
+    .trusted-sources-page [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .trusted-sources-page .resource-card {
+        padding: 1.25rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .trusted-sources-page main.container {
+        padding: 0.75rem;
+    }
+
+    .trusted-sources-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .trusted-sources-page .resource-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .trusted-sources-page p,
+    .trusted-sources-page li {
+        font-size: 0.95rem;
+    }
+}
