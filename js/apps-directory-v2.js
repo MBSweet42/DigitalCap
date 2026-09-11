@@ -129,7 +129,18 @@ async function loadPublishedAppsFromFirestore() {
                     status: publishedData.status || 'active',
                     formerNames: Array.isArray(publishedData.formerNames) ? publishedData.formerNames : [],
                     successorName: publishedData.successorName || '',
-                    statusNote: publishedData.statusNote || ''
+                    statusNote: publishedData.statusNote || '',
+                    // Privacy fields (optional)
+                    operatorName: publishedData.operatorName || '',
+                    parentCompany: publishedData.parentCompany || '',
+                    officialWebsiteUrl: publishedData.officialWebsiteUrl || '',
+                    privacyPolicyUrl: publishedData.privacyPolicyUrl || '',
+                    dataCollectedSummary: publishedData.dataCollectedSummary || '',
+                    dataSharingSummary: publishedData.dataSharingSummary || '',
+                    advertisingSummary: publishedData.advertisingSummary || '',
+                    privacyChoicesSummary: publishedData.privacyChoicesSummary || '',
+                    privacySources: Array.isArray(publishedData.privacySources) ? publishedData.privacySources : [],
+                    lastReviewedDate: publishedData.lastReviewedDate || ''
                 };
 
                 allApps.push(publishedApp);
@@ -487,6 +498,164 @@ function renderAppDetails(app) {
         }
 
         details += `</div>`;
+    }
+
+    // SECTION: Who Operates This App (Privacy/Ownership Layer)
+    const hasPrivacyData = app.operatorName || app.parentCompany || app.officialWebsiteUrl || app.privacyPolicyUrl ||
+                          app.dataCollectedSummary || app.dataSharingSummary || app.advertisingSummary ||
+                          app.privacyChoicesSummary || (app.privacySources && app.privacySources.length > 0) ||
+                          app.lastReviewedDate;
+
+    if (app.operatorName || app.parentCompany || app.officialWebsiteUrl || app.privacyPolicyUrl) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Who Operates This App</h4>
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+        `;
+
+        if (app.operatorName) {
+            details += `
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: var(--text-gray); font-size: 0.9rem;"><strong>Operated by:</strong></span>
+                    <div style="color: var(--text-dark); margin-top: 0.25rem; overflow-wrap: anywhere;">${escapeHtml(app.operatorName)}</div>
+                </div>
+            `;
+        }
+
+        if (app.parentCompany) {
+            details += `
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: var(--text-gray); font-size: 0.9rem;"><strong>Parent company:</strong></span>
+                    <div style="color: var(--text-dark); margin-top: 0.25rem; overflow-wrap: anywhere;">${escapeHtml(app.parentCompany)}</div>
+                </div>
+            `;
+        }
+
+        if (app.officialWebsiteUrl) {
+            const displayUrl = app.officialWebsiteUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
+            details += `
+                <div style="margin-bottom: 0.75rem;">
+                    <span style="color: var(--text-gray); font-size: 0.9rem;"><strong>Official website:</strong></span>
+                    <div style="color: var(--text-dark); margin-top: 0.25rem;">
+                        <a href="${escapeHtml(app.officialWebsiteUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; word-break: break-all;">${escapeHtml(displayUrl)}</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        if (app.privacyPolicyUrl) {
+            details += `
+                <div>
+                    <span style="color: var(--text-gray); font-size: 0.9rem;"><strong>Privacy policy:</strong></span>
+                    <div style="color: var(--text-dark); margin-top: 0.25rem;">
+                        <a href="${escapeHtml(app.privacyPolicyUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; word-break: break-all;">View policy</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        details += `</div></div>`;
+    }
+
+    // SECTION: Your Information (data collection, sharing, advertising)
+    if (app.dataCollectedSummary || app.dataSharingSummary || app.advertisingSummary) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Your Information</h4>
+        `;
+
+        if (app.dataCollectedSummary) {
+            details += `
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1rem;">
+                    <h5 style="color: var(--text-dark); margin: 0 0 0.75rem 0; font-size: 0.95rem;">What information is collected</h5>
+                    <p style="margin: 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${escapeHtml(app.dataCollectedSummary)}</p>
+                </div>
+            `;
+        }
+
+        if (app.dataSharingSummary) {
+            details += `
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary); margin-bottom: 1rem;">
+                    <h5 style="color: var(--text-dark); margin: 0 0 0.75rem 0; font-size: 0.95rem;">How information may be shared</h5>
+                    <p style="margin: 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${escapeHtml(app.dataSharingSummary)}</p>
+                </div>
+            `;
+        }
+
+        if (app.advertisingSummary) {
+            details += `
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                    <h5 style="color: var(--text-dark); margin: 0 0 0.75rem 0; font-size: 0.95rem;">Advertising & personalization</h5>
+                    <p style="margin: 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${escapeHtml(app.advertisingSummary)}</p>
+                </div>
+            `;
+        }
+
+        details += `</div>`;
+    }
+
+    // SECTION: Your Privacy Choices
+    if (app.privacyChoicesSummary) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">Your Privacy Choices</h4>
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                    <p style="margin: 0; color: var(--text-gray); line-height: 1.6; overflow-wrap: anywhere;">${escapeHtml(app.privacyChoicesSummary)}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    // SECTION: How We Know This (sources & review date) - only if research exists
+    if ((app.privacySources && app.privacySources.length > 0) || app.lastReviewedDate) {
+        details += `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary); margin: 0 0 0.75rem 0; font-size: 1.1rem;">How We Know This</h4>
+                <div style="background: var(--bg-light); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+        `;
+
+        if (app.lastReviewedDate) {
+            const reviewDate = new Date(app.lastReviewedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            details += `
+                <p style="margin: 0 0 1rem 0; color: var(--text-gray); font-size: 0.9rem;">
+                    DigitalCap last reviewed this information on <strong>${escapeHtml(reviewDate)}</strong>.
+                </p>
+            `;
+        }
+
+        if (app.privacySources && app.privacySources.length > 0) {
+            details += `<p style="margin: 0 0 0.75rem 0; color: var(--text-dark); font-weight: 600; font-size: 0.9rem;">Sources reviewed:</p>`;
+            details += `<ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: var(--text-gray);">`;
+
+            app.privacySources.forEach(source => {
+                const sourceTitle = source.title || source.sourceType || 'Source';
+                if (source.url) {
+                    details += `
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; overflow-wrap: break-word;">
+                                ${escapeHtml(sourceTitle)}
+                            </a>
+                        </li>
+                    `;
+                } else {
+                    details += `<li style="margin-bottom: 0.5rem; overflow-wrap: anywhere;">${escapeHtml(sourceTitle)}</li>`;
+                }
+            });
+
+            details += `</ul>`;
+        }
+
+        details += `</div></div>`;
+    } else if (!hasPrivacyData) {
+        // Fallback: show compact "not reviewed yet" message only if NO privacy data exists at all
+        details += `
+            <div style="margin-bottom: 2rem; background: rgba(255, 183, 3, 0.08); padding: 1.25rem; border-radius: 8px; border-left: 3px solid #FFC107;">
+                <p style="margin: 0; color: var(--text-gray); font-size: 0.95rem;">
+                    <strong>Privacy & data practices:</strong> DigitalCap has not reviewed this app's privacy and data practices yet.
+                    <a href="/guides/app-safety-checklist.html" style="color: var(--primary); text-decoration: none;">Check this app yourself</a> or check the app's official privacy policy.
+                </p>
+            </div>
+        `;
     }
 
     // SECTION 2: Real-World Risks (3-5 bullets)
@@ -1027,3 +1196,96 @@ window.renderAppsList = function(apps) {
     // Load resources after DOM updates
     setTimeout(loadAppResources, 0);
 };
+
+// ===== FIXTURE TEST DATA (Phase 3B Testing Only) =====
+// REMOVE BEFORE PRODUCTION
+// This function injects test app objects to validate privacy UI rendering
+// Comment out the enablePrivacyFixtures() call below to disable fixture testing
+
+function createPrivacyFixtures() {
+    return [
+        {
+            id: 'fixture_complete_privacy',
+            name: 'Test App: Complete Privacy Data',
+            category: 'Testing',
+            description: 'Test fixture with all 10 privacy fields populated.',
+            ageRecommendation: 13,
+            exposureLevel: 'moderate',
+            exposureExplanation: 'Test exposure level.',
+            exposureFactors: [],
+            protectedExposureLevel: 'lower',
+            protectedExplanation: 'Test protected level.',
+            recommendedSafeguards: [],
+            status: 'active',
+            operatorName: 'Example Corp Inc.',
+            parentCompany: 'TechMegaCorp Global',
+            officialWebsiteUrl: 'https://example-app.com',
+            privacyPolicyUrl: 'https://example-app.com/privacy',
+            dataCollectedSummary: 'The app collects your account information, usage patterns, device identifiers, and location data when location permissions are enabled.',
+            dataSharingSummary: 'Information may be shared with service providers who assist with app operation, analytics partners to understand usage, and advertising networks for personalized ads.',
+            advertisingSummary: 'The app uses data to show personalized and targeted advertisements. You can limit ad personalization in the app settings under Privacy → Advertising.',
+            privacyChoicesSummary: 'You can control who sees your profile, manage location sharing, and adjust advertising preferences in Settings → Privacy. You can delete your account and associated data anytime.',
+            privacySources: [
+                { title: 'Official Privacy Policy', url: 'https://example-app.com/privacy', sourceType: 'policy' },
+                { title: 'Google Play Data Safety', url: 'https://play.google.com', sourceType: 'appstore' },
+                { title: 'App Support Help Center', url: 'https://example-app.com/support', sourceType: 'support' }
+            ],
+            lastReviewedDate: new Date(2026, 8, 1).toISOString()
+        },
+        {
+            id: 'fixture_partial_privacy',
+            name: 'Test App: Partial Privacy Data',
+            category: 'Testing',
+            description: 'Test fixture with some privacy fields populated.',
+            ageRecommendation: 16,
+            exposureLevel: 'higher',
+            exposureExplanation: 'Test exposure level.',
+            exposureFactors: [],
+            protectedExposureLevel: 'moderate',
+            protectedExplanation: 'Test protected level.',
+            recommendedSafeguards: [],
+            status: 'active',
+            operatorName: 'SmallDev Studios',
+            privacyPolicyUrl: 'https://smalldev.example.com/privacy',
+            dataCollectedSummary: 'The app collects your username, email, and gameplay statistics.',
+            privacySources: [
+                { title: 'Official Privacy Policy', url: 'https://smalldev.example.com/privacy', sourceType: 'policy' }
+            ],
+            lastReviewedDate: new Date(2026, 6, 15).toISOString()
+        },
+        {
+            id: 'fixture_no_privacy',
+            name: 'Test App: No Privacy Data',
+            category: 'Testing',
+            description: 'Test fixture with no privacy fields (legacy app).',
+            ageRecommendation: 10,
+            exposureLevel: 'lower',
+            exposureExplanation: 'Test exposure level.',
+            exposureFactors: [],
+            protectedExposureLevel: 'lower',
+            protectedExplanation: 'Test protected level.',
+            recommendedSafeguards: [],
+            status: 'active'
+        }
+    ];
+}
+
+function enablePrivacyFixtures() {
+    // This function injects fixture data for testing ONLY
+    // It should be manually called from the browser console: enablePrivacyFixtures()
+    // DO NOT auto-call this function
+    const fixtures = createPrivacyFixtures();
+    console.log('🧪 Phase 3B Privacy Fixtures Loaded:', fixtures.length, 'test apps');
+    console.log('ℹ️  These fixture apps will appear in the list. Remove this code before production.');
+
+    // Add to allApps if not already present
+    fixtures.forEach(fixture => {
+        const exists = allApps.some(app => app.id === fixture.id);
+        if (!exists) {
+            allApps.push(fixture);
+        }
+    });
+
+    // Re-render to show new fixture apps
+    renderAppsList(allApps);
+}

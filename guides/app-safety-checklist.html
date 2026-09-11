@@ -54,7 +54,11 @@
                 </div>
                 <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-developer" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
-                    <label for="cb-developer" style="cursor: pointer; color: var(--primary); margin: 0;">Developer or company name</label>
+                    <label for="cb-developer" style="cursor: pointer; color: var(--primary); margin: 0;">Developer or company that operates it</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-parent-company" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
+                    <label for="cb-parent-company" style="cursor: pointer; color: var(--primary); margin: 0;">Is it owned by a larger parent company or corporation?</label>
                 </div>
                 <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-icon" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
@@ -66,7 +70,7 @@
                 </div>
                 <div style="display: flex; align-items: center;">
                     <input type="checkbox" id="cb-website" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem;">
-                    <label for="cb-website" style="cursor: pointer; color: var(--primary); margin: 0;">Official website if the developer has one</label>
+                    <label for="cb-website" style="cursor: pointer; color: var(--primary); margin: 0;">Official company/app website or contact information</label>
                 </div>
             </div>
 
@@ -181,31 +185,39 @@
                 <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Look for</h3>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-policy" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-policy" style="cursor: pointer; color: var(--primary); margin: 0;">Privacy policy (usually linked on app-store page or developer website)</label>
+                    <label for="cb-policy" style="cursor: pointer; color: var(--primary); margin: 0;">Official privacy policy (link on app-store page or developer website)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-app-store-data" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-app-store-data" style="cursor: pointer; color: var(--primary); margin: 0;">App Store Data Safety (Apple) or Data Safety (Google Play) section</label>
                 </div>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-collected" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-collected" style="cursor: pointer; color: var(--primary); margin: 0;">What information is collected (account data, usage, location, etc.)</label>
+                    <label for="cb-collected" style="cursor: pointer; color: var(--primary); margin: 0;">What information is collected (account data, usage, location, contact info, etc.)</label>
                 </div>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-why" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-why" style="cursor: pointer; color: var(--primary); margin: 0;">Why it's collected (essential vs. optional)</label>
+                    <label for="cb-why" style="cursor: pointer; color: var(--primary); margin: 0;">Why it's collected (essential to the app vs. optional)</label>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="cb-shared-with" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-shared-with" style="cursor: pointer; color: var(--primary); margin: 0;">Who the policy says information may be shared with (service providers, analytics, advertising partners, affiliated companies)</label>
                 </div>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-advertising" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-advertising" style="cursor: pointer; color: var(--primary); margin: 0;">Whether data is used for advertising or personalization</label>
+                    <label for="cb-advertising" style="cursor: pointer; color: var(--primary); margin: 0;">Whether data is used for personalized or targeted advertising</label>
                 </div>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                    <input type="checkbox" id="cb-shared" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-shared" style="cursor: pointer; color: var(--primary); margin: 0;">Whether information is shared with third parties</label>
+                    <input type="checkbox" id="cb-tracking" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
+                    <label for="cb-tracking" style="cursor: pointer; color: var(--primary); margin: 0;">Tracking and personalization - what controls are available?</label>
                 </div>
                 <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
                     <input type="checkbox" id="cb-account" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-account" style="cursor: pointer; color: var(--primary); margin: 0;">Whether an account is required</label>
+                    <label for="cb-account" style="cursor: pointer; color: var(--primary); margin: 0;">Whether an account is required or if it's optional</label>
                 </div>
                 <div style="display: flex; align-items: flex-start;">
                     <input type="checkbox" id="cb-delete" style="width: 18px; height: 18px; cursor: pointer; margin-right: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;">
-                    <label for="cb-delete" style="cursor: pointer; color: var(--primary); margin: 0;">How to delete your information or remove your account</label>
+                    <label for="cb-delete" style="cursor: pointer; color: var(--primary); margin: 0;">How to delete your information, request data, or remove your account</label>
                 </div>
             </div>
 
