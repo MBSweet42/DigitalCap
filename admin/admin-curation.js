@@ -658,6 +658,40 @@ function displayCurationForm(draftId, draftData) {
         </fieldset>
 
         <fieldset class="admin-curation-fieldset">
+          <legend>App Lifecycle (Optional)</legend>
+          <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 1rem;">Mark discontinued, renamed, or replaced apps. Helps distinguish current services from archived ones.</p>
+
+          <div class="admin-curation-form-group">
+            <label for="curation-status-${draftId}">Status</label>
+            <select id="curation-status-${draftId}" style="width: 100%; padding: 0.5rem;">
+              <option value="active" ${(draftData.status || 'active') === 'active' ? 'selected' : ''}>Active (default)</option>
+              <option value="discontinued" ${draftData.status === 'discontinued' ? 'selected' : ''}>Discontinued / Shut Down</option>
+              <option value="merged" ${draftData.status === 'merged' ? 'selected' : ''}>Merged with Another Service</option>
+              <option value="replaced" ${draftData.status === 'replaced' ? 'selected' : ''}>Replaced / Acquired</option>
+            </select>
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Defaults to "Active" if not set.</p>
+          </div>
+
+          <div class="admin-curation-form-group">
+            <label for="curation-former-names-${draftId}">Former Names (one per line)</label>
+            <textarea id="curation-former-names-${draftId}" maxlength="500" placeholder="Previous app name 1&#10;Previous app name 2..." style="width: 100%; min-height: 70px; padding: 0.5rem;">${Array.isArray(draftData.formerNames) ? draftData.formerNames.map(n => escapeHtml(n)).join('\n') : ''}</textarea>
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Helps users find apps that have been renamed. Searchable.</p>
+          </div>
+
+          <div class="admin-curation-form-group">
+            <label for="curation-successor-${draftId}">Successor/Replacement Name</label>
+            <input type="text" id="curation-successor-${draftId}" value="${escapeHtmlAttr(draftData.successorName || '')}" maxlength="100" placeholder="New service name" style="width: 100%; padding: 0.5rem;">
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Shows users what service replaced this one (merged or replaced). For renames, use formerNames instead.</p>
+          </div>
+
+          <div class="admin-curation-form-group">
+            <label for="curation-status-note-${draftId}">Status Note</label>
+            <textarea id="curation-status-note-${draftId}" maxlength="300" placeholder="e.g., 'Shut down in 2023 by parent company.'" style="width: 100%; min-height: 60px; padding: 0.5rem;">${escapeHtml(draftData.statusNote || '')}</textarea>
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.5rem;">Displayed to users for any non-active status. Keep it brief and factual.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="admin-curation-fieldset">
           <legend>Conversation Guide</legend>
 
           <div class="admin-curation-form-group">
@@ -1228,6 +1262,16 @@ window.saveCurationDraft = async function(draftId) {
 
   const sources = document.getElementById(`curation-sources-${draftId}`).value.trim();
 
+  // Lifecycle fields (optional)
+  const status = document.getElementById(`curation-status-${draftId}`)?.value || 'active';
+  const formerNamesText = document.getElementById(`curation-former-names-${draftId}`)?.value.trim() || '';
+  const formerNames = formerNamesText
+    .split('\n')
+    .map(n => n.trim())
+    .filter(n => n.length > 0);
+  const successorName = document.getElementById(`curation-successor-${draftId}`)?.value.trim() || '';
+  const statusNote = document.getElementById(`curation-status-note-${draftId}`)?.value.trim() || '';
+
   const openerText = document.getElementById(`curation-opener-${draftId}`).value.trim();
   const keypointsList = document.getElementById(`curation-keypoints-${draftId}`).value
     .split('\n')
@@ -1304,6 +1348,12 @@ window.saveCurationDraft = async function(draftId) {
       scriptOpener: scriptOpenerText
     },
 
+    // Lifecycle fields (optional)
+    status: status || 'active',
+    formerNames: formerNames.length > 0 ? formerNames : [],
+    successorName: successorName || '',
+    statusNote: statusNote || '',
+
     updatedAt: serverTimestamp(),
     updatedBy: currentUser.uid
   };
@@ -1345,6 +1395,32 @@ window.saveCurationDraft = async function(draftId) {
 }
 
 /**
+ * Validate lifecycle fields
+ */
+function validateLifecycleFields(draft) {
+  const validStatuses = ['active', 'discontinued', 'merged', 'replaced'];
+  const status = draft.status || 'active';
+
+  if (!validStatuses.includes(status)) {
+    return `Invalid app status: "${status}". Must be one of: ${validStatuses.join(', ')}`;
+  }
+
+  if (!Array.isArray(draft.formerNames)) {
+    return 'Former names must be an array of strings.';
+  }
+
+  if (typeof draft.successorName !== 'string') {
+    return 'Successor name must be a string.';
+  }
+
+  if (typeof draft.statusNote !== 'string') {
+    return 'Status note must be a string.';
+  }
+
+  return null;
+}
+
+/**
  * Publish curated draft to public appsPublished collection
  */
 window.publishCurationDraft = async function(draftId) {
@@ -1375,6 +1451,12 @@ window.publishCurationDraft = async function(draftId) {
 
     // Phase 4E: Publication-intent detection
     let validationError = null;
+
+    // Validate lifecycle fields
+    const lifecycleError = validateLifecycleFields(draft);
+    if (lifecycleError) {
+      validationError = lifecycleError;
+    }
 
     // Check if curator has started Digital Exposure v2 work
     const hasV2Work = hasMeaningfulV2DraftData({
@@ -1456,7 +1538,12 @@ window.publishCurationDraft = async function(draftId) {
       tipsForParents: draft.tipsForParents,
       parentConversationGuide: draft.parentConversationGuide,
       sources: draft.sources,
-      publishedAt: serverTimestamp()
+      publishedAt: serverTimestamp(),
+      // Lifecycle fields (optional)
+      status: draft.status || 'active',
+      formerNames: Array.isArray(draft.formerNames) ? draft.formerNames : [],
+      successorName: draft.successorName || '',
+      statusNote: draft.statusNote || ''
       // NEVER include: publishedBy, sourceSuggestionId, curationStatus, createdAt, updatedAt, createdBy, updatedBy
     };
 

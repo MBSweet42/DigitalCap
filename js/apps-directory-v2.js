@@ -124,7 +124,12 @@ async function loadPublishedAppsFromFirestore() {
                     protectedExposureLevel: publishedData.protectedExposureLevel,
                     protectedExplanation: publishedData.protectedExplanation || '',
                     recommendedSafeguards: Array.isArray(publishedData.recommendedSafeguards) ? publishedData.recommendedSafeguards : [],
-                    residualExposure: Array.isArray(publishedData.residualExposure) ? publishedData.residualExposure : []
+                    residualExposure: Array.isArray(publishedData.residualExposure) ? publishedData.residualExposure : [],
+                    // Lifecycle fields (optional)
+                    status: publishedData.status || 'active',
+                    formerNames: Array.isArray(publishedData.formerNames) ? publishedData.formerNames : [],
+                    successorName: publishedData.successorName || '',
+                    statusNote: publishedData.statusNote || ''
                 };
 
                 allApps.push(publishedApp);
@@ -235,10 +240,16 @@ function applyFilters() {
         filtered = filtered.filter(app => {
             const originalCategory = app.category.toLowerCase();
             const canonicalCategory = getCategoryMapping(app.category).toLowerCase();
-            return app.name.toLowerCase().includes(query) ||
-                   originalCategory.includes(query) ||
-                   canonicalCategory.includes(query);
+            const nameMatch = app.name.toLowerCase().includes(query);
+            const categoryMatch = originalCategory.includes(query) || canonicalCategory.includes(query);
+            const formerNameMatch = app.formerNames && app.formerNames.some(name =>
+                name.toLowerCase().includes(query)
+            );
+            return nameMatch || categoryMatch || formerNameMatch;
         });
+    } else {
+        // When NO search query: hide discontinued apps during normal browsing
+        filtered = filtered.filter(app => (app.status || 'active') === 'active');
     }
 
     // Apply age filter
@@ -297,6 +308,20 @@ function renderAppCard(app, isExpanded) {
                     <h3 style="margin: 0 0 0.5rem 0; color: var(--text-dark); overflow-wrap: anywhere;">${app.name}</h3>
                     <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; min-width: 0;">`;
 
+    // Render status badge if not active
+    if (app.status && app.status !== 'active') {
+        const statusBadgeColors = {
+            'discontinued': { bg: 'rgba(200, 200, 200, 0.3)', text: '#666' },
+            'merged': { bg: 'rgba(76, 175, 80, 0.15)', text: '#4CAF50' },
+            'replaced': { bg: 'rgba(255, 193, 7, 0.15)', text: '#FFC107' }
+        };
+        const statusColors = statusBadgeColors[app.status] || { bg: '#e0e0e0', text: '#666' };
+        const statusLabel = app.status.charAt(0).toUpperCase() + app.status.slice(1);
+        card += `<span style="background: ${statusColors.bg}; color: ${statusColors.text}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; flex-shrink: 0;">
+                            ${statusLabel}
+                        </span>`;
+    }
+
     // Render rating badge only if valid rating exists
     if (ratingDisplay.mode !== 'none') {
         card += `<span style="background: ${ratingDisplay.bgColor}; color: ${ratingDisplay.textColor}; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; flex-shrink: 0;">
@@ -310,8 +335,24 @@ function renderAppCard(app, isExpanded) {
                 <div class="app-card-details-btn" style="text-align: right; margin-left: 0.75rem; font-size: 0.85rem; color: var(--secondary); font-weight: 600; flex-shrink: 1; min-width: 0; white-space: normal;">
                     ${isExpanded ? '▼ Hide' : '▶ Show Details'}
                 </div>
-            </div>
-            <p style="margin: 0.75rem 0 0 0; color: var(--text-gray); font-size: 0.95rem; overflow-wrap: anywhere;">${app.description}</p>
+            </div>`;
+
+    // Show status note if present and app is not active
+    if (app.status && app.status !== 'active' && app.statusNote) {
+        card += `<div style="margin: 0.75rem 0 0 0; padding: 0.75rem; background: rgba(200, 200, 200, 0.1); border-radius: 6px; border-left: 3px solid #999; font-size: 0.9rem; color: #666; overflow-wrap: anywhere;">
+                    ${app.statusNote}
+                </div>`;
+    }
+
+    // Show successor note if merged or replaced
+    if ((app.status === 'merged' || app.status === 'replaced') && app.successorName) {
+        const label = app.status === 'replaced' ? 'Replaced by:' : 'Merged with:';
+        card += `<div style="margin: 0.75rem 0 0 0; padding: 0.75rem; background: rgba(76, 175, 80, 0.1); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 0.9rem; color: #4CAF50; overflow-wrap: anywhere;">
+                    <strong>${label}</strong> ${app.successorName}
+                </div>`;
+    }
+
+    card += `<p style="margin: 0.75rem 0 0 0; color: var(--text-gray); font-size: 0.95rem; overflow-wrap: anywhere;">${app.description}</p>
     `;
 
     // Add red flags preview on collapsed view
