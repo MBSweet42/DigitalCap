@@ -167,32 +167,9 @@ body.homepage-prototype {
         display: block;
         margin-left: -12px;
     }
-
-    .homepage-prototype .hero-intro {
-        position: absolute;
-        width: calc(100% - 3rem);
-        top: 280px;
-        left: 1.5rem;
-        margin: 1rem 0 0 0;
-        background-color: #FFFFFF;
-        padding: 1rem 0;
-        color: #333333;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        z-index: 20;
-    }
 }
 
 
-/* Hero intro text - improved readability */
-.homepage-prototype .hero-intro {
-    font-size: 1rem;
-    color: #333333;
-    max-width: 100%;
-    margin: 0;
-    line-height: 1.6;
-    font-weight: 400;
-}
 
 /* "What do you need help with?" heading - dark text */
 .homepage-prototype .hero-section h2 {
@@ -501,11 +478,6 @@ body.homepage-prototype {
     .homepage-prototype .hero-title img {
         max-width: 150px;
         margin-left: -12px;
-    }
-
-    .homepage-prototype .hero-intro {
-        top: 240px !important;
-        font-size: 0.9rem;
     }
 
     .homepage-prototype .hero-section h2 {
