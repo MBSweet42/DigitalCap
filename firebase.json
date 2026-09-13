@@ -15,7 +15,8 @@
       ".env*",
       "*-service-account-key.json",
       "*-firebase-adminsdk-*.json",
-      "serviceAccountKey.json"
+      "serviceAccountKey.json",
+      "guides/ai-guide-template.html"
     ],
     "cleanUrls": true,
     "trailingSlash": false,
